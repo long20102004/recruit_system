@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Đăng tuyển — HireLens</title>
+    <link rel="stylesheet" href="../assets/css/main.css" />
+  </head>
+  <body>
+    <div class="demo-banner">Module 2 · Job · <span>Form demo, lưu trên trình duyệt</span></div>
+    <header class="site-header" data-header></header>
+
+    <main class="page">
+      <header class="page-head">
+        <h1>Đăng & quản lý tin tuyển dụng</h1>
+        <p>Tin sẽ xuất hiện trên feed việc làm (khu vực / mức lương / tag Hot – Gần bạn).</p>
+      </header>
+
+      <section class="grid-2">
+        <article class="panel">
+          <h2>Danh sách tin</h2>
+          <div class="job-list" id="jobList"></div>
+        </article>
+
+        <article class="panel">
+          <h2>Đăng tin mới (demo)</h2>
+          <form id="jobForm">
+            <div class="field">
+              <label for="title">Tiêu đề</label>
+              <input id="title" required placeholder="VD: Junior Backend Developer" />
+            </div>
+            <div class="field">
+              <label for="company">Công ty</label>
+              <input id="company" required placeholder="Tên công ty" />
+            </div>
+            <div class="field">
+              <label for="location">Địa điểm</label>
+              <input id="location" placeholder="Quận 1, TP.HCM" value="Quận 1, TP.HCM" />
+            </div>
+            <div class="field">
+              <label for="salary">Mức lương</label>
+              <input id="salary" placeholder="15 – 22 triệu" />
+            </div>
+            <div class="field">
+              <label for="required">Kỹ năng bắt buộc (phẩy)</label>
+              <input id="required" placeholder="Java, Spring Boot, PostgreSQL" />
+            </div>
+            <div class="field">
+              <label for="desc">Mô tả</label>
+              <textarea id="desc" rows="4" placeholder="Mô tả công việc…"></textarea>
+            </div>
+            <button class="btn btn-primary btn-block" type="submit">Đăng tin demo</button>
+          </form>
+        </article>
+      </section>
+    </main>
+
+    <script src="../assets/js/mock-data.js"></script>
+    <script src="../assets/js/common.js"></script>
+    <script>
+      HireLens.setRole("recruiter");
+      HireLens.renderHeader("jobs", "recruiter");
+
+      function renderJobs() {
+        document.getElementById("jobList").innerHTML = HireLensMock.jobs
+          .map((j, i) => HireLens.renderJobCard(j, { delay: i * 30 }))
+          .join("");
+      }
+
+      document.getElementById("jobForm").addEventListener("submit", (e) => {
+        e.preventDefault();
+        const required = document
+          .getElementById("required")
+          .value.split(",")
+          .map((s) => s.trim())
+          .filter(Boolean);
+        HireLensMock.jobs.unshift({
+          id: "job-" + Date.now(),
+          title: document.getElementById("title").value.trim(),
+          company: document.getElementById("company").value.trim(),
+          location: document.getElementById("location").value.trim(),
+          city: "TP. Hồ Chí Minh",
+          workType: "Hybrid",
+          level: "Junior",
+          salary: document.getElementById("salary").value.trim() || "Thỏa thuận",
+          postedAgo: "Vừa xong",
+          distanceKm: 2.0,
+          hot: true,
+          nearYou: true,
+          logo: "NW",
+          logoColor: "#059669",
+          requiredSkills: required.length ? required : ["Java"],
+          preferredSkills: [],
+          minYears: 0,
+          description: document.getElementById("desc").value.trim(),
+        });
+        e.target.reset();
+        renderJobs();
+        HireLens.toast("Đã đăng tin minh họa — sẽ thấy ở trang Việc làm");
+      });
+
+      renderJobs();
+    </script>
+  </body>
+</html>

@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Việc làm cho bạn — HireLens</title>
+    <link rel="stylesheet" href="../assets/css/main.css" />
+  </head>
+  <body>
+    <div class="demo-banner">
+      Ứng viên · <span>Trang chủ = feed việc làm gần bạn / gợi ý (kiểu job board)</span>
+    </div>
+    <header class="site-header" data-header></header>
+
+    <main class="page">
+      <section class="hero-search">
+        <p class="kicker">Chào <span id="candName"></span></p>
+        <h1>Việc gần chỗ bạn đang ở.</h1>
+        <p class="lead">
+          Lọc theo khoảng cách, hoặc xem những tin hệ thống thấy hợp với CV đã phân tích.
+        </p>
+        <form class="search-bar" id="searchForm">
+          <div class="search-field">
+            <span class="ico">V</span>
+            <input id="keyword" type="search" placeholder="Java, Backend, Intern…" />
+          </div>
+          <div class="search-field">
+            <span class="ico">Đ</span>
+            <select id="city">
+              <option value="TP. Hồ Chí Minh" selected>TP. Hồ Chí Minh</option>
+              <option value="Hà Nội">Hà Nội</option>
+              <option value="Remote">Remote</option>
+              <option value="all">Toàn quốc</option>
+            </select>
+          </div>
+          <button class="btn btn-primary" type="submit">Tìm việc</button>
+        </form>
+        <div class="filter-chips">
+          <button type="button" class="chip-filter active" id="tabNear">Gần bạn</button>
+          <button type="button" class="chip-filter" id="tabMatch">Phù hợp CV</button>
+          <a class="chip-filter" href="cv.html" style="text-decoration:none">Cập nhật CV</a>
+        </div>
+      </section>
+
+      <div class="layout-feed">
+        <section>
+          <div class="section-head">
+            <div>
+              <h2 id="listTitle">Việc làm gần bạn</h2>
+              <p id="listSub"></p>
+            </div>
+            <a class="btn btn-soft btn-sm" href="matching.html">Xem ranking AI</a>
+          </div>
+          <div class="job-list" id="jobList"></div>
+        </section>
+
+        <aside class="side-panel">
+          <article class="panel">
+            <h3>Hồ sơ nhanh</h3>
+            <p style="margin:0 0 .5rem"><strong id="title"></strong></p>
+            <div id="skills"></div>
+            <div class="split-actions">
+              <a class="btn btn-primary btn-sm" href="cv.html">Phân tích CV</a>
+              <a class="btn btn-ghost btn-sm" href="interview.html">Phỏng vấn</a>
+            </div>
+          </article>
+          <article class="panel">
+            <h3>Việc match cao nhất</h3>
+            <div id="topMatch"></div>
+          </article>
+        </aside>
+      </div>
+    </main>
+
+    <script src="../assets/js/mock-data.js"></script>
+    <script src="../assets/js/common.js"></script>
+    <script>
+      HireLens.setRole("candidate");
+      HireLens.renderHeader("jobs", "candidate");
+
+      const m = HireLensMock;
+      document.getElementById("candName").textContent = m.candidate.name.split(" ").slice(-1)[0];
+      document.getElementById("title").textContent = m.candidate.title;
+      document.getElementById("skills").innerHTML = m.extractedCv.skills
+        .slice(0, 6)
+        .map((s) => `<span class="chip">${s}</span>`)
+        .join("");
+      document.getElementById("listSub").textContent =
+        "Vị trí minh họa: " + m.meta.userLocation;
+
+      const top = m.matchingResults[0];
+      const topJob = HireLens.jobById(top.jobId);
+      document.getElementById("topMatch").innerHTML = `
+        <strong>${topJob.title}</strong>
+        <div class="muted" style="margin:.25rem 0">${topJob.company}</div>
+        <div class="match-badge" style="display:inline-block">${HireLens.pct(top.score)}% phù hợp</div>
+        <p class="hint" style="margin:.6rem 0 0">${top.reasons[0]}</p>`;
+
+      let mode = "near";
+
+      function render() {
+        const keyword = document.getElementById("keyword").value;
+        const city = document.getElementById("city").value;
+        let jobs;
+
+        if (mode === "match") {
+          jobs = m.matchingResults
+            .map((r) => HireLens.jobById(r.jobId))
+            .filter(Boolean)
+            .filter((j) => {
+              if (city !== "all" && j.city !== city) return false;
+              if (!keyword) return true;
+              return (j.title + j.company).toLowerCase().includes(keyword.toLowerCase());
+            });
+          document.getElementById("listTitle").textContent = "Việc phù hợp với CV";
+        } else {
+          jobs = HireLens.filterJobs({ keyword, city, nearOnly: true });
+          if (!jobs.length) jobs = HireLens.filterJobs({ city, nearOnly: true });
+          document.getElementById("listTitle").textContent = "Việc làm gần bạn";
+        }
+
+        document.getElementById("jobList").innerHTML = jobs.length
+          ? jobs
+              .map((j, i) =>
+                HireLens.renderJobCard(j, { showMatch: true, delay: i * 40 })
+              )
+              .join("")
+          : `<div class="panel empty-note">Chưa có việc trong bộ lọc này.</div>`;
+
+        HireLens.qsa("[data-apply]").forEach((btn) => {
+          btn.addEventListener("click", (e) => {
+            e.stopPropagation();
+            HireLens.toast("Đã lưu ứng tuyển demo cho " + btn.dataset.apply);
+          });
+        });
+      }
+
+      document.getElementById("searchForm").addEventListener("submit", (e) => {
+        e.preventDefault();
+        render();
+      });
+
+      document.getElementById("tabNear").addEventListener("click", () => {
+        mode = "near";
+        document.getElementById("tabNear").classList.add("active");
+        document.getElementById("tabMatch").classList.remove("active");
+        render();
+      });
+      document.getElementById("tabMatch").addEventListener("click", () => {
+        mode = "match";
+        document.getElementById("tabMatch").classList.add("active");
+        document.getElementById("tabNear").classList.remove("active");
+        render();
+      });
+
+      render();
+    </script>
+  </body>
+</html>

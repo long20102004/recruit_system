@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Matching AI — HireLens</title>
+    <link rel="stylesheet" href="../assets/css/main.css" />
+  </head>
+  <body>
+    <div class="demo-banner">
+      Module 2 · <span>Precision@K / nDCG: chờ dữ liệu gán nhãn</span>
+    </div>
+    <header class="site-header" data-header></header>
+
+    <main class="page">
+      <header class="page-head">
+        <h1>Kết quả ghép nối CV–Job</h1>
+        <p>Mỗi dòng kèm điểm, kỹ năng trùng/thiếu và lý do — sẵn sàng map sang API sau.</p>
+      </header>
+
+      <section class="panel">
+        <table class="table">
+          <thead>
+            <tr>
+              <th>Hạng</th>
+              <th>Job</th>
+              <th>Điểm</th>
+              <th>Trùng / Thiếu</th>
+              <th>Lý do</th>
+            </tr>
+          </thead>
+          <tbody id="tbody"></tbody>
+        </table>
+        <p class="hint" style="margin-top:1rem">
+          Learning-to-Rank: chưa bật. Baseline = semantic stub + TF-IDF + skill features.
+        </p>
+      </section>
+    </main>
+
+    <script src="../assets/js/mock-data.js"></script>
+    <script src="../assets/js/common.js"></script>
+    <script>
+      HireLens.setRole("recruiter");
+      HireLens.renderHeader("matching", "recruiter");
+      document.getElementById("tbody").innerHTML = HireLensMock.matchingResults
+        .map((r) => {
+          const job = HireLens.jobById(r.jobId);
+          return `
+            <tr>
+              <td><strong>#${r.rank}</strong></td>
+              <td>${job.title}<br /><span class="muted">${job.company} · ${job.location}</span></td>
+              <td>
+                <strong>${HireLens.pct(r.score)}%</strong><br />
+                <span class="muted">S ${HireLens.pct(r.semanticSimilarity)} / TF ${HireLens.pct(r.tfidfSimilarity)}</span>
+              </td>
+              <td>
+                ${r.matchedSkills.map((s) => `<span class="chip ok">${s}</span>`).join("")}
+                ${r.missingSkills.map((s) => `<span class="chip warn">${s}</span>`).join("")}
+              </td>
+              <td class="muted">${r.reasons[0]}</td>
+            </tr>`;
+        })
+        .join("");
+    </script>
+  </body>
+</html>

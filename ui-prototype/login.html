@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Đăng nhập demo — HireLens</title>
+    <link rel="stylesheet" href="assets/css/main.css" />
+  </head>
+  <body>
+    <div class="demo-banner">
+      Prototype UI minh họa · <span>Đăng nhập giả lập, không xác thực thật</span>
+    </div>
+
+    <main class="auth-page">
+      <div class="auth-panel">
+        <aside class="auth-aside">
+          <div>
+            <a class="brand" href="index.html" style="color:#fff">
+              <span class="brand-mark" aria-hidden="true"></span>
+              HireLens
+            </a>
+            <h1>Vào đúng vai, xem đúng việc.</h1>
+            <p>
+              Ứng viên đọc danh sách việc quanh mình. Nhà tuyển dụng xem tin đã đăng và hồ sơ đã đọc.
+            </p>
+          </div>
+          <p style="font-size:.9rem;opacity:.85;margin:0">
+            Dữ liệu trong demo là minh họa cho đồ án tốt nghiệp.
+          </p>
+        </aside>
+
+        <form class="auth-form" id="loginForm">
+          <h2>Đăng nhập demo</h2>
+          <p class="muted">Chọn vai trò để xem đúng luồng giao diện.</p>
+
+          <div class="role-switch" role="group" aria-label="Vai trò">
+            <button type="button" class="role-option active" data-role="candidate">
+              <strong>Ứng viên</strong>
+              <small>Việc gần bạn, CV, matching</small>
+            </button>
+            <button type="button" class="role-option" data-role="recruiter">
+              <strong>Nhà tuyển dụng</strong>
+              <small>Đăng job, xem ứng viên</small>
+            </button>
+          </div>
+
+          <div class="field">
+            <label for="email">Email</label>
+            <input id="email" type="email" value="demo@hirelens.local" />
+          </div>
+          <div class="field">
+            <label for="password">Mật khẩu</label>
+            <input id="password" type="password" value="demo1234" />
+          </div>
+
+          <button class="btn btn-primary btn-block" type="submit">Vào hệ thống</button>
+          <p class="hint"><a href="index.html">Quay lại danh sách việc làm</a> — không cần đăng nhập để xem tin.</p>
+        </form>
+      </div>
+    </main>
+
+    <script src="assets/js/mock-data.js"></script>
+    <script src="assets/js/common.js"></script>
+    <script>
+      let role = "candidate";
+      const options = document.querySelectorAll(".role-option");
+      options.forEach((btn) => {
+        btn.addEventListener("click", () => {
+          options.forEach((b) => b.classList.remove("active"));
+          btn.classList.add("active");
+          role = btn.dataset.role;
+        });
+      });
+
+      document.getElementById("loginForm").addEventListener("submit", (e) => {
+        e.preventDefault();
+        HireLens.setRole(role);
+        window.location.href =
+          role === "recruiter" ? "recruiter/index.html" : "candidate/index.html";
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Phỏng vấn AI — HireLens</title>
+    <link rel="stylesheet" href="../assets/css/main.css" />
+  </head>
+  <body>
+    <div class="demo-banner">
+      Module 3 · <span>BERTScore + hiệu chỉnh — không quy đổi thô sang thang điểm</span>
+    </div>
+    <header class="site-header" data-header></header>
+
+    <main class="page">
+      <header class="page-head">
+        <h1>Phỏng vấn trực tuyến (văn bản)</h1>
+        <p id="sessionMeta"></p>
+      </header>
+
+      <section class="grid-2">
+        <article class="panel">
+          <h2 id="qTitle">Câu hỏi</h2>
+          <div class="chat" id="chat"></div>
+          <div class="field" style="margin-top:1rem">
+            <label for="answer">Câu trả lời của bạn</label>
+            <textarea id="answer" rows="4" placeholder="Nhập câu trả lời chuyên môn…"></textarea>
+          </div>
+          <div class="split-actions">
+            <button class="btn btn-primary" id="btnSubmit" type="button">Gửi & đánh giá</button>
+            <button class="btn btn-ghost" id="btnNext" type="button">Câu tiếp theo</button>
+          </div>
+        </article>
+
+        <article class="panel">
+          <h2>Kết quả đánh giá</h2>
+          <p class="muted" id="bertDef"></p>
+          <div id="evalBox" class="empty-note" style="margin-top:1rem">
+            Chưa có đánh giá. Hãy gửi một câu trả lời để xem điểm đã hiệu chỉnh,
+            ý đã nêu và ý còn thiếu.
+          </div>
+        </article>
+      </section>
+    </main>
+
+    <script src="../assets/js/mock-data.js"></script>
+    <script src="../assets/js/common.js"></script>
+    <script>
+      HireLens.setRole("candidate");
+      HireLens.renderHeader("interview", "candidate");
+
+      const questions = HireLensMock.interviewQuestions;
+      const session = HireLensMock.interviewSession;
+      let idx = 0;
+
+      document.getElementById("sessionMeta").textContent =
+        `Phiên ${session.id} · ${session.jobTitle} · Trạng thái: ${session.status}`;
+      document.getElementById("bertDef").textContent = HireLensMock.scoreDefinitions.bertscore;
+
+      function currentQ() { return questions[idx]; }
+
+      function renderChat(extraUser) {
+        const q = currentQ();
+        document.getElementById("qTitle").textContent =
+          `Câu ${idx + 1}/${questions.length} · ${q.topic} · ${q.difficulty}`;
+        let html = `
+          <div class="bubble ai">
+            <div class="meta">HireLens Interviewer · kỹ năng: ${q.skill}</div>
+            ${q.question}
+          </div>`;
+        if (extraUser) {
+          html += `<div class="bubble user"><div class="meta">Bạn</div>${extraUser}</div>`;
+        }
+        document.getElementById("chat").innerHTML = html;
+      }
+
+      function renderEval(ev) {
+        document.getElementById("evalBox").innerHTML = `
+          <div class="eval-block">
+            <div style="display:flex;align-items:center;gap:1rem;margin-bottom:.5rem">
+              <div class="score-ring" style="--p:${Math.round(ev.predictedScore * 10)}">
+                <span>${ev.predictedScore.toFixed(1)}</span>
+              </div>
+              <div>
+                <strong>Điểm dự đoán / 10</strong>
+                <div class="muted" style="font-size:.85rem">${ev.scoreScale}</div>
+              </div>
+            </div>
+            <div class="eval-row"><span>BERTScore P</span><strong>${ev.bertPrecision.toFixed(3)}</strong></div>
+            <div class="eval-row"><span>BERTScore R</span><strong>${ev.bertRecall.toFixed(3)}</strong></div>
+            <div class="eval-row"><span>BERTScore F1</span><strong>${ev.bertF1.toFixed(3)}</strong></div>
+            <p style="margin:.5rem 0 0">${ev.comment}</p>
+            <div>
+              ${ev.coveredPoints.map((p) => `<span class="chip ok">${p}</span>`).join("")}
+              ${ev.missingPoints.map((p) => `<span class="chip warn">Thiếu: ${p}</span>`).join("")}
+            </div>
+            <p class="hint">Model: ${ev.modelVersion}</p>
+          </div>`;
+      }
+
+      document.getElementById("btnSubmit").addEventListener("click", () => {
+        const text = document.getElementById("answer").value.trim();
+        if (!text) { HireLens.toast("Hãy nhập câu trả lời"); return; }
+        renderChat(text);
+        HireLens.toast("Đang tính BERTScore (stub UI)…");
+        setTimeout(() => {
+          let ev = session.responses[0]?.evaluation;
+          if (idx !== 0 || !ev) {
+            const q = currentQ();
+            const overlap = q.rubric.filter((r) =>
+              text.toLowerCase().includes(r.toLowerCase().slice(0, 6))
+            );
+            ev = {
+              bertPrecision: 0.78 + Math.min(text.length, 120) / 800,
+              bertRecall: 0.7 + overlap.length * 0.05,
+              bertF1: 0.74,
+              predictedScore: Math.min(9.5, 5 + overlap.length * 1.2 + Math.min(text.length, 80) / 40),
+              scoreScale: "0–10 (stub UI — chưa gọi model thật)",
+              coveredPoints: overlap.length ? overlap : ["Ý chung đã nêu"],
+              missingPoints: q.rubric.filter((r) => !overlap.includes(r)),
+              comment: "Đánh giá minh họa trên giao diện; pipeline thật nằm ở AI service.",
+              modelVersion: HireLensMock.meta.modelVersions.interview,
+            };
+            ev.bertF1 = Number(((ev.bertPrecision + ev.bertRecall) / 2).toFixed(3));
+          }
+          renderEval(ev);
+          HireLens.toast("Đã có kết quả đánh giá minh họa");
+        }, 700);
+      });
+
+      document.getElementById("btnNext").addEventListener("click", () => {
+        idx = (idx + 1) % questions.length;
+        document.getElementById("answer").value = "";
+        document.getElementById("evalBox").innerHTML = "Chưa có đánh giá cho câu này.";
+        renderChat();
+      });
+
+      renderChat();
+      if (session.responses[0]) {
+        document.getElementById("answer").value = session.responses[0].answer;
+      }
+    </script>
+  </body>
+</html>

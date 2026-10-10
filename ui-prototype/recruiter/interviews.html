@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Phỏng vấn — HireLens</title>
+    <link rel="stylesheet" href="../assets/css/main.css" />
+  </head>
+  <body>
+    <div class="demo-banner">
+      Module 3 · <span>MAE/RMSE/Spearman chạy offline trong script Python</span>
+    </div>
+    <header class="site-header" data-header></header>
+
+    <main class="page">
+      <header class="page-head">
+        <h1>Câu hỏi phỏng vấn & đánh giá AI</h1>
+        <p>Ngân hàng câu hỏi theo chủ đề / độ khó, kèm đáp án tham chiếu và rubric.</p>
+      </header>
+
+      <section class="grid-2">
+        <article class="panel">
+          <h2>Ngân hàng câu hỏi</h2>
+          <div id="qList"></div>
+        </article>
+        <article class="panel">
+          <h2>Phiên gần nhất</h2>
+          <div id="sessionBox"></div>
+          <div class="empty-note" style="margin-top:1rem">
+            Fine-tuned BERT cho hồi quy điểm chỉ khi có đủ nhãn người.
+            Hiện dùng BERTScore + hiệu chỉnh tuyến tính trên dữ liệu demo IT.
+          </div>
+        </article>
+      </section>
+    </main>
+
+    <script src="../assets/js/mock-data.js"></script>
+    <script src="../assets/js/common.js"></script>
+    <script>
+      HireLens.setRole("recruiter");
+      HireLens.renderHeader("interviews", "recruiter");
+
+      document.getElementById("qList").innerHTML = HireLensMock.interviewQuestions
+        .map(
+          (q) => `
+          <article style="padding:1rem 0;border-bottom:1px solid var(--line)">
+            <strong>${q.question}</strong>
+            <div style="margin:.4rem 0">
+              <span class="chip">${q.topic}</span>
+              <span class="chip accent">${q.difficulty}</span>
+              <span class="chip ok">${q.skill}</span>
+            </div>
+            <p class="muted" style="margin:0 0 .35rem">${q.referenceAnswer}</p>
+            <div>${q.rubric.map((r) => `<span class="chip warn">${r}</span>`).join("")}</div>
+          </article>`
+        )
+        .join("");
+
+      const s = HireLensMock.interviewSession;
+      const ev = s.responses[0].evaluation;
+      document.getElementById("sessionBox").innerHTML = `
+        <div class="kv">
+          <div class="kv-row"><label>Session</label><div>${s.id}</div></div>
+          <div class="kv-row"><label>Job</label><div>${s.jobTitle}</div></div>
+          <div class="kv-row"><label>Trạng thái</label><div><span class="chip">${s.status}</span></div></div>
+          <div class="kv-row"><label>Điểm dự đoán</label><div><strong>${ev.predictedScore}/10</strong><br><span class="muted">${ev.scoreScale}</span></div></div>
+          <div class="kv-row"><label>BERTScore F1</label><div>${ev.bertF1}</div></div>
+          <div class="kv-row"><label>Nhận xét</label><div>${ev.comment}</div></div>
+        </div>`;
+    </script>
+  </body>
+</html>

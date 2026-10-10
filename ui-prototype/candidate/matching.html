@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Việc phù hợp với tôi — HireLens</title>
+    <link rel="stylesheet" href="../assets/css/main.css" />
+  </head>
+  <body>
+    <div class="demo-banner">
+      Module 2 · <span>Baseline giải thích được — chưa tuyên bố đã train LTR</span>
+    </div>
+    <header class="site-header" data-header></header>
+
+    <main class="page">
+      <header class="page-head">
+        <div style="display:flex;flex-wrap:wrap;justify-content:space-between;gap:1rem;align-items:end">
+          <div>
+            <h1>Việc phù hợp với CV của bạn</h1>
+            <p id="scoreDef"></p>
+          </div>
+          <button class="btn btn-primary" id="btnRematch" type="button">Chạy lại matching</button>
+        </div>
+      </header>
+
+      <section class="panel" id="list"></section>
+    </main>
+
+    <script src="../assets/js/mock-data.js"></script>
+    <script src="../assets/js/common.js"></script>
+    <script>
+      HireLens.setRole("candidate");
+      HireLens.renderHeader("matching", "candidate");
+      document.getElementById("scoreDef").textContent = HireLensMock.scoreDefinitions.matchScore;
+
+      function render() {
+        document.getElementById("list").innerHTML = HireLensMock.matchingResults
+          .map((r) => {
+            const job = HireLens.jobById(r.jobId);
+            return `
+              <article class="match-item">
+                <div>
+                  <div style="display:flex;gap:.5rem;align-items:center;margin-bottom:.35rem">
+                    <div class="job-logo" style="width:40px;height:40px;border-radius:10px;background:${job.logoColor};font-size:.8rem">${job.logo}</div>
+                    <div>
+                      <h3 style="margin:0">#${r.rank} · ${job.title}</h3>
+                      <div class="muted">${job.company} · ${job.location} · ${job.salary}</div>
+                    </div>
+                  </div>
+                  <div class="progress" style="--w:${HireLens.pct(r.score)}%"><i></i></div>
+                  <div>
+                    ${r.matchedSkills.map((s) => `<span class="chip ok">${s}</span>`).join("")}
+                    ${r.missingSkills.map((s) => `<span class="chip warn">Thiếu: ${s}</span>`).join("")}
+                  </div>
+                  <ul style="margin:.75rem 0 0;padding-left:1.1rem;color:var(--muted)">
+                    ${r.reasons.map((x) => `<li>${x}</li>`).join("")}
+                  </ul>
+                  <p class="hint">
+                    Semantic: ${HireLens.pct(r.semanticSimilarity)}% ·
+                    TF-IDF: ${HireLens.pct(r.tfidfSimilarity)}% ·
+                    Model: ${r.modelVersion}
+                  </p>
+                </div>
+                <div style="text-align:center">
+                  <div class="score-ring" style="--p:${HireLens.pct(r.score)}">
+                    <span>${HireLens.pct(r.score)}</span>
+                  </div>
+                  <a class="btn btn-accent btn-sm" style="margin-top:.75rem" href="interview.html">Phỏng vấn</a>
+                </div>
+              </article>`;
+          })
+          .join("");
+      }
+
+      document.getElementById("btnRematch").addEventListener("click", () => {
+        HireLens.toast("Gọi AI matching service (stub)…");
+        setTimeout(() => { render(); HireLens.toast("Đã cập nhật xếp hạng minh họa"); }, 500);
+      });
+
+      render();
+    </script>
+  </body>
+</html>

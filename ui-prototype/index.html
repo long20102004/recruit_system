@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>HireLens — Tìm việc làm IT gần bạn</title>
+    <link rel="stylesheet" href="assets/css/main.css" />
+  </head>
+  <body>
+    <div class="demo-banner">
+      Bản mẫu giao diện · <span>dữ liệu minh họa, chưa nối backend</span>
+    </div>
+
+    <header class="site-header" data-header></header>
+
+    <main class="page">
+      <section class="hero-search">
+        <p class="kicker">Quận 1 · việc IT</p>
+        <h1>Việc quanh bạn, xếp theo mức gần và mức hợp.</h1>
+        <p class="lead">
+          Đọc danh sách trước. CV, ghép nối và phỏng vấn nằm phía sau, khi bạn cần.
+        </p>
+
+        <form class="search-bar" id="searchForm">
+          <div class="search-field">
+            <span class="ico">V</span>
+            <input id="keyword" type="search" placeholder="Vị trí, kỹ năng, công ty…" value="Java" />
+          </div>
+          <div class="search-field">
+            <span class="ico">Đ</span>
+            <select id="city">
+              <option value="TP. Hồ Chí Minh" selected>TP. Hồ Chí Minh</option>
+              <option value="Hà Nội">Hà Nội</option>
+              <option value="Remote">Remote</option>
+              <option value="all">Toàn quốc</option>
+            </select>
+          </div>
+          <button class="btn btn-primary" type="submit">Tìm việc</button>
+        </form>
+
+        <div class="filter-chips" id="chips">
+          <button type="button" class="chip-filter active" data-near="1">Gần bạn</button>
+          <button type="button" class="chip-filter" data-near="0">Tất cả khu vực</button>
+          <button type="button" class="chip-filter" data-kw="Intern">Fresher / Intern</button>
+          <button type="button" class="chip-filter" data-kw="Remote">Remote</button>
+          <button type="button" class="chip-filter" data-kw="NLP">NLP / AI</button>
+        </div>
+      </section>
+
+      <div class="layout-feed">
+        <section>
+          <div class="section-head">
+            <div>
+              <h2 id="listTitle">Việc làm gần bạn</h2>
+              <p id="listSub">Dựa trên vị trí minh họa: Quận 1, TP.HCM</p>
+            </div>
+            <span class="chip brand" id="countBadge">0 việc</span>
+          </div>
+          <div class="job-list" id="jobList"></div>
+        </section>
+
+        <aside class="side-panel">
+          <article class="panel" id="detailPanel">
+            <h3>Chi tiết việc làm</h3>
+            <p class="muted">Chọn một tin bên trái để xem mô tả, kỹ năng và mức phù hợp (nếu có).</p>
+          </article>
+
+          <article class="panel">
+            <h3>Công cụ AI của đồ án</h3>
+            <a class="quick-link" href="login.html">Phân tích CV (NER) <span>Module 1</span></a>
+            <a class="quick-link" href="login.html">Ghép nối CV–Job <span>Module 2</span></a>
+            <a class="quick-link" href="login.html">Phỏng vấn + BERTScore <span>Module 3</span></a>
+            <p class="hint">Đăng nhập demo để xem đủ luồng ứng viên / nhà tuyển dụng.</p>
+          </article>
+        </aside>
+      </div>
+    </main>
+
+    <script src="assets/js/mock-data.js"></script>
+    <script src="assets/js/common.js"></script>
+    <script>
+      HireLens.renderHeader("jobs", "public");
+
+      let nearOnly = true;
+      let selectedId = null;
+
+      function currentFilters() {
+        return {
+          keyword: document.getElementById("keyword").value,
+          city: document.getElementById("city").value,
+          nearOnly,
+        };
+      }
+
+      function renderDetail(job) {
+        if (!job) return;
+        const match = HireLens.matchForJob(job.id);
+        document.getElementById("detailPanel").innerHTML = `
+          <div class="company-row">
+            <div class="job-logo" style="background:${job.logoColor}">${job.logo}</div>
+            <div>
+              <h3 style="margin:0 0 .2rem">${job.title}</h3>
+              <div class="muted">${job.company} · ${job.location}</div>
+            </div>
+          </div>
+          <div class="salary" style="margin-bottom:.75rem">${job.salary}</div>
+          <p style="margin:0 0 .75rem">${job.description}</p>
+          <div style="margin-bottom:.75rem">
+            ${job.requiredSkills.map((s) => `<span class="chip ok">${s}</span>`).join("")}
+            ${job.preferredSkills.map((s) => `<span class="chip accent">${s}</span>`).join("")}
+          </div>
+          ${
+            match
+              ? `<div class="empty-note"><strong>${HireLens.pct(match.score)}% phù hợp (minh họa).</strong><br>${match.reasons[0]}</div>`
+              : `<div class="empty-note">Chưa có điểm matching cho tin này. Đăng nhập để chạy Module 2.</div>`
+          }
+          <div class="split-actions">
+            <a class="btn btn-primary btn-sm" href="login.html">Ứng tuyển demo</a>
+            <a class="btn btn-ghost btn-sm" href="login.html">Phỏng vấn AI</a>
+          </div>`;
+      }
+
+      function renderList() {
+        const filters = currentFilters();
+        let jobs = HireLens.filterJobs(filters);
+
+        // Nếu lọc "gần bạn" mà rỗng theo keyword+city, nới keyword
+        if (!jobs.length && filters.nearOnly) {
+          jobs = HireLens.filterJobs({ city: filters.city, nearOnly: true, keyword: "" });
+        }
+
+        document.getElementById("countBadge").textContent = jobs.length + " việc";
+        document.getElementById("listTitle").textContent = filters.nearOnly
+          ? "Việc làm gần bạn"
+          : "Việc làm phù hợp tìm kiếm";
+        document.getElementById("listSub").textContent = filters.nearOnly
+          ? "Dựa trên vị trí minh họa: " + HireLensMock.meta.userLocation
+          : "Kết quả theo từ khóa / khu vực đã chọn";
+
+        const list = document.getElementById("jobList");
+        if (!jobs.length) {
+          list.innerHTML = `<div class="panel empty-note">Không tìm thấy việc phù hợp. Thử bỏ lọc “Gần bạn” hoặc đổi từ khóa.</div>`;
+          return;
+        }
+
+        list.innerHTML = jobs
+          .map((j, i) => HireLens.renderJobCard(j, { showMatch: true, delay: i * 40 }))
+          .join("");
+
+        HireLens.qsa(".job-card", list).forEach((card) => {
+          card.addEventListener("click", (e) => {
+            if (e.target.closest("[data-apply]")) {
+              HireLens.toast("Demo: đăng nhập để ứng tuyển / matching");
+              return;
+            }
+            selectedId = card.dataset.jobId;
+            HireLens.qsa(".job-card", list).forEach((c) => c.classList.remove("active"));
+            card.classList.add("active");
+            renderDetail(HireLens.jobById(selectedId));
+          });
+        });
+
+        if (!selectedId || !jobs.find((j) => j.id === selectedId)) {
+          selectedId = jobs[0].id;
+        }
+        const active = list.querySelector(`[data-job-id="${selectedId}"]`);
+        if (active) active.classList.add("active");
+        renderDetail(HireLens.jobById(selectedId));
+      }
+
+      document.getElementById("searchForm").addEventListener("submit", (e) => {
+        e.preventDefault();
+        renderList();
+      });
+
+      document.getElementById("city").addEventListener("change", renderList);
+
+      HireLens.qsa("#chips .chip-filter").forEach((btn) => {
+        btn.addEventListener("click", () => {
+          if (btn.dataset.near != null) {
+            HireLens.qsa("#chips .chip-filter").forEach((b) => {
+              if (b.dataset.near != null) b.classList.remove("active");
+            });
+            btn.classList.add("active");
+            nearOnly = btn.dataset.near === "1";
+          }
+          if (btn.dataset.kw) {
+            document.getElementById("keyword").value = btn.dataset.kw;
+            if (btn.dataset.kw === "Remote") {
+              document.getElementById("city").value = "Remote";
+              nearOnly = false;
+              HireLens.qsa("#chips .chip-filter").forEach((b) => b.classList.remove("active"));
+              document.querySelector('[data-near="0"]').classList.add("active");
+            }
+          }
+          renderList();
+        });
+      });
+
+      renderList();
+    </script>
+  </body>
+</html>
