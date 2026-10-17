@@ -1,0 +1,49 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "HireLensRecruiterBarem",
+  "description": "Schema sau khi parse CSV barem nhà tuyển dụng upload lên hệ thống",
+  "type": "object",
+  "required": ["ma_vi_tri", "ten_vi_tri", "thang_diem", "tieu_chi"],
+  "properties": {
+    "ma_vi_tri": { "type": "string" },
+    "ten_vi_tri": { "type": "string" },
+    "cap_bac": { "type": "string" },
+    "cong_ty": { "type": "string" },
+    "thang_diem": {
+      "type": "string",
+      "description": "Ví dụ: 0-100 hoặc 0-10"
+    },
+    "tieu_chi": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": [
+          "ma_tieu_chi",
+          "ten_tieu_chi",
+          "loai_cham",
+          "diem_toi_da",
+          "bat_buoc"
+        ],
+        "properties": {
+          "nhom_tieu_chi": { "type": "string" },
+          "ma_tieu_chi": { "type": "string" },
+          "ten_tieu_chi": { "type": "string" },
+          "loai_cham": {
+            "type": "string",
+            "enum": ["diem_cong", "cham_theo_y", "dat_khong_dat"]
+          },
+          "diem_toi_da": { "type": "number", "minimum": 0 },
+          "bat_buoc": { "type": "string", "enum": ["co", "khong"] },
+          "tu_khoa_goi_y": {
+            "type": "array",
+            "items": { "type": "string" }
+          },
+          "cau_hoi_goi_y": { "type": "string" },
+          "dap_an_tham_chieu": { "type": "string" },
+          "ghi_chu": { "type": "string" }
+        }
+      }
+    }
+  }
+}

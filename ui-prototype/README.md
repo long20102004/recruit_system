@@ -1,90 +1,45 @@
-# HireLens — UI Prototype (HTML/CSS/JS)
+# HireLens — UI Prototype
 
-Prototype giao diện tiếng Việt cho đồ án **Hệ thống tuyển dụng thông minh** (Module 1–3).  
-Đây là **template UI + dữ liệu minh họa**, chưa kết nối Spring Boot / PostgreSQL / AI service.
+Prototype giao diện tiếng Việt cho **hệ thống hỗ trợ tuyển dụng sinh viên IT**.  
+Dữ liệu minh họa trên trình duyệt; chưa nối backend.
 
-## Hướng UX
+## Vai trò
 
-Trang mở ra là danh sách việc (gần bạn trước), nhưng mặt hình theo kiểu biên tập: nền giấy, chữ serif, ít badge.
+### Ứng viên
+1. Xem / tìm việc gần mình  
+2. Tải CV → kiểm tra thông tin → xác nhận hồ sơ  
+3. Xem việc phù hợp (điểm %, kỹ năng trùng/thiếu)  
+4. Luyện phỏng vấn text → điểm 0–10 + ý đủ/thiếu  
 
-- Ô tìm + danh sách việc, không banner marketing
-- AI (CV / matching / phỏng vấn) nằm trên menu, không phải dashboard
-- Màu mực / đất, không xanh lá kiểu job board đại trà
+### Nhà tuyển dụng
+1. Đăng vị trí: tiêu đề, cấp bậc, kỹ năng, yêu cầu, mô tả  
+2. Quản lý tin đang mở (lưu trên trình duyệt)  
+3. Xem hồ sơ ứng viên  
+4. Ghép hồ sơ–tin tuyển dụng  
+5. Ngân hàng câu hỏi + kết quả phiên phỏng vấn  
 
 ## Cách mở
 
-1. Mở file `index.html` bằng trình duyệt (Chrome/Edge/Firefox).
-2. Duyệt việc ngay trên trang chủ; hoặc **Đăng nhập** → chọn **Ứng viên** / **Nhà tuyển dụng**.
-
-Khuyến nghị khi chỉnh sửa CSS/JS: chạy static server tại thư mục này, ví dụ:
-
 ```bash
-# Python
-python -m http.server 5500
-
-# Node (nếu có)
-npx --yes serve -p 5500
+cd ui-prototype
+python3 -m http.server 5500
 ```
 
-Rồi mở `http://localhost:5500`.
+Mở `http://localhost:5500` → **Đăng nhập** → chọn **Ứng viên** hoặc **Nhà tuyển dụng**.
 
 ## Cấu trúc
 
 ```
 ui-prototype/
-├── index.html                 # Landing
-├── login.html                 # Chọn vai trò (demo)
-├── candidate/                 # Luồng ứng viên
-│   ├── index.html
-│   ├── cv.html                # Module 1
-│   ├── matching.html          # Module 2
-│   └── interview.html         # Module 3
-├── recruiter/                 # Luồng nhà tuyển dụng
-│   ├── index.html
-│   ├── jobs.html
-│   ├── candidates.html
-│   ├── matching.html
-│   └── interviews.html
+├── index.html              # Trang tìm việc (công khai)
+├── login.html
+├── candidate/              # Luồng ứng viên
+├── recruiter/              # Luồng nhà tuyển dụng
 └── assets/
     ├── css/main.css
     └── js/
-        ├── mock-data.js       # Dữ liệu minh họa
-        └── common.js
+        ├── mock-data.js
+        └── common.js       # job list + tin đăng localStorage
 ```
 
-## Luồng demo
-
-### Ứng viên
-1. Upload / chạy trích xuất CV (giả lập)
-2. Sửa & xác nhận JSON trích xuất
-3. Xem ranking job + kỹ năng trùng/thiếu + lý do
-4. Trả lời phỏng vấn text, xem điểm đã hiệu chỉnh + ý thiếu
-
-### Nhà tuyển dụng
-1. Quản lý JD / skill bắt buộc
-2. Xem CV đã parse (kèm JSON schema mẫu)
-3. Xem bảng matching
-4. Ngân hàng câu hỏi, rubric, kết quả phiên phỏng vấn
-
-## Lưu ý học thuật / kỹ thuật
-
-- Banner trên mọi trang ghi rõ đây là prototype.
-- Điểm matching và BERTScore có định nghĩa trên UI; **không** tuyên bố mô hình đã train/evaluate đầy đủ.
-- `mock-data.js` là dữ liệu minh họa; bản production phải lấy từ API.
-- Frontend **không** truy cập database hay file model trực tiếp.
-
-## Bước tiếp theo (ngoài prototype)
-
-1. Spring Boot REST + PostgreSQL theo schema đồ án  
-2. AI service (Python) cho NER / embedding / BERTScore  
-3. Thay mock bằng fetch API, giữ nguyên cấu trúc màn hình này  
-
-## Trạng thái
-
-| Hạng mục | Trong prototype |
-|---|---|
-| UI 3 module + 2 vai trò | Có |
-| Mock CV / Job / Interview | Có (minh họa) |
-| Backend / DB / AI thật | Chưa |
-| Learning-to-Rank đã train | Chưa |
-| BERTScore service online | Chưa (có script offline ở thư mục `DO_AN`) |
+Tin đăng mới từ nhà tuyển dụng được lưu trong `localStorage` (`hirelens_jobs_extra`) và hiện trên feed tìm việc.

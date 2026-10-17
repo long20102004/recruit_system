@@ -7,9 +7,6 @@
     <link rel="stylesheet" href="../assets/css/main.css" />
   </head>
   <body>
-    <div class="demo-banner">
-      Module 2 · <span>Baseline giải thích được — chưa tuyên bố đã train LTR</span>
-    </div>
     <header class="site-header" data-header></header>
 
     <main class="page">
@@ -17,9 +14,9 @@
         <div style="display:flex;flex-wrap:wrap;justify-content:space-between;gap:1rem;align-items:end">
           <div>
             <h1>Việc phù hợp với CV của bạn</h1>
-            <p id="scoreDef"></p>
+            <p>Xếp hạng theo kỹ năng trùng khớp, kinh nghiệm và mức gần với mô tả công việc.</p>
           </div>
-          <button class="btn btn-primary" id="btnRematch" type="button">Chạy lại matching</button>
+          <button class="btn btn-primary" id="btnRematch" type="button">Làm mới gợi ý</button>
         </div>
       </header>
 
@@ -31,12 +28,12 @@
     <script>
       HireLens.setRole("candidate");
       HireLens.renderHeader("matching", "candidate");
-      document.getElementById("scoreDef").textContent = HireLensMock.scoreDefinitions.matchScore;
 
       function render() {
         document.getElementById("list").innerHTML = HireLensMock.matchingResults
           .map((r) => {
             const job = HireLens.jobById(r.jobId);
+            if (!job) return "";
             return `
               <article class="match-item">
                 <div>
@@ -55,11 +52,6 @@
                   <ul style="margin:.75rem 0 0;padding-left:1.1rem;color:var(--muted)">
                     ${r.reasons.map((x) => `<li>${x}</li>`).join("")}
                   </ul>
-                  <p class="hint">
-                    Semantic: ${HireLens.pct(r.semanticSimilarity)}% ·
-                    TF-IDF: ${HireLens.pct(r.tfidfSimilarity)}% ·
-                    Model: ${r.modelVersion}
-                  </p>
                 </div>
                 <div style="text-align:center">
                   <div class="score-ring" style="--p:${HireLens.pct(r.score)}">
@@ -73,8 +65,8 @@
       }
 
       document.getElementById("btnRematch").addEventListener("click", () => {
-        HireLens.toast("Gọi AI matching service (stub)…");
-        setTimeout(() => { render(); HireLens.toast("Đã cập nhật xếp hạng minh họa"); }, 500);
+        HireLens.toast("Đang cập nhật gợi ý…");
+        setTimeout(() => { render(); HireLens.toast("Đã làm mới danh sách"); }, 500);
       });
 
       render();

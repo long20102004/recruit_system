@@ -1,0 +1,51 @@
+### Health
+GET http://localhost:8000/health
+
+### List demo questions
+GET http://localhost:8000/v1/questions
+
+### Evaluate by question_id
+POST http://localhost:8000/v1/interview/evaluate
+Content-Type: application/json
+
+{
+  "question_id": "sb-01",
+  "answer": "Spring Boot dựa trên Spring, có auto-configuration và starter, hay dùng REST API với Tomcat nhúng."
+}
+
+### Evaluate with inline barem (Spring Boot sẽ gọi kiểu này)
+POST http://localhost:8000/v1/interview/evaluate
+Content-Type: application/json
+
+{
+  "answer": "DI là IoC, Spring inject dependency; nên dùng constructor injection, cũng có @Autowired.",
+  "question": "Dependency Injection trong Spring là gì?",
+  "reference_answer": "Dependency Injection là IoC: Spring tạo và tiêm dependency. Phổ biến: constructor, setter, field @Autowired.",
+  "criteria": [
+    {
+      "key": "ioc_idea",
+      "label": "Ý tưởng IoC / không tự new",
+      "weight": 0.3,
+      "hints": ["ioc", "không tự new", "tiêm", "container"]
+    },
+    {
+      "key": "constructor",
+      "label": "Constructor injection",
+      "weight": 0.3,
+      "hints": ["constructor", "hàm dựng"]
+    },
+    {
+      "key": "other_ways",
+      "label": "Setter / field / @Autowired",
+      "weight": 0.25,
+      "hints": ["setter", "field", "autowired"]
+    },
+    {
+      "key": "benefit",
+      "label": "Lợi ích (test / loose coupling)",
+      "weight": 0.15,
+      "hints": ["dễ test", "loose coupling"]
+    }
+  ],
+  "include_debug": false
+}

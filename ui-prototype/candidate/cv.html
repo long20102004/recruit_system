@@ -7,18 +7,17 @@
     <link rel="stylesheet" href="../assets/css/main.css" />
   </head>
   <body>
-    <div class="demo-banner">Module 1 · <span>Upload giả lập + JSON trích xuất minh họa</span></div>
     <header class="site-header" data-header></header>
 
     <main class="page">
       <header class="page-head">
         <h1>Hồ sơ & phân tích CV</h1>
-        <p>Tải CV để hệ thống trích xuất kỹ năng / kinh nghiệm, rồi xác nhận trước khi matching.</p>
+        <p>Tải CV để hệ thống đọc kỹ năng và kinh nghiệm, rồi xác nhận trước khi tìm việc phù hợp.</p>
       </header>
 
       <div class="steps">
         <div class="step" id="s1">1. Tải lên</div>
-        <div class="step" id="s2">2. Trích xuất</div>
+        <div class="step" id="s2">2. Kiểm tra</div>
         <div class="step" id="s3">3. Xác nhận</div>
       </div>
 
@@ -27,20 +26,20 @@
           <h2>Tải tài liệu</h2>
           <div class="upload-zone" id="uploadZone" tabindex="0">
             <strong>Kéo thả CV PDF/DOCX vào đây</strong>
-            <p class="muted">hoặc bấm để chọn file · tối đa 5MB (demo)</p>
+            <p class="muted">hoặc bấm để chọn file · tối đa 5MB</p>
             <input id="fileInput" type="file" accept=".pdf,.doc,.docx" hidden />
           </div>
-          <p class="hint" id="fileName">Chưa chọn file. Có thể bấm “Chạy trích xuất demo”.</p>
+          <p class="hint" id="fileName">Chưa chọn file. Bạn cũng có thể dùng CV mẫu để xem trước.</p>
           <div class="split-actions">
-            <button class="btn btn-primary" id="btnParse" type="button">Chạy trích xuất demo</button>
+            <button class="btn btn-primary" id="btnParse" type="button">Phân tích CV</button>
             <button class="btn btn-ghost" id="btnReset" type="button">Làm mới</button>
           </div>
         </article>
 
         <article class="panel">
           <div style="display:flex;justify-content:space-between;gap:1rem;align-items:center;margin-bottom:.5rem">
-            <h2 style="margin:0">Kết quả trích xuất</h2>
-            <div class="score-ring" id="confRing" style="--p:0;width:72px;height:72px">
+            <h2 style="margin:0">Thông tin đã đọc được</h2>
+            <div class="score-ring" id="confRing" style="--p:0;width:72px;height:72px" title="Độ đầy đủ hồ sơ">
               <span style="width:54px;height:54px;font-size:0.95rem" id="confTxt">—</span>
             </div>
           </div>
@@ -55,8 +54,8 @@
           </form>
           <p class="hint" id="missingNote"></p>
           <div class="split-actions">
-            <button class="btn btn-accent" id="btnConfirm" type="button" disabled>Xác nhận dữ liệu</button>
-            <a class="btn btn-ghost" href="index.html">Xem việc gần bạn</a>
+            <button class="btn btn-accent" id="btnConfirm" type="button" disabled>Xác nhận hồ sơ</button>
+            <a class="btn btn-ghost" href="matching.html">Xem việc phù hợp</a>
           </div>
         </article>
       </section>
@@ -97,8 +96,9 @@
         document.getElementById("confRing").style.setProperty("--p", HireLens.pct(cv.confidence));
         document.getElementById("confTxt").textContent = HireLens.pct(cv.confidence) + "%";
         document.getElementById("missingNote").textContent =
-          "Thiếu / chưa chắc: " + cv.missingFields.join(", ") +
-          " · Model: " + HireLensMock.meta.modelVersions.ner;
+          cv.missingFields.length
+            ? "Nên bổ sung: " + cv.missingFields.join(", ")
+            : "Hồ sơ đã khá đầy đủ.";
         document.getElementById("btnConfirm").disabled = false;
         setStep(2);
       }
@@ -110,34 +110,35 @@
         e.preventDefault();
         zone.classList.remove("dragover");
         if (e.dataTransfer.files[0]) {
-          document.getElementById("fileName").textContent = "Đã chọn (demo): " + e.dataTransfer.files[0].name;
+          document.getElementById("fileName").textContent = "Đã chọn: " + e.dataTransfer.files[0].name;
           setStep(1);
         }
       });
       fileInput.addEventListener("change", () => {
         if (fileInput.files[0]) {
-          document.getElementById("fileName").textContent = "Đã chọn (demo): " + fileInput.files[0].name;
+          document.getElementById("fileName").textContent = "Đã chọn: " + fileInput.files[0].name;
           setStep(1);
         }
       });
 
       document.getElementById("btnParse").addEventListener("click", () => {
         if (!document.getElementById("fileName").textContent.includes("Đã chọn")) {
-          document.getElementById("fileName").textContent = "Dùng file minh họa: " + cv.sourceFile;
+          document.getElementById("fileName").textContent = "Đang dùng CV mẫu: " + cv.sourceFile;
         }
-        HireLens.toast("Đang gọi AI service giả lập…");
-        setTimeout(() => { fillForm(); HireLens.toast("Trích xuất xong — hãy xác nhận"); }, 650);
+        HireLens.toast("Đang phân tích CV…");
+        setTimeout(() => { fillForm(); HireLens.toast("Xong — hãy kiểm tra và xác nhận"); }, 650);
       });
 
       document.getElementById("btnConfirm").addEventListener("click", () => {
         setStep(3);
-        HireLens.toast("Đã xác nhận CV. Về trang Việc làm để xem gợi ý.");
+        HireLens.toast("Đã lưu hồ sơ. Bạn có thể xem việc phù hợp.");
       });
 
       document.getElementById("btnReset").addEventListener("click", () => {
         form.reset();
         document.getElementById("btnConfirm").disabled = true;
         document.getElementById("confTxt").textContent = "—";
+        document.getElementById("missingNote").textContent = "";
         document.getElementById("fileName").textContent = "Chưa chọn file.";
         setStep(1);
       });

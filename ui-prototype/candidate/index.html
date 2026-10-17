@@ -7,9 +7,6 @@
     <link rel="stylesheet" href="../assets/css/main.css" />
   </head>
   <body>
-    <div class="demo-banner">
-      Ứng viên · <span>Trang chủ = feed việc làm gần bạn / gợi ý (kiểu job board)</span>
-    </div>
     <header class="site-header" data-header></header>
 
     <main class="page">
@@ -17,7 +14,7 @@
         <p class="kicker">Chào <span id="candName"></span></p>
         <h1>Việc gần chỗ bạn đang ở.</h1>
         <p class="lead">
-          Lọc theo khoảng cách, hoặc xem những tin hệ thống thấy hợp với CV đã phân tích.
+          Lọc theo khoảng cách, hoặc xem những tin phù hợp với CV đã cập nhật.
         </p>
         <form class="search-bar" id="searchForm">
           <div class="search-field">
@@ -49,7 +46,7 @@
               <h2 id="listTitle">Việc làm gần bạn</h2>
               <p id="listSub"></p>
             </div>
-            <a class="btn btn-soft btn-sm" href="matching.html">Xem ranking AI</a>
+            <a class="btn btn-soft btn-sm" href="matching.html">Xem xếp hạng</a>
           </div>
           <div class="job-list" id="jobList"></div>
         </section>
@@ -60,12 +57,12 @@
             <p style="margin:0 0 .5rem"><strong id="title"></strong></p>
             <div id="skills"></div>
             <div class="split-actions">
-              <a class="btn btn-primary btn-sm" href="cv.html">Phân tích CV</a>
+              <a class="btn btn-primary btn-sm" href="cv.html">Cập nhật CV</a>
               <a class="btn btn-ghost btn-sm" href="interview.html">Phỏng vấn</a>
             </div>
           </article>
           <article class="panel">
-            <h3>Việc match cao nhất</h3>
+            <h3>Gợi ý tốt nhất</h3>
             <div id="topMatch"></div>
           </article>
         </aside>
@@ -86,7 +83,7 @@
         .map((s) => `<span class="chip">${s}</span>`)
         .join("");
       document.getElementById("listSub").textContent =
-        "Vị trí minh họa: " + m.meta.userLocation;
+        "Vị trí của bạn: " + m.meta.userLocation;
 
       const top = m.matchingResults[0];
       const topJob = HireLens.jobById(top.jobId);
@@ -130,7 +127,7 @@
         HireLens.qsa("[data-apply]").forEach((btn) => {
           btn.addEventListener("click", (e) => {
             e.stopPropagation();
-            HireLens.toast("Đã lưu ứng tuyển demo cho " + btn.dataset.apply);
+            HireLens.toast("Đã gửi ứng tuyển cho tin này");
           });
         });
       }

@@ -1,0 +1,53 @@
+id,question_id,rank_target,answer,human_score,human_covered_keys,notes
+a001,sb-01,intern,"Spring Boot là framework dựa trên Spring giúp làm ứng dụng Java nhanh hơn nhờ auto-configuration và starter. Có embedded Tomcat nên chạy được bằng jar, thường dùng làm REST API.",8.5,"based_on_spring;auto_config;starter_embedded;use_case",good
+a002,sb-01,intern,"Spring Boot giúp giảm cấu hình so với Spring thường, có starter dependencies và tự cấu hình nhiều thứ.",7.0,"based_on_spring;auto_config;starter_embedded",missing use_case
+a003,sb-01,intern,"Spring Boot là công cụ để code Java web nhanh, có Tomcat sẵn trong project.",5.0,"starter_embedded;use_case",partial
+a004,sb-01,intern,"Spring Boot là ngôn ngữ lập trình mới thay cho Java.",1.5,,wrong
+a005,sb-01,fresher,"Spring Boot xây trên Spring Framework, dùng convention over configuration và auto-configuration để giảm XML. Starter giúp thêm dependency theo mục đích, phù hợp microservice và REST.",9.0,"based_on_spring;auto_config;starter_embedded;use_case",excellent
+a006,sb-01,fresher,"Nó giống Spring nhưng dễ hơn vì ít phải cấu hình.",4.5,"based_on_spring;auto_config",thin
+a007,sb-01,intern,"Spring là framework, Spring Boot thêm auto config và embedded server để deploy đơn giản hơn, hay dùng cho API.",8.0,"based_on_spring;auto_config;starter_embedded;use_case",good paraphrase
+a008,sb-01,fresher,"Ưu điểm chính là hot reload và giao diện admin.",2.5,,off topic
+a009,sb-01,intern,"Spring Boot dựa trên Spring, giảm cấu hình thủ công nhờ auto-configuration.",6.5,"based_on_spring;auto_config",no starter
+a010,sb-01,fresher,"Framework Java phổ biến để dựng backend nhanh với starter và jar độc lập.",6.0,"starter_embedded;use_case",no spring link clear
+a011,sb-01,intern,"Spring Boot giúp tạo project nhanh trên start.spring.io thôi.",3.0,,too shallow
+a012,sb-01,fresher,"So với Spring truyền thống, Boot bớt XML, có auto-configuration, starter và embedded server; hay làm REST hoặc microservice.",9.5,"based_on_spring;auto_config;starter_embedded;use_case",near reference
+a013,sb-02,intern,"@SpringBootApplication gắn trên class main để khởi động app. Nó gồm @EnableAutoConfiguration và @ComponentScan, ngoài ra còn @SpringBootConfiguration.",9.0,"entry_point;composite;enable_auto;component_scan",excellent
+a014,sb-02,intern,"Annotation này để chạy Spring Boot, nó quét component và bật auto configuration.",7.0,"entry_point;enable_auto;component_scan",missing composite name
+a015,sb-02,fresher,"Là annotation tổng hợp gồm EnableAutoConfiguration, ComponentScan và SpringBootConfiguration, đặt ở main.",8.5,"entry_point;composite;enable_auto;component_scan",good
+a016,sb-02,intern,"Dùng để đánh dấu controller REST.",1.0,,confused with RestController
+a017,sb-02,fresher,"Nó thay cho việc viết nhiều annotation, giúp auto config và scan bean khi start ứng dụng.",6.5,"composite;enable_auto;component_scan;entry_point",ok
+a018,sb-02,intern,"@SpringBootApplication chỉ để enable auto configuration.",4.0,"enable_auto",incomplete
+a019,sb-02,fresher,"Đặt trên main class. Bên trong có @ComponentScan để quét package và @EnableAutoConfiguration.",8.0,"entry_point;enable_auto;component_scan",good
+a020,sb-02,intern,"Không biết gồm annotation nào, chỉ biết phải có để chạy.",2.0,"entry_point",very weak
+a021,sb-02,fresher,"Composite annotation: SpringBootConfiguration + EnableAutoConfiguration + ComponentScan; là entry point của ứng dụng Boot.",9.5,"entry_point;composite;enable_auto;component_scan",excellent
+a022,sb-02,intern,"Annotation để scan mọi class trong project Java.",3.5,"component_scan",partial wrong scope
+a023,sb-03,intern,"Dependency Injection là IoC: Spring inject dependency thay vì tự new. Hay dùng constructor injection, cũng có setter và @Autowired trên field. Giúp dễ test và giảm coupling.",9.0,"ioc_idea;constructor;other_ways;benefit",excellent
+a024,sb-03,fresher,"DI nghĩa là Spring tiêm bean vào class. Phổ biến nhất là constructor injection và @Autowired.",7.5,"ioc_idea;constructor;other_ways",thin benefit
+a025,sb-03,intern,"Là cách dùng @Autowired để lấy object.",4.5,"other_ways",shallow
+a026,sb-03,fresher,"Không tự new mà để container quản lý và tiêm vào. Constructor injection được khuyến nghị vì rõ dependency bắt buộc; còn setter và field injection.",9.0,"ioc_idea;constructor;other_ways;benefit",excellent
+a027,sb-03,intern,"DI giúp code đẹp hơn.",2.5,,no substance
+a028,sb-03,fresher,"Inversion of Control: framework tạo dependency. Có constructor, setter, field injection.",8.0,"ioc_idea;constructor;other_ways",good
+a029,sb-03,intern,"Chỉ dùng được với @Bean thôi.",2.0,,wrong
+a030,sb-03,fresher,"Spring inject qua constructor để dễ unit test và loose coupling; cũng hỗ trợ setter và field kèm @Autowired.",8.5,"ioc_idea;constructor;other_ways;benefit",good
+a031,sb-03,intern,"Dependency Injection là design pattern để truyền phụ thuộc từ ngoài vào, Spring hỗ trợ qua IoC container.",7.0,"ioc_idea;benefit",no injection styles
+a032,sb-03,fresher,"Field injection nhanh nhưng khó test; nên dùng constructor injection.",6.0,"constructor;other_ways;benefit",missing ioc definition
+a033,sb-04,intern,"@RestController gồm @Controller và @ResponseBody nên trả JSON cho REST. @Controller thường trả view. @RequestMapping map URL chung, @GetMapping cho HTTP GET.",9.5,"rest_eq;controller_view;request_mapping;get_mapping",excellent
+a034,sb-04,fresher,"RestController dùng cho API trả JSON, Controller cho trang HTML. GetMapping là viết tắt RequestMapping method GET.",8.0,"rest_eq;controller_view;get_mapping;request_mapping",good
+a035,sb-04,intern,"Hai cái giống nhau, chỉ khác tên.",1.5,,wrong
+a036,sb-04,fresher,"@RestController có @ResponseBody nên không trả view. RequestMapping gắn path, GetMapping/PostMapping theo method.",8.5,"rest_eq;controller_view;request_mapping;get_mapping",good
+a037,sb-04,intern,"Dùng RestController khi làm REST API. GetMapping để lấy dữ liệu.",5.5,"rest_eq;get_mapping",incomplete
+a038,sb-04,fresher,"Controller trả Thymeleaf view; RestController trả JSON vì có ResponseBody. RequestMapping là annotation tổng quát hơn GetMapping.",9.0,"rest_eq;controller_view;request_mapping;get_mapping",excellent
+a039,sb-04,intern,"@GetMapping thay thế hoàn toàn @RequestMapping trong mọi trường hợp.",3.0,"get_mapping",misleading
+a040,sb-04,fresher,"RestController = Controller + ResponseBody. GetMapping rõ HTTP method hơn RequestMapping chung.",8.0,"rest_eq;get_mapping;request_mapping",no view mention
+a041,sb-04,intern,"Annotation để tạo API và map đường dẫn GET/POST.",4.5,"request_mapping;get_mapping",vague
+a042,sb-04,fresher,"Khi cần JSON dùng RestController; khi render HTML dùng Controller. RequestMapping có thể set method, còn GetMapping chỉ GET.",9.0,"rest_eq;controller_view;request_mapping;get_mapping",excellent
+a043,sb-05,fresher,"Spring Data JPA giảm boilerplate trên JPA/Hibernate. Kế thừa JpaRepository là có CRUD, pagination; có thể đặt tên method findBy... hoặc dùng @Query.",9.5,"reduce_boilerplate;crud;interface_repo;query_method",excellent
+a044,sb-05,fresher,"JpaRepository cung cấp sẵn hàm save find delete. Chỉ cần tạo interface.",7.0,"crud;interface_repo",partial
+a045,sb-05,intern,"Là thư viện để viết SQL nhanh hơn.",3.5,"reduce_boilerplate",vague wrong-ish
+a046,sb-05,fresher,"Giúp thao tác database mà ít code. Interface extends JpaRepository có CRUD và query method theo tên.",8.5,"reduce_boilerplate;crud;interface_repo;query_method",good
+a047,sb-05,fresher,"Dùng @Repository và viết mọi câu SQL bằng tay vẫn bắt buộc.",2.0,,wrong
+a048,sb-05,fresher,"Spring Data JPA dựa Hibernate/JPA, giảm code DAO. JpaRepository cho CRUD; thêm @Query khi cần JPQL.",9.0,"reduce_boilerplate;crud;interface_repo;query_method",excellent
+a049,sb-05,intern,"Có hàm findAll và save sẵn nên đỡ viết.",5.0,"crud",thin
+a050,sb-05,fresher,"Khai báo interface repository kế thừa JpaRepository để có CRUD và tìm theo tên method, giảm boilerplate truy cập DB.",8.5,"reduce_boilerplate;crud;interface_repo;query_method",good
+a051,sb-05,fresher,"Chỉ dùng được với MySQL.",1.5,,wrong
+a052,sb-05,fresher,"Spring Data JPA abstraction trên JPA: tạo repo interface, có sẵn CRUD, hỗ trợ paging và derived query.",9.0,"reduce_boilerplate;crud;interface_repo;query_method",excellent

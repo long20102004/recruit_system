@@ -1,0 +1,108 @@
+{
+  "ma_vi_tri": "NT-JAVA-JR",
+  "ten_vi_tri": "Junior Backend Developer (Java)",
+  "cap_bac": "Junior",
+  "cong_ty": "NovaTech",
+  "thang_diem": "0-100",
+  "tieu_chi": [
+    {
+      "nhom_tieu_chi": "Ngoai ngu",
+      "ma_tieu_chi": "lang_en",
+      "ten_tieu_chi": "Tiếng Anh giao tiếp (B1+)",
+      "loai_cham": "diem_cong",
+      "diem_toi_da": 5,
+      "bat_buoc": "khong",
+      "tu_khoa_goi_y": ["tieng anh", "english", "B1", "IELTS"],
+      "cau_hoi_goi_y": "Bạn tự đánh giá trình độ tiếng Anh? Có chứng chỉ không?",
+      "dap_an_tham_chieu": "Đạt B1 hoặc tương đương → cộng 5 điểm."
+    },
+    {
+      "nhom_tieu_chi": "Ngoai ngu",
+      "ma_tieu_chi": "lang_jp",
+      "ten_tieu_chi": "Tiếng Nhật (N3 trở lên)",
+      "loai_cham": "diem_cong",
+      "diem_toi_da": 5,
+      "bat_buoc": "khong",
+      "tu_khoa_goi_y": ["tieng nhat", "N3", "JLPT"],
+      "cau_hoi_goi_y": "Bạn có JLPT không? Cấp độ nào?",
+      "dap_an_tham_chieu": "JLPT N3 trở lên → cộng 5 điểm."
+    },
+    {
+      "nhom_tieu_chi": "Ky thuat",
+      "ma_tieu_chi": "java_basics",
+      "ten_tieu_chi": "Java — khái niệm cốt lõi",
+      "loai_cham": "cham_theo_y",
+      "diem_toi_da": 15,
+      "bat_buoc": "co",
+      "tu_khoa_goi_y": ["huong doi tuong", "oop", "da nen tang", "jvm", "backend"],
+      "cau_hoi_goi_y": "Java là gì? Nêu đặc điểm chính.",
+      "dap_an_tham_chieu": "Java là ngôn ngữ hướng đối tượng; chạy trên JVM; đa nền tảng; thường dùng backend/web."
+    },
+    {
+      "nhom_tieu_chi": "Ky thuat",
+      "ma_tieu_chi": "spring_boot",
+      "ten_tieu_chi": "Spring Boot — hiểu biết cơ bản",
+      "loai_cham": "cham_theo_y",
+      "diem_toi_da": 20,
+      "bat_buoc": "co",
+      "tu_khoa_goi_y": ["spring boot", "auto-configuration", "starter", "embedded", "rest api"],
+      "cau_hoi_goi_y": "Spring Boot là gì? Ưu điểm so với Spring truyền thống?",
+      "dap_an_tham_chieu": "Framework dựa trên Spring; auto-configuration; starter; embedded server; dễ dựng REST API."
+    },
+    {
+      "nhom_tieu_chi": "Ky thuat",
+      "ma_tieu_chi": "di_ioc",
+      "ten_tieu_chi": "Dependency Injection trong Spring",
+      "loai_cham": "cham_theo_y",
+      "diem_toi_da": 15,
+      "bat_buoc": "co",
+      "tu_khoa_goi_y": ["ioc", "dependency injection", "constructor", "autowired"],
+      "cau_hoi_goi_y": "Dependency Injection là gì? Cách tiêm phổ biến?",
+      "dap_an_tham_chieu": "IoC: Spring tiêm dependency; constructor (khuyến nghị); setter; field @Autowired."
+    },
+    {
+      "nhom_tieu_chi": "Ky thuat",
+      "ma_tieu_chi": "rest_api",
+      "ten_tieu_chi": "REST API / Controller",
+      "loai_cham": "cham_theo_y",
+      "diem_toi_da": 15,
+      "bat_buoc": "co",
+      "tu_khoa_goi_y": ["restcontroller", "responsebody", "getmapping", "json"],
+      "cau_hoi_goi_y": "@RestController khác @Controller thế nào?",
+      "dap_an_tham_chieu": "RestController = Controller + ResponseBody; trả JSON."
+    },
+    {
+      "nhom_tieu_chi": "Ky thuat",
+      "ma_tieu_chi": "jpa_sql",
+      "ten_tieu_chi": "JPA / SQL cơ bản",
+      "loai_cham": "cham_theo_y",
+      "diem_toi_da": 15,
+      "bat_buoc": "co",
+      "tu_khoa_goi_y": ["jparepository", "crud", "join", "hibernate"],
+      "cau_hoi_goi_y": "Spring Data JPA giúp gì? JpaRepository dùng để làm gì?",
+      "dap_an_tham_chieu": "Giảm boilerplate; kế thừa JpaRepository có CRUD; query method / @Query."
+    },
+    {
+      "nhom_tieu_chi": "Thai do",
+      "ma_tieu_chi": "soft_communicate",
+      "ten_tieu_chi": "Trả lời rõ ràng / đúng thuật ngữ",
+      "loai_cham": "cham_theo_y",
+      "diem_toi_da": 5,
+      "bat_buoc": "khong",
+      "tu_khoa_goi_y": ["ro rang", "vi du", "thuan ngu"],
+      "cau_hoi_goi_y": "",
+      "dap_an_tham_chieu": ""
+    },
+    {
+      "nhom_tieu_chi": "Dieu kien",
+      "ma_tieu_chi": "edu_it",
+      "ten_tieu_chi": "Đang học / tốt nghiệp CNTT",
+      "loai_cham": "dat_khong_dat",
+      "diem_toi_da": 0,
+      "bat_buoc": "co",
+      "tu_khoa_goi_y": ["cntt", "cong nghe thong tin"],
+      "cau_hoi_goi_y": "Bạn chuyên ngành gì? Năm mấy?",
+      "dap_an_tham_chieu": "Sinh viên/cử nhân CNTT hoặc ngành gần."
+    }
+  ]
+}

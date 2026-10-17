@@ -1,0 +1,185 @@
+{
+  "meta": {
+    "role": "Spring Boot Intern / Fresher",
+    "score_scale": "0-10",
+    "language": "vi",
+    "notes": "Barem minh họa cho phỏng vấn technical text. weight tổng mỗi câu = 1.0"
+  },
+  "questions": [
+    {
+      "id": "sb-01",
+      "topic": "Spring Boot",
+      "skill": "Spring Boot basics",
+      "difficulty": "Dễ",
+      "rank": ["intern", "fresher"],
+      "question": "Spring Boot là gì? Nêu ưu điểm chính so với Spring Framework truyền thống.",
+      "reference_answer": "Spring Boot là framework dựa trên Spring, giúp tạo ứng dụng Java nhanh hơn nhờ auto-configuration, starter dependencies và embedded server. So với Spring truyền thống, Spring Boot giảm cấu hình XML/Java thủ công, có convention over configuration, dễ dựng REST API và chạy độc lập bằng jar.",
+      "criteria": [
+        {
+          "key": "based_on_spring",
+          "label": "Dựa trên Spring Framework",
+          "weight": 0.25,
+          "hints": ["dựa trên spring", "spring framework", "nền tảng spring", "xây trên spring"]
+        },
+        {
+          "key": "auto_config",
+          "label": "Auto-configuration / giảm cấu hình",
+          "weight": 0.35,
+          "hints": ["auto-configuration", "tự cấu hình", "giảm cấu hình", "ít xml", "convention"]
+        },
+        {
+          "key": "starter_embedded",
+          "label": "Starter dependencies / embedded server",
+          "weight": 0.25,
+          "hints": ["starter", "embedded", "tomcat", "jar", "dependency"]
+        },
+        {
+          "key": "use_case",
+          "label": "Ứng dụng thực tế (REST/web/microservice)",
+          "weight": 0.15,
+          "hints": ["rest", "api", "web", "microservice", "ứng dụng"]
+        }
+      ]
+    },
+    {
+      "id": "sb-02",
+      "topic": "Spring Boot",
+      "skill": "Annotations",
+      "difficulty": "Dễ",
+      "rank": ["intern", "fresher"],
+      "question": "@SpringBootApplication làm gì? Nó gồm những annotation nào?",
+      "reference_answer": "@SpringBootApplication là annotation gắn trên class main, đánh dấu điểm khởi động ứng dụng Spring Boot. Nó gộp @SpringBootConfiguration, @EnableAutoConfiguration và @ComponentScan: cấu hình ứng dụng, bật auto-configuration và quét bean trong package hiện tại và package con.",
+      "criteria": [
+        {
+          "key": "entry_point",
+          "label": "Điểm khởi động / class main",
+          "weight": 0.25,
+          "hints": ["main", "khởi động", "entry", "chạy ứng dụng", "bootstrap"]
+        },
+        {
+          "key": "composite",
+          "label": "Là annotation tổng hợp (composite)",
+          "weight": 0.2,
+          "hints": ["gộp", "kết hợp", "composite", "bao gồm", "gồm"]
+        },
+        {
+          "key": "enable_auto",
+          "label": "@EnableAutoConfiguration",
+          "weight": 0.3,
+          "hints": ["enableautoconfiguration", "auto-configuration", "tự cấu hình"]
+        },
+        {
+          "key": "component_scan",
+          "label": "@ComponentScan",
+          "weight": 0.25,
+          "hints": ["componentscan", "quét bean", "scan package", "component"]
+        }
+      ]
+    },
+    {
+      "id": "sb-03",
+      "topic": "Spring Core",
+      "skill": "Dependency Injection",
+      "difficulty": "Trung bình",
+      "rank": ["intern", "fresher"],
+      "question": "Dependency Injection trong Spring là gì? Nêu cách tiêm phụ thuộc phổ biến.",
+      "reference_answer": "Dependency Injection là nguyên lý IoC: Spring tạo và tiêm dependency vào bean thay vì class tự new. Cách phổ biến: constructor injection (khuyến nghị), setter injection và field injection bằng @Autowired. Constructor injection giúp bất biến, dễ test và rõ ràng về dependency bắt buộc.",
+      "criteria": [
+        {
+          "key": "ioc_idea",
+          "label": "Ý tưởng IoC / không tự new",
+          "weight": 0.3,
+          "hints": ["ioc", "inversion", "container", "không tự new", "spring quản lý", "tiêm"]
+        },
+        {
+          "key": "constructor",
+          "label": "Constructor injection",
+          "weight": 0.3,
+          "hints": ["constructor", "hàm dựng", "constructor injection"]
+        },
+        {
+          "key": "other_ways",
+          "label": "Setter / field / @Autowired",
+          "weight": 0.25,
+          "hints": ["setter", "field", "autowired", "tiêm qua field"]
+        },
+        {
+          "key": "benefit",
+          "label": "Lợi ích (test / loose coupling)",
+          "weight": 0.15,
+          "hints": ["dễ test", "loose coupling", "giảm phụ thuộc", "bảo trì"]
+        }
+      ]
+    },
+    {
+      "id": "sb-04",
+      "topic": "Spring Web",
+      "skill": "REST API",
+      "difficulty": "Trung bình",
+      "rank": ["intern", "fresher"],
+      "question": "@RestController khác gì @Controller? Khi nào dùng @RequestMapping, @GetMapping?",
+      "reference_answer": "@RestController = @Controller + @ResponseBody, trả JSON/XML trực tiếp, phù hợp REST API. @Controller thường trả view (Thymeleaf). @RequestMapping map URL chung; @GetMapping/@PostMapping là biến thể theo HTTP method, ngắn gọn và rõ ràng hơn cho từng endpoint.",
+      "criteria": [
+        {
+          "key": "rest_eq",
+          "label": "@RestController = @Controller + @ResponseBody",
+          "weight": 0.35,
+          "hints": ["responsebody", "json", "restcontroller", "trả json"]
+        },
+        {
+          "key": "controller_view",
+          "label": "@Controller thường trả view",
+          "weight": 0.2,
+          "hints": ["view", "thymeleaf", "giao diện", "html"]
+        },
+        {
+          "key": "request_mapping",
+          "label": "Hiểu @RequestMapping",
+          "weight": 0.2,
+          "hints": ["requestmapping", "map url", "đường dẫn", "endpoint"]
+        },
+        {
+          "key": "get_mapping",
+          "label": "@GetMapping / method-specific",
+          "weight": 0.25,
+          "hints": ["getmapping", "postmapping", "http method", "get", "post"]
+        }
+      ]
+    },
+    {
+      "id": "sb-05",
+      "topic": "Spring Data",
+      "skill": "JPA / Repository",
+      "difficulty": "Trung bình",
+      "rank": ["fresher"],
+      "question": "Spring Data JPA giúp gì? JpaRepository dùng để làm gì?",
+      "reference_answer": "Spring Data JPA giảm boilerplate truy cập database trên JPA/Hibernate. Chỉ cần khai báo interface kế thừa JpaRepository để có sẵn CRUD, phân trang, và query method theo tên. Có thể thêm @Query khi cần JPQL/SQL tùy chỉnh.",
+      "criteria": [
+        {
+          "key": "reduce_boilerplate",
+          "label": "Giảm code truy cập DB / dựa JPA",
+          "weight": 0.3,
+          "hints": ["giảm code", "boilerplate", "jpa", "hibernate", "truy cập db"]
+        },
+        {
+          "key": "crud",
+          "label": "CRUD có sẵn",
+          "weight": 0.3,
+          "hints": ["crud", "save", "find", "delete", "thêm sửa xóa"]
+        },
+        {
+          "key": "interface_repo",
+          "label": "Interface kế thừa JpaRepository",
+          "weight": 0.25,
+          "hints": ["interface", "jparepository", "repository", "kế thừa"]
+        },
+        {
+          "key": "query_method",
+          "label": "Query method / @Query",
+          "weight": 0.15,
+          "hints": ["query", "findby", "jpql", "theo tên method"]
+        }
+      ]
+    }
+  ]
+}
