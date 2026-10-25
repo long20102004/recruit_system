@@ -1,0 +1,25 @@
+{
+  "candidate": {
+    "name": "Chi",
+    "skills": [
+      "C#"
+    ],
+    "experience_years": 1,
+    "job_titles": [
+      "QA Engineer"
+    ],
+    "education": "Cao đẳng",
+    "raw_context": "Kiểm thử phần mềm."
+  },
+  "jd": {
+    "title": "Data Scientist",
+    "required_skills": [
+      "Python",
+      "Machine Learning"
+    ],
+    "min_experience_years": 4,
+    "required_title": "Data Scientist",
+    "education": "Thạc sĩ",
+    "context": "Phân tích dữ liệu và xây dựng mô hình."
+  }
+}

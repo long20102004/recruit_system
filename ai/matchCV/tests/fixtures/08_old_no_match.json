@@ -1,0 +1,37 @@
+{
+  "candidate": {
+    "skills": [
+      "Kế toán",
+      "Excel",
+      "QuickBooks",
+      "Thuế TNDN"
+    ],
+    "experience_years": 5,
+    "job_titles": [
+      "Kế toán trưởng",
+      "Kế toán tổng hợp"
+    ],
+    "education": {
+      "degree": "Cử nhân",
+      "major": "Kế toán"
+    },
+    "certificates": [
+      "Chứng chỉ CPA"
+    ],
+    "raw_context": "Tôi có 5 năm kinh nghiệm trong lĩnh vực kế toán tài chính, lập báo cáo thuế và quản lý sổ sách doanh nghiệp vừa và nhỏ."
+  },
+  "jd": {
+    "required_skills": [
+      "React",
+      "Node.js",
+      "MongoDB",
+      "REST API",
+      "Git"
+    ],
+    "min_experience_years": 2,
+    "required_title": "Fullstack Developer",
+    "education_requirement": "Cử nhân CNTT trở lên",
+    "context": "Tìm kiếm Fullstack Developer để xây dựng web application, làm việc theo mô hình Agile."
+  },
+  "_note": "Không khớp; hồ sơ kế toán và vị trí lập trình viên."
+}
