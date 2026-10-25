@@ -1,0 +1,10 @@
+fastapi
+uvicorn
+pydantic
+torch
+transformers
+peft
+accelerate
+llama-cpp-python
+gguf
+json-repair
