@@ -1,0 +1,32 @@
+# Python Virtual Environment
+.venv/
+venv/
+ENV/
+env/
+
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Large Model weights (>100MB, cannot be pushed directly to GitHub)
+*.gguf
+merged_model/*.gguf
+
+# PyTorch Training & Optimizer states
+*.pt
+*.pth
+*.bin
+
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints/
+
+# IDE / Editor
+.idea/
+.vscode/
+*.swp
+*~
+
+# OS specific
+.DS_Store
+Thumbs.db

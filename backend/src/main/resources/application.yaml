@@ -1,0 +1,23 @@
+spring:
+  application:
+    name: recruit-backend
+  servlet:
+    multipart:
+      max-file-size: 15MB
+      max-request-size: 15MB
+  jackson:
+    deserialization:
+      fail-on-unknown-properties: false
+      accept-single-value-as-array: true
+      accept-empty-string-as-null-object: true
+  cloud:
+    openfeign:
+      client:
+        config:
+          default:
+            connect-timeout: 1000000000
+            read-timeout: 1200000000
+ai:
+  service:
+#    url: ${AI_SERVICE_URL:https://bennett-scheme-acts-glass.trycloudflare.com}
+    url: ${AI_SERVICE_URL:http://localhost:8000}
