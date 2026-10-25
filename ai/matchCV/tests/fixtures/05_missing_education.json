@@ -1,0 +1,26 @@
+{
+  "candidate": {
+    "name": "Em",
+    "skills": [
+      "JavaScript",
+      "React"
+    ],
+    "experience_years": 4,
+    "job_titles": [
+      "Frontend Developer"
+    ],
+    "education": "Cao đẳng",
+    "raw_context": "Phát triển sản phẩm frontend bằng React."
+  },
+  "jd": {
+    "title": "Frontend Developer",
+    "required_skills": [
+      "JavaScript",
+      "React"
+    ],
+    "min_experience_years": 2,
+    "required_title": "Frontend Developer",
+    "education": "Cử nhân",
+    "context": "Phát triển sản phẩm frontend."
+  }
+}

@@ -1,0 +1,35 @@
+{
+  "candidate": {
+    "skills": [
+      "Python",
+      "Django",
+      "PostgreSQL",
+      "Docker"
+    ],
+    "experience_years": 2,
+    "job_titles": [
+      "Backend Developer"
+    ],
+    "education": {
+      "degree": "Cử nhân",
+      "major": "Công nghệ thông tin"
+    },
+    "certificates": [],
+    "raw_context": "Tôi phát triển API với Django REST Framework, triển khai ứng dụng bằng Docker, quản lý database PostgreSQL."
+  },
+  "jd": {
+    "required_skills": [
+      "Python",
+      "FastAPI",
+      "PostgreSQL",
+      "Docker",
+      "Redis",
+      "Kubernetes"
+    ],
+    "min_experience_years": 3,
+    "required_title": "Senior Backend Developer",
+    "education_requirement": "Cử nhân CNTT trở lên",
+    "context": "Cần Senior Backend Developer có kinh nghiệm xây dựng microservices, hiểu biết về cloud deployment, có khả năng dẫn dắt team nhỏ."
+  },
+  "_note": "Khớp một phần; thiếu FastAPI, Redis, Kubernetes và chưa đủ kinh nghiệm."
+}
