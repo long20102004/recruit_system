@@ -18,7 +18,14 @@ ai-service/
 │   └── .gitkeep
 ├── fine_tune_qwen3-1.7B.ipynb  # Notebook quy trình huấn luyện LoRA
 ├── run_on_colab.ipynb          # Notebook chạy thử nghiệm inference trên Google Colab
-├── main.py                     # FastAPI server phục vụ trích xuất CV
+├── main.py                     # Entry point (shim): `uvicorn main:app`
+├── app/
+│   ├── main.py                 # Khởi tạo FastAPI, include router, load model khi startup
+│   ├── api/routes.py           # /health, /api/v1/extract-cv
+│   ├── core/                   # config.py (env), logging.py
+│   ├── schemas/cv.py           # CVRequest, CVResponse
+│   ├── services/               # model_loader, prompt, generator
+│   └── utils/                  # text.py (clean_cv_text), json_parse.py (extract_json)
 ├── requirements.txt            # Danh sách thư viện Python cần thiết
 └── README.md
 ```
@@ -79,7 +86,7 @@ Dịch vụ hỗ trợ **2 cơ chế suy luận** (tự động phát hiện khi
 
 ### 1. Trích xuất thông tin CV
 - **Method:** `POST`
-- **URL:** `http://localhost:8000/extract-cv`
+- **URL:** `http://localhost:8000/api/v1/extract-cv`
 - **Headers:** `Content-Type: application/json`
 - **Request Body:**
   ```json
@@ -87,16 +94,20 @@ Dịch vụ hỗ trợ **2 cơ chế suy luận** (tự động phát hiện khi
     "cv_text": "Họ và tên: Nguyễn Văn A\nEmail: anguyen@example.com\nSố điện thoại: 0912345678\nKỹ năng: Java, Spring Boot, PostgreSQL..."
   }
   ```
-- **Response:** JSON có cấu trúc chuẩn gồm: `personal_info`, `objective`, `education`, `work_experiences`, `personal_projects`, `skills`, `certifications`.
+- **Response:** `{"data": {...}}`, trong đó `data` gồm: `personal_info`, `objective`, `education`, `experience`, `personal_projects`, `skills`, `certificates`, `honours`, `languages`.
+- **Lỗi:** `400` nếu `cv_text` rỗng, `503` nếu model chưa load, `500` nếu trích xuất thất bại.
 
 ### 2. Kiểm tra trạng thái service
 - **Method:** `GET`
 - **URL:** `http://localhost:8000/health`
-- **Response:**
+- **Response:** `503` nếu model chưa load. Khi engine là `transformers`:
   ```json
   {
-    "status": "healthy",
+    "status": "ok",
     "engine": "transformers",
-    "model": "unsloth/Qwen3-1.7B"
+    "model": "unsloth/Qwen3-1.7B",
+    "lora": "./checkpoint-250",
+    "device": "cuda:0"
   }
   ```
+  Khi engine là `llama_cpp`, `model` là đường dẫn file GGUF và không có `lora`, `device`.
