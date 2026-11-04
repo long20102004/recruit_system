@@ -9,3 +9,6 @@
 .DS_Store
 Thumbs.db
 
+
+# Real CVs (personal data) — never commit
+dataset/

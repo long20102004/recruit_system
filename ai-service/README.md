@@ -63,10 +63,10 @@ pip install -r requirements.txt
 |---|---|---|
 | `BASE_MODEL_NAME` | `unsloth/Qwen3-1.7B` | Base model dùng khi fallback `transformers` + LoRA |
 | `LORA_PATH` | `./checkpoint-250` | Thư mục LoRA adapter |
-| `GGUF_MODEL_PATH` | `./merged_model/model-qwen3-1.7b-q4_k_m.gguf` | Đường dẫn file GGUF; nếu không tồn tại thì tự dò file `*.gguf` trong `merged_model/` |
+| `GGUF_MODEL_PATH` | `./merged_model/model-v2-q4_k_m.gguf` (v2), `./merged_model/model.gguf` (v1) | File GGUF; nếu không tồn tại thì tự dò khi `merged_model/` chỉ có đúng 1 file `*.gguf`. Với v2, thiếu file thì service báo lỗi (không dùng LoRA v1 thay thế) |
 | `CONTEXT_TOKENS` | `8192` | Context window; nếu chưa set thì fallback sang `MAX_INPUT_TOKENS` |
 | `MAX_INPUT_TOKENS` | `8192` | Giá trị fallback cũ của `CONTEXT_TOKENS` |
-| `PROMPT_VERSION` | `v1` | Chọn prompt serving: `v1` hoặc `v2` |
+| `PROMPT_VERSION` | `v2` | Chọn model + prompt: `v2` (mặc định, feature 006) hoặc `v1` (model cũ). Prompt và trọng số phải cùng phiên bản |
 | `MAX_NEW_TOKENS` | `1500` (v1), `2048` (v2) | Giới hạn số token sinh ra cho mỗi request |
 | `QUEUE_WAIT_SECONDS` | `30` | Thời gian tối đa chờ hàng đợi trước khi trả `503` "bận" |
 | `POSTPROCESS_ENABLED` | `true` | Bật/tắt tầng hậu kiểm grounding (`0`/`false`/`no`/`off` để tắt — phục vụ ablation) |
@@ -377,8 +377,10 @@ Model v2 dùng **một prompt duy nhất** cho cả train và serve: `app/servic
    `summary.json` ghi số mẫu, số nhãn bị loại vì không có trong CV, số token (chỉ số đếm).
 2. Upload thư mục `data/retrain_v2/` lên Drive `MyDrive/cv-analysis-service/retrain_v2/`.
 3. Mở `training/retrain_qwen3_v2.ipynb` trên Colab (T4) → Run all. Notebook train (loss chỉ trên JSON), chấm điểm val/val_swap bằng `eval.report` và in bảng so với v1, rồi xuất GGUF lên Drive.
-4. Serve model v2:
+4. Serve model v2 (mặc định): tải `finetune_output_v2/gguf_gguf/Qwen3-1.7B.Q4_K_M.gguf` từ Drive dự án về `merged_model/model-v2-q4_k_m.gguf`:
    ```bash
-   PROMPT_VERSION=v2 GGUF_MODEL_PATH=./merged_model/<file v2>.gguf uvicorn main:app --port 8000
+   gdown 1X4A2sVFDWbtIIP6hwjjJuiA3Sb-mjrUY -O merged_model/model-v2-q4_k_m.gguf
+   uvicorn main:app --port 8000
    ```
-   `PROMPT_VERSION=v1` (mặc định) giữ nguyên hành vi cũ với model v1.
+   Model cũ: `PROMPT_VERSION=v1` (file `merged_model/model.gguf`).
+   Chạy trên Colab GPU thay vì local: `run_on_colab.ipynb`.

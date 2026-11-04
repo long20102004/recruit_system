@@ -7,14 +7,17 @@ BASE_MODEL_NAME = os.getenv("BASE_MODEL_NAME", "unsloth/Qwen3-1.7B")
 
 LORA_PATH = os.getenv("LORA_PATH", "./checkpoint-250")
 
-GGUF_MODEL_PATH = os.getenv(
-    "GGUF_MODEL_PATH",
-    "./merged_model/model-qwen3-1.7b-q4_k_m.gguf"
-)
-
-PROMPT_VERSION = os.getenv("PROMPT_VERSION", "v1").strip().lower()
+# v2 (feature 006) is the default model; v1 stays available with PROMPT_VERSION=v1.
+PROMPT_VERSION = os.getenv("PROMPT_VERSION", "v2").strip().lower()
 if PROMPT_VERSION not in {"v1", "v2"}:
     raise ValueError("PROMPT_VERSION must be 'v1' or 'v2'")
+
+# Each prompt version has its own model file: the prompt and the weights must match.
+DEFAULT_GGUF = {
+    "v1": "./merged_model/model.gguf",
+    "v2": "./merged_model/model-v2-q4_k_m.gguf",
+}
+GGUF_MODEL_PATH = os.getenv("GGUF_MODEL_PATH", DEFAULT_GGUF[PROMPT_VERSION])
 
 MAX_NEW_TOKENS = int(os.getenv("MAX_NEW_TOKENS", "2048" if PROMPT_VERSION == "v2" else "1500"))
 

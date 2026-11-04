@@ -154,6 +154,15 @@ def load_model():
             state.fallback_reason = f"Nạp GGUF thất bại ({type(e).__name__})"
             logger.exception("Nạp GGUF thất bại, fallback sang transformers...")
 
+    # The bundled LoRA adapter (checkpoint-250) is model v1: never pair it with the v2 prompt.
+    from app.core import config as _cfg
+    if _cfg.PROMPT_VERSION == "v2" and os.path.normpath(LORA_PATH) == os.path.normpath("./checkpoint-250"):
+        raise RuntimeError(
+            "PROMPT_VERSION=v2 cần model v2: đặt file GGUF v2 vào "
+            f"{_cfg.DEFAULT_GGUF['v2']} (hoặc GGUF_MODEL_PATH), hoặc LORA_PATH tới adapter v2. "
+            f"Lý do không nạp được GGUF: {state.fallback_reason}"
+        )
+
     # Ưu tiên 2: transformers base + LoRA (fallback, chậm hơn ~5 lần)
     import torch
     from transformers import AutoTokenizer, AutoModelForCausalLM

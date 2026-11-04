@@ -22,7 +22,7 @@ def config_process(**env_vars):
 
 
 @pytest.mark.parametrize("env_vars, expected", [
-    ({}, "v1 1500"),
+    ({}, "v2 2048"),
     ({"PROMPT_VERSION": " V2 "}, "v2 2048"),
     ({"PROMPT_VERSION": "v2", "MAX_NEW_TOKENS": "123"}, "v2 123"),
     ({"PROMPT_VERSION": "v1", "MAX_NEW_TOKENS": "456"}, "v1 456"),
@@ -65,3 +65,22 @@ def test_serving_uses_v2_and_runtime_budget(monkeypatch, fake_engine, client):
     assert captured["prompt"] == prompt_v2.render_prompt("Synthetic CV")
     assert captured["max_tokens"] == 321
     assert client.get("/health").json()["prompt_version"] == "v2"
+
+
+def test_v2_without_v2_model_refuses_v1_adapter(monkeypatch):
+    from app.services import model_loader
+
+    monkeypatch.setattr(config, "PROMPT_VERSION", "v2")
+    monkeypatch.setattr(model_loader, "resolve_gguf_path", lambda p: (None, "Không tìm thấy file GGUF"))
+    with pytest.raises(RuntimeError, match="PROMPT_VERSION=v2"):
+        model_loader.load_model()
+
+
+def test_default_model_file_follows_prompt_version():
+    for version, name in (("v1", "model.gguf"), ("v2", "model-v2-q4_k_m.gguf")):
+        result = subprocess.run(
+            [sys.executable, "-c", "from app.core import config; print(config.GGUF_MODEL_PATH)"],
+            env={**{k: v for k, v in os.environ.items() if k not in ("GGUF_MODEL_PATH",)}, "PROMPT_VERSION": version},
+            capture_output=True, text=True,
+        )
+        assert result.stdout.strip().endswith(name), result.stderr
