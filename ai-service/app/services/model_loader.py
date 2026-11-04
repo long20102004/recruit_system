@@ -3,6 +3,7 @@ import os
 
 from app.core.config import (
     BASE_MODEL_NAME,
+    CONTEXT_TOKENS,
     GGUF_MODEL_PATH,
     LORA_PATH,
     _resolve,
@@ -17,9 +18,48 @@ class ModelState:
         self.tokenizer = None
         self.model = None
         self.gguf_path_used = None
+        self.context_tokens = None
+        self.fallback_reason = None
 
 
 state = ModelState()
+
+
+def resolve_gguf_path(configured: str) -> tuple[str | None, str | None]:
+    """Xác định đường dẫn file GGUF.
+
+    - Nếu configured là file tồn tại -> trả về configured.
+    - Ngược lại tìm các file *.gguf trong os.path.dirname(configured):
+      + đúng 1 file -> trả về đường dẫn đó và log info.
+      + 0 file -> (None, "Không tìm thấy file GGUF").
+      + >1 file -> (None, "Có nhiều file GGUF, hãy đặt GGUF_MODEL_PATH").
+    """
+    if os.path.isfile(configured):
+        return configured, None
+
+    parent_dir = os.path.dirname(configured)
+    if not os.path.isdir(parent_dir):
+        return None, "Không tìm thấy file GGUF"
+
+    try:
+        entries = os.listdir(parent_dir)
+    except OSError:
+        return None, "Không tìm thấy file GGUF"
+
+    candidates = [
+        os.path.join(parent_dir, f)
+        for f in entries
+        if f.lower().endswith(".gguf") and os.path.isfile(os.path.join(parent_dir, f))
+    ]
+    candidates.sort()
+
+    if len(candidates) == 1:
+        chosen = candidates[0]
+        logger.info(f"Tự động chọn file GGUF: {chosen}")
+        return chosen, None
+    if len(candidates) == 0:
+        return None, "Không tìm thấy file GGUF"
+    return None, "Có nhiều file GGUF, hãy đặt GGUF_MODEL_PATH"
 
 
 def _adapter_base(lora_path: str) -> str | None:
@@ -75,41 +115,50 @@ def _preload_cuda_libs():
 
 
 def load_model():
-    import torch
-    from transformers import AutoTokenizer, AutoModelForCausalLM
-    from peft import PeftModel
-
     logger.info("=" * 70)
     logger.info("Loading CV Extraction Model")
     logger.info("=" * 70)
 
     # Ưu tiên 1: GGUF merged (standalone, không cần LoRA adapter)
-    _gguf = _resolve(GGUF_MODEL_PATH)
-    if os.path.exists(_gguf):
+    gguf_path, reason = resolve_gguf_path(_resolve(GGUF_MODEL_PATH))
+    if not gguf_path:
+        state.fallback_reason = reason
+        logger.warning(f"Bỏ qua GGUF ({reason}), fallback sang transformers...")
+    else:
         try:
             _preload_cuda_libs()
 
             from llama_cpp import Llama
 
-            logger.info(f"GGUF found: {_gguf}")
+            logger.info(f"GGUF found: {gguf_path}")
             logger.info("Loading GGUF (merged finetune, LoRA adapter KHÔNG cần thiết)...")
             state.llm = Llama(
-                model_path=_gguf,
-                n_ctx=4096,
+                model_path=gguf_path,
+                n_ctx=CONTEXT_TOKENS,
                 n_threads=6,
                 n_gpu_layers=99,      # Offload 100% layers lên GPU
                 verbose=True
             )
             state.engine = "llama_cpp"
-            state.gguf_path_used = _gguf
+            state.gguf_path_used = gguf_path
+            state.context_tokens = CONTEXT_TOKENS
+            state.fallback_reason = None
             logger.info("=" * 70)
             logger.info("MODEL LOADED SUCCESSFULLY (llama.cpp GGUF)")
             logger.info("=" * 70)
             return
-        except Exception:
+        except ImportError:
+            state.fallback_reason = "llama_cpp chưa được cài (ImportError)"
+            logger.exception("Nạp GGUF thất bại, fallback sang transformers...")
+        except Exception as e:
+            state.fallback_reason = f"Nạp GGUF thất bại ({type(e).__name__})"
             logger.exception("Nạp GGUF thất bại, fallback sang transformers...")
 
     # Ưu tiên 2: transformers base + LoRA (fallback, chậm hơn ~5 lần)
+    import torch
+    from transformers import AutoTokenizer, AutoModelForCausalLM
+    from peft import PeftModel
+
     lora_abs = _resolve(LORA_PATH)
     base_from_adapter = _adapter_base(LORA_PATH)
     base_name = BASE_MODEL_NAME
@@ -156,6 +205,7 @@ def load_model():
     state.model.to(device)
     state.model.eval()
     state.engine = "transformers"
+    state.context_tokens = CONTEXT_TOKENS
 
     logger.info("=" * 70)
     logger.info("MODEL LOADED SUCCESSFULLY (transformers + LoRA)")

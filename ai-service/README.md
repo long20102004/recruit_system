@@ -55,6 +55,29 @@ source .venv/bin/activate
 pip install -r requirements.txt
 ```
 
+### 3. Biến môi trường (tùy chọn, tất cả có giá trị mặc định)
+
+| Biến | Mặc định | Mô tả |
+|---|---|---|
+| `BASE_MODEL_NAME` | `unsloth/Qwen3-1.7B` | Base model dùng khi fallback `transformers` + LoRA |
+| `LORA_PATH` | `./checkpoint-250` | Thư mục LoRA adapter |
+| `GGUF_MODEL_PATH` | `./merged_model/model-qwen3-1.7b-q4_k_m.gguf` | Đường dẫn file GGUF; nếu không tồn tại thì tự dò file `*.gguf` trong `merged_model/` |
+| `CONTEXT_TOKENS` | `8192` | Context window; nếu chưa set thì fallback sang `MAX_INPUT_TOKENS` |
+| `MAX_INPUT_TOKENS` | `8192` | Giá trị fallback cũ của `CONTEXT_TOKENS` |
+| `MAX_NEW_TOKENS` | `1500` | Giới hạn số token sinh ra cho mỗi request |
+| `QUEUE_WAIT_SECONDS` | `30` | Thời gian tối đa chờ hàng đợi trước khi trả `503` "bận" |
+| `LOG_CV_CONTENT` | tắt | Đặt `1`/`true`/`yes`/`on` để log nội dung CV và raw output của model |
+
+---
+
+## 🧪 Chạy Test
+
+```bash
+cd ai-service
+pip install -r requirements-dev.txt
+python -m pytest -q
+```
+
 ---
 
 ## ⚙️ Các Chế Độ Chạy Inference
@@ -71,6 +94,12 @@ Dịch vụ hỗ trợ **2 cơ chế suy luận** (tự động phát hiện khi
   ```
 
 ### 🔹 Cách 2: Chạy tối ưu hóa với GGUF qua llama.cpp (Nhanh hơn, tiết kiệm RAM)
+- **Yêu cầu:** `llama-cpp-python` (đã có trong `requirements.txt`; bản mặc định chỉ chạy CPU, muốn chạy GPU thì cài lại bản CUDA):
+  ```bash
+  pip install llama-cpp-python
+  # Nếu dùng GPU NVIDIA (CUDA):
+  CMAKE_ARGS="-DGGML_CUDA=on" pip install llama-cpp-python
+  ```
 - Do file GGUF (`model-qwen3-1.7b-q4_k_m.gguf` ~ 1.11 GB) vượt quá hạn mức 100MB của GitHub nên file này không được push trực tiếp lên repo.
 - **Cách sử dụng:**
   1. Tải file `model-qwen3-1.7b-q4_k_m.gguf` từ link lưu trữ chia sẻ của dự án (Google Drive / Hugging Face).
@@ -79,6 +108,8 @@ Dịch vụ hỗ trợ **2 cơ chế suy luận** (tự động phát hiện khi
      ai-service/merged_model/model-qwen3-1.7b-q4_k_m.gguf
      ```
   3. Khởi chạy: `python3 main.py`. Hệ thống sẽ tự động ưu tiên nạp GGUF và chạy qua engine `llama.cpp`.
+- **Tự động nhận file GGUF:** nếu `GGUF_MODEL_PATH` không trỏ tới file tồn tại, service tự động dùng file `*.gguf` duy nhất trong `merged_model/`. Có nhiều hơn một file `.gguf` thì phải đặt `GGUF_MODEL_PATH` rõ ràng (không nạp được sẽ fallback sang `transformers` + LoRA).
+- **Khi GGUF không được dùng** (thiếu file, chưa cài `llama-cpp-python`, lỗi nạp), `/health` báo `fallback_reason` kèm lý do.
 
 ---
 
@@ -95,7 +126,16 @@ Dịch vụ hỗ trợ **2 cơ chế suy luận** (tự động phát hiện khi
   }
   ```
 - **Response:** `{"data": {...}}`, trong đó `data` gồm: `personal_info`, `objective`, `education`, `experience`, `personal_projects`, `skills`, `certificates`, `honours`, `languages`.
-- **Lỗi:** `400` nếu `cv_text` rỗng, `503` nếu model chưa load, `500` nếu trích xuất thất bại.
+- **Header:** mọi response của endpoint này đều kèm `X-Request-ID: <12 hex>`.
+- **Lỗi** (xem `specs/001-harden-ai-serving/contracts/extract-cv.md`):
+
+  | Status | Khi nào | `detail` |
+  |---|---|---|
+  | `400` | `cv_text` rỗng/khoảng trắng | `cv_text không được rỗng` |
+  | `413` | prompt tokens + output budget vượt context | `CV quá dài: <n> token, tối đa <max> token` |
+  | `503` | model chưa load | `Model chưa được load` |
+  | `503` | chờ xử lý quá `QUEUE_WAIT_SECONDS` | `Service đang bận, vui lòng thử lại sau` |
+  | `500` | lỗi nội bộ (không lộ chi tiết exception) | `Trích xuất CV thất bại (request_id=<id>)` |
 
 ### 2. Kiểm tra trạng thái service
 - **Method:** `GET`
@@ -107,7 +147,10 @@ Dịch vụ hỗ trợ **2 cơ chế suy luận** (tự động phát hiện khi
     "engine": "transformers",
     "model": "unsloth/Qwen3-1.7B",
     "lora": "./checkpoint-250",
-    "device": "cuda:0"
+    "device": "cuda:0",
+    "context_tokens": 8192,
+    "fallback_reason": "Không tìm thấy file GGUF"
   }
   ```
   Khi engine là `llama_cpp`, `model` là đường dẫn file GGUF và không có `lora`, `device`.
+- **Luôn có** `context_tokens` (số token context thực dùng). `fallback_reason` chỉ xuất hiện khi engine **không** phải `llama_cpp` (lý do không nạp được GGUF).

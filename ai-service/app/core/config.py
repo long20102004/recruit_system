@@ -16,6 +16,16 @@ MAX_NEW_TOKENS = int(os.getenv("MAX_NEW_TOKENS", "1500"))
 
 MAX_INPUT_TOKENS = int(os.getenv("MAX_INPUT_TOKENS", "8192"))
 
+CONTEXT_TOKENS: int = int(
+    os.getenv("CONTEXT_TOKENS") or os.getenv("MAX_INPUT_TOKENS") or "8192"
+)
+
+QUEUE_WAIT_SECONDS: float = float(os.getenv("QUEUE_WAIT_SECONDS", "30"))
+
+LOG_CV_CONTENT: bool = (
+    os.getenv("LOG_CV_CONTENT", "").strip().lower() in {"1", "true", "yes", "on"}
+)
+
 
 def _resolve(p: str) -> str:
     return p if os.path.isabs(p) else os.path.normpath(os.path.join(BASE_DIR, p))
