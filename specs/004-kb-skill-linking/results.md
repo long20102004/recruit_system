@@ -20,7 +20,7 @@
 | skill | 646 | 21 composites dropped (link via split), 4 kept as one concept (CI/CD, BRD/SRS, TCP/IP, EF Core) |
 | skill_alias | 662 | incl. 16 rare typos/variants folded at fuzzy ≥ 90 (e.g. "PostgreQl" → PostgreSQL, "REST APIs" → REST API, "Bootstrap 5" → Bootstrap) |
 | skill_edge | 136 | 100 REQUIRES, 36 PART_OF (e.g. Spring Boot REQUIRES Java, Spring Data JPA PART_OF Spring Boot, Next.js REQUIRES ReactJS) |
-| university / alias | 42 / 138 | 60 surface keys merged (e.g. PTIT = Học viện Công nghệ Bưu chính Viễn thông) |
+| university / alias | 298 / 746 | 282 from the public list (244 universities/academies + 38 member schools, Wikipedia rev. 75654510) + 16 train-only schools (open set); ambiguous aliases (shared abbreviations such as "DTU", bare member names) dropped |
 | job_title | 139 | |
 | section_heading | 84 | from backend `SectionDictionary` |
 
@@ -37,7 +37,7 @@ Categories, relations and university groupings are **LLM proposals** (`reviewed=
 | unlinked | 57 | 4.7% |
 | **linked** | **1,162 / 1,219** | **95.3%** |
 
-- Schools: 91/99 linked (91.9%).
+- Schools: 96/99 linked (97.0%; 91.9% with the train-only list). The reference list comes from outside the dataset, so this figure is less circular than the skill coverage. Schools are never rejected for being absent (open set).
 - Linking speed: 0.13 ms per CV (in-memory index). DB-backed and CSV-backed linkers give identical results (0 mismatches).
 - Unlinked: soft-skill sentences ("Chịu áp lực tốt", "Eager to learn") and technologies absent from train labels (ChatGPT, JSON, Deep Learning, JupyterLab).
 - Compared with the earlier measurement (exact 91.2%, normalised 0.8%, fuzzy 0.3%, unlinked 7.7%): fewer unlinked mentions, mainly thanks to composite splitting ("MySQL/PostgreSQL", "Java/Spring Boot").

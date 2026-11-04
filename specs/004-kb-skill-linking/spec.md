@@ -98,5 +98,6 @@ Category, Skill, SkillAlias, SkillEdge(src, rel, dst), University, UniversityAli
 - Silver gold labels are the seed source; the KB therefore covers the dataset's vocabulary well, which is circular for evaluation on the same distribution — the measurement report states this caveat (requirements.md).
 - Categories and relations are proposed by an LLM subagent from the canonical skill list (skill names are not personal data) and spot-checked by Claude; full human review by the team is tracked by the `reviewed` flag.
 - Company KB is out of scope (open set; grounding already enforces "must appear in CV").
+- **Amendment 2026-11-04 (user review)**: universities are also an open set. The university tables are a normalisation dictionary only (never a whitelist or a reason to flag a CV), seeded from a public list of Vietnamese universities/academies (Wikipedia, CC BY-SA) plus train schools; ambiguous aliases are dropped. Job titles follow the same rule.
 - Neo4j is optional and out of scope.
 - The backend is not connected to the KB in this feature; wiring is done where it is consumed (feature 005 in ai-service; Module 2 in backend).

@@ -86,6 +86,40 @@ def _is_composite(surface: str, non_composite_keys: set[str]) -> bool:
 
 
 
+def _read_reference_universities(path: Path) -> tuple[dict[str, list[str]], dict[str, str]]:
+    """Read the public university list (name_vi,name_en,abbreviation,group).
+
+    Returns (name -> alias surfaces, unambiguous alias_key -> name). Alias keys that
+    point to more than one university (e.g. shared abbreviations "DTU", or member
+    names like "Trường Đại học Kinh tế" without their parent) are dropped.
+    """
+    if not path.exists():
+        return {}, {}
+    unis: dict[str, list[str]] = {}
+    key_owners: dict[str, set[str]] = defaultdict(set)
+    with path.open(encoding="utf-8", newline="") as f:
+        for row in csv.DictReader(f):
+            name = (row.get("name_vi") or "").strip()
+            if not name:
+                continue
+            surfaces = [name]
+            for col in ("name_en", "abbreviation"):
+                v = (row.get(col) or "").strip()
+                if v and v not in ("—", "-"):
+                    surfaces.append(v)
+            group = (row.get("group") or "").strip()
+            if group and name.endswith(", " + group):
+                surfaces.append(name[: -len(", " + group)])
+            unis[name] = surfaces
+            for s in surfaces:
+                k = school_key(s)
+                if k:
+                    key_owners[k].add(name)
+    alias = {k: next(iter(owners)) for k, owners in key_owners.items() if len(owners) == 1}
+    unis = {n: [s for s in surfs if alias.get(school_key(s)) == n] for n, surfs in unis.items()}
+    return unis, alias
+
+
 # Rare keys (>= 5 chars) whose fuzz.ratio to a strictly more frequent key is >= this
 # threshold are folded into that key as an alias (silver labels contain typos).
 FUZZY_MERGE_THRESHOLD = 90
@@ -360,12 +394,37 @@ def build_seed(
             if ak:
                 alias_to_curated[ak] = (c_name, extras)
 
+    # Universities are an OPEN set (like companies): the public reference list is a
+    # normalisation dictionary, never a whitelist. Train schools that match it are
+    # attached to the reference entry; the others are kept as their own entries.
+    ref_unis, ref_alias = _read_reference_universities(curated_p / "vn_universities.csv")
+
     uni_by_canon: dict[str, dict[str, Any]] = {}
+    for name, aliases in ref_unis.items():
+        uni_by_canon[name] = {
+            "name": name,
+            "reviewed": False,
+            "gold_keys": {},
+            "extra_aliases": list(aliases),
+        }
+
     for k in sorted(school_surfaces.keys()):
         surfaces_dict = school_surfaces[k]
         if k in alias_to_curated:
             c_name, extras = alias_to_curated[k]
             reviewed = curated_uni_reviewed.get(c_name, False)
+            ref_name = next(
+                (
+                    ref_alias[x]
+                    for x in [k, school_key(c_name)] + [school_key(e) for e in extras]
+                    if x in ref_alias
+                ),
+                None,
+            )
+            if ref_name:
+                c_name = ref_name
+        elif k in ref_alias:
+            c_name, extras, reviewed = ref_alias[k], [], False
         else:
             c_name = min(
                 surfaces_dict.keys(),

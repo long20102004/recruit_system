@@ -405,3 +405,25 @@ def test_fuzzy_merge_folds_rare_typos_into_frequent_key():
     assert merged["restapis"] == "restapi"
     assert "gitlabci" not in merged  # 89 < 90: distinct products stay separate
     assert "javafx" not in merged  # short/different skill not folded
+
+
+def test_reference_universities_drop_ambiguous_aliases(tmp_path):
+    from kb.build_seed import _read_reference_universities
+    from app.kb.keys import school_key
+
+    p = tmp_path / "vn_universities.csv"
+    p.write_text(
+        "name_vi,name_en,abbreviation,group\n"
+        "Học viện Công nghệ Bưu chính Viễn thông,Posts & Telecoms Institute of Technology,PTIT,\n"
+        "Đại học Duy Tân,,DTU,\n"
+        "Trường Đại học Đồng Tháp,Dong Thap University,DTU,\n"
+        "\"Trường Đại học Kinh tế, Đại học Huế\",Hue University College of Economics,HCE,Đại học Huế\n"
+        "\"Trường Đại học Kinh tế, Đại học Đà Nẵng\",Danang University of Economics,DUE,Đại học Đà Nẵng\n",
+        encoding="utf-8",
+    )
+    unis, alias = _read_reference_universities(p)
+    assert alias[school_key("PTIT")] == "Học viện Công nghệ Bưu chính Viễn thông"
+    assert school_key("DTU") not in alias  # shared abbreviation -> ambiguous
+    assert school_key("Trường Đại học Kinh tế") not in alias  # member name without parent
+    assert alias[school_key("DUE")] == "Trường Đại học Kinh tế, Đại học Đà Nẵng"
+    assert len(unis) == 5
