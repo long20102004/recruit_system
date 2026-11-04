@@ -5,11 +5,12 @@ from __future__ import annotations
 import argparse
 import json
 from pathlib import Path
+import time
 from typing import Any, Sequence
 
 from eval.dataset import load_split
 from eval.metrics import aggregate, score_sample
-from eval.variants import VARIANTS
+from eval.variants import VARIANTS, VARIANT_ORDER, get_kb
 
 
 def _resolve_field(data: Any, path: str) -> Any:
@@ -40,6 +41,12 @@ def _get_metric_val(agg: dict[str, Any], field_path: str, metric_name: str | Non
             val = agg.get("latency_mean")
         elif field_path == "latency.p95":
             val = agg.get("latency_p95")
+        elif field_path in ("kg.implied_per_cv", "implied_per_cv"):
+            val = _resolve_field(agg, "kg.implied_per_cv") or agg.get("implied_per_cv")
+        elif field_path in ("kg.unlinked_rate", "unlinked_rate"):
+            val = _resolve_field(agg, "kg.unlinked_rate") or agg.get("unlinked_rate")
+        elif field_path in ("kg_ms_per_cv", "kg.ms_per_cv"):
+            val = agg.get("kg_ms_per_cv") or _resolve_field(agg, "kg.ms_per_cv")
 
     if val is None:
         return None
@@ -67,6 +74,7 @@ METRIC_SPECS: list[tuple[str, str, str | None, str | None]] = [
     ("proj_name_f1", "personal_projects.name (F1)", "personal_projects.name", "f1"),
     ("exp_title_f1", "experience.job_title (F1)", "experience.job_title", "f1"),
     ("skills_f1", "skills (F1)", "skills", "f1"),
+    ("skills_canonical_f1", "skills_canonical (F1)", "skills_canonical", "f1"),
     ("certificates_f1", "certificates (F1)", "certificates", "f1"),
     ("honours_f1", "honours (F1)", "honours", "f1"),
     ("languages_f1", "languages (F1)", "languages", "f1"),
@@ -76,13 +84,16 @@ METRIC_SPECS: list[tuple[str, str, str | None, str | None]] = [
     ("github_url_acc", "personal_info.github_url (Acc)", "personal_info.github_url", "accuracy"),
     ("latency_mean", "Latency mean (s)", "latency.mean", None),
     ("latency_p95", "Latency p95 (s)", "latency.p95", None),
+    ("implied_skills_per_cv", "implied skills / CV", "kg.implied_per_cv", None),
+    ("unlinked_skill_rate", "unlinked skill rate", "kg.unlinked_rate", None),
+    ("kg_ms_per_cv", "KG ms / CV", "kg_ms_per_cv", None),
 ]
 
 
 def build_report(
     run_dir: str | Path,
     split_paths: Sequence[str | Path],
-    variants: Sequence[str] = ("A", "B"),
+    variants: Sequence[str] = ("A", "B", "C"),
 ) -> dict[str, Any]:
     """Score predictions, aggregate metrics and build markdown/json reports."""
     run_path = Path(run_dir)
@@ -102,6 +113,9 @@ def build_report(
                         pred_records[str(rec["id"])] = rec
                 except Exception:
                     continue
+
+    kb = get_kb()
+    linker = getattr(kb, "linker", None) if kb is not None else None
 
     all_scores_entries: list[dict[str, Any]] = []
     report_data: dict[str, Any] = {
@@ -128,6 +142,7 @@ def build_report(
             var_fn = VARIANTS[var_name]
             scores: list[dict[str, Any]] = []
             latencies: list[float] = []
+            c_times_ms: list[float] = []
             missing_count = 0
 
             for sample in samples:
@@ -141,11 +156,17 @@ def build_report(
                     continue
 
                 if rec.get("status") == 200:
-                    pred_data = var_fn(rec.get("data"), cv_text)
+                    raw_data = rec.get("data")
+                    if var_name == "C":
+                        t0 = time.perf_counter()
+                        pred_data = var_fn(raw_data, cv_text)
+                        c_times_ms.append((time.perf_counter() - t0) * 1000.0)
+                    else:
+                        pred_data = var_fn(raw_data, cv_text)
                 else:
                     pred_data = None
 
-                sc = score_sample(pred_data, gold, cv_text)
+                sc = score_sample(pred_data, gold, cv_text, linker=linker)
                 scores.append(sc)
                 all_scores_entries.append({
                     "id": sample_id,
@@ -159,6 +180,12 @@ def build_report(
                     latencies.append(float(lat))
 
             agg = aggregate(scores, latencies=latencies) if scores else {}
+            if var_name == "C" and c_times_ms:
+                avg_c_ms = sum(c_times_ms) / len(c_times_ms)
+                agg["kg_ms_per_cv"] = avg_c_ms
+                if "kg" in agg and isinstance(agg["kg"], dict):
+                    agg["kg"]["ms_per_cv"] = avg_c_ms
+
             report_data["splits"][split_name][var_name] = {
                 "n": len(scores),
                 "missing": missing_count,
@@ -222,7 +249,7 @@ def main() -> None:
     parser = argparse.ArgumentParser(description="Build evaluation report comparing variants across splits")
     parser.add_argument("--run", required=True, help="Run directory containing predictions.jsonl")
     parser.add_argument("--splits", nargs="+", required=True, help="Paths to split JSONL files")
-    parser.add_argument("--variants", nargs="+", default=["A", "B"], help="Variants to evaluate (default: A B)")
+    parser.add_argument("--variants", nargs="+", default=["A", "B", "C"], help="Variants to evaluate (default: A B C)")
     args = parser.parse_args()
 
     build_report(

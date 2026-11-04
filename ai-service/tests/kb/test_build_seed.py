@@ -427,3 +427,30 @@ def test_reference_universities_drop_ambiguous_aliases(tmp_path):
     assert school_key("Trường Đại học Kinh tế") not in alias  # member name without parent
     assert alias[school_key("DUE")] == "Trường Đại học Kinh tế, Đại học Đà Nẵng"
     assert len(unis) == 5
+
+
+def test_curated_alias_merges_variant(base_setup):
+    """skill_aliases_curated.csv folds a variant the fuzzy rule misses."""
+    import json as _json
+
+    train = base_setup["train_file"]
+    rows = [_json.loads(l) for l in train.read_text(encoding="utf-8").splitlines() if l.strip()]
+    out = _json.loads(rows[0]["output"]) if isinstance(rows[0]["output"], str) else rows[0]["output"]
+    out["skills"] = out.get("skills", []) + ["PostgreSQL", "PostgreSQL", "Postgres"]
+    rows[0]["output"] = _json.dumps(out, ensure_ascii=False)
+    train.write_text("\n".join(_json.dumps(r, ensure_ascii=False) for r in rows) + "\n", encoding="utf-8")
+    (base_setup["curated_dir"] / "skill_aliases_curated.csv").write_text(
+        "variant,canonical,reviewed\nPostgres,PostgreSQL,true\n", encoding="utf-8"
+    )
+    build_seed(
+        train_path=train,
+        out_dir=base_setup["out_dir"],
+        curated_dir=base_setup["curated_dir"],
+        section_dict_path=base_setup["java_file"],
+    )
+    with (base_setup["out_dir"] / "skills.csv").open(encoding="utf-8") as f:
+        names = {r["name"]: r["id"] for r in csv.DictReader(f)}
+    with (base_setup["out_dir"] / "skill_aliases.csv").open(encoding="utf-8") as f:
+        aliases = {r["alias_key"]: r["skill_id"] for r in csv.DictReader(f)}
+    assert "Postgres" not in names
+    assert aliases["postgres"] == names["PostgreSQL"]

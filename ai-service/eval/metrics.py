@@ -17,7 +17,61 @@ from app.postprocess.text_match import (
     normalize_with_map,
 )
 
-__all__ = ["score_sample", "aggregate"]
+__all__ = ["score_sample", "aggregate", "canonical_skill_set"]
+
+
+def canonical_skill_set(profile: dict | None, linker: Any) -> set[str]:
+    """Extract canonical skills set from profile using KB linker.
+
+    If profile contains 'skills_normalized' list, uses it:
+      - id is not None -> f"id:{id}"
+      - unlinked -> "raw:" + normalize(raw)
+    Otherwise links profile['skills'] using linker.link_many with the same rule.
+    """
+    if not isinstance(profile, dict) or linker is None:
+        return set()
+
+    canon_skills: set[str] = set()
+    skills_norm = profile.get("skills_normalized")
+
+    if isinstance(skills_norm, list):
+        for item in skills_norm:
+            if isinstance(item, dict):
+                sid = item.get("id")
+                raw = item.get("raw")
+            else:
+                sid = getattr(item, "id", None)
+                raw = getattr(item, "raw", None)
+
+            if sid is not None:
+                canon_skills.add(f"id:{sid}")
+            else:
+                raw_norm = normalize(str(raw)) if raw is not None else ""
+                if raw_norm:
+                    canon_skills.add(f"raw:{raw_norm}")
+    else:
+        raw_skills = profile.get("skills") or []
+        if not isinstance(raw_skills, (list, tuple)):
+            raw_skills = [raw_skills]
+
+        link_many_fn = getattr(linker, "link_many", None)
+        links = link_many_fn(raw_skills) if callable(link_many_fn) else []
+        for link in links:
+            if isinstance(link, dict):
+                sid = link.get("skill_id", link.get("id"))
+                raw = link.get("raw")
+            else:
+                sid = getattr(link, "skill_id", getattr(link, "id", None))
+                raw = getattr(link, "raw", None)
+
+            if sid is not None:
+                canon_skills.add(f"id:{sid}")
+            else:
+                raw_norm = normalize(str(raw)) if raw is not None else ""
+                if raw_norm:
+                    canon_skills.add(f"raw:{raw_norm}")
+
+    return canon_skills
 
 
 def _clean_github(url: str | None) -> str:
@@ -191,7 +245,12 @@ def _count_ungrounded(profile: dict, cv_text: str) -> dict[str, int]:
     return {"total": total, "ungrounded": ungrounded}
 
 
-def score_sample(pred: dict | None, gold: dict, cv_text: str) -> dict:
+def score_sample(
+    pred: dict | None,
+    gold: dict,
+    cv_text: str,
+    linker: Any = None,
+) -> dict:
     """Score a single sample prediction against gold labels.
 
     If pred is None or not a dict, scores['valid'] is False and evaluated
@@ -332,7 +391,7 @@ def score_sample(pred: dict | None, gold: dict, cv_text: str) -> dict:
     score_halluc = _count_ungrounded(norm_pred, cv_text)
     score_gold_ungrounded = _count_ungrounded(norm_gold, cv_text)
 
-    return {
+    res: dict[str, Any] = {
         "valid": valid,
         "personal_info": {
             "full_name": score_full_name,
@@ -358,6 +417,36 @@ def score_sample(pred: dict | None, gold: dict, cv_text: str) -> dict:
         "gold_ungrounded": score_gold_ungrounded,
     }
 
+    if linker is not None:
+        pred_canon = canonical_skill_set(pred if valid else None, linker)
+        gold_skills_raw = norm_gold.get("skills", [])
+        gold_canon = canonical_skill_set({"skills": gold_skills_raw}, linker)
+        tp = len(pred_canon & gold_canon)
+        fp = len(pred_canon - gold_canon)
+        fn = len(gold_canon - pred_canon)
+        res["skills_canonical"] = {"tp": tp, "fp": fp, "fn": fn}
+
+    if isinstance(pred, dict) and "implied_skills" in pred:
+        implied_list = pred.get("implied_skills")
+        if isinstance(implied_list, list):
+            skills_norm = pred.get("skills_normalized") or []
+            if not isinstance(skills_norm, list):
+                skills_norm = []
+            unlinked_cnt = sum(
+                1
+                for s in skills_norm
+                if (isinstance(s, dict) and s.get("method") == "unlinked")
+                or (not isinstance(s, dict) and getattr(s, "method", None) == "unlinked")
+            )
+            linked_cnt = len(skills_norm) - unlinked_cnt
+            res["kg"] = {
+                "implied": len(implied_list),
+                "unlinked": unlinked_cnt,
+                "linked": linked_cnt,
+            }
+
+    return res
+
 
 def aggregate(
     scores: list[dict],
@@ -381,7 +470,7 @@ def aggregate(
     valid_rate = valid_count / n
 
     # Micro P/R/F1 for list fields
-    list_field_keys = (
+    list_field_keys = [
         "education.school",
         "experience.company",
         "experience.job_title",
@@ -390,13 +479,15 @@ def aggregate(
         "certificates",
         "honours",
         "languages.language",
-    )
+    ]
+    if any("skills_canonical" in s for s in scores):
+        list_field_keys.append("skills_canonical")
 
     fields_summary: dict[str, Any] = {}
     for key in list_field_keys:
-        tp_total = sum(s[key]["tp"] for s in scores)
-        fp_total = sum(s[key]["fp"] for s in scores)
-        fn_total = sum(s[key]["fn"] for s in scores)
+        tp_total = sum(s[key]["tp"] for s in scores if key in s)
+        fp_total = sum(s[key]["fp"] for s in scores if key in s)
+        fn_total = sum(s[key]["fn"] for s in scores if key in s)
 
         p = tp_total / (tp_total + fp_total) if (tp_total + fp_total) > 0 else None
         r = tp_total / (tp_total + fn_total) if (tp_total + fn_total) > 0 else None
@@ -509,6 +600,20 @@ def aggregate(
             "total": n,
         },
     }
+
+    kg_entries = [s["kg"] for s in scores if isinstance(s.get("kg"), dict)]
+    if kg_entries:
+        implied_mean = sum(k.get("implied", 0) for k in kg_entries) / len(kg_entries)
+        unlinked_tot = sum(k.get("unlinked", 0) for k in kg_entries)
+        linked_tot = sum(k.get("linked", 0) for k in kg_entries)
+        denom = linked_tot + unlinked_tot
+        unlinked_rate = (unlinked_tot / denom) if denom > 0 else 0.0
+        result["kg"] = {
+            "implied_per_cv": implied_mean,
+            "unlinked_rate": unlinked_rate,
+        }
+        result["implied_per_cv"] = implied_mean
+        result["unlinked_rate"] = unlinked_rate
 
     # Expose list fields and scalar fields directly at top-level
     for k, v in fields_summary.items():

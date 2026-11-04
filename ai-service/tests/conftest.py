@@ -37,6 +37,11 @@ class FakeLlm:
 def no_model_load(monkeypatch):
     """Chặn load_model thật khi FastAPI startup chạy trong TestClient."""
     monkeypatch.setattr("app.main.load_model", lambda: None)
+    # Tests opt in to KG enrichment by setting app.kb.store.kb_state["kb"] themselves.
+    monkeypatch.setattr("app.main.load_kb", lambda *a, **k: None)
+    from app.kb.store import kb_state
+
+    kb_state["kb"] = None
 
 
 @pytest.fixture()

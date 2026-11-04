@@ -237,6 +237,18 @@ def build_seed(
     # 3b. Fold rare spelling variants into a more frequent key
     #     ("PostgreQl" -> PostgreSQL, "REST APIs" -> REST API, "Bootstrap 5" -> Bootstrap).
     merged_into = _fuzzy_merge_targets(skill_groups, non_composite_keys, curated_keep_composite)
+    # Manual merges the fuzzy rule misses (e.g. "Postgres" -> PostgreSQL, ratio 89 < 90).
+    for row in _read_csv_rows(curated_p / "skill_aliases_curated.csv"):
+        v_key = skill_key((row.get("variant") or "").strip())
+        c_key = skill_key((row.get("canonical") or "").strip())
+        if v_key and c_key and v_key != c_key and v_key in skill_groups and c_key in skill_groups:
+            merged_into[v_key] = merged_into.get(c_key, c_key)
+    for k, t in list(merged_into.items()):  # re-resolve chains after manual merges
+        seen = {k}
+        while t in merged_into and t not in seen:
+            seen.add(t)
+            t = merged_into[t]
+        merged_into[k] = t
 
     composites_dropped = 0
     kept_skills: list[dict[str, Any]] = []

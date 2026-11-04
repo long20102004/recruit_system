@@ -6,6 +6,8 @@ from fastapi import APIRouter, HTTPException, Response
 from app.core import config
 from app.core.errors import InputTooLongError, ModelBusyError
 from app.core.logging import logger
+from app.kb.store import kb_state, kb_summary
+from app.kg.enrich import enrich
 from app.postprocess import postprocess
 from app.schemas.cv import CVRequest, CVResponse
 from app.services.generator import generate_cv
@@ -36,6 +38,8 @@ def health():
     fallback_reason = getattr(state, "fallback_reason", None)
     if fallback_reason is not None:
         info["fallback_reason"] = fallback_reason
+
+    info["kb"] = kb_summary(kb_state["kb"])
 
     return info
 
@@ -73,6 +77,7 @@ def extract_cv(request: CVRequest, response: Response):
 
         data = extract_json(raw_output)
 
+        pp_stats = None
         if config.POSTPROCESS_ENABLED:
             try:
                 data, pp_stats = postprocess(data, cv_text)
@@ -82,6 +87,24 @@ def extract_cv(request: CVRequest, response: Response):
             except Exception as e:
                 logger.error(
                     "request_id=%s postprocess failed type=%s",
+                    request_id,
+                    type(e).__name__,
+                )
+
+        kb = kb_state["kb"]
+        if config.KG_ENABLED and kb is not None and isinstance(data, dict):
+            try:
+                data = enrich(data, kb, pp_stats)
+                logger.info(
+                    "request_id=%s kg skills=%d implied=%d flags=%d",
+                    request_id,
+                    len(data.get("skills_normalized", [])),
+                    len(data.get("implied_skills", [])),
+                    len(data.get("flags", [])),
+                )
+            except Exception as e:
+                logger.error(
+                    "request_id=%s kg enrichment failed type=%s",
                     request_id,
                     type(e).__name__,
                 )

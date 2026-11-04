@@ -3,6 +3,7 @@ from fastapi import FastAPI
 from app.api.routes import router
 from app.core import config
 from app.core.logging import logger
+from app.kb.store import kb_state, load_kb
 from app.services.model_loader import load_model
 
 app = FastAPI(
@@ -19,3 +20,5 @@ def startup():
             "LOG_CV_CONTENT=true: raw model output (có thể chứa dữ liệu cá nhân) sẽ được ghi log. Không bật ở production."
         )
     load_model()
+    if config.KG_ENABLED:
+        kb_state["kb"] = load_kb(config.KB_DSN, config.KB_SEED_DIR)

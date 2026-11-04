@@ -68,6 +68,9 @@ pip install -r requirements.txt
 | `MAX_NEW_TOKENS` | `1500` | Giới hạn số token sinh ra cho mỗi request |
 | `QUEUE_WAIT_SECONDS` | `30` | Thời gian tối đa chờ hàng đợi trước khi trả `503` "bận" |
 | `POSTPROCESS_ENABLED` | `true` | Bật/tắt tầng hậu kiểm grounding (`0`/`false`/`no`/`off` để tắt — phục vụ ablation) |
+| `KG_ENABLED` | `true` | Bật/tắt tầng làm giàu KG (`0`/`false`/`no`/`off` để tắt) |
+| `KB_DSN` | unset | Connection string PostgreSQL KB (ví dụ: `postgresql://user:pass@host:5433/recruit_kb`) |
+| `KB_SEED_DIR` | `./kb/seed` | Thư mục chứa các file seed CSV dùng khi offline hoặc fallback |
 | `LOG_CV_CONTENT` | tắt | Đặt `1`/`true`/`yes`/`on` để log nội dung CV và raw output của model |
 
 ---
@@ -127,7 +130,7 @@ Dịch vụ hỗ trợ **2 cơ chế suy luận** (tự động phát hiện khi
     "cv_text": "Họ và tên: Nguyễn Văn A\nEmail: anguyen@example.com\nSố điện thoại: 0912345678\nKỹ năng: Java, Spring Boot, PostgreSQL..."
   }
   ```
-- **Response:** `{"data": {...}}`, trong đó `data` gồm: `personal_info`, `objective`, `education`, `experience`, `personal_projects`, `skills`, `certificates`, `honours`, `languages`.
+- **Response:** `{"data": {...}}`, trong đó `data` gồm: `personal_info`, `objective`, `education`, `experience`, `personal_projects`, `skills`, `certificates`, `honours`, `languages`, kèm các trường làm giàu KG khi bật (`skills_normalized`, `implied_skills`, `flags`, và `school_normalized` trong `education`).
 - **Header:** mọi response của endpoint này đều kèm `X-Request-ID: <12 hex>`.
 - **Lỗi** (xem `specs/001-harden-ai-serving/contracts/extract-cv.md`):
 
@@ -145,7 +148,7 @@ Dịch vụ hỗ trợ **2 cơ chế suy luận** (tự động phát hiện khi
 
 Dịch vụ áp dụng tầng hậu kiểm (grounding) chạy ngay sau bước trích xuất JSON (`extract_json -> postprocess -> response`) nhằm loại bỏ ảo giác (hallucination) và chuẩn hóa dữ liệu:
 
-- **Luồng xử lý**: `extract_json` → `postprocess` → trả về `response`.
+- **Luồng xử lý**: `extract_json` → `postprocess` → `enrich` (nếu bật KG) → trả về `response`.
 - **Các luật xử lý**:
   - **Chuẩn hoá khoá & kiểu**: Chuẩn hoá tên khoá alias (`honors` → `honours`, `certifications` → `certificates`, `projects` → `personal_projects`...), hoàn thiện schema với giá trị mặc định, ép kiểu dữ liệu (chuyển `description` chuỗi thành danh sách gạch đầu dòng, `team_size` thành số nguyên).
   - **Làm sạch kỹ năng (skills)**: Cắt bỏ nhãn nhóm tiền tố (ví dụ: `"Backend: Spring Boot"` → `"Spring Boot"`), loại bỏ ký tự phân tách dư thừa, deduplicate không phân biệt hoa thường và giữ nguyên thứ tự xuất hiện đầu tiên. Áp dụng tương tự cho `tech_stack` của dự án.
@@ -160,11 +163,72 @@ Dịch vụ áp dụng tầng hậu kiểm (grounding) chạy ngay sau bước t
 
 ---
 
+## 🕸️ Làm giàu KG (skills_normalized, implied_skills, flags)
+
+Tầng làm giàu đồ thị tri thức (`enrich`) chạy sau tầng hậu kiểm nhằm chuẩn hóa thực thể và bổ sung tri thức suy diễn:
+
+- **Luồng xử lý**: `extract_json` → `postprocess` → `enrich` → `response`.
+- **Nguồn Knowledge Base (KB)**:
+  - Khi khởi động, dịch vụ cố gắng kết nối PostgreSQL qua biến môi trường `KB_DSN`.
+  - Nếu `KB_DSN` không được cấu hình hoặc kết nối thất bại, dịch vụ tự động fallback sang nạp offline từ thư mục seed CSV (`KB_SEED_DIR`, mặc định `./kb/seed`).
+  - Trạng thái nạp KB được phản ánh trong endpoint `GET /health` qua trường `"kb": {"source": "postgres" | "csv", "skills": int, "universities": int}` (hoặc `null` nếu tắt/lỗi).
+- **Các trường mới và ý nghĩa**:
+  - `skills_normalized`: Danh sách kỹ năng chuẩn hóa tương ứng với các kỹ năng đã trích xuất, mỗi phần tử gồm `{raw, id, name, category, method}`. Phương thức liên kết `method` gồm `exact`, `normalized`, `split`, `fuzzy` hoặc `unlinked` (khi unlinked thì `id`, `name`, `category` là `null`). Kỹ năng trùng lặp ID được gom lại và giữ nguyên thứ tự xuất hiện ban đầu.
+  - `implied_skills`: Các kỹ năng được suy diễn gián tiếp qua quan hệ tri thức (`REQUIRES`, `PART_OF`), mỗi phần tử gồm `{id, name, category, via: [{"from": str, "rel": str}]}`. **Quan trọng**: `implied_skills` không bao giờ trùng lặp với `skills_normalized` và **không bao giờ gộp vào danh sách `skills`** gốc của ứng viên.
+  - `school_normalized` (trong từng mục `education`): Đối tượng `{id, name}` chuẩn hóa trường đại học/học viện từ KB. **Lưu ý**: Trường học và chức danh công việc là tập mở (open set); nếu trường học không có trong KB thì `school_normalized` mang giá trị `null` và đây **không phải lỗi, không gắn cờ**.
+  - `flags`: Cờ cảnh báo hỗ trợ nhà tuyển dụng rà soát thủ công, mỗi phần tử gồm `{code, count, field}`. Cờ **tuyệt đối không chứa giá trị nội dung CV thô**. Các mã cờ gồm:
+    - `UNGROUNDED_REMOVED`: Số mục bị tầng hậu kiểm loại bỏ do không tìm thấy căn cứ trong CV.
+    - `CONTACT_NULLED`: Số trường liên hệ (`email`, `phone`, `github_url`, `full_name`) bị gán `null`.
+    - `EXPERIENCE_REMOVED`: Số kinh nghiệm bị loại bỏ do không có căn cứ hoặc vi phạm phân loại (sinh viên, học viên...).
+    - `SKILLS_UNLINKED`: Số lượng kỹ năng không liên kết được vào KB (`field: "skills"`).
+    - `MISSING_CONTACT`: Cảnh báo khi hồ sơ thiếu cả email lẫn số điện thoại (`field: "personal_info"`).
+
+**Ví dụ JSON tổng hợp**:
+```json
+{
+  "data": {
+    "personal_info": {"full_name": "Nguyễn Văn A", "email": "a@example.com", "phone": "0912345678"},
+    "education": [
+      {
+        "school": "PTIT",
+        "major": "Công nghệ thông tin",
+        "school_normalized": {
+          "id": 187,
+          "name": "Học viện Công nghệ Bưu chính Viễn thông"
+        }
+      }
+    ],
+    "skills": ["React.js", "Postgress", "Spring Boot", "Chịu áp lực tốt"],
+    "skills_normalized": [
+      {"raw": "React.js", "id": 452, "name": "ReactJS", "category": "Frontend", "method": "exact"},
+      {"raw": "Postgress", "id": 431, "name": "PostgreSQL", "category": "Database", "method": "fuzzy"},
+      {"raw": "Spring Boot", "id": 305, "name": "Spring Boot", "category": "Backend Framework", "method": "exact"},
+      {"raw": "Chịu áp lực tốt", "id": null, "name": null, "category": null, "method": "unlinked"}
+    ],
+    "implied_skills": [
+      {
+        "id": 300,
+        "name": "Java",
+        "category": "Programming Language",
+        "via": [{"from": "Spring Boot", "rel": "REQUIRES"}]
+      }
+    ],
+    "flags": [
+      {"code": "UNGROUNDED_REMOVED", "count": 1, "field": null},
+      {"code": "SKILLS_UNLINKED", "count": 1, "field": "skills"}
+    ]
+  }
+}
+```
+
+---
+
 ## 📊 Đánh giá (Evaluation / Ablation)
 
 Bộ công cụ đánh giá ngoại tuyến (`ai-service/eval/`) phục vụ đo lường chất lượng mô hình và ablation study so sánh giữa:
 - **Biến thể A**: Mô hình thuần (Model-only raw output).
 - **Biến thể B**: Mô hình kết hợp tầng hậu kiểm (`postprocess`), áp dụng offline trên cùng output của A.
+- **Biến thể C**: Mô hình kết hợp hậu kiểm và tầng làm giàu tri thức KG (`enrich`).
 
 ### Dữ liệu đánh giá
 Dữ liệu được lưu tại thư mục `ai-service/data/` (đã cấu hình trong `.gitignore`, tải về từ Google Drive dự án):
@@ -177,6 +241,7 @@ Dữ liệu được lưu tại thư mục `ai-service/data/` (đã cấu hình 
 ### Chỉ số đánh giá (Metrics)
 Báo cáo chỉ chứa số liệu tổng hợp (aggregate), tuyệt đối không để lộ nội dung CV thô:
 - **F1 theo trường**: F1 cho các trường danh sách (`education.school`, `experience.company`, `personal_projects.name`, `experience.job_title`, `skills`, `certificates`, `honours`, `languages`) và Accuracy cho các trường liên hệ (`personal_info`).
+- **`skills_canonical`**: F1 cho kỹ năng đã chuẩn hóa về KB ID (hoặc chuỗi chuẩn hóa nếu unlinked) giúp đo lường mức độ biểu diễn chuẩn xác thay vì so sánh chuỗi thô.
 - **`hallucination_rate`**: Tỷ lệ các giá trị thực thể mô hình sinh ra nhưng không tìm thấy căn cứ (grounding) trong văn bản CV gốc.
 - **`gold_ungrounded_rate`**: Tỷ lệ thực thể trong nhãn chuẩn (gold silver-label) không có căn cứ trong CV, phản ánh độ nhiễu của nhãn silver tạo bởi LLM.
 - **`valid_rate`**: Tỷ lệ dự đoán hợp lệ theo đúng định dạng JSON/Schema.
@@ -197,7 +262,7 @@ POSTPROCESS_ENABLED=false python main.py &
 python -m eval.predict --split data/val.jsonl      --run data/runs/v1 --base-url http://localhost:8000
 python -m eval.predict --split data/val_swap.jsonl --run data/runs/v1 --base-url http://localhost:8000
 
-# 4. Tính toán điểm số A/B và xuất báo cáo (report.md, report.json)
+# 4. Tính toán điểm số các biến thể (mặc định A, B, C) và xuất báo cáo (report.md, report.json)
 python -m eval.report  --run data/runs/v1 --splits data/val.jsonl data/val_swap.jsonl
 ```
 
@@ -215,11 +280,16 @@ python -m eval.report  --run data/runs/v1 --splits data/val.jsonl data/val_swap.
     "lora": "./checkpoint-250",
     "device": "cuda:0",
     "context_tokens": 8192,
-    "fallback_reason": "Không tìm thấy file GGUF"
+    "fallback_reason": "Không tìm thấy file GGUF",
+    "kb": {
+      "source": "postgres",
+      "skills": 1250,
+      "universities": 180
+    }
   }
   ```
   Khi engine là `llama_cpp`, `model` là đường dẫn file GGUF và không có `lora`, `device`.
-- **Luôn có** `context_tokens` (số token context thực dùng). `fallback_reason` chỉ xuất hiện khi engine **không** phải `llama_cpp` (lý do không nạp được GGUF).
+- **Luôn có** `context_tokens` (số token context thực dùng). `fallback_reason` chỉ xuất hiện khi engine **không** phải `llama_cpp` (lý do không nạp được GGUF). Trường `"kb"` phản ánh trạng thái nạp Knowledge Base (`{"source": "postgres" | "csv", "skills": int, "universities": int}` hoặc `null` nếu tắt/chưa nạp).
 
 ---
 
@@ -250,9 +320,10 @@ python -m kb.build_seed \
   --curated kb/seed \
   --section-dict ../backend/src/main/java/recruit/demo/extraction/section/SectionDictionary.java
 ```
-- Bộ seed CSV (`skills.csv`, `skill_aliases.csv`, `skill_edges.csv`, `skill_categories.csv`) được commit vào repo để phục vụ offline linker (`from_csv`).
-- Các file `*_curated.csv` là đề xuất từ máy với `reviewed=false`.
-- **Quy trình duyệt**: Chỉnh sửa category/edge trong file curated, đổi cờ thành `reviewed=true`, sau đó chạy lại lệnh build để tích hợp.
+- Bộ seed CSV (`skills.csv`, `skill_aliases.csv`, `skill_edges.csv`, `skill_categories.csv`, `universities.csv`, `university_aliases.csv`) được commit vào repo để phục vụ offline linker (`from_csv`) và fallback khi không có DB.
+- File `kb/seed/skill_aliases_curated.csv` dùng để gộp thủ công biến thể kỹ năng (cột: `variant,canonical,reviewed`): khi đặt `reviewed=true`, quá trình build sẽ ánh xạ biến thể sang canonical skill tương ứng.
+- Các file `*_curated.csv` khác là đề xuất từ máy với `reviewed=false`.
+- **Quy trình duyệt**: Chỉnh sửa category/edge/alias trong file curated, đổi cờ thành `reviewed=true`, sau đó chạy lại lệnh build để tích hợp.
 - Thuật toán tự động gộp các lỗi chính tả hiếm gặp vào kỹ năng phổ biến bằng fuzzy matching ($\ge 90$).
 
 ### 4. Nạp dữ liệu vào DB (Load)

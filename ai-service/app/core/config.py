@@ -33,3 +33,12 @@ def _resolve(p: str) -> str:
 POSTPROCESS_ENABLED: bool = (
     os.getenv("POSTPROCESS_ENABLED", "true").strip().lower() not in {"0", "false", "no", "off"}
 )
+
+KG_ENABLED: bool = (
+    os.getenv("KG_ENABLED", "true").strip().lower() not in {"0", "false", "no", "off"}
+)
+
+KB_DSN: str | None = os.getenv("KB_DSN") or None
+
+KB_SEED_DIR: str = _resolve(os.getenv("KB_SEED_DIR", "./kb/seed"))
+
