@@ -37,7 +37,7 @@ ai-service/
 ### 1. Yêu cầu tiên quyết
 - Python 3.10 trở lên.
 - Đã cài đặt `pip` và `virtualenv`.
-- Thư viện phụ thuộc mới: `rapidfuzz` (hỗ trợ fuzzy matching grounding cho tầng hậu kiểm).
+- Thư viện phụ thuộc mới: `rapidfuzz` (hỗ trợ fuzzy matching grounding cho tầng hậu kiểm), `psycopg[binary]` (kết nối PostgreSQL Knowledge Base).
 
 ### 2. Thiết lập môi trường ảo
 ```bash
@@ -220,3 +220,74 @@ python -m eval.report  --run data/runs/v1 --splits data/val.jsonl data/val_swap.
   ```
   Khi engine là `llama_cpp`, `model` là đường dẫn file GGUF và không có `lora`, `device`.
 - **Luôn có** `context_tokens` (số token context thực dùng). `fallback_reason` chỉ xuất hiện khi engine **không** phải `llama_cpp` (lý do không nạp được GGUF).
+
+---
+
+## 🧠 Knowledge Base (KB) & Skill Linking
+
+Hệ thống Knowledge Base lưu trữ đồ thị tri thức kỹ năng (skills graph) và hỗ trợ liên kết kỹ năng (skill linking) đa tầng (`exact` -> `normalized` -> `split` -> `fuzzy` -> `unlinked`).
+
+### 1. Khởi động DB
+```bash
+cp infra/kb/.env.example infra/kb/.env
+# Chỉnh sửa infra/kb/.env và đặt KB_PASSWORD an toàn
+docker compose -f infra/kb/docker-compose.yml --env-file infra/kb/.env up -d
+```
+*Ghi chú: Service chạy trên cổng `5433` để tránh xung đột với các instance PostgreSQL khác trên máy.*
+
+### 2. Làm sạch dữ liệu silver
+```bash
+cd ai-service
+python -m kb.clean_silver --in data/*.jsonl --out-dir data/clean
+```
+
+### 3. Xây dựng seed kỹ năng
+```bash
+cd ai-service
+python -m kb.build_seed \
+  --train data/clean/train.jsonl \
+  --out kb/seed \
+  --curated kb/seed \
+  --section-dict ../backend/src/main/java/recruit/demo/extraction/section/SectionDictionary.java
+```
+- Bộ seed CSV (`skills.csv`, `skill_aliases.csv`, `skill_edges.csv`, `skill_categories.csv`) được commit vào repo để phục vụ offline linker (`from_csv`).
+- Các file `*_curated.csv` là đề xuất từ máy với `reviewed=false`.
+- **Quy trình duyệt**: Chỉnh sửa category/edge trong file curated, đổi cờ thành `reviewed=true`, sau đó chạy lại lệnh build để tích hợp.
+- Thuật toán tự động gộp các lỗi chính tả hiếm gặp vào kỹ năng phổ biến bằng fuzzy matching ($\ge 90$).
+
+### 4. Nạp dữ liệu vào DB (Load)
+```bash
+cd ai-service
+python -m kb.load --dsn $KB_DSN
+```
+*Script đảm bảo tính idempotent (chạy nhiều lần không trùng lặp) và kiểm tra toàn vẹn dữ liệu (integrity check) sau khi nạp.*
+
+### 5. Sử dụng Skill Linker
+```python
+from app.kb.linker import SkillLinker
+
+# Nạp từ cơ sở dữ liệu PostgreSQL
+linker = SkillLinker.from_db(dsn)
+
+# Hoặc nạp offline từ thư mục seed CSV (không cần DB)
+linker = SkillLinker.from_csv("kb/seed")
+
+# Thực hiện liên kết thực thể kỹ năng
+result = linker.link("ReactJS")
+# result.method: 'exact' | 'normalized' | 'split' | 'fuzzy' | 'unlinked'
+```
+
+### 6. Đo lường chất lượng linking (Measure)
+```bash
+cd ai-service
+python -m kb.measure --split data/clean/val.jsonl --seed kb/seed --out data/runs/kb [--dsn $KB_DSN]
+```
+
+### 7. Chạy kiểm thử tích hợp DB
+```bash
+cd ai-service
+# Chỉ định KB_TEST_DSN trỏ tới DB test riêng biệt recruit_kb_test
+# CẢNH BÁO: Bộ test sẽ TRUNCATE toàn bộ bảng dữ liệu, tuyệt đối KHÔNG trỏ vào DB thật!
+export KB_TEST_DSN="postgresql://postgres:postgres@localhost:5433/recruit_kb_test"
+pytest -m kb_db
+```

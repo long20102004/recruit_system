@@ -9,3 +9,4 @@ llama-cpp-python
 gguf
 json-repair
 rapidfuzz
+psycopg[binary]

@@ -1,0 +1,663 @@
+alias_key,skill_id,surface
+abilitytoquicklylearnandadapttonewtechnologies,8,Ability to quickly learn and adapt to new technologies
+abletoreadandsearchbyenglish,9,Able to read and search by english
+acceptancecriteria,10,Acceptance Criteria
+activedirectory,11,Active Directory
+adaptability,12,Adaptability
+agenticrag,13,Agentic RAG
+agilescrum,14,Agile/Scrum
+airflow,16,Airflow
+aitoolstooptimizeworkflowsandimproveefficiency,15,AI tools to optimize workflows and improve efficiency
+ajax,17,Ajax
+alcomputervision,18,Al & Computer Vision
+algorithmsdatastructures,19,Algorithms & Data Structures
+alphabetapvssearch,20,Alpha-Beta / PVS Search
+anaconda,21,Anaconda
+analysis,22,Analysis
+analysisanddesigndatabasemysql,23,Analysis and design database (MySQL)
+analysisanddesigndatabasesqlservermysqlmongodb,24,"Analysis and design database (SQLServer, MySQL, MongoDB)"
+analyticalthinking,25,Analytical Thinking
+androidsdk,26,Android SDK
+androidstudio,27,Android Studio
+angular,28,Angular
+angularprimeng,29,Angular (primeng)
+ansible,30,Ansible
+antdesign,31,Ant Design
+antdesignui,31,Ant Design UI
+apacheant,32,Apache Ant
+apachekafka,33,Apache Kafka
+api,34,API
+apigoogledrive,35,Api Google Drive
+apitesting,36,API Testing
+arcface,37,ArcFace
+argocd,38,ArgoCD
+arp,39,ARP
+aspnet80,41,ASP.NET 8.0
+aspnetapi,42,ASP.NET API
+aspnetc#,40,ASP.NET (C#)
+aspnetcore,43,ASP.NET Core
+aspnetcoremvc,44,ASP.NET Core MVC
+aspnetcoremvcwebapi,45,ASP.NET Core MVC / Web API
+aspnetcorewebapi,46,ASP.NET Core Web API
+aspnetidentity,47,ASP.NET Identity
+aspnetmvc,48,ASP.NET MVC
+aspnetmvccore6x,49,ASP.NET MVC Core 6.x
+aspnetwebapi,50,ASP.NET WEB API
+authenticationandauthorizationwithspringsecurity,52,Authentication and authorization with Spring Security
+authenticationoauth2jwt,51,"Authentication (OAuth2, JWT)"
+automapper,53,AutoMapper
+aws,54,AWS
+awss3,55,AWS S3
+axios,56,Axios
+azure,57,Azure
+bash,58,Bash
+basicenglishreadingandcomprehension,59,Basic English reading and comprehension
+basicexperiencewithmvcarchitectureandwebapplicationdevelopmentusingc#,60,Basic experience with MVC architecture and web application development using C#
+batchnormalization,61,Batch Normalization
+bcrypt,62,Bcrypt
+bietsapxepthoigianhieuqua,64,Biết sắp xếp thời gian hiệu quả
+bietsudungpythontrongxulyvaphantichdulieu,65,Biết sử dụng Python trong xử lý và phân tích dữ liệu
+bietungdungaidehotronghiencuu,66,Biết ứng dụng AI để hỗ trợ nghiên cứu
+biome,63,Biome
+blade,67,Blade
+bladetemplate,68,Blade Template
+bleu,69,BLEU
+boostrap,70,BOOSTRAP
+bootstrap,70,Bootstrap
+bootstrap5,70,Bootstrap 5
+boundingboxannotation,71,bounding-box annotation
+bpmn,72,BPMN
+brdsrs,73,BRD/SRS
+brevo,74,Brevo
+bucket4j,75,Bucket4j
+builder,76,Builder
+burpsuite,77,Burp Suite
+c,78,C
+c#,79,C#
+c#mvc,82,C# MVC
+c#netmaui,80,C# .NET MAUI
+c#netwindowsform,81,C# .NET Windows Form
+c#oopclass,83,C#(OOP): class
+c++,84,C++
+caidatquantriwordpress,122,Cài đặt & quản trị WordPress
+caidatvacauhinhhedieuhanh,123,Cài đặt và cấu hình hệ điều hành
+cancollaboratewithothermemberstodevelopfeatureswithoutdifficult,85,Can collaborate with other members to develop features without difficult
+capableofworkingindependentlyandinteams,86,Capable of working independently and in teams
+cassandra,87,Cassandra
+celery,88,Celery
+chandoanvaxulysucomangcoban,92,Chẩn đoán và xử lý sự cố mạng cơ bản
+charlesfiddler,90,Charles/Fiddler
+charlesproxy,89,Charles Proxy
+checkmk,91,Checkmk
+cicd,93,CI/CD
+cicdgithubactions,94,CI/CD (GitHub Actions)
+cisdockerbenchmark,95,CIS Docker Benchmark
+cleanarchitecture,96,Clean Architecture
+clearandconcisecommunicationandideapresentation,97,Clear and concise communication and idea presentation
+cleck,98,Cleck
+cloudary,102,Cloudary
+clouddeploymentdigitalocean,99,Cloud deployment (DigitalOcean)
+clouddigitalocean,100,Cloud DigitalOcean
+cloudinary,103,Cloudinary
+cloudinfrastructureandsystemdesign,101,Cloud Infrastructure and System Design
+cloundinary,103,Cloundinary
+cnn,104,CNN
+cokhanangdanhgiavathunghiemmohinhai,125,Có khả năng đánh giá và thử nghiệm mô hình AI
+cokhanangdochieutailieuvagiaotieptienganhomuccoban,126,Có khả năng đọc hiểu tài liệu và giao tiếp Tiếng Anh ở mức cơ bản
+cokhanangtuhocvalamviectot,124,Có khả năng tự học và làm việc tốt
+cokienthuccobanvesql,127,Có kiến thức cơ bản về SQL
+collaboration,105,Collaboration
+comfortablereadingtechnicaldocumentationinenglish,106,Comfortable reading technical documentation in English
+communication,107,Communication
+communicationskill,108,Communication skill
+conda,109,Conda
+confluence,110,Confluence
+contextapi,111,Context API
+controllers,112,Controllers
+cors,113,CORS
+cqrs,114,CQRS
+cqrspattern,115,CQRS Pattern
+crosssitescriptingxssprevention,116,Cross-Site Scripting (XSS) prevention
+csharp,117,Csharp
+css,118,CSS
+css3,119,CSS3
+cuthtml+cssfromfigma,120,Cut HTML + CSS from Figma
+cypress,121,Cypress
+dapper,128,Dapper
+dart,129,Dart
+datafiltering,130,data filtering
+datapreprocessing,131,Data preprocessing
+datastructuresandalgorithms,132,Data structures and algorithms
+dbt,133,dbt
+delete,134,delete
+dependencyinjection,135,Dependency Injection
+designpattern,136,Design pattern
+designpatterns,137,Design Patterns
+developrestfulapiappservicewithspringboot,138,Develop Restful API app service with Spring Boot
+dhcp,139,DHCP
+digitalocean,140,DigitalOcean
+distributedsystemsconcepts,141,Distributed systems concepts
+dochieutailieutienganhcoban,646,Đọc hiểu tài liệu tiếng Anh cơ bản
+dochieutienganhcobanvachuyennganh,645,Đọc hiểu tiếng anh cơ bản và chuyên ngành
+docker,142,Docker
+dockercompose,143,Docker Compose
+drawio,144,Draw.io
+dropout,145,Dropout
+dsa,146,DSA
+dto,147,DTO
+easytounderstandingrequestfromleadertodevelopfeatures,148,Easy to understanding request from Leader to develop features
+efcore,149,EF Core
+efcoreorm,150,EF Core ORM
+effectivecommunication,151,Effective communication
+effectiveproblemsolvingskills,152,Effective problem-solving skills
+effectivetimemanagement,153,Effective time management
+ejs,154,EJS
+elasticsearch,155,Elasticsearch
+elkstack,156,ELK Stack
+eloquent,157,Eloquent
+email,159,EmailJS
+emailapi,158,Email API
+embeddingextraction,160,embedding extraction
+englishproficiency,161,English Proficiency
+englishreadingcomprehension,162,English Reading Comprehension
+ensembleclassifiers,163,ensemble classifiers
+entityframework,164,Entity Framework
+entityframeworkcore,165,Entity Framework Core
+entityframeworkcoreefcore,166,Entity Framework Core (EF Core)
+erdcreation,167,ERD Creation
+etl,168,ETL
+evaluationmetricsrougebleuperplexity,169,"Evaluation Metrics (ROUGE, BLEU, Perplexity)"
+eventdrivenarchitecture,170,Event-driven architecture
+events,171,Events
+excel,172,Excel
+express,173,ExpressJS
+facerecognition,174,face recognition
+factory,175,Factory
+familiarwithbasicphpscriptingandapplicationstructure,176,Familiar with basic PHP scripting and application structure
+familiarwithdistributedsystemsandeventdrivenarchitecture,177,Familiar with Distributed Systems and Event-Driven Architecture
+fastapi,179,FastAPI
+fastdetectandfixbugwhenproblemhasraised,178,Fast detect and fixbug when problem has raised
+fastify,180,Fastify
+feignclient,181,Feign client
+fft,182,FFT
+figma,183,Figma
+figmaprototype,184,Figma Prototype
+finetuningsftlora,185,"Fine-tuning (SFT, LoRA)"
+firebase,186,Firebase
+firebaseauthentication,187,Firebase Authentication
+firebaserealtimedatabase,188,Firebase Realtime Database
+firebasestorage,189,Firebase Storage
+firewall,190,Firewall
+flutter,191,Flutter
+frameworklibrarynet,192,Framework/Library: .NET
+freepbx,193,FreePBX
+gcp,194,GCP
+genymotion,195,Genymotion
+giaiquyetvande,204,giải quyết vấn đề
+giaotiepvatruyendatthongtin,196,Giao tiếp và truyền đạt thông tin
+git,197,Git
+github,198,GitHub
+githubactioncicd,199,GitHub Action (CI/CD)
+githubactions,200,GitHub Actions
+gitlab,201,GitLab
+gitlabci,202,GitLab CI
+gitlabcicd,203,GitLab CI/CD
+glide,205,Glide
+go,206,Go
+goodabletoreadtechnicaldocumentsfluently,208,Good – able to read technical documents fluently
+goodproblemsolvingskills,207,Good problem-solving skills
+googlebigquery,209,Google BigQuery
+googlegeminiapi,210,Google Gemini API
+googleoauth2,211,Google OAuth2
+gpo,212,GPO
+gradientboost,213,Gradient Boost
+gradle,214,Gradle
+grafana,215,Grafana
+graphql,216,GraphQL
+groqapi,217,Groq API
+grpc,218,gRPC
+h2database,219,H2 Database
+hadoop,220,Hadoop
+hangfire,221,HangFire
+havethespiritofselfstudy,222,Have the spirit of self-study
+havingasolidgraspofagilescrummethodology,223,Having a solid grasp of Agile/Scrum methodology
+helm,224,Helm
+heuristicadversarialsearch,225,heuristic/adversarial search
+hibernate,226,Hibernate
+hibernateorm,227,Hibernate ORM
+hlsstreaming,228,HLS streaming
+hoadong,235,hòa đồng
+hochoitraodoikinhnghiem,236,học hỏi trao đồi kinh nghiệm
+hotrophanmemcoban,237,Hỗ trợ phần mềm cơ bản
+html,229,HTML
+html3,230,HTML3
+html5,231,HTML5
+httpsession,232,HttpSession
+hybridsearch,233,Hybrid Search
+hyperparametertuning,234,hyperparameter tuning
+i18n,238,i18n
+iam,239,IAM
+identity,240,Identity
+iisexpress,241,IIS Express
+illustrator,242,Illustrator
+imagevideoprocessing,243,image/video processing
+infrastructureascodeiac,244,Infrastructure-as-Code (IaC)
+inheritance,245,inheritance
+inngest,246,Inngest
+insert,247,insert
+intellij,248,IntelliJ
+intellijidea,249,IntelliJ IDEA
+interceptor,250,Interceptor
+interestedinbackendengineering,251,Interested in Backend Engineering
+interface,252,Interface
+interfaceanddependencyinjection,253,Interface and Dependency Injection
+intermediatelevelinenglish,254,Intermediate level in English
+ipv4,255,IPv4
+iso27001,256,ISO 27001
+itextpdf,257,iTextPDF
+jasperreportsfonts,258,JasperReports & Fonts
+java,259,Java
+java17,261,Java 17
+java21,262,Java 21
+javacore,263,Java core
+javacorefocus,260,Java (Core focus)
+javaee7,264,Java EE 7
+javafx,266,JavaFX
+javascript,267,JavaScript
+javascriptes6+,268,JavaScript/ES6+
+javascripts,267,Javascripts
+javascrript,267,JavaScrript
+javaservlet,269,JavaServlet
+javaspringbootprimefaces,265,Java Spring boot (primefaces)
+jenkins,270,Jenkins
+jest,271,Jest
+jira,272,Jira
+jmeter,273,JMeter
+jpa,274,JPA
+jpa21eclipselink,275,JPA 2.1 (EclipseLink)
+jquery,276,jQuery
+js,277,JS
+jsonapijavaxjsonglassfish,278,JSON API (javax.json & GlassFish)
+jsp,279,JSP
+jspjstl,280,JSP/JSTL
+junit,281,Junit
+junit5,281,JUnit 5
+jwt,282,JWT
+jwtauthentication,283,JWT Authentication
+jwtbearer,285,JwtBearer
+jwttoken,284,JWT Token
+kafka,286,Kafka
+kalilinux,287,Kali Linux
+kanban,288,Kanban
+khamphanhungkienthucmoi,289,khám phá những kiến thức mới
+khanangdonggopvalamviecnhomhieuqua,292,Khả năng đóng góp và làm việc nhóm hiệu quả
+khananglamviecnhomvadoclap,290,Khả năng làm việc nhóm và độc lập
+khanangtuhoc,291,Khả năng tự học
+kienthuccobanvetrituenhantaovamachinelearning,293,Kiến thức cơ bản về Trí tuệ nhân tạo và Machine Learning
+knn,294,KNN
+kotlin,295,Kotlin
+kubernetes,296,Kubernetes
+kynanggiaiquyetvande,298,Kỹ năng giải quyết vấn đề
+kynanggiaotiep,297,Kỹ năng giao tiếp
+kynanglamviecnhom,299,Kỹ năng làm việc nhóm
+kynangquanlyduan,300,Kỹ năng quản lý dự án
+kynangtutimtoi,301,Kỹ năng tự tìm tòi
+lamviecdoclap,320,Làm việc độc lập
+lamviecnhom,318,Làm việc nhóm
+lamviecnhomtheomohinhscrum,319,Làm việc nhóm theo mô hình Scrum
+laptrinhvaxulycongviec,321,lập trình và xử lý công việc
+laravel,302,Laravel
+lark,303,Lark
+leadership,304,Leadership
+learnnewknowledgetechnologies,305,learn new knowledge technologies
+linq,306,LINQ
+linux,307,Linux
+linuxenvironment,308,Linux environment
+liquibase,309,Liquibase
+listeners,310,Listeners
+listeningandlearning,311,Listening and Learning
+listview,312,ListView
+llama318b,313,Llama-3.1-8B
+llamaindex,314,LlamaIndex
+logicalthinking,315,Logical Thinking
+lombok,316,Lombok
+lumen,317,Lumen
+machinelearning,322,Machine Learning
+manualtesting,323,Manual Testing
+mapstruct,324,MapStruct
+martenorm,325,Marten ORM
+materialdesign,326,Material Design
+materialui,327,Material UI
+maven,328,Maven
+mdbreactuikit,329,MDB React UI Kit
+mdxcontent,330,MDXContent
+mediaplayerapi,331,MediaPlayer API
+mediatr,332,MediatR
+memorycache,333,Memory Cache
+metasploit,334,Metasploit
+microservice,335,Microservice
+microservices,335,Microservices
+microservicesarchitecture,336,Microservices Architecture
+microsoftsqlserver,337,Microsoft SQL Server
+microsoftsqlserverjdbcdriver,338,Microsoft SQL Server JDBC Driver
+minialapi,339,Minial API
+mlflow,340,MLflow
+mobilenetv2,341,MobileNetV2
+mockito,342,Mockito
+model,343,Model
+modeltraining,344,model training
+mohinhhoanghiepvu,359,Mô hình hóa nghiệp vụ
+monggodb,345,MonggoDB
+mongodb,345,MongoDB
+mongodbatlas,346,MongoDB Atlas
+monolithic,347,Monolithic
+moodle,348,Moodle
+mssql,349,MSSQL
+mssqlserver,534,MS SQL Server
+mui,350,MUI
+multer,351,Multer
+mvc,352,MVC
+mvcarchitecture,354,MVC Architecture
+mvcmodelviewcontroller,353,MVC (Model-View-Controller)
+mvcpattern,355,MVC Pattern
+mvvmmodelviewviewmodel,356,MVVM (Model-View-ViewModel)
+mysql,357,MySQL
+mysqlworkbench,358,MySQL Workbench
+nat,361,NAT
+neo4j,362,NEO4J
+nessus,363,Nessus
+nest,364,NestJS
+net,1,.NET
+net8,2,.Net 8
+net80,3,.NET 8.0
+netcore,4,.Net Core
+netcore8api,5,.NET Core 8 API
+netcoreapi,6,.NET Core API
+netframework,7,.NET Framework
+networking,366,Networking
+networksecurity,365,Network Security
+nex,367,NexJS
+next,368,Next.js
+nextjs14,369,Next.js 14
+nextjs15,370,Next.js 15
+nextjs16,371,NextJS 16
+nginx,372,Nginx
+nlayer,360,N-Layer
+nmap,373,Nmap
+node,375,Node.js
+nodeexpress,374,Node-Express.js
+nodejsloopback4,376,NodeJS (LoopBack 4)
+nodejsrestapi,377,NodeJS REST API
+nodemailer,378,Nodemailer
+nodemon,379,Nodemon
+notification,380,Notification
+numpy,381,NumPy
+nuxt,382,NuxtJS
+oauth2,383,OAuth2
+oauth20,383,OAuth 2.0
+objectdetection,384,object detection
+observer,385,Observer
+ocelotapigateway,386,Ocelot API Gateway
+officesoftware,387,Office Software
+ons,388,ONS
+oop,389,OOP
+oopobjectorientedprogramming,390,OOP (Object-Oriented Programming)
+opencv,391,OpenCV
+opencvdnn,392,OpenCVDNN
+openfeign,393,OpenFeign
+openstack,394,OpenStack
+openwrt,395,OpenWRT
+oracle,396,Oracle
+oracledatabase,397,Oracle database
+orm,398,ORM
+ospf,399,OSPF
+owasptop10,400,OWASP Top 10
+pandas,401,Pandas
+particularlyinlogicalreasoningandanalyticalthinking,402,particularly in logical reasoning and analytical thinking
+passportjwtsessionbased,403,"Passport (JWT, session-based)"
+pfsense,404,pfSense
+phanquyentrenwindows,409,Phân quyền trên Windows
+phantichnghiepvu,410,Phân tích nghiệp vụ
+phantichvagiaiquyetvande,411,Phân tích và giải quyết vấn đề
+phattrienwebsitecobangomfrontendvabackend,408,Phát triển website cơ bản gồm Frontend và Backend
+photoshop,405,Photoshop
+php,406,PHP
+phplaravel,407,PHP Laravel
+playwright,412,Playwright
+posgesql,413,PosgeSQL
+postgreql,415,PostgreQl
+postgres,414,Postgres
+postgresql,415,PostgreSQL
+postgresqldatabasedesignoptimization,416,PostgreSQL (Database design & Optimization)
+postman,417,Postman
+powerbi,418,Power BI
+powerbifordatavisualizationandanalysis,419,Power BI for data visualization and analysis
+powerdesignerumlerd,420,"PowerDesigner (UML, ERD)"
+powerpoint,421,Powerpoint
+powerpointskills,422,powerpoint skills
+predictionconfidenceestimation,423,prediction-confidence estimation
+presentation,424,Presentation
+presentationskills,425,Presentation skills
+prisma,426,Prisma
+prismaorm,427,Prisma ORM
+prismastudio,428,Prisma Studio
+problemsolving,429,Problem Solving
+problemsolvingskills,430,Problem-solving skills
+processmodeling,431,Process Modeling
+proficientinfullstackdevelopmentusingloopback4nodejsforbackendapisandreactjsforbuildingcomponentbaseduis,432,Proficient in full-stack development using LoopBack 4 (Node.js) for backend APIs and ReactJS for building component-based UIs
+proficientinteamwork,433,Proficient in teamwork
+prometheus,434,Prometheus
+proxmox,435,Proxmox
+pusher,436,Pusher
+pytest,437,Pytest
+python,438,Python
+pytorch,439,PyTorch
+qdrant,440,Qdrant
+qualityofservice,441,Quality of Service
+quanlycongviectheobangkanban,442,Quản lý công việc theo bảng Kanban
+quanlynoidungwebsite,443,quản lý nội dung Website
+r2cloudflare,444,R2 Cloudflare
+rabbitmq,445,RabbitMQ
+railway,446,Railway
+randomforest,447,Random Forest
+ratelimitapi,448,Rate limit API
+react,457,ReactJS
+react19,449,React 19
+reactbootstrap,453,React-Bootstrap
+reacthookform,454,React-Hook-Form
+reactjsfunctionalknowledge,458,ReactJS (Functional knowledge)
+reactquery,450,React Query
+reactredux,455,react-redux
+reactrouterdom,451,React Router DOM
+reactslick,456,react-slick
+reacttypescript,452,React Typescript
+realtime,460,Realtime
+realtimeinference,459,real-time inference
+realtimewithpusher,461,Realtime with Pusher
+recyclerview,462,RecyclerView
+redis,463,Redis
+rediscache,464,Redis Cache
+redux,465,Redux
+reduxtoolkit,466,Redux Toolkit
+regression,467,Regression
+regularization,468,Regularization
+reinforcementlearninggrpo,469,Reinforcement Learning (GRPO)
+render,470,Render
+reponsive,471,REPONSIVE
+reportviewer,472,Reportviewer
+repository,473,Repository
+repositorypattern,474,Repository Pattern
+requirementselicitation,475,Requirements Elicitation
+resend,476,Resend
+responsibilityaccountability,477,Responsibility & accountability
+responsive,478,Responsive
+responsivedesign,479,Responsive Design
+restapi,480,REST API
+restapis,480,REST APIs
+restful,481,RESTful
+restfulapi,482,RESTful API
+restfulapidesign,483,RESTful API design
+restfulapis,482,RESTful APIs
+rip,484,RIP
+rnn,485,RNN
+rouge,486,ROUGE
+routing,487,Routing
+rustdesk,488,RustDesk
+saoluuvaphuchoidulieu,489,Sao lưu và phục hồi dữ liệu
+sassscss,490,SASS/SCSS
+schedulejobhangfire,491,Schedule job HangFire
+scikitlearn,492,scikit-learn
+scipy,493,SciPy
+scrfd,494,SCRFD
+scss,495,SCSS
+select,496,select
+selenium,497,Selenium
+selflearning,498,Self learning
+sepay,499,SePay
+sequelize,500,Sequelize
+sequelizeorm,501,Sequelize ORM
+service,502,Service
+servlets,503,Servlets
+shadcenui,504,ShadcenUI
+shadcnui,504,ShadcnUI
+siem,505,SIEM
+signalr,506,SignalR
+sms,507,SMS
+snmp,508,SNMP
+snortidsips,509,Snort (IDS/IPS)
+snowflake,510,Snowflake
+soc2,511,SOC 2
+socketio,512,Socket.IO
+solid,513,SOLID
+solidprinciples,514,SOLID principles
+solvingproblem,515,Solving Problem
+sonarqube,516,SonarQube
+spark,517,Spark
+spectrogram,518,Spectrogram
+spingcloudgateway,519,Sping Cloud Gateway
+splunk,520,Splunk
+springboot,521,Spring Boot
+springboottest,523,Spring Boot Test
+springbootwebdatajpadatajdbcmaildevtools,522,"Spring Boot (Web, Data JPA, Data JDBC, Mail, DevTools)"
+springcloud,524,Spring Cloud
+springdatajpa,525,Spring Data JPA
+springmvc,526,Spring MVC
+springsecurity,527,Spring Security
+spsa,528,SPSA
+spsatuning,529,SPSA tuning
+sql,530,SQL
+sqlalchemy,535,SQLAlchemy
+sqlalchemyorm,536,SQLAlchemy ORM
+sqlcoban,532,SQL cơ bản
+sqlinjectionprotection,533,SQL Injection protection
+sqlite,537,SQLite
+sqlmodel,538,SQLModel
+sqlselectjoingroupby,531,"SQL (Select, Join, Group By)"
+sqlserver,534,SQL Server
+sse,539,SSE
+ssh,540,SSH
+stft,541,STFT
+storeprocedure,542,store procedure
+stripe,543,Stripe
+stripecheckoutwebhooks,544,Stripe Checkout & Webhooks
+stripepaymentapi,545,Stripe Payment API
+stronganalyticalskillswithafocusondebuggingandsystemoptimization,546,Strong analytical skills with a focus on debugging and system optimization
+strongselflearningabilityandcuriosityfornewknowledge,547,Strong self-learning ability and curiosity for new knowledge
+subnetting,548,Subnetting
+sudungcongcuhotrotuxa,552,Sử dụng công cụ hỗ trợ từ xa
+sudungcongcumarketingonline,553,Sử dụng công cụ Marketing Online
+sudungthanhthaocaccongcumicrosoftoffice,554,Sử dụng thành thạo các công cụ Microsoft Office
+sudungthanhthaojava21,555,Sử dụng thành thạo java 21
+supabase,549,Supabase
+swagger,550,Swagger
+swaggeropenapi,551,Swagger/OpenAPI
+tableau,556,Tableau
+tailwind,557,Tailwind
+tailwindcss,558,Tailwind CSS
+tanstack,559,TanStack
+tanstackquery,560,TanStack-Query
+tcpip,561,TCP/IP
+teamcollaboration,562,Team Collaboration
+teamwork,563,Teamwork
+teamworking,564,Teamworking
+tensorflow,565,TensorFlow
+terraform,566,Terraform
+testautomation,567,Test Automation
+testcasedesign,568,Test Case Design
+testinglibrary,569,Testing Library
+testrail,570,TestRail
+thaidophucvuvahotrothanthien,577,Thái độ phục vụ và hỗ trợ thân thiện
+thanhthaokynanghorenso,576,Thành thạo kỹ năng HORENSO
+thichnghicongnghemoi,578,Thích nghi công nghệ mới
+thietkegiaodienwebsitedepsudunghtmlhtml5,571,Thiết kế giao diện website đẹp sử dụng HTML/HTML5
+thietkewebresponsivetudongcogian,572,Thiết kế web responsive tự động co giãn
+thundertesters,573,Thunder testers
+thuyettrinh,574,thuyết trình
+thymeleaf,575,Thymeleaf
+timemanagement,579,Time Management
+tinymce,580,TinyMCE
+tkinter,581,Tkinter
+transformersarchitecture,582,Transformers Architecture
+trello,583,Trello
+trivy,584,Trivy
+tuduylogic,588,Tư duy logic
+tuhoc,589,tự học
+tuhocvatimhieucongnghemoi,590,Tự học và tìm hiểu công nghệ mới
+typeorm,585,TypeORM
+typescript,586,TypeScript
+typescriptript,587,TypeScriptript
+uat,591,UAT
+ubuntu,592,Ubuntu
+uciprotocol,593,UCI Protocol
+understandingofdatastructuresandprogrammingprinciplesobjectorientation,594,Understanding of data structures and programming principles object orientation
+understandingofobjectorientedprogramminganddatastructures,595,Understanding of Object-Oriented Programming and Data Structures
+unitofworkpattern,597,UnitOfWork Pattern
+unittesting,596,Unit Testing
+unity,598,Unity
+unity6,598,Unity 6
+update,599,update
+usecasediagramcreation,600,Use Case Diagram Creation
+usecasespecs,601,Use Case Specs
+userstory,602,User Story
+uvicorn,603,Uvicorn
+validationapi,604,Validation API
+vault,605,Vault
+vectordbqdrant,606,Vector DB (Qdrant)
+velite,607,Velite
+vercel,608,Vercel
+verticalslicearchitecture,609,Vertical Slice Architecture
+vietbaichuanseo,615,Viết bài chuẩn SEO
+viewsandbladetemplates,610,Views and Blade Templates
+virtualbox,611,VirtualBox
+visualstudio,612,Visual Studio
+visualstudiocode,613,Visual Studio Code
+vite,614,Vite
+vlans,616,VLANs
+vnpay,617,VNPAY
+vpn,618,VPN
+vps,619,VPS
+vscode,620,VS Code
+vue,621,Vue.js
+vuive,622,Vui vẻ
+vulnerabilityassessment,623,Vulnerability Assessment
+wazuh,624,Wazuh
+webpack,625,Webpack
+webrtc,626,WebRTC
+websocket,627,Websocket
+windows,628,Windows
+winform,629,WinForm
+winforms,630,WinForms
+wireshark,631,Wireshark
+withastrongsenseofresponsibilityinwork,632,with a strong sense of responsibility in work
+word,633,Word
+wordpress,634,WordPress
+workunderpressure,635,Work under pressure
+wpf,636,WPF
+xgboost,637,XGBoost
+xml,638,XML
+yamlcsvmetadata,639,YAML/CSV metadata
+yololabels,640,YOLO labels
+yoloultralytics,641,YOLO(Ultralytics)
+zobristhashing,642,Zobrist Hashing
+zod,643,Zod
+zustand,644,Zustand

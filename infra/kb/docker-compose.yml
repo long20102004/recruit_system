@@ -1,0 +1,22 @@
+# Knowledge base for CV parsing (skills, aliases, relations, universities...).
+# Runs on its own port so it never touches other local PostgreSQL instances.
+#   cp infra/kb/.env.example infra/kb/.env   # then set a password
+#   docker compose -f infra/kb/docker-compose.yml --env-file infra/kb/.env up -d
+services:
+  kb-postgres:
+    image: postgres:16
+    container_name: recruit-kb-postgres
+    environment:
+      POSTGRES_DB: ${KB_DB:-recruit_kb}
+      POSTGRES_USER: ${KB_USER:-kb}
+      POSTGRES_PASSWORD: ${KB_PASSWORD:?set KB_PASSWORD in infra/kb/.env}
+    ports:
+      - "127.0.0.1:${KB_PORT:-5433}:5432"
+    volumes:
+      - kb_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U $${POSTGRES_USER} -d $${POSTGRES_DB}"]
+      interval: 5s
+      retries: 10
+volumes:
+  kb_data:

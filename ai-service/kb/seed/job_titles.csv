@@ -1,0 +1,140 @@
+id,name,alias_key
+1,Associate,associate
+2,Automation QA Engineer,automation qa engineer
+3,BA Lead - Trưởng nhóm phân tích nghiệp vụ,ba lead - truong nhom phan tich nghiep vu
+4,Back-end Developer Intern,back-end developer intern
+5,Backend Architect,backend architect
+6,Backend Developer,backend developer
+7,Backend Developer - Fresher Fulltime,backend developer - fresher fulltime
+8,Backend Developer - Intern,backend developer - intern
+9,Backend Developer Intern,backend developer intern
+10,Backend Tech Lead / Architect,backend tech lead / architect
+11,Business Analyst,business analyst
+12,Business Analyst - Nghiệp vụ,business analyst - nghiep vu
+13,Business Analyst Intern,business analyst intern
+14,Chief Data Officer,chief data officer
+15,Cloud Architect,cloud architect
+16,Cloud Engineer,cloud engineer
+17,Cyber Security Engineer,cyber security engineer
+18,Cyber Security Intern,cyber security intern
+19,Cộng tác viên,cong tac vien
+20,Data Analyst,data analyst
+21,Data Analyst / ML Engineer,data analyst / ml engineer
+22,Data Architect,data architect
+23,Data Engineer,data engineer
+24,Data Science / ML Intern,data science / ml intern
+25,Dev,dev
+26,DevOps Engineer,devops engineer
+27,DevOps Intern,devops intern
+28,DevOps Lead,devops lead
+29,DevOps Lead / Cloud Architect,devops lead / cloud architect
+30,Engineering Intern,engineering intern
+31,Front-end Architect,front-end architect
+32,Front-end Developer,front-end developer
+33,Frontend Developer,frontend developer
+34,Frontend Developer Intern,frontend developer intern
+35,Frontend Engineer,frontend engineer
+36,Frontend Tech Lead / Architect,frontend tech lead / architect
+37,Full-stack Developer,full-stack developer
+38,Full-stack Engineer,full-stack engineer
+39,FullStack Developer Website,fullstack developer website
+40,Fullstack Web Developer,fullstack web developer
+41,Giảng viên - Trưởng bộ phận CNTT,giang vien - truong bo phan cntt
+42,Head of Data,head of data
+43,Head of Information Security,head of information security
+44,Head of Quality Assurance,head of quality assurance
+45,Implementation Engineer,implementation engineer
+46,Intern,intern
+47,Intern Backend Developer,intern backend developer
+48,Intern Business Analyst,intern business analyst
+49,Intern Data Analyst,intern data analyst
+50,Intern DevOps Engineer,intern devops engineer
+51,INTERN FRONT-END,intern front-end
+52,Intern Front-end Developer,intern front-end developer
+53,Intern Frontend Developer,intern frontend developer
+54,Intern Low-code Developer,intern low-code developer
+55,Intern PHP/Laravel framework,intern php/laravel framework
+56,Intern QA Tester,intern qa tester
+57,Intern SOC Analyst,intern soc analyst
+58,Kiến trúc sư giải pháp,kien truc su giai phap
+59,Kỹ sư DevOps,ky su devops
+60,Kỹ sư DevOps Junior,ky su devops junior
+61,Kỹ sư Front-end,ky su front-end
+62,Kỹ sư Front-end Cao cấp,ky su front-end cao cap
+63,Kỹ sư Kiểm thử Tự động Cao cấp,ky su kiem thu tu dong cao cap
+64,Kỹ sư Mạng & DevOps (Thực tập),ky su mang & devops (thuc tap)
+65,Kỹ sư Phần mềm Backend,ky su phan mem backend
+66,Kỹ sư Phần mềm Cao cấp,ky su phan mem cao cap
+67,Kỹ sư Phần mềm Full-stack,ky su phan mem full-stack
+68,Lead Backend Engineer,lead backend engineer
+69,Lead Business Analyst,lead business analyst
+70,Lead Data Engineer,lead data engineer
+71,Lập trình viên Front-end (Thực tập),lap trinh vien front-end (thuc tap)
+72,Lập trình viên Front-end Junior,lap trinh vien front-end junior
+73,Lập trình viên Full-stack,lap trinh vien full-stack
+74,Mid-level Backend Engineer,mid-level backend engineer
+75,Mid-level Frontend Engineer,mid-level frontend engineer
+76,ML Engineer,ml engineer
+77,Network Intern,network intern
+78,"Nhân viên học việc phòng Giải pháp CNTT (Lập trình), Nhân viên Kinh Doanh","nhan vien hoc viec phong giai phap cntt (lap trinh), nhan vien kinh doanh"
+79,"Nhân viên phòng Hạ tầng kỹ thuật, Nhân viên phòng Kỹ thuật & Xử lý dữ liệu","nhan vien phong ha tang ky thuat, nhan vien phong ky thuat & xu ly du lieu"
+80,Pentester,pentester
+81,Product Owner,product owner
+82,Product Owner / Product Manager,product owner / product manager
+83,Programming Collaborator,programming collaborator
+84,QA Engineer,qa engineer
+85,QA Intern,qa intern
+86,QA Lead,qa lead
+87,QA Lead / Test Architect,qa lead / test architect
+88,QA/QC Engineer,qa/qc engineer
+89,Quality Control Staff,quality control staff
+90,Quản trị hệ thống,quan tri he thong
+91,SDET,sdet
+92,Security Analyst,security analyst
+93,Security Analyst / SOC,security analyst / soc
+94,Security Architect / Head of InfoSec,security architect / head of infosec
+95,Security Engineer,security engineer
+96,Senior Backend Developer,senior backend developer
+97,Senior Backend Engineer,senior backend engineer
+98,Senior Business Analyst,senior business analyst
+99,Senior Cloud Engineer,senior cloud engineer
+100,Senior Data Analyst,senior data analyst
+101,Senior Data Scientist,senior data scientist
+102,Senior DevOps / SRE,senior devops / sre
+103,Senior DevOps Engineer,senior devops engineer
+104,Senior Front-end Developer,senior front-end developer
+105,Senior Frontend Engineer,senior frontend engineer
+106,Senior Full-stack Developer,senior full-stack developer
+107,Senior Full-stack Engineer,senior full-stack engineer
+108,Senior Penetration Tester,senior penetration tester
+109,Senior QA Automation Engineer,senior qa automation engineer
+110,Senior SDET,senior sdet
+111,Senior Security Engineer,senior security engineer
+112,Senior SOC Analyst,senior soc analyst
+113,Senior Software Engineer - Backend,senior software engineer - backend
+114,Senior Software Tester,senior software tester
+115,Senior UI Engineer,senior ui engineer
+116,Site Reliability Engineer,site reliability engineer
+117,SOC Analyst,soc analyst
+118,Software Developer,software developer
+119,Software Engineer Backend,software engineer backend
+120,Software Tester,software tester
+121,Solution Architect,solution architect
+122,Tech Lead Front-end,tech lead front-end
+123,Thành viên,thanh vien
+124,Thực tập sinh,thuc tap sinh
+125,Thực tập sinh AI/ML Engineer,thuc tap sinh ai/ml engineer
+126,Thực tập sinh An ninh mạng,thuc tap sinh an ninh mang
+127,Thực tập sinh Business Analyst,thuc tap sinh business analyst
+128,Thực tập sinh Data Scientist,thuc tap sinh data scientist
+129,Thực tập sinh Front-end Developer,thuc tap sinh front-end developer
+130,Thực tập sinh Kiểm thử,thuc tap sinh kiem thu
+131,Thực tập sinh Pentester,thuc tap sinh pentester
+132,Thực tập sinh QA/QC,thuc tap sinh qa/qc
+133,Trưởng nhóm An ninh mạng,truong nhom an ninh mang
+134,Trưởng nhóm DevOps,truong nhom devops
+135,Trưởng nhóm Front-end,truong nhom front-end
+136,Trưởng nhóm QA,truong nhom qa
+137,Web Developer,web developer
+138,Web Developer Intern,web developer intern
+139,Web Internship,web internship
