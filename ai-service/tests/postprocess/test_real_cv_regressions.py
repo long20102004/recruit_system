@@ -41,3 +41,12 @@ def test_ungrounded_skill_removed_grounded_kept():
     out, stats = postprocess({"skills": ["Spring Boot (Spring REST, Spring Data)", "Java", "C++", "Python"]}, CV)
     assert out["skills"] == ["Spring Boot (Spring REST, Spring Data)", "Java", "C++"]
     assert stats.items_removed_ungrounded == 1
+
+
+def test_list_valued_scalar_is_joined_not_repr():
+    from app.postprocess.schema import normalize_profile
+
+    out = normalize_profile({"personal_projects": [{"name": "BOOKSTORE", "role": ["Developer"]},
+                                                   {"name": "X", "role": ["Backend", "Tester"]},
+                                                   {"name": "Y", "role": []}]})
+    assert [p["role"] for p in out["personal_projects"]] == ["Developer", "Backend, Tester", None]

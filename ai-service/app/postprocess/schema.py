@@ -145,6 +145,10 @@ def _as_str(value: Any, stats: Any) -> str | None:
             _bump(stats, "types_coerced")
         return stripped
     _bump(stats, "types_coerced")
+    if isinstance(value, (list, tuple)):
+        # e.g. role: ["Developer"] -> "Developer" (never the Python repr "['Developer']")
+        parts = [str(v).strip() for v in value if v is not None and str(v).strip()]
+        return ", ".join(parts) or None
     return str(value)
 
 

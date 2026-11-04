@@ -31,7 +31,21 @@ Mean generated tokens: 973; 1/198 outputs hit the 2,048-token cap.
 - Latency in the notebook (≈18 s/CV) is batch time / 8 on HF 4-bit and is not comparable with serving; serving latency must be measured with the GGUF on llama.cpp.
 - 1 invalid JSON on val_swap and 1 cap hit: inspect before serving.
 
+## Real CV (1 CV, served end-to-end: backend PDF → ai-service llama.cpp CPU, variant C)
+| | v1 | v2 |
+|---|---|---|
+| Latency (CPU, same machine) | 114.5 s | **43.1 s** (1,198 prompt + 759 output tokens) |
+| Contacts, school, company, project names, languages | all correct | all correct |
+| Honours | 1/2 (spacing changed) | **2/2** verbatim |
+| Dates | rewritten to ISO ("2025-10-01") | **verbatim** ("October 2025") |
+| Job title (CV gives none) | invented "Backend Developer" (now nulled by post-processing) | **null** |
+| Skills | invented "Python" (now removed by post-processing) | none invented |
+| Project role | correct | list `["Developer"]` → fixed in post-processing (joined) |
+| Project tech_stack | 8 / 10 items | 8 / **0** (key omitted for "Tech: Backend(…), Database(…)" layout) |
+
+v2 GGUF: Drive `finetune_output_v2/gguf_gguf/Qwen3-1.7B.Q4_K_M.gguf`, served locally as `merged_model/model-v2-q4_k_m.gguf` with `PROMPT_VERSION=v2`.
+
 ## Next
-1. Serve `gguf_gguf/Qwen3-1.7B.Q4_K_M.gguf` locally with `PROMPT_VERSION=v2`; run the real CV and compare with v1.
+1. ~~Serve v2 locally and run the real CV~~ (done, above). Grow the real-CV set to 30–50 CVs; watch tech_stack on unusual layouts.
 2. Re-run `eval_on_colab.ipynb` with the v2 GGUF for llama.cpp numbers (SC-004, latency).
 3. Variant D (KB hints): low expected gain now that v2 is at 0.93–1.00 on val; skip unless the real-CV set shows skill-spelling problems.
