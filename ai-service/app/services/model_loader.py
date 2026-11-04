@@ -156,10 +156,10 @@ def load_model():
 
     # The bundled LoRA adapter (checkpoint-250) is model v1: never pair it with the v2 prompt.
     from app.core import config as _cfg
-    if _cfg.PROMPT_VERSION == "v2" and os.path.normpath(LORA_PATH) == os.path.normpath("./checkpoint-250"):
+    if _cfg.PROMPT_VERSION in ("v2", "v3") and os.path.normpath(LORA_PATH) == os.path.normpath("./checkpoint-250"):
         raise RuntimeError(
-            "PROMPT_VERSION=v2 cần model v2: đặt file GGUF v2 vào "
-            f"{_cfg.DEFAULT_GGUF['v2']} (hoặc GGUF_MODEL_PATH), hoặc LORA_PATH tới adapter v2. "
+            f"PROMPT_VERSION={_cfg.PROMPT_VERSION} cần model cùng phiên bản: đặt file GGUF vào "
+            f"{_cfg.DEFAULT_GGUF[_cfg.PROMPT_VERSION]} (hoặc GGUF_MODEL_PATH), hoặc LORA_PATH tới adapter tương ứng. "
             f"Lý do không nạp được GGUF: {state.fallback_reason}"
         )
 

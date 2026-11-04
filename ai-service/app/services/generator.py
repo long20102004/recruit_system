@@ -6,14 +6,16 @@ from app.core.errors import InputTooLongError, ModelBusyError
 from app.core.logging import logger
 from app.services.model_loader import state
 from app.services.prompt import build_prompt_gguf
-from app.services.prompt_v2 import render_prompt
+from app.services import prompt_v2, prompt_v3
 
 _lock = threading.Lock()
 
 
 def build_prompt(cv_text: str) -> str:
+    if config.PROMPT_VERSION == "v3":
+        return prompt_v3.render_prompt(cv_text)
     if config.PROMPT_VERSION == "v2":
-        return render_prompt(cv_text)
+        return prompt_v2.render_prompt(cv_text)
     return build_prompt_gguf(cv_text)
 
 
