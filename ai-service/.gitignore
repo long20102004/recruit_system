@@ -30,3 +30,6 @@ merged_model/*.gguf
 # OS specific
 .DS_Store
 Thumbs.db
+
+# Datasets / CV texts (may contain real personal data, never commit)
+data/

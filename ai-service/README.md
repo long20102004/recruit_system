@@ -160,6 +160,49 @@ Dịch vụ áp dụng tầng hậu kiểm (grounding) chạy ngay sau bước t
 
 ---
 
+## 📊 Đánh giá (Evaluation / Ablation)
+
+Bộ công cụ đánh giá ngoại tuyến (`ai-service/eval/`) phục vụ đo lường chất lượng mô hình và ablation study so sánh giữa:
+- **Biến thể A**: Mô hình thuần (Model-only raw output).
+- **Biến thể B**: Mô hình kết hợp tầng hậu kiểm (`postprocess`), áp dụng offline trên cùng output của A.
+
+### Dữ liệu đánh giá
+Dữ liệu được lưu tại thư mục `ai-service/data/` (đã cấu hình trong `.gitignore`, tải về từ Google Drive dự án):
+- `train.jsonl` (395 mẫu), `val.jsonl` (99 mẫu).
+- **Lưu ý đối soát**:
+  - Model v1 (`checkpoint-250` hoặc `merged_model/model.gguf`) **bắt buộc** đánh giá trên `val.jsonl`.
+  - Model v2 phải đánh giá trên `val_v2.jsonl` (do tập `train_v2` có trùng lặp với `val.jsonl` của v1).
+- **Tập hoán đổi thực thể (`val_swap.jsonl`)**: Sinh từ `val.jsonl` bằng cách thay thế tên công ty và trường học bằng các tên hư cấu hoàn toàn chưa từng xuất hiện trong tập huấn luyện (giữ nguyên các tên có độ dài $\le 3$ ký tự). Tập này dùng để kiểm tra mô hình thực sự đọc hiểu ngữ cảnh CV hay chỉ ghi nhớ thuộc lòng thực thể đã thấy khi huấn luyện.
+
+### Chỉ số đánh giá (Metrics)
+Báo cáo chỉ chứa số liệu tổng hợp (aggregate), tuyệt đối không để lộ nội dung CV thô:
+- **F1 theo trường**: F1 cho các trường danh sách (`education.school`, `experience.company`, `personal_projects.name`, `experience.job_title`, `skills`, `certificates`, `honours`, `languages`) và Accuracy cho các trường liên hệ (`personal_info`).
+- **`hallucination_rate`**: Tỷ lệ các giá trị thực thể mô hình sinh ra nhưng không tìm thấy căn cứ (grounding) trong văn bản CV gốc.
+- **`gold_ungrounded_rate`**: Tỷ lệ thực thể trong nhãn chuẩn (gold silver-label) không có căn cứ trong CV, phản ánh độ nhiễu của nhãn silver tạo bởi LLM.
+- **`valid_rate`**: Tỷ lệ dự đoán hợp lệ theo đúng định dạng JSON/Schema.
+- **Latency**: Thời gian phản hồi trung bình (`mean`), `p50`, `p95` (tính theo giây).
+
+### Hướng dẫn chạy
+
+```bash
+cd ai-service
+
+# 1. Sinh tập kiểm thử hư cấu entity-swapped (kết quả ghi vào data/val_swap.jsonl)
+python -m eval.swap --val data/val.jsonl --train data/train.jsonl --out data/val_swap.jsonl --seed 42
+
+# 2. Khởi động AI service ở chế độ tắt hậu kiểm (để thu thập output raw của Biến thể A)
+POSTPROCESS_ENABLED=false python main.py &
+
+# 3. Thu thập dự đoán và lưu cache vào data/runs/v1/ (mặc định port 8000, có thể chỉnh --base-url)
+python -m eval.predict --split data/val.jsonl      --run data/runs/v1 --base-url http://localhost:8000
+python -m eval.predict --split data/val_swap.jsonl --run data/runs/v1 --base-url http://localhost:8000
+
+# 4. Tính toán điểm số A/B và xuất báo cáo (report.md, report.json)
+python -m eval.report  --run data/runs/v1 --splits data/val.jsonl data/val_swap.jsonl
+```
+
+---
+
 ### 2. Kiểm tra trạng thái service
 - **Method:** `GET`
 - **URL:** `http://localhost:8000/health`
