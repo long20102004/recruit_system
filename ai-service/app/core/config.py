@@ -29,3 +29,7 @@ LOG_CV_CONTENT: bool = (
 
 def _resolve(p: str) -> str:
     return p if os.path.isabs(p) else os.path.normpath(os.path.join(BASE_DIR, p))
+
+POSTPROCESS_ENABLED: bool = (
+    os.getenv("POSTPROCESS_ENABLED", "true").strip().lower() not in {"0", "false", "no", "off"}
+)

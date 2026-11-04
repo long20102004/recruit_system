@@ -6,6 +6,7 @@ from fastapi import APIRouter, HTTPException, Response
 from app.core import config
 from app.core.errors import InputTooLongError, ModelBusyError
 from app.core.logging import logger
+from app.postprocess import postprocess
 from app.schemas.cv import CVRequest, CVResponse
 from app.services.generator import generate_cv
 from app.services.model_loader import state
@@ -71,6 +72,19 @@ def extract_cv(request: CVRequest, response: Response):
             logger.info(raw_output)
 
         data = extract_json(raw_output)
+
+        if config.POSTPROCESS_ENABLED:
+            try:
+                data, pp_stats = postprocess(data, cv_text)
+                logger.info(
+                    "request_id=%s postprocess %s", request_id, pp_stats.as_dict()
+                )
+            except Exception as e:
+                logger.error(
+                    "request_id=%s postprocess failed type=%s",
+                    request_id,
+                    type(e).__name__,
+                )
 
         return {"data": data}
 

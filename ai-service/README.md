@@ -37,6 +37,7 @@ ai-service/
 ### 1. Yêu cầu tiên quyết
 - Python 3.10 trở lên.
 - Đã cài đặt `pip` và `virtualenv`.
+- Thư viện phụ thuộc mới: `rapidfuzz` (hỗ trợ fuzzy matching grounding cho tầng hậu kiểm).
 
 ### 2. Thiết lập môi trường ảo
 ```bash
@@ -66,6 +67,7 @@ pip install -r requirements.txt
 | `MAX_INPUT_TOKENS` | `8192` | Giá trị fallback cũ của `CONTEXT_TOKENS` |
 | `MAX_NEW_TOKENS` | `1500` | Giới hạn số token sinh ra cho mỗi request |
 | `QUEUE_WAIT_SECONDS` | `30` | Thời gian tối đa chờ hàng đợi trước khi trả `503` "bận" |
+| `POSTPROCESS_ENABLED` | `true` | Bật/tắt tầng hậu kiểm grounding (`0`/`false`/`no`/`off` để tắt — phục vụ ablation) |
 | `LOG_CV_CONTENT` | tắt | Đặt `1`/`true`/`yes`/`on` để log nội dung CV và raw output của model |
 
 ---
@@ -136,6 +138,27 @@ Dịch vụ hỗ trợ **2 cơ chế suy luận** (tự động phát hiện khi
   | `503` | model chưa load | `Model chưa được load` |
   | `503` | chờ xử lý quá `QUEUE_WAIT_SECONDS` | `Service đang bận, vui lòng thử lại sau` |
   | `500` | lỗi nội bộ (không lộ chi tiết exception) | `Trích xuất CV thất bại (request_id=<id>)` |
+
+---
+
+## 🧹 Hậu Kiểm (Post-processing)
+
+Dịch vụ áp dụng tầng hậu kiểm (grounding) chạy ngay sau bước trích xuất JSON (`extract_json -> postprocess -> response`) nhằm loại bỏ ảo giác (hallucination) và chuẩn hóa dữ liệu:
+
+- **Luồng xử lý**: `extract_json` → `postprocess` → trả về `response`.
+- **Các luật xử lý**:
+  - **Chuẩn hoá khoá & kiểu**: Chuẩn hoá tên khoá alias (`honors` → `honours`, `certifications` → `certificates`, `projects` → `personal_projects`...), hoàn thiện schema với giá trị mặc định, ép kiểu dữ liệu (chuyển `description` chuỗi thành danh sách gạch đầu dòng, `team_size` thành số nguyên).
+  - **Làm sạch kỹ năng (skills)**: Cắt bỏ nhãn nhóm tiền tố (ví dụ: `"Backend: Spring Boot"` → `"Spring Boot"`), loại bỏ ký tự phân tách dư thừa, deduplicate không phân biệt hoa thường và giữ nguyên thứ tự xuất hiện đầu tiên. Áp dụng tương tự cho `tech_stack` của dự án.
+  - **Grounding thực thể**: Đối chiếu tên `company`, `school`, `project` với văn bản CV gốc. Nếu khớp mờ (fuzzy match) đạt điểm $\ge 85$, tự động snap (thay thế) về nguyên văn trong CV; nếu không tìm thấy căn cứ trong CV, mục đó sẽ bị loại bỏ.
+  - **Kiểm tra thông tin liên hệ (contact)**: Đặt thành `null` đối với `email`, `github_url` và `phone` (so khớp chuỗi chữ số) nếu không xuất hiện trong CV; `full_name` bị `null` nếu fuzzy match $< 85$.
+  - **Loại bỏ thông tin không có căn cứ**: Bỏ các mục trong `certificates`, `honours`, `languages` (theo tên ngôn ngữ hoặc ghi chú) và gán `objective` thành `null` nếu không có bằng chứng xuất hiện trong CV.
+  - **Kiểm tra hợp lệ kinh nghiệm (type check experience)**: Loại bỏ các kinh nghiệm có chức danh là học viên/sinh viên (`sinh viên`, `student`, `học viên`), hoặc công ty là trường học/viện đào tạo nhưng chức danh không phải vai trò giảng dạy/nhân sự.
+  - **Gộp bullet vào project**: Nếu một kinh nghiệm bị loại bỏ do không đạt grounding nhưng tên công ty chứa tên của một dự án cá nhân đã có, các dòng mô tả (bullets) của kinh nghiệm đó sẽ được gộp vào mô tả của dự án tương ứng.
+- **Quy ước Response & Log**:
+  - Response giữ nguyên cấu trúc schema (`CandidateProfile`), tuy nhiên các giá trị có thể bị sửa (snap về nguyên văn CV) hoặc bị loại bỏ/gán `null`.
+  - Log an toàn dữ liệu: chỉ ghi lại số đếm các thao tác (số mục bị loại bỏ, số tên được snap, số contact bị null...), tuyệt đối không ghi nội dung/giá trị CV.
+
+---
 
 ### 2. Kiểm tra trạng thái service
 - **Method:** `GET`

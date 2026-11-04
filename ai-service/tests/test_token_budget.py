@@ -26,7 +26,7 @@ def test_prompt_du_han_tra_ve_200_va_chay_generation(client, budget):
     resp = client.post("/api/v1/extract-cv", json={"cv_text": SYNTHETIC_CV})
 
     assert resp.status_code == 200
-    assert resp.json()["data"] == {"personal_info": {}}
+    assert "personal_info" in resp.json()["data"]
     assert budget.calls == 1
 
 

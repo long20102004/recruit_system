@@ -8,3 +8,4 @@ accelerate
 llama-cpp-python
 gguf
 json-repair
+rapidfuzz
