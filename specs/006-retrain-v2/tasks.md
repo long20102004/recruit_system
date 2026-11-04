@@ -14,5 +14,5 @@
 - [x] T007 README (ai-service) "Retrain v2" section — *Claude*
 
 ## Phase 3: Run (user) + converge
-- [ ] T008 User runs the notebook on Colab T4 (`RUN_NAME="v2"`; optionally `"v2_hints"`)
+- [x] T008 User runs the notebook on Colab T4 (`RUN_NAME="v2"`; optionally `"v2_hints"`)
 - [ ] T009 Compare with v1 (`report.json`), write `results.md`; if v2 wins, serve GGUF with `PROMPT_VERSION=v2` and re-run `eval_on_colab.ipynb` for llama.cpp numbers — *Claude*
