@@ -215,12 +215,13 @@ public class CandidateProfile {
     @SuppressWarnings("unchecked")
     private static List<String> parseListStringSafely(Object val) {
         if (val == null) return null;
+        // Mutable on purpose: the rule-based extractor and validator add/remove items afterwards.
         if (val instanceof List) {
             return ((List<?>) val).stream()
                     .filter(Objects::nonNull)
                     .map(Object::toString)
-                    .toList();
+                    .collect(java.util.stream.Collectors.toCollection(java.util.ArrayList::new));
         }
-        return List.of(val.toString());
+        return new java.util.ArrayList<>(List.of(val.toString()));
     }
 }

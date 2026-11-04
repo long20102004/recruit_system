@@ -76,4 +76,16 @@ class CandidateProfileJsonTest {
         assertTrue(json.contains("\"implied_skills\""));
         assertTrue(json.contains("\"school_normalized\""));
     }
+
+    @Test
+    void descriptionListsStayMutable() {
+        CandidateProfile.Experience e = new CandidateProfile.Experience();
+        e.setDescription(new java.util.ArrayList<>());
+        e.getDescription().add("bullet");
+        e.getDescription().clear();
+        CandidateProfile.PersonalProject p = new CandidateProfile.PersonalProject();
+        p.setDescription(java.util.List.of("a"));
+        p.getDescription().add("b");
+        assertEquals(2, p.getDescription().size());
+    }
 }
