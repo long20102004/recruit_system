@@ -24,6 +24,7 @@ class PostprocessStats:
     names_snapped: int = 0
     experience_removed_ungrounded: int = 0
     experience_removed_type: int = 0
+    titles_nulled: int = 0
     education_removed: int = 0
     projects_removed: int = 0
     items_removed_ungrounded: int = 0

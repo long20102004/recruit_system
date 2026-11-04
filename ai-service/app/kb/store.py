@@ -31,9 +31,16 @@ class KnowledgeBase:
             return None
         # Full string first, then without "(...)" (e.g. "Học viện ... (PTIT)"),
         # then each parenthesised part on its own (the abbreviation).
+        # Same for a " - " suffix ("Posts and Telecommunications Institute of Technology - PTIT").
         outside = re.sub(r"\([^)]*\)", " ", raw)
         inside = re.findall(r"\(([^)]*)\)", raw)
-        for candidate in [raw, outside, *inside]:
+        # Only the first part, plus the last part when it is a single-token abbreviation:
+        # "... - ĐHQG TP.HCM" names the parent university and must not be linked.
+        parts = [p.strip() for p in re.split(r"\s+[-–—]\s+", outside) if p.strip()]
+        dashed = []
+        if len(parts) > 1:
+            dashed = [parts[0]] + ([parts[-1]] if len(parts[-1].split()) == 1 else [])
+        for candidate in [raw, outside, *inside, *dashed]:
             k = school_key(candidate)
             uid = self.school_alias.get(k) if k else None
             if uid is not None and uid in self.universities:

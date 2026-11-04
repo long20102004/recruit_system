@@ -157,7 +157,7 @@ def test_phone_reverse_variant_and_invalid_digits() -> None:
 
 def test_experience_title_student_removed() -> None:
     """Job titles matching student/học viên/sinh viên are removed."""
-    cv = "Công ty Cổ phần Công nghệ Alpha"
+    cv = "Công ty Cổ phần Công nghệ Alpha - Sinh viên / Student / Học viên"
     profile = make_profile(
         experience=[
             {
@@ -191,7 +191,7 @@ def test_experience_title_student_removed() -> None:
 
 def test_experience_school_role_rules() -> None:
     """School as company: teaching/staff roles kept; developer/student roles removed."""
-    cv = "Trường Đại học Bách Khoa Hà Nội"
+    cv = "Trường Đại học Bách Khoa Hà Nội: Giảng viên; Developer; Trợ giảng môn Python"
     profile = make_profile(
         experience=[
             {

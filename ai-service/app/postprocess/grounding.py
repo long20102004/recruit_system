@@ -127,6 +127,26 @@ def _is_language_grounded(item: dict[str, Any], cv_norm: str) -> bool:
     return False
 
 
+_TITLE_WINDOW_BEFORE = 200
+_TITLE_WINDOW_AFTER = 300
+
+
+def _near(cv_norm: str, company: str, title: str) -> bool:
+    """True if ``title`` occurs within a window around any occurrence of ``company``."""
+    comp = normalize(company)
+    if not comp:
+        return contains(cv_norm, title)
+    pos = cv_norm.find(comp)
+    if pos < 0:  # company was snapped by fuzzy match: fall back to whole-CV containment
+        return contains(cv_norm, title)
+    while pos >= 0:
+        window = cv_norm[max(0, pos - _TITLE_WINDOW_BEFORE): pos + len(comp) + _TITLE_WINDOW_AFTER]
+        if contains(window, title):
+            return True
+        pos = cv_norm.find(comp, pos + 1)
+    return False
+
+
 def _contains_compact(cv_compact: str, value: str) -> bool:
     """Containment ignoring all whitespace (accent/case-insensitive)."""
     v = normalize(value).replace(" ", "")
@@ -235,10 +255,21 @@ def ground_profile(
                 _inc(stats, "names_snapped")
             exp["company"] = span
 
-            # Type check on job_title and company
+            # job_title must come from the CV; a CV may give no title at all (real CVs do),
+            # so an absent or ungrounded title is nulled instead of dropping the experience.
+            # The title must appear near the company (same experience block), not just anywhere:
+            # "backend developer" in the objective is not this job's title.
             job_title = exp.get("job_title")
-            title_norm = normalize(str(job_title)) if job_title else ""
-            if not title_norm or _STUDENT_TITLE_RE.fullmatch(title_norm):
+            if job_title is not None and (
+                not isinstance(job_title, str) or not _near(cv_norm, exp["company"], job_title)
+            ):
+                exp["job_title"] = None
+                job_title = None
+                _inc(stats, "titles_nulled")
+            title_norm = normalize(job_title) if job_title else ""
+
+            # Type check: student "jobs" are not experience
+            if title_norm and _STUDENT_TITLE_RE.fullmatch(title_norm):
                 _inc(stats, "experience_removed_type")
                 continue
 
@@ -356,6 +387,18 @@ def ground_profile(
                 res["objective"] = span
         else:
             res["objective"] = None
+
+    # skills: keep only items found in the CV (same fuzzy containment as other lists)
+    raw_skills = res.get("skills")
+    if isinstance(raw_skills, list):
+        cv_compact = cv_norm.replace(" ", "")
+        kept_skills = [
+            s for s in raw_skills
+            if isinstance(s, str) and s.strip()
+            and (contains(cv_norm, s) or _contains_compact(cv_compact, s))
+        ]
+        _inc(stats, "items_removed_ungrounded", len(raw_skills) - len(kept_skills))
+        res["skills"] = kept_skills
 
     # certificates
     raw_certs = res.get("certificates")

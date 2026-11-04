@@ -42,6 +42,7 @@ As a recruiter, I need names the model misspelled by a few characters to be repl
 **Acceptance Scenarios**:
 
 1. **Given** an experience whose job title is empty or is "sinh viên", "student", "học viên", **When** post-processed, **Then** it is removed.
+   - *Amended 2026-11-04 (first real CV, see specs/006-retrain-v2/real-cv-findings.md)*: an **empty** title no longer removes the experience (real CVs may give no title); a title not found within 200 characters before / 300 after the company in the CV is set to null instead. Student titles still remove the experience.
 2. **Given** an experience whose company is a school/university and the title is a teaching role (e.g. "giảng viên", "lecturer", "trợ giảng"), **When** post-processed, **Then** it is kept.
 3. **Given** an experience whose company is a school and the title is not a teaching or staff role, **When** post-processed, **Then** it is removed.
 4. **Given** an experience removed for failing grounding whose company string contains the name of an existing personal project, **When** post-processed, **Then** its description bullets are appended to that project (no information loss).
@@ -82,7 +83,7 @@ As a recruiter, I need names the model misspelled by a few characters to be repl
 - **FR-001**: Post-processing MUST run after JSON extraction and before the response, using the cleaned CV text as the grounding source.
 - **FR-002**: Grounded entity fields (`experience.company`, `education.school`, `personal_projects.name`) MUST be kept only if found in the CV: exact (normalised) containment keeps the value, best fuzzy match ≥ 85 replaces it with the CV span, otherwise the item is removed.
 - **FR-003**: Contact fields `email`, `github_url` MUST be nulled when not contained in the CV (normalised); `phone` when its digit sequence is not contained in the CV's digits. `full_name` MUST be nulled if not found with fuzzy ≥ 85.
-- **FR-004**: `certificates`, `honours` string items and `objective` MUST be kept only with fuzzy ≥ 85 support in the CV; `languages` items MUST be kept only if the language name (Vietnamese or English alias) or the note appears in the CV.
+- **FR-004**: `skills` (added 2026-11-04, whitespace-insensitive), `certificates`, `honours` string items and `objective` MUST be kept only with fuzzy ≥ 85 support in the CV; `languages` items MUST be kept only if the language name (Vietnamese or English alias) or the note appears in the CV.
 - **FR-005**: Experience type check per US3 (student titles removed, teaching roles at schools kept, other school-as-company entries removed).
 - **FR-006**: Removed experiences whose company string contains an existing project's name MUST have their bullets merged into that project's description.
 - **FR-007**: Key normalisation, schema completion, unknown-key removal and type coercion per US4.
@@ -109,6 +110,6 @@ As a recruiter, I need names the model misspelled by a few characters to be repl
 
 - Rules and thresholds follow requirements.md (fuzzy ≥ 85 for snapping; experience type rules). Contact/objective/certificate/language grounding is an extension motivated by the observed hallucinations in feature 001's smoke run.
 - Splitting `Base (a, b)` into separate skills and entity linking to a KB are out of scope (feature 004); skills are only cleaned, not normalised.
-- `job_title` proximity check (title within N characters of the company in the CV) is out of scope: higher risk of removing correct titles in 2-column PDF text; can be revisited with evaluation data (feature 003).
+- *(Done 2026-11-04, see amendment under US3)* `job_title` proximity check (title within N characters of the company in the CV) was out of scope: higher risk of removing correct titles in 2-column PDF text; can be revisited with evaluation data (feature 003).
 - `description` bullets are summaries and are not grounded.
 - No backend change is needed: the response contract is unchanged.

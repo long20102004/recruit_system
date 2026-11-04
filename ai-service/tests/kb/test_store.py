@@ -166,3 +166,17 @@ def test_link_school_with_parenthesised_abbreviation(sample_seed_dir: Path) -> N
     assert plain is not None
     assert kb.link_school("Some Unknown Name (PTIT)") == plain
     assert kb.link_school("Trường không có (XYZ)") is None
+
+
+def test_link_school_dash_suffix_abbreviation_only():
+    from app.kb.store import KnowledgeBase
+
+    kb = KnowledgeBase.__new__(KnowledgeBase)
+    kb.universities = {1: "Học viện Synthetic", 2: "Đại học Mẹ Synthetic"}
+    from app.kb.keys import school_key
+    kb.school_alias = {school_key("Synthetic Institute"): 1, school_key("SYN"): 1,
+                       school_key("ĐHQG Synthetic"): 2}
+    assert kb.link_school("Synthetic Institute - SYN") == (1, "Học viện Synthetic")
+    assert kb.link_school("Unknown School - SYN") == (1, "Học viện Synthetic")
+    # multi-word suffix names a parent university: never linked
+    assert kb.link_school("Trường Con Synthetic - ĐHQG Synthetic") is None
