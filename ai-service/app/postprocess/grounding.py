@@ -127,6 +127,12 @@ def _is_language_grounded(item: dict[str, Any], cv_norm: str) -> bool:
     return False
 
 
+def _contains_compact(cv_compact: str, value: str) -> bool:
+    """Containment ignoring all whitespace (accent/case-insensitive)."""
+    v = normalize(value).replace(" ", "")
+    return bool(v) and v in cv_compact
+
+
 def ground_profile(
     profile: dict[str, Any],
     cv_text: str,
@@ -149,6 +155,8 @@ def ground_profile(
 
     res = copy.deepcopy(profile)
     cv_digs = digits(cv_text)
+    # Whitespace-free view: PDF text often breaks URLs/emails across lines.
+    cv_compact = cv_norm.replace(" ", "")
 
     # -------------------------------------------------------------
     # 1. personal_info grounding
@@ -158,7 +166,7 @@ def ground_profile(
         # email
         email = personal_info.get("email")
         if email is not None:
-            if not contains(cv_norm, str(email)):
+            if not _contains_compact(cv_compact, str(email)):
                 personal_info["email"] = None
                 _inc(stats, "contacts_nulled")
 
@@ -169,7 +177,7 @@ def ground_profile(
             gh_clean = re.sub(r"^https?://", "", gh_clean, flags=re.IGNORECASE)
             gh_clean = re.sub(r"^www\.", "", gh_clean, flags=re.IGNORECASE)
             gh_clean = gh_clean.rstrip("/")
-            if not gh_clean or not contains(cv_norm, gh_clean):
+            if not gh_clean or not _contains_compact(cv_compact, gh_clean):
                 personal_info["github_url"] = None
                 _inc(stats, "contacts_nulled")
 

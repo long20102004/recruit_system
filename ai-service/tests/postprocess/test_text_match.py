@@ -170,3 +170,14 @@ def test_digits():
     assert digits("no digits in this string") == ""
     assert digits("") == ""
     assert digits(None) == ""
+
+
+def test_find_span_short_name_requires_whole_word():
+    # Regression: "TMA" must not match inside "hotmail"/"Postman" and widen to it.
+    cv = "Email: a@hotmail.com\nCông cụ: Postman\nKinh nghiệm: TMA, Tester"
+    assert find_span("TMA", cv) == "TMA"
+    assert find_span("TMA", "Email: a@hotmail.com, Postman") is None
+
+
+def test_find_span_long_truncated_value_still_widens():
+    assert find_span("FPT Softwar", "Công ty FPT Software") == "FPT Software"

@@ -2,8 +2,12 @@
 
 from __future__ import annotations
 
+import re
 import unicodedata
 from rapidfuzz.fuzz import partial_ratio_alignment
+
+# Values shorter than this (normalised) must match a whole word exactly.
+_MIN_PARTIAL_LEN = 6
 
 __all__ = [
     "normalize",
@@ -131,18 +135,23 @@ def find_span(
     if not cv_norm or not cv_map:
         return None
 
-    # 1. Exact normalized containment
-    if val_norm in cv_norm:
-        idx = cv_norm.find(val_norm)
-        dest_start = idx
-        dest_end = idx + len(val_norm)
-        return _cut(cv_text, cv_map[dest_start], cv_map[dest_end - 1] + 1, widen=True)
+    # 1. Exact normalized containment, preferring a whole-word occurrence
+    #    (otherwise "TMA" would match inside "hotmail" and be widened to it).
+    m = re.search(r"(?<![0-9a-z])" + re.escape(val_norm) + r"(?![0-9a-z])", cv_norm)
+    if m:
+        return _cut(cv_text, cv_map[m.start()], cv_map[m.end() - 1] + 1)
 
-    # 2. Short names (< 3 characters) require exact containment
-    if len(val_norm) < 3:
+    # 2. Short names only match as whole words: no in-word or fuzzy match.
+    if len(val_norm) < _MIN_PARTIAL_LEN:
         return None
 
-    # 3. Fuzzy match with rapidfuzz
+    # 3. Longer value found inside a word (e.g. truncated "FPT Softwar"):
+    #    widen to the CV's full words.
+    idx = cv_norm.find(val_norm)
+    if idx >= 0:
+        return _cut(cv_text, cv_map[idx], cv_map[idx + len(val_norm) - 1] + 1, widen=True)
+
+    # 4. Fuzzy match with rapidfuzz
     alignment = partial_ratio_alignment(
         s1=val_norm,
         s2=cv_norm,

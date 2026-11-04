@@ -12,8 +12,8 @@
 - [x] T005 [P] [US1] `ai-service/eval/predict.py`, `ai-service/eval/variants.py`, `ai-service/eval/report.py`, `ai-service/tests/eval/test_predict_report.py` (fake HTTP server or monkeypatched urlopen) — *Gemini medium*
 
 ## Phase 3: Run & results
-- [ ] T006 Build `data/val_swap.jsonl`; start service with `POSTPROCESS_ENABLED=false`; run predictions for val and val_swap in background — *Claude*
-- [ ] T007 Generate report; review numbers for sanity; write `specs/003-eval-ablation/results.md` (aggregates only) — *Claude*
+- [x] T006 Build `data/val_swap.jsonl`; start service with `POSTPROCESS_ENABLED=false`; run predictions for val and val_swap in background — *Claude*
+- [x] T007 Generate report; review numbers for sanity; write `specs/003-eval-ablation/results.md` (aggregates only) — *Claude*
 - [x] T008 README section "Đánh giá (evaluation)" in `ai-service/README.md` — *Gemini low*
 
 ## Order

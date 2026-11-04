@@ -521,3 +521,11 @@ def test_empty_cv_text_returns_original() -> None:
 
     res_whitespace = ground_profile(profile, "   \n\t  ")
     assert res_whitespace == clone
+
+
+def test_github_url_broken_across_lines_is_kept() -> None:
+    # Regression: PDF text wraps long URLs; grounding must ignore whitespace.
+    cv = "GitHub: github.com/synthuser/Building-\nManagement\n"
+    profile = make_profile(github_url="https://github.com/synthuser/Building-Management")
+    result = ground_profile(profile, cv)
+    assert result["personal_info"]["github_url"] == "https://github.com/synthuser/Building-Management"
