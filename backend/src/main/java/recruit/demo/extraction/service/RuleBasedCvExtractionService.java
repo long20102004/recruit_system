@@ -75,11 +75,9 @@ public class RuleBasedCvExtractionService {
                 (t1 - t0) / 1_000_000, (t2 - t1) / 1_000_000,
                 (t3 - t2) / 1_000_000, (t4 - t3) / 1_000_000,
                 result.warnings().size());
-        for (String w : result.warnings()) {
-            log.warn("rule-based validation: {}", w);
-        }
+        // Counts only: warnings and unknown headings may contain CV values (constitution: CV Data Security).
         if (!detected.unknownHeadings().isEmpty()) {
-            log.info("rule-based unknown headings (bổ sung từ điển): {}", detected.unknownHeadings());
+            log.info("rule-based unknown headings: {}", detected.unknownHeadings().size());
         }
         return result.profile();
     }

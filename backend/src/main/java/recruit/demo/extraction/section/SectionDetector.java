@@ -51,7 +51,7 @@ public class SectionDetector {
                 unknownHeadings.add(firstLine.length() > 60
                         ? firstLine.substring(0, 60)
                         : firstLine);
-                log.debug("Tiêu đề chưa xác định: {}", firstLine);
+                log.debug("Tiêu đề chưa xác định ({} ký tự)", firstLine.length());
             }
             grouped.computeIfAbsent(current, k -> new ArrayList<>()).add(block);
         }

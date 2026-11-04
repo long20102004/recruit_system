@@ -46,7 +46,7 @@ public class CvAnalysisService {
             throw new RuntimeException("Không thể trích xuất nội dung văn bản từ file PDF (có thể là file ảnh scan hoặc file rỗng)");
         }
 
-        log.info("Trích xuất thành công {} ký tự từ file PDF: {}", extractedText.length(), file.getOriginalFilename());
+        log.info("Trích xuất thành công {} ký tự từ file PDF", extractedText.length());
         return analyzeCv(extractedText);
     }
 
@@ -62,7 +62,7 @@ public class CvAnalysisService {
             throw new RuntimeException("Không thể trích xuất nội dung văn bản từ file PDF (có thể là file ảnh scan hoặc file rỗng)");
         }
 
-        log.info("Trích xuất thành công {} ký tự từ file PDF: {}", extractedText.length(), file.getOriginalFilename());
+        log.info("Trích xuất thành công {} ký tự từ file PDF", extractedText.length());
         return extractedText;
     }
 

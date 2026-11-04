@@ -23,8 +23,11 @@
 ## Reading
 - Rules are ~1,800× faster and never invent values, but lose 10–80 F1 points on everything except name / email / GitHub.
 - Main failure is **structure**: the same experience line is written as "Title, Company, Date", "Company | Title | Date", "Title - Company (Date)"; rules cannot tell which part is the company (company F1 0.10). val_swap scores higher on company only because swapped names start with "Công ty …".
-- Phone 0.42: the phone regex misses formats such as "+84 61 5768424".
+- Phone 0.42 is mostly a data artefact: 53 of the 57 missed val phones have 9 digits (e.g. "081057438"), which is not a valid Vietnamese number, so the regex rightly rejects them; on valid numbers the rules find 41/44. The regex was still widened for real formats ("(+84) 912 345 678", "(0377) 386 391", "-" separators), with tests.
 - Conclusion: rules cannot replace the LLM. They fit as a fast path only for contact fields and, after fixes, as a pre-check; the LLM stays for structure. Section-based fields (certificates / honours / languages) reach 0.63–0.76 with rules, so a hybrid (rule section split + LLM) is worth testing only after v2.
 
 ## Bug found and fixed
 `CandidateProfile.parseListStringSafely` returned immutable lists (`toList()` / `List.of`), so the rule-based extractor and validator threw `UnsupportedOperationException` on 119/198 CVs (bug since the initial commit). It now returns `ArrayList`; regression test `CandidateProfileJsonTest.descriptionListsStayMutable`.
+
+## Privacy fix (same day)
+Backend logs no longer contain CV values: PDF file names removed from `CvAnalysisService` logs; rule-based validation warnings (emails, URLs, company / school names) and unknown headings are logged as counts only.

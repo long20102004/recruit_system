@@ -22,9 +22,12 @@ public final class RegexFieldExtractor {
             Pattern.compile("(?:https?://|www\\.)[^\\s)>\"]+|(?:github|gitlab|linkedin)\\.com/[^\\s)>\"]+",
                     Pattern.CASE_INSENSITIVE);
 
-    /** SĐT Việt Nam: 0xxxxxxxxx hoặc +84..., cho phép khoảng trắng/chấm phân cách. */
+    /**
+     * SĐT Việt Nam: 0 + 9 chữ số hoặc +84 + 9 chữ số; cho phép khoảng trắng, chấm, gạch ngang
+     * và ngoặc quanh mã vùng/mã quốc gia: "0912 345 678", "(+84) 912-345-678", "(0377) 386 391".
+     */
     public static final Pattern VN_PHONE =
-            Pattern.compile("(?:\\+84|0)(?:[\\s.]?\\d){9}\\b");
+            Pattern.compile("(?<![\\d+])(?:\\(?\\+84\\)?|\\(?0)(?:[\\s.\\-)]{0,2}\\d){9}(?!\\d)");
 
     /** GPA dạng "3.74 / 4.0", "GPA: 8.8", "GPA 3.1". */
     public static final Pattern GPA =
