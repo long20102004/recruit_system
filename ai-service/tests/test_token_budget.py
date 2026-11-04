@@ -16,7 +16,7 @@ SYNTHETIC_CV = "Nguyễn Văn A\nKỹ năng: Python, FastAPI\nKinh nghiệm: 2 n
 @pytest.fixture()
 def budget(monkeypatch, fake_engine):
     """Ép ``MAX_NEW_TOKENS=1500`` và trả về engine giả đã cài vào state."""
-    monkeypatch.setattr("app.services.generator.MAX_NEW_TOKENS", MAX_NEW_TOKENS)
+    monkeypatch.setattr("app.core.config.MAX_NEW_TOKENS", MAX_NEW_TOKENS)
     return fake_engine
 
 

@@ -26,7 +26,7 @@ def health():
             detail="Model chưa được load"
         )
 
-    info = {"status": "ok", "engine": state.engine}
+    info = {"status": "ok", "engine": state.engine, "prompt_version": config.PROMPT_VERSION}
     if state.engine == "llama_cpp":
         info["model"] = state.gguf_path_used
     else:

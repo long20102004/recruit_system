@@ -12,7 +12,11 @@ GGUF_MODEL_PATH = os.getenv(
     "./merged_model/model-qwen3-1.7b-q4_k_m.gguf"
 )
 
-MAX_NEW_TOKENS = int(os.getenv("MAX_NEW_TOKENS", "1500"))
+PROMPT_VERSION = os.getenv("PROMPT_VERSION", "v1").strip().lower()
+if PROMPT_VERSION not in {"v1", "v2"}:
+    raise ValueError("PROMPT_VERSION must be 'v1' or 'v2'")
+
+MAX_NEW_TOKENS = int(os.getenv("MAX_NEW_TOKENS", "2048" if PROMPT_VERSION == "v2" else "1500"))
 
 MAX_INPUT_TOKENS = int(os.getenv("MAX_INPUT_TOKENS", "8192"))
 
@@ -41,4 +45,3 @@ KG_ENABLED: bool = (
 KB_DSN: str | None = os.getenv("KB_DSN") or None
 
 KB_SEED_DIR: str = _resolve(os.getenv("KB_SEED_DIR", "./kb/seed"))
-

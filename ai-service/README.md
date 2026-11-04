@@ -16,7 +16,8 @@ ai-service/
 │   └── tokenizer_config.json
 ├── merged_model/               # Thư mục chứa file GGUF lượng tử hóa (tùy chọn)
 │   └── .gitkeep
-├── fine_tune_qwen3-1.7B.ipynb  # Notebook quy trình huấn luyện LoRA
+├── fine_tune_qwen3-1.7B.ipynb  # Notebook huấn luyện LoRA v1 (cũ)
+├── training/                   # build_dataset.py + retrain_qwen3_v2.ipynb (v2, feature 006)
 ├── run_on_colab.ipynb          # Notebook chạy thử nghiệm inference trên Google Colab
 ├── main.py                     # Entry point (shim): `uvicorn main:app`
 ├── app/
@@ -24,7 +25,7 @@ ai-service/
 │   ├── api/routes.py           # /health, /api/v1/extract-cv
 │   ├── core/                   # config.py (env), logging.py
 │   ├── schemas/cv.py           # CVRequest, CVResponse
-│   ├── services/               # model_loader, prompt, generator
+│   ├── services/               # model_loader, prompt (v1), prompt_v2, generator
 │   └── utils/                  # text.py (clean_cv_text), json_parse.py (extract_json)
 ├── requirements.txt            # Danh sách thư viện Python cần thiết
 └── README.md
@@ -65,7 +66,8 @@ pip install -r requirements.txt
 | `GGUF_MODEL_PATH` | `./merged_model/model-qwen3-1.7b-q4_k_m.gguf` | Đường dẫn file GGUF; nếu không tồn tại thì tự dò file `*.gguf` trong `merged_model/` |
 | `CONTEXT_TOKENS` | `8192` | Context window; nếu chưa set thì fallback sang `MAX_INPUT_TOKENS` |
 | `MAX_INPUT_TOKENS` | `8192` | Giá trị fallback cũ của `CONTEXT_TOKENS` |
-| `MAX_NEW_TOKENS` | `1500` | Giới hạn số token sinh ra cho mỗi request |
+| `PROMPT_VERSION` | `v1` | Chọn prompt serving: `v1` hoặc `v2` |
+| `MAX_NEW_TOKENS` | `1500` (v1), `2048` (v2) | Giới hạn số token sinh ra cho mỗi request |
 | `QUEUE_WAIT_SECONDS` | `30` | Thời gian tối đa chờ hàng đợi trước khi trả `503` "bận" |
 | `POSTPROCESS_ENABLED` | `true` | Bật/tắt tầng hậu kiểm grounding (`0`/`false`/`no`/`off` để tắt — phục vụ ablation) |
 | `KG_ENABLED` | `true` | Bật/tắt tầng làm giàu KG (`0`/`false`/`no`/`off` để tắt) |
@@ -362,3 +364,21 @@ cd ai-service
 export KB_TEST_DSN="postgresql://postgres:postgres@localhost:5433/recruit_kb_test"
 pytest -m kb_db
 ```
+
+## 🔁 Retrain v2 (feature 006)
+
+Model v2 dùng **một prompt duy nhất** cho cả train và serve: `app/services/prompt_v2.py` (~430 token, có khối `<think></think>` rỗng). Sửa prompt này thì phải build lại dataset và train lại.
+
+1. Build dataset (CV ở `data/`, không commit):
+   ```bash
+   python -m training.build_dataset            # -> data/retrain_v2/
+   python -m training.build_dataset --hints    # biến thể D (gợi ý kỹ năng từ KB) -> data/retrain_v2_hints/
+   ```
+   `summary.json` ghi số mẫu, số nhãn bị loại vì không có trong CV, số token (chỉ số đếm).
+2. Upload thư mục `data/retrain_v2/` lên Drive `MyDrive/cv-analysis-service/retrain_v2/`.
+3. Mở `training/retrain_qwen3_v2.ipynb` trên Colab (T4) → Run all. Notebook train (loss chỉ trên JSON), chấm điểm val/val_swap bằng `eval.report` và in bảng so với v1, rồi xuất GGUF lên Drive.
+4. Serve model v2:
+   ```bash
+   PROMPT_VERSION=v2 GGUF_MODEL_PATH=./merged_model/<file v2>.gguf uvicorn main:app --port 8000
+   ```
+   `PROMPT_VERSION=v1` (mặc định) giữ nguyên hành vi cũ với model v1.

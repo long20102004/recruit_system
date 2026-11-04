@@ -2,13 +2,19 @@ import threading
 import time
 
 from app.core import config
-from app.core.config import MAX_NEW_TOKENS
 from app.core.errors import InputTooLongError, ModelBusyError
 from app.core.logging import logger
 from app.services.model_loader import state
 from app.services.prompt import build_prompt_gguf
+from app.services.prompt_v2 import render_prompt
 
 _lock = threading.Lock()
+
+
+def build_prompt(cv_text: str) -> str:
+    if config.PROMPT_VERSION == "v2":
+        return render_prompt(cv_text)
+    return build_prompt_gguf(cv_text)
 
 
 def count_prompt_tokens(prompt: str) -> int:
@@ -22,7 +28,7 @@ def _generate_llama(prompt: str) -> str:
     start = time.time()
     resp = state.llm(
         prompt=prompt,
-        max_tokens=MAX_NEW_TOKENS,
+        max_tokens=config.MAX_NEW_TOKENS,
         temperature=0.0,
         repeat_penalty=1.0,
         stop=["<|im_end|>", "<|endoftext|>", "</think>"],
@@ -69,7 +75,7 @@ def _generate_transformers(prompt: str) -> str:
     with torch.no_grad():
         outputs = model.generate(
             **inputs,
-            max_new_tokens=MAX_NEW_TOKENS,
+            max_new_tokens=config.MAX_NEW_TOKENS,
             do_sample=False,
             use_cache=True,
             pad_token_id=tokenizer.pad_token_id,
@@ -98,7 +104,7 @@ def _generate_transformers(prompt: str) -> str:
 
 
 def generate_cv(cv_text: str) -> str:
-    prompt = build_prompt_gguf(cv_text)
+    prompt = build_prompt(cv_text)
     start_wait = time.monotonic()
     if not _lock.acquire(timeout=config.QUEUE_WAIT_SECONDS):
         raise ModelBusyError(time.monotonic() - start_wait)
@@ -106,7 +112,7 @@ def generate_cv(cv_text: str) -> str:
     try:
         n = count_prompt_tokens(prompt)
         context = state.context_tokens or config.CONTEXT_TOKENS
-        max_prompt = context - MAX_NEW_TOKENS
+        max_prompt = context - config.MAX_NEW_TOKENS
         if n > max_prompt:
             raise InputTooLongError(n, max_prompt)
 
