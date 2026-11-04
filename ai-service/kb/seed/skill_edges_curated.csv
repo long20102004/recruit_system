@@ -1,9 +1,8 @@
 src_name,rel,dst_name
 .NET,REQUIRES,C#
+.Net Core,PART_OF,.NET
 .NET Core API,PART_OF,.Net Core
 .NET Framework,PART_OF,.NET
-.Net Core,PART_OF,.NET
-Android SDK,REQUIRES,Java
 Android Studio,REQUIRES,Android SDK
 Angular,REQUIRES,TypeScript
 Angular (primeng),PART_OF,Angular
@@ -46,8 +45,8 @@ Glide,REQUIRES,Android SDK
 Gradle,REQUIRES,Java
 HangFire,REQUIRES,C#
 Helm,REQUIRES,Kubernetes
-Hibernate,REQUIRES,Java
 Hibernate,REQUIRES,JPA
+Hibernate,REQUIRES,Java
 HTML5,PART_OF,HTML
 JavaFX,REQUIRES,Java
 JavaServlet,REQUIRES,Java
@@ -56,7 +55,6 @@ JPA,REQUIRES,Java
 jQuery,REQUIRES,JavaScript
 JSP,REQUIRES,Java
 Junit,REQUIRES,Java
-Kubernetes,REQUIRES,Docker
 Laravel,REQUIRES,PHP
 LINQ,REQUIRES,C#
 LlamaIndex,REQUIRES,Python
@@ -87,11 +85,13 @@ OpenFeign,REQUIRES,Java
 Pandas,REQUIRES,Python
 Playwright,REQUIRES,JavaScript
 PostgreSQL,REQUIRES,SQL
-Prisma,REQUIRES,TypeScript
+Prisma,REQUIRES,Node.js
 Pytest,REQUIRES,Python
 PyTorch,REQUIRES,Python
 React Query,REQUIRES,ReactJS
 React Router DOM,REQUIRES,ReactJS
+React Typescript,REQUIRES,ReactJS
+React Typescript,REQUIRES,TypeScript
 React-Bootstrap,REQUIRES,Bootstrap
 React-Bootstrap,REQUIRES,ReactJS
 React-Hook-Form,REQUIRES,ReactJS
@@ -106,17 +106,17 @@ Redux Toolkit,PART_OF,Redux
 scikit-learn,REQUIRES,Python
 SciPy,REQUIRES,Python
 SCSS,REQUIRES,CSS
-Sequelize,REQUIRES,JavaScript
+Sequelize,REQUIRES,Node.js
 Servlets,PART_OF,JavaServlet
 ShadcnUI,REQUIRES,ReactJS
 SignalR,REQUIRES,C#
 Socket.IO,REQUIRES,JavaScript
 Spring Boot,REQUIRES,Java
 Spring Boot Test,PART_OF,Spring Boot
-Spring Cloud,PART_OF,Spring Boot
-Spring Data JPA,PART_OF,Spring Boot
-Spring MVC,PART_OF,Spring Boot
-Spring Security,PART_OF,Spring Boot
+Spring Cloud,REQUIRES,Java
+Spring Data JPA,REQUIRES,Java
+Spring MVC,REQUIRES,Java
+Spring Security,REQUIRES,Java
 SQLAlchemy,REQUIRES,Python
 SQLite,REQUIRES,SQL
 SQLModel,REQUIRES,FastAPI

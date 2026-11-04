@@ -32,4 +32,4 @@
 ## Notes
 
 - PostgreSQL is named because it is a user decision (KB storage), recorded in the spec input.
-- LLM-proposed categories/relations are not counted as human-reviewed (reviewed=false).
+- LLM-proposed rows start with reviewed=false; after the 2026-11-04 review (by Claude, at the user's request) all curated rows are reviewed=true.

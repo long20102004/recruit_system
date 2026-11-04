@@ -23,7 +23,7 @@ As Module 2, I need skills that are implied by the listed ones (Spring Boot ⇒ 
 **Acceptance Scenarios**:
 
 1. **Given** skills ["Spring Boot"] and KB edge Spring Boot REQUIRES Java, **When** enriched, **Then** `implied_skills` contains Java with `via` = [{from: "Spring Boot", rel: "REQUIRES"}].
-2. **Given** "Spring Data JPA" (PART_OF Spring Boot, which REQUIRES Java), **When** enriched, **Then** both Spring Boot and Java are implied (transitive), each with its path.
+2. **Given** a skill A PART_OF B where B REQUIRES C (e.g. "Spring Boot Test" PART_OF Spring Boot REQUIRES Java), **When** enriched, **Then** both B and C are implied (transitive), each with its path.
 3. **Given** an implied skill already present in `skills_normalized`, **When** enriched, **Then** it is not repeated in `implied_skills`.
 4. **Given** any input, **When** enriched, **Then** `skills` is never modified by implication.
 

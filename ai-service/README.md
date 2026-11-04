@@ -322,7 +322,7 @@ python -m kb.build_seed \
 ```
 - Bộ seed CSV (`skills.csv`, `skill_aliases.csv`, `skill_edges.csv`, `skill_categories.csv`, `universities.csv`, `university_aliases.csv`) được commit vào repo để phục vụ offline linker (`from_csv`) và fallback khi không có DB.
 - File `kb/seed/skill_aliases_curated.csv` dùng để gộp thủ công biến thể kỹ năng (cột: `variant,canonical,reviewed`): khi đặt `reviewed=true`, quá trình build sẽ ánh xạ biến thể sang canonical skill tương ứng.
-- Các file `*_curated.csv` khác là đề xuất từ máy với `reviewed=false`.
+- Các file `*_curated.csv` khác: đề xuất từ máy, đã được Claude duyệt ngày 2026-11-04 (`reviewed=true`); giá trị `EXCLUDE` loại mục rác; `university_alias_blocklist.csv` chặn alias mơ hồ. Xem `kb/seed/README.md`.
 - **Quy trình duyệt**: Chỉnh sửa category/edge/alias trong file curated, đổi cờ thành `reviewed=true`, sau đó chạy lại lệnh build để tích hợp.
 - Thuật toán tự động gộp các lỗi chính tả hiếm gặp vào kỹ năng phổ biến bằng fuzzy matching ($\ge 90$).
 

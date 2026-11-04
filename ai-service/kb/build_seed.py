@@ -120,6 +120,9 @@ def _read_reference_universities(path: Path) -> tuple[dict[str, list[str]], dict
     return unis, alias
 
 
+# Curated value that removes a reviewed junk entry (skill category or university canonical).
+EXCLUDE = "EXCLUDE"
+
 # Rare keys (>= 5 chars) whose fuzz.ratio to a strictly more frequent key is >= this
 # threshold are folded into that key as an alias (silver labels contain typos).
 FUZZY_MERGE_THRESHOLD = 90
@@ -251,6 +254,7 @@ def build_seed(
         merged_into[k] = t
 
     composites_dropped = 0
+    skills_excluded = 0
     kept_skills: list[dict[str, Any]] = []
 
     for k in sorted(skill_groups.keys()):
@@ -265,6 +269,10 @@ def build_seed(
         keep_comp = curated_keep_composite.get(k, False)
         if not keep_comp and _is_composite(canonical_name, non_composite_keys):
             composites_dropped += 1
+            continue
+
+        if curated_categories.get(k) == EXCLUDE:
+            skills_excluded += 1  # reviewed junk: label fragments, generic words, sentences
             continue
 
         if k in curated_categories:
@@ -410,6 +418,15 @@ def build_seed(
     # normalisation dictionary, never a whitelist. Train schools that match it are
     # attached to the reference entry; the others are kept as their own entries.
     ref_unis, ref_alias = _read_reference_universities(curated_p / "vn_universities.csv")
+    # Aliases that are ambiguous in the real world (e.g. "Ho Chi Minh City University of
+    # Technology" is used by both HCMUT/Bách khoa and HUTECH) are never used.
+    blocked = {
+        school_key((r.get("alias") or "").strip())
+        for r in _read_csv_rows(curated_p / "university_alias_blocklist.csv")
+    } - {""}
+    ref_alias = {k: v for k, v in ref_alias.items() if k not in blocked}
+    ref_unis = {n: [a for a in al if school_key(a) not in blocked] for n, al in ref_unis.items()}
+    universities_excluded = 0
 
     uni_by_canon: dict[str, dict[str, Any]] = {}
     for name, aliases in ref_unis.items():
@@ -444,6 +461,11 @@ def build_seed(
             )
             extras = []
             reviewed = False
+
+        if c_name == EXCLUDE:
+            universities_excluded += 1  # not a school (e.g. "Không nêu trong CV", self-taught)
+            continue
+        extras = [e for e in extras if school_key(e) not in blocked]
 
         if c_name not in uni_by_canon:
             uni_by_canon[c_name] = {
@@ -489,7 +511,7 @@ def build_seed(
         for k in sorted(u["gold_keys"].keys()):
             s_dict = u["gold_keys"][k]
             surf = min(s_dict.keys(), key=lambda s: (-s_dict[s], len(s), s))
-            if k and k not in seen_uni_aliases:
+            if k and k not in seen_uni_aliases and k not in blocked:
                 seen_uni_aliases.add(k)
                 uni_alias_rows.append(
                     {"alias_key": k, "university_id": uid_str, "surface": surf}
@@ -606,6 +628,8 @@ def build_seed(
         "aliases": len(alias_rows),
         "composites_dropped": composites_dropped,
         "fuzzy_merged": fuzzy_merged,
+        "skills_excluded": skills_excluded,
+        "universities_excluded": universities_excluded,
         "skills_reviewed": sum(1 for s in kept_skills if s["reviewed"] == "true"),
         "edges": len(unique_edges),
         "edges_unresolved": edges_unresolved,

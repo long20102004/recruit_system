@@ -1,663 +1,663 @@
 key,category,keep_composite,reviewed
-abilitytoquicklylearnandadapttonewtechnologies,Soft Skill,false,false
-abletoreadandsearchbyenglish,Soft Skill,false,false
-acceptancecriteria,Business Analysis,false,false
-activedirectory,Tool/Platform,false,false
-adaptability,Soft Skill,false,false
-agenticrag,Data/AI,false,false
-agilescrum,Methodology/Concept,false,false
-aitoolstooptimizeworkflowsandimproveefficiency,Data/AI,false,false
-airflow,Data/AI,false,false
-ajax,Frontend,false,false
-alcomputervision,Data/AI,false,false
-algorithmsdatastructures,Methodology/Concept,false,false
-alphabetapvssearch,Methodology/Concept,false,false
-anaconda,Tool/Platform,false,false
-analysis,Business Analysis,false,false
-analysisanddesigndatabasemysql,Database,false,false
-analysisanddesigndatabasesqlservermysqlmongodb,Database,false,false
-analyticalthinking,Soft Skill,false,false
-androidsdk,Mobile,false,false
-androidstudio,Tool/Platform,false,false
-angular,Frontend,false,false
-angularprimeng,Frontend,false,false
-ansible,DevOps/CI-CD,false,false
-antdesign,Frontend,false,false
-antdesignui,Frontend,false,false
-apacheant,DevOps/CI-CD,false,false
-apachekafka,Tool/Platform,false,false
-api,Methodology/Concept,false,false
-apigoogledrive,Tool/Platform,false,false
-apitesting,Testing/QA,false,false
-arcface,Data/AI,false,false
-argocd,DevOps/CI-CD,false,false
-arp,Methodology/Concept,false,false
-aspnet80,Framework/Library,false,false
-aspnetapi,Framework/Library,false,false
-aspnetc#,Framework/Library,false,false
-aspnetcore,Framework/Library,false,false
-aspnetcoremvc,Framework/Library,false,false
-aspnetcoremvcwebapi,Framework/Library,false,false
-aspnetcorewebapi,Framework/Library,false,false
-aspnetidentity,Framework/Library,false,false
-aspnetmvc,Framework/Library,false,false
-aspnetmvccore6x,Framework/Library,false,false
-aspnetwebapi,Framework/Library,false,false
-authenticationandauthorizationwithspringsecurity,Security,false,false
-authenticationoauth2jwt,Security,false,false
-automapper,Framework/Library,false,false
-aws,Cloud,false,false
-awss3,Cloud,false,false
-axios,Frontend,false,false
-azure,Cloud,false,false
-bash,Programming Language,false,false
-basicenglishreadingandcomprehension,Soft Skill,false,false
-basicexperiencewithmvcarchitectureandwebapplicationdevelopmentusingc#,Framework/Library,false,false
-batchnormalization,Data/AI,false,false
-bcrypt,Security,false,false
-bietsapxepthoigianhieuqua,Soft Skill,false,false
-bietsudungpythontrongxulyvaphantichdulieu,Data/AI,false,false
-bietungdungaidehotronghiencuu,Data/AI,false,false
-biome,Tool/Platform,false,false
-blade,Frontend,false,false
-bladetemplate,Frontend,false,false
-bleu,Data/AI,false,false
-boostrap,Frontend,false,false
-bootstrap,Frontend,false,false
-bootstrap5,Frontend,false,false
-boundingboxannotation,Data/AI,false,false
-bpmn,Business Analysis,false,false
-brdsrs,Business Analysis,true,false
-brevo,Tool/Platform,false,false
-bucket4j,Framework/Library,false,false
-builder,Methodology/Concept,false,false
-burpsuite,Security,false,false
-c,Programming Language,false,false
-c#,Programming Language,false,false
-c#mvc,Framework/Library,false,false
-c#netmaui,Mobile,false,false
-c#netwindowsform,Framework/Library,false,false
-c#oopclass,Programming Language,false,false
-c++,Programming Language,false,false
-caidatquantriwordpress,Tool/Platform,false,false
-caidatvacauhinhhedieuhanh,Tool/Platform,false,false
-cancollaboratewithothermemberstodevelopfeatureswithoutdifficult,Soft Skill,false,false
-capableofworkingindependentlyandinteams,Soft Skill,false,false
-cassandra,Database,false,false
-celery,Framework/Library,false,false
-chandoanvaxulysucomangcoban,Methodology/Concept,false,false
-charlesfiddler,Tool/Platform,false,false
-charlesproxy,Tool/Platform,false,false
-checkmk,DevOps/CI-CD,false,false
-cicd,DevOps/CI-CD,true,false
-cicdgithubactions,DevOps/CI-CD,false,false
-cisdockerbenchmark,Security,false,false
-cleanarchitecture,Methodology/Concept,false,false
-clearandconcisecommunicationandideapresentation,Soft Skill,false,false
-cleck,Security,false,false
-cloudary,Cloud,false,false
-clouddeploymentdigitalocean,Cloud,false,false
-clouddigitalocean,Cloud,false,false
-cloudinfrastructureandsystemdesign,Cloud,false,false
-cloudinary,Cloud,false,false
-cloundinary,Cloud,false,false
-cnn,Data/AI,false,false
-cokhanangdanhgiavathunghiemmohinhai,Data/AI,false,false
-cokhanangdochieutailieuvagiaotieptienganhomuccoban,Soft Skill,false,false
-cokhanangtuhocvalamviectot,Soft Skill,false,false
-cokienthuccobanvesql,Database,false,false
-collaboration,Soft Skill,false,false
-comfortablereadingtechnicaldocumentationinenglish,Soft Skill,false,false
-communication,Soft Skill,false,false
-communicationskill,Soft Skill,false,false
-conda,Tool/Platform,false,false
-confluence,Tool/Platform,false,false
-contextapi,Frontend,false,false
-controllers,Methodology/Concept,false,false
-cors,Security,false,false
-cqrs,Methodology/Concept,false,false
-cqrspattern,Methodology/Concept,false,false
-crosssitescriptingxssprevention,Security,false,false
-csharp,Programming Language,false,false
-css,Frontend,false,false
-css3,Frontend,false,false
-cuthtml+cssfromfigma,Frontend,false,false
-cypress,Testing/QA,false,false
-dapper,Framework/Library,false,false
-dart,Programming Language,false,false
-datafiltering,Data/AI,false,false
-datapreprocessing,Data/AI,false,false
-datastructuresandalgorithms,Methodology/Concept,false,false
-dbt,Data/AI,false,false
-delete,Database,false,false
-dependencyinjection,Methodology/Concept,false,false
-designpattern,Methodology/Concept,false,false
-designpatterns,Methodology/Concept,false,false
-developrestfulapiappservicewithspringboot,Framework/Library,false,false
-dhcp,Methodology/Concept,false,false
-digitalocean,Cloud,false,false
-distributedsystemsconcepts,Methodology/Concept,false,false
-dochieutailieutienganhcoban,Soft Skill,false,false
-dochieutienganhcobanvachuyennganh,Soft Skill,false,false
-docker,DevOps/CI-CD,false,false
-dockercompose,DevOps/CI-CD,false,false
-drawio,Design/UI-UX,false,false
-dropout,Data/AI,false,false
-dsa,Methodology/Concept,false,false
-dto,Methodology/Concept,false,false
-easytounderstandingrequestfromleadertodevelopfeatures,Soft Skill,false,false
-efcore,Framework/Library,false,false
-efcoreorm,Framework/Library,false,false
-effectivecommunication,Soft Skill,false,false
-effectiveproblemsolvingskills,Soft Skill,false,false
-effectivetimemanagement,Soft Skill,false,false
-ejs,Frontend,false,false
-elasticsearch,Database,false,false
-elkstack,DevOps/CI-CD,false,false
-eloquent,Framework/Library,false,false
-email,Tool/Platform,false,false
-emailapi,Tool/Platform,false,false
-embeddingextraction,Data/AI,false,false
-englishproficiency,Soft Skill,false,false
-englishreadingcomprehension,Soft Skill,false,false
-ensembleclassifiers,Data/AI,false,false
-entityframework,Framework/Library,false,false
-entityframeworkcore,Framework/Library,false,false
-entityframeworkcoreefcore,Framework/Library,true,false
-erdcreation,Database,false,false
-etl,Data/AI,false,false
-evaluationmetricsrougebleuperplexity,Data/AI,false,false
-eventdrivenarchitecture,Methodology/Concept,false,false
-events,Methodology/Concept,false,false
-excel,Tool/Platform,false,false
-express,Framework/Library,false,false
-facerecognition,Data/AI,false,false
-factory,Methodology/Concept,false,false
-familiarwithbasicphpscriptingandapplicationstructure,Programming Language,false,false
-familiarwithdistributedsystemsandeventdrivenarchitecture,Methodology/Concept,false,false
-fastapi,Framework/Library,false,false
-fastdetectandfixbugwhenproblemhasraised,Soft Skill,false,false
-fastify,Framework/Library,false,false
-feignclient,Framework/Library,false,false
-fft,Data/AI,false,false
-figma,Design/UI-UX,false,false
-figmaprototype,Design/UI-UX,false,false
-finetuningsftlora,Data/AI,false,false
-firebase,Cloud,false,false
-firebaseauthentication,Security,false,false
-firebaserealtimedatabase,Database,false,false
-firebasestorage,Cloud,false,false
-firewall,Security,false,false
-flutter,Mobile,false,false
-frameworklibrarynet,Framework/Library,false,false
-freepbx,Tool/Platform,false,false
-gcp,Cloud,false,false
-genymotion,Tool/Platform,false,false
-giaiquyetvande,Soft Skill,false,false
-giaotiepvatruyendatthongtin,Soft Skill,false,false
-git,Tool/Platform,false,false
-github,Tool/Platform,false,false
-githubactioncicd,DevOps/CI-CD,false,false
-githubactions,DevOps/CI-CD,false,false
-gitlab,Tool/Platform,false,false
-gitlabci,DevOps/CI-CD,false,false
-gitlabcicd,DevOps/CI-CD,false,false
-glide,Mobile,false,false
-go,Programming Language,false,false
-goodabletoreadtechnicaldocumentsfluently,Soft Skill,false,false
-goodproblemsolvingskills,Soft Skill,false,false
-googlebigquery,Database,false,false
-googlegeminiapi,Data/AI,false,false
-googleoauth2,Security,false,false
-gpo,Security,false,false
-gradientboost,Data/AI,false,false
-gradle,DevOps/CI-CD,false,false
-grafana,DevOps/CI-CD,false,false
-graphql,Methodology/Concept,false,false
-groqapi,Data/AI,false,false
-grpc,Methodology/Concept,false,false
-h2database,Database,false,false
-hadoop,Data/AI,false,false
-hangfire,Framework/Library,false,false
-havethespiritofselfstudy,Soft Skill,false,false
-havingasolidgraspofagilescrummethodology,Methodology/Concept,false,false
-helm,DevOps/CI-CD,false,false
-heuristicadversarialsearch,Data/AI,false,false
-hibernate,Framework/Library,false,false
-hibernateorm,Framework/Library,false,false
-hlsstreaming,Methodology/Concept,false,false
-hoadong,Soft Skill,false,false
-hochoitraodoikinhnghiem,Soft Skill,false,false
-hotrophanmemcoban,Tool/Platform,false,false
-html,Frontend,false,false
-html3,Frontend,false,false
-html5,Frontend,false,false
-httpsession,Framework/Library,false,false
-hybridsearch,Data/AI,false,false
-hyperparametertuning,Data/AI,false,false
-i18n,Methodology/Concept,false,false
-iam,Security,false,false
-identity,Framework/Library,false,false
-iisexpress,Tool/Platform,false,false
-illustrator,Design/UI-UX,false,false
-imagevideoprocessing,Data/AI,false,false
-infrastructureascodeiac,DevOps/CI-CD,false,false
-inheritance,Methodology/Concept,false,false
-inngest,Tool/Platform,false,false
-insert,Database,false,false
-intellij,Tool/Platform,false,false
-intellijidea,Tool/Platform,false,false
-interceptor,Methodology/Concept,false,false
-interestedinbackendengineering,Other,false,false
-interface,Methodology/Concept,false,false
-interfaceanddependencyinjection,Methodology/Concept,false,false
-intermediatelevelinenglish,Soft Skill,false,false
-ipv4,Methodology/Concept,false,false
-iso27001,Security,false,false
-itextpdf,Framework/Library,false,false
-jasperreportsfonts,Tool/Platform,false,false
-java,Programming Language,false,false
-java17,Programming Language,false,false
-java21,Programming Language,false,false
-javacore,Programming Language,false,false
-javacorefocus,Programming Language,false,false
-javaee7,Framework/Library,false,false
-javafx,Framework/Library,false,false
-javascript,Programming Language,false,false
-javascriptes6+,Programming Language,false,false
-javascripts,Programming Language,false,false
-javascrript,Programming Language,false,false
-javaservlet,Framework/Library,false,false
-javaspringbootprimefaces,Framework/Library,false,false
-jenkins,DevOps/CI-CD,false,false
-jest,Testing/QA,false,false
-jira,Tool/Platform,false,false
-jmeter,Testing/QA,false,false
-jpa,Framework/Library,false,false
-jpa21eclipselink,Framework/Library,false,false
-jquery,Frontend,false,false
-js,Programming Language,false,false
-jsonapijavaxjsonglassfish,Framework/Library,false,false
-jsp,Frontend,false,false
-jspjstl,Frontend,false,false
-junit,Testing/QA,false,false
-junit5,Testing/QA,false,false
-jwt,Security,false,false
-jwtauthentication,Security,false,false
-jwtbearer,Security,false,false
-jwttoken,Security,false,false
-kafka,Tool/Platform,false,false
-kalilinux,Security,false,false
-kanban,Methodology/Concept,false,false
-khamphanhungkienthucmoi,Soft Skill,false,false
-khanangdonggopvalamviecnhomhieuqua,Soft Skill,false,false
-khananglamviecnhomvadoclap,Soft Skill,false,false
-khanangtuhoc,Soft Skill,false,false
-kienthuccobanvetrituenhantaovamachinelearning,Data/AI,false,false
-knn,Data/AI,false,false
-kotlin,Programming Language,false,false
-kubernetes,DevOps/CI-CD,false,false
-kynanggiaiquyetvande,Soft Skill,false,false
-kynanggiaotiep,Soft Skill,false,false
-kynanglamviecnhom,Soft Skill,false,false
-kynangquanlyduan,Soft Skill,false,false
-kynangtutimtoi,Soft Skill,false,false
-lamviecdoclap,Soft Skill,false,false
-lamviecnhom,Soft Skill,false,false
-lamviecnhomtheomohinhscrum,Methodology/Concept,false,false
-laptrinhvaxulycongviec,Other,false,false
-laravel,Framework/Library,false,false
-lark,Tool/Platform,false,false
-leadership,Soft Skill,false,false
-learnnewknowledgetechnologies,Soft Skill,false,false
-linq,Framework/Library,false,false
-linux,Tool/Platform,false,false
-linuxenvironment,Tool/Platform,false,false
-liquibase,Database,false,false
-listeners,Methodology/Concept,false,false
-listeningandlearning,Soft Skill,false,false
-listview,Mobile,false,false
-llama318b,Data/AI,false,false
-llamaindex,Data/AI,false,false
-logicalthinking,Soft Skill,false,false
-lombok,Framework/Library,false,false
-lumen,Framework/Library,false,false
-machinelearning,Data/AI,false,false
-manualtesting,Testing/QA,false,false
-mapstruct,Framework/Library,false,false
-martenorm,Framework/Library,false,false
-materialdesign,Design/UI-UX,false,false
-materialui,Frontend,false,false
-maven,DevOps/CI-CD,false,false
-mdbreactuikit,Frontend,false,false
-mdxcontent,Frontend,false,false
-mediaplayerapi,Mobile,false,false
-mediatr,Framework/Library,false,false
-memorycache,Database,false,false
-metasploit,Security,false,false
-microservice,Methodology/Concept,false,false
-microservices,Methodology/Concept,false,false
-microservicesarchitecture,Methodology/Concept,false,false
-microsoftsqlserver,Database,false,false
-microsoftsqlserverjdbcdriver,Database,false,false
-minialapi,Framework/Library,false,false
-mlflow,Data/AI,false,false
-mobilenetv2,Data/AI,false,false
-mockito,Testing/QA,false,false
-model,Methodology/Concept,false,false
-modeltraining,Data/AI,false,false
-mohinhhoanghiepvu,Business Analysis,false,false
-monggodb,Database,false,false
-mongodb,Database,false,false
-mongodbatlas,Database,false,false
-monolithic,Methodology/Concept,false,false
-moodle,Tool/Platform,false,false
-mssql,Database,false,false
-mssqlserver,Database,false,false
-mui,Frontend,false,false
-multer,Framework/Library,false,false
-mvc,Methodology/Concept,false,false
-mvcarchitecture,Methodology/Concept,false,false
-mvcmodelviewcontroller,Methodology/Concept,false,false
-mvcpattern,Methodology/Concept,false,false
-mvvmmodelviewviewmodel,Methodology/Concept,false,false
-mysql,Database,false,false
-mysqlworkbench,Tool/Platform,false,false
-nat,Methodology/Concept,false,false
-neo4j,Database,false,false
-nessus,Security,false,false
-nest,Framework/Library,false,false
-net,Framework/Library,false,false
-net8,Framework/Library,false,false
-net80,Framework/Library,false,false
-netcore,Framework/Library,false,false
-netcore8api,Framework/Library,false,false
-netcoreapi,Framework/Library,false,false
-netframework,Framework/Library,false,false
-networksecurity,Security,false,false
-networking,Methodology/Concept,false,false
-nex,Frontend,false,false
-next,Frontend,false,false
-nextjs14,Frontend,false,false
-nextjs15,Frontend,false,false
-nextjs16,Frontend,false,false
-nginx,DevOps/CI-CD,false,false
-nlayer,Methodology/Concept,false,false
-nmap,Security,false,false
-node,Framework/Library,false,false
-nodeexpress,Framework/Library,false,false
-nodejsloopback4,Framework/Library,false,false
-nodejsrestapi,Framework/Library,false,false
-nodemailer,Framework/Library,false,false
-nodemon,Tool/Platform,false,false
-notification,Methodology/Concept,false,false
-numpy,Data/AI,false,false
-nuxt,Frontend,false,false
-oauth2,Security,false,false
-oauth20,Security,false,false
-objectdetection,Data/AI,false,false
-observer,Methodology/Concept,false,false
-ocelotapigateway,Framework/Library,false,false
-officesoftware,Tool/Platform,false,false
-ons,Methodology/Concept,false,false
-oop,Methodology/Concept,false,false
-oopobjectorientedprogramming,Methodology/Concept,false,false
-opencv,Data/AI,false,false
-opencvdnn,Data/AI,false,false
-openfeign,Framework/Library,false,false
-openstack,Cloud,false,false
-openwrt,Tool/Platform,false,false
-oracle,Database,false,false
-oracledatabase,Database,false,false
-orm,Methodology/Concept,false,false
-ospf,Methodology/Concept,false,false
-owasptop10,Security,false,false
-pandas,Data/AI,false,false
-particularlyinlogicalreasoningandanalyticalthinking,Soft Skill,false,false
-passportjwtsessionbased,Security,false,false
-pfsense,Security,false,false
-phanquyentrenwindows,Security,false,false
-phantichnghiepvu,Business Analysis,false,false
-phantichvagiaiquyetvande,Soft Skill,false,false
-phattrienwebsitecobangomfrontendvabackend,Methodology/Concept,false,false
-photoshop,Design/UI-UX,false,false
-php,Programming Language,false,false
-phplaravel,Framework/Library,false,false
-playwright,Testing/QA,false,false
-posgesql,Database,false,false
-postgreql,Database,false,false
-postgres,Database,false,false
-postgresql,Database,false,false
-postgresqldatabasedesignoptimization,Database,false,false
-postman,Tool/Platform,false,false
-powerbi,Data/AI,false,false
-powerbifordatavisualizationandanalysis,Data/AI,false,false
-powerdesignerumlerd,Business Analysis,false,false
-powerpoint,Tool/Platform,false,false
-powerpointskills,Tool/Platform,false,false
-predictionconfidenceestimation,Data/AI,false,false
-presentation,Soft Skill,false,false
-presentationskills,Soft Skill,false,false
-prisma,Framework/Library,false,false
-prismaorm,Framework/Library,false,false
-prismastudio,Tool/Platform,false,false
-problemsolving,Soft Skill,false,false
-problemsolvingskills,Soft Skill,false,false
-processmodeling,Business Analysis,false,false
-proficientinfullstackdevelopmentusingloopback4nodejsforbackendapisandreactjsforbuildingcomponentbaseduis,Framework/Library,false,false
-proficientinteamwork,Soft Skill,false,false
-prometheus,DevOps/CI-CD,false,false
-proxmox,Tool/Platform,false,false
-pusher,Tool/Platform,false,false
-pytest,Testing/QA,false,false
-python,Programming Language,false,false
-pytorch,Data/AI,false,false
-qdrant,Database,false,false
-qualityofservice,Methodology/Concept,false,false
-quanlycongviectheobangkanban,Methodology/Concept,false,false
-quanlynoidungwebsite,Other,false,false
-r2cloudflare,Cloud,false,false
-rabbitmq,Tool/Platform,false,false
-railway,Cloud,false,false
-randomforest,Data/AI,false,false
-ratelimitapi,Methodology/Concept,false,false
-react,Frontend,false,false
-react19,Frontend,false,false
-reactbootstrap,Frontend,false,false
-reacthookform,Frontend,false,false
-reactjsfunctionalknowledge,Frontend,false,false
-reactquery,Frontend,false,false
-reactredux,Frontend,false,false
-reactrouterdom,Frontend,false,false
-reactslick,Frontend,false,false
-reacttypescript,Frontend,false,false
-realtime,Methodology/Concept,false,false
-realtimeinference,Data/AI,false,false
-realtimewithpusher,Tool/Platform,false,false
-recyclerview,Mobile,false,false
-redis,Database,false,false
-rediscache,Database,false,false
-redux,Frontend,false,false
-reduxtoolkit,Frontend,false,false
-regression,Data/AI,false,false
-regularization,Data/AI,false,false
-reinforcementlearninggrpo,Data/AI,false,false
-render,Cloud,false,false
-reponsive,Frontend,false,false
-reportviewer,Tool/Platform,false,false
-repository,Methodology/Concept,false,false
-repositorypattern,Methodology/Concept,false,false
-requirementselicitation,Business Analysis,false,false
-resend,Tool/Platform,false,false
-responsibilityaccountability,Soft Skill,false,false
-responsive,Frontend,false,false
-responsivedesign,Frontend,false,false
-restapi,Methodology/Concept,false,false
-restapis,Methodology/Concept,false,false
-restful,Methodology/Concept,false,false
-restfulapi,Methodology/Concept,false,false
-restfulapidesign,Methodology/Concept,false,false
-restfulapis,Methodology/Concept,false,false
-rip,Methodology/Concept,false,false
-rnn,Data/AI,false,false
-rouge,Data/AI,false,false
-routing,Methodology/Concept,false,false
-rustdesk,Tool/Platform,false,false
-saoluuvaphuchoidulieu,Database,false,false
-sassscss,Frontend,false,false
-schedulejobhangfire,Framework/Library,false,false
-scikitlearn,Data/AI,false,false
-scipy,Data/AI,false,false
-scrfd,Data/AI,false,false
-scss,Frontend,false,false
-select,Database,false,false
-selenium,Testing/QA,false,false
-selflearning,Soft Skill,false,false
-sepay,Tool/Platform,false,false
-sequelize,Framework/Library,false,false
-sequelizeorm,Framework/Library,false,false
-service,Methodology/Concept,false,false
-servlets,Framework/Library,false,false
-shadcenui,Frontend,false,false
-shadcnui,Frontend,false,false
-siem,Security,false,false
-signalr,Framework/Library,false,false
-sms,Tool/Platform,false,false
-snmp,Methodology/Concept,false,false
-snortidsips,Security,false,false
-snowflake,Database,false,false
-soc2,Security,false,false
-socketio,Framework/Library,false,false
-solid,Methodology/Concept,false,false
-solidprinciples,Methodology/Concept,false,false
-solvingproblem,Soft Skill,false,false
-sonarqube,DevOps/CI-CD,false,false
-spark,Data/AI,false,false
-spectrogram,Data/AI,false,false
-spingcloudgateway,Framework/Library,false,false
-splunk,Security,false,false
-springboot,Framework/Library,false,false
-springboottest,Testing/QA,false,false
-springbootwebdatajpadatajdbcmaildevtools,Framework/Library,false,false
-springcloud,Framework/Library,false,false
-springdatajpa,Framework/Library,false,false
-springmvc,Framework/Library,false,false
-springsecurity,Security,false,false
-spsa,Data/AI,false,false
-spsatuning,Data/AI,false,false
-sql,Database,false,false
-sqlcoban,Database,false,false
-sqlinjectionprotection,Security,false,false
-sqlmodel,Framework/Library,false,false
-sqlselectjoingroupby,Database,false,false
-sqlserver,Database,false,false
-sqlalchemy,Framework/Library,false,false
-sqlalchemyorm,Framework/Library,false,false
-sqlite,Database,false,false
-sse,Methodology/Concept,false,false
-ssh,Tool/Platform,false,false
-stft,Data/AI,false,false
-storeprocedure,Database,false,false
-stripe,Tool/Platform,false,false
-stripecheckoutwebhooks,Tool/Platform,false,false
-stripepaymentapi,Tool/Platform,false,false
-stronganalyticalskillswithafocusondebuggingandsystemoptimization,Soft Skill,false,false
-strongselflearningabilityandcuriosityfornewknowledge,Soft Skill,false,false
-subnetting,Methodology/Concept,false,false
-sudungcongcuhotrotuxa,Tool/Platform,false,false
-sudungcongcumarketingonline,Tool/Platform,false,false
-sudungthanhthaocaccongcumicrosoftoffice,Tool/Platform,false,false
-sudungthanhthaojava21,Programming Language,false,false
-supabase,Cloud,false,false
-swagger,Tool/Platform,false,false
-swaggeropenapi,Tool/Platform,false,false
-tableau,Data/AI,false,false
-tailwind,Frontend,false,false
-tailwindcss,Frontend,false,false
-tanstack,Frontend,false,false
-tanstackquery,Frontend,false,false
-tcpip,Methodology/Concept,true,false
-teamcollaboration,Soft Skill,false,false
-teamwork,Soft Skill,false,false
-teamworking,Soft Skill,false,false
-tensorflow,Data/AI,false,false
-terraform,DevOps/CI-CD,false,false
-testautomation,Testing/QA,false,false
-testcasedesign,Testing/QA,false,false
-testinglibrary,Testing/QA,false,false
-testrail,Testing/QA,false,false
-thaidophucvuvahotrothanthien,Soft Skill,false,false
-thanhthaokynanghorenso,Soft Skill,false,false
-thichnghicongnghemoi,Soft Skill,false,false
-thietkegiaodienwebsitedepsudunghtmlhtml5,Frontend,false,false
-thietkewebresponsivetudongcogian,Frontend,false,false
-thundertesters,Testing/QA,false,false
-thuyettrinh,Soft Skill,false,false
-thymeleaf,Frontend,false,false
-timemanagement,Soft Skill,false,false
-tinymce,Frontend,false,false
-tkinter,Framework/Library,false,false
-transformersarchitecture,Data/AI,false,false
-trello,Tool/Platform,false,false
-trivy,Security,false,false
-tuduylogic,Soft Skill,false,false
-tuhoc,Soft Skill,false,false
-tuhocvatimhieucongnghemoi,Soft Skill,false,false
-typeorm,Framework/Library,false,false
-typescript,Programming Language,false,false
-typescriptript,Programming Language,false,false
-uat,Business Analysis,false,false
-ubuntu,Tool/Platform,false,false
-uciprotocol,Methodology/Concept,false,false
-understandingofdatastructuresandprogrammingprinciplesobjectorientation,Methodology/Concept,false,false
-understandingofobjectorientedprogramminganddatastructures,Methodology/Concept,false,false
-unitofworkpattern,Methodology/Concept,false,false
-unittesting,Testing/QA,false,false
-unity,Tool/Platform,false,false
-unity6,Tool/Platform,false,false
-update,Database,false,false
-usecasediagramcreation,Business Analysis,false,false
-usecasespecs,Business Analysis,false,false
-userstory,Business Analysis,false,false
-uvicorn,Framework/Library,false,false
-validationapi,Framework/Library,false,false
-vault,Security,false,false
-vectordbqdrant,Database,false,false
-velite,Tool/Platform,false,false
-vercel,Cloud,false,false
-verticalslicearchitecture,Methodology/Concept,false,false
-vietbaichuanseo,Other,false,false
-viewsandbladetemplates,Frontend,false,false
-virtualbox,Tool/Platform,false,false
-visualstudio,Tool/Platform,false,false
-visualstudiocode,Tool/Platform,false,false
-vite,Frontend,false,false
-vlans,Methodology/Concept,false,false
-vnpay,Tool/Platform,false,false
-vpn,Security,false,false
-vps,Cloud,false,false
-vscode,Tool/Platform,false,false
-vue,Frontend,false,false
-vuive,Soft Skill,false,false
-vulnerabilityassessment,Security,false,false
-wazuh,Security,false,false
-webpack,Frontend,false,false
-webrtc,Methodology/Concept,false,false
-websocket,Methodology/Concept,false,false
-windows,Tool/Platform,false,false
-winform,Framework/Library,false,false
-winforms,Framework/Library,false,false
-wireshark,Security,false,false
-withastrongsenseofresponsibilityinwork,Soft Skill,false,false
-word,Tool/Platform,false,false
-wordpress,Tool/Platform,false,false
-workunderpressure,Soft Skill,false,false
-wpf,Framework/Library,false,false
-xgboost,Data/AI,false,false
-xml,Methodology/Concept,false,false
-yamlcsvmetadata,Other,false,false
-yololabels,Data/AI,false,false
-yoloultralytics,Data/AI,false,false
-zobristhashing,Methodology/Concept,false,false
-zod,Framework/Library,false,false
-zustand,Frontend,false,false
+abilitytoquicklylearnandadapttonewtechnologies,Soft Skill,false,true
+abletoreadandsearchbyenglish,Soft Skill,false,true
+acceptancecriteria,Business Analysis,false,true
+activedirectory,Tool/Platform,false,true
+adaptability,Soft Skill,false,true
+agenticrag,Data/AI,false,true
+agilescrum,Methodology/Concept,false,true
+aitoolstooptimizeworkflowsandimproveefficiency,Data/AI,false,true
+airflow,Data/AI,false,true
+ajax,Frontend,false,true
+alcomputervision,Data/AI,false,true
+algorithmsdatastructures,Methodology/Concept,false,true
+alphabetapvssearch,Methodology/Concept,false,true
+anaconda,Tool/Platform,false,true
+analysis,EXCLUDE,false,true
+analysisanddesigndatabasemysql,EXCLUDE,false,true
+analysisanddesigndatabasesqlservermysqlmongodb,EXCLUDE,false,true
+analyticalthinking,Soft Skill,false,true
+androidsdk,Mobile,false,true
+androidstudio,Tool/Platform,false,true
+angular,Frontend,false,true
+angularprimeng,Frontend,false,true
+ansible,DevOps/CI-CD,false,true
+antdesign,Frontend,false,true
+antdesignui,Frontend,false,true
+apacheant,DevOps/CI-CD,false,true
+apachekafka,Tool/Platform,false,true
+api,Methodology/Concept,false,true
+apigoogledrive,Tool/Platform,false,true
+apitesting,Testing/QA,false,true
+arcface,Data/AI,false,true
+argocd,DevOps/CI-CD,false,true
+arp,Methodology/Concept,false,true
+aspnet80,Framework/Library,false,true
+aspnetapi,Framework/Library,false,true
+aspnetc#,Framework/Library,false,true
+aspnetcore,Framework/Library,false,true
+aspnetcoremvc,Framework/Library,false,true
+aspnetcoremvcwebapi,Framework/Library,false,true
+aspnetcorewebapi,Framework/Library,false,true
+aspnetidentity,Framework/Library,false,true
+aspnetmvc,Framework/Library,false,true
+aspnetmvccore6x,Framework/Library,false,true
+aspnetwebapi,Framework/Library,false,true
+authenticationandauthorizationwithspringsecurity,Security,false,true
+authenticationoauth2jwt,Security,false,true
+automapper,Framework/Library,false,true
+aws,Cloud,false,true
+awss3,Cloud,false,true
+axios,Frontend,false,true
+azure,Cloud,false,true
+bash,Programming Language,false,true
+basicenglishreadingandcomprehension,Soft Skill,false,true
+basicexperiencewithmvcarchitectureandwebapplicationdevelopmentusingc#,EXCLUDE,false,true
+batchnormalization,Data/AI,false,true
+bcrypt,Security,false,true
+bietsapxepthoigianhieuqua,Soft Skill,false,true
+bietsudungpythontrongxulyvaphantichdulieu,Data/AI,false,true
+bietungdungaidehotronghiencuu,Data/AI,false,true
+biome,Tool/Platform,false,true
+blade,Frontend,false,true
+bladetemplate,Frontend,false,true
+bleu,Data/AI,false,true
+boostrap,Frontend,false,true
+bootstrap,Frontend,false,true
+bootstrap5,Frontend,false,true
+boundingboxannotation,Data/AI,false,true
+bpmn,Business Analysis,false,true
+brdsrs,Business Analysis,true,true
+brevo,Tool/Platform,false,true
+bucket4j,Framework/Library,false,true
+builder,Methodology/Concept,false,true
+burpsuite,Security,false,true
+c,Programming Language,false,true
+c#,Programming Language,false,true
+c#mvc,Framework/Library,false,true
+c#netmaui,Mobile,false,true
+c#netwindowsform,Framework/Library,false,true
+c#oopclass,EXCLUDE,false,true
+c++,Programming Language,false,true
+caidatquantriwordpress,Tool/Platform,false,true
+caidatvacauhinhhedieuhanh,Tool/Platform,false,true
+cancollaboratewithothermemberstodevelopfeatureswithoutdifficult,Soft Skill,false,true
+capableofworkingindependentlyandinteams,Soft Skill,false,true
+cassandra,Database,false,true
+celery,Framework/Library,false,true
+chandoanvaxulysucomangcoban,Methodology/Concept,false,true
+charlesfiddler,Tool/Platform,false,true
+charlesproxy,Tool/Platform,false,true
+checkmk,DevOps/CI-CD,false,true
+cicd,DevOps/CI-CD,true,true
+cicdgithubactions,DevOps/CI-CD,false,true
+cisdockerbenchmark,Security,false,true
+cleanarchitecture,Methodology/Concept,false,true
+clearandconcisecommunicationandideapresentation,Soft Skill,false,true
+cleck,Security,false,true
+cloudary,Cloud,false,true
+clouddeploymentdigitalocean,Cloud,false,true
+clouddigitalocean,Cloud,false,true
+cloudinfrastructureandsystemdesign,Cloud,false,true
+cloudinary,Cloud,false,true
+cloundinary,Cloud,false,true
+cnn,Data/AI,false,true
+cokhanangdanhgiavathunghiemmohinhai,Data/AI,false,true
+cokhanangdochieutailieuvagiaotieptienganhomuccoban,Soft Skill,false,true
+cokhanangtuhocvalamviectot,Soft Skill,false,true
+cokienthuccobanvesql,Database,false,true
+collaboration,Soft Skill,false,true
+comfortablereadingtechnicaldocumentationinenglish,Soft Skill,false,true
+communication,Soft Skill,false,true
+communicationskill,Soft Skill,false,true
+conda,Tool/Platform,false,true
+confluence,Tool/Platform,false,true
+contextapi,Frontend,false,true
+controllers,EXCLUDE,false,true
+cors,Security,false,true
+cqrs,Methodology/Concept,false,true
+cqrspattern,Methodology/Concept,false,true
+crosssitescriptingxssprevention,Security,false,true
+csharp,Programming Language,false,true
+css,Frontend,false,true
+css3,Frontend,false,true
+cuthtml+cssfromfigma,Frontend,false,true
+cypress,Testing/QA,false,true
+dapper,Framework/Library,false,true
+dart,Programming Language,false,true
+datafiltering,Data/AI,false,true
+datapreprocessing,Data/AI,false,true
+datastructuresandalgorithms,Methodology/Concept,false,true
+dbt,Data/AI,false,true
+delete,EXCLUDE,false,true
+dependencyinjection,Methodology/Concept,false,true
+designpattern,Methodology/Concept,false,true
+designpatterns,Methodology/Concept,false,true
+developrestfulapiappservicewithspringboot,EXCLUDE,false,true
+dhcp,Methodology/Concept,false,true
+digitalocean,Cloud,false,true
+distributedsystemsconcepts,Methodology/Concept,false,true
+dochieutailieutienganhcoban,Soft Skill,false,true
+dochieutienganhcobanvachuyennganh,Soft Skill,false,true
+docker,DevOps/CI-CD,false,true
+dockercompose,DevOps/CI-CD,false,true
+drawio,Design/UI-UX,false,true
+dropout,Data/AI,false,true
+dsa,Methodology/Concept,false,true
+dto,Methodology/Concept,false,true
+easytounderstandingrequestfromleadertodevelopfeatures,Soft Skill,false,true
+efcore,Framework/Library,false,true
+efcoreorm,Framework/Library,false,true
+effectivecommunication,Soft Skill,false,true
+effectiveproblemsolvingskills,Soft Skill,false,true
+effectivetimemanagement,Soft Skill,false,true
+ejs,Frontend,false,true
+elasticsearch,Database,false,true
+elkstack,DevOps/CI-CD,false,true
+eloquent,Framework/Library,false,true
+email,Tool/Platform,false,true
+emailapi,Tool/Platform,false,true
+embeddingextraction,Data/AI,false,true
+englishproficiency,Soft Skill,false,true
+englishreadingcomprehension,Soft Skill,false,true
+ensembleclassifiers,Data/AI,false,true
+entityframework,Framework/Library,false,true
+entityframeworkcore,Framework/Library,false,true
+entityframeworkcoreefcore,Framework/Library,true,true
+erdcreation,Database,false,true
+etl,Data/AI,false,true
+evaluationmetricsrougebleuperplexity,Data/AI,false,true
+eventdrivenarchitecture,Methodology/Concept,false,true
+events,EXCLUDE,false,true
+excel,Tool/Platform,false,true
+express,Framework/Library,false,true
+facerecognition,Data/AI,false,true
+factory,Methodology/Concept,false,true
+familiarwithbasicphpscriptingandapplicationstructure,EXCLUDE,false,true
+familiarwithdistributedsystemsandeventdrivenarchitecture,Methodology/Concept,false,true
+fastapi,Framework/Library,false,true
+fastdetectandfixbugwhenproblemhasraised,Soft Skill,false,true
+fastify,Framework/Library,false,true
+feignclient,Framework/Library,false,true
+fft,Data/AI,false,true
+figma,Design/UI-UX,false,true
+figmaprototype,Design/UI-UX,false,true
+finetuningsftlora,Data/AI,false,true
+firebase,Cloud,false,true
+firebaseauthentication,Security,false,true
+firebaserealtimedatabase,Database,false,true
+firebasestorage,Cloud,false,true
+firewall,Security,false,true
+flutter,Mobile,false,true
+frameworklibrarynet,Framework/Library,false,true
+freepbx,Tool/Platform,false,true
+gcp,Cloud,false,true
+genymotion,Tool/Platform,false,true
+giaiquyetvande,Soft Skill,false,true
+giaotiepvatruyendatthongtin,Soft Skill,false,true
+git,Tool/Platform,false,true
+github,Tool/Platform,false,true
+githubactioncicd,DevOps/CI-CD,false,true
+githubactions,DevOps/CI-CD,false,true
+gitlab,Tool/Platform,false,true
+gitlabci,DevOps/CI-CD,false,true
+gitlabcicd,DevOps/CI-CD,false,true
+glide,Mobile,false,true
+go,Programming Language,false,true
+goodabletoreadtechnicaldocumentsfluently,Soft Skill,false,true
+goodproblemsolvingskills,Soft Skill,false,true
+googlebigquery,Database,false,true
+googlegeminiapi,Data/AI,false,true
+googleoauth2,Security,false,true
+gpo,Security,false,true
+gradientboost,Data/AI,false,true
+gradle,DevOps/CI-CD,false,true
+grafana,DevOps/CI-CD,false,true
+graphql,Methodology/Concept,false,true
+groqapi,Data/AI,false,true
+grpc,Methodology/Concept,false,true
+h2database,Database,false,true
+hadoop,Data/AI,false,true
+hangfire,Framework/Library,false,true
+havethespiritofselfstudy,Soft Skill,false,true
+havingasolidgraspofagilescrummethodology,Methodology/Concept,false,true
+helm,DevOps/CI-CD,false,true
+heuristicadversarialsearch,Data/AI,false,true
+hibernate,Framework/Library,false,true
+hibernateorm,Framework/Library,false,true
+hlsstreaming,Methodology/Concept,false,true
+hoadong,Soft Skill,false,true
+hochoitraodoikinhnghiem,Soft Skill,false,true
+hotrophanmemcoban,Tool/Platform,false,true
+html,Frontend,false,true
+html3,Frontend,false,true
+html5,Frontend,false,true
+httpsession,Framework/Library,false,true
+hybridsearch,Data/AI,false,true
+hyperparametertuning,Data/AI,false,true
+i18n,Methodology/Concept,false,true
+iam,Security,false,true
+identity,Framework/Library,false,true
+iisexpress,Tool/Platform,false,true
+illustrator,Design/UI-UX,false,true
+imagevideoprocessing,Data/AI,false,true
+infrastructureascodeiac,DevOps/CI-CD,false,true
+inheritance,Methodology/Concept,false,true
+inngest,Tool/Platform,false,true
+insert,EXCLUDE,false,true
+intellij,Tool/Platform,false,true
+intellijidea,Tool/Platform,false,true
+interceptor,Methodology/Concept,false,true
+interestedinbackendengineering,EXCLUDE,false,true
+interface,EXCLUDE,false,true
+interfaceanddependencyinjection,Methodology/Concept,false,true
+intermediatelevelinenglish,Soft Skill,false,true
+ipv4,Methodology/Concept,false,true
+iso27001,Security,false,true
+itextpdf,Framework/Library,false,true
+jasperreportsfonts,Tool/Platform,false,true
+java,Programming Language,false,true
+java17,Programming Language,false,true
+java21,Programming Language,false,true
+javacore,Programming Language,false,true
+javacorefocus,Programming Language,false,true
+javaee7,Framework/Library,false,true
+javafx,Framework/Library,false,true
+javascript,Programming Language,false,true
+javascriptes6+,Programming Language,false,true
+javascripts,Programming Language,false,true
+javascrript,Programming Language,false,true
+javaservlet,Framework/Library,false,true
+javaspringbootprimefaces,Framework/Library,false,true
+jenkins,DevOps/CI-CD,false,true
+jest,Testing/QA,false,true
+jira,Tool/Platform,false,true
+jmeter,Testing/QA,false,true
+jpa,Framework/Library,false,true
+jpa21eclipselink,Framework/Library,false,true
+jquery,Frontend,false,true
+js,Programming Language,false,true
+jsonapijavaxjsonglassfish,Framework/Library,false,true
+jsp,Frontend,false,true
+jspjstl,Frontend,false,true
+junit,Testing/QA,false,true
+junit5,Testing/QA,false,true
+jwt,Security,false,true
+jwtauthentication,Security,false,true
+jwtbearer,Security,false,true
+jwttoken,Security,false,true
+kafka,Tool/Platform,false,true
+kalilinux,Security,false,true
+kanban,Methodology/Concept,false,true
+khamphanhungkienthucmoi,Soft Skill,false,true
+khanangdonggopvalamviecnhomhieuqua,Soft Skill,false,true
+khananglamviecnhomvadoclap,Soft Skill,false,true
+khanangtuhoc,Soft Skill,false,true
+kienthuccobanvetrituenhantaovamachinelearning,Data/AI,false,true
+knn,Data/AI,false,true
+kotlin,Programming Language,false,true
+kubernetes,DevOps/CI-CD,false,true
+kynanggiaiquyetvande,Soft Skill,false,true
+kynanggiaotiep,Soft Skill,false,true
+kynanglamviecnhom,Soft Skill,false,true
+kynangquanlyduan,Soft Skill,false,true
+kynangtutimtoi,Soft Skill,false,true
+lamviecdoclap,Soft Skill,false,true
+lamviecnhom,Soft Skill,false,true
+lamviecnhomtheomohinhscrum,Methodology/Concept,false,true
+laptrinhvaxulycongviec,EXCLUDE,false,true
+laravel,Framework/Library,false,true
+lark,Tool/Platform,false,true
+leadership,Soft Skill,false,true
+learnnewknowledgetechnologies,Soft Skill,false,true
+linq,Framework/Library,false,true
+linux,Tool/Platform,false,true
+linuxenvironment,Tool/Platform,false,true
+liquibase,Database,false,true
+listeners,EXCLUDE,false,true
+listeningandlearning,Soft Skill,false,true
+listview,Mobile,false,true
+llama318b,Data/AI,false,true
+llamaindex,Data/AI,false,true
+logicalthinking,Soft Skill,false,true
+lombok,Framework/Library,false,true
+lumen,Framework/Library,false,true
+machinelearning,Data/AI,false,true
+manualtesting,Testing/QA,false,true
+mapstruct,Framework/Library,false,true
+martenorm,Framework/Library,false,true
+materialdesign,Design/UI-UX,false,true
+materialui,Frontend,false,true
+maven,DevOps/CI-CD,false,true
+mdbreactuikit,Frontend,false,true
+mdxcontent,Frontend,false,true
+mediaplayerapi,Mobile,false,true
+mediatr,Framework/Library,false,true
+memorycache,Database,false,true
+metasploit,Security,false,true
+microservice,Methodology/Concept,false,true
+microservices,Methodology/Concept,false,true
+microservicesarchitecture,Methodology/Concept,false,true
+microsoftsqlserver,Database,false,true
+microsoftsqlserverjdbcdriver,Database,false,true
+minialapi,Framework/Library,false,true
+mlflow,Data/AI,false,true
+mobilenetv2,Data/AI,false,true
+mockito,Testing/QA,false,true
+model,EXCLUDE,false,true
+modeltraining,Data/AI,false,true
+mohinhhoanghiepvu,Business Analysis,false,true
+monggodb,Database,false,true
+mongodb,Database,false,true
+mongodbatlas,Database,false,true
+monolithic,Methodology/Concept,false,true
+moodle,Tool/Platform,false,true
+mssql,Database,false,true
+mssqlserver,Database,false,true
+mui,Frontend,false,true
+multer,Framework/Library,false,true
+mvc,Methodology/Concept,false,true
+mvcarchitecture,Methodology/Concept,false,true
+mvcmodelviewcontroller,Methodology/Concept,false,true
+mvcpattern,Methodology/Concept,false,true
+mvvmmodelviewviewmodel,Methodology/Concept,false,true
+mysql,Database,false,true
+mysqlworkbench,Tool/Platform,false,true
+nat,Methodology/Concept,false,true
+neo4j,Database,false,true
+nessus,Security,false,true
+nest,Framework/Library,false,true
+net,Framework/Library,false,true
+net8,Framework/Library,false,true
+net80,Framework/Library,false,true
+netcore,Framework/Library,false,true
+netcore8api,Framework/Library,false,true
+netcoreapi,Framework/Library,false,true
+netframework,Framework/Library,false,true
+networksecurity,Security,false,true
+networking,Methodology/Concept,false,true
+nex,Frontend,false,true
+next,Frontend,false,true
+nextjs14,Frontend,false,true
+nextjs15,Frontend,false,true
+nextjs16,Frontend,false,true
+nginx,DevOps/CI-CD,false,true
+nlayer,Methodology/Concept,false,true
+nmap,Security,false,true
+node,Framework/Library,false,true
+nodeexpress,Framework/Library,false,true
+nodejsloopback4,Framework/Library,false,true
+nodejsrestapi,Framework/Library,false,true
+nodemailer,Framework/Library,false,true
+nodemon,Tool/Platform,false,true
+notification,EXCLUDE,false,true
+numpy,Data/AI,false,true
+nuxt,Frontend,false,true
+oauth2,Security,false,true
+oauth20,Security,false,true
+objectdetection,Data/AI,false,true
+observer,Methodology/Concept,false,true
+ocelotapigateway,Framework/Library,false,true
+officesoftware,Tool/Platform,false,true
+ons,Methodology/Concept,false,true
+oop,Methodology/Concept,false,true
+oopobjectorientedprogramming,Methodology/Concept,false,true
+opencv,Data/AI,false,true
+opencvdnn,Data/AI,false,true
+openfeign,Framework/Library,false,true
+openstack,Cloud,false,true
+openwrt,Tool/Platform,false,true
+oracle,Database,false,true
+oracledatabase,Database,false,true
+orm,Methodology/Concept,false,true
+ospf,Methodology/Concept,false,true
+owasptop10,Security,false,true
+pandas,Data/AI,false,true
+particularlyinlogicalreasoningandanalyticalthinking,Soft Skill,false,true
+passportjwtsessionbased,Security,false,true
+pfsense,Security,false,true
+phanquyentrenwindows,Security,false,true
+phantichnghiepvu,Business Analysis,false,true
+phantichvagiaiquyetvande,Soft Skill,false,true
+phattrienwebsitecobangomfrontendvabackend,EXCLUDE,false,true
+photoshop,Design/UI-UX,false,true
+php,Programming Language,false,true
+phplaravel,Framework/Library,false,true
+playwright,Testing/QA,false,true
+posgesql,Database,false,true
+postgreql,Database,false,true
+postgres,Database,false,true
+postgresql,Database,false,true
+postgresqldatabasedesignoptimization,Database,false,true
+postman,Tool/Platform,false,true
+powerbi,Data/AI,false,true
+powerbifordatavisualizationandanalysis,Data/AI,false,true
+powerdesignerumlerd,Business Analysis,false,true
+powerpoint,Tool/Platform,false,true
+powerpointskills,Tool/Platform,false,true
+predictionconfidenceestimation,Data/AI,false,true
+presentation,Soft Skill,false,true
+presentationskills,Soft Skill,false,true
+prisma,Framework/Library,false,true
+prismaorm,Framework/Library,false,true
+prismastudio,Tool/Platform,false,true
+problemsolving,Soft Skill,false,true
+problemsolvingskills,Soft Skill,false,true
+processmodeling,Business Analysis,false,true
+proficientinfullstackdevelopmentusingloopback4nodejsforbackendapisandreactjsforbuildingcomponentbaseduis,EXCLUDE,false,true
+proficientinteamwork,Soft Skill,false,true
+prometheus,DevOps/CI-CD,false,true
+proxmox,Tool/Platform,false,true
+pusher,Tool/Platform,false,true
+pytest,Testing/QA,false,true
+python,Programming Language,false,true
+pytorch,Data/AI,false,true
+qdrant,Database,false,true
+qualityofservice,Methodology/Concept,false,true
+quanlycongviectheobangkanban,Methodology/Concept,false,true
+quanlynoidungwebsite,Other,false,true
+r2cloudflare,Cloud,false,true
+rabbitmq,Tool/Platform,false,true
+railway,Cloud,false,true
+randomforest,Data/AI,false,true
+ratelimitapi,Methodology/Concept,false,true
+react,Frontend,false,true
+react19,Frontend,false,true
+reactbootstrap,Frontend,false,true
+reacthookform,Frontend,false,true
+reactjsfunctionalknowledge,Frontend,false,true
+reactquery,Frontend,false,true
+reactredux,Frontend,false,true
+reactrouterdom,Frontend,false,true
+reactslick,Frontend,false,true
+reacttypescript,Frontend,false,true
+realtime,Methodology/Concept,false,true
+realtimeinference,Data/AI,false,true
+realtimewithpusher,Tool/Platform,false,true
+recyclerview,Mobile,false,true
+redis,Database,false,true
+rediscache,Database,false,true
+redux,Frontend,false,true
+reduxtoolkit,Frontend,false,true
+regression,Data/AI,false,true
+regularization,Data/AI,false,true
+reinforcementlearninggrpo,Data/AI,false,true
+render,Cloud,false,true
+reponsive,Frontend,false,true
+reportviewer,Tool/Platform,false,true
+repository,Methodology/Concept,false,true
+repositorypattern,Methodology/Concept,false,true
+requirementselicitation,Business Analysis,false,true
+resend,Tool/Platform,false,true
+responsibilityaccountability,Soft Skill,false,true
+responsive,Frontend,false,true
+responsivedesign,Frontend,false,true
+restapi,Methodology/Concept,false,true
+restapis,Methodology/Concept,false,true
+restful,Methodology/Concept,false,true
+restfulapi,Methodology/Concept,false,true
+restfulapidesign,Methodology/Concept,false,true
+restfulapis,Methodology/Concept,false,true
+rip,Methodology/Concept,false,true
+rnn,Data/AI,false,true
+rouge,Data/AI,false,true
+routing,Methodology/Concept,false,true
+rustdesk,Tool/Platform,false,true
+saoluuvaphuchoidulieu,Database,false,true
+sassscss,Frontend,false,true
+schedulejobhangfire,Framework/Library,false,true
+scikitlearn,Data/AI,false,true
+scipy,Data/AI,false,true
+scrfd,Data/AI,false,true
+scss,Frontend,false,true
+select,EXCLUDE,false,true
+selenium,Testing/QA,false,true
+selflearning,Soft Skill,false,true
+sepay,Tool/Platform,false,true
+sequelize,Framework/Library,false,true
+sequelizeorm,Framework/Library,false,true
+service,EXCLUDE,false,true
+servlets,Framework/Library,false,true
+shadcenui,Frontend,false,true
+shadcnui,Frontend,false,true
+siem,Security,false,true
+signalr,Framework/Library,false,true
+sms,Tool/Platform,false,true
+snmp,Methodology/Concept,false,true
+snortidsips,Security,false,true
+snowflake,Database,false,true
+soc2,Security,false,true
+socketio,Framework/Library,false,true
+solid,Methodology/Concept,false,true
+solidprinciples,Methodology/Concept,false,true
+solvingproblem,Soft Skill,false,true
+sonarqube,DevOps/CI-CD,false,true
+spark,Data/AI,false,true
+spectrogram,Data/AI,false,true
+spingcloudgateway,Framework/Library,false,true
+splunk,Security,false,true
+springboot,Framework/Library,false,true
+springboottest,Testing/QA,false,true
+springbootwebdatajpadatajdbcmaildevtools,Framework/Library,false,true
+springcloud,Framework/Library,false,true
+springdatajpa,Framework/Library,false,true
+springmvc,Framework/Library,false,true
+springsecurity,Security,false,true
+spsa,Data/AI,false,true
+spsatuning,Data/AI,false,true
+sql,Database,false,true
+sqlcoban,Database,false,true
+sqlinjectionprotection,Security,false,true
+sqlmodel,Framework/Library,false,true
+sqlselectjoingroupby,Database,false,true
+sqlserver,Database,false,true
+sqlalchemy,Framework/Library,false,true
+sqlalchemyorm,Framework/Library,false,true
+sqlite,Database,false,true
+sse,Methodology/Concept,false,true
+ssh,Tool/Platform,false,true
+stft,Data/AI,false,true
+storeprocedure,Database,false,true
+stripe,Tool/Platform,false,true
+stripecheckoutwebhooks,Tool/Platform,false,true
+stripepaymentapi,Tool/Platform,false,true
+stronganalyticalskillswithafocusondebuggingandsystemoptimization,Soft Skill,false,true
+strongselflearningabilityandcuriosityfornewknowledge,Soft Skill,false,true
+subnetting,Methodology/Concept,false,true
+sudungcongcuhotrotuxa,Tool/Platform,false,true
+sudungcongcumarketingonline,Tool/Platform,false,true
+sudungthanhthaocaccongcumicrosoftoffice,Tool/Platform,false,true
+sudungthanhthaojava21,Programming Language,false,true
+supabase,Cloud,false,true
+swagger,Tool/Platform,false,true
+swaggeropenapi,Tool/Platform,false,true
+tableau,Data/AI,false,true
+tailwind,Frontend,false,true
+tailwindcss,Frontend,false,true
+tanstack,Frontend,false,true
+tanstackquery,Frontend,false,true
+tcpip,Methodology/Concept,true,true
+teamcollaboration,Soft Skill,false,true
+teamwork,Soft Skill,false,true
+teamworking,Soft Skill,false,true
+tensorflow,Data/AI,false,true
+terraform,DevOps/CI-CD,false,true
+testautomation,Testing/QA,false,true
+testcasedesign,Testing/QA,false,true
+testinglibrary,Testing/QA,false,true
+testrail,Testing/QA,false,true
+thaidophucvuvahotrothanthien,Soft Skill,false,true
+thanhthaokynanghorenso,Soft Skill,false,true
+thichnghicongnghemoi,Soft Skill,false,true
+thietkegiaodienwebsitedepsudunghtmlhtml5,EXCLUDE,false,true
+thietkewebresponsivetudongcogian,Frontend,false,true
+thundertesters,Testing/QA,false,true
+thuyettrinh,Soft Skill,false,true
+thymeleaf,Frontend,false,true
+timemanagement,Soft Skill,false,true
+tinymce,Frontend,false,true
+tkinter,Framework/Library,false,true
+transformersarchitecture,Data/AI,false,true
+trello,Tool/Platform,false,true
+trivy,Security,false,true
+tuduylogic,Soft Skill,false,true
+tuhoc,Soft Skill,false,true
+tuhocvatimhieucongnghemoi,Soft Skill,false,true
+typeorm,Framework/Library,false,true
+typescript,Programming Language,false,true
+typescriptript,Programming Language,false,true
+uat,Business Analysis,false,true
+ubuntu,Tool/Platform,false,true
+uciprotocol,Methodology/Concept,false,true
+understandingofdatastructuresandprogrammingprinciplesobjectorientation,Methodology/Concept,false,true
+understandingofobjectorientedprogramminganddatastructures,Methodology/Concept,false,true
+unitofworkpattern,Methodology/Concept,false,true
+unittesting,Testing/QA,false,true
+unity,Framework/Library,false,true
+unity6,Tool/Platform,false,true
+update,EXCLUDE,false,true
+usecasediagramcreation,Business Analysis,false,true
+usecasespecs,Business Analysis,false,true
+userstory,Business Analysis,false,true
+uvicorn,Framework/Library,false,true
+validationapi,Framework/Library,false,true
+vault,Security,false,true
+vectordbqdrant,Database,false,true
+velite,Tool/Platform,false,true
+vercel,Cloud,false,true
+verticalslicearchitecture,Methodology/Concept,false,true
+vietbaichuanseo,Other,false,true
+viewsandbladetemplates,Frontend,false,true
+virtualbox,Tool/Platform,false,true
+visualstudio,Tool/Platform,false,true
+visualstudiocode,Tool/Platform,false,true
+vite,Frontend,false,true
+vlans,Methodology/Concept,false,true
+vnpay,Tool/Platform,false,true
+vpn,Security,false,true
+vps,Cloud,false,true
+vscode,Tool/Platform,false,true
+vue,Frontend,false,true
+vuive,Soft Skill,false,true
+vulnerabilityassessment,Security,false,true
+wazuh,Security,false,true
+webpack,Frontend,false,true
+webrtc,Methodology/Concept,false,true
+websocket,Methodology/Concept,false,true
+windows,Tool/Platform,false,true
+winform,Framework/Library,false,true
+winforms,Framework/Library,false,true
+wireshark,Security,false,true
+withastrongsenseofresponsibilityinwork,Soft Skill,false,true
+word,Tool/Platform,false,true
+wordpress,Tool/Platform,false,true
+workunderpressure,Soft Skill,false,true
+wpf,Framework/Library,false,true
+xgboost,Data/AI,false,true
+xml,Methodology/Concept,false,true
+yamlcsvmetadata,Other,false,true
+yololabels,Data/AI,false,true
+yoloultralytics,Data/AI,false,true
+zobristhashing,Methodology/Concept,false,true
+zod,Framework/Library,false,true
+zustand,Frontend,false,true

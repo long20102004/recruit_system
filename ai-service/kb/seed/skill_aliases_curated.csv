@@ -1,4 +1,126 @@
 variant,canonical,reviewed
-Postgres,PostgreSQL,true
-PosgeSQL,PostgreSQL,true
+.NET 8.0,.NET,true
+.Net 8,.NET,true
+Framework/Library: .NET,.NET,true
+Having a solid grasp of Agile/Scrum methodology,Agile/Scrum,true
+Làm việc nhóm theo mô hình Scrum,Agile/Scrum,true
+DSA,Algorithms & Data Structures,true
+Data structures and algorithms,Algorithms & Data Structures,true
+Blade Template,Blade,true
+Views and Blade Templates,Blade,true
+Csharp,C#,true
 Cloudary,Cloudinary,true
+Clear and concise communication and idea presentation,Communication,true
+Communication skill,Communication,true
+Effective communication,Communication,true
+Giao tiếp và truyền đạt thông tin,Communication,true
+Kỹ năng giao tiếp,Communication,true
+CQRS Pattern,CQRS,true
+Interface and Dependency Injection,Dependency Injection,true
+Design pattern,Design Patterns,true
+Cloud DigitalOcean,DigitalOcean,true
+Cloud deployment (DigitalOcean),DigitalOcean,true
+Able to read and search by english,English Reading Comprehension,true
+Basic English reading and comprehension,English Reading Comprehension,true
+Comfortable reading technical documentation in English,English Reading Comprehension,true
+Good – able to read technical documents fluently,English Reading Comprehension,true
+Đọc hiểu tiếng anh cơ bản và chuyên ngành,English Reading Comprehension,true
+Đọc hiểu tài liệu tiếng Anh cơ bản,English Reading Comprehension,true
+EF Core,Entity Framework Core,true
+EF Core ORM,Entity Framework Core,true
+Entity Framework Core (EF Core),Entity Framework Core,true
+Familiar with Distributed Systems and Event-Driven Architecture,Event-driven architecture,true
+Node-Express.js,ExpressJS,true
+CI/CD (GitHub Actions),GitHub Actions,true
+GitHub Action (CI/CD),GitHub Actions,true
+GitLab CI,GitLab CI/CD,true
+Schedule job HangFire,HangFire,true
+Hibernate ORM,Hibernate,true
+HTML3,HTML,true
+IntelliJ,IntelliJ IDEA,true
+Java (Core focus),Java,true
+Java 17,Java,true
+Java 21,Java,true
+Java core,Java,true
+Sử dụng thành thạo java 21,Java,true
+JS,JavaScript,true
+JavaScript/ES6+,JavaScript,true
+Servlets,JavaServlet,true
+JPA 2.1 (EclipseLink),JPA,true
+JWT Authentication,JWT,true
+JWT Token,JWT,true
+Apache Kafka,Kafka,true
+Quản lý công việc theo bảng Kanban,Kanban,true
+PHP Laravel,Laravel,true
+Linux environment,Linux,true
+Tư duy logic,Logical Thinking,true
+MUI,Material UI,true
+Microservices Architecture,Microservices,true
+MVC (Model-View-Controller),MVC,true
+MVC Architecture,MVC,true
+MVC Pattern,MVC,true
+NexJS,Next.js,true
+Next.js 14,Next.js,true
+Next.js 15,Next.js,true
+NextJS 16,Next.js,true
+OOP (Object-Oriented Programming),OOP,true
+OpenCVDNN,OpenCV,true
+Feign client,OpenFeign,true
+Oracle database,Oracle,true
+PosgeSQL,PostgreSQL,true
+PostgreSQL (Database design & Optimization),PostgreSQL,true
+Postgres,PostgreSQL,true
+Power BI for data visualization and analysis,Power BI,true
+powerpoint skills,Powerpoint,true
+Presentation skills,Presentation,true
+thuyết trình,Presentation,true
+Prisma ORM,Prisma,true
+Effective problem-solving skills,Problem Solving,true
+Good problem-solving skills,Problem Solving,true
+Kỹ năng giải quyết vấn đề,Problem Solving,true
+Phân tích và giải quyết vấn đề,Problem Solving,true
+Problem-solving skills,Problem Solving,true
+Solving Problem,Problem Solving,true
+giải quyết vấn đề,Problem Solving,true
+Realtime with Pusher,Pusher,true
+Vector DB (Qdrant),Qdrant,true
+TanStack-Query,React Query,true
+React 19,ReactJS,true
+ReactJS (Functional knowledge),ReactJS,true
+Redis Cache,Redis,true
+Repository,Repository Pattern,true
+REPONSIVE,Responsive Design,true
+Responsive,Responsive Design,true
+Thiết kế web responsive tự động co giãn,Responsive Design,true
+RESTful,REST API,true
+RESTful API,REST API,true
+RESTful API design,REST API,true
+Have the spirit of self-study,Self learning,true
+Khả năng tự học,Self learning,true
+Kỹ năng tự tìm tòi,Self learning,true
+tự học,Self learning,true
+Sequelize ORM,Sequelize,true
+SOLID principles,SOLID,true
+"Spring Boot (Web, Data JPA, Data JDBC, Mail, DevTools)",Spring Boot,true
+Sping Cloud Gateway,Spring Cloud,true
+SPSA tuning,SPSA,true
+Có kiến thức cơ bản về SQL,SQL,true
+"SQL (Select, Join, Group By)",SQL,true
+SQL cơ bản,SQL,true
+MSSQL,SQL Server,true
+Microsoft SQL Server,SQL Server,true
+SQLAlchemy ORM,SQLAlchemy,true
+Swagger/OpenAPI,Swagger,true
+Tailwind,Tailwind CSS,true
+Collaboration,Teamwork,true
+Khả năng đóng góp và làm việc nhóm hiệu quả,Teamwork,true
+Kỹ năng làm việc nhóm,Teamwork,true
+Làm việc nhóm,Teamwork,true
+Proficient in teamwork,Teamwork,true
+Team Collaboration,Teamwork,true
+Teamworking,Teamwork,true
+Biết sắp xếp thời gian hiệu quả,Time Management,true
+Effective time management,Time Management,true
+TypeScriptript,TypeScript,true
+VS Code,Visual Studio Code,true
+WinForm,WinForms,true

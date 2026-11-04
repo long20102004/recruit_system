@@ -1,109 +1,109 @@
 id,name,reviewed
-1,Hệ thống Đào tạo Lập trình viên Quốc tế Aptech,false
-2,Học viện An ninh nhân dân,false
-3,Học viện Biên phòng,false
-4,Học viện Báo chí và Tuyên truyền,false
-5,Học viện cao đài Tiên Thiên,false
-6,Học viện Chiến lược Khoa học và Công nghệ,false
-7,Học viện Chính sách và Phát triển,false
-8,Học viện Chính trị - Công an Nhân dân,false
-9,Học viện Chính trị Quân đội Nhân dân Việt Nam,false
-10,Học viện Chính trị Quốc gia Hồ Chí Mi,false
-11,Học viện Cán bộ Thành phố Hồ Chí Min,false
-12,Học viện Công giáo Việt Nam,false
-13,Học viện Công nghệ Bưu chính Viễn thông,false
-14,Học viện Cảnh sát nhân dân,false
-15,Học viện Dân tộc,false
-16,Học viện Hàng không Việt Nam,false
-17,Học viện Hành chính và Quản trị công,false
-18,Học viện Hải quân,false
-19,Học viện Hậu cần,false
-20,Học viện Khoa học Quân sự,false
-21,Học viện Khoa học và Công nghệ,false
-22,Học viện Khoa học Xã hội,false
-23,Học viện Kỹ thuật Mật mã,false
-24,Học viện Kỹ thuật Quân sự,false
-25,Học viện Kỹ thuật và Công nghệ An ninh,false
-26,Học viện Lục quân,false
-27,Học viện Múa Việt Nam,false
-28,Học viện Ngoại giao,false
-29,Học viện Ngân hàng,false
-30,Học viện Nông nghiệp Việt Nam,false
-31,Học viện Phòng cháy chữa cháy và Cứu nạn cứu hộ,false
-32,Học viện Phòng không – Không quân,false
-33,Học viện Phật giáo Nam tông Khmer,false
-34,Học viện Phật giáo Việt Nam tại Huế,false
-35,Học viện Phật giáo Việt Nam tại Hà Nội,false
-36,Học viện Phật giáo Việt Nam tại Thành phố Hồ Chí Minh,false
-37,Học viện Phụ nữ Việt Nam,false
-38,Học viện Quân y,false
-39,Học viện Quản lý giáo dục,false
-40,Học viện Quốc phòng,false
-41,Học viện Quốc tế,false
-42,Học viện Thanh thiếu niên Việt Nam,false
-43,Học viện Tài chính,false
-44,Học viện Tòa án,false
-45,Học viện Viettel,false
-46,Học viện Y – Dược học cổ truyền Việt Nam,false
-47,Học viện Âm nhạc Huế,false
-48,Học viện Âm nhạc Quốc gia Việt Nam,false
-49,Không nêu trong CV,false
+1,Công nghệ Hà Nội,false
+2,Hệ thống Đào tạo Lập trình viên Quốc tế Aptech,true
+3,Học viện An ninh nhân dân,false
+4,Học viện Biên phòng,false
+5,Học viện Báo chí và Tuyên truyền,false
+6,Học viện cao đài Tiên Thiên,false
+7,Học viện Chiến lược Khoa học và Công nghệ,false
+8,Học viện Chính sách và Phát triển,false
+9,Học viện Chính trị - Công an Nhân dân,false
+10,Học viện Chính trị Quân đội Nhân dân Việt Nam,false
+11,Học viện Chính trị Quốc gia Hồ Chí Minh,false
+12,Học viện Cán bộ Thành phố Hồ Chí Minh,false
+13,Học viện Công giáo Việt Nam,false
+14,Học viện Công nghệ Bưu chính Viễn thông,true
+15,Học viện Cảnh sát nhân dân,false
+16,Học viện Dân tộc,false
+17,Học viện Hàng không Việt Nam,false
+18,Học viện Hành chính và Quản trị công,false
+19,Học viện Hải quân,false
+20,Học viện Hậu cần,false
+21,Học viện Khoa học Quân sự,false
+22,Học viện Khoa học và Công nghệ,false
+23,Học viện Khoa học Xã hội,false
+24,Học viện Kỹ thuật Mật mã,true
+25,Học viện Kỹ thuật Quân sự,false
+26,Học viện Kỹ thuật và Công nghệ An ninh,false
+27,Học viện Lục quân,false
+28,Học viện Múa Việt Nam,false
+29,Học viện Ngoại giao,false
+30,Học viện Ngân hàng,false
+31,Học viện Nông nghiệp Việt Nam,false
+32,Học viện Phòng cháy chữa cháy và Cứu nạn cứu hộ,false
+33,Học viện Phòng không – Không quân,false
+34,Học viện Phật giáo Nam tông Khmer,false
+35,Học viện Phật giáo Việt Nam tại Huế,false
+36,Học viện Phật giáo Việt Nam tại Hà Nội,false
+37,Học viện Phật giáo Việt Nam tại Thành phố Hồ Chí Minh,false
+38,Học viện Phụ nữ Việt Nam,false
+39,Học viện Quân y,false
+40,Học viện Quản lý giáo dục,false
+41,Học viện Quốc phòng,false
+42,Học viện Quốc tế,false
+43,Học viện Thanh thiếu niên Việt Nam,false
+44,Học viện Tài chính,false
+45,Học viện Tòa án,false
+46,Học viện Viettel,true
+47,Học viện Y – Dược học cổ truyền Việt Nam,false
+48,Học viện Âm nhạc Huế,false
+49,Học viện Âm nhạc Quốc gia Việt Nam,false
 50,Nhạc viện Thành phố Hồ Chí Minh,false
-51,Trường Cao đẳng An ninh mạng iSpace,false
-52,Trường Cao đẳng Công nghiệp Quốc phòng,false
-53,Trường Cao đẳng Công nghệ Hà Nội,false
-54,Trường Cao đẳng Công nghệ Sài Gòn,false
-55,Trường Cao đẳng FPT Polytechnic,false
-56,Trường Cao đẳng Kỹ thuật Cao Thắng,false
-57,Trường Cao đẳng Sài Gòn Công nghệ,false
+51,Trường Cao đẳng An ninh mạng iSpace,true
+52,Trường Cao đẳng Công nghiệp Quốc phòng,true
+53,Trường Cao đẳng Công nghệ Hà Nội,true
+54,Trường Cao đẳng Công nghệ Sài Gòn,true
+55,Trường Cao đẳng FPT Polytechnic,true
+56,Trường Cao đẳng Kỹ thuật Cao Thắng,true
+57,Trường Cao đẳng Sài Gòn Công nghệ,true
 58,"Trường Đại học An Giang, ĐHQG-HCM",false
 59,Trường Đại học An ninh nhân dân,false
 60,Trường Đại học Anh Quốc tại Việt Nam,false
 61,Trường Đại học Bà Rịa – Vũng Tàu,false
-62,"Trường Đại học Bách khoa, ĐHQG-HCM",false
+62,"Trường Đại học Bách khoa, ĐHQG-HCM",true
 63,"Trường Đại học Bách khoa, Đại học Đà Nẵng",false
 64,Trường Đại học Bình Dương,false
 65,Trường Đại học Bạc Liêu,false
 66,Trường Đại học CMC,false
 67,Trường Đại học Công nghiệp Quảng Ninh,false
-68,Trường Đại học Công nghiệp Thành phố Hồ Chí Minh,false
+68,Trường Đại học Công nghiệp Thành phố Hồ Chí Minh,true
 69,Trường Đại học Công nghiệp Vinh,false
 70,Trường Đại học Công nghiệp Việt Trì,false
 71,Trường Đại học Công nghiệp Việt–Hung,false
 72,Trường Đại học Công nghiệp và Thương mại Hà Nội,false
 73,Trường Đại học Công nghệ Giao thông Vận tải,false
 74,Trường Đại học Công nghệ Kỹ thuật Hưng Yên,false
-75,Trường Đại học Công nghệ Kỹ thuật Thành phố Hồ Chí Min,false
+75,Trường Đại học Công nghệ Kỹ thuật Thành phố Hồ Chí Minh,true
 76,Trường Đại học Công nghệ Kỹ thuật Vinh,false
 77,Trường Đại học Công nghệ Kỹ thuật Vĩnh Long,false
 78,Trường Đại học Công nghệ Miền Đông,false
 79,Trường Đại học Công nghệ Swinburne - FPT Việt Nam,false
 80,Trường Đại học Công nghệ Sài Gòn,false
-81,Trường Đại học Công nghệ Thành phố Hồ Chí Minh,false
-82,"Trường Đại học Công nghệ thông tin và Truyền thông Việt – Hà, Đại học Đà Nẵng",false
+81,Trường Đại học Công nghệ Thành phố Hồ Chí Minh,true
+82,"Trường Đại học Công nghệ thông tin và Truyền thông Việt – Hàn, Đại học Đà Nẵng",false
 83,"Trường Đại học Công nghệ Thông tin và Truyền thông, Đại học Thái Nguyên",false
-84,"Trường Đại học Công nghệ Thông tin, ĐHQG-HCM",false
+84,"Trường Đại học Công nghệ Thông tin, ĐHQG-HCM",true
 85,Trường Đại học Công nghệ và Quản lý Hữu Nghị,false
 86,Trường Đại học Công nghệ Vạn Xuân,false
 87,Trường Đại học Công nghệ Đông Á,false
 88,Trường Đại học Công nghệ Đồng Nai,false
 89,"Trường Đại học Công nghệ, ĐHQGHN",false
-90,Trường Đại học Công Thương Thành phố Hồ Chí Minh,false
+90,Trường Đại học Công Thương Thành phố Hồ Chí Minh,true
 91,Trường Đại học Công đoàn,false
 92,Trường Đại học Cảnh sát nhân dân,false
 93,Trường Đại học Cửu Long,false
 94,Trường Đại học Dược Hà Nội,false
 95,Trường Đại học Dầu khí Việt Nam,false
-96,Trường Đại học FPT,false
+96,Trường Đại học FPT,true
 97,Trường Đại học Fulbright Việt Nam,false
 98,Trường Đại học Gia Định,false
-99,Trường Đại học Giao thông Vận tải,false
+99,Trường Đại học Giao thông Vận tải,true
 100,Trường Đại học Giao thông vận tải Thành phố Hồ Chí Minh,false
 101,"Trường Đại học Giáo dục, ĐHQGHN",false
 102,Trường Đại học Greenwich - FPT Việt Nam,false
 103,Trường Đại học Hoa Lư,false
 104,Trường Đại học Hoa Sen,false
-105,Trường Đại học Hà Hoa Tiê,false
+105,Trường Đại học Hà Hoa Tiên,false
 106,Trường Đại học Hà Nội,false
 107,Trường Đại học Hà Tĩnh,false
 108,Trường Đại học Hàng hải Việt Nam,false
@@ -116,184 +116,181 @@ id,name,reviewed
 115,Trường Đại học Hồng Đức,false
 116,Trường Đại học Intracom,false
 117,"Trường Đại học Khoa học Sức khoẻ, ĐHQG-HCM",false
-118,Trường Đại học Khoa học Tự nhiên - ĐHQG TP.HCM,false
-119,"Trường Đại học Khoa học Tự nhiên, ĐHQG-HCM",false
-120,"Trường Đại học Khoa học Tự nhiên, ĐHQGHN",false
-121,Trường Đại học Khoa học và Công nghệ Hà Nộ,false
-122,"Trường Đại học Khoa học Xã hội và Nhân văn, ĐHQG-HCM",false
-123,"Trường Đại học Khoa học Xã hội và Nhân văn, ĐHQGHN",false
-124,"Trường Đại học Khoa học, Đại học Huế",false
-125,"Trường Đại học Khoa học, Đại học Thái Nguyên",false
-126,Trường Đại học Khánh Hòa,false
-127,Trường Đại học Kinh Bắc,false
-128,Trường Đại học Kinh doanh và Công nghệ Hà Nội,false
-129,Trường Đại học Kinh tế - Kỹ thuật TP.HCM,false
-130,Trường Đại học Kinh tế Công nghiệp Long An,false
-131,Trường Đại học Kinh tế Nghệ An,false
-132,"Trường Đại học Kinh tế và Quản trị kinh doanh, Đại học Thái Nguyên",false
-133,Trường Đại học Kinh tế – Công nghệ Thái Nguyên,false
-134,Trường Đại học Kinh tế – Kỹ thuật Bình Dương,false
-135,Trường Đại học Kinh tế – Kỹ thuật Công nghiệp,false
-136,"Trường Đại học Kinh tế – Luật, ĐHQG-HCM",false
-137,Trường Đại học Kinh tế – Tài chính Thành phố Hồ Chí Minh,false
-138,"Trường Đại học Kinh tế, ĐHQGHN",false
-139,"Trường Đại học Kinh tế, Đại học Huế",false
-140,"Trường Đại học Kinh tế, Đại học Đà Nẵng",false
-141,Trường Đại học Kiên Giang,false
-142,Trường Đại học Kiến trúc Hà Nội,false
-143,Trường Đại học Kiến trúc Thành phố Hồ Chí Minh,false
-144,Trường Đại học Kiến trúc Đà Nẵng,false
-145,Trường Đại học Kiểm sát,false
-146,"Trường Đại học Kỹ thuật Công nghiệp, Đại học Thái Nguyên",false
-147,Trường Đại học Kỹ thuật Y Dược Đà Nẵng,false
-148,Trường Đại học Kỹ thuật Y tế Hải Dương,false
-149,Trường Đại học Kỹ thuật – Công nghệ Cần Thơ,false
-150,Trường Đại học Lao động – Xã hội,false
-151,Trường Đại học Luật Hà Nội,false
-152,Trường Đại học Luật Thành phố Hồ Chí Minh,false
-153,"Trường Đại học Luật, ĐHQGHN",false
-154,"Trường Đại học Luật, Đại học Huế",false
-155,Trường Đại học Lâm nghiệp,false
-156,Trường Đại học Lương Thế Vinh,false
-157,Trường Đại học Lạc Hồng,false
-158,Trường Đại học Mỏ – Địa chất,false
-159,Trường Đại học Mở Hà Nội,false
-160,Trường Đại học Mở Thành phố Hồ Chí Minh,false
-161,Trường Đại học Mỹ thuật Công nghiệp,false
-162,Trường Đại học Mỹ thuật Thành phố Hồ Chí Minh,false
-163,Trường Đại học Mỹ thuật Việt Nam,false
-164,Trường Đại học Mỹ tại Việt Nam,false
-165,Trường Đại học Nam Cần Thơ,false
-166,"Trường Đại học Nghệ thuật, Đại học Huế",false
-167,Trường Đại học Ngoại ngữ – Tin học Thành phố Hồ Chí Minh,false
-168,"Trường Đại học Ngoại ngữ, ĐHQGHN",false
-169,"Trường Đại học Ngoại ngữ, Đại học Huế",false
-170,"Trường Đại học Ngoại ngữ, Đại học Đà Nẵng",false
-171,Trường Đại học Ngoại thương,false
-172,Trường Đại học Nguyễn Huệ / Trường Đại học Sĩ quan Lục quân 2,false
-173,Trường Đại học Nguyễn Trãi,false
-174,Trường Đại học Nguyễn Tất Thành,false
-175,Trường Đại học Ngân hàng Thành phố Hồ Chí Minh,false
-176,Trường Đại học Ngô Quyền / Trường Đại học Sĩ quan Công Binh,false
-177,Trường Đại học Nha Trang,false
-178,Trường Đại học Nông - Lâm Bắc Giang,false
-179,Trường Đại học Nông Lâm Thành phố Hồ Chí Minh,false
-180,"Trường Đại học Nông Lâm, Đại học Huế",false
-181,"Trường Đại học Nông Lâm, Đại học Thái Nguyên",false
-182,Trường Đại học Phan Châu Trinh,false
-183,Trường Đại học Phan Thiết,false
-184,Trường Đại học Phú Xuân,false
-185,Trường Đại học Phú Yên,false
-186,Trường Đại học Phạm Văn Đồng,false
-187,Trường Đại học Quang Trung,false
-188,Trường Đại học Quy Nhơn,false
-189,Trường Đại học Quản lý và Công nghệ Hải Phòng,false
-190,Trường Đại học Quản lý và Công nghệ Thành phố Hồ Chí Minh,false
-191,Trường Đại học Quảng Bình,false
-192,Trường Đại học Quảng Nam,false
-193,Trường Đại học Quốc tế Bắc Hà,false
-194,Trường Đại học Quốc tế Hồng Bàng,false
-195,Trường Đại học Quốc tế Miền Đông,false
-196,Trường Đại học Quốc tế RMIT Việt Nam,false
-197,Trường Đại học Quốc tế Sài Gòn,false
-198,"Trường Đại học Quốc tế, ĐHQG-HCM",false
-199,Trường Đại học Sao Đỏ,false
-200,Trường Đại học Sài Gòn,false
-201,Trường Đại học Sân khấu – Điện ảnh Hà Nội,false
-202,Trường Đại học Sân khấu – Điện ảnh Thành phố Hồ Chí Minh,false
-203,Trường Đại học Sĩ quan Chính trị,false
-204,Trường Đại học Sĩ quan Pháo binh,false
-205,Trường Đại học Sĩ quan Phòng hóa,false
-206,Trường Đại học Sĩ quan Thông tin liên lạc,false
-207,Trường Đại học Sĩ quan Tăng – Thiết giáp,false
-208,Trường Đại học Sĩ quan Đặc công,false
-209,Trường Đại học Sư phạm Hà Nội,false
-210,Trường Đại học Sư phạm Hà Nội 2,false
-211,Trường Đại học Sư phạm Kỹ thuật Nam Định,false
-212,"Trường Đại học Sư phạm Kỹ thuật, Đại học Đà Nẵng",false
-213,Trường Đại học Sư phạm Nghệ thuật Trung ương,false
-214,Trường Đại học Sư phạm Thành phố Hồ Chí Minh,false
-215,Trường Đại học Sư phạm Thể dục Thể thao Hà Nội,false
-216,Trường Đại học Sư phạm Thể dục Thể thao Thành phố Hồ Chí Minh,false
-217,"Trường Đại học Sư phạm, Đại học Huế",false
-218,"Trường Đại học Sư phạm, Đại học Thái Nguyên",false
-219,"Trường Đại học Sư phạm, Đại học Đà Nẵng",false
-220,Trường Đại học Thành Đô,false
-221,Trường Đại học Thành Đông,false
-222,Trường Đại học Thái Bình,false
-223,Trường Đại học Thái Bình Dương,false
-224,Trường Đại học Thăng Long,false
-225,Trường Đại học Thương mại,false
-226,Trường Đại học Thể dục Thể thao Bắc Ninh,false
-227,Trường Đại học Thể dục Thể thao Thành phố Hồ Chí Minh,false
-228,Trường Đại học Thể dục Thể thao Đà Nẵng,false
-229,Trường Đại học Thủ Dầu Một,false
-230,Trường Đại học Thủ đô Hà Nội,false
-231,Trường Đại học Thủy lợi,false
-232,Trường Đại học Tiền Giang,false
-233,Trường Đại học Trưng Vương,false
-234,Trường Đại học Trần Quốc Tuấn / Trường Đại học Sĩ quan Lục quân 1,false
-235,Trường Đại học Trần Đại Nghĩa / Trường Đại học Sĩ quan Kỹ thuật Quân sự Vin - hem - pích,false
-236,Trường Đại học Tài chính – Marketing,false
-237,Trường Đại học Tài chính – Ngân hàng Hà Nội,false
-238,Trường Đại học Tài chính – Quản trị kinh doanh,false
-239,Trường Đại học Tài nguyên và Môi trường Hà Nội,false
-240,Trường Đại học Tài nguyên và Môi trường Thành phố Hồ Chí Minh,false
-241,Trường Đại học Tân Trào,false
-242,Trường Đại học Tân Tạo,false
-243,Trường Đại học Tây Bắc,false
-244,Trường Đại học Tây Nguyên,false
-245,Trường Đại học Tây Đô,false
-246,Trường Đại học Tôn Đức Thắng,false
-247,Trường Đại học Vinh,false
-248,Trường Đại học VinUni,false
-249,"Trường Đại học Việt Nhật, ĐHQGHN",false
-250,Trường Đại học Việt Đứ,false
-251,Trường Đại học Võ Trường Toản,false
-252,Trường Đại học Văn Hiến,false
-253,Trường Đại học Văn hoá Nghệ thuật Quân đội,false
-254,Trường Đại học Văn hóa Hà Nội,false
-255,Trường Đại học Văn hóa Thành phố Hồ Chí Minh,false
-256,Trường Đại học Văn Lang,false
-257,Trường Đại học Xây dựng Hà Nội,false
-258,Trường Đại học Xây dựng Miền Trung,false
-259,Trường Đại học Xây dựng Miền Tây,false
-260,Trường Đại học Y Dược Buôn Ma Thuột,false
-261,Trường Đại học Y Dược Cần Thơ,false
-262,Trường Đại học Y Dược Hải Phòng,false
-263,Trường Đại học Y Dược Thái Bình,false
-264,"Trường Đại học Y Dược, ĐHQGHN",false
-265,"Trường Đại học Y Dược, Đại học Huế",false
-266,"Trường Đại học Y Dược, Đại học Thái Nguyên",false
-267,Trường Đại học Y Hà Nội,false
-268,Trường Đại học Y khoa Phạm Ngọc Thạch,false
-269,Trường Đại học Y khoa Tokyo Việt Nam,false
-270,Trường Đại học Y khoa Vinh,false
-271,Trường Đại học Y tế Công cộng,false
-272,Trường Đại học Yersin Đà Lạt,false
-273,Trường Đại học Điều dưỡng Nam Định,false
-274,Trường Đại học Điện lực,false
-275,Trường Đại học Đà Lạt,false
-276,Trường Đại học Đông Á,false
-277,Trường Đại học Đông Đô,false
-278,Trường Đại học Đại Nam,false
-279,Trường Đại học Đồng Nai,false
-280,Trường Đại học Đồng Tháp,false
-281,Tự học,false
-282,Viện Đào tạo Quốc tế NTT - Đại học Nguyễn Tất Thành,false
-283,Zero To Mastery,false
-284,Đại học Bách khoa Hà Nội,false
-285,Đại học Công nghiệp Hà Nội,false
-286,Đại học Cần Thơ,false
-287,Đại học Duy Tân,false
-288,Đại học Huế,false
-289,Đại học Kinh tế Quốc dân,false
-290,Đại học Kinh tế Thành phố Hồ Chí Minh,false
-291,Đại học Phenikaa,false
-292,Đại học Quốc gia Hà Nội,false
-293,Đại học Quốc gia Thành phố Hồ Chí Minh,false
-294,Đại học Quốc gia TP.HCM,false
-295,Đại học Thái Nguyên,false
-296,Đại học Trà Vinh,false
-297,Đại học Y Dược Thành phố Hồ Chí Mi,false
-298,Đại học Đà Nẵng,false
+118,"Trường Đại học Khoa học Tự nhiên, ĐHQG-HCM",true
+119,"Trường Đại học Khoa học Tự nhiên, ĐHQGHN",true
+120,Trường Đại học Khoa học và Công nghệ Hà Nội,false
+121,"Trường Đại học Khoa học Xã hội và Nhân văn, ĐHQG-HCM",false
+122,"Trường Đại học Khoa học Xã hội và Nhân văn, ĐHQGHN",false
+123,"Trường Đại học Khoa học, Đại học Huế",false
+124,"Trường Đại học Khoa học, Đại học Thái Nguyên",false
+125,Trường Đại học Khánh Hòa,false
+126,Trường Đại học Kinh Bắc,false
+127,Trường Đại học Kinh doanh và Công nghệ Hà Nội,false
+128,Trường Đại học Kinh tế - Kỹ thuật TP.HCM,true
+129,Trường Đại học Kinh tế Công nghiệp Long An,false
+130,Trường Đại học Kinh tế Nghệ An,false
+131,"Trường Đại học Kinh tế và Quản trị kinh doanh, Đại học Thái Nguyên",false
+132,Trường Đại học Kinh tế – Công nghệ Thái Nguyên,false
+133,Trường Đại học Kinh tế – Kỹ thuật Bình Dương,true
+134,Trường Đại học Kinh tế – Kỹ thuật Công nghiệp,true
+135,"Trường Đại học Kinh tế – Luật, ĐHQG-HCM",false
+136,Trường Đại học Kinh tế – Tài chính Thành phố Hồ Chí Minh,true
+137,"Trường Đại học Kinh tế, ĐHQGHN",false
+138,"Trường Đại học Kinh tế, Đại học Huế",false
+139,"Trường Đại học Kinh tế, Đại học Đà Nẵng",false
+140,Trường Đại học Kiên Giang,false
+141,Trường Đại học Kiến trúc Hà Nội,false
+142,Trường Đại học Kiến trúc Thành phố Hồ Chí Minh,false
+143,Trường Đại học Kiến trúc Đà Nẵng,false
+144,Trường Đại học Kiểm sát,false
+145,"Trường Đại học Kỹ thuật Công nghiệp, Đại học Thái Nguyên",false
+146,Trường Đại học Kỹ thuật Y Dược Đà Nẵng,false
+147,Trường Đại học Kỹ thuật Y tế Hải Dương,false
+148,Trường Đại học Kỹ thuật – Công nghệ Cần Thơ,false
+149,Trường Đại học Lao động – Xã hội,false
+150,Trường Đại học Luật Hà Nội,false
+151,Trường Đại học Luật Thành phố Hồ Chí Minh,false
+152,"Trường Đại học Luật, ĐHQGHN",false
+153,"Trường Đại học Luật, Đại học Huế",false
+154,Trường Đại học Lâm nghiệp,false
+155,Trường Đại học Lương Thế Vinh,false
+156,Trường Đại học Lạc Hồng,false
+157,Trường Đại học Mỏ – Địa chất,false
+158,Trường Đại học Mở Hà Nội,false
+159,Trường Đại học Mở Thành phố Hồ Chí Minh,false
+160,Trường Đại học Mỹ thuật Công nghiệp,false
+161,Trường Đại học Mỹ thuật Thành phố Hồ Chí Minh,false
+162,Trường Đại học Mỹ thuật Việt Nam,false
+163,Trường Đại học Mỹ tại Việt Nam,false
+164,Trường Đại học Nam Cần Thơ,false
+165,"Trường Đại học Nghệ thuật, Đại học Huế",false
+166,Trường Đại học Ngoại ngữ – Tin học Thành phố Hồ Chí Minh,false
+167,"Trường Đại học Ngoại ngữ, ĐHQGHN",false
+168,"Trường Đại học Ngoại ngữ, Đại học Huế",false
+169,"Trường Đại học Ngoại ngữ, Đại học Đà Nẵng",false
+170,Trường Đại học Ngoại thương,false
+171,Trường Đại học Nguyễn Huệ / Trường Đại học Sĩ quan Lục quân 2,false
+172,Trường Đại học Nguyễn Trãi,false
+173,Trường Đại học Nguyễn Tất Thành,false
+174,Trường Đại học Ngân hàng Thành phố Hồ Chí Minh,false
+175,Trường Đại học Ngô Quyền / Trường Đại học Sĩ quan Công Binh,false
+176,Trường Đại học Nha Trang,true
+177,Trường Đại học Nông - Lâm Bắc Giang,false
+178,Trường Đại học Nông Lâm Thành phố Hồ Chí Minh,false
+179,"Trường Đại học Nông Lâm, Đại học Huế",false
+180,"Trường Đại học Nông Lâm, Đại học Thái Nguyên",false
+181,Trường Đại học Phan Châu Trinh,false
+182,Trường Đại học Phan Thiết,false
+183,Trường Đại học Phú Xuân,false
+184,Trường Đại học Phú Yên,false
+185,Trường Đại học Phạm Văn Đồng,false
+186,Trường Đại học Quang Trung,false
+187,Trường Đại học Quy Nhơn,false
+188,Trường Đại học Quản lý và Công nghệ Hải Phòng,false
+189,Trường Đại học Quản lý và Công nghệ Thành phố Hồ Chí Minh,false
+190,Trường Đại học Quảng Bình,false
+191,Trường Đại học Quảng Nam,false
+192,Trường Đại học Quốc tế Bắc Hà,false
+193,Trường Đại học Quốc tế Hồng Bàng,false
+194,Trường Đại học Quốc tế Miền Đông,false
+195,Trường Đại học Quốc tế RMIT Việt Nam,false
+196,Trường Đại học Quốc tế Sài Gòn,false
+197,"Trường Đại học Quốc tế, ĐHQG-HCM",false
+198,Trường Đại học Sao Đỏ,false
+199,Trường Đại học Sài Gòn,true
+200,Trường Đại học Sân khấu – Điện ảnh Hà Nội,false
+201,Trường Đại học Sân khấu – Điện ảnh Thành phố Hồ Chí Minh,false
+202,Trường Đại học Sĩ quan Chính trị,false
+203,Trường Đại học Sĩ quan Pháo binh,false
+204,Trường Đại học Sĩ quan Phòng hóa,false
+205,Trường Đại học Sĩ quan Thông tin liên lạc,false
+206,Trường Đại học Sĩ quan Tăng – Thiết giáp,false
+207,Trường Đại học Sĩ quan Đặc công,false
+208,Trường Đại học Sư phạm Hà Nội,false
+209,Trường Đại học Sư phạm Hà Nội 2,false
+210,Trường Đại học Sư phạm Kỹ thuật Nam Định,false
+211,"Trường Đại học Sư phạm Kỹ thuật, Đại học Đà Nẵng",false
+212,Trường Đại học Sư phạm Nghệ thuật Trung ương,false
+213,Trường Đại học Sư phạm Thành phố Hồ Chí Minh,false
+214,Trường Đại học Sư phạm Thể dục Thể thao Hà Nội,false
+215,Trường Đại học Sư phạm Thể dục Thể thao Thành phố Hồ Chí Minh,false
+216,"Trường Đại học Sư phạm, Đại học Huế",false
+217,"Trường Đại học Sư phạm, Đại học Thái Nguyên",false
+218,"Trường Đại học Sư phạm, Đại học Đà Nẵng",false
+219,Trường Đại học Thành Đô,true
+220,Trường Đại học Thành Đông,false
+221,Trường Đại học Thái Bình,false
+222,Trường Đại học Thái Bình Dương,false
+223,Trường Đại học Thăng Long,false
+224,Trường Đại học Thương mại,false
+225,Trường Đại học Thể dục Thể thao Bắc Ninh,false
+226,Trường Đại học Thể dục Thể thao Thành phố Hồ Chí Minh,false
+227,Trường Đại học Thể dục Thể thao Đà Nẵng,false
+228,Trường Đại học Thủ Dầu Một,false
+229,Trường Đại học Thủ đô Hà Nội,false
+230,Trường Đại học Thủy lợi,true
+231,Trường Đại học Tiền Giang,false
+232,Trường Đại học Trưng Vương,false
+233,Trường Đại học Trần Quốc Tuấn / Trường Đại học Sĩ quan Lục quân 1,false
+234,Trường Đại học Trần Đại Nghĩa / Trường Đại học Sĩ quan Kỹ thuật Quân sự Vin - hem - pích,false
+235,Trường Đại học Tài chính – Marketing,false
+236,Trường Đại học Tài chính – Ngân hàng Hà Nội,false
+237,Trường Đại học Tài chính – Quản trị kinh doanh,false
+238,Trường Đại học Tài nguyên và Môi trường Hà Nội,true
+239,Trường Đại học Tài nguyên và Môi trường Thành phố Hồ Chí Minh,false
+240,Trường Đại học Tân Trào,false
+241,Trường Đại học Tân Tạo,false
+242,Trường Đại học Tây Bắc,false
+243,Trường Đại học Tây Nguyên,false
+244,Trường Đại học Tây Đô,false
+245,Trường Đại học Tôn Đức Thắng,false
+246,Trường Đại học Vinh,false
+247,Trường Đại học VinUni,false
+248,"Trường Đại học Việt Nhật, ĐHQGHN",false
+249,Trường Đại học Việt Đức,false
+250,Trường Đại học Võ Trường Toản,false
+251,Trường Đại học Văn Hiến,false
+252,Trường Đại học Văn hoá Nghệ thuật Quân đội,false
+253,Trường Đại học Văn hóa Hà Nội,false
+254,Trường Đại học Văn hóa Thành phố Hồ Chí Minh,false
+255,Trường Đại học Văn Lang,false
+256,Trường Đại học Xây dựng Hà Nội,true
+257,Trường Đại học Xây dựng Miền Trung,false
+258,Trường Đại học Xây dựng Miền Tây,false
+259,Trường Đại học Y Dược Buôn Ma Thuột,false
+260,Trường Đại học Y Dược Cần Thơ,false
+261,Trường Đại học Y Dược Hải Phòng,false
+262,Trường Đại học Y Dược Thái Bình,false
+263,"Trường Đại học Y Dược, ĐHQGHN",false
+264,"Trường Đại học Y Dược, Đại học Huế",false
+265,"Trường Đại học Y Dược, Đại học Thái Nguyên",false
+266,Trường Đại học Y Hà Nội,false
+267,Trường Đại học Y khoa Phạm Ngọc Thạch,false
+268,Trường Đại học Y khoa Tokyo Việt Nam,false
+269,Trường Đại học Y khoa Vinh,false
+270,Trường Đại học Y tế Công cộng,false
+271,Trường Đại học Yersin Đà Lạt,true
+272,Trường Đại học Điều dưỡng Nam Định,false
+273,Trường Đại học Điện lực,true
+274,Trường Đại học Đà Lạt,false
+275,Trường Đại học Đông Á,false
+276,Trường Đại học Đông Đô,false
+277,Trường Đại học Đại Nam,false
+278,Trường Đại học Đồng Nai,false
+279,Trường Đại học Đồng Tháp,true
+280,Viện Đào tạo Quốc tế NTT - Đại học Nguyễn Tất Thành,true
+281,Zero To Mastery,true
+282,Đại học Bách khoa Hà Nội,true
+283,Đại học Công nghiệp Hà Nội,false
+284,Đại học Cần Thơ,true
+285,Đại học Duy Tân,false
+286,Đại học Huế,false
+287,Đại học Kinh tế Quốc dân,false
+288,Đại học Kinh tế Thành phố Hồ Chí Minh,false
+289,Đại học Phenikaa,false
+290,Đại học Quốc gia Hà Nội,false
+291,Đại học Quốc gia Thành phố Hồ Chí Minh,true
+292,Đại học Thái Nguyên,false
+293,Đại học Trà Vinh,false
+294,Đại học Y Dược Thành phố Hồ Chí Minh,false
+295,Đại học Đà Nẵng,false

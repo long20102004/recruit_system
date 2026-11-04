@@ -16,6 +16,6 @@ Consumers: ai-service linker/KG enrichment (feature 005, read-only), backend Mod
 
 Keys: `skill_key` / `school_key` defined in `ai-service/app/kb/keys.py`; consumers MUST use the same functions (or port them identically) to look up aliases.
 
-Semantics: `A PART_OF B` = A is a component/sub-library of B (Spring Data JPA PART_OF Spring). `A REQUIRES B` = using A implies knowing B (Spring Boot REQUIRES Java). Implied skills (005) follow PART_OF upward and REQUIRES transitively; they are never merged into the CV's `skills`.
+Semantics: `A PART_OF B` = A is a component/sub-library of B (Spring Boot Test PART_OF Spring Boot). `A REQUIRES B` = using A implies knowing B (Spring Boot REQUIRES Java). Implied skills (005) follow PART_OF upward and REQUIRES transitively; they are never merged into the CV's `skills`.
 
 Open sets: `university` and `job_title` are normalisation dictionaries, not whitelists. Consumers MUST NOT reject or flag a school/title because it is absent from the KB; absence means "no normalised name" only.

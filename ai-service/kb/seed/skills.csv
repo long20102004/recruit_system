@@ -1,644 +1,499 @@
 id,name,category,reviewed
-1,.NET,Framework/Library,false
-2,.Net 8,Framework/Library,false
-3,.NET 8.0,Framework/Library,false
-4,.Net Core,Framework/Library,false
-5,.NET Core 8 API,Framework/Library,false
-6,.NET Core API,Framework/Library,false
-7,.NET Framework,Framework/Library,false
-8,Ability to quickly learn and adapt to new technologies,Soft Skill,false
-9,Able to read and search by english,Soft Skill,false
-10,Acceptance Criteria,Business Analysis,false
-11,Active Directory,Tool/Platform,false
-12,Adaptability,Soft Skill,false
-13,Agentic RAG,Data/AI,false
-14,Agile/Scrum,Methodology/Concept,false
-15,AI tools to optimize workflows and improve efficiency,Data/AI,false
-16,Airflow,Data/AI,false
-17,Ajax,Frontend,false
-18,Al & Computer Vision,Data/AI,false
-19,Algorithms & Data Structures,Methodology/Concept,false
-20,Alpha-Beta / PVS Search,Methodology/Concept,false
-21,Anaconda,Tool/Platform,false
-22,Analysis,Business Analysis,false
-23,Analysis and design database (MySQL),Database,false
-24,"Analysis and design database (SQLServer, MySQL, MongoDB)",Database,false
-25,Analytical Thinking,Soft Skill,false
-26,Android SDK,Mobile,false
-27,Android Studio,Tool/Platform,false
-28,Angular,Frontend,false
-29,Angular (primeng),Frontend,false
-30,Ansible,DevOps/CI-CD,false
-31,Ant Design,Frontend,false
-32,Apache Ant,DevOps/CI-CD,false
-33,Apache Kafka,Tool/Platform,false
-34,API,Methodology/Concept,false
-35,Api Google Drive,Tool/Platform,false
-36,API Testing,Testing/QA,false
-37,ArcFace,Data/AI,false
-38,ArgoCD,DevOps/CI-CD,false
-39,ARP,Methodology/Concept,false
-40,ASP.NET (C#),Framework/Library,false
-41,ASP.NET 8.0,Framework/Library,false
-42,ASP.NET API,Framework/Library,false
-43,ASP.NET Core,Framework/Library,false
-44,ASP.NET Core MVC,Framework/Library,false
-45,ASP.NET Core MVC / Web API,Framework/Library,false
-46,ASP.NET Core Web API,Framework/Library,false
-47,ASP.NET Identity,Framework/Library,false
-48,ASP.NET MVC,Framework/Library,false
-49,ASP.NET MVC Core 6.x,Framework/Library,false
-50,ASP.NET WEB API,Framework/Library,false
-51,"Authentication (OAuth2, JWT)",Security,false
-52,Authentication and authorization with Spring Security,Security,false
-53,AutoMapper,Framework/Library,false
-54,AWS,Cloud,false
-55,AWS S3,Cloud,false
-56,Axios,Frontend,false
-57,Azure,Cloud,false
-58,Bash,Programming Language,false
-59,Basic English reading and comprehension,Soft Skill,false
-60,Basic experience with MVC architecture and web application development using C#,Framework/Library,false
-61,Batch Normalization,Data/AI,false
-62,Bcrypt,Security,false
-63,Biome,Tool/Platform,false
-64,Biết sắp xếp thời gian hiệu quả,Soft Skill,false
-65,Biết sử dụng Python trong xử lý và phân tích dữ liệu,Data/AI,false
-66,Biết ứng dụng AI để hỗ trợ nghiên cứu,Data/AI,false
-67,Blade,Frontend,false
-68,Blade Template,Frontend,false
-69,BLEU,Data/AI,false
-70,Bootstrap,Frontend,false
-71,bounding-box annotation,Data/AI,false
-72,BPMN,Business Analysis,false
-73,BRD/SRS,Business Analysis,false
-74,Brevo,Tool/Platform,false
-75,Bucket4j,Framework/Library,false
-76,Builder,Methodology/Concept,false
-77,Burp Suite,Security,false
-78,C,Programming Language,false
-79,C#,Programming Language,false
-80,C# .NET MAUI,Mobile,false
-81,C# .NET Windows Form,Framework/Library,false
-82,C# MVC,Framework/Library,false
-83,C#(OOP): class,Programming Language,false
-84,C++,Programming Language,false
-85,Can collaborate with other members to develop features without difficult,Soft Skill,false
-86,Capable of working independently and in teams,Soft Skill,false
-87,Cassandra,Database,false
-88,Celery,Framework/Library,false
-89,Charles Proxy,Tool/Platform,false
-90,Charles/Fiddler,Tool/Platform,false
-91,Checkmk,DevOps/CI-CD,false
-92,Chẩn đoán và xử lý sự cố mạng cơ bản,Methodology/Concept,false
-93,CI/CD,DevOps/CI-CD,false
-94,CI/CD (GitHub Actions),DevOps/CI-CD,false
-95,CIS Docker Benchmark,Security,false
-96,Clean Architecture,Methodology/Concept,false
-97,Clear and concise communication and idea presentation,Soft Skill,false
-98,Cleck,Security,false
-99,Cloud deployment (DigitalOcean),Cloud,false
-100,Cloud DigitalOcean,Cloud,false
-101,Cloud Infrastructure and System Design,Cloud,false
-102,Cloudinary,Cloud,false
-103,CNN,Data/AI,false
-104,Collaboration,Soft Skill,false
-105,Comfortable reading technical documentation in English,Soft Skill,false
-106,Communication,Soft Skill,false
-107,Communication skill,Soft Skill,false
-108,Conda,Tool/Platform,false
-109,Confluence,Tool/Platform,false
-110,Context API,Frontend,false
-111,Controllers,Methodology/Concept,false
-112,CORS,Security,false
-113,CQRS,Methodology/Concept,false
-114,CQRS Pattern,Methodology/Concept,false
-115,Cross-Site Scripting (XSS) prevention,Security,false
-116,Csharp,Programming Language,false
-117,CSS,Frontend,false
-118,CSS3,Frontend,false
-119,Cut HTML + CSS from Figma,Frontend,false
-120,Cypress,Testing/QA,false
-121,Cài đặt & quản trị WordPress,Tool/Platform,false
-122,Cài đặt và cấu hình hệ điều hành,Tool/Platform,false
-123,Có khả năng tự học và làm việc tốt,Soft Skill,false
-124,Có khả năng đánh giá và thử nghiệm mô hình AI,Data/AI,false
-125,Có khả năng đọc hiểu tài liệu và giao tiếp Tiếng Anh ở mức cơ bản,Soft Skill,false
-126,Có kiến thức cơ bản về SQL,Database,false
-127,Dapper,Framework/Library,false
-128,Dart,Programming Language,false
-129,data filtering,Data/AI,false
-130,Data preprocessing,Data/AI,false
-131,Data structures and algorithms,Methodology/Concept,false
-132,dbt,Data/AI,false
-133,delete,Database,false
-134,Dependency Injection,Methodology/Concept,false
-135,Design pattern,Methodology/Concept,false
-136,Design Patterns,Methodology/Concept,false
-137,Develop Restful API app service with Spring Boot,Framework/Library,false
-138,DHCP,Methodology/Concept,false
-139,DigitalOcean,Cloud,false
-140,Distributed systems concepts,Methodology/Concept,false
-141,Docker,DevOps/CI-CD,false
-142,Docker Compose,DevOps/CI-CD,false
-143,Draw.io,Design/UI-UX,false
-144,Dropout,Data/AI,false
-145,DSA,Methodology/Concept,false
-146,DTO,Methodology/Concept,false
-147,Easy to understanding request from Leader to develop features,Soft Skill,false
-148,EF Core,Framework/Library,false
-149,EF Core ORM,Framework/Library,false
-150,Effective communication,Soft Skill,false
-151,Effective problem-solving skills,Soft Skill,false
-152,Effective time management,Soft Skill,false
-153,EJS,Frontend,false
-154,Elasticsearch,Database,false
-155,ELK Stack,DevOps/CI-CD,false
-156,Eloquent,Framework/Library,false
-157,Email API,Tool/Platform,false
-158,EmailJS,Tool/Platform,false
-159,embedding extraction,Data/AI,false
-160,English Proficiency,Soft Skill,false
-161,English Reading Comprehension,Soft Skill,false
-162,ensemble classifiers,Data/AI,false
-163,Entity Framework,Framework/Library,false
-164,Entity Framework Core,Framework/Library,false
-165,Entity Framework Core (EF Core),Framework/Library,false
-166,ERD Creation,Database,false
-167,ETL,Data/AI,false
-168,"Evaluation Metrics (ROUGE, BLEU, Perplexity)",Data/AI,false
-169,Event-driven architecture,Methodology/Concept,false
-170,Events,Methodology/Concept,false
-171,Excel,Tool/Platform,false
-172,ExpressJS,Framework/Library,false
-173,face recognition,Data/AI,false
-174,Factory,Methodology/Concept,false
-175,Familiar with basic PHP scripting and application structure,Programming Language,false
-176,Familiar with Distributed Systems and Event-Driven Architecture,Methodology/Concept,false
-177,Fast detect and fixbug when problem has raised,Soft Skill,false
-178,FastAPI,Framework/Library,false
-179,Fastify,Framework/Library,false
-180,Feign client,Framework/Library,false
-181,FFT,Data/AI,false
-182,Figma,Design/UI-UX,false
-183,Figma Prototype,Design/UI-UX,false
-184,"Fine-tuning (SFT, LoRA)",Data/AI,false
-185,Firebase,Cloud,false
-186,Firebase Authentication,Security,false
-187,Firebase Realtime Database,Database,false
-188,Firebase Storage,Cloud,false
-189,Firewall,Security,false
-190,Flutter,Mobile,false
-191,Framework/Library: .NET,Framework/Library,false
-192,FreePBX,Tool/Platform,false
-193,GCP,Cloud,false
-194,Genymotion,Tool/Platform,false
-195,Giao tiếp và truyền đạt thông tin,Soft Skill,false
-196,Git,Tool/Platform,false
-197,GitHub,Tool/Platform,false
-198,GitHub Action (CI/CD),DevOps/CI-CD,false
-199,GitHub Actions,DevOps/CI-CD,false
-200,GitLab,Tool/Platform,false
-201,GitLab CI,DevOps/CI-CD,false
-202,GitLab CI/CD,DevOps/CI-CD,false
-203,giải quyết vấn đề,Soft Skill,false
-204,Glide,Mobile,false
-205,Go,Programming Language,false
-206,Good problem-solving skills,Soft Skill,false
-207,Good – able to read technical documents fluently,Soft Skill,false
-208,Google BigQuery,Database,false
-209,Google Gemini API,Data/AI,false
-210,Google OAuth2,Security,false
-211,GPO,Security,false
-212,Gradient Boost,Data/AI,false
-213,Gradle,DevOps/CI-CD,false
-214,Grafana,DevOps/CI-CD,false
-215,GraphQL,Methodology/Concept,false
-216,Groq API,Data/AI,false
-217,gRPC,Methodology/Concept,false
-218,H2 Database,Database,false
-219,Hadoop,Data/AI,false
-220,HangFire,Framework/Library,false
-221,Have the spirit of self-study,Soft Skill,false
-222,Having a solid grasp of Agile/Scrum methodology,Methodology/Concept,false
-223,Helm,DevOps/CI-CD,false
-224,heuristic/adversarial search,Data/AI,false
-225,Hibernate,Framework/Library,false
-226,Hibernate ORM,Framework/Library,false
-227,HLS streaming,Methodology/Concept,false
-228,HTML,Frontend,false
-229,HTML3,Frontend,false
-230,HTML5,Frontend,false
-231,HttpSession,Framework/Library,false
-232,Hybrid Search,Data/AI,false
-233,hyperparameter tuning,Data/AI,false
-234,hòa đồng,Soft Skill,false
-235,học hỏi trao đồi kinh nghiệm,Soft Skill,false
-236,Hỗ trợ phần mềm cơ bản,Tool/Platform,false
-237,i18n,Methodology/Concept,false
-238,IAM,Security,false
-239,Identity,Framework/Library,false
-240,IIS Express,Tool/Platform,false
-241,Illustrator,Design/UI-UX,false
-242,image/video processing,Data/AI,false
-243,Infrastructure-as-Code (IaC),DevOps/CI-CD,false
-244,inheritance,Methodology/Concept,false
-245,Inngest,Tool/Platform,false
-246,insert,Database,false
-247,IntelliJ,Tool/Platform,false
-248,IntelliJ IDEA,Tool/Platform,false
-249,Interceptor,Methodology/Concept,false
-250,Interested in Backend Engineering,Other,false
-251,Interface,Methodology/Concept,false
-252,Interface and Dependency Injection,Methodology/Concept,false
-253,Intermediate level in English,Soft Skill,false
-254,IPv4,Methodology/Concept,false
-255,ISO 27001,Security,false
-256,iTextPDF,Framework/Library,false
-257,JasperReports & Fonts,Tool/Platform,false
-258,Java,Programming Language,false
-259,Java (Core focus),Programming Language,false
-260,Java 17,Programming Language,false
-261,Java 21,Programming Language,false
-262,Java core,Programming Language,false
-263,Java EE 7,Framework/Library,false
-264,Java Spring boot (primefaces),Framework/Library,false
-265,JavaFX,Framework/Library,false
-266,JavaScript,Programming Language,false
-267,JavaScript/ES6+,Programming Language,false
-268,JavaServlet,Framework/Library,false
-269,Jenkins,DevOps/CI-CD,false
-270,Jest,Testing/QA,false
-271,Jira,Tool/Platform,false
-272,JMeter,Testing/QA,false
-273,JPA,Framework/Library,false
-274,JPA 2.1 (EclipseLink),Framework/Library,false
-275,jQuery,Frontend,false
-276,JS,Programming Language,false
-277,JSON API (javax.json & GlassFish),Framework/Library,false
-278,JSP,Frontend,false
-279,JSP/JSTL,Frontend,false
-280,Junit,Testing/QA,false
-281,JWT,Security,false
-282,JWT Authentication,Security,false
-283,JWT Token,Security,false
-284,JwtBearer,Security,false
-285,Kafka,Tool/Platform,false
-286,Kali Linux,Security,false
-287,Kanban,Methodology/Concept,false
-288,khám phá những kiến thức mới,Soft Skill,false
-289,Khả năng làm việc nhóm và độc lập,Soft Skill,false
-290,Khả năng tự học,Soft Skill,false
-291,Khả năng đóng góp và làm việc nhóm hiệu quả,Soft Skill,false
-292,Kiến thức cơ bản về Trí tuệ nhân tạo và Machine Learning,Data/AI,false
-293,KNN,Data/AI,false
-294,Kotlin,Programming Language,false
-295,Kubernetes,DevOps/CI-CD,false
-296,Kỹ năng giao tiếp,Soft Skill,false
-297,Kỹ năng giải quyết vấn đề,Soft Skill,false
-298,Kỹ năng làm việc nhóm,Soft Skill,false
-299,Kỹ năng quản lý dự án,Soft Skill,false
-300,Kỹ năng tự tìm tòi,Soft Skill,false
-301,Laravel,Framework/Library,false
-302,Lark,Tool/Platform,false
-303,Leadership,Soft Skill,false
-304,learn new knowledge technologies,Soft Skill,false
-305,LINQ,Framework/Library,false
-306,Linux,Tool/Platform,false
-307,Linux environment,Tool/Platform,false
-308,Liquibase,Database,false
-309,Listeners,Methodology/Concept,false
-310,Listening and Learning,Soft Skill,false
-311,ListView,Mobile,false
-312,Llama-3.1-8B,Data/AI,false
-313,LlamaIndex,Data/AI,false
-314,Logical Thinking,Soft Skill,false
-315,Lombok,Framework/Library,false
-316,Lumen,Framework/Library,false
-317,Làm việc nhóm,Soft Skill,false
-318,Làm việc nhóm theo mô hình Scrum,Methodology/Concept,false
-319,Làm việc độc lập,Soft Skill,false
-320,lập trình và xử lý công việc,Other,false
-321,Machine Learning,Data/AI,false
-322,Manual Testing,Testing/QA,false
-323,MapStruct,Framework/Library,false
-324,Marten ORM,Framework/Library,false
-325,Material Design,Design/UI-UX,false
-326,Material UI,Frontend,false
-327,Maven,DevOps/CI-CD,false
-328,MDB React UI Kit,Frontend,false
-329,MDXContent,Frontend,false
-330,MediaPlayer API,Mobile,false
-331,MediatR,Framework/Library,false
-332,Memory Cache,Database,false
-333,Metasploit,Security,false
-334,Microservices,Methodology/Concept,false
-335,Microservices Architecture,Methodology/Concept,false
-336,Microsoft SQL Server,Database,false
-337,Microsoft SQL Server JDBC Driver,Database,false
-338,Minial API,Framework/Library,false
-339,MLflow,Data/AI,false
-340,MobileNetV2,Data/AI,false
-341,Mockito,Testing/QA,false
-342,Model,Methodology/Concept,false
-343,model training,Data/AI,false
-344,MongoDB,Database,false
-345,MongoDB Atlas,Database,false
-346,Monolithic,Methodology/Concept,false
-347,Moodle,Tool/Platform,false
-348,MSSQL,Database,false
-349,MUI,Frontend,false
-350,Multer,Framework/Library,false
-351,MVC,Methodology/Concept,false
-352,MVC (Model-View-Controller),Methodology/Concept,false
-353,MVC Architecture,Methodology/Concept,false
-354,MVC Pattern,Methodology/Concept,false
-355,MVVM (Model-View-ViewModel),Methodology/Concept,false
-356,MySQL,Database,false
-357,MySQL Workbench,Tool/Platform,false
-358,Mô hình hóa nghiệp vụ,Business Analysis,false
-359,N-Layer,Methodology/Concept,false
-360,NAT,Methodology/Concept,false
-361,NEO4J,Database,false
-362,Nessus,Security,false
-363,NestJS,Framework/Library,false
-364,Network Security,Security,false
-365,Networking,Methodology/Concept,false
-366,NexJS,Frontend,false
-367,Next.js,Frontend,false
-368,Next.js 14,Frontend,false
-369,Next.js 15,Frontend,false
-370,NextJS 16,Frontend,false
-371,Nginx,DevOps/CI-CD,false
-372,Nmap,Security,false
-373,Node-Express.js,Framework/Library,false
-374,Node.js,Framework/Library,false
-375,NodeJS (LoopBack 4),Framework/Library,false
-376,NodeJS REST API,Framework/Library,false
-377,Nodemailer,Framework/Library,false
-378,Nodemon,Tool/Platform,false
-379,Notification,Methodology/Concept,false
-380,NumPy,Data/AI,false
-381,NuxtJS,Frontend,false
-382,OAuth2,Security,false
-383,object detection,Data/AI,false
-384,Observer,Methodology/Concept,false
-385,Ocelot API Gateway,Framework/Library,false
-386,Office Software,Tool/Platform,false
-387,ONS,Methodology/Concept,false
-388,OOP,Methodology/Concept,false
-389,OOP (Object-Oriented Programming),Methodology/Concept,false
-390,OpenCV,Data/AI,false
-391,OpenCVDNN,Data/AI,false
-392,OpenFeign,Framework/Library,false
-393,OpenStack,Cloud,false
-394,OpenWRT,Tool/Platform,false
-395,Oracle,Database,false
-396,Oracle database,Database,false
-397,ORM,Methodology/Concept,false
-398,OSPF,Methodology/Concept,false
-399,OWASP Top 10,Security,false
-400,Pandas,Data/AI,false
-401,particularly in logical reasoning and analytical thinking,Soft Skill,false
-402,"Passport (JWT, session-based)",Security,false
-403,pfSense,Security,false
-404,Photoshop,Design/UI-UX,false
-405,PHP,Programming Language,false
-406,PHP Laravel,Framework/Library,false
-407,Phát triển website cơ bản gồm Frontend và Backend,Methodology/Concept,false
-408,Phân quyền trên Windows,Security,false
-409,Phân tích nghiệp vụ,Business Analysis,false
-410,Phân tích và giải quyết vấn đề,Soft Skill,false
-411,Playwright,Testing/QA,false
-412,PostgreSQL,Database,false
-413,PostgreSQL (Database design & Optimization),Database,false
-414,Postman,Tool/Platform,false
-415,Power BI,Data/AI,false
-416,Power BI for data visualization and analysis,Data/AI,false
-417,"PowerDesigner (UML, ERD)",Business Analysis,false
-418,Powerpoint,Tool/Platform,false
-419,powerpoint skills,Tool/Platform,false
-420,prediction-confidence estimation,Data/AI,false
-421,Presentation,Soft Skill,false
-422,Presentation skills,Soft Skill,false
-423,Prisma,Framework/Library,false
-424,Prisma ORM,Framework/Library,false
-425,Prisma Studio,Tool/Platform,false
-426,Problem Solving,Soft Skill,false
-427,Problem-solving skills,Soft Skill,false
-428,Process Modeling,Business Analysis,false
-429,Proficient in full-stack development using LoopBack 4 (Node.js) for backend APIs and ReactJS for building component-based UIs,Framework/Library,false
-430,Proficient in teamwork,Soft Skill,false
-431,Prometheus,DevOps/CI-CD,false
-432,Proxmox,Tool/Platform,false
-433,Pusher,Tool/Platform,false
-434,Pytest,Testing/QA,false
-435,Python,Programming Language,false
-436,PyTorch,Data/AI,false
-437,Qdrant,Database,false
-438,Quality of Service,Methodology/Concept,false
-439,Quản lý công việc theo bảng Kanban,Methodology/Concept,false
-440,quản lý nội dung Website,Other,false
-441,R2 Cloudflare,Cloud,false
-442,RabbitMQ,Tool/Platform,false
-443,Railway,Cloud,false
-444,Random Forest,Data/AI,false
-445,Rate limit API,Methodology/Concept,false
-446,React 19,Frontend,false
-447,React Query,Frontend,false
-448,React Router DOM,Frontend,false
-449,React Typescript,Frontend,false
-450,React-Bootstrap,Frontend,false
-451,React-Hook-Form,Frontend,false
-452,react-redux,Frontend,false
-453,react-slick,Frontend,false
-454,ReactJS,Frontend,false
-455,ReactJS (Functional knowledge),Frontend,false
-456,real-time inference,Data/AI,false
-457,Realtime,Methodology/Concept,false
-458,Realtime with Pusher,Tool/Platform,false
-459,RecyclerView,Mobile,false
-460,Redis,Database,false
-461,Redis Cache,Database,false
-462,Redux,Frontend,false
-463,Redux Toolkit,Frontend,false
-464,Regression,Data/AI,false
-465,Regularization,Data/AI,false
-466,Reinforcement Learning (GRPO),Data/AI,false
-467,Render,Cloud,false
-468,REPONSIVE,Frontend,false
-469,Reportviewer,Tool/Platform,false
-470,Repository,Methodology/Concept,false
-471,Repository Pattern,Methodology/Concept,false
-472,Requirements Elicitation,Business Analysis,false
-473,Resend,Tool/Platform,false
-474,Responsibility & accountability,Soft Skill,false
-475,Responsive,Frontend,false
-476,Responsive Design,Frontend,false
-477,REST API,Methodology/Concept,false
-478,RESTful,Methodology/Concept,false
-479,RESTful API,Methodology/Concept,false
-480,RESTful API design,Methodology/Concept,false
-481,RIP,Methodology/Concept,false
-482,RNN,Data/AI,false
-483,ROUGE,Data/AI,false
-484,Routing,Methodology/Concept,false
-485,RustDesk,Tool/Platform,false
-486,Sao lưu và phục hồi dữ liệu,Database,false
-487,SASS/SCSS,Frontend,false
-488,Schedule job HangFire,Framework/Library,false
-489,scikit-learn,Data/AI,false
-490,SciPy,Data/AI,false
-491,SCRFD,Data/AI,false
-492,SCSS,Frontend,false
-493,select,Database,false
-494,Selenium,Testing/QA,false
-495,Self learning,Soft Skill,false
-496,SePay,Tool/Platform,false
-497,Sequelize,Framework/Library,false
-498,Sequelize ORM,Framework/Library,false
-499,Service,Methodology/Concept,false
-500,Servlets,Framework/Library,false
-501,ShadcnUI,Frontend,false
-502,SIEM,Security,false
-503,SignalR,Framework/Library,false
-504,SMS,Tool/Platform,false
-505,SNMP,Methodology/Concept,false
-506,Snort (IDS/IPS),Security,false
-507,Snowflake,Database,false
-508,SOC 2,Security,false
-509,Socket.IO,Framework/Library,false
-510,SOLID,Methodology/Concept,false
-511,SOLID principles,Methodology/Concept,false
-512,Solving Problem,Soft Skill,false
-513,SonarQube,DevOps/CI-CD,false
-514,Spark,Data/AI,false
-515,Spectrogram,Data/AI,false
-516,Sping Cloud Gateway,Framework/Library,false
-517,Splunk,Security,false
-518,Spring Boot,Framework/Library,false
-519,"Spring Boot (Web, Data JPA, Data JDBC, Mail, DevTools)",Framework/Library,false
-520,Spring Boot Test,Testing/QA,false
-521,Spring Cloud,Framework/Library,false
-522,Spring Data JPA,Framework/Library,false
-523,Spring MVC,Framework/Library,false
-524,Spring Security,Security,false
-525,SPSA,Data/AI,false
-526,SPSA tuning,Data/AI,false
-527,SQL,Database,false
-528,"SQL (Select, Join, Group By)",Database,false
-529,SQL cơ bản,Database,false
-530,SQL Injection protection,Security,false
-531,SQL Server,Database,false
-532,SQLAlchemy,Framework/Library,false
-533,SQLAlchemy ORM,Framework/Library,false
-534,SQLite,Database,false
-535,SQLModel,Framework/Library,false
-536,SSE,Methodology/Concept,false
-537,SSH,Tool/Platform,false
-538,STFT,Data/AI,false
-539,store procedure,Database,false
-540,Stripe,Tool/Platform,false
-541,Stripe Checkout & Webhooks,Tool/Platform,false
-542,Stripe Payment API,Tool/Platform,false
-543,Strong analytical skills with a focus on debugging and system optimization,Soft Skill,false
-544,Strong self-learning ability and curiosity for new knowledge,Soft Skill,false
-545,Subnetting,Methodology/Concept,false
-546,Supabase,Cloud,false
-547,Swagger,Tool/Platform,false
-548,Swagger/OpenAPI,Tool/Platform,false
-549,Sử dụng công cụ hỗ trợ từ xa,Tool/Platform,false
-550,Sử dụng công cụ Marketing Online,Tool/Platform,false
-551,Sử dụng thành thạo các công cụ Microsoft Office,Tool/Platform,false
-552,Sử dụng thành thạo java 21,Programming Language,false
-553,Tableau,Data/AI,false
-554,Tailwind,Frontend,false
-555,Tailwind CSS,Frontend,false
-556,TanStack,Frontend,false
-557,TanStack-Query,Frontend,false
-558,TCP/IP,Methodology/Concept,false
-559,Team Collaboration,Soft Skill,false
-560,Teamwork,Soft Skill,false
-561,Teamworking,Soft Skill,false
-562,TensorFlow,Data/AI,false
-563,Terraform,DevOps/CI-CD,false
-564,Test Automation,Testing/QA,false
-565,Test Case Design,Testing/QA,false
-566,Testing Library,Testing/QA,false
-567,TestRail,Testing/QA,false
-568,Thiết kế giao diện website đẹp sử dụng HTML/HTML5,Frontend,false
-569,Thiết kế web responsive tự động co giãn,Frontend,false
-570,Thunder testers,Testing/QA,false
-571,thuyết trình,Soft Skill,false
-572,Thymeleaf,Frontend,false
-573,Thành thạo kỹ năng HORENSO,Soft Skill,false
-574,Thái độ phục vụ và hỗ trợ thân thiện,Soft Skill,false
-575,Thích nghi công nghệ mới,Soft Skill,false
-576,Time Management,Soft Skill,false
-577,TinyMCE,Frontend,false
-578,Tkinter,Framework/Library,false
-579,Transformers Architecture,Data/AI,false
-580,Trello,Tool/Platform,false
-581,Trivy,Security,false
-582,TypeORM,Framework/Library,false
-583,TypeScript,Programming Language,false
-584,TypeScriptript,Programming Language,false
-585,Tư duy logic,Soft Skill,false
-586,tự học,Soft Skill,false
-587,Tự học và tìm hiểu công nghệ mới,Soft Skill,false
-588,UAT,Business Analysis,false
-589,Ubuntu,Tool/Platform,false
-590,UCI Protocol,Methodology/Concept,false
-591,Understanding of data structures and programming principles object orientation,Methodology/Concept,false
-592,Understanding of Object-Oriented Programming and Data Structures,Methodology/Concept,false
-593,Unit Testing,Testing/QA,false
-594,UnitOfWork Pattern,Methodology/Concept,false
-595,Unity,Tool/Platform,false
-596,update,Database,false
-597,Use Case Diagram Creation,Business Analysis,false
-598,Use Case Specs,Business Analysis,false
-599,User Story,Business Analysis,false
-600,Uvicorn,Framework/Library,false
-601,Validation API,Framework/Library,false
-602,Vault,Security,false
-603,Vector DB (Qdrant),Database,false
-604,Velite,Tool/Platform,false
-605,Vercel,Cloud,false
-606,Vertical Slice Architecture,Methodology/Concept,false
-607,Views and Blade Templates,Frontend,false
-608,VirtualBox,Tool/Platform,false
-609,Visual Studio,Tool/Platform,false
-610,Visual Studio Code,Tool/Platform,false
-611,Vite,Frontend,false
-612,Viết bài chuẩn SEO,Other,false
-613,VLANs,Methodology/Concept,false
-614,VNPAY,Tool/Platform,false
-615,VPN,Security,false
-616,VPS,Cloud,false
-617,VS Code,Tool/Platform,false
-618,Vue.js,Frontend,false
-619,Vui vẻ,Soft Skill,false
-620,Vulnerability Assessment,Security,false
-621,Wazuh,Security,false
-622,Webpack,Frontend,false
-623,WebRTC,Methodology/Concept,false
-624,Websocket,Methodology/Concept,false
-625,Windows,Tool/Platform,false
-626,WinForm,Framework/Library,false
-627,WinForms,Framework/Library,false
-628,Wireshark,Security,false
-629,with a strong sense of responsibility in work,Soft Skill,false
-630,Word,Tool/Platform,false
-631,WordPress,Tool/Platform,false
-632,Work under pressure,Soft Skill,false
-633,WPF,Framework/Library,false
-634,XGBoost,Data/AI,false
-635,XML,Methodology/Concept,false
-636,YAML/CSV metadata,Other,false
-637,YOLO labels,Data/AI,false
-638,YOLO(Ultralytics),Data/AI,false
-639,Zobrist Hashing,Methodology/Concept,false
-640,Zod,Framework/Library,false
-641,Zustand,Frontend,false
-642,Đọc hiểu tiếng anh cơ bản và chuyên ngành,Soft Skill,false
-643,Đọc hiểu tài liệu tiếng Anh cơ bản,Soft Skill,false
+1,.NET,Framework/Library,true
+2,.Net Core,Framework/Library,true
+3,.NET Core 8 API,Framework/Library,true
+4,.NET Core API,Framework/Library,true
+5,.NET Framework,Framework/Library,true
+6,Ability to quickly learn and adapt to new technologies,Soft Skill,true
+7,Acceptance Criteria,Business Analysis,true
+8,Active Directory,Tool/Platform,true
+9,Adaptability,Soft Skill,true
+10,Agentic RAG,Data/AI,true
+11,Agile/Scrum,Methodology/Concept,true
+12,AI tools to optimize workflows and improve efficiency,Data/AI,true
+13,Airflow,Data/AI,true
+14,Ajax,Frontend,true
+15,Al & Computer Vision,Data/AI,true
+16,Algorithms & Data Structures,Methodology/Concept,true
+17,Alpha-Beta / PVS Search,Methodology/Concept,true
+18,Anaconda,Tool/Platform,true
+19,Analytical Thinking,Soft Skill,true
+20,Android SDK,Mobile,true
+21,Android Studio,Tool/Platform,true
+22,Angular,Frontend,true
+23,Angular (primeng),Frontend,true
+24,Ansible,DevOps/CI-CD,true
+25,Ant Design,Frontend,true
+26,Apache Ant,DevOps/CI-CD,true
+27,API,Methodology/Concept,true
+28,Api Google Drive,Tool/Platform,true
+29,API Testing,Testing/QA,true
+30,ArcFace,Data/AI,true
+31,ArgoCD,DevOps/CI-CD,true
+32,ARP,Methodology/Concept,true
+33,ASP.NET (C#),Framework/Library,true
+34,ASP.NET 8.0,Framework/Library,true
+35,ASP.NET API,Framework/Library,true
+36,ASP.NET Core,Framework/Library,true
+37,ASP.NET Core MVC,Framework/Library,true
+38,ASP.NET Core MVC / Web API,Framework/Library,true
+39,ASP.NET Core Web API,Framework/Library,true
+40,ASP.NET Identity,Framework/Library,true
+41,ASP.NET MVC,Framework/Library,true
+42,ASP.NET MVC Core 6.x,Framework/Library,true
+43,ASP.NET WEB API,Framework/Library,true
+44,"Authentication (OAuth2, JWT)",Security,true
+45,Authentication and authorization with Spring Security,Security,true
+46,AutoMapper,Framework/Library,true
+47,AWS,Cloud,true
+48,AWS S3,Cloud,true
+49,Axios,Frontend,true
+50,Azure,Cloud,true
+51,Bash,Programming Language,true
+52,Batch Normalization,Data/AI,true
+53,Bcrypt,Security,true
+54,Biome,Tool/Platform,true
+55,Biết sử dụng Python trong xử lý và phân tích dữ liệu,Data/AI,true
+56,Biết ứng dụng AI để hỗ trợ nghiên cứu,Data/AI,true
+57,Blade,Frontend,true
+58,BLEU,Data/AI,true
+59,Bootstrap,Frontend,true
+60,bounding-box annotation,Data/AI,true
+61,BPMN,Business Analysis,true
+62,BRD/SRS,Business Analysis,true
+63,Brevo,Tool/Platform,true
+64,Bucket4j,Framework/Library,true
+65,Builder,Methodology/Concept,true
+66,Burp Suite,Security,true
+67,C,Programming Language,true
+68,C#,Programming Language,true
+69,C# .NET MAUI,Mobile,true
+70,C# .NET Windows Form,Framework/Library,true
+71,C# MVC,Framework/Library,true
+72,C++,Programming Language,true
+73,Can collaborate with other members to develop features without difficult,Soft Skill,true
+74,Capable of working independently and in teams,Soft Skill,true
+75,Cassandra,Database,true
+76,Celery,Framework/Library,true
+77,Charles Proxy,Tool/Platform,true
+78,Charles/Fiddler,Tool/Platform,true
+79,Checkmk,DevOps/CI-CD,true
+80,Chẩn đoán và xử lý sự cố mạng cơ bản,Methodology/Concept,true
+81,CI/CD,DevOps/CI-CD,true
+82,CIS Docker Benchmark,Security,true
+83,Clean Architecture,Methodology/Concept,true
+84,Cleck,Security,true
+85,Cloud Infrastructure and System Design,Cloud,true
+86,Cloudinary,Cloud,true
+87,CNN,Data/AI,true
+88,Communication,Soft Skill,true
+89,Conda,Tool/Platform,true
+90,Confluence,Tool/Platform,true
+91,Context API,Frontend,true
+92,CORS,Security,true
+93,CQRS,Methodology/Concept,true
+94,Cross-Site Scripting (XSS) prevention,Security,true
+95,CSS,Frontend,true
+96,CSS3,Frontend,true
+97,Cut HTML + CSS from Figma,Frontend,true
+98,Cypress,Testing/QA,true
+99,Cài đặt & quản trị WordPress,Tool/Platform,true
+100,Cài đặt và cấu hình hệ điều hành,Tool/Platform,true
+101,Có khả năng tự học và làm việc tốt,Soft Skill,true
+102,Có khả năng đánh giá và thử nghiệm mô hình AI,Data/AI,true
+103,Có khả năng đọc hiểu tài liệu và giao tiếp Tiếng Anh ở mức cơ bản,Soft Skill,true
+104,Dapper,Framework/Library,true
+105,Dart,Programming Language,true
+106,data filtering,Data/AI,true
+107,Data preprocessing,Data/AI,true
+108,dbt,Data/AI,true
+109,Dependency Injection,Methodology/Concept,true
+110,Design Patterns,Methodology/Concept,true
+111,DHCP,Methodology/Concept,true
+112,DigitalOcean,Cloud,true
+113,Distributed systems concepts,Methodology/Concept,true
+114,Docker,DevOps/CI-CD,true
+115,Docker Compose,DevOps/CI-CD,true
+116,Draw.io,Design/UI-UX,true
+117,Dropout,Data/AI,true
+118,DTO,Methodology/Concept,true
+119,Easy to understanding request from Leader to develop features,Soft Skill,true
+120,EJS,Frontend,true
+121,Elasticsearch,Database,true
+122,ELK Stack,DevOps/CI-CD,true
+123,Eloquent,Framework/Library,true
+124,Email API,Tool/Platform,true
+125,EmailJS,Tool/Platform,true
+126,embedding extraction,Data/AI,true
+127,English Proficiency,Soft Skill,true
+128,English Reading Comprehension,Soft Skill,true
+129,ensemble classifiers,Data/AI,true
+130,Entity Framework,Framework/Library,true
+131,Entity Framework Core,Framework/Library,true
+132,ERD Creation,Database,true
+133,ETL,Data/AI,true
+134,"Evaluation Metrics (ROUGE, BLEU, Perplexity)",Data/AI,true
+135,Event-driven architecture,Methodology/Concept,true
+136,Excel,Tool/Platform,true
+137,ExpressJS,Framework/Library,true
+138,face recognition,Data/AI,true
+139,Factory,Methodology/Concept,true
+140,Fast detect and fixbug when problem has raised,Soft Skill,true
+141,FastAPI,Framework/Library,true
+142,Fastify,Framework/Library,true
+143,FFT,Data/AI,true
+144,Figma,Design/UI-UX,true
+145,Figma Prototype,Design/UI-UX,true
+146,"Fine-tuning (SFT, LoRA)",Data/AI,true
+147,Firebase,Cloud,true
+148,Firebase Authentication,Security,true
+149,Firebase Realtime Database,Database,true
+150,Firebase Storage,Cloud,true
+151,Firewall,Security,true
+152,Flutter,Mobile,true
+153,FreePBX,Tool/Platform,true
+154,GCP,Cloud,true
+155,Genymotion,Tool/Platform,true
+156,Git,Tool/Platform,true
+157,GitHub,Tool/Platform,true
+158,GitHub Actions,DevOps/CI-CD,true
+159,GitLab,Tool/Platform,true
+160,GitLab CI/CD,DevOps/CI-CD,true
+161,Glide,Mobile,true
+162,Go,Programming Language,true
+163,Google BigQuery,Database,true
+164,Google Gemini API,Data/AI,true
+165,Google OAuth2,Security,true
+166,GPO,Security,true
+167,Gradient Boost,Data/AI,true
+168,Gradle,DevOps/CI-CD,true
+169,Grafana,DevOps/CI-CD,true
+170,GraphQL,Methodology/Concept,true
+171,Groq API,Data/AI,true
+172,gRPC,Methodology/Concept,true
+173,H2 Database,Database,true
+174,Hadoop,Data/AI,true
+175,HangFire,Framework/Library,true
+176,Helm,DevOps/CI-CD,true
+177,heuristic/adversarial search,Data/AI,true
+178,Hibernate,Framework/Library,true
+179,HLS streaming,Methodology/Concept,true
+180,HTML,Frontend,true
+181,HTML5,Frontend,true
+182,HttpSession,Framework/Library,true
+183,Hybrid Search,Data/AI,true
+184,hyperparameter tuning,Data/AI,true
+185,hòa đồng,Soft Skill,true
+186,học hỏi trao đồi kinh nghiệm,Soft Skill,true
+187,Hỗ trợ phần mềm cơ bản,Tool/Platform,true
+188,i18n,Methodology/Concept,true
+189,IAM,Security,true
+190,Identity,Framework/Library,true
+191,IIS Express,Tool/Platform,true
+192,Illustrator,Design/UI-UX,true
+193,image/video processing,Data/AI,true
+194,Infrastructure-as-Code (IaC),DevOps/CI-CD,true
+195,inheritance,Methodology/Concept,true
+196,Inngest,Tool/Platform,true
+197,IntelliJ IDEA,Tool/Platform,true
+198,Interceptor,Methodology/Concept,true
+199,Intermediate level in English,Soft Skill,true
+200,IPv4,Methodology/Concept,true
+201,ISO 27001,Security,true
+202,iTextPDF,Framework/Library,true
+203,JasperReports & Fonts,Tool/Platform,true
+204,Java,Programming Language,true
+205,Java EE 7,Framework/Library,true
+206,Java Spring boot (primefaces),Framework/Library,true
+207,JavaFX,Framework/Library,true
+208,JavaScript,Programming Language,true
+209,JavaServlet,Framework/Library,true
+210,Jenkins,DevOps/CI-CD,true
+211,Jest,Testing/QA,true
+212,Jira,Tool/Platform,true
+213,JMeter,Testing/QA,true
+214,JPA,Framework/Library,true
+215,jQuery,Frontend,true
+216,JSON API (javax.json & GlassFish),Framework/Library,true
+217,JSP,Frontend,true
+218,JSP/JSTL,Frontend,true
+219,Junit,Testing/QA,true
+220,JWT,Security,true
+221,JwtBearer,Security,true
+222,Kafka,Tool/Platform,true
+223,Kali Linux,Security,true
+224,Kanban,Methodology/Concept,true
+225,khám phá những kiến thức mới,Soft Skill,true
+226,Khả năng làm việc nhóm và độc lập,Soft Skill,true
+227,Kiến thức cơ bản về Trí tuệ nhân tạo và Machine Learning,Data/AI,true
+228,KNN,Data/AI,true
+229,Kotlin,Programming Language,true
+230,Kubernetes,DevOps/CI-CD,true
+231,Kỹ năng quản lý dự án,Soft Skill,true
+232,Laravel,Framework/Library,true
+233,Lark,Tool/Platform,true
+234,Leadership,Soft Skill,true
+235,learn new knowledge technologies,Soft Skill,true
+236,LINQ,Framework/Library,true
+237,Linux,Tool/Platform,true
+238,Liquibase,Database,true
+239,Listening and Learning,Soft Skill,true
+240,ListView,Mobile,true
+241,Llama-3.1-8B,Data/AI,true
+242,LlamaIndex,Data/AI,true
+243,Logical Thinking,Soft Skill,true
+244,Lombok,Framework/Library,true
+245,Lumen,Framework/Library,true
+246,Làm việc độc lập,Soft Skill,true
+247,Machine Learning,Data/AI,true
+248,Manual Testing,Testing/QA,true
+249,MapStruct,Framework/Library,true
+250,Marten ORM,Framework/Library,true
+251,Material Design,Design/UI-UX,true
+252,Material UI,Frontend,true
+253,Maven,DevOps/CI-CD,true
+254,MDB React UI Kit,Frontend,true
+255,MDXContent,Frontend,true
+256,MediaPlayer API,Mobile,true
+257,MediatR,Framework/Library,true
+258,Memory Cache,Database,true
+259,Metasploit,Security,true
+260,Microservices,Methodology/Concept,true
+261,Microsoft SQL Server JDBC Driver,Database,true
+262,Minial API,Framework/Library,true
+263,MLflow,Data/AI,true
+264,MobileNetV2,Data/AI,true
+265,Mockito,Testing/QA,true
+266,model training,Data/AI,true
+267,MongoDB,Database,true
+268,MongoDB Atlas,Database,true
+269,Monolithic,Methodology/Concept,true
+270,Moodle,Tool/Platform,true
+271,Multer,Framework/Library,true
+272,MVC,Methodology/Concept,true
+273,MVVM (Model-View-ViewModel),Methodology/Concept,true
+274,MySQL,Database,true
+275,MySQL Workbench,Tool/Platform,true
+276,Mô hình hóa nghiệp vụ,Business Analysis,true
+277,N-Layer,Methodology/Concept,true
+278,NAT,Methodology/Concept,true
+279,NEO4J,Database,true
+280,Nessus,Security,true
+281,NestJS,Framework/Library,true
+282,Network Security,Security,true
+283,Networking,Methodology/Concept,true
+284,Next.js,Frontend,true
+285,Nginx,DevOps/CI-CD,true
+286,Nmap,Security,true
+287,Node.js,Framework/Library,true
+288,NodeJS (LoopBack 4),Framework/Library,true
+289,NodeJS REST API,Framework/Library,true
+290,Nodemailer,Framework/Library,true
+291,Nodemon,Tool/Platform,true
+292,NumPy,Data/AI,true
+293,NuxtJS,Frontend,true
+294,OAuth2,Security,true
+295,object detection,Data/AI,true
+296,Observer,Methodology/Concept,true
+297,Ocelot API Gateway,Framework/Library,true
+298,Office Software,Tool/Platform,true
+299,ONS,Methodology/Concept,true
+300,OOP,Methodology/Concept,true
+301,OpenCV,Data/AI,true
+302,OpenFeign,Framework/Library,true
+303,OpenStack,Cloud,true
+304,OpenWRT,Tool/Platform,true
+305,Oracle,Database,true
+306,ORM,Methodology/Concept,true
+307,OSPF,Methodology/Concept,true
+308,OWASP Top 10,Security,true
+309,Pandas,Data/AI,true
+310,particularly in logical reasoning and analytical thinking,Soft Skill,true
+311,"Passport (JWT, session-based)",Security,true
+312,pfSense,Security,true
+313,Photoshop,Design/UI-UX,true
+314,PHP,Programming Language,true
+315,Phân quyền trên Windows,Security,true
+316,Phân tích nghiệp vụ,Business Analysis,true
+317,Playwright,Testing/QA,true
+318,PostgreSQL,Database,true
+319,Postman,Tool/Platform,true
+320,Power BI,Data/AI,true
+321,"PowerDesigner (UML, ERD)",Business Analysis,true
+322,Powerpoint,Tool/Platform,true
+323,prediction-confidence estimation,Data/AI,true
+324,Presentation,Soft Skill,true
+325,Prisma,Framework/Library,true
+326,Prisma Studio,Tool/Platform,true
+327,Problem Solving,Soft Skill,true
+328,Process Modeling,Business Analysis,true
+329,Prometheus,DevOps/CI-CD,true
+330,Proxmox,Tool/Platform,true
+331,Pusher,Tool/Platform,true
+332,Pytest,Testing/QA,true
+333,Python,Programming Language,true
+334,PyTorch,Data/AI,true
+335,Qdrant,Database,true
+336,Quality of Service,Methodology/Concept,true
+337,quản lý nội dung Website,Other,true
+338,R2 Cloudflare,Cloud,true
+339,RabbitMQ,Tool/Platform,true
+340,Railway,Cloud,true
+341,Random Forest,Data/AI,true
+342,Rate limit API,Methodology/Concept,true
+343,React Query,Frontend,true
+344,React Router DOM,Frontend,true
+345,React Typescript,Frontend,true
+346,React-Bootstrap,Frontend,true
+347,React-Hook-Form,Frontend,true
+348,react-redux,Frontend,true
+349,react-slick,Frontend,true
+350,ReactJS,Frontend,true
+351,real-time inference,Data/AI,true
+352,Realtime,Methodology/Concept,true
+353,RecyclerView,Mobile,true
+354,Redis,Database,true
+355,Redux,Frontend,true
+356,Redux Toolkit,Frontend,true
+357,Regression,Data/AI,true
+358,Regularization,Data/AI,true
+359,Reinforcement Learning (GRPO),Data/AI,true
+360,Render,Cloud,true
+361,Reportviewer,Tool/Platform,true
+362,Repository Pattern,Methodology/Concept,true
+363,Requirements Elicitation,Business Analysis,true
+364,Resend,Tool/Platform,true
+365,Responsibility & accountability,Soft Skill,true
+366,Responsive Design,Frontend,true
+367,REST API,Methodology/Concept,true
+368,RIP,Methodology/Concept,true
+369,RNN,Data/AI,true
+370,ROUGE,Data/AI,true
+371,Routing,Methodology/Concept,true
+372,RustDesk,Tool/Platform,true
+373,Sao lưu và phục hồi dữ liệu,Database,true
+374,SASS/SCSS,Frontend,true
+375,scikit-learn,Data/AI,true
+376,SciPy,Data/AI,true
+377,SCRFD,Data/AI,true
+378,SCSS,Frontend,true
+379,Selenium,Testing/QA,true
+380,Self learning,Soft Skill,true
+381,SePay,Tool/Platform,true
+382,Sequelize,Framework/Library,true
+383,ShadcnUI,Frontend,true
+384,SIEM,Security,true
+385,SignalR,Framework/Library,true
+386,SMS,Tool/Platform,true
+387,SNMP,Methodology/Concept,true
+388,Snort (IDS/IPS),Security,true
+389,Snowflake,Database,true
+390,SOC 2,Security,true
+391,Socket.IO,Framework/Library,true
+392,SOLID,Methodology/Concept,true
+393,SonarQube,DevOps/CI-CD,true
+394,Spark,Data/AI,true
+395,Spectrogram,Data/AI,true
+396,Splunk,Security,true
+397,Spring Boot,Framework/Library,true
+398,Spring Boot Test,Testing/QA,true
+399,Spring Cloud,Framework/Library,true
+400,Spring Data JPA,Framework/Library,true
+401,Spring MVC,Framework/Library,true
+402,Spring Security,Security,true
+403,SPSA,Data/AI,true
+404,SQL,Database,true
+405,SQL Injection protection,Security,true
+406,SQL Server,Database,true
+407,SQLAlchemy,Framework/Library,true
+408,SQLite,Database,true
+409,SQLModel,Framework/Library,true
+410,SSE,Methodology/Concept,true
+411,SSH,Tool/Platform,true
+412,STFT,Data/AI,true
+413,store procedure,Database,true
+414,Stripe,Tool/Platform,true
+415,Stripe Checkout & Webhooks,Tool/Platform,true
+416,Stripe Payment API,Tool/Platform,true
+417,Strong analytical skills with a focus on debugging and system optimization,Soft Skill,true
+418,Strong self-learning ability and curiosity for new knowledge,Soft Skill,true
+419,Subnetting,Methodology/Concept,true
+420,Supabase,Cloud,true
+421,Swagger,Tool/Platform,true
+422,Sử dụng công cụ hỗ trợ từ xa,Tool/Platform,true
+423,Sử dụng công cụ Marketing Online,Tool/Platform,true
+424,Sử dụng thành thạo các công cụ Microsoft Office,Tool/Platform,true
+425,Tableau,Data/AI,true
+426,Tailwind CSS,Frontend,true
+427,TanStack,Frontend,true
+428,TCP/IP,Methodology/Concept,true
+429,Teamwork,Soft Skill,true
+430,TensorFlow,Data/AI,true
+431,Terraform,DevOps/CI-CD,true
+432,Test Automation,Testing/QA,true
+433,Test Case Design,Testing/QA,true
+434,Testing Library,Testing/QA,true
+435,TestRail,Testing/QA,true
+436,Thunder testers,Testing/QA,true
+437,Thymeleaf,Frontend,true
+438,Thành thạo kỹ năng HORENSO,Soft Skill,true
+439,Thái độ phục vụ và hỗ trợ thân thiện,Soft Skill,true
+440,Thích nghi công nghệ mới,Soft Skill,true
+441,Time Management,Soft Skill,true
+442,TinyMCE,Frontend,true
+443,Tkinter,Framework/Library,true
+444,Transformers Architecture,Data/AI,true
+445,Trello,Tool/Platform,true
+446,Trivy,Security,true
+447,TypeORM,Framework/Library,true
+448,TypeScript,Programming Language,true
+449,Tự học và tìm hiểu công nghệ mới,Soft Skill,true
+450,UAT,Business Analysis,true
+451,Ubuntu,Tool/Platform,true
+452,UCI Protocol,Methodology/Concept,true
+453,Understanding of data structures and programming principles object orientation,Methodology/Concept,true
+454,Understanding of Object-Oriented Programming and Data Structures,Methodology/Concept,true
+455,Unit Testing,Testing/QA,true
+456,UnitOfWork Pattern,Methodology/Concept,true
+457,Unity,Framework/Library,true
+458,Use Case Diagram Creation,Business Analysis,true
+459,Use Case Specs,Business Analysis,true
+460,User Story,Business Analysis,true
+461,Uvicorn,Framework/Library,true
+462,Validation API,Framework/Library,true
+463,Vault,Security,true
+464,Velite,Tool/Platform,true
+465,Vercel,Cloud,true
+466,Vertical Slice Architecture,Methodology/Concept,true
+467,VirtualBox,Tool/Platform,true
+468,Visual Studio,Tool/Platform,true
+469,Visual Studio Code,Tool/Platform,true
+470,Vite,Frontend,true
+471,Viết bài chuẩn SEO,Other,true
+472,VLANs,Methodology/Concept,true
+473,VNPAY,Tool/Platform,true
+474,VPN,Security,true
+475,VPS,Cloud,true
+476,Vue.js,Frontend,true
+477,Vui vẻ,Soft Skill,true
+478,Vulnerability Assessment,Security,true
+479,Wazuh,Security,true
+480,Webpack,Frontend,true
+481,WebRTC,Methodology/Concept,true
+482,Websocket,Methodology/Concept,true
+483,Windows,Tool/Platform,true
+484,WinForms,Framework/Library,true
+485,Wireshark,Security,true
+486,with a strong sense of responsibility in work,Soft Skill,true
+487,Word,Tool/Platform,true
+488,WordPress,Tool/Platform,true
+489,Work under pressure,Soft Skill,true
+490,WPF,Framework/Library,true
+491,XGBoost,Data/AI,true
+492,XML,Methodology/Concept,true
+493,YAML/CSV metadata,Other,true
+494,YOLO labels,Data/AI,true
+495,YOLO(Ultralytics),Data/AI,true
+496,Zobrist Hashing,Methodology/Concept,true
+497,Zod,Framework/Library,true
+498,Zustand,Frontend,true

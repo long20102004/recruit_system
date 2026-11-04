@@ -17,14 +17,18 @@
 | Table | Rows | Notes |
 |---|---:|---|
 | category | 16 | fixed set |
-| skill | 646 | 21 composites dropped (link via split), 4 kept as one concept (CI/CD, BRD/SRS, TCP/IP, EF Core) |
+| skill | 498 | after review (below); 21 composites dropped (link via split), 4 kept as one concept (CI/CD, BRD/SRS, TCP/IP, EF Core) |
 | skill_alias | 662 | incl. 16 rare typos/variants folded at fuzzy ≥ 90 (e.g. "PostgreQl" → PostgreSQL, "REST APIs" → REST API, "Bootstrap 5" → Bootstrap) |
-| skill_edge | 136 | 100 REQUIRES, 36 PART_OF (e.g. Spring Boot REQUIRES Java, Spring Data JPA PART_OF Spring Boot, Next.js REQUIRES ReactJS) |
+| skill_edge | 130 | after review; e.g. Spring Boot REQUIRES Java, Spring Data JPA REQUIRES Java, Spring Boot Test PART_OF Spring Boot, Next.js REQUIRES ReactJS |
 | university / alias | 298 / 746 | 282 from the public list (244 universities/academies + 38 member schools, Wikipedia rev. 75654510) + 16 train-only schools (open set); ambiguous aliases (shared abbreviations such as "DTU", bare member names) dropped |
 | job_title | 139 | |
 | section_heading | 84 | from backend `SectionDictionary` |
 
-Categories, relations and university groupings are **LLM proposals** (`reviewed=false` on all rows); Claude spot-checked frequent and random skills. Team review = edit `kb/seed/*_curated.csv`, set `reviewed=true`, rebuild, reload. Load from scratch: ~1 s, idempotent, integrity checks pass.
+Categories, relations and university groupings were proposed by an LLM, then **fully reviewed by Claude on the user's request (2026-11-04)**; all curated rows now have `reviewed=true` (reviewer: Claude, not a team member). Review outcome:
+- 23 junk skills excluded (`EXCLUDE`): SQL keyword fragments (select/insert/update/delete), generic words (Service, Model, Events, Interface, …), leftover labels, CV sentences.
+- 122 variants folded into canonical skills via `skill_aliases_curated.csv` (versions: Java 17/21, Next.js 14/15/16; suffixes: Hibernate ORM, Redis Cache; typos: TypeScriptript, NexJS, REPONSIVE; synonyms: MSSQL → SQL Server, EF Core ×4, VN/EN soft skills such as "Làm việc nhóm" → Teamwork). Skills 643 → 498.
+- Relations corrected: Spring MVC/Security/Data JPA/Cloud are not PART_OF Spring Boot (→ REQUIRES Java); removed Kubernetes REQUIRES Docker and Android SDK REQUIRES Java; Prisma/Sequelize REQUIRES Node.js.
+- Universities: "Bách Khoa TP.HCM" had been merged into HUTECH (fixed → Trường Đại học Bách khoa, ĐHQG-HCM); the ambiguous EN alias "Ho Chi Minh City University of Technology" is blocklisted; duplicate ĐHQG-HCM entries merged; "Không nêu trong CV" / self-taught excluded; 8 names truncated by the Wikipedia extraction fixed. Load from scratch: ~1 s, idempotent, integrity checks pass.
 
 ## Linking coverage on val (US4)
 

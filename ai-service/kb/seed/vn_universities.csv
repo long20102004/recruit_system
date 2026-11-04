@@ -11,7 +11,7 @@ name_vi,name_en,abbreviation,group
 "Trường Đại học Luật, ĐHQGHN",VNU-University of Laws,VNU - UL,ĐHQGHN
 Đại học Quốc gia Thành phố Hồ Chí Minh,,,
 "Trường Đại học An Giang, ĐHQG-HCM",VNUHCM-An Giang University,VNUHCM - AGU,ĐHQG-HCM
-"Trường Đại học Bách khoa, ĐHQG-HCM",VNUHCM-University of Technolog,VNUHCM - UT,ĐHQG-HCM
+"Trường Đại học Bách khoa, ĐHQG-HCM",VNUHCM-University of Technology,VNUHCM - UT,ĐHQG-HCM
 "Trường Đại học Công nghệ Thông tin, ĐHQG-HCM",VNUHCM-University of Information and Technology,VNUHCM - UIT,ĐHQG-HCM
 "Trường Đại học Khoa học Tự nhiên, ĐHQG-HCM",VNUHCM-University of Science,VNUHCM - US,ĐHQG-HCM
 "Trường Đại học Khoa học Xã hội và Nhân văn, ĐHQG-HCM",VNUHCM-University of Social Sciences and Humanities,VNUHCM - USSH,ĐHQG-HCM
@@ -41,7 +41,7 @@ name_vi,name_en,abbreviation,group
 "Trường Đại học Sư phạm, Đại học Đà Nẵng",Danang University of Education,UED,Đại học Đà Nẵng
 "Trường Đại học Ngoại ngữ, Đại học Đà Nẵng",Danang University of Foreign Language,DNUFL,Đại học Đà Nẵng
 "Trường Đại học Sư phạm Kỹ thuật, Đại học Đà Nẵng",Danang University of Technology and Education,DNUTE,Đại học Đà Nẵng
-"Trường Đại học Công nghệ thông tin và Truyền thông Việt – Hà, Đại học Đà Nẵng",Vietnam - Korea University of Information Technology and Communication,VKU,Đại học Đà Nẵng
+"Trường Đại học Công nghệ thông tin và Truyền thông Việt – Hàn, Đại học Đà Nẵng",Vietnam - Korea University of Information Technology and Communication,VKU,Đại học Đà Nẵng
 Đại học Cần Thơ,,,
 Đại học Bách khoa Hà Nội,,HUST,
 Đại học Kinh tế Quốc dân,,NEU,
@@ -60,16 +60,16 @@ Trường Đại học Ngoại thương,Foreign Trade University,FTU,
 Trường Đại học Sư phạm Hà Nội,Hanoi National University of Education,HNUE,
 Trường Đại học Sư phạm Nghệ thuật Trung ương,National University of Art Education,NUAE,
 Trường Đại học Sư phạm Thể dục Thể thao Hà Nội,Hanoi University of Physical Education and Sports,HUPES,
-Trường Đại học Thương mại,Thuongmai Universit,TMU,
+Trường Đại học Thương mại,Thuongmai University,TMU,
 Trường Đại học Xây dựng Hà Nội,Hanoi University of Civil Engineering,HUCE,
 Trường Đại học Sư phạm Hà Nội 2,Hanoi Pedagogical University 2,HPU2,
 Trường Đại học Luật Thành phố Hồ Chí Minh,Ho Chi Minh University of Law,ULaw,
 Trường Đại học Mở Thành phố Hồ Chí Minh,Ho Chi Minh City Open University,HCMOU,
-Trường Đại học Nông Lâm Thành phố Hồ Chí Minh,Nong Lam Universit,NLU,
-Trường Đại học Công nghệ Kỹ thuật Thành phố Hồ Chí Min,Ho Chi Minh University of Technology and Engineerin,HCMUTE,
+Trường Đại học Nông Lâm Thành phố Hồ Chí Minh,Nong Lam University,NLU,
+Trường Đại học Công nghệ Kỹ thuật Thành phố Hồ Chí Minh,Ho Chi Minh University of Technology and Engineering,HCMUTE,
 Trường Đại học Sư phạm Thành phố Hồ Chí Minh,Ho Chi Minh University of Education,HCMUE,
 Trường Đại học Sư phạm Thể dục Thể thao Thành phố Hồ Chí Minh,Ho Chi Minh University of Physical Education and Sports,HCMUPES,
-Trường Đại học Việt Đứ,Vietnamese - German University,VGU,
+Trường Đại học Việt Đức,Vietnamese - German University,VGU,
 Trường Đại học Đà Lạt,Da Lat University,DLU,
 Trường Đại học Đồng Tháp,Dong Thap University,DTU,
 Trường Đại học Kiên Giang,Kien Giang University,KGU,
@@ -86,7 +86,7 @@ Trường Đại học Y Hà Nội,Hanoi Medical University,HMU,
 Trường Đại học Dược Hà Nội,Hanoi University of Pharmacy,HUP,
 Trường Đại học Y tế Công cộng,Hanoi University of Public Health,HUPH,
 Học viện Y – Dược học cổ truyền Việt Nam,Vietnam University of Traditional Medicine,VUTM,
-Đại học Y Dược Thành phố Hồ Chí Mi,Ho Chi Minh City University of Medicine and Pharmacy,YDS,
+Đại học Y Dược Thành phố Hồ Chí Minh,Ho Chi Minh City University of Medicine and Pharmacy,YDS,
 Trường Đại học Y Dược Hải Phòng,Hai Phong Pharmacy and Medicine University,HPMU,
 Trường Đại học Kỹ thuật Y tế Hải Dương,Hai Duong Medical Technology University,HMTU,
 Trường Đại học Y Dược Thái Bình,Thai Binh University of Medicine and Pharmacy,TBUMP,
@@ -137,8 +137,8 @@ Trường Đại học Ngân hàng Thành phố Hồ Chí Minh,Ho Chi Minh City 
 Trường Đại học Công đoàn,Trade Union University,TUU,
 Trường Đại học Tôn Đức Thắng,Ton Duc Thang University,TDTU,
 Học viện Khoa học và Công nghệ,Graduate University of Science and Technology,GUST,
-Trường Đại học Khoa học và Công nghệ Hà Nộ,University of Science and Technology Hanoi,USTH,
-Học viện Chính trị Quốc gia Hồ Chí Mi,Ho Chi Minh National Academy of Politics,HCMA,
+Trường Đại học Khoa học và Công nghệ Hà Nội,University of Science and Technology Hanoi,USTH,
+Học viện Chính trị Quốc gia Hồ Chí Minh,Ho Chi Minh National Academy of Politics,HCMA,
 Học viện Báo chí và Tuyên truyền,Academy of Journalism and Communication,AJC,
 Học viện Hành chính và Quản trị công,Academy of Public Administration and Governance,APAG,
 Học viện Dân tộc,Vietnam Academy for Ethnic Minorities,VAEM,
@@ -161,7 +161,7 @@ Học viện Phật giáo Nam tông Khmer,Vietnam Theravada Buddism University,�
 Học viện Công giáo Việt Nam,,CIV,
 Học viện cao đài Tiên Thiên,,,
 Trường Đại học Thủ đô Hà Nội,Hanoi Metropolitan University,HNMU,
-Học viện Cán bộ Thành phố Hồ Chí Min,Ho Chi Minh Cadre Academy,HCA,
+Học viện Cán bộ Thành phố Hồ Chí Minh,Ho Chi Minh Cadre Academy,HCA,
 Trường Đại học Sài Gòn,Sai Gon University,SGU,
 Trường Đại học Y khoa Phạm Ngọc Thạch,Pham Ngoc Thach Medical University,PNTU,
 Trường Đại học Thủ Dầu Một,Thu Dau Mot University,TDMU,
@@ -229,7 +229,7 @@ Trường Đại học Y Dược Buôn Ma Thuột,,,
 Trường Đại học Công nghệ Đồng Nai,,,
 Trường Đại học Công nghệ Miền Đông,,,
 Trường Đại học Lạc Hồng,,,
-Trường Đại học Hà Hoa Tiê,,,
+Trường Đại học Hà Hoa Tiên,,,
 Trường Đại học Lương Thế Vinh,,,
 Trường Đại học Thành Đông,,,
 Trường Đại học Intracom,,,
