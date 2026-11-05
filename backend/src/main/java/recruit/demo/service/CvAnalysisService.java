@@ -23,7 +23,7 @@ public class CvAnalysisService {
 
     private final AiServiceClient aiServiceClient;
 
-    @Value("${cv.pdf.text-mode:legacy}")
+    @Value("${cv.pdf.text-mode:layout}")
     private String pdfTextMode = "legacy";
 
     public CandidateProfile analyzeCv(String rawCvText) {
