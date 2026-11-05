@@ -7,8 +7,8 @@ BASE_MODEL_NAME = os.getenv("BASE_MODEL_NAME", "unsloth/Qwen3-1.7B")
 
 LORA_PATH = os.getenv("LORA_PATH", "./checkpoint-250")
 
-# v2 (feature 006) is the default model; v1 stays available with PROMPT_VERSION=v1.
-PROMPT_VERSION = os.getenv("PROMPT_VERSION", "v2").strip().lower()
+# v3 (feature 007/008) is the default model; v1 / v2 stay available with PROMPT_VERSION=v1 / v2.
+PROMPT_VERSION = os.getenv("PROMPT_VERSION", "v3").strip().lower()
 if PROMPT_VERSION not in {"v1", "v2", "v3"}:
     raise ValueError("PROMPT_VERSION must be 'v1', 'v2' or 'v3'")
 

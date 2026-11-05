@@ -102,7 +102,10 @@ def salvage(text: str) -> dict | None:
         result = loads(text)
     except (ValueError, TypeError, RecursionError):
         return None
-    if not isinstance(result, dict):
+    from app.utils.json_parse import merge_fragments
+
+    result = merge_fragments(result)
+    if result is None:
         return None
 
     def deduplicate(value):

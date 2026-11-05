@@ -7,5 +7,5 @@
 - [x] T005 `training/synth/render.py`: 10 layouts → LibreOffice PDF → backend PDFBox text; `--layout-offset` for a second pass — *ChatGPT gpt-6.1-sol*; offset option by Claude
 - [x] T006 `app/services/prompt_v3.py`, `PROMPT_VERSION=v3`, `training/build_dataset_v3.py` (train 711, dev 45, val/val_swap, test_real 20; max 3,869 tokens) — *Claude*
 - [x] T007 Train notebook: `RUN_NAME="v3"`, scores `test_real` and prints the v2 comparison — *Claude*
-- [ ] T008 User trains v3 on Colab
-- [ ] T009 Compare v1 / v2 / v3 on the real test set; serve v3 if SC-001/SC-002 hold — *Claude*
+- [x] T008 User trains v3 on Colab (2026-11-05)
+- [x] T009 Compare v1 / v2 / v3 on the real test set — *Claude*: SC-001 not met (only school ≥ 0.85); v3 served by default with feature 008, see ../008-serving-robustness-v3/results.md

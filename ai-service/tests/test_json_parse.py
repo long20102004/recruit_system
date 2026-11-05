@@ -96,3 +96,21 @@ def test_trailing_commas_repaired_by_json_repair():
     assert result["personal_info"]["full_name"] == "Nguyen Van Synthetic"
     assert result["personal_info"]["email"] == "synthetic.candidate@example.test"
     assert result["skills"] == ["Python", "SQL"]
+
+
+def test_premature_close_fragments_are_merged():
+    """Model closed the top-level object early: '{"personal_info":{...}}},{"education":[...]}'."""
+    text = ('{"personal_info":{"full_name":"Nguyen Van Synthetic"},"objective":null}},'
+            '{"education":[{"school":"Học viện Synthetic"}],"skills":["Python"]}')
+    data = extract_json(text)
+    assert data["personal_info"]["full_name"] == "Nguyen Van Synthetic"
+    assert data["education"][0]["school"] == "Học viện Synthetic"
+    assert data["skills"] == ["Python"]
+
+
+def test_orphan_projects_go_back_to_their_list():
+    text = ('{"personal_info":{"full_name":"Nguyen Van Synthetic"},"personal_projects":[{"name":"P1","tech_stack":["Java"]}]}]},'
+            '{"name":"P2","tech_stack":["Go"]},{"name":"P3","description":["Synthetic bullet"]},["stray", "list"]')
+    data = extract_json(text)
+    assert [p["name"] for p in data["personal_projects"]] == ["P1", "P2", "P3"]
+
