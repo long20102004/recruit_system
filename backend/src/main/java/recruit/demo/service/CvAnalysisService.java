@@ -9,8 +9,10 @@ import lombok.extern.slf4j.Slf4j;
 import org.apache.pdfbox.Loader;
 import org.apache.pdfbox.pdmodel.PDDocument;
 import org.apache.pdfbox.text.PDFTextStripper;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
+import recruit.demo.extraction.pdf.PdfTextExtractor;
 
 import java.io.IOException;
 
@@ -20,6 +22,9 @@ import java.io.IOException;
 public class CvAnalysisService {
 
     private final AiServiceClient aiServiceClient;
+
+    @Value("${cv.pdf.text-mode:legacy}")
+    private String pdfTextMode = "legacy";
 
     public CandidateProfile analyzeCv(String rawCvText) {
         if (rawCvText == null || rawCvText.trim().isEmpty()) {
@@ -46,7 +51,7 @@ public class CvAnalysisService {
             throw new RuntimeException("Không thể trích xuất nội dung văn bản từ file PDF (có thể là file ảnh scan hoặc file rỗng)");
         }
 
-        log.info("Trích xuất thành công {} ký tự từ file PDF", extractedText.length());
+        log.info("Trích xuất thành công {} ký tự từ file PDF, mode={}", extractedText.length(), pdfTextMode);
         return analyzeCv(extractedText);
     }
 
@@ -62,7 +67,7 @@ public class CvAnalysisService {
             throw new RuntimeException("Không thể trích xuất nội dung văn bản từ file PDF (có thể là file ảnh scan hoặc file rỗng)");
         }
 
-        log.info("Trích xuất thành công {} ký tự từ file PDF", extractedText.length());
+        log.info("Trích xuất thành công {} ký tự từ file PDF, mode={}", extractedText.length(), pdfTextMode);
         return extractedText;
     }
 
@@ -78,13 +83,21 @@ public class CvAnalysisService {
     }
 
     public String extractTextFromPdf(MultipartFile file) {
-        try (PDDocument document = Loader.loadPDF(file.getBytes())) {
-            PDFTextStripper stripper = new PDFTextStripper();
-            stripper.setSortByPosition(true);
-            return stripper.getText(document);
+        if (!"legacy".equals(pdfTextMode) && !"layout".equals(pdfTextMode)) {
+            throw new IllegalArgumentException("cv.pdf.text-mode phải là legacy hoặc layout");
+        }
+        try {
+            if ("layout".equals(pdfTextMode)) {
+                return new PdfTextExtractor().extract(file.getBytes()).fullText();
+            }
+            try (PDDocument document = Loader.loadPDF(file.getBytes())) {
+                PDFTextStripper stripper = new PDFTextStripper();
+                stripper.setSortByPosition(true);
+                return stripper.getText(document);
+            }
         } catch (IOException e) {
-            log.error("Lỗi khi đọc file PDF: {}", e.getMessage(), e);
-            throw new IllegalArgumentException("File không phải PDF hợp lệ: " + e.getMessage(), e);
+            log.error("Lỗi khi đọc file PDF, mode={}", pdfTextMode);
+            throw new IllegalArgumentException("File không phải PDF hợp lệ", e);
         }
     }
 }

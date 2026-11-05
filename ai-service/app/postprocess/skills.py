@@ -75,6 +75,19 @@ def _clean_one(value: str) -> str:
     return cleaned.strip(" \t;,")
 
 
+def _repair_brackets(value: str) -> list[str]:
+    """Undo a group the model cut at its commas: "AWS (IAM" -> ["AWS", "IAM"], "EC2)" -> ["EC2"].
+
+    Balanced groups ("Spring Boot (Web, Data JPA)") are left untouched.
+    """
+    opened, closed = value.count("(") + value.count("["), value.count(")") + value.count("]")
+    if opened > closed:
+        return [p.strip(" \t;,") for p in re.split(r"\s*[(\[]\s*", value) if p.strip(" \t;,")]
+    if closed > opened:
+        return [re.sub(r"\s*[)\]]\s*", " ", value).strip(" \t;,")]
+    return [value]
+
+
 def _bump(stats: Any, attr: str, amount: int) -> None:
     if stats is None or amount == 0:
         return
@@ -109,20 +122,20 @@ def clean_skill_list(items: Any, stats: Any = None) -> list[str]:
             continue
 
         for part in split_top_level(cleaned):
-            candidate = part.strip(" \t;,")
-            if not candidate:
-                changed += 1
-                continue
+            for candidate in _repair_brackets(part.strip(" \t;,")):
+                if not candidate:
+                    changed += 1
+                    continue
 
-            key = _norm(candidate)
-            if key in seen:
-                changed += 1
-                continue
+                key = _norm(candidate)
+                if key in seen:
+                    changed += 1
+                    continue
 
-            seen.add(key)
-            result.append(candidate)
-            if candidate != original:
-                changed += 1
+                seen.add(key)
+                result.append(candidate)
+                if candidate != original:
+                    changed += 1
 
     _bump(stats, "skills_cleaned", changed)
     return result

@@ -251,3 +251,12 @@ def test_team_size_extracts_first_integer():
     assert result["personal_projects"][0]["team_size"] == 4
     assert result["personal_projects"][1]["team_size"] == 12
     assert result["personal_projects"][2]["team_size"] is None
+
+
+
+def test_unbalanced_brackets_from_a_cut_group_are_repaired():
+    """Model cut "AWS (IAM, S3, EC2, CloudWatch)" at its commas (feature 011)."""
+    from app.postprocess.skills import clean_skill_list
+
+    out = clean_skill_list(["AWS (IAM", "S3", "EC2", "CloudWatch)", "Kubernetes Provider)", "Spring Boot (Web, Data JPA)"])
+    assert out == ["AWS", "IAM", "S3", "EC2", "CloudWatch", "Kubernetes Provider", "Spring Boot (Web, Data JPA)"]

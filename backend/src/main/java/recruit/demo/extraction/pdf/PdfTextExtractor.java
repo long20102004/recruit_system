@@ -13,13 +13,13 @@ import java.util.List;
 /**
  * Trích xuất text kèm tọa độ từ PDF (Giai đoạn 1).
  *
- * <p>Không dùng {@code setSortByPosition(true)} một cách mù quáng: tự gom ký tự
- * thành dòng theo tọa độ Y, gom dòng thành block theo khoảng cách dọc, phát hiện
- * cột dựa trên khoảng trắng dọc, rồi mới sắp thứ tự đọc. Mỗi block giữ số trang
+ * <p>Dùng PDFBox ghép từ với {@code setSortByPosition(true)}, gom các run
+ * thành dòng theo tọa độ Y, phát hiện cột dựa trên khoảng trắng dọc,
+ * rồi mới sắp thứ tự đọc. Mỗi block giữ số trang
  * và bbox để truy vết giá trị trích xuất về nguồn.
  *
- * <p>Thứ tự đọc: các dòng header (15% trên cùng của trang) trước, sau đó từng cột
- * từ trái sang phải, trong mỗi cột sắp theo Y tăng dần (trên xuống dưới).
+ * <p>Recursive XY-cut khôi phục thứ tự trên → dưới, trái → phải, không giả định
+ * vị trí header hay số cột. Các mảnh ngày tháng hẹp vẫn được đọc cùng dòng.
  */
 public class PdfTextExtractor {
 
@@ -29,17 +29,21 @@ public class PdfTextExtractor {
     /** Ngưỡng text tối thiểu để coi là "có text layer đọc được". */
     public static final int MIN_TEXT_CHARS = 50;
 
-    private static final class Glyph {
+    private static final class Run {
         final float x;
         final float y;
         final float h;
-        final String ch;
+        final float w;
+        final float spaceWidth;
+        final String text;
 
-        Glyph(float x, float y, float h, String ch) {
+        Run(float x, float y, float h, float w, float spaceWidth, String text) {
             this.x = x;
             this.y = y;
             this.h = h;
-            this.ch = ch;
+            this.w = w;
+            this.spaceWidth = spaceWidth;
+            this.text = text;
         }
     }
 
@@ -48,60 +52,89 @@ public class PdfTextExtractor {
         float h;
         float x0 = Float.MAX_VALUE;
         float x1 = Float.MIN_VALUE;
-        final List<Glyph> glyphs = new ArrayList<>();
+        final List<Run> runs = new ArrayList<>();
 
         String text() {
-            glyphs.sort(Comparator.comparingDouble(g -> g.x));
-            // Ngưỡng ngắt từ theo median advance của CHÍNH dòng này:
-            // font giãn chữ (letter-spacing lớn) không bị vỡ từ, PDF không có
-            // space tường minh vẫn tách được từ (gap từ lớn hơn hẳn advance).
-            List<Float> advances = new ArrayList<>();
-            for (int i = 1; i < glyphs.size(); i++) {
-                advances.add(glyphs.get(i).x - glyphs.get(i - 1).x);
-            }
-            advances.sort(Float::compare);
-            float medianAdv = advances.isEmpty() ? 5f
-                    : advances.get(advances.size() / 2);
-            float threshold = Math.max(2f, medianAdv * 1.5f);
+            runs.sort(Comparator.comparingDouble(r -> r.x));
             StringBuilder sb = new StringBuilder();
-            boolean pendingSpace = false;
-            float lastEnd = -1;
-            for (Glyph g : glyphs) {
-                if (g.ch.isBlank()) {
-                    pendingSpace = true;
-                    continue;
-                }
-                if (pendingSpace) {
-                    if (!sb.isEmpty()) {
-                        sb.append(' ');
-                    }
-                    pendingSpace = false;
-                } else if (lastEnd >= 0 && g.x - lastEnd > threshold) {
-                    sb.append(' ');
-                }
-                sb.append(g.ch);
-                lastEnd = g.x + Math.max(1f, g.h * 0.5f);
+            for (Run run : runs) {
+                if (!sb.isEmpty()) sb.append(' ');
+                sb.append(run.text);
             }
-            return sb.toString().replaceAll("\\s+", " ").strip();
+            return sb.toString();
         }
     }
 
-    /** Stripper gom glyph theo tọa độ, không phụ thuộc thứ tự content stream. */
+    /** PDFBox owns word boundaries; geometry is used only for layout. */
     private static final class PositionStripper extends PDFTextStripper {
-        final List<Glyph> glyphs = new ArrayList<>();
+        final List<Run> runs = new ArrayList<>();
 
         PositionStripper() throws IOException {
             super();
+            setSortByPosition(true);
         }
 
         @Override
-        protected void processTextPosition(TextPosition text) {
-            String u = text.getUnicode();
-            if (u == null || u.isEmpty()) {
-                return;
+        protected void writeString(String text, List<TextPosition> positions) {
+            if (text.isBlank() || positions.isEmpty()) return;
+            // PDFBox (sortByPosition) can hand one "word" made of glyphs from two columns
+            // that share a baseline ("GPA: 7.8 ... 03/2025 IT Engineer"). Split such a run
+            // wherever two consecutive glyphs are far apart, so XY-cut can see the gutter.
+            boolean aligned = text.length() == positions.size();
+            int start = 0;
+            for (int i = 1; i <= positions.size(); i++) {
+                boolean cut = i == positions.size();
+                if (!cut) {
+                    TextPosition a = positions.get(i - 1);
+                    TextPosition b = positions.get(i);
+                    float gap = b.getXDirAdj() - (a.getXDirAdj() + a.getWidthDirAdj());
+                    float h = Math.max(1f, Math.max(a.getHeightDir(), b.getHeightDir()));
+                    float sp = Float.isFinite(a.getWidthOfSpace()) && a.getWidthOfSpace() > 0 ? a.getWidthOfSpace() : h * 0.5f;
+                    cut = gap > Math.max(1.2f * h, 3f * sp) || Math.abs(b.getYDirAdj() - a.getYDirAdj()) > h;
+                }
+                if (cut) {
+                    List<TextPosition> part = positions.subList(start, i);
+                    String partText = aligned ? text.substring(start, i) : unicode(part);
+                    if (!partText.isBlank()) addRun(partText.strip(), part);
+                    start = i;
+                }
             }
-            glyphs.add(new Glyph(text.getX(), text.getY(),
-                    Math.max(1f, text.getHeight()), u));
+        }
+
+        private static String unicode(List<TextPosition> part) {
+            StringBuilder sb = new StringBuilder();
+            TextPosition prev = null;
+            for (TextPosition p : part) {
+                if (prev != null) {
+                    float gap = p.getXDirAdj() - (prev.getXDirAdj() + prev.getWidthDirAdj());
+                    float sp = Float.isFinite(prev.getWidthOfSpace()) && prev.getWidthOfSpace() > 0
+                            ? prev.getWidthOfSpace() : prev.getHeightDir() * 0.5f;
+                    if (gap > 0.5f * sp && !sb.isEmpty() && sb.charAt(sb.length() - 1) != ' ') sb.append(' ');
+                }
+                if (p.getUnicode() != null) sb.append(p.getUnicode());
+                prev = p;
+            }
+            return sb.toString();
+        }
+
+        private void addRun(String text, List<TextPosition> positions) {
+            TextPosition first = positions.getFirst();
+            TextPosition last = positions.getLast();
+            float height = 1f;
+            List<Float> spaces = new ArrayList<>();
+            List<Float> widths = new ArrayList<>();
+            for (TextPosition position : positions) {
+                height = Math.max(height, position.getHeightDir());
+                float space = position.getWidthOfSpace();
+                if (Float.isFinite(space) && space > 0) spaces.add(space);
+                float width = position.getWidthDirAdj();
+                if (Float.isFinite(width) && width > 0) widths.add(width);
+            }
+            float spaceWidth = !spaces.isEmpty() ? median(spaces)
+                    : widths.isEmpty() ? height * 0.5f : median(widths);
+            runs.add(new Run(first.getXDirAdj(), first.getYDirAdj(), height,
+                    Math.max(0f, last.getXDirAdj() + last.getWidthDirAdj() - first.getXDirAdj()),
+                    spaceWidth, text));
         }
     }
 
@@ -118,14 +151,11 @@ public class PdfTextExtractor {
             List<TextBlock> all = new ArrayList<>();
             StringBuilder full = new StringBuilder();
             for (int p = 1; p <= pages; p++) {
-                float pageWidth = document.getPage(p - 1).getMediaBox().getWidth();
-                float pageHeight = document.getPage(p - 1).getMediaBox().getHeight();
                 PositionStripper stripper = new PositionStripper();
                 stripper.setStartPage(p);
                 stripper.setEndPage(p);
                 stripper.getText(document);
-                List<TextBlock> pageBlocks = layoutPage(p, stripper.glyphs, pageWidth, pageHeight,
-                        all.size());
+                List<TextBlock> pageBlocks = layoutPage(p, stripper.runs, all.size());
                 for (TextBlock b : pageBlocks) {
                     all.add(b);
                     full.append(b.text()).append("\n\n");
@@ -135,47 +165,23 @@ public class PdfTextExtractor {
         }
     }
 
-    private List<TextBlock> layoutPage(int page, List<Glyph> glyphs,
-                                       float pageWidth, float pageHeight, int orderBase) {
-        List<RawLine> lines = groupLines(glyphs);
+    private List<TextBlock> layoutPage(int page, List<Run> runs, int orderBase) {
+        List<RawLine> lines = groupLines(runs);
         if (lines.isEmpty()) {
             return List.of();
         }
-        // Header zone: 15% trên cùng, giữ thứ tự Y.
-        float headerLimit = pageHeight * 0.15f;
-        List<RawLine> header = new ArrayList<>();
-        List<RawLine> body = new ArrayList<>();
-        for (RawLine l : lines) {
-            (l.y < headerLimit ? header : body).add(l);
-        }
-        List<RawLine> ordered = new ArrayList<>(header);
-        ordered.addAll(splitColumns(body, pageWidth));
-
-        // Gom dòng thành block theo khoảng cách dọc.
         List<TextBlock> blocks = new ArrayList<>();
-        List<RawLine> cur = new ArrayList<>();
-        RawLine prev = null;
-        int order = orderBase;
-        for (RawLine l : ordered) {
-            if (prev != null && !cur.isEmpty()
-                    && (l.y - prev.y) > prev.h * 1.6f + 2f) {
-                blocks.add(toBlock(page, order++, cur));
-                cur = new ArrayList<>();
-            }
-            cur.add(l);
-            prev = l;
-        }
-        if (!cur.isEmpty()) {
-            blocks.add(toBlock(page, order, cur));
-        }
+        xyCut(page, lines, blocks, orderBase);
         return blocks;
     }
 
-    private List<RawLine> groupLines(List<Glyph> glyphs) {
+    private List<RawLine> groupLines(List<Run> runs) {
         // Gom theo Y trước (bất kể X), rồi tách mỗi nhóm tại khe X lớn
         // (khe cột, không phải khoảng trắng giữa từ).
         List<RawLine> yGroups = new ArrayList<>();
-        for (Glyph g : glyphs) {
+        List<Run> sorted = new ArrayList<>(runs);
+        sorted.sort(Comparator.comparingDouble((Run g) -> g.y).thenComparingDouble(g -> g.x));
+        for (Run g : sorted) {
             RawLine best = null;
             float bestDy = Float.MAX_VALUE;
             for (RawLine l : yGroups) {
@@ -192,7 +198,7 @@ public class PdfTextExtractor {
                 best.h = g.h;
                 yGroups.add(best);
             }
-            best.glyphs.add(g);
+            best.runs.add(g);
             best.h = Math.max(best.h, g.h);
         }
         List<RawLine> lines = new ArrayList<>();
@@ -202,9 +208,9 @@ public class PdfTextExtractor {
         for (RawLine l : lines) {
             l.x0 = Float.MAX_VALUE;
             l.x1 = Float.MIN_VALUE;
-            for (Glyph g : l.glyphs) {
+            for (Run g : l.runs) {
                 l.x0 = Math.min(l.x0, g.x);
-                l.x1 = Math.max(l.x1, g.x + g.h * 0.5f);
+                l.x1 = Math.max(l.x1, g.x + g.w);
             }
         }
         lines.removeIf(l -> l.text().isEmpty());
@@ -214,132 +220,124 @@ public class PdfTextExtractor {
 
     /** Tách một nhóm Y thành nhiều dòng tại khe X vượt trội (khe cột). */
     private List<RawLine> splitByXGap(RawLine grp) {
-        List<Glyph> sorted = new ArrayList<>(grp.glyphs);
+        List<Run> sorted = new ArrayList<>(grp.runs);
         sorted.sort(Comparator.comparingDouble(g -> g.x));
-        List<Float> gaps = new ArrayList<>();
-        for (int i = 1; i < sorted.size(); i++) {
-            if (!sorted.get(i).ch.isBlank() && !sorted.get(i - 1).ch.isBlank()) {
-                gaps.add(sorted.get(i).x - sorted.get(i - 1).x);
-            }
-        }
-        gaps.sort(Float::compare);
-        float median = gaps.isEmpty() ? 5f : gaps.get(gaps.size() / 2);
-        float cutAt = Math.max(30f, median * 3f);
         List<RawLine> out = new ArrayList<>();
         RawLine cur = new RawLine();
         cur.y = grp.y;
         cur.h = grp.h;
-        Glyph prev = null;
-        for (Glyph g : sorted) {
-            if (prev != null && !g.ch.isBlank() && !prev.ch.isBlank()
-                    && (g.x - prev.x) > cutAt && !cur.glyphs.isEmpty()) {
+        Run prev = null;
+        for (Run g : sorted) {
+            float cutAt = Math.max(grp.h * 1.2f,
+                    3f * Math.max(g.spaceWidth, prev == null ? g.spaceWidth : prev.spaceWidth));
+            if (prev != null && (g.x - prev.x - prev.w) > cutAt && !cur.runs.isEmpty()) {
                 out.add(cur);
                 cur = new RawLine();
                 cur.y = grp.y;
                 cur.h = grp.h;
             }
-            cur.glyphs.add(g);
-            if (!g.ch.isBlank()) {
-                prev = g;
-            }
+            cur.runs.add(g);
+            prev = g;
         }
-        if (!cur.glyphs.isEmpty()) {
+        if (!cur.runs.isEmpty()) {
             out.add(cur);
         }
         return out;
     }
 
+    private static float median(List<Float> values) {
+        List<Float> sorted = new ArrayList<>(values);
+        sorted.sort(Float::compare);
+        int middle = sorted.size() / 2;
+        return sorted.size() % 2 == 0
+                ? (sorted.get(middle - 1) + sorted.get(middle)) / 2f : sorted.get(middle);
+    }
+
+    /** Cuts are projection gaps: no segment may cross the chosen whitespace. */
+    private void xyCut(int page, List<RawLine> region, List<TextBlock> blocks, int orderBase) {
+        float glyphHeight = median(region.stream().flatMap(l -> l.runs.stream())
+                .map(g -> g.h).toList());
+        List<RawLine> byX = new ArrayList<>(region);
+        byX.sort(Comparator.comparingDouble(l -> l.x0));
+        float regionWidth = (float) region.stream().mapToDouble(l -> l.x1).max().orElseThrow()
+                - byX.getFirst().x0;
+        float end = byX.getFirst().x1;
+        float widest = 0;
+        int split = -1;
+        for (int i = 1; i < byX.size(); i++) {
+            float gap = byX.get(i).x0 - end;
+            if (gap >= Math.max(6f, 0.8f * glyphHeight) && gap > widest
+                    && realColumn(byX.subList(0, i), regionWidth)
+                    && realColumn(byX.subList(i, byX.size()), regionWidth)) {
+                widest = gap;
+                split = i;
+            }
+            end = Math.max(end, byX.get(i).x1);
+        }
+        if (split >= 0) {
+            xyCut(page, byX.subList(0, split), blocks, orderBase);
+            xyCut(page, byX.subList(split, byX.size()), blocks, orderBase);
+            return;
+        }
+
+        List<RawLine> byTop = new ArrayList<>(region);
+        byTop.sort(Comparator.comparingDouble(l -> l.y - l.h));
+        float lineHeight = median(region.stream().map(l -> l.h).toList());
+        end = byTop.getFirst().y;
+        widest = 0;
+        split = -1;
+        for (int i = 1; i < byTop.size(); i++) {
+            RawLine line = byTop.get(i);
+            float gap = line.y - line.h - end;
+            if (gap >= 1.5f * lineHeight && gap > widest) {
+                widest = gap;
+                split = i;
+            }
+            end = Math.max(end, line.y);
+        }
+        if (split >= 0) {
+            xyCut(page, byTop.subList(0, split), blocks, orderBase);
+            xyCut(page, byTop.subList(split, byTop.size()), blocks, orderBase);
+            return;
+        }
+
+        // A leaf is a block; join narrow date/label segments back into their rows.
+        List<RawLine> rows = new ArrayList<>();
+        List<RawLine> byY = new ArrayList<>(region);
+        byY.sort(Comparator.comparingDouble((RawLine l) -> l.y).thenComparingDouble(l -> l.x0));
+        for (RawLine segment : byY) {
+            RawLine row = rows.isEmpty() ? null : rows.getLast();
+            if (row == null || Math.abs(segment.y - row.y) > Math.max(segment.h, row.h) * 0.6f) {
+                row = new RawLine();
+                row.y = segment.y;
+                row.h = segment.h;
+                rows.add(row);
+            }
+            row.runs.addAll(segment.runs);
+            row.h = Math.max(row.h, segment.h);
+            row.x0 = Math.min(row.x0, segment.x0);
+            row.x1 = Math.max(row.x1, segment.x1);
+        }
+        blocks.add(toBlock(page, orderBase + blocks.size(), rows));
+    }
+
     /**
-     * Phân cột chịu được dòng full-width: tách riêng dòng rộng hơn 60% trang,
-     * các dòng còn lại gom 2 cụm theo tâm X tại khe lớn nhất. Dòng full-width
-     * giữ nguyên vị trí Y tương đối; hai cột phát theo thứ tự trái → phải.
+     * A side of a vertical gutter is a real text column when it holds >= 3 segments and its
+     * horizontal extent covers >= 25 % of the region. The extent (not the median line width)
+     * keeps sidebars made of short lines (dates, "GPA: 7.8", certificate names) as columns,
+     * while a narrow strip of dates or labels (timeline, right-aligned dates) is not a column.
      */
-    private List<RawLine> splitColumns(List<RawLine> body, float pageWidth) {
-        if (body.size() < 4) {
-            return body;
+    private boolean realColumn(List<RawLine> segments, float regionWidth) {
+        if (segments.size() < 3) {
+            return false;
         }
-        List<RawLine> full = new ArrayList<>();
-        List<RawLine> narrow = new ArrayList<>();
-        for (RawLine l : body) {
-            ((l.x1 - l.x0) > pageWidth * 0.60f ? full : narrow).add(l);
+        float x0 = Float.MAX_VALUE;
+        float x1 = -Float.MAX_VALUE;
+        for (RawLine l : segments) {
+            x0 = Math.min(x0, l.x0);
+            x1 = Math.max(x1, l.x1);
         }
-        if (narrow.size() < 4) {
-            return body;
-        }
-        List<RawLine> byCenter = new ArrayList<>(narrow);
-        byCenter.sort(Comparator.comparingDouble(l -> (l.x0 + l.x1) / 2f));
-        float bestGap = 0;
-        int bestIdx = -1;
-        for (int i = 1; i < byCenter.size(); i++) {
-            float gap = center(byCenter.get(i)) - center(byCenter.get(i - 1));
-            if (gap > bestGap) {
-                bestGap = gap;
-                bestIdx = i;
-            }
-        }
-        // Khe phải đủ lớn và hai bên đều có tối thiểu 2 dòng chồng lấn dọc.
-        if (bestIdx < 0 || bestGap < pageWidth * 0.08f) {
-            return body;
-        }
-        List<RawLine> left = new ArrayList<>(byCenter.subList(0, bestIdx));
-        List<RawLine> right = new ArrayList<>(byCenter.subList(bestIdx, byCenter.size()));
-        if (left.size() < 2 || right.size() < 2 || !overlapVertically(left, right)) {
-            return body;
-        }
-        
-        // Chống nhận diện sai CV 1 cột có ngày tháng căn lề phải (splitByXGap tạo ra các mảnh cùng Y).
-        // Nếu nhiều mảnh có cùng Y, đây là cấu trúc bảng hoặc dòng được căn lề 2 bên -> đọc theo dòng.
-        int sameYCount = 0;
-        for (RawLine l : left) {
-            for (RawLine r : right) {
-                if (Math.abs(l.y - r.y) < Math.max(l.h, r.h) * 0.5f) {
-                    sameYCount++;
-                    break;
-                }
-            }
-        }
-        if (sameYCount > Math.max(1, Math.min(left.size(), right.size()) * 0.3f)) {
-            return body;
-        }
-
-        List<RawLine> ordered = new ArrayList<>(full.size() + left.size() + right.size());
-        List<RawLine> leftByY = byY(left);
-        List<RawLine> rightByY = byY(right);
-        List<RawLine> fullByY = byY(full);
-        // Đơn giản và an toàn cho section detection: full-width theo Y,
-        // sau đó toàn bộ cột trái, rồi cột phải (không trộn kẽ dòng hai cột).
-        ordered.addAll(fullByY);
-        ordered.addAll(leftByY);
-        ordered.addAll(rightByY);
-        return ordered;
-    }
-
-    private static float center(RawLine l) {
-        return (l.x0 + l.x1) / 2f;
-    }
-
-    private static List<RawLine> byY(List<RawLine> lines) {
-        List<RawLine> out = new ArrayList<>(lines);
-        out.sort(Comparator.comparingDouble(l -> l.y));
-        return out;
-    }
-
-    private static boolean overlapVertically(List<RawLine> a, List<RawLine> b) {
-        float a0 = Float.MAX_VALUE;
-        float a1 = Float.MIN_VALUE;
-        float b0 = Float.MAX_VALUE;
-        float b1 = Float.MIN_VALUE;
-        for (RawLine l : a) {
-            a0 = Math.min(a0, l.y);
-            a1 = Math.max(a1, l.y);
-        }
-        for (RawLine l : b) {
-            b0 = Math.min(b0, l.y);
-            b1 = Math.max(b1, l.y);
-        }
-        float overlap = Math.min(a1, b1) - Math.max(a0, b0);
-        float span = Math.max(a1, b1) - Math.min(a0, b0);
-        return span > 0 && overlap / span > 0.25f;
+        return x1 - x0 >= regionWidth * 0.25f;
     }
 
     private TextBlock toBlock(int page, int order, List<RawLine> lines) {
