@@ -85,6 +85,9 @@ def test_extract_cv_enriched_success(client, fake_engine, fake_kb: KnowledgeBase
     assert "Java" in implied_names
     assert any(item["id"] == 2 for item in data["implied_skills"])
 
+    # related_skills present
+    assert "related_skills" in data
+
     # education[0].school is canonicalized, and school_normalized mapped
     assert "education" in data
     assert len(data["education"]) >= 1
@@ -201,7 +204,7 @@ def test_main_startup_kg_enabled(monkeypatch) -> None:
     """startup() calls load_kb when KG_ENABLED=True."""
     calls: list[tuple] = []
 
-    def _fake_load_kb(dsn, seed_dir):
+    def _fake_load_kb(dsn, seed_dir, **_neo4j):
         calls.append((dsn, seed_dir))
         return "synthetic_kb"
 
@@ -218,7 +221,7 @@ def test_main_startup_kg_disabled(monkeypatch) -> None:
     """startup() skips load_kb when KG_ENABLED=False."""
     calls: list[tuple] = []
 
-    def _fake_load_kb(dsn, seed_dir):
+    def _fake_load_kb(dsn, seed_dir, **_neo4j):
         calls.append((dsn, seed_dir))
         return "synthetic_kb"
 
@@ -229,3 +232,33 @@ def test_main_startup_kg_disabled(monkeypatch) -> None:
     main.startup()
     assert kb_state["kb"] is None
     assert len(calls) == 0
+
+
+def test_extract_cv_include_kg_contains_related_skills(
+    client, fake_engine, fake_kb: KnowledgeBase
+) -> None:
+    """include=kg exposes related_skills from KB when present, and omits when include is omitted."""
+    fake_kb.related = {1: [(2, 8.5)]}
+    kb_state["kb"] = fake_kb
+    fake_engine.output = json.dumps({"skills": ["Spring Boot"]})
+    cv_text = "Spring Boot developer"
+
+    # 1. With include=kg -> related_skills is returned with weight and via
+    resp = client.post("/api/v1/extract-cv?include=kg", json={"cv_text": cv_text})
+    assert resp.status_code == 200
+    data = resp.json()["data"]
+    assert "related_skills" in data
+    assert len(data["related_skills"]) == 1
+    assert data["related_skills"][0] == {
+        "id": 2,
+        "name": "Java",
+        "category": "Programming Language",
+        "weight": 8.5,
+        "via": {"from": "Spring Boot", "source": "book"},
+    }
+
+    # 2. Without include=kg -> related_skills is omitted
+    resp_no_kg = client.post("/api/v1/extract-cv", json={"cv_text": cv_text})
+    assert resp_no_kg.status_code == 200
+    assert "related_skills" not in resp_no_kg.json()["data"]
+

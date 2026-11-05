@@ -14,6 +14,12 @@ ESCO, European Commission / European Union (https://esco.ec.europa.eu) — kỹ 
 
 Trích dẫn: **© European Union, ESCO**. Năm/phiên bản/revision: `v1.2.1`. URL: https://ec.europa.eu/esco/api. Truy cập: **2026-11-05**. Giấy phép: **CC BY 4.0** (https://creativecommons.org/licenses/by/4.0/).
 
+## kb1_books.json
+
+Prefix `book` — KB1: sách PDF Pro Git và Think Python; chỉ dữ kiện cấu trúc (tiêu đề, cây chương/mục, trang) và đếm nhắc tới kỹ năng KB2, không lưu đoạn văn. Dùng cho Neo4j: Book, Section, MENTIONS, RELATED_TO; không thêm vào CSV seed. RELATED_TO đếm đồng xuất hiện trong ít nhất 2 mục lá mỗi sách, không đếm lặp chương cha; khoảng trang mục bao gồm trang biên dùng chung. Tái dựng bằng `python -m kb.books`; PDF chỉ ở cache git-ignored, SHA-256 từng PDF ghi trong MANIFEST.
+
+Trích dẫn: **Scott Chacon and Ben Straub (Pro Git); Allen B. Downey (Think Python)**. Năm/phiên bản/revision: `Pro Git 2.1.450; Think Python 2e`. URL: https://github.com/progit/progit2/releases/download/2.1.450/progit.pdf ; https://greenteapress.com/thinkpython2/thinkpython2.pdf. Truy cập: **2026-11-05**. Giấy phép: **CC BY-NC-SA 3.0 (Pro Git); CC BY-NC 3.0 (Think Python)** (https://creativecommons.org/licenses/by-nc-sa/3.0/ ; https://creativecommons.org/licenses/by-nc/3.0/).
+
 ## languages.yml
 
 GitHub Linguist — alias của ngôn ngữ đã có trong skills; dùng cho skill_aliases, không thêm ngôn ngữ ngoài phạm vi khảo sát/gap-fill.
@@ -84,6 +90,7 @@ Trích dẫn: **Wikidata contributors**. Năm/phiên bản/revision: `lastrevid 
 
 | Nguồn | skills | skill_aliases | skill_edges | universities | university_aliases | job_titles | categories |
 |---|---:|---:|---:|---:|---:|---:|---:|
+| book | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
 | esco | 167 | 995 | 0 | 0 | 0 | 743 | 1 |
 | institution | 0 | 0 | 0 | 1 | 2 | 0 | 0 |
 | linguist | 0 | 35 | 0 | 0 | 0 | 0 | 0 |

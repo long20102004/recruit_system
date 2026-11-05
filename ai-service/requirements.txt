@@ -10,3 +10,5 @@ gguf
 json-repair
 rapidfuzz
 psycopg[binary]
+neo4j>=5.20
+

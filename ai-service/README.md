@@ -330,6 +330,19 @@ python -m kb.build_external           # offline: kb/sources/ -> kb/seed/*.csv + 
 - Cập nhật KB: chạy lại hai lệnh trên, xem diff CSV, rồi nạp DB (bước 4) và khởi động lại service. Không cần train lại mô hình.
 - Khi serve: kỹ năng / tech_stack / trường link được KB được thay bằng tên chuẩn (kỹ năng mềm giữ như CV); phần KG (`skills_normalized`, `implied_skills`, `skills_detected`, `flags`, `school_normalized`) chỉ trả khi gọi `?include=kg`; `?include=raw` trả thêm `raw_profile` (trước chuẩn hoá).
 
+### 3. KB1 từ sách PDF + Neo4j làm kho KG chính (feature 010)
+- **KB1** — `python -m kb.books`: tải *Pro Git* 2nd ed. (Chacon & Straub, CC BY-NC-SA 3.0) và *Think Python* 2nd ed. (Downey, CC BY-NC 3.0) vào cache git-ignore `kb/.cache/`, đọc mục lục + text từng mục bằng `pdftotext`, đếm kỹ năng KB2 được nhắc → `kb/sources/kb1_books.json` (chỉ tiêu đề mục, số trang, số đếm; không chép văn bản sách).
+- **KB2** = seed CSV từ nguồn liên kết (bước 2).
+- **Neo4j** (`infra/kg`, cổng 127.0.0.1:7474 / 7687):
+  ```bash
+  cp infra/kg/.env.example infra/kg/.env    # đặt NEO4J_PASSWORD
+  docker compose -f infra/kg/docker-compose.yml --env-file infra/kg/.env up -d
+  cd ai-service && set -a && . ../infra/kg/.env && set +a
+  python -m kb.neo4j_load --uri bolt://localhost:7687 --user neo4j --password-env NEO4J_PASSWORD --reset
+  NEO4J_URI=bolt://localhost:7687 uvicorn main:app --port 8000   # service đọc KB từ Neo4j
+  ```
+  Loader nạp KB2 (Skill, Alias, Category, REQUIRES/PART_OF, University, JobTitle), KB1 (Book, Section, MENTIONS) rồi gộp: `RELATED_TO` (kỹ năng cùng được nhắc trong ≥ 2 mục sách), `ABOUT` (mục sách có tiêu đề là một kỹ năng). Thứ tự nạp KB của service: Neo4j (`NEO4J_URI`) → PostgreSQL (`KB_DSN`) → CSV. Không có Neo4j (Colab, test), CSV vẫn có `RELATED_TO` đọc từ `kb1_books.json`. `include=kg` trả thêm `related_skills`.
+
 ### 4. Nạp dữ liệu vào DB (Load)
 ```bash
 cd ai-service

@@ -21,6 +21,20 @@
       "prefix": "esco"
     },
     {
+      "file": "kb1_books.json",
+      "url": "https://github.com/progit/progit2/releases/download/2.1.450/progit.pdf ; https://greenteapress.com/thinkpython2/thinkpython2.pdf",
+      "retrieved": "2026-11-05",
+      "version": "Pro Git 2.1.450; Think Python 2e",
+      "sha256": "615d0d3c9ae4dede3fac75d510c6d6c1fb7f73f0b4a7a8085cdc9f41dfd5d0e0",
+      "licence": "CC BY-NC-SA 3.0 (Pro Git); CC BY-NC 3.0 (Think Python)",
+      "attribution": "Scott Chacon and Ben Straub (Pro Git); Allen B. Downey (Think Python)",
+      "prefix": "book",
+      "pdf_sha256": {
+        "progit": "403f4051cdca2c585361d85f6e87d5dd87d8c544fc91dced007711babe81e8ef",
+        "thinkpython": "6033000bac3f9268ad75ee041bf8e5d9a3bc8a33bb156399cbd014918cb59f94"
+      }
+    },
+    {
       "file": "languages.yml",
       "url": "https://raw.githubusercontent.com/github-linguist/linguist/d456527fe93355baa28c3c29d542c97282b61bc7/lib/linguist/languages.yml",
       "retrieved": "2026-11-05",

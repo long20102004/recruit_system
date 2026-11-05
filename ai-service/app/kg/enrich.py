@@ -215,6 +215,48 @@ def enrich(
     ]
 
     # -------------------------------------------------------------------------
+    # 2b. Related skills (co-occurrence in KB1 books)
+    # -------------------------------------------------------------------------
+    related_map: dict[int, list[tuple[int, float]]] = getattr(kb, "related", {}) or {}
+    cv_skill_ids: set[int] = set(linked_ids)
+    best_related: dict[int, dict[str, Any]] = {}
+
+    for item in skills_normalized:
+        cv_sid = item.get("id")
+        if cv_sid is None:
+            continue
+        cv_name = item.get("name")
+        if not cv_name and cv_sid in skills_map:
+            cv_name, _ = _extract_skill_info(skills_map[cv_sid])
+        if not cv_name:
+            cv_name = str(cv_sid)
+
+        for rel_entry in related_map.get(cv_sid, []):
+            if not (isinstance(rel_entry, (tuple, list)) and len(rel_entry) >= 2):
+                continue
+            target_id, weight = rel_entry[0], float(rel_entry[1])
+            if target_id in cv_skill_ids:
+                continue
+            if target_id not in skills_map:
+                continue
+
+            if target_id not in best_related or weight > best_related[target_id]["weight"]:
+                t_name, t_cat = _extract_skill_info(skills_map[target_id])
+                best_related[target_id] = {
+                    "id": target_id,
+                    "name": t_name,
+                    "category": t_cat,
+                    "weight": weight,
+                    "via": {"from": cv_name, "source": "book"},
+                }
+
+    sorted_related = sorted(
+        best_related.values(),
+        key=lambda x: (-x["weight"], (x["name"] or "").casefold()),
+    )
+    enriched["related_skills"] = sorted_related[:20]
+
+    # -------------------------------------------------------------------------
     # 3. Detected skills (model ∪ cv_text scan)
     # -------------------------------------------------------------------------
     model_skills_by_id: dict[int, dict[str, Any]] = {}

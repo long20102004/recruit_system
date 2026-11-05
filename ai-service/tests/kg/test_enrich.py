@@ -59,11 +59,13 @@ class FakeKB:
         skills: dict[int, tuple[str, str]] | None = None,
         edges: dict[int, list[tuple[str, int]]] | None = None,
         schools: dict[str, tuple[int, str]] | None = None,
+        related: dict[int, list[tuple[int, float]]] | None = None,
     ) -> None:
         self.linker = linker or FakeLinker()
         self.skills = skills or {}
         self.edges = edges or {}
         self.schools = schools or {}
+        self.related = related or {}
 
     def link_school(self, raw: str | None) -> tuple[int, str] | None:
         if not raw:
@@ -593,6 +595,7 @@ def test_empty_profile_does_not_crash() -> None:
     assert result["skills_normalized"] == []
     assert result["implied_skills"] == []
     assert result["skills_detected"] == []
+    assert result["related_skills"] == []
     assert result["flags"] == [
         {"code": "MISSING_CONTACT", "count": None, "field": "personal_info"}
     ]
@@ -785,3 +788,122 @@ def test_skills_detected_kb_missing_skills_degrades_gracefully() -> None:
     # KB is None
     res_none = enrich(profile, None, cv_text="Some cv text")
     assert res_none["skills_detected"] == []
+
+
+# ---------------------------------------------------------------------------
+# US2: related_skills tests
+# ---------------------------------------------------------------------------
+
+
+def test_related_skills_from_kb() -> None:
+    """related_skills retrieves co-occurring skills from kb.related with correct via and sorting."""
+    skills = {
+        1: ("Python", "Programming Language"),
+        2: ("Git", "Tool"),
+        3: ("GitHub", "Tool"),
+        4: ("GitLab", "Tool"),
+    }
+    linker = FakeLinker({
+        "Git": Link(raw="Git", skill_id=2, name="Git", category="Tool", method="exact", score=100.0),
+    })
+    related = {
+        2: [(4, 4.5), (3, 7.0)],  # Unsorted in map
+    }
+    kb = FakeKB(linker=linker, skills=skills, related=related)
+
+    profile = {
+        "personal_info": {"email": "dev@test.com", "phone": "123"},
+        "skills": ["Git"],
+    }
+
+    result = enrich(profile, kb)
+    related_skills = result["related_skills"]
+
+    # Sorted by weight descending: GitHub (7.0), GitLab (4.5)
+    assert len(related_skills) == 2
+    assert related_skills[0] == {
+        "id": 3,
+        "name": "GitHub",
+        "category": "Tool",
+        "weight": 7.0,
+        "via": {"from": "Git", "source": "book"},
+    }
+    assert related_skills[1] == {
+        "id": 4,
+        "name": "GitLab",
+        "category": "Tool",
+        "weight": 4.5,
+        "via": {"from": "Git", "source": "book"},
+    }
+
+
+def test_related_skills_excludes_skills_already_in_cv() -> None:
+    """Skills already linked in CV are excluded from related_skills."""
+    skills = {
+        2: ("Git", "Tool"),
+        3: ("GitHub", "Tool"),
+        4: ("GitLab", "Tool"),
+    }
+    linker = FakeLinker({
+        "Git": Link(raw="Git", skill_id=2, name="Git", category="Tool", method="exact", score=100.0),
+        "GitHub": Link(raw="GitHub", skill_id=3, name="GitHub", category="Tool", method="exact", score=100.0),
+    })
+    related = {
+        2: [(3, 7.0), (4, 4.5)],
+    }
+    kb = FakeKB(linker=linker, skills=skills, related=related)
+
+    profile = {
+        "personal_info": {"email": "dev@test.com", "phone": "123"},
+        "skills": ["Git", "GitHub"],
+    }
+
+    result = enrich(profile, kb)
+    related_skills = result["related_skills"]
+
+    # GitHub (id 3) is already in CV, so only GitLab (id 4) is returned
+    assert len(related_skills) == 1
+    assert related_skills[0]["id"] == 4
+    assert related_skills[0]["name"] == "GitLab"
+
+
+def test_related_skills_dedupes_max_weight_and_caps_at_20() -> None:
+    """When multiple CV skills link to same target, keep max weight; cap at 20."""
+    skills = {100: ("Git", "Tool"), 200: ("VCS", "Concept")}
+    # Generate 25 candidate skills (id 1..25)
+    for i in range(1, 26):
+        skills[i] = (f"Skill_{i:02d}", "Tech")
+
+    linker = FakeLinker({
+        "Git": Link(raw="Git", skill_id=100, name="Git", category="Tool", method="exact", score=100.0),
+        "VCS": Link(raw="VCS", skill_id=200, name="VCS", category="Concept", method="exact", score=100.0),
+    })
+
+    # Skill 1 is related to both: Git with weight 3.0, VCS with weight 15.0 -> should keep 15.0 via VCS
+    related = {
+        100: [(1, 3.0)] + [(i, float(i)) for i in range(2, 26)],
+        200: [(1, 15.0)],
+    }
+    kb = FakeKB(linker=linker, skills=skills, related=related)
+
+    profile = {
+        "personal_info": {"email": "dev@test.com", "phone": "123"},
+        "skills": ["Git", "VCS"],
+    }
+
+    result = enrich(profile, kb)
+    related_skills = result["related_skills"]
+
+    # Must be capped at 20
+    assert len(related_skills) == 20
+
+    # Skill 1 has max weight 15.0 from VCS
+    skill_1_matches = [s for s in related_skills if s["id"] == 1]
+    assert len(skill_1_matches) == 1
+    assert skill_1_matches[0]["weight"] == 15.0
+    assert skill_1_matches[0]["via"]["from"] == "VCS"
+
+    # Verify strictly sorted by weight descending
+    weights = [s["weight"] for s in related_skills]
+    assert weights == sorted(weights, reverse=True)
+

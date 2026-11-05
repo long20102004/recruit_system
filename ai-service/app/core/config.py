@@ -53,3 +53,8 @@ KG_ENABLED: bool = (
 KB_DSN: str | None = os.getenv("KB_DSN") or None
 
 KB_SEED_DIR: str = _resolve(os.getenv("KB_SEED_DIR", "./kb/seed"))
+
+NEO4J_URI: str | None = os.getenv("NEO4J_URI") or None
+NEO4J_USER: str = os.getenv("NEO4J_USER", "neo4j")
+NEO4J_PASSWORD: str | None = os.getenv("NEO4J_PASSWORD") or None
+

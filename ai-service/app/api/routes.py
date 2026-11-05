@@ -20,7 +20,7 @@ from app.utils.text import clean_cv_text
 router = APIRouter()
 
 # Fields added by KG enrichment: hidden unless the request asks for include=kg.
-KG_FIELDS = ("skills_normalized", "implied_skills", "skills_detected", "flags")
+KG_FIELDS = ("skills_normalized", "implied_skills", "skills_detected", "related_skills", "flags")
 
 
 def _has_content(value) -> bool:

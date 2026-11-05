@@ -21,4 +21,10 @@ def startup():
         )
     load_model()
     if config.KG_ENABLED:
-        kb_state["kb"] = load_kb(config.KB_DSN, config.KB_SEED_DIR)
+        kb_state["kb"] = load_kb(
+            config.KB_DSN,
+            config.KB_SEED_DIR,
+            neo4j_uri=config.NEO4J_URI,
+            neo4j_user=config.NEO4J_USER,
+            neo4j_password=config.NEO4J_PASSWORD,
+        )

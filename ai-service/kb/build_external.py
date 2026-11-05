@@ -451,6 +451,7 @@ def write_sources(output, manifest, tables, summary):
         "CC0 1.0": "https://creativecommons.org/publicdomain/zero/1.0/",
         "CC BY 4.0": "https://creativecommons.org/licenses/by/4.0/",
         "CC BY-SA 4.0": "https://creativecommons.org/licenses/by-sa/4.0/",
+        "CC BY-NC-SA 3.0 (Pro Git); CC BY-NC 3.0 (Think Python)": "https://creativecommons.org/licenses/by-nc-sa/3.0/ ; https://creativecommons.org/licenses/by-nc/3.0/",
     }
     lines = ["# Nguồn dữ liệu Knowledge Base", "",
              "Seed được dựng offline bằng `python -m kb.build_external`, chỉ từ snapshot trong `kb/sources/`. "
@@ -458,6 +459,7 @@ def write_sources(output, manifest, tables, summary):
              "Mỗi dòng mang `source`; phần trước dấu `:` khớp `prefix` trong manifest. "
              "Số liệu bên dưới đếm nguồn trực tiếp của từng dòng (không đếm lặp các nguồn bổ trợ).", ""]
     explanations = {
+        "book": "Prefix `book` — KB1: sách PDF Pro Git và Think Python; chỉ dữ kiện cấu trúc (tiêu đề, cây chương/mục, trang) và đếm nhắc tới kỹ năng KB2, không lưu đoạn văn. Dùng cho Neo4j: Book, Section, MENTIONS, RELATED_TO; không thêm vào CSV seed. RELATED_TO đếm đồng xuất hiện trong ít nhất 2 mục lá mỗi sách, không đếm lặp chương cha; khoảng trang mục bao gồm trang biên dùng chung. Tái dựng bằng `python -m kb.books`; PDF chỉ ở cache git-ignored, SHA-256 từng PDF ghi trong MANIFEST.",
         "stackoverflow": "Stack Overflow Developer Survey — lựa chọn công nghệ, tên chuẩn và câu hỏi phân nhóm; dùng cho skills, skill_aliases và ánh xạ categories.",
         "stackoverflow-tags": "Stack Overflow tags (nội dung người dùng, CC BY-SA 4.0) — chỉ các tag đã phổ biến (≥ 500 câu hỏi) khớp từ vựng kỹ năng của CV tổng hợp mà khảo sát/Wikidata không có (ví dụ Spring MVC, Lombok, AutoMapper); tag và tag đồng nghĩa làm alias; nhóm để Other.",
         "linguist": "GitHub Linguist — alias của ngôn ngữ đã có trong skills; dùng cho skill_aliases, không thêm ngôn ngữ ngoài phạm vi khảo sát/gap-fill.",
