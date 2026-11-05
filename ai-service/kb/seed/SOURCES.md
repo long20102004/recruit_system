@@ -91,9 +91,9 @@ Trích dẫn: **Wikidata contributors**. Năm/phiên bản/revision: `lastrevid 
 | stackoverflow-2025 | 56 | 47 | 0 | 0 | 0 | 0 | 0 |
 | stackoverflow-2026 | 317 | 121 | 0 | 0 | 0 | 0 | 3 |
 | stackoverflow-tags | 40 | 57 | 0 | 0 | 0 | 0 | 1 |
-| wikidata | 129 | 712 | 172 | 104 | 848 | 0 | 6 |
+| wikidata | 129 | 712 | 132 | 104 | 848 | 0 | 6 |
 | wikipedia | 0 | 0 | 0 | 282 | 409 | 0 | 0 |
-| **Tổng** | 813 | 2284 | 172 | 387 | 1259 | 743 | 16 |
+| **Tổng** | 813 | 2284 | 132 | 387 | 1259 | 743 | 16 |
 
 ## Phương pháp và giới hạn
 
@@ -108,7 +108,7 @@ Trích dẫn: **Wikidata contributors**. Năm/phiên bản/revision: `lastrevid 
 - Stack Overflow tags: với từ vựng gap-fill, thử các cách viết tag (dấu cách → '-', bỏ '-', '/', '.'), nhận tag có ≥ 500 câu hỏi, lấy tag đồng nghĩa; chỉ thêm skill khi key chưa thuộc nguồn khác. Tên hiển thị là cách viết thuật ngữ trong từ vựng tổng hợp đã khớp tag.
 - Tên hiển thị: lựa chọn ghép của khảo sát (HTML/CSS) giữ đúng phần tên trong khảo sát; nhãn Wikidata viết thường được viết hoa chữ cái đầu (scrum → Scrum).
 - Trường: sinh biến thể chính tả của tên đã công bố (Ho Chi Minh City ↔ HCMC/TP HCM, "Cao đẳng X" ↔ "X College"), cùng nguồn với tên gốc; không thêm tên mới.
-- Quan hệ: P277 → REQUIRES chỉ với framework/library; P361 → PART_OF; P527 → PART_OF đảo chiều. Chỉ giữ hai đầu có trong KB. Đây là quan hệ tri thức từ nguồn, không phải khẳng định ứng viên thành thạo công nghệ phụ thuộc.
+- Quan hệ: P277 → REQUIRES chỉ với framework/library (theo lớp Wikidata VÀ nhóm trong KB; công cụ/nền tảng như Docker không sinh REQUIRES tới ngôn ngữ cài đặt); P361 → PART_OF; P527 → PART_OF đảo chiều. Chỉ giữ hai đầu có trong KB. Đây là quan hệ tri thức từ nguồn, không phải khẳng định ứng viên thành thạo công nghệ phụ thuộc.
 - Loại 18 key alias skill mơ hồ (bỏ mọi chủ sở hữu); 17 key trường mơ hồ; 16 key nghề mơ hồ. Alias thông dụng như cake bị chặn. Loại 1 cạnh tự lặp/tạo chu trình theo thứ tự ổn định trên đồ thị hợp nhất.
 - Trường đại học/cao đẳng: P17=Q881, P31/P279* thuộc university Q3918, academy Q38723, college Q189004, community college Q1336920, vocational school Q322563/Q2696153 hoặc academic institution Q4671277. Nhãn lớp được kiểm chứng bằng SPARQL trong wikidata_classes.json. Ghép duy nhất bằng tên đầy đủ vi/en hoặc phần trước dấu phẩy (bỏ đơn vị mẹ), không ghép riêng acronym. Bổ sung trường chưa khớp từ query; canonical vi rồi en; alias en/vi, P1813 và title enwiki/viwiki công khai trên Wikidata. university_alias_blocklist.csv là luật an toàn, không phải nguồn tri thức.
 - ESCO không có nhãn tiếng Việt; Wikidata bổ sung nhãn/alias kỹ năng mềm en/vi. esco_matches ghép duy nhất QID với skill thành viên ESCO bằng label/alias công khai, chuẩn hóa hình thái danh từ/động từ (-ing/-ment/-s) và thứ tự token; không ghép nhóm skills-hierarchy. Hai nguồn dùng cùng canonical, không sinh skill trùng; concept chưa ghép là Soft Skill độc lập. Tên nghề gồm nhãn ưu tiên và nhãn thay thế tiếng Anh; một dòng cho mỗi alias duy nhất.

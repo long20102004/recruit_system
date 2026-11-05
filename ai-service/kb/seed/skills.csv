@@ -109,7 +109,7 @@ id,name,category,source,source_id
 108,build2,Tool/Platform,stackoverflow-2024:Embedded,Q135311809
 109,Bulgarian,Soft Skill,esco:http://data.europa.eu/esco/skill/d5fd4958-4ca6-4d06-845f-713e2c459612,http://data.europa.eu/esco/skill/d5fd4958-4ca6-4d06-845f-713e2c459612
 110,Bun,Cloud,stackoverflow-2026:CloudPlat,
-111,Bundler,Tool/Platform,wikidata:Q114900710,Q114900710
+111,Bundler,Cloud,wikidata:Q114900710,Q114900710
 112,Burp Suite,Tool/Platform,wikidata:Q2324584,Q2324584
 113,C,Programming Language,stackoverflow-2026:Languages,Q15777
 114,C#,Programming Language,stackoverflow-2026:Languages,Q2370
@@ -211,9 +211,9 @@ id,name,category,source,source_id
 210,DigitalOcean,Cloud,stackoverflow-2026:CloudPlat,
 211,DirectX,Framework/Library,stackoverflow-2024:MiscTech,Q188695
 212,Django,Framework/Library,stackoverflow-2026:WebFramework,Q842014
-213,Docker,Framework/Library,wikidata:Q15206305,Q15206305
+213,Docker,Cloud,wikidata:Q15206305,Q15206305
 214,Docker / Docker Compose,Cloud,stackoverflow-2026:CloudPlat,
-215,Docker Compose,Tool/Platform,wikidata:Q66317867,Q66317867
+215,Docker Compose,Cloud,wikidata:Q66317867,Q66317867
 216,doctest,Tool/Platform,stackoverflow-2024:Embedded,
 217,Document360,Tool/Platform,stackoverflow-2026:KnowMgmt,
 218,DokuWiki,Tool/Platform,stackoverflow-2026:KnowMgmt,Q851864
@@ -636,7 +636,7 @@ id,name,category,source,source_id
 635,RSpec,Testing/QA,stackoverflow-2026:CodeTest,Q3463141
 636,Ruby,Programming Language,stackoverflow-2026:Languages,Q161053
 637,Ruby on Rails,Framework/Library,stackoverflow-2026:WebFramework,Q190478
-638,RubyGems,Tool/Platform,wikidata:Q1853420,Q1853420
+638,RubyGems,Cloud,wikidata:Q1853420,Q1853420
 639,RubyGems / Bundler,Cloud,stackoverflow-2026:CloudPlat,
 640,RubyMine,Tool/Platform,stackoverflow-2026:DevIDE,Q4048590
 641,Ruff,Framework/Library,stackoverflow-2024:MiscTech,Q115911873

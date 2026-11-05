@@ -213,7 +213,9 @@ def build_external(sources_dir=ROOT / "sources", out_dir=ROOT / "seed"):
                 component_key = qid_to_key.get(component, skill_key(label))
                 if component_key:
                     skills_by_key.setdefault(component_key, {
-                        "name": label, "category": entity_category(entity),
+                        # A part of a platform option ("Docker / Docker Compose") keeps the survey's
+                        # platform classification even if Wikidata also types it as a library.
+                        "name": label, "category": (category if question in {"Platform", "CloudPlat"} else entity_category(entity)),
                         "source": f"wikidata:{component}", "source_id": component,
                     })
                     qid_to_key[component] = component_key
@@ -313,7 +315,9 @@ def build_external(sources_dir=ROOT / "sources", out_dir=ROOT / "seed"):
         entity = entities[qid]
         framework = bool(set(entity.get("accepted_classes", [])) & {"Q271680", "Q188860", "Q1330336"})
         for prop, relation in (("P277", "REQUIRES"), ("P361", "PART_OF"), ("P527", "PART_OF")):
-            if prop == "P277" and not framework:
+            # "programmed in" is a prerequisite only for frameworks/libraries the candidate codes
+            # against (Spring Boot -> Java), not for tools written in a language (Docker -> Go).
+            if prop == "P277" and (not framework or skills_by_key[key]["category"] not in {"Framework/Library", "Frontend"}):
                 continue
             for target in claim_ids(entity, prop):
                 if target not in qid_to_key:
@@ -486,7 +490,7 @@ def write_sources(output, manifest, tables, summary):
               "- Stack Overflow tags: với từ vựng gap-fill, thử các cách viết tag (dấu cách → '-', bỏ '-', '/', '.'), nhận tag có ≥ 500 câu hỏi, lấy tag đồng nghĩa; chỉ thêm skill khi key chưa thuộc nguồn khác. Tên hiển thị là cách viết thuật ngữ trong từ vựng tổng hợp đã khớp tag.",
               "- Tên hiển thị: lựa chọn ghép của khảo sát (HTML/CSS) giữ đúng phần tên trong khảo sát; nhãn Wikidata viết thường được viết hoa chữ cái đầu (scrum → Scrum).",
               "- Trường: sinh biến thể chính tả của tên đã công bố (Ho Chi Minh City ↔ HCMC/TP HCM, \"Cao đẳng X\" ↔ \"X College\"), cùng nguồn với tên gốc; không thêm tên mới.",
-              "- Quan hệ: P277 → REQUIRES chỉ với framework/library; P361 → PART_OF; P527 → PART_OF đảo chiều. Chỉ giữ hai đầu có trong KB. Đây là quan hệ tri thức từ nguồn, không phải khẳng định ứng viên thành thạo công nghệ phụ thuộc.",
+              "- Quan hệ: P277 → REQUIRES chỉ với framework/library (theo lớp Wikidata VÀ nhóm trong KB; công cụ/nền tảng như Docker không sinh REQUIRES tới ngôn ngữ cài đặt); P361 → PART_OF; P527 → PART_OF đảo chiều. Chỉ giữ hai đầu có trong KB. Đây là quan hệ tri thức từ nguồn, không phải khẳng định ứng viên thành thạo công nghệ phụ thuộc.",
               f"- Loại {summary['alias_collisions']} key alias skill mơ hồ (bỏ mọi chủ sở hữu); {summary['school_alias_collisions']} key trường mơ hồ; {summary['job_alias_collisions']} key nghề mơ hồ. Alias thông dụng như cake bị chặn. Loại {summary['cycle_edges_dropped']} cạnh tự lặp/tạo chu trình theo thứ tự ổn định trên đồ thị hợp nhất.",
                 "- Trường đại học/cao đẳng: P17=Q881, P31/P279* thuộc university Q3918, academy Q38723, college Q189004, community college Q1336920, vocational school Q322563/Q2696153 hoặc academic institution Q4671277. Nhãn lớp được kiểm chứng bằng SPARQL trong wikidata_classes.json. Ghép duy nhất bằng tên đầy đủ vi/en hoặc phần trước dấu phẩy (bỏ đơn vị mẹ), không ghép riêng acronym. Bổ sung trường chưa khớp từ query; canonical vi rồi en; alias en/vi, P1813 và title enwiki/viwiki công khai trên Wikidata. university_alias_blocklist.csv là luật an toàn, không phải nguồn tri thức.",
                 "- ESCO không có nhãn tiếng Việt; Wikidata bổ sung nhãn/alias kỹ năng mềm en/vi. esco_matches ghép duy nhất QID với skill thành viên ESCO bằng label/alias công khai, chuẩn hóa hình thái danh từ/động từ (-ing/-ment/-s) và thứ tự token; không ghép nhóm skills-hierarchy. Hai nguồn dùng cùng canonical, không sinh skill trùng; concept chưa ghép là Soft Skill độc lập. Tên nghề gồm nhãn ưu tiên và nhãn thay thế tiếng Anh; một dòng cho mỗi alias duy nhất.",

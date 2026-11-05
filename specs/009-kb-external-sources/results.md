@@ -5,7 +5,7 @@
 |---|---:|---|
 | skills | 813 | Stack Overflow survey 477 (2024 104, 2025 56, 2026 317), ESCO 167, Wikidata 129, Stack Overflow tags 40 |
 | skill_aliases | 2,284 | ESCO, Wikidata, survey, tags, Linguist |
-| skill_edges (KG) | 172 | Wikidata P277 / P361 / P527 |
+| skill_edges (KG) | 132 | Wikidata P277 / P361 / P527 |
 | universities | 387 | Wikipedia 282, Wikidata 104, official website 1 (FPT Polytechnic) |
 | university_aliases | 1,259 | Wikidata, Wikipedia (+ spelling variants HCMC / "X College") |
 | job_titles | 743 | ESCO |
@@ -26,6 +26,7 @@ SC-002 is **not fully met** (skills −0.9 pt, schools −10 pt). Reasons:
 276 predicted skills: 90 renamed to the canonical name, 114 already canonical, 72 kept as written (not in the KB); 14/19 schools linked.
 Examples: ReactJS → React, NodeJS → Node.js, SQL Server → Microsoft SQL Server, OOP → Object-oriented programming, JWT Authentication → JSON Web Token, Bootstrap 5 → Bootstrap, Excel → Microsoft Excel, PTIT → Học viện Công nghệ Bưu chính Viễn thông.
 Soft skills are not renamed (ESCO wording such as "work in teams" reads worse than the CV's "Làm việc nhóm"); their links are in `include=kg`.
+KG: P277 "programmed in" → REQUIRES only for frameworks/libraries (tools such as Docker no longer imply their implementation language, Docker → Go removed). Multi-language libraries still list every implementation language (PyTorch → C, gRPC → Elixir): `implied_skills` is a hint, never evidence that the candidate knows the skill.
 Known oddities: "RESTful API" → "Server-side web API" (Wikidata item whose alias is RESTful API); "GitLab" → "Gitlab" (survey spelling).
 
 ## Who did what
