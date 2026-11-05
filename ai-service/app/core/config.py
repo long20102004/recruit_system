@@ -9,9 +9,10 @@ LORA_PATH = os.getenv("LORA_PATH", "./checkpoint-250")
 
 # v3 (feature 007/008) is the default model; v1 / v2 stay available with PROMPT_VERSION=v1 / v2.
 # v4 (feature 013) = prompt v3 + the model retrained on column-aware (layout) text.
+# v5 (feature 014) = prompt v3 + the model retrained on dataset v5 (many short jobs, students, layout L15).
 PROMPT_VERSION = os.getenv("PROMPT_VERSION", "v3").strip().lower()
-if PROMPT_VERSION not in {"v1", "v2", "v3", "v4"}:
-    raise ValueError("PROMPT_VERSION must be 'v1', 'v2', 'v3' or 'v4'")
+if PROMPT_VERSION not in {"v1", "v2", "v3", "v4", "v5"}:
+    raise ValueError("PROMPT_VERSION must be 'v1', 'v2', 'v3', 'v4' or 'v5'")
 
 # Each prompt version has its own model file: the prompt and the weights must match.
 DEFAULT_GGUF = {
@@ -19,6 +20,7 @@ DEFAULT_GGUF = {
     "v2": "./merged_model/model-v2-q4_k_m.gguf",
     "v3": "./merged_model/model-v3-q4_k_m.gguf",
     "v4": "./merged_model/model-v4-q4_k_m.gguf",
+    "v5": "./merged_model/model-v5-q4_k_m.gguf",
 }
 GGUF_MODEL_PATH = os.getenv("GGUF_MODEL_PATH", DEFAULT_GGUF[PROMPT_VERSION])
 

@@ -120,7 +120,7 @@ def test_layout_contains_all_label_values(record, layout, lang):
     assert "&lt;safely&gt;" in document
     assert "<safely>" not in document
     if layout != "L8":
-        assert ("NGOẠI NGỮ" if lang == "vi" and layout in ("L3", "L11", "L12", "L13", "L14") else "Languages") in text
+        assert ("NGOẠI NGỮ" if lang == "vi" and layout in ("L3", "L11", "L12", "L13", "L14", "L15") else "Languages") in text
     label, dropped = ground_label(expected, text)
     assert label == expected
     assert not dropped
@@ -142,7 +142,7 @@ def test_layout_specifics(record):
     assert "Certifications:</p>" in rendered["L9"] and "Awards:</p>" in rendered["L9"]
     assert 'class="timeline"' in rendered["L10"]
     with pytest.raises(ValueError):
-        render_html(record, "L15")
+        render_html(record, "L16")
 
 
 def test_ground_missing_values_and_anchors(record):
@@ -245,6 +245,21 @@ def test_sidebar_timeline(record):
     assert '<strong>Cloud Engineer, Associate</strong></p><p class="record-date">2023</p><p>Java, Go, Spring Boot</p>' in doc
 
 
+def test_l15_end_date_with_title(record):
+    """Feature 014: company, then "<end> <title>", description, start date at the bottom."""
+    record["profile"]["experience"].append({
+        "company": "Earlier Fiction", "job_title": "Developer", "start_date": "01/2019",
+        "end_date": "02/2021", "description": ["Earlier fictional work."]})
+    doc = render_html(record, "L15")
+    text = html_text(doc)
+    assert "Present Backend Developer" in text and "02/2021 Developer" in text
+    assert (text.index("Example Software") < text.index("Present Backend Developer")
+            < text.index("Reduced latency") < text.index("03/2021"))
+    assert text.index("Earlier Fiction") < text.index("02/2021 Developer") < text.index("Earlier fictional work.") \
+        < text.index("01/2019")
+    assert 'width="38%"' in doc and "page-break-before: always" in doc
+
+
 @pytest.mark.parametrize("layout", ["L11", "L12"])
 def test_grouped_parentheses(record, layout):
     record["extras"]["skill_groups"] = [{"group": "Tools", "items": ["Head", "a", "b", "c", "X", "Y"]}]
@@ -277,8 +292,8 @@ def test_layout_labels(record, layout):
     record["profile"]["certificates"] += ["Fiction Expert (Associate)", "Fiction Cert (03/2020 - 04/2023)"]
     label = layout_label(record["profile"], layout)
     assert label["certificates"][1] == "Fiction Expert (Associate)"
-    assert label["certificates"][0] == ("Cloud Engineer, Associate" if layout in ("L11", "L13") else original["certificates"][0])
-    assert label["certificates"][2] == ("Fiction Cert" if layout in ("L11", "L13") else "Fiction Cert (03/2020 - 04/2023)")
+    assert label["certificates"][0] == ("Cloud Engineer, Associate" if layout in ("L11", "L13", "L15") else original["certificates"][0])
+    assert label["certificates"][2] == ("Fiction Cert" if layout in ("L11", "L13", "L15") else "Fiction Cert (03/2020 - 04/2023)")
     assert record["profile"]["certificates"][0] == original["certificates"][0]
     assert label is not record["profile"]
 
@@ -314,7 +329,7 @@ def test_pdf_only_rotation_without_backend(record, tmp_path, monkeypatch):
         assert json.loads(row["output"]) == layout_label(source["profile"], row["layout"])
 
 
-@pytest.mark.parametrize("layouts", [(), ("L15",), ("",)])
+@pytest.mark.parametrize("layouts", [(), ("L16",), ("",)])
 def test_invalid_layout_rotation(tmp_path, layouts):
     with pytest.raises(ValueError, match="Layouts"):
         run(tmp_path, tmp_path / "out", "unused", layouts=layouts)

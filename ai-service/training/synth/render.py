@@ -23,7 +23,7 @@ from app.postprocess.schema import ITEM_KEYS, PERSONAL_INFO_KEYS
 from app.postprocess.text_match import contains, normalize
 
 
-LAYOUTS = tuple(f"L{i}" for i in range(1, 15))
+LAYOUTS = tuple(f"L{i}" for i in range(1, 16))
 PROGRAMMING_LANGUAGES = {
     "java", "javascript", "typescript", "python", "go", "golang", "c", "c++",
     "c#", "csharp", "c sharp", "php", "ruby", "rust", "kotlin", "swift",
@@ -147,13 +147,13 @@ def layout_label(profile: dict, layout: str) -> dict:
     if layout not in LAYOUTS:
         raise ValueError("Unknown layout")
     label = deepcopy(profile)
-    if layout in ("L11", "L13"):
+    if layout in ("L11", "L13", "L15"):
         label["certificates"] = [_record_date(v)[0] for v in profile["certificates"]]
     return label
 
 
 def render_html(record: dict, layout: str) -> str:
-    """Build one of fourteen layouts, escaping all supplied content."""
+    """Build one of fifteen layouts, escaping all supplied content."""
     if layout not in LAYOUTS:
         raise ValueError("Unknown layout")
     p, x = record["profile"], record["extras"]
@@ -162,7 +162,7 @@ def render_html(record: dict, layout: str) -> str:
     titles = dict(zip(
         ("summary", "experience", "education", "skills", "certificates", "honours", "languages", "projects"),
         ("Mục tiêu nghề nghiệp", "KINH NGHIỆM LÀM VIỆC", "HỌC VẤN", "KỸ NĂNG", "CHỨNG CHỈ", "GIẢI THƯỞNG", "NGOẠI NGỮ", "DỰ ÁN")
-        if layout in ("L3", "L11", "L12", "L13", "L14") and vi else
+        if layout in ("L3", "L11", "L12", "L13", "L14", "L15") and vi else
         ("Objective" if layout == "L8" else "Summary", "Work Experience", "Education", "Skills", "Certifications", "Awards", "Languages", "Projects"),
     ))
 
@@ -197,7 +197,13 @@ def render_html(record: dict, layout: str) -> str:
     for job in p["experience"]:
         company, title = _e(job["company"]), _e(job["job_title"])
         date, desc = dates(job), bullets(job["description"])
-        if layout == "L11":
+        if layout == "L15":
+            # Timeline as in real two-column CVs: company, then "<end date> <title>" on one line,
+            # description, start date at the bottom of the entry (feature 014).
+            body = (f'<p><strong>{company}</strong></p>'
+                    f'<p>{_e(job["end_date"]) if job["end_date"] is not None else present} {title}</p>{desc}'
+                    f'<p class="start-date">{_e(job["start_date"])}</p>')
+        elif layout == "L11":
             body = (f'<p class="end-date">{_e(job["end_date"]) if job["end_date"] is not None else present}</p>'
                     f'<p><strong>{company}</strong></p><p>{title}</p>{desc}'
                     f'<p class="start-date">{_e(job["start_date"])}</p>')
@@ -218,11 +224,11 @@ def render_html(record: dict, layout: str) -> str:
         for item in p["education"]
     ))
     groups = x["skill_groups"]
-    if layout in ("L11", "L12"):
+    if layout in ("L11", "L12", "L15"):
         skill_lines = []
         for g in groups:
             items = g["items"]
-            if len(items) >= (2 if layout == "L11" else 4):
+            if len(items) >= (2 if layout in ("L11", "L15") else 4):
                 stop = min(4, len(items))
                 text = items[0] + " (" + ", ".join(items[1:stop]) + ")"
                 if items[stop:]:
@@ -247,7 +253,7 @@ def render_html(record: dict, layout: str) -> str:
                         if layout == "L8" and language_values else "".join(map(paragraph, language_values)))
     certificates = section("certificates", bullets(p["certificates"]))
     honours = section("honours", bullets(p["honours"]))
-    if layout in ("L11", "L13"):
+    if layout in ("L11", "L13", "L15"):
         def two_line_records(values: list[str], detail: bool = False, keep_date: bool = False) -> str:
             result = []
             for value in values:
@@ -264,7 +270,7 @@ def render_html(record: dict, layout: str) -> str:
                 result.append(f'<div class="entry record">{body}</div>')
             return "".join(result)
 
-        certificates = section("certificates", two_line_records(p["certificates"], layout == "L11"))
+        certificates = section("certificates", two_line_records(p["certificates"], layout in ("L11", "L15")))
         if layout == "L13":
             honours = section("honours", two_line_records(p["honours"], keep_date=True))
             languages = section("languages", "".join(
@@ -277,14 +283,14 @@ def render_html(record: dict, layout: str) -> str:
         honours = ""
     projects = []
     for item in p["personal_projects"]:
-        body = (f'<p><strong>{_e(item["name"])}</strong></p>' if layout == "L11"
+        body = (f'<p><strong>{_e(item["name"])}</strong></p>' if layout in ("L11", "L15")
                 else paragraph(item["name"]))
         if item["role"] is not None:
             body += paragraph("Role: " + item["role"])
         if item["team_size"] is not None:
             body += paragraph(f'Team size: {item["team_size"]}')
         body += paragraph(dates(item)) + paragraph(item["github_url"])
-        if layout == "L11":
+        if layout in ("L11", "L15"):
             prefixes = ("Mô tả", "Thành tựu") if vi else ("Description", "Achievements")
             for i, value in enumerate(item["description"]):
                 body += paragraph("- " + prefixes[min(i, 1)] + ": " + value)
@@ -295,7 +301,7 @@ def render_html(record: dict, layout: str) -> str:
         else:
             body += bullets(item["description"])
         tech = item["tech_stack"]
-        if tech and layout != "L11":
+        if tech and layout not in ("L11", "L15"):
             if layout == "L7":
                 split = (len(tech) + 1) // 2
                 text = "Backend(" + ", ".join(tech[:split]) + ")"
@@ -306,7 +312,7 @@ def render_html(record: dict, layout: str) -> str:
                 body += paragraph("Tech: " + ", ".join(tech))
         projects.append(f'<div class="entry">{body}</div>')
     projects_html = section("projects", "".join(projects))
-    if layout == "L11":
+    if layout in ("L11", "L15"):
         projects_html = section("projects", paragraph(present) + "".join(projects)
                                 + paragraph("Tương lai" if vi else "Future")) if projects else ""
 
@@ -360,7 +366,7 @@ def render_html(record: dict, layout: str) -> str:
     """
     if layout == "L9":
         css += "h2 { border-bottom: 1pt solid #555; padding-bottom: 3pt; }"
-    if layout == "L11":
+    if layout in ("L11", "L15"):
         css += """
             .sidebar { width: 38%; background: #264653; color: white; }
             .sidebar p, .sidebar h2 { color: white; }
@@ -454,7 +460,7 @@ def run(profiles: Path, out: Path, backend: str, limit: int | None = None, layou
         raise ValueError("Limit must be nonnegative")
     rotation = LAYOUTS if layouts is None else layouts
     if not rotation or any(layout not in LAYOUTS for layout in rotation):
-        raise ValueError("Layouts must be a nonempty comma-separated list of L1–L14")
+        raise ValueError("Layouts must be a nonempty comma-separated list of L1–L15")
     if not shutil.which("soffice"):
         raise RuntimeError("soffice is required")
     records, invalid = load_profiles(profiles)

@@ -65,7 +65,7 @@ def generated_label(profile: dict, text: str, stats: Counter) -> dict:
     return p
 
 
-def _generated_passes(data: Path) -> list[tuple[str, dict, str]]:
+def _generated_passes(data: Path, extra: tuple[str, ...] = ()) -> list[tuple[str, dict, str]]:
     """(id, label source row, layout text) for every generated render with layout text."""
     out = []
     profiles = {}
@@ -78,10 +78,11 @@ def _generated_passes(data: Path) -> list[tuple[str, dict, str]]:
             if t.exists():
                 out.append((r["id"], {"layout": r["layout"], "level": r["level"],
                                       "profile": profiles[r["id"]]["profile"]}, json.load(open(t))["text"]))
-    r11 = data / "synth_v4" / "r11"
-    if (r11 / "labels.jsonl").exists():
-        for r in _load(r11 / "labels.jsonl"):
-            t = r11 / "text_xy" / f"{r['id']}.json"
+    for folder in (data / "synth_v4" / "r11", *(data / e for e in extra)):
+        if not (folder / "labels.jsonl").exists():
+            continue
+        for r in _load(folder / "labels.jsonl"):
+            t = folder / "text_xy" / f"{r['id']}.json"
             if t.exists():
                 label = json.loads(r["output"]) if isinstance(r["output"], str) else r["output"]
                 out.append((r["id"], {"layout": r["layout"], "level": r["level"], "profile": label},
@@ -108,16 +109,21 @@ def build(args: argparse.Namespace) -> dict:
         return any(fuzz.ratio(head, h) > 70 for h in held_texts)
 
     # generated: hold out whole profiles for dev (every layout of a dev profile goes to dev)
-    gen = _generated_passes(data)
-    ids = sorted({g[0] for g in gen})
+    gen = _generated_passes(data, tuple(getattr(args, "extra_generated", ()) or ()))
+    # variants of a profile ("<id>.m", "<id>.s", "<id>.t", feature 014) follow their base profile
+    base = lambda pid: pid.split(".")[0]  # noqa: E731
+    ids = sorted({base(g[0]) for g in gen})
     rng.shuffle(ids)
     dev_ids = set(ids[:DEV_GENERATED_PROFILES])
     train, dev = [], []
     for pid, meta, text in gen:
         label = generated_label(meta["profile"], text, stats)
         rec = _record(text, label, f"generated:{meta['layout']}:{meta['level']}")
-        (dev if pid in dev_ids else train).append(rec)
-        stats["generated_dev" if pid in dev_ids else "generated_train"] += 1
+        in_dev = base(pid) in dev_ids
+        (dev if in_dev else train).append(rec)
+        stats["generated_dev" if in_dev else "generated_train"] += 1
+        if "." in pid:
+            stats[f"generated_variant_{pid.rsplit('.', 1)[1]}{'_dev' if in_dev else ''}"] += 1
 
     # real CVs (layout text): original + entity swaps
     real = [r for r in _load(data / "real_test" / "train_real_v4.jsonl")
@@ -127,7 +133,7 @@ def build(args: argparse.Namespace) -> dict:
         train.append(_record(r["input"], json.loads(r["output"]), "real"))
         stats["real"] += 1
     avoid = [Sample(id="", cv_text=r["input"], gold=normalize_profile(json.loads(r["output"])), raw={}) for r in val_swap]
-    for k in range(REAL_SWAPS):
+    for k in range(getattr(args, "real_swaps", REAL_SWAPS)):
         swapped, _ = build_swap(samples, avoid, seed=SEED + 10 + k)
         for row in swapped:
             train.append(_record(row["input"], normalize_profile(json.loads(row["output"])), "real_swap"))

@@ -27,7 +27,7 @@ class GenerationResult:
 
 
 def build_prompt(cv_text: str) -> str:
-    if config.PROMPT_VERSION in ("v3", "v4"):  # v4 = prompt v3, retrained model
+    if config.PROMPT_VERSION in ("v3", "v4", "v5"):  # v4, v5 = prompt v3, retrained models
         return prompt_v3.render_prompt(cv_text)
     if config.PROMPT_VERSION == "v2":
         return prompt_v2.render_prompt(cv_text)

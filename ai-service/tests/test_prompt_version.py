@@ -95,3 +95,13 @@ def test_v4_uses_prompt_v3_and_its_own_model(monkeypatch):
     monkeypatch.setattr(config, "PROMPT_VERSION", "v4")
     assert generator.build_prompt("Synthetic CV") == prompt_v3.render_prompt("Synthetic CV")
     assert config.DEFAULT_GGUF["v4"].endswith("model-v4-q4_k_m.gguf")
+
+
+def test_v5_uses_prompt_v3_and_its_own_model(monkeypatch):
+    """Feature 014: v5 = prompt v3 + model-v5 GGUF."""
+    from app.core import config
+    from app.services import generator, prompt_v3
+
+    monkeypatch.setattr(config, "PROMPT_VERSION", "v5")
+    assert generator.build_prompt("Synthetic CV") == prompt_v3.render_prompt("Synthetic CV")
+    assert config.DEFAULT_GGUF["v5"].endswith("model-v5-q4_k_m.gguf")
