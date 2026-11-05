@@ -69,7 +69,7 @@ def test_internal_error_no_exception_leak(client, fake_engine, caplog, monkeypat
     def broken_generate_cv(cv_text: str) -> str:
         raise RuntimeError(f"boom: {SYNTHETIC_EMAIL}")
 
-    monkeypatch.setattr("app.api.routes.generate_cv", broken_generate_cv)
+    monkeypatch.setattr("app.api.routes.generate_cv_result", broken_generate_cv)
 
     with caplog.at_level(logging.DEBUG):
         resp = client.post(

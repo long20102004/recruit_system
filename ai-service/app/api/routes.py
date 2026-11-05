@@ -4,18 +4,29 @@ import uuid
 from fastapi import APIRouter, HTTPException, Response
 
 from app.core import config
-from app.core.errors import InputTooLongError, ModelBusyError
+from app.core.errors import InputTooLongError, ModelBusyError, ModelOutputError
 from app.core.logging import logger
 from app.kb.store import kb_state, kb_summary
 from app.kg.enrich import enrich
 from app.postprocess import postprocess
 from app.schemas.cv import CVRequest, CVResponse
-from app.services.generator import generate_cv
+from app.services.generator import generate_cv_result
 from app.services.model_loader import state
 from app.utils.json_parse import extract_json
 from app.utils.text import clean_cv_text
 
 router = APIRouter()
+
+
+def _has_content(value) -> bool:
+    """True if the parsed output holds at least one non-empty scalar anywhere."""
+    if isinstance(value, dict):
+        return any(_has_content(v) for v in value.values())
+    if isinstance(value, list):
+        return any(_has_content(v) for v in value)
+    if isinstance(value, str):
+        return bool(value.strip())
+    return value is not None and value is not False
 
 
 @router.get("/health")
@@ -69,13 +80,23 @@ def extract_cv(request: CVRequest, response: Response):
     logger.info("request_id=%s CV length: %d chars", request_id, len(cv_text))
 
     try:
-        raw_output = generate_cv(cv_text)
+        gen = generate_cv_result(cv_text)
+        raw_output = gen.text
+        if gen.truncated:
+            logger.warning("request_id=%s output truncated reason=%s", request_id, gen.reason)
 
         if config.LOG_CV_CONTENT:
             logger.info("Raw model output:")
             logger.info(raw_output)
 
-        data = extract_json(raw_output)
+        try:
+            data = extract_json(raw_output)
+        except ValueError:
+            raise ModelOutputError("unparseable")
+        if not isinstance(data, dict):
+            raise ModelOutputError("not_object")
+        if not _has_content(data):
+            raise ModelOutputError("empty")
 
         pp_stats = None
         if config.POSTPROCESS_ENABLED:
@@ -94,7 +115,7 @@ def extract_cv(request: CVRequest, response: Response):
         kb = kb_state["kb"]
         if config.KG_ENABLED and kb is not None and isinstance(data, dict):
             try:
-                data = enrich(data, kb, pp_stats)
+                data = enrich(data, kb, pp_stats, cv_text=cv_text)
                 logger.info(
                     "request_id=%s kg skills=%d implied=%d flags=%d",
                     request_id,
@@ -109,6 +130,11 @@ def extract_cv(request: CVRequest, response: Response):
                     type(e).__name__,
                 )
 
+        if gen.truncated and isinstance(data, dict):
+            flags = data.get("flags") if isinstance(data.get("flags"), list) else []
+            flags.append({"code": "OUTPUT_TRUNCATED", "count": None, "field": gen.reason})
+            data["flags"] = flags
+
         return {"data": data}
 
     except InputTooLongError as e:
@@ -120,6 +146,17 @@ def extract_cv(request: CVRequest, response: Response):
         raise HTTPException(
             status_code=413,
             detail=str(e),
+            headers=req_headers,
+        )
+    except ModelOutputError as e:
+        logger.warning(
+            "CV extraction failed request_id=%s error=ModelOutputError reason=%s",
+            request_id,
+            e.reason,
+        )
+        raise HTTPException(
+            status_code=502,
+            detail=f"Model trả về kết quả rỗng hoặc không hợp lệ (request_id={request_id})",
             headers=req_headers,
         )
     except ModelBusyError as e:

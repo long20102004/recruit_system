@@ -57,7 +57,7 @@ def test_serving_uses_v2_and_runtime_budget(monkeypatch, fake_engine, client):
 
     def generate(self, prompt, **kwargs):
         captured.update(prompt=prompt, **kwargs)
-        return {"choices": [{"text": '{"personal_info": {}}'}]}
+        return {"choices": [{"text": '{"personal_info": {"full_name": "Synthetic Name"}}'}]}
 
     monkeypatch.setattr(type(fake_engine), "__call__", generate)
     response = client.post("/api/v1/extract-cv", json={"cv_text": "Synthetic CV"})

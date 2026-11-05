@@ -19,8 +19,13 @@ from app.postprocess.pipeline import PostprocessStats
 class FakeLinker:
     """Simple duck-typed skill linker mapping raw skill strings to Link objects."""
 
-    def __init__(self, mapping: dict[str, Link] | None = None) -> None:
+    def __init__(
+        self,
+        mapping: dict[str, Link] | None = None,
+        surfaces: dict[str, int] | None = None,
+    ) -> None:
         self.mapping = mapping or {}
+        self.surfaces = surfaces or {}
 
     def link_many(self, raws: list[str]) -> list[Link]:
         results: list[Link] = []
@@ -587,6 +592,196 @@ def test_empty_profile_does_not_crash() -> None:
 
     assert result["skills_normalized"] == []
     assert result["implied_skills"] == []
+    assert result["skills_detected"] == []
     assert result["flags"] == [
         {"code": "MISSING_CONTACT", "count": None, "field": "personal_info"}
     ]
+
+
+# ---------------------------------------------------------------------------
+# US2: skills_detected tests
+# ---------------------------------------------------------------------------
+
+
+def test_skills_detected_sources_and_ordering() -> None:
+    """skills_detected populates source model/text/both with CV-first then model-only order."""
+    skills = {
+        1: ("Python", "Programming Language"),
+        2: ("Java", "Programming Language"),
+        3: ("Docker", "DevOps"),
+        4: ("Kubernetes", "DevOps"),
+        5: ("AWS", "Cloud"),
+    }
+    linker = FakeLinker({
+        "Java": Link(raw="Java", skill_id=2, name="Java", category="Programming Language", method="exact", score=100.0),
+        "Kubernetes": Link(raw="Kubernetes", skill_id=4, name="Kubernetes", category="DevOps", method="exact", score=100.0),
+        "AWS": Link(raw="AWS", skill_id=5, name="AWS", category="Cloud", method="exact", score=100.0),
+        "CustomFramework": Link(raw="CustomFramework", skill_id=None, name=None, category=None, method="unlinked", score=0.0),
+    })
+    kb = FakeKB(linker=linker, skills=skills)
+
+    profile = {
+        "personal_info": {"email": "engineer@test.com", "phone": "0987654321"},
+        "skills": ["Java", "Kubernetes", "CustomFramework", "AWS"],
+    }
+    # In cv_text, Docker appears first (pos 14), Java second (pos 27), Python third (pos 46)
+    cv_text = "Proficient in Docker, then Java, and finally Python."
+
+    result = enrich(profile, kb, cv_text=cv_text)
+
+    # 1. Docker: found in text only -> "text"
+    # 2. Java: found in text and extracted by model -> "both"
+    # 3. Python: found in text only -> "text"
+    # 4. Kubernetes: model only -> "model"
+    # 5. AWS: model only -> "model"
+    # Unlinked CustomFramework (id is None) is excluded.
+    assert result["skills_detected"] == [
+        {"id": 3, "name": "Docker", "category": "DevOps", "source": "text"},
+        {"id": 2, "name": "Java", "category": "Programming Language", "source": "both"},
+        {"id": 1, "name": "Python", "category": "Programming Language", "source": "text"},
+        {"id": 4, "name": "Kubernetes", "category": "DevOps", "source": "model"},
+        {"id": 5, "name": "AWS", "category": "Cloud", "source": "model"},
+    ]
+
+
+def test_skills_detected_no_duplicate_ids() -> None:
+    """skills_detected dedupes repeated mentions in text and model."""
+    skills = {
+        1: ("Python", "Programming Language"),
+        2: ("Docker", "DevOps"),
+    }
+    linker = FakeLinker({
+        "Python": Link(raw="Python", skill_id=1, name="Python", category="Programming Language", method="exact", score=100.0),
+        "Python 3": Link(raw="Python 3", skill_id=1, name="Python", category="Programming Language", method="exact", score=100.0),
+    })
+    kb = FakeKB(linker=linker, skills=skills)
+
+    profile = {
+        "personal_info": {"email": "dev@test.com", "phone": "123"},
+        "skills": ["Python", "Python 3"],
+    }
+    cv_text = "Python expert. Love writing Python scripts with Docker."
+
+    result = enrich(profile, kb, cv_text=cv_text)
+
+    # Python appears multiple times in text and model, but must appear only once (both).
+    # Docker appears once in text (text).
+    assert result["skills_detected"] == [
+        {"id": 1, "name": "Python", "category": "Programming Language", "source": "both"},
+        {"id": 2, "name": "Docker", "category": "DevOps", "source": "text"},
+    ]
+
+
+def test_skills_detected_cv_text_none_or_empty() -> None:
+    """When cv_text is None or whitespace, only model skills are returned with source 'model'."""
+    skills = {
+        1: ("Python", "Programming Language"),
+        2: ("Go", "Programming Language"),
+    }
+    linker = FakeLinker({
+        "Python": Link(raw="Python", skill_id=1, name="Python", category="Programming Language", method="exact", score=100.0),
+        "UnlinkedTool": Link(raw="UnlinkedTool", skill_id=None, name=None, category=None, method="unlinked", score=0.0),
+    })
+    kb = FakeKB(linker=linker, skills=skills)
+    profile = {
+        "personal_info": {"email": "dev@test.com", "phone": "123"},
+        "skills": ["Python", "UnlinkedTool"],
+    }
+
+    expected = [{"id": 1, "name": "Python", "category": "Programming Language", "source": "model"}]
+
+    # cv_text is None
+    res_none = enrich(profile, kb, cv_text=None)
+    assert res_none["skills_detected"] == expected
+
+    # cv_text is empty string
+    res_empty = enrich(profile, kb, cv_text="")
+    assert res_empty["skills_detected"] == expected
+
+    # cv_text is whitespace only
+    res_spaces = enrich(profile, kb, cv_text="   \n\t  ")
+    assert res_spaces["skills_detected"] == expected
+
+    # Legacy caller (without cv_text argument)
+    res_legacy = enrich(profile, kb)
+    assert res_legacy["skills_detected"] == expected
+
+
+def test_skills_detected_short_skills_no_false_positive() -> None:
+    """Short skills like 'Go' and 'C' (len <= 3) do not match lowercase english words."""
+    skills = {
+        1: ("Go", "Programming Language"),
+        2: ("C", "Programming Language"),
+    }
+    kb = FakeKB(skills=skills)
+
+    # Lowercase 'go' and 'c' in general sentences must NOT match
+    cv_text_false = "I like to go shopping, take a bus, and see a movie."
+    result_false = enrich({}, kb, cv_text=cv_text_false)
+    assert result_false["skills_detected"] == []
+
+    # Exact uppercase 'Go' and 'C' must match
+    cv_text_true = "Skilled in Go and C programming languages."
+    result_true = enrich({}, kb, cv_text=cv_text_true)
+    assert result_true["skills_detected"] == [
+        {"id": 1, "name": "Go", "category": "Programming Language", "source": "text"},
+        {"id": 2, "name": "C", "category": "Programming Language", "source": "text"},
+    ]
+
+
+def test_skills_detected_long_surface_alias_matched() -> None:
+    """Long aliases in linker.surfaces (> 3 chars) match case-insensitively, short aliases are skipped."""
+    skills = {
+        1: ("Go", "Programming Language"),
+    }
+    # "golang" has len 6 > 3 (included), "g" has len 1 <= 3 (skipped)
+    linker = FakeLinker(surfaces={"golang": 1, "g": 1})
+    kb = FakeKB(linker=linker, skills=skills)
+
+    # Long alias 'golang' matches case-insensitively
+    cv_text = "Experienced in golang development."
+    result = enrich({}, kb, cv_text=cv_text)
+    assert result["skills_detected"] == [
+        {"id": 1, "name": "Go", "category": "Programming Language", "source": "text"}
+    ]
+
+    # Short alias 'g' does not trigger false positives
+    cv_text_short = "A big dog runs in the garden."
+    result_short = enrich({}, kb, cv_text=cv_text_short)
+    assert result_short["skills_detected"] == []
+
+
+def test_skills_detected_finder_cached() -> None:
+    """Finder is constructed once and cached per KB instance."""
+    skills = {
+        1: ("Python", "Programming Language"),
+    }
+    kb = FakeKB(skills=skills)
+    assert getattr(kb, "_skill_finder", None) is None
+
+    # First call constructs finder and stores in cache / kb attribute
+    res1 = enrich({}, kb, cv_text="Python developer")
+    finder1 = getattr(kb, "_skill_finder", None)
+    assert finder1 is not None
+
+    # Second call reuses the cached finder
+    res2 = enrich({}, kb, cv_text="Python developer")
+    finder2 = getattr(kb, "_skill_finder", None)
+    assert finder2 is finder1
+    assert res1["skills_detected"] == res2["skills_detected"]
+
+
+def test_skills_detected_kb_missing_skills_degrades_gracefully() -> None:
+    """Missing or empty skills in KB gracefully skips text scan without raising."""
+    profile = {
+        "personal_info": {"email": "dev@test.com", "phone": "123"},
+        "skills": ["CustomSkill"],
+    }
+    # KB with empty skills
+    kb_empty = FakeKB(skills={})
+    res_empty = enrich(profile, kb_empty, cv_text="Some cv text")
+    assert res_empty["skills_detected"] == []
+
+    # KB is None
+    res_none = enrich(profile, None, cv_text="Some cv text")
+    assert res_none["skills_detected"] == []

@@ -14,7 +14,7 @@ class FakeLlm:
     """Thay thế llama_cpp.Llama: tokenize giả (độ dài cố định) và __call__
     trả về JSON text cố định, không dùng dữ liệu CV thật."""
 
-    def __init__(self, output='{"personal_info": {}}', token_count=100):
+    def __init__(self, output='{"personal_info": {"full_name": "Synthetic Name"}}', token_count=100):
         self.output = output
         self.token_count = token_count
         self.calls = 0
@@ -24,6 +24,12 @@ class FakeLlm:
 
     def __call__(self, prompt, **kwargs):
         self.calls += 1
+        if kwargs.get("stream"):
+            def chunks():
+                for char in self.output:
+                    yield {"choices": [{"text": char, "finish_reason": None}]}
+                yield {"choices": [{"text": "", "finish_reason": "stop"}]}
+            return chunks()
         return {
             "choices": [{"text": self.output}],
             "usage": {

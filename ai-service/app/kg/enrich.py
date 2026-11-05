@@ -6,6 +6,8 @@ import collections
 import copy
 from typing import Any
 
+from app.kb.candidates import CandidateSkillFinder
+
 __all__ = ["enrich"]
 
 
@@ -20,10 +22,80 @@ def _stat_val(stats: dict[str, Any], key: str) -> int:
         return 0
 
 
+def _extract_skill_info(skill_val: Any) -> tuple[str | None, str | None]:
+    """Extract (name, category) from a skill mapping entry."""
+    if isinstance(skill_val, dict):
+        return skill_val.get("name"), skill_val.get("category")
+    if isinstance(skill_val, (tuple, list)):
+        name = skill_val[0] if len(skill_val) >= 1 else None
+        cat = skill_val[1] if len(skill_val) >= 2 else None
+        return name, cat
+    if skill_val is not None:
+        return str(skill_val), None
+    return None, None
+
+
+def _build_skill_finder(kb: Any) -> tuple[CandidateSkillFinder, dict[str, int]] | None:
+    """Build a CandidateSkillFinder from kb.skills and long linker surfaces."""
+    skills_map = getattr(kb, "skills", None)
+    if not isinstance(skills_map, dict) or not skills_map:
+        return None
+
+    surfaces: dict[str, str] = {}
+    name_to_sid: dict[str, int] = {}
+
+    for sid, s_val in skills_map.items():
+        name, _ = _extract_skill_info(s_val)
+        if name and isinstance(name, str) and name.strip():
+            clean_name = name.strip()
+            surfaces[clean_name] = clean_name
+            name_to_sid[clean_name] = sid
+            name_to_sid[clean_name.casefold()] = sid
+
+    linker = getattr(kb, "linker", None)
+    linker_surfaces = getattr(linker, "surfaces", {}) if linker is not None else {}
+    if isinstance(linker_surfaces, dict):
+        for surface, sid in linker_surfaces.items():
+            if not isinstance(surface, str):
+                continue
+            s_clean = surface.strip()
+            # Only use linker surfaces when len > 3 because short surfaces were
+            # casefolded and would cause case-insensitive false positives.
+            if len(s_clean) > 3 and sid in skills_map:
+                c_name, _ = _extract_skill_info(skills_map[sid])
+                if c_name and s_clean not in surfaces:
+                    surfaces[s_clean] = c_name
+
+    finder = CandidateSkillFinder(surfaces=surfaces)
+    return finder, name_to_sid
+
+
+def _get_skill_finder(kb: Any) -> CandidateSkillFinder | None:
+    """Get cached CandidateSkillFinder for kb, building it if necessary."""
+    if kb is None:
+        return None
+
+    cached = getattr(kb, "_skill_finder", None)
+    if isinstance(cached, CandidateSkillFinder):
+        return cached
+
+    built = _build_skill_finder(kb)
+    if built is not None:
+        finder, name_to_sid = built
+        finder._name_to_sid = name_to_sid  # type: ignore[attr-defined]
+        try:
+            setattr(kb, "_skill_finder", finder)  # cached on the KB object (built once per load)
+        except Exception:
+            pass
+        return finder
+    return None
+
+
 def enrich(
     profile: dict[str, Any],
     kb: Any,
     pp_stats: Any = None,
+    cv_text: str | None = None,
 ) -> dict[str, Any]:
     """Enrich an extracted CV profile with canonical entities, implied skills, and flags.
 
@@ -143,7 +215,76 @@ def enrich(
     ]
 
     # -------------------------------------------------------------------------
-    # 3. Normalised education school names
+    # 3. Detected skills (model ∪ cv_text scan)
+    # -------------------------------------------------------------------------
+    model_skills_by_id: dict[int, dict[str, Any]] = {}
+    for item in skills_normalized:
+        sid = item.get("id")
+        if sid is not None and sid not in model_skills_by_id:
+            model_skills_by_id[sid] = item
+
+    skills_detected: list[dict[str, Any]] = []
+    seen_detected_ids: set[int] = set()
+
+    finder = (
+        _get_skill_finder(kb)
+        if (cv_text and isinstance(cv_text, str) and cv_text.strip())
+        else None
+    )
+
+    if finder is not None and cv_text:
+        matched_names = finder.find(cv_text, limit=80)
+        name_to_sid = getattr(finder, "_name_to_sid", None)
+        if not isinstance(name_to_sid, dict):
+            name_to_sid = {}
+            for sid, s_val in skills_map.items():
+                s_name, _ = _extract_skill_info(s_val)
+                if s_name:
+                    name_to_sid[s_name] = sid
+                    name_to_sid[s_name.casefold()] = sid
+
+        for c_name in matched_names:
+            sid = name_to_sid.get(c_name)
+            if sid is None:
+                sid = name_to_sid.get(c_name.casefold())
+            if sid is None:
+                continue
+
+            if sid in seen_detected_ids:
+                continue
+            seen_detected_ids.add(sid)
+
+            s_val = skills_map.get(sid)
+            s_name, s_cat = _extract_skill_info(s_val) if s_val is not None else (None, None)
+            name = s_name or c_name
+            cat = s_cat
+
+            source = "both" if sid in model_skills_by_id else "text"
+            skills_detected.append({
+                "id": sid,
+                "name": name,
+                "category": cat,
+                "source": source,
+            })
+
+    for sid, item in model_skills_by_id.items():
+        if sid not in seen_detected_ids:
+            seen_detected_ids.add(sid)
+            s_val = skills_map.get(sid)
+            s_name, s_cat = _extract_skill_info(s_val) if s_val is not None else (None, None)
+            name = s_name or item.get("name")
+            cat = s_cat if s_cat is not None else item.get("category")
+            skills_detected.append({
+                "id": sid,
+                "name": name,
+                "category": cat,
+                "source": "model",
+            })
+
+    enriched["skills_detected"] = skills_detected
+
+    # -------------------------------------------------------------------------
+    # 4. Normalised education school names
     # -------------------------------------------------------------------------
     link_school_fn = getattr(kb, "link_school", None)
     if "education" in enriched and isinstance(enriched["education"], list):
@@ -163,7 +304,7 @@ def enrich(
                 item["school_normalized"] = school_normalized
 
     # -------------------------------------------------------------------------
-    # 4. Advisory flags
+    # 5. Advisory flags
     # -------------------------------------------------------------------------
     if pp_stats is None:
         stats: dict[str, Any] = {}
