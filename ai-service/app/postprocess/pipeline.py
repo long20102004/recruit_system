@@ -10,6 +10,7 @@ import dataclasses
 from dataclasses import dataclass
 from typing import Any
 
+from app.postprocess.cleanup import cleanup_profile
 from app.postprocess.dates import fix_date_order
 from app.postprocess.grounding import ground_profile
 from app.postprocess.schema import normalize_profile
@@ -32,6 +33,9 @@ class PostprocessStats:
     bullets_merged: int = 0
     dates_swapped: int = 0
     duplicates_removed: int = 0
+    experience_removed_project: int = 0
+    experience_removed_address: int = 0
+    skills_removed_junk: int = 0
 
     def as_dict(self) -> dict[str, int]:
         return {
@@ -49,4 +53,5 @@ def postprocess(data: Any, cv_text: str) -> tuple[dict, PostprocessStats]:
         project["tech_stack"] = clean_skill_list(project.get("tech_stack", []), stats)
     profile = ground_profile(profile, cv_text, stats)
     profile = fix_date_order(profile, stats)
+    profile = cleanup_profile(profile, stats)
     return profile, stats

@@ -14,8 +14,10 @@ class FakeLlm:
     """Thay thế llama_cpp.Llama: tokenize giả (độ dài cố định) và __call__
     trả về JSON text cố định, không dùng dữ liệu CV thật."""
 
-    def __init__(self, output='{"personal_info": {"full_name": "Synthetic Name"}}', token_count=100):
+    def __init__(self, output='{"personal_info": {"full_name": "Synthetic Name"}}', token_count=100,
+                 outputs=None):
         self.output = output
+        self.outputs = outputs
         self.token_count = token_count
         self.calls = 0
 
@@ -23,15 +25,16 @@ class FakeLlm:
         return [0] * self.token_count
 
     def __call__(self, prompt, **kwargs):
+        output = self.outputs[self.calls] if self.outputs is not None else self.output
         self.calls += 1
         if kwargs.get("stream"):
             def chunks():
-                for char in self.output:
+                for char in output:
                     yield {"choices": [{"text": char, "finish_reason": None}]}
                 yield {"choices": [{"text": "", "finish_reason": "stop"}]}
             return chunks()
         return {
-            "choices": [{"text": self.output}],
+            "choices": [{"text": output}],
             "usage": {
                 "prompt_tokens": self.token_count,
                 "completion_tokens": 10,
@@ -42,6 +45,9 @@ class FakeLlm:
 @pytest.fixture(autouse=True)
 def no_model_load(monkeypatch):
     """Chặn load_model thật khi FastAPI startup chạy trong TestClient."""
+    # Legacy fakes intentionally return partial profiles and assert one model call.
+    # Continuation tests opt in explicitly; production still defaults to enabled.
+    monkeypatch.setattr("app.core.config.CONTINUATION_ENABLED", False)
     monkeypatch.setattr("app.main.load_model", lambda: None)
     # Tests opt in to KG enrichment by setting app.kb.store.kb_state["kb"] themselves.
     monkeypatch.setattr("app.main.load_kb", lambda *a, **k: None)

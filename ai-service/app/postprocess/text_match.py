@@ -82,7 +82,17 @@ def normalize_with_map(s: str | None) -> tuple[str, list[int]]:
             char_map.append(orig_idx)
             prev_was_space = False
 
-    return "".join(norm_chars), char_map
+    # A word hyphenated at a line break ("high-\nvolume" -> "high- volume") matches "high-volume":
+    # drop the space after a hyphen that follows a letter/digit and precedes a letter.
+    joined: list[str] = []
+    joined_map: list[int] = []
+    for i, c in enumerate(norm_chars):
+        if (c == " " and i >= 2 and norm_chars[i - 1] == "-" and norm_chars[i - 2].isalnum()
+                and i + 1 < len(norm_chars) and norm_chars[i + 1].isalpha()):
+            continue
+        joined.append(c)
+        joined_map.append(char_map[i])
+    return "".join(joined), joined_map
 
 
 def normalize(s: str | None) -> str:

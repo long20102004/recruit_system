@@ -84,3 +84,14 @@ def test_default_model_file_follows_prompt_version():
             capture_output=True, text=True,
         )
         assert result.stdout.strip().endswith(name), result.stderr
+
+
+
+def test_v4_uses_prompt_v3_and_its_own_model(monkeypatch):
+    """Feature 013: v4 = prompt v3 + model-v4 GGUF."""
+    from app.core import config
+    from app.services import generator, prompt_v3
+
+    monkeypatch.setattr(config, "PROMPT_VERSION", "v4")
+    assert generator.build_prompt("Synthetic CV") == prompt_v3.render_prompt("Synthetic CV")
+    assert config.DEFAULT_GGUF["v4"].endswith("model-v4-q4_k_m.gguf")

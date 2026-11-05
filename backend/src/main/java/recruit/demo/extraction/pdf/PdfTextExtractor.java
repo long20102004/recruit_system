@@ -80,7 +80,8 @@ public class PdfTextExtractor {
             // PDFBox (sortByPosition) can hand one "word" made of glyphs from two columns
             // that share a baseline ("GPA: 7.8 ... 03/2025 IT Engineer"). Split such a run
             // wherever two consecutive glyphs are far apart, so XY-cut can see the gutter.
-            boolean aligned = text.length() == positions.size();
+            // Map each glyph to its offset in `text`; PDFBox may add spaces that have no glyph.
+            int[] offset = alignOffsets(text, positions);
             int start = 0;
             for (int i = 1; i <= positions.size(); i++) {
                 boolean cut = i == positions.size();
@@ -94,11 +95,34 @@ public class PdfTextExtractor {
                 }
                 if (cut) {
                     List<TextPosition> part = positions.subList(start, i);
-                    String partText = aligned ? text.substring(start, i) : unicode(part);
+                    String partText = offset != null
+                            ? text.substring(offset[start], i == positions.size() ? text.length() : offset[i])
+                            : (start == 0 && i == positions.size() ? text : unicode(part));
                     if (!partText.isBlank()) addRun(partText.strip(), part);
                     start = i;
                 }
             }
+        }
+
+        /** offsets[i] = index in text where glyph i starts, or null when text and glyphs disagree. */
+        private static int[] alignOffsets(String text, List<TextPosition> positions) {
+            int[] offsets = new int[positions.size()];
+            int t = 0;
+            for (int i = 0; i < positions.size(); i++) {
+                String u = positions.get(i).getUnicode();
+                if (u == null || u.isEmpty()) {
+                    return null;
+                }
+                while (t < text.length() && Character.isWhitespace(text.charAt(t)) && !u.isBlank()) {
+                    t++;
+                }
+                if (!text.startsWith(u, t)) {
+                    return null;
+                }
+                offsets[i] = t;
+                t += u.length();
+            }
+            return offsets;
         }
 
         private static String unicode(List<TextPosition> part) {
@@ -109,7 +133,7 @@ public class PdfTextExtractor {
                     float gap = p.getXDirAdj() - (prev.getXDirAdj() + prev.getWidthDirAdj());
                     float sp = Float.isFinite(prev.getWidthOfSpace()) && prev.getWidthOfSpace() > 0
                             ? prev.getWidthOfSpace() : prev.getHeightDir() * 0.5f;
-                    if (gap > 0.5f * sp && !sb.isEmpty() && sb.charAt(sb.length() - 1) != ' ') sb.append(' ');
+                    if (gap > 0.8f * sp && !sb.isEmpty() && sb.charAt(sb.length() - 1) != ' ') sb.append(' ');
                 }
                 if (p.getUnicode() != null) sb.append(p.getUnicode());
                 prev = p;
@@ -301,9 +325,75 @@ public class PdfTextExtractor {
             return;
         }
 
-        // A leaf is a block; join narrow date/label segments back into their rows.
+        // A leaf is a block. A narrow side strip (dates, labels) next to wide text is not a column,
+        // but reading it row by row breaks wrapped titles ("Junior Automation | 10/2022 - | Engineer").
+        // Emit each wide paragraph first, then the strip segments beside it.
+        List<RawLine> narrow = narrowStrip(region, byX, regionWidth, glyphHeight);
+        if (!narrow.isEmpty()) {
+            List<RawLine> wide = new ArrayList<>(region);
+            wide.removeAll(narrow);
+            List<RawLine> wideRows = joinRows(wide);
+            List<RawLine> strip = joinRows(narrow);
+            List<RawLine> ordered = new ArrayList<>();
+            int s = 0;
+            for (int r = 0; r < wideRows.size(); r++) {
+                RawLine row = wideRows.get(r);
+                ordered.add(row);
+                RawLine next = r + 1 < wideRows.size() ? wideRows.get(r + 1) : null;
+                boolean paragraphEnds = next == null
+                        || next.y - row.y > Math.max(next.h, row.h) * 1.6f
+                        || Math.abs(next.x0 - row.x0) > 3f;
+                if (paragraphEnds) {
+                    while (s < strip.size() && strip.get(s).y <= row.y + row.h * 0.6f) {
+                        ordered.add(strip.get(s++));
+                    }
+                }
+            }
+            while (s < strip.size()) {
+                ordered.add(strip.get(s++));
+            }
+            blocks.add(toBlock(page, orderBase + blocks.size(), ordered));
+            return;
+        }
+        List<RawLine> rows = joinRows(region);
+        blocks.add(toBlock(page, orderBase + blocks.size(), rows));
+    }
+
+    /** Segments of a narrow strip on one side of a gutter (extent < 25 % of the region), else empty. */
+    private List<RawLine> narrowStrip(List<RawLine> region, List<RawLine> byX, float regionWidth, float glyphHeight) {
+        float end = byX.getFirst().x1;
+        for (int i = 1; i < byX.size(); i++) {
+            float gap = byX.get(i).x0 - end;
+            if (gap >= Math.max(6f, 0.8f * glyphHeight)) {
+                List<RawLine> left = byX.subList(0, i);
+                List<RawLine> right = byX.subList(i, byX.size());
+                float leftExtent = extent(left);
+                float rightExtent = extent(right);
+                if (rightExtent < regionWidth * 0.25f && leftExtent >= regionWidth * 0.25f && right.size() >= 2) {
+                    return new ArrayList<>(right);
+                }
+                if (leftExtent < regionWidth * 0.25f && rightExtent >= regionWidth * 0.25f && left.size() >= 2) {
+                    return new ArrayList<>(left);
+                }
+            }
+            end = Math.max(end, byX.get(i).x1);
+        }
+        return List.of();
+    }
+
+    private static float extent(List<RawLine> segments) {
+        float x0 = Float.MAX_VALUE;
+        float x1 = -Float.MAX_VALUE;
+        for (RawLine l : segments) {
+            x0 = Math.min(x0, l.x0);
+            x1 = Math.max(x1, l.x1);
+        }
+        return x1 - x0;
+    }
+
+    private List<RawLine> joinRows(List<RawLine> segments) {
         List<RawLine> rows = new ArrayList<>();
-        List<RawLine> byY = new ArrayList<>(region);
+        List<RawLine> byY = new ArrayList<>(segments);
         byY.sort(Comparator.comparingDouble((RawLine l) -> l.y).thenComparingDouble(l -> l.x0));
         for (RawLine segment : byY) {
             RawLine row = rows.isEmpty() ? null : rows.getLast();
@@ -318,7 +408,7 @@ public class PdfTextExtractor {
             row.x0 = Math.min(row.x0, segment.x0);
             row.x1 = Math.max(row.x1, segment.x1);
         }
-        blocks.add(toBlock(page, orderBase + blocks.size(), rows));
+        return rows;
     }
 
     /**

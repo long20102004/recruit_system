@@ -23,7 +23,7 @@ from app.postprocess.schema import ITEM_KEYS, PERSONAL_INFO_KEYS
 from app.postprocess.text_match import contains, normalize
 
 
-LAYOUTS = tuple(f"L{i}" for i in range(1, 11))
+LAYOUTS = tuple(f"L{i}" for i in range(1, 15))
 PROGRAMMING_LANGUAGES = {
     "java", "javascript", "typescript", "python", "go", "golang", "c", "c++",
     "c#", "csharp", "c sharp", "php", "ruby", "rust", "kotlin", "swift",
@@ -136,8 +136,24 @@ def _e(value: object) -> str:
     return "" if value is None else html.escape(str(value), quote=True)
 
 
+def _record_date(value: str) -> tuple[str, str]:
+    """Split only a trailing parenthesized date, not certification qualifiers."""
+    match = re.search(r"\s*\(([^()]*\b(?:19|20)\d{2}[^()]*)\)\s*$", value)
+    return (value[:match.start()].rstrip(), match[1]) if match else (value, "")
+
+
+def layout_label(profile: dict, layout: str) -> dict:
+    """Copy v3 labels, adjusting only names printed without their date suffix."""
+    if layout not in LAYOUTS:
+        raise ValueError("Unknown layout")
+    label = deepcopy(profile)
+    if layout in ("L11", "L13"):
+        label["certificates"] = [_record_date(v)[0] for v in profile["certificates"]]
+    return label
+
+
 def render_html(record: dict, layout: str) -> str:
-    """Build one of ten layouts, escaping all supplied content verbatim."""
+    """Build one of fourteen layouts, escaping all supplied content."""
     if layout not in LAYOUTS:
         raise ValueError("Unknown layout")
     p, x = record["profile"], record["extras"]
@@ -146,7 +162,7 @@ def render_html(record: dict, layout: str) -> str:
     titles = dict(zip(
         ("summary", "experience", "education", "skills", "certificates", "honours", "languages", "projects"),
         ("Mục tiêu nghề nghiệp", "KINH NGHIỆM LÀM VIỆC", "HỌC VẤN", "KỸ NĂNG", "CHỨNG CHỈ", "GIẢI THƯỞNG", "NGOẠI NGỮ", "DỰ ÁN")
-        if layout == "L3" and vi else
+        if layout in ("L3", "L11", "L12", "L13", "L14") and vi else
         ("Objective" if layout == "L8" else "Summary", "Work Experience", "Education", "Skills", "Certifications", "Awards", "Languages", "Projects"),
     ))
 
@@ -181,7 +197,11 @@ def render_html(record: dict, layout: str) -> str:
     for job in p["experience"]:
         company, title = _e(job["company"]), _e(job["job_title"])
         date, desc = dates(job), bullets(job["description"])
-        if layout == "L4":
+        if layout == "L11":
+            body = (f'<p class="end-date">{_e(job["end_date"]) if job["end_date"] is not None else present}</p>'
+                    f'<p><strong>{company}</strong></p><p>{title}</p>{desc}'
+                    f'<p class="start-date">{_e(job["start_date"])}</p>')
+        elif layout == "L4":
             body = f'<p>{company} — {_e(city)} | {title} | {date}</p>{desc}'
         elif layout == "L5":
             body = f'<table><tr><td><p>{title}</p><p>{company}, {_e(city)}</p></td><td class="date">{date}</td></tr></table>{desc}'
@@ -190,14 +210,28 @@ def render_html(record: dict, layout: str) -> str:
         else:
             body = f"<p>{company} | {title}</p><p>{date}</p>{desc}"
         jobs.append(f'<div class="entry">{body}</div>')
-    experience = section("experience", "".join(jobs))
+    experience = section("experience", "".join(jobs),
+                         ("Quá trình làm việc" if vi else "Career") if layout == "L14" else None)
     education = section("education", "".join(
         '<div class="entry">' + paragraph(item["school"]) + paragraph(item["major"])
         + paragraph(dates(item, True)) + paragraph(item["gpa"]) + "</div>"
         for item in p["education"]
     ))
     groups = x["skill_groups"]
-    if layout == "L8":
+    if layout in ("L11", "L12"):
+        skill_lines = []
+        for g in groups:
+            items = g["items"]
+            if len(items) >= (2 if layout == "L11" else 4):
+                stop = min(4, len(items))
+                text = items[0] + " (" + ", ".join(items[1:stop]) + ")"
+                if items[stop:]:
+                    text += ", " + ", ".join(items[stop:])
+            else:
+                text = ", ".join(items)
+            skill_lines.append(paragraph(g["group"] + ": " + text))
+        skill_body = "".join(skill_lines)
+    elif layout == "L8":
         skill_body = paragraph("Skills: " + ", ".join(p["skills"])) if p["skills"] else ""
     elif layout == "L6":
         skill_body = "<table>" + "".join(
@@ -213,20 +247,55 @@ def render_html(record: dict, layout: str) -> str:
                         if layout == "L8" and language_values else "".join(map(paragraph, language_values)))
     certificates = section("certificates", bullets(p["certificates"]))
     honours = section("honours", bullets(p["honours"]))
+    if layout in ("L11", "L13"):
+        def two_line_records(values: list[str], detail: bool = False, keep_date: bool = False) -> str:
+            result = []
+            for value in values:
+                name, date = _record_date(value)
+                if keep_date and date:
+                    date = "(" + date + ")"
+                elif keep_date:
+                    trailing = re.search(r"\s+((?:19|20)\d{2})$", value)
+                    if trailing:
+                        name, date = value[:trailing.start()], trailing[1]
+                body = f'<p class="record-name"><strong>{_e(name)}</strong></p><p class="record-date">{_e(date)}</p>'
+                if detail:
+                    body += paragraph(", ".join(p["skills"][:3]))
+                result.append(f'<div class="entry record">{body}</div>')
+            return "".join(result)
+
+        certificates = section("certificates", two_line_records(p["certificates"], layout == "L11"))
+        if layout == "L13":
+            honours = section("honours", two_line_records(p["honours"], keep_date=True))
+            languages = section("languages", "".join(
+                '<div class="entry record">' + paragraph(item["language"]) + paragraph(item["note"]) + '</div>'
+                for item in p["languages"]
+            ))
     if layout == "L9":
         certificates = section("certificates", "<p>Certifications:</p>" + bullets(p["certificates"])
                                + "<p>Awards:</p>" + bullets(p["honours"]), "Certifications & Awards")
         honours = ""
     projects = []
     for item in p["personal_projects"]:
-        body = paragraph(item["name"])
+        body = (f'<p><strong>{_e(item["name"])}</strong></p>' if layout == "L11"
+                else paragraph(item["name"]))
         if item["role"] is not None:
             body += paragraph("Role: " + item["role"])
         if item["team_size"] is not None:
             body += paragraph(f'Team size: {item["team_size"]}')
-        body += paragraph(dates(item)) + paragraph(item["github_url"]) + bullets(item["description"])
+        body += paragraph(dates(item)) + paragraph(item["github_url"])
+        if layout == "L11":
+            prefixes = ("Mô tả", "Thành tựu") if vi else ("Description", "Achievements")
+            for i, value in enumerate(item["description"]):
+                body += paragraph("- " + prefixes[min(i, 1)] + ": " + value)
+                if i == 0 and item["tech_stack"]:
+                    body += paragraph(("- Công nghệ: " if vi else "- Technologies: ") + ", ".join(item["tech_stack"]))
+            if not item["description"] and item["tech_stack"]:
+                body += paragraph(("- Công nghệ: " if vi else "- Technologies: ") + ", ".join(item["tech_stack"]))
+        else:
+            body += bullets(item["description"])
         tech = item["tech_stack"]
-        if tech:
+        if tech and layout != "L11":
             if layout == "L7":
                 split = (len(tech) + 1) // 2
                 text = "Backend(" + ", ".join(tech[:split]) + ")"
@@ -237,7 +306,35 @@ def render_html(record: dict, layout: str) -> str:
                 body += paragraph("Tech: " + ", ".join(tech))
         projects.append(f'<div class="entry">{body}</div>')
     projects_html = section("projects", "".join(projects))
-    if layout == "L2":
+    if layout == "L11":
+        projects_html = section("projects", paragraph(present) + "".join(projects)
+                                + paragraph("Tương lai" if vi else "Future")) if projects else ""
+
+        def columns(left: str, right: str) -> str:
+            return ('<table class="columns"><tr><td class="sidebar" width="38%" valign="top">'
+                    + left + '</td><td width="4%"></td><td width="58%" valign="top">'
+                    + right + '</td></tr></table>')
+
+        left = education + certificates + honours + languages
+        if len(jobs) >= 2:
+            body = header + columns(left, summary + section("experience", jobs[0]))
+            # Writer's HTML importer honors breaks on paragraphs, not divs/tables.
+            body += '<p class="continuation" style="page-break-before: always">&#160;</p>' + columns(
+                skills + projects_html, "".join(jobs[1:]))
+        else:
+            body = header + columns(left + skills + projects_html, summary + experience)
+    elif layout == "L13":
+        pairs = ((summary, skills), (experience, projects_html), (certificates, honours),
+                 (education, languages))
+        body = header + '<table class="columns records">' + "".join(
+            # A spacer column keeps a realistic gutter (~24 pt); with ~7 pt even a reader cannot tell
+            # the column gap from a word gap.
+            f'<tr><td width="47%" valign="top">{left}</td><td width="6%">&#160;</td>'
+            f'<td width="47%" valign="top">{right}</td></tr>'
+            for left, right in pairs) + '</table>'
+    elif layout == "L14":
+        body = header + summary + projects_html + experience + skills + certificates + honours + languages + education
+    elif layout == "L2":
         # Explicit HTML widths/valign are respected by LibreOffice's HTML importer
         # more consistently than CSS alone (especially on table cells).
         body = header + f'<table class="columns"><tr><td class="sidebar" width="32%" valign="top">{contact}{skills}{languages}{certificates}</td><td width="68%" valign="top">{summary}{experience}{projects_html}{education}{honours}</td></tr></table>'
@@ -263,6 +360,14 @@ def render_html(record: dict, layout: str) -> str:
     """
     if layout == "L9":
         css += "h2 { border-bottom: 1pt solid #555; padding-bottom: 3pt; }"
+    if layout == "L11":
+        css += """
+            .sidebar { width: 38%; background: #264653; color: white; }
+            .sidebar p, .sidebar h2 { color: white; }
+            .entry { border-left: 1pt solid #718096; padding-left: 6pt; }
+            .end-date { margin-top: 0; }
+            .continuation { page-break-before: always; }
+        """
     return f'<!DOCTYPE html><html lang="{record["lang"]}"><head><meta charset="utf-8"><title>CV</title><style>{css}</style></head><body>{body}</body></html>'
 
 
@@ -341,15 +446,19 @@ def extract_text(pdf: Path, backend: str) -> str:
     return result["text"]
 
 
-def run(profiles: Path, out: Path, backend: str, limit: int | None = None, layout_offset: int = 0) -> dict:
+def run(profiles: Path, out: Path, backend: str, limit: int | None = None, layout_offset: int = 0,
+        layouts: tuple[str, ...] | None = None, pdf_only: bool = False) -> dict:
     if not profiles.is_dir():
         raise ValueError("Profiles directory does not exist")
     if limit is not None and limit < 0:
         raise ValueError("Limit must be nonnegative")
+    rotation = LAYOUTS if layouts is None else layouts
+    if not rotation or any(layout not in LAYOUTS for layout in rotation):
+        raise ValueError("Layouts must be a nonempty comma-separated list of L1–L14")
     if not shutil.which("soffice"):
         raise RuntimeError("soffice is required")
     records, invalid = load_profiles(profiles)
-    selected = [(r, LAYOUTS[(i + layout_offset) % len(LAYOUTS)]) for i, r in enumerate(records)][:limit]
+    selected = [(r, rotation[(i + layout_offset) % len(rotation)]) for i, r in enumerate(records)][:limit]
     for directory in (out / "html", out / "pdf", out / "tmp"):
         directory.mkdir(parents=True, exist_ok=True)
     summary = {"rendered": 0, "by_layout": Counter(), "by_level": Counter(),
@@ -376,23 +485,28 @@ def run(profiles: Path, out: Path, backend: str, limit: int | None = None, layou
                     raise RuntimeError("LibreOffice did not produce every PDF")
                 shutil.move(str(pdf), out / "pdf" / pdf.name)
         # Publish JSONL atomically, so failures do not leave a partial dataset.
-        rendered = work / "rendered.jsonl"
+        filename = "labels.jsonl" if pdf_only else "rendered.jsonl"
+        rendered = work / filename
         with rendered.open("w", encoding="utf-8") as target:
             for record, layout in selected:
-                try:
-                    text = extract_text(out / "pdf" / f'{record["id"]}.pdf', backend)
-                except Exception:
-                    raise RuntimeError("PDFBox extraction failed; check backend availability/response") from None
-                label, dropped = ground_label(record["profile"], text)
+                label, dropped = layout_label(record["profile"], layout), Counter()
+                if not pdf_only:
+                    try:
+                        text = extract_text(out / "pdf" / f'{record["id"]}.pdf', backend)
+                    except Exception:
+                        raise RuntimeError("PDFBox extraction failed; check backend availability/response") from None
+                    label, dropped = ground_label(label, text)
                 row = {key: record[key] for key in ("id", "level", "lang")}
-                row.update(layout=layout, input=text, output=json.dumps(label, ensure_ascii=False))
+                row.update(layout=layout, output=json.dumps(label, ensure_ascii=False))
+                if not pdf_only:
+                    row["input"] = text
                 target.write(json.dumps(row, ensure_ascii=False) + "\n")
                 summary["rendered"] += 1
                 for key in ("layout", "level", "lang"):
                     summary[f"by_{key}"][layout if key == "layout" else record[key]] += 1
                 summary["dropped_values_by_field"].update(dropped)
                 summary["dropped_values_by_layout"][layout].update(dropped)
-        rendered.replace(out / "rendered.jsonl")
+        rendered.replace(out / filename)
     (out / "render_summary.json").write_text(json.dumps(summary, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     return summary
 
@@ -404,9 +518,12 @@ def main() -> None:
     parser.add_argument("--backend", default="http://localhost:8080")
     parser.add_argument("--limit", type=int)
     parser.add_argument("--layout-offset", type=int, default=0, help="shift the layout rotation (second rendering pass)")
+    parser.add_argument("--layouts", help="comma-separated layout rotation, e.g. L11,L12,L13,L14")
+    parser.add_argument("--pdf-only", action="store_true", help="render PDFs and labels.jsonl without backend extraction")
     args = parser.parse_args()
     try:
-        summary = run(args.profiles, args.out, args.backend, args.limit, args.layout_offset)
+        layouts = tuple(value.strip() for value in args.layouts.split(",")) if args.layouts is not None else None
+        summary = run(args.profiles, args.out, args.backend, args.limit, args.layout_offset, layouts, args.pdf_only)
     except (ValueError, RuntimeError) as exc:
         parser.exit(1, f"{exc}\n")
     print(json.dumps(summary, ensure_ascii=False))

@@ -181,3 +181,12 @@ def test_find_span_short_name_requires_whole_word():
 
 def test_find_span_long_truncated_value_still_widens():
     assert find_span("FPT Softwar", "Công ty FPT Software") == "FPT Software"
+
+
+
+def test_line_break_hyphenation_matches():
+    """'high-volume' wrapped as 'high-\nvolume' still matches; a spaced dash is kept."""
+    from app.postprocess.text_match import contains, normalize
+
+    assert contains(normalize("reducing response times for high-\nvolume invoice reports"), "high-volume invoice")
+    assert normalize("Java - Spring") == "java - spring"
