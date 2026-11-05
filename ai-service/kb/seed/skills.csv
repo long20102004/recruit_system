@@ -1,499 +1,814 @@
-id,name,category,reviewed
-1,.NET,Framework/Library,true
-2,.Net Core,Framework/Library,true
-3,.NET Core 8 API,Framework/Library,true
-4,.NET Core API,Framework/Library,true
-5,.NET Framework,Framework/Library,true
-6,Ability to quickly learn and adapt to new technologies,Soft Skill,true
-7,Acceptance Criteria,Business Analysis,true
-8,Active Directory,Tool/Platform,true
-9,Adaptability,Soft Skill,true
-10,Agentic RAG,Data/AI,true
-11,Agile/Scrum,Methodology/Concept,true
-12,AI tools to optimize workflows and improve efficiency,Data/AI,true
-13,Airflow,Data/AI,true
-14,Ajax,Frontend,true
-15,Al & Computer Vision,Data/AI,true
-16,Algorithms & Data Structures,Methodology/Concept,true
-17,Alpha-Beta / PVS Search,Methodology/Concept,true
-18,Anaconda,Tool/Platform,true
-19,Analytical Thinking,Soft Skill,true
-20,Android SDK,Mobile,true
-21,Android Studio,Tool/Platform,true
-22,Angular,Frontend,true
-23,Angular (primeng),Frontend,true
-24,Ansible,DevOps/CI-CD,true
-25,Ant Design,Frontend,true
-26,Apache Ant,DevOps/CI-CD,true
-27,API,Methodology/Concept,true
-28,Api Google Drive,Tool/Platform,true
-29,API Testing,Testing/QA,true
-30,ArcFace,Data/AI,true
-31,ArgoCD,DevOps/CI-CD,true
-32,ARP,Methodology/Concept,true
-33,ASP.NET (C#),Framework/Library,true
-34,ASP.NET 8.0,Framework/Library,true
-35,ASP.NET API,Framework/Library,true
-36,ASP.NET Core,Framework/Library,true
-37,ASP.NET Core MVC,Framework/Library,true
-38,ASP.NET Core MVC / Web API,Framework/Library,true
-39,ASP.NET Core Web API,Framework/Library,true
-40,ASP.NET Identity,Framework/Library,true
-41,ASP.NET MVC,Framework/Library,true
-42,ASP.NET MVC Core 6.x,Framework/Library,true
-43,ASP.NET WEB API,Framework/Library,true
-44,"Authentication (OAuth2, JWT)",Security,true
-45,Authentication and authorization with Spring Security,Security,true
-46,AutoMapper,Framework/Library,true
-47,AWS,Cloud,true
-48,AWS S3,Cloud,true
-49,Axios,Frontend,true
-50,Azure,Cloud,true
-51,Bash,Programming Language,true
-52,Batch Normalization,Data/AI,true
-53,Bcrypt,Security,true
-54,Biome,Tool/Platform,true
-55,Biết sử dụng Python trong xử lý và phân tích dữ liệu,Data/AI,true
-56,Biết ứng dụng AI để hỗ trợ nghiên cứu,Data/AI,true
-57,Blade,Frontend,true
-58,BLEU,Data/AI,true
-59,Bootstrap,Frontend,true
-60,bounding-box annotation,Data/AI,true
-61,BPMN,Business Analysis,true
-62,BRD/SRS,Business Analysis,true
-63,Brevo,Tool/Platform,true
-64,Bucket4j,Framework/Library,true
-65,Builder,Methodology/Concept,true
-66,Burp Suite,Security,true
-67,C,Programming Language,true
-68,C#,Programming Language,true
-69,C# .NET MAUI,Mobile,true
-70,C# .NET Windows Form,Framework/Library,true
-71,C# MVC,Framework/Library,true
-72,C++,Programming Language,true
-73,Can collaborate with other members to develop features without difficult,Soft Skill,true
-74,Capable of working independently and in teams,Soft Skill,true
-75,Cassandra,Database,true
-76,Celery,Framework/Library,true
-77,Charles Proxy,Tool/Platform,true
-78,Charles/Fiddler,Tool/Platform,true
-79,Checkmk,DevOps/CI-CD,true
-80,Chẩn đoán và xử lý sự cố mạng cơ bản,Methodology/Concept,true
-81,CI/CD,DevOps/CI-CD,true
-82,CIS Docker Benchmark,Security,true
-83,Clean Architecture,Methodology/Concept,true
-84,Cleck,Security,true
-85,Cloud Infrastructure and System Design,Cloud,true
-86,Cloudinary,Cloud,true
-87,CNN,Data/AI,true
-88,Communication,Soft Skill,true
-89,Conda,Tool/Platform,true
-90,Confluence,Tool/Platform,true
-91,Context API,Frontend,true
-92,CORS,Security,true
-93,CQRS,Methodology/Concept,true
-94,Cross-Site Scripting (XSS) prevention,Security,true
-95,CSS,Frontend,true
-96,CSS3,Frontend,true
-97,Cut HTML + CSS from Figma,Frontend,true
-98,Cypress,Testing/QA,true
-99,Cài đặt & quản trị WordPress,Tool/Platform,true
-100,Cài đặt và cấu hình hệ điều hành,Tool/Platform,true
-101,Có khả năng tự học và làm việc tốt,Soft Skill,true
-102,Có khả năng đánh giá và thử nghiệm mô hình AI,Data/AI,true
-103,Có khả năng đọc hiểu tài liệu và giao tiếp Tiếng Anh ở mức cơ bản,Soft Skill,true
-104,Dapper,Framework/Library,true
-105,Dart,Programming Language,true
-106,data filtering,Data/AI,true
-107,Data preprocessing,Data/AI,true
-108,dbt,Data/AI,true
-109,Dependency Injection,Methodology/Concept,true
-110,Design Patterns,Methodology/Concept,true
-111,DHCP,Methodology/Concept,true
-112,DigitalOcean,Cloud,true
-113,Distributed systems concepts,Methodology/Concept,true
-114,Docker,DevOps/CI-CD,true
-115,Docker Compose,DevOps/CI-CD,true
-116,Draw.io,Design/UI-UX,true
-117,Dropout,Data/AI,true
-118,DTO,Methodology/Concept,true
-119,Easy to understanding request from Leader to develop features,Soft Skill,true
-120,EJS,Frontend,true
-121,Elasticsearch,Database,true
-122,ELK Stack,DevOps/CI-CD,true
-123,Eloquent,Framework/Library,true
-124,Email API,Tool/Platform,true
-125,EmailJS,Tool/Platform,true
-126,embedding extraction,Data/AI,true
-127,English Proficiency,Soft Skill,true
-128,English Reading Comprehension,Soft Skill,true
-129,ensemble classifiers,Data/AI,true
-130,Entity Framework,Framework/Library,true
-131,Entity Framework Core,Framework/Library,true
-132,ERD Creation,Database,true
-133,ETL,Data/AI,true
-134,"Evaluation Metrics (ROUGE, BLEU, Perplexity)",Data/AI,true
-135,Event-driven architecture,Methodology/Concept,true
-136,Excel,Tool/Platform,true
-137,ExpressJS,Framework/Library,true
-138,face recognition,Data/AI,true
-139,Factory,Methodology/Concept,true
-140,Fast detect and fixbug when problem has raised,Soft Skill,true
-141,FastAPI,Framework/Library,true
-142,Fastify,Framework/Library,true
-143,FFT,Data/AI,true
-144,Figma,Design/UI-UX,true
-145,Figma Prototype,Design/UI-UX,true
-146,"Fine-tuning (SFT, LoRA)",Data/AI,true
-147,Firebase,Cloud,true
-148,Firebase Authentication,Security,true
-149,Firebase Realtime Database,Database,true
-150,Firebase Storage,Cloud,true
-151,Firewall,Security,true
-152,Flutter,Mobile,true
-153,FreePBX,Tool/Platform,true
-154,GCP,Cloud,true
-155,Genymotion,Tool/Platform,true
-156,Git,Tool/Platform,true
-157,GitHub,Tool/Platform,true
-158,GitHub Actions,DevOps/CI-CD,true
-159,GitLab,Tool/Platform,true
-160,GitLab CI/CD,DevOps/CI-CD,true
-161,Glide,Mobile,true
-162,Go,Programming Language,true
-163,Google BigQuery,Database,true
-164,Google Gemini API,Data/AI,true
-165,Google OAuth2,Security,true
-166,GPO,Security,true
-167,Gradient Boost,Data/AI,true
-168,Gradle,DevOps/CI-CD,true
-169,Grafana,DevOps/CI-CD,true
-170,GraphQL,Methodology/Concept,true
-171,Groq API,Data/AI,true
-172,gRPC,Methodology/Concept,true
-173,H2 Database,Database,true
-174,Hadoop,Data/AI,true
-175,HangFire,Framework/Library,true
-176,Helm,DevOps/CI-CD,true
-177,heuristic/adversarial search,Data/AI,true
-178,Hibernate,Framework/Library,true
-179,HLS streaming,Methodology/Concept,true
-180,HTML,Frontend,true
-181,HTML5,Frontend,true
-182,HttpSession,Framework/Library,true
-183,Hybrid Search,Data/AI,true
-184,hyperparameter tuning,Data/AI,true
-185,hòa đồng,Soft Skill,true
-186,học hỏi trao đồi kinh nghiệm,Soft Skill,true
-187,Hỗ trợ phần mềm cơ bản,Tool/Platform,true
-188,i18n,Methodology/Concept,true
-189,IAM,Security,true
-190,Identity,Framework/Library,true
-191,IIS Express,Tool/Platform,true
-192,Illustrator,Design/UI-UX,true
-193,image/video processing,Data/AI,true
-194,Infrastructure-as-Code (IaC),DevOps/CI-CD,true
-195,inheritance,Methodology/Concept,true
-196,Inngest,Tool/Platform,true
-197,IntelliJ IDEA,Tool/Platform,true
-198,Interceptor,Methodology/Concept,true
-199,Intermediate level in English,Soft Skill,true
-200,IPv4,Methodology/Concept,true
-201,ISO 27001,Security,true
-202,iTextPDF,Framework/Library,true
-203,JasperReports & Fonts,Tool/Platform,true
-204,Java,Programming Language,true
-205,Java EE 7,Framework/Library,true
-206,Java Spring boot (primefaces),Framework/Library,true
-207,JavaFX,Framework/Library,true
-208,JavaScript,Programming Language,true
-209,JavaServlet,Framework/Library,true
-210,Jenkins,DevOps/CI-CD,true
-211,Jest,Testing/QA,true
-212,Jira,Tool/Platform,true
-213,JMeter,Testing/QA,true
-214,JPA,Framework/Library,true
-215,jQuery,Frontend,true
-216,JSON API (javax.json & GlassFish),Framework/Library,true
-217,JSP,Frontend,true
-218,JSP/JSTL,Frontend,true
-219,Junit,Testing/QA,true
-220,JWT,Security,true
-221,JwtBearer,Security,true
-222,Kafka,Tool/Platform,true
-223,Kali Linux,Security,true
-224,Kanban,Methodology/Concept,true
-225,khám phá những kiến thức mới,Soft Skill,true
-226,Khả năng làm việc nhóm và độc lập,Soft Skill,true
-227,Kiến thức cơ bản về Trí tuệ nhân tạo và Machine Learning,Data/AI,true
-228,KNN,Data/AI,true
-229,Kotlin,Programming Language,true
-230,Kubernetes,DevOps/CI-CD,true
-231,Kỹ năng quản lý dự án,Soft Skill,true
-232,Laravel,Framework/Library,true
-233,Lark,Tool/Platform,true
-234,Leadership,Soft Skill,true
-235,learn new knowledge technologies,Soft Skill,true
-236,LINQ,Framework/Library,true
-237,Linux,Tool/Platform,true
-238,Liquibase,Database,true
-239,Listening and Learning,Soft Skill,true
-240,ListView,Mobile,true
-241,Llama-3.1-8B,Data/AI,true
-242,LlamaIndex,Data/AI,true
-243,Logical Thinking,Soft Skill,true
-244,Lombok,Framework/Library,true
-245,Lumen,Framework/Library,true
-246,Làm việc độc lập,Soft Skill,true
-247,Machine Learning,Data/AI,true
-248,Manual Testing,Testing/QA,true
-249,MapStruct,Framework/Library,true
-250,Marten ORM,Framework/Library,true
-251,Material Design,Design/UI-UX,true
-252,Material UI,Frontend,true
-253,Maven,DevOps/CI-CD,true
-254,MDB React UI Kit,Frontend,true
-255,MDXContent,Frontend,true
-256,MediaPlayer API,Mobile,true
-257,MediatR,Framework/Library,true
-258,Memory Cache,Database,true
-259,Metasploit,Security,true
-260,Microservices,Methodology/Concept,true
-261,Microsoft SQL Server JDBC Driver,Database,true
-262,Minial API,Framework/Library,true
-263,MLflow,Data/AI,true
-264,MobileNetV2,Data/AI,true
-265,Mockito,Testing/QA,true
-266,model training,Data/AI,true
-267,MongoDB,Database,true
-268,MongoDB Atlas,Database,true
-269,Monolithic,Methodology/Concept,true
-270,Moodle,Tool/Platform,true
-271,Multer,Framework/Library,true
-272,MVC,Methodology/Concept,true
-273,MVVM (Model-View-ViewModel),Methodology/Concept,true
-274,MySQL,Database,true
-275,MySQL Workbench,Tool/Platform,true
-276,Mô hình hóa nghiệp vụ,Business Analysis,true
-277,N-Layer,Methodology/Concept,true
-278,NAT,Methodology/Concept,true
-279,NEO4J,Database,true
-280,Nessus,Security,true
-281,NestJS,Framework/Library,true
-282,Network Security,Security,true
-283,Networking,Methodology/Concept,true
-284,Next.js,Frontend,true
-285,Nginx,DevOps/CI-CD,true
-286,Nmap,Security,true
-287,Node.js,Framework/Library,true
-288,NodeJS (LoopBack 4),Framework/Library,true
-289,NodeJS REST API,Framework/Library,true
-290,Nodemailer,Framework/Library,true
-291,Nodemon,Tool/Platform,true
-292,NumPy,Data/AI,true
-293,NuxtJS,Frontend,true
-294,OAuth2,Security,true
-295,object detection,Data/AI,true
-296,Observer,Methodology/Concept,true
-297,Ocelot API Gateway,Framework/Library,true
-298,Office Software,Tool/Platform,true
-299,ONS,Methodology/Concept,true
-300,OOP,Methodology/Concept,true
-301,OpenCV,Data/AI,true
-302,OpenFeign,Framework/Library,true
-303,OpenStack,Cloud,true
-304,OpenWRT,Tool/Platform,true
-305,Oracle,Database,true
-306,ORM,Methodology/Concept,true
-307,OSPF,Methodology/Concept,true
-308,OWASP Top 10,Security,true
-309,Pandas,Data/AI,true
-310,particularly in logical reasoning and analytical thinking,Soft Skill,true
-311,"Passport (JWT, session-based)",Security,true
-312,pfSense,Security,true
-313,Photoshop,Design/UI-UX,true
-314,PHP,Programming Language,true
-315,Phân quyền trên Windows,Security,true
-316,Phân tích nghiệp vụ,Business Analysis,true
-317,Playwright,Testing/QA,true
-318,PostgreSQL,Database,true
-319,Postman,Tool/Platform,true
-320,Power BI,Data/AI,true
-321,"PowerDesigner (UML, ERD)",Business Analysis,true
-322,Powerpoint,Tool/Platform,true
-323,prediction-confidence estimation,Data/AI,true
-324,Presentation,Soft Skill,true
-325,Prisma,Framework/Library,true
-326,Prisma Studio,Tool/Platform,true
-327,Problem Solving,Soft Skill,true
-328,Process Modeling,Business Analysis,true
-329,Prometheus,DevOps/CI-CD,true
-330,Proxmox,Tool/Platform,true
-331,Pusher,Tool/Platform,true
-332,Pytest,Testing/QA,true
-333,Python,Programming Language,true
-334,PyTorch,Data/AI,true
-335,Qdrant,Database,true
-336,Quality of Service,Methodology/Concept,true
-337,quản lý nội dung Website,Other,true
-338,R2 Cloudflare,Cloud,true
-339,RabbitMQ,Tool/Platform,true
-340,Railway,Cloud,true
-341,Random Forest,Data/AI,true
-342,Rate limit API,Methodology/Concept,true
-343,React Query,Frontend,true
-344,React Router DOM,Frontend,true
-345,React Typescript,Frontend,true
-346,React-Bootstrap,Frontend,true
-347,React-Hook-Form,Frontend,true
-348,react-redux,Frontend,true
-349,react-slick,Frontend,true
-350,ReactJS,Frontend,true
-351,real-time inference,Data/AI,true
-352,Realtime,Methodology/Concept,true
-353,RecyclerView,Mobile,true
-354,Redis,Database,true
-355,Redux,Frontend,true
-356,Redux Toolkit,Frontend,true
-357,Regression,Data/AI,true
-358,Regularization,Data/AI,true
-359,Reinforcement Learning (GRPO),Data/AI,true
-360,Render,Cloud,true
-361,Reportviewer,Tool/Platform,true
-362,Repository Pattern,Methodology/Concept,true
-363,Requirements Elicitation,Business Analysis,true
-364,Resend,Tool/Platform,true
-365,Responsibility & accountability,Soft Skill,true
-366,Responsive Design,Frontend,true
-367,REST API,Methodology/Concept,true
-368,RIP,Methodology/Concept,true
-369,RNN,Data/AI,true
-370,ROUGE,Data/AI,true
-371,Routing,Methodology/Concept,true
-372,RustDesk,Tool/Platform,true
-373,Sao lưu và phục hồi dữ liệu,Database,true
-374,SASS/SCSS,Frontend,true
-375,scikit-learn,Data/AI,true
-376,SciPy,Data/AI,true
-377,SCRFD,Data/AI,true
-378,SCSS,Frontend,true
-379,Selenium,Testing/QA,true
-380,Self learning,Soft Skill,true
-381,SePay,Tool/Platform,true
-382,Sequelize,Framework/Library,true
-383,ShadcnUI,Frontend,true
-384,SIEM,Security,true
-385,SignalR,Framework/Library,true
-386,SMS,Tool/Platform,true
-387,SNMP,Methodology/Concept,true
-388,Snort (IDS/IPS),Security,true
-389,Snowflake,Database,true
-390,SOC 2,Security,true
-391,Socket.IO,Framework/Library,true
-392,SOLID,Methodology/Concept,true
-393,SonarQube,DevOps/CI-CD,true
-394,Spark,Data/AI,true
-395,Spectrogram,Data/AI,true
-396,Splunk,Security,true
-397,Spring Boot,Framework/Library,true
-398,Spring Boot Test,Testing/QA,true
-399,Spring Cloud,Framework/Library,true
-400,Spring Data JPA,Framework/Library,true
-401,Spring MVC,Framework/Library,true
-402,Spring Security,Security,true
-403,SPSA,Data/AI,true
-404,SQL,Database,true
-405,SQL Injection protection,Security,true
-406,SQL Server,Database,true
-407,SQLAlchemy,Framework/Library,true
-408,SQLite,Database,true
-409,SQLModel,Framework/Library,true
-410,SSE,Methodology/Concept,true
-411,SSH,Tool/Platform,true
-412,STFT,Data/AI,true
-413,store procedure,Database,true
-414,Stripe,Tool/Platform,true
-415,Stripe Checkout & Webhooks,Tool/Platform,true
-416,Stripe Payment API,Tool/Platform,true
-417,Strong analytical skills with a focus on debugging and system optimization,Soft Skill,true
-418,Strong self-learning ability and curiosity for new knowledge,Soft Skill,true
-419,Subnetting,Methodology/Concept,true
-420,Supabase,Cloud,true
-421,Swagger,Tool/Platform,true
-422,Sử dụng công cụ hỗ trợ từ xa,Tool/Platform,true
-423,Sử dụng công cụ Marketing Online,Tool/Platform,true
-424,Sử dụng thành thạo các công cụ Microsoft Office,Tool/Platform,true
-425,Tableau,Data/AI,true
-426,Tailwind CSS,Frontend,true
-427,TanStack,Frontend,true
-428,TCP/IP,Methodology/Concept,true
-429,Teamwork,Soft Skill,true
-430,TensorFlow,Data/AI,true
-431,Terraform,DevOps/CI-CD,true
-432,Test Automation,Testing/QA,true
-433,Test Case Design,Testing/QA,true
-434,Testing Library,Testing/QA,true
-435,TestRail,Testing/QA,true
-436,Thunder testers,Testing/QA,true
-437,Thymeleaf,Frontend,true
-438,Thành thạo kỹ năng HORENSO,Soft Skill,true
-439,Thái độ phục vụ và hỗ trợ thân thiện,Soft Skill,true
-440,Thích nghi công nghệ mới,Soft Skill,true
-441,Time Management,Soft Skill,true
-442,TinyMCE,Frontend,true
-443,Tkinter,Framework/Library,true
-444,Transformers Architecture,Data/AI,true
-445,Trello,Tool/Platform,true
-446,Trivy,Security,true
-447,TypeORM,Framework/Library,true
-448,TypeScript,Programming Language,true
-449,Tự học và tìm hiểu công nghệ mới,Soft Skill,true
-450,UAT,Business Analysis,true
-451,Ubuntu,Tool/Platform,true
-452,UCI Protocol,Methodology/Concept,true
-453,Understanding of data structures and programming principles object orientation,Methodology/Concept,true
-454,Understanding of Object-Oriented Programming and Data Structures,Methodology/Concept,true
-455,Unit Testing,Testing/QA,true
-456,UnitOfWork Pattern,Methodology/Concept,true
-457,Unity,Framework/Library,true
-458,Use Case Diagram Creation,Business Analysis,true
-459,Use Case Specs,Business Analysis,true
-460,User Story,Business Analysis,true
-461,Uvicorn,Framework/Library,true
-462,Validation API,Framework/Library,true
-463,Vault,Security,true
-464,Velite,Tool/Platform,true
-465,Vercel,Cloud,true
-466,Vertical Slice Architecture,Methodology/Concept,true
-467,VirtualBox,Tool/Platform,true
-468,Visual Studio,Tool/Platform,true
-469,Visual Studio Code,Tool/Platform,true
-470,Vite,Frontend,true
-471,Viết bài chuẩn SEO,Other,true
-472,VLANs,Methodology/Concept,true
-473,VNPAY,Tool/Platform,true
-474,VPN,Security,true
-475,VPS,Cloud,true
-476,Vue.js,Frontend,true
-477,Vui vẻ,Soft Skill,true
-478,Vulnerability Assessment,Security,true
-479,Wazuh,Security,true
-480,Webpack,Frontend,true
-481,WebRTC,Methodology/Concept,true
-482,Websocket,Methodology/Concept,true
-483,Windows,Tool/Platform,true
-484,WinForms,Framework/Library,true
-485,Wireshark,Security,true
-486,with a strong sense of responsibility in work,Soft Skill,true
-487,Word,Tool/Platform,true
-488,WordPress,Tool/Platform,true
-489,Work under pressure,Soft Skill,true
-490,WPF,Framework/Library,true
-491,XGBoost,Data/AI,true
-492,XML,Methodology/Concept,true
-493,YAML/CSV metadata,Other,true
-494,YOLO labels,Data/AI,true
-495,YOLO(Ultralytics),Data/AI,true
-496,Zobrist Hashing,Methodology/Concept,true
-497,Zod,Framework/Library,true
-498,Zustand,Frontend,true
+id,name,category,source,source_id
+1,.NET,Framework/Library,wikidata:Q21622213,Q21622213
+2,.NET (5+),Framework/Library,stackoverflow-2024:MiscTech,
+3,.NET Framework (1.0 - 4.8),Framework/Library,stackoverflow-2024:MiscTech,
+4,.NET MAUI,Framework/Library,stackoverflow-2024:MiscTech,Q105732910
+5,accept criticism and guidance,Soft Skill,esco:http://data.europa.eu/esco/skill/05aa7c09-46e7-433f-a81b-92841f4551e7,http://data.europa.eu/esco/skill/05aa7c09-46e7-433f-a81b-92841f4551e7
+6,Active Directory,Tool/Platform,wikidata:Q55692,Q55692
+7,Ada,Programming Language,stackoverflow-2026:Languages,Q154755
+8,adapt to change,Soft Skill,esco:http://data.europa.eu/esco/skill/49de9958-2aa4-4eef-a89d-fe5d5bcd28c4,http://data.europa.eu/esco/skill/49de9958-2aa4-4eef-a89d-fe5d5bcd28c4
+9,Adaptability,Soft Skill,wikidata:Q5674297,Q5674297
+10,address an audience,Soft Skill,esco:http://data.europa.eu/esco/skill/609a8ac1-9d29-4237-9886-596dbbe7ca8a,http://data.europa.eu/esco/skill/609a8ac1-9d29-4237-9886-596dbbe7ca8a
+11,adjust to physical demands,Soft Skill,esco:http://data.europa.eu/esco/skill/13b4a3d2-abdf-4442-8e52-d7464a58ecbc,http://data.europa.eu/esco/skill/13b4a3d2-abdf-4442-8e52-d7464a58ecbc
+12,Adobe Illustrator,Tool/Platform,wikidata:Q215016,Q215016
+13,Adobe Photoshop,Tool/Platform,wikidata:Q129793,Q129793
+14,adopt ways to foster biodiversity and animal welfare,Soft Skill,esco:http://data.europa.eu/esco/skill/0171653e-c8e9-4c24-bb86-a4b6fe038f25,http://data.europa.eu/esco/skill/0171653e-c8e9-4c24-bb86-a4b6fe038f25
+15,adopt ways to reduce negative impact of consumption,Soft Skill,esco:http://data.europa.eu/esco/skill/4c3ab565-747c-4db3-8c47-79e8d6f98cf4,http://data.europa.eu/esco/skill/4c3ab565-747c-4db3-8c47-79e8d6f98cf4
+16,adopt ways to reduce pollution,Soft Skill,esco:http://data.europa.eu/esco/skill/0d75a128-bd88-4c1b-b70d-8e963aeb490c,http://data.europa.eu/esco/skill/0d75a128-bd88-4c1b-b70d-8e963aeb490c
+17,advise others,Soft Skill,esco:http://data.europa.eu/esco/skill/045f71e6-0699-4169-8a54-9c6b96f3174d,http://data.europa.eu/esco/skill/045f71e6-0699-4169-8a54-9c6b96f3174d
+18,Agile software development,Methodology/Concept,wikidata:Q30232,Q30232
+19,Aider,Tool/Platform,stackoverflow-2025:DevEnvs,Q134347797
+20,Airtable,Tool/Platform,stackoverflow-2025:OfficeStackAsync,Q23016614
+21,AIX,Tool/Platform,stackoverflow-2024:OpSys,Q269856
+22,Albanian,Soft Skill,esco:http://data.europa.eu/esco/skill/f1a08ec9-32d2-4e52-ba4a-66e049019be8,http://data.europa.eu/esco/skill/f1a08ec9-32d2-4e52-ba4a-66e049019be8
+23,Algolia,Tool/Platform,stackoverflow-2026:EntSearch,
+24,Alibaba Cloud,Cloud,stackoverflow-2024:Platform,Q17062154
+25,Amazon Kendra,Tool/Platform,stackoverflow-2026:EntSearch,
+26,Amazon Redshift,Database,stackoverflow-2026:Databases,Q17012109
+27,Amazon Web Services (AWS),Cloud,stackoverflow-2026:CloudPlat,Q456157
+28,Anaconda,Tool/Platform,wikidata:Q483544,Q483544
+29,Android,Tool/Platform,stackoverflow-2025:OpSys,Q94
+30,Android SDK,Tool/Platform,wikidata:Q29364625,Q29364625
+31,Android Studio,Tool/Platform,stackoverflow-2026:DevIDE,Q13233410
+32,Angular,Framework/Library,stackoverflow-2026:WebFramework,Q28925578
+33,Angular Material,Other,stackoverflow-tags:angular-material,angular-material
+34,Ansible,Tool/Platform,stackoverflow-2026:CloudPlat,Q2852503
+35,Ant,DevOps/CI-CD,stackoverflow-2024:ToolsTech,
+36,Ant Design,Framework/Library,wikidata:Q96255221,Q96255221
+37,Antigravity,Tool/Platform,stackoverflow-2026:DevIDE,
+38,Apache Airflow,Tool/Platform,wikidata:Q28915062,Q28915062
+39,Apache JMeter,Tool/Platform,wikidata:Q616885,Q616885
+40,Apache Kafka,Framework/Library,stackoverflow-2024:MiscTech,Q16235208
+41,Apache POI,Framework/Library,wikidata:Q616991,Q616991
+42,Apache Solr,Tool/Platform,stackoverflow-2026:EntSearch,Q2858103
+43,Apache Spark,Framework/Library,stackoverflow-2024:MiscTech,Q7573619
+44,Apex,Programming Language,stackoverflow-2024:Language,
+45,API testing,Testing/QA,wikidata:Q25303630,Q25303630
+46,Appium,Testing/QA,stackoverflow-2026:CodeTest,Q27208114
+47,apply basic programming skills,Soft Skill,esco:http://data.europa.eu/esco/skill/bf4d884f-c848-402a-b130-69c266b04164,http://data.europa.eu/esco/skill/bf4d884f-c848-402a-b130-69c266b04164
+48,apply digital security measures,Soft Skill,esco:http://data.europa.eu/esco/skill/f4346299-e22a-4686-8e61-2c9b0cd51c7d,http://data.europa.eu/esco/skill/f4346299-e22a-4686-8e61-2c9b0cd51c7d
+49,apply hygiene standards,Soft Skill,esco:http://data.europa.eu/esco/skill/d9449998-c1f5-478c-a103-2255398cf0b6,http://data.europa.eu/esco/skill/d9449998-c1f5-478c-a103-2255398cf0b6
+50,"apply knowledge of philosophy, ethics and religion",Soft Skill,esco:http://data.europa.eu/esco/skill/0b709c64-a57a-4976-86bd-34d2cf34fa4f,http://data.europa.eu/esco/skill/0b709c64-a57a-4976-86bd-34d2cf34fa4f
+51,"apply knowledge of science, technology and engineering",Soft Skill,esco:http://data.europa.eu/esco/skill/5c3ab99d-a3f1-4620-9602-d12d2151a03d,http://data.europa.eu/esco/skill/5c3ab99d-a3f1-4620-9602-d12d2151a03d
+52,apply knowledge of social sciences and humanities,Soft Skill,esco:http://data.europa.eu/esco/skill/deb3c1bc-d48a-42e6-b0cc-cb238534ec28,http://data.europa.eu/esco/skill/deb3c1bc-d48a-42e6-b0cc-cb238534ec28
+53,appreciate diverse cultural and artistic expression,Soft Skill,esco:http://data.europa.eu/esco/skill/98a999db-72d5-4657-a0b0-2f850afd4368,http://data.europa.eu/esco/skill/98a999db-72d5-4657-a0b0-2f850afd4368
+54,approach challenges positively,Soft Skill,esco:http://data.europa.eu/esco/skill/469748ce-051a-407e-9099-0c9415ac2705,http://data.europa.eu/esco/skill/469748ce-051a-407e-9099-0c9415ac2705
+55,APT,Tool/Platform,stackoverflow-2026:CloudPlat,Q230724
+56,Aqua Security,Security,stackoverflow-2026:SecOps,
+57,Arabic,Soft Skill,esco:http://data.europa.eu/esco/skill/33859d93-987c-4caa-a0a9-6159ea7bbc2a,http://data.europa.eu/esco/skill/33859d93-987c-4caa-a0a9-6159ea7bbc2a
+58,Arch,Tool/Platform,stackoverflow-2025:OpSys,
+59,Arduino,Tool/Platform,stackoverflow-2024:Embedded,
+60,ArgoCD,Tool/Platform,wikidata:Q138660462,Q138660462
+61,Armenian,Soft Skill,esco:http://data.europa.eu/esco/skill/fcbcdf4c-d079-4010-ab4b-8356fbfa5096,http://data.europa.eu/esco/skill/fcbcdf4c-d079-4010-ab4b-8356fbfa5096
+62,Asana,Tool/Platform,stackoverflow-2025:OfficeStackAsync,Q4468073
+63,ASP.NET,Framework/Library,stackoverflow-2026:WebFramework,Q178817
+64,ASP.NET Core,Framework/Library,stackoverflow-2026:WebFramework,Q17513350
+65,Assembly,Programming Language,stackoverflow-2026:Languages,Q165436
+66,assess others feelings,Soft Skill,esco:http://data.europa.eu/esco/skill/a90fa5ff-5b4f-4152-8160-ad80a6d3d13e,http://data.europa.eu/esco/skill/a90fa5ff-5b4f-4152-8160-ad80a6d3d13e
+67,assume responsibility,Soft Skill,esco:http://data.europa.eu/esco/skill/199f7919-5114-41b6-b6a5-41e0e4896ec1,http://data.europa.eu/esco/skill/199f7919-5114-41b6-b6a5-41e0e4896ec1
+68,Astro,Framework/Library,stackoverflow-2026:WebFramework,
+69,Atlassian Confluence,Tool/Platform,stackoverflow-2026:KnowMgmt,
+70,attend to detail,Soft Skill,esco:http://data.europa.eu/esco/skill/83e6510b-ffeb-4aec-959c-4265fd0ff7b7,http://data.europa.eu/esco/skill/83e6510b-ffeb-4aec-959c-4265fd0ff7b7
+71,Auth0,Security,stackoverflow-2026:SecOps,Q56072164
+72,authentik,Security,stackoverflow-2026:SecOps,
+73,Autodidacticism,Soft Skill,wikidata:Q207650,Q207650
+74,AutoMapper,Other,stackoverflow-tags:automapper,automapper
+75,AWS Lambda,Cloud,wikidata:Q21462856,Q21462856
+76,Axios,Framework/Library,wikidata:Q95960982,Q95960982
+77,Axum,Framework/Library,stackoverflow-2026:WebFramework,Q4830701
+78,Azerbaijani,Soft Skill,esco:http://data.europa.eu/esco/skill/5bfce8e7-6f22-4e67-9018-0e4161620f3a,http://data.europa.eu/esco/skill/5bfce8e7-6f22-4e67-9018-0e4161620f3a
+79,Azure AI Search / Azure Cognitive Search,Tool/Platform,stackoverflow-2026:EntSearch,
+80,Azure Devops,Tool/Platform,stackoverflow-2026:KnowMgmt,Q107383122
+81,Basecamp,Tool/Platform,stackoverflow-2024:OfficeStackAsync,Q23580492
+82,Bash,Tool/Platform,wikidata:Q189248,Q189248
+83,Bash/Shell (all shells),Programming Language,stackoverflow-2026:Languages,
+84,Basque,Soft Skill,esco:http://data.europa.eu/esco/skill/a28fa5f1-be5b-4608-8376-acea8c2f8cb1,http://data.europa.eu/esco/skill/a28fa5f1-be5b-4608-8376-acea8c2f8cb1
+85,Bazel,Tool/Platform,stackoverflow-2026:CloudPlat,Q25345982
+86,BBEdit,Tool/Platform,stackoverflow-2026:DevIDE,Q795617
+87,Belarusian,Soft Skill,esco:http://data.europa.eu/esco/skill/6f55e44d-4494-4079-9b8d-01ac6912529e,http://data.europa.eu/esco/skill/6f55e44d-4494-4079-9b8d-01ac6912529e
+88,Bengali,Soft Skill,esco:http://data.europa.eu/esco/skill/ede98e07-f07d-41bc-99b0-f88bf0dad438,http://data.europa.eu/esco/skill/ede98e07-f07d-41bc-99b0-f88bf0dad438
+89,Berber,Soft Skill,esco:http://data.europa.eu/esco/skill/6f34bd05-1297-4913-92ff-85a604242b2f,http://data.europa.eu/esco/skill/6f34bd05-1297-4913-92ff-85a604242b2f
+90,BeyondTrust,Security,stackoverflow-2026:SecOps,
+91,BigQuery,Database,stackoverflow-2026:Databases,Q4904867
+92,Bihari,Soft Skill,esco:http://data.europa.eu/esco/skill/15ea7b6b-1b93-4ed8-b58a-5c54777e0832,http://data.europa.eu/esco/skill/15ea7b6b-1b93-4ed8-b58a-5c54777e0832
+93,bitbucket,Tool/Platform,stackoverflow-2025:OfficeStackAsync,Q2493781
+94,Blazor,Framework/Library,stackoverflow-2026:WebFramework,Q60749742
+95,BLoC,Other,stackoverflow-tags:bloc,bloc
+96,Bloomfire,Tool/Platform,stackoverflow-2026:KnowMgmt,
+97,Bolt,Tool/Platform,stackoverflow-2025:DevEnvs,Q20529164
+98,BookStack,Tool/Platform,stackoverflow-2026:KnowMgmt,Q107122654
+99,Boost.Test,Tool/Platform,stackoverflow-2024:Embedded,
+100,Bootstrap,Framework/Library,wikidata:Q893195,Q893195
+101,Bosnian,Soft Skill,esco:http://data.europa.eu/esco/skill/a9fdd2c9-4295-4407-ba3c-1547cbce40a2,http://data.europa.eu/esco/skill/a9fdd2c9-4295-4407-ba3c-1547cbce40a2
+102,BPMN,Other,stackoverflow-tags:bpmn,bpmn
+103,BrowserStack,Testing/QA,stackoverflow-2026:CodeTest,Q22906936
+104,Bruno,Testing/QA,stackoverflow-2026:CodeTest,
+105,BSD,Tool/Platform,stackoverflow-2024:OpSys,Q34264
+106,build networks,Soft Skill,esco:http://data.europa.eu/esco/skill/bf983f2a-e941-4646-811d-cc81060cb53f,http://data.europa.eu/esco/skill/bf983f2a-e941-4646-811d-cc81060cb53f
+107,build team spirit,Soft Skill,esco:http://data.europa.eu/esco/skill/b19e0820-a96f-4c0a-a724-3c056180c1b3,http://data.europa.eu/esco/skill/b19e0820-a96f-4c0a-a724-3c056180c1b3
+108,build2,Tool/Platform,stackoverflow-2024:Embedded,Q135311809
+109,Bulgarian,Soft Skill,esco:http://data.europa.eu/esco/skill/d5fd4958-4ca6-4d06-845f-713e2c459612,http://data.europa.eu/esco/skill/d5fd4958-4ca6-4d06-845f-713e2c459612
+110,Bun,Cloud,stackoverflow-2026:CloudPlat,
+111,Bundler,Tool/Platform,wikidata:Q114900710,Q114900710
+112,Burp Suite,Tool/Platform,wikidata:Q2324584,Q2324584
+113,C,Programming Language,stackoverflow-2026:Languages,Q15777
+114,C#,Programming Language,stackoverflow-2026:Languages,Q2370
+115,C++,Programming Language,stackoverflow-2026:Languages,Q2407
+116,calculate probabilities,Soft Skill,esco:http://data.europa.eu/esco/skill/1dabb413-18e8-48ed-a963-44978e67ad32,http://data.europa.eu/esco/skill/1dabb413-18e8-48ed-a963-44978e67ad32
+117,Canary,Testing/QA,stackoverflow-2026:CodeTest,
+118,Capacitor,Framework/Library,stackoverflow-2024:MiscTech,
+119,Cargo,Cloud,stackoverflow-2026:CloudPlat,
+120,carry out calculations,Soft Skill,esco:http://data.europa.eu/esco/skill/19ba11f3-9c99-41fd-a7c9-f77e6a026186,http://data.europa.eu/esco/skill/19ba11f3-9c99-41fd-a7c9-f77e6a026186
+121,Cassandra,Database,stackoverflow-2026:Databases,Q616639
+122,Catalan,Soft Skill,esco:http://data.europa.eu/esco/skill/8ee2b6f2-7017-4b9a-9de2-4dedf0711394,http://data.europa.eu/esco/skill/8ee2b6f2-7017-4b9a-9de2-4dedf0711394
+123,Catch2,Tool/Platform,stackoverflow-2024:Embedded,
+124,Charles Proxy,Other,stackoverflow-tags:charles-proxy,charles-proxy
+125,Check Point,Security,stackoverflow-2026:SecOps,
+126,Checkmarx,Security,stackoverflow-2026:SecOps,
+127,Chef,DevOps/CI-CD,stackoverflow-2024:ToolsTech,Q24479
+128,Chinese,Soft Skill,esco:http://data.europa.eu/esco/skill/1fe42b38-cd42-4fc7-ae77-14e4c9e96295,http://data.europa.eu/esco/skill/1fe42b38-cd42-4fc7-ae77-14e4c9e96295
+129,Chocolatey,Tool/Platform,stackoverflow-2026:CloudPlat,Q16988239
+130,ChromeOS,Tool/Platform,stackoverflow-2025:OpSys,Q79531
+131,CI/CD,Other,stackoverflow-tags:cicd,cicd
+132,Claude Code,Tool/Platform,stackoverflow-2025:DevEnvs,Q138457287
+133,Clickhouse,Database,stackoverflow-2026:Databases,Q27825826
+134,Clickup,Tool/Platform,stackoverflow-2025:OfficeStackAsync,Q123524232
+135,Cline and/or Roo,Tool/Platform,stackoverflow-2025:DevEnvs,
+136,CLion,Tool/Platform,stackoverflow-2026:DevIDE,
+137,Clojure,Programming Language,stackoverflow-2026:Languages,Q51798
+138,ClosedXML,Other,stackoverflow-tags:closedxml,closedxml
+139,Cloud Firestore,Database,stackoverflow-2026:Databases,
+140,Cloudflare,Tool/Platform,stackoverflow-2026:CloudPlat,Q107387111
+141,Cloudinary,Tool/Platform,wikidata:Q107386503,Q107386503
+142,CMake,Tool/Platform,stackoverflow-2026:CloudPlat,Q1023904
+143,COBOL,Programming Language,stackoverflow-2026:Languages,Q131140
+144,Cockroachdb,Database,stackoverflow-2026:Databases,Q98731903
+145,Coda,Tool/Platform,stackoverflow-2026:KnowMgmt,Q1105496
+146,Code::Blocks,Tool/Platform,stackoverflow-2024:NEWCollabTools,Q835824
+147,codeberg,Tool/Platform,stackoverflow-2025:OfficeStackAsync,Q106102182
+148,Codecov,Testing/QA,stackoverflow-2026:CodeTest,Q107380665
+149,CodeIgniter,Framework/Library,stackoverflow-2024:Webframe,Q339829
+150,CodeQL,Testing/QA,stackoverflow-2026:CodeTest,Q93480303
+151,CodeRabbit,Testing/QA,stackoverflow-2026:CodeTest,
+152,Colocation,Cloud,stackoverflow-2024:Platform,
+153,Combine,Other,stackoverflow-tags:combine,combine
+154,Communication,Soft Skill,wikidata:Q11024,Q11024
+155,Compact disc,Methodology/Concept,wikidata:Q34467,Q34467
+156,comply with regulations,Soft Skill,esco:http://data.europa.eu/esco/skill/b618584f-6bdf-4d8f-89a7-f28c2c95afc2,http://data.europa.eu/esco/skill/b618584f-6bdf-4d8f-89a7-f28c2c95afc2
+157,Composer,Tool/Platform,stackoverflow-2026:CloudPlat,Q15252222
+158,Conda,Tool/Platform,stackoverflow-2026:CloudPlat,Q22907431
+159,conduct web searches,Soft Skill,esco:http://data.europa.eu/esco/skill/ba93b71b-c433-4a01-8246-ed2daa85a9a2,http://data.europa.eu/esco/skill/ba93b71b-c433-4a01-8246-ed2daa85a9a2
+160,Confluence,Tool/Platform,stackoverflow-2025:OfficeStackAsync,
+161,Continuous delivery,Methodology/Concept,wikidata:Q2507377,Q2507377
+162,Continuous integration,Testing/QA,wikidata:Q965769,Q965769
+163,Contrast Security,Security,stackoverflow-2026:SecOps,
+164,cope with stress,Soft Skill,esco:http://data.europa.eu/esco/skill/7a147904-22b3-498a-b4d9-7bceeb86b45d,http://data.europa.eu/esco/skill/7a147904-22b3-498a-b4d9-7bceeb86b45d
+165,cope with uncertainty,Soft Skill,esco:http://data.europa.eu/esco/skill/5cd1930c-278d-4929-b413-27352f5b3687,http://data.europa.eu/esco/skill/5cd1930c-278d-4929-b413-27352f5b3687
+166,Cordova,Framework/Library,stackoverflow-2024:MiscTech,
+167,Core Data,Tool/Platform,wikidata:Q2146830,Q2146830
+168,Cosmos DB,Database,stackoverflow-2026:Databases,Q20707889
+169,couchbase,Database,stackoverflow-2025:Database,Q107381860
+170,couchdb,Database,stackoverflow-2025:Database,Q1136882
+171,Coveo,Tool/Platform,stackoverflow-2026:EntSearch,
+172,cppunit,Tool/Platform,stackoverflow-2024:Embedded,Q143035
+173,create digital content,Soft Skill,esco:http://data.europa.eu/esco/skill/d822b4b2-26c7-4bd9-970d-229c6504f615,http://data.europa.eu/esco/skill/d822b4b2-26c7-4bd9-970d-229c6504f615
+174,critically evaluate information and its sources,Soft Skill,esco:http://data.europa.eu/esco/skill/db33c0f3-43ee-4ba3-ba47-9269ac837697,http://data.europa.eu/esco/skill/db33c0f3-43ee-4ba3-ba47-9269ac837697
+175,Croatian,Soft Skill,esco:http://data.europa.eu/esco/skill/6bc58e91-1827-4dc7-a9cf-2311edcba0ec,http://data.europa.eu/esco/skill/6bc58e91-1827-4dc7-a9cf-2311edcba0ec
+176,CrowdStrike,Security,stackoverflow-2026:SecOps,
+177,Crystal,Programming Language,stackoverflow-2024:Language,Q21921428
+178,CSS,Programming Language,wikidata:Q46441,Q46441
+179,Cucumber,Testing/QA,stackoverflow-2026:CodeTest,
+180,CUDA,Framework/Library,stackoverflow-2024:MiscTech,Q477690
+181,Cursor,Tool/Platform,stackoverflow-2026:DevIDE,Q131980386
+182,CyberArk,Security,stackoverflow-2026:SecOps,
+183,Cygwin,Tool/Platform,stackoverflow-2024:OpSys,Q216192
+184,Cypress,Testing/QA,stackoverflow-2026:CodeTest,Q115978662
+185,Czech,Soft Skill,esco:http://data.europa.eu/esco/skill/da0795a7-6866-4afc-81ed-5e3aa398f058,http://data.europa.eu/esco/skill/da0795a7-6866-4afc-81ed-5e3aa398f058
+186,Dagger,DevOps/CI-CD,stackoverflow-2024:ToolsTech,
+187,Danish,Soft Skill,esco:http://data.europa.eu/esco/skill/273a28d6-1bd3-4d13-a906-3d75c1cfdfc1,http://data.europa.eu/esco/skill/273a28d6-1bd3-4d13-a906-3d75c1cfdfc1
+188,Dapper ORM,Framework/Library,wikidata:Q5221802,Q5221802
+189,Dart,Programming Language,stackoverflow-2026:Languages,Q406009
+190,Databricks,Tool/Platform,stackoverflow-2024:Platform,Q107385220
+191,Databricks SQL,Database,stackoverflow-2026:Databases,
+192,Datadog,Testing/QA,stackoverflow-2026:CodeTest,Q107383131
+193,DataGrip,Tool/Platform,stackoverflow-2024:NEWCollabTools,Q47487587
+194,Datomic,Database,stackoverflow-2026:Databases,Q5227695
+195,dbt,Other,stackoverflow-tags:dbt,dbt
+196,Debian,Tool/Platform,stackoverflow-2025:OpSys,Q2086463
+197,DeepSource,Testing/QA,stackoverflow-2026:CodeTest,
+198,delegate responsibilities,Soft Skill,esco:http://data.europa.eu/esco/skill/b00e948c-19be-4951-8cff-60f88f1046e9,http://data.europa.eu/esco/skill/b00e948c-19be-4951-8cff-60f88f1046e9
+199,Delinea,Security,stackoverflow-2026:SecOps,
+200,Delphi,Programming Language,stackoverflow-2026:Languages,Q4037189
+201,demonstrate awareness of health risks,Soft Skill,esco:http://data.europa.eu/esco/skill/c4180af3-befd-4bd8-9a65-6a496f9d9f15,http://data.europa.eu/esco/skill/c4180af3-befd-4bd8-9a65-6a496f9d9f15
+202,demonstrate curiosity,Soft Skill,esco:http://data.europa.eu/esco/skill/429062f1-a958-43ea-83dd-4e1af078c156,http://data.europa.eu/esco/skill/429062f1-a958-43ea-83dd-4e1af078c156
+203,demonstrate intercultural competence,Soft Skill,esco:http://data.europa.eu/esco/skill/c10d5d87-36cf-42f5-8a12-e560fb5f4af8,http://data.europa.eu/esco/skill/c10d5d87-36cf-42f5-8a12-e560fb5f4af8
+204,demonstrate loyalty,Soft Skill,esco:http://data.europa.eu/esco/skill/72d1fa5d-1b7f-48e7-84e3-6e779841ddf1,http://data.europa.eu/esco/skill/72d1fa5d-1b7f-48e7-84e3-6e779841ddf1
+205,demonstrate trustworthiness,Soft Skill,esco:http://data.europa.eu/esco/skill/bcf002ce-90f8-42e5-ac1b-5dba208639b0,http://data.europa.eu/esco/skill/bcf002ce-90f8-42e5-ac1b-5dba208639b0
+206,demonstrate willingness to learn,Soft Skill,esco:http://data.europa.eu/esco/skill/9bf266a6-188b-4d17-a22f-2f266d76832b,http://data.europa.eu/esco/skill/9bf266a6-188b-4d17-a22f-2f266d76832b
+207,Deno,Framework/Library,stackoverflow-2026:WebFramework,Q65070939
+208,Dependency injection,Methodology/Concept,wikidata:Q635336,Q635336
+209,Diagrams.net,Tool/Platform,wikidata:Q59339175,Q59339175
+210,DigitalOcean,Cloud,stackoverflow-2026:CloudPlat,
+211,DirectX,Framework/Library,stackoverflow-2024:MiscTech,Q188695
+212,Django,Framework/Library,stackoverflow-2026:WebFramework,Q842014
+213,Docker,Framework/Library,wikidata:Q15206305,Q15206305
+214,Docker / Docker Compose,Cloud,stackoverflow-2026:CloudPlat,
+215,Docker Compose,Tool/Platform,wikidata:Q66317867,Q66317867
+216,doctest,Tool/Platform,stackoverflow-2024:Embedded,
+217,Document360,Tool/Platform,stackoverflow-2026:KnowMgmt,
+218,DokuWiki,Tool/Platform,stackoverflow-2026:KnowMgmt,Q851864
+219,Doxygen,Tool/Platform,stackoverflow-2025:OfficeStackAsync,Q1253530
+220,Drupal,Framework/Library,stackoverflow-2026:WebFramework,Q170855
+221,DuckDB,Database,stackoverflow-2026:Databases,Q111343643
+222,Dutch,Soft Skill,esco:http://data.europa.eu/esco/skill/cad4f44b-28a8-4448-86e5-7389e5ebf3eb,http://data.europa.eu/esco/skill/cad4f44b-28a8-4448-86e5-7389e5ebf3eb
+223,Dynamodb,Database,stackoverflow-2026:Databases,Q15731832
+224,Eclipse,Tool/Platform,stackoverflow-2026:DevIDE,Q82268
+225,Elastic / Elasticsearch / Elastic Enterprise Search,Tool/Platform,stackoverflow-2026:EntSearch,
+226,Elasticsearch,Database,stackoverflow-2026:Databases,Q3050461
+227,Electron,Framework/Library,stackoverflow-2024:MiscTech,Q21614124
+228,Elixir,Programming Language,stackoverflow-2026:Languages,Q5362035
+229,Ellipsis,Testing/QA,stackoverflow-2026:CodeTest,
+230,Elm,Programming Language,stackoverflow-2026:Languages,
+231,Emacs,Tool/Platform,stackoverflow-2026:DevIDE,Q189722
+232,engage others in environment friendly behaviours,Soft Skill,esco:http://data.europa.eu/esco/skill/7f321b88-3d16-4e30-8163-5494ca8ce978,http://data.europa.eu/esco/skill/7f321b88-3d16-4e30-8163-5494ca8ce978
+233,English,Soft Skill,esco:http://data.europa.eu/esco/skill/6d3edede-8951-4621-a835-e04323300fa0,http://data.europa.eu/esco/skill/6d3edede-8951-4621-a835-e04323300fa0
+234,Entity Framework,Framework/Library,wikidata:Q851939,Q851939
+235,Entity Framework Core,Framework/Library,wikidata:Q24834697,Q24834697
+236,Erlang,Programming Language,stackoverflow-2026:Languages,Q334879
+237,ESLint,Testing/QA,stackoverflow-2026:CodeTest,Q55452824
+238,ESP-IDF,Tool/Platform,wikidata:Q131611294,Q131611294
+239,Estonian,Soft Skill,esco:http://data.europa.eu/esco/skill/1b7e6f56-bc73-4bcc-81ae-09252175d418,http://data.europa.eu/esco/skill/1b7e6f56-bc73-4bcc-81ae-09252175d418
+240,evaluate environmental impact of personal behaviour,Soft Skill,esco:http://data.europa.eu/esco/skill/2aaad52d-599e-4e77-a681-bbc236825821,http://data.europa.eu/esco/skill/2aaad52d-599e-4e77-a681-bbc236825821
+241,Event-driven architecture,Methodology/Concept,wikidata:Q991296,Q991296
+242,EventStoreDB,Database,stackoverflow-2024:Database,
+243,exercise rights and responsibilities,Soft Skill,esco:http://data.europa.eu/esco/skill/f4bcdb75-df28-441d-a52b-9730904f36a1,http://data.europa.eu/esco/skill/f4bcdb75-df28-441d-a52b-9730904f36a1
+244,exercise self-control,Soft Skill,esco:http://data.europa.eu/esco/skill/5a927fa0-462e-4d54-ae12-97fd6ca45762,http://data.europa.eu/esco/skill/5a927fa0-462e-4d54-ae12-97fd6ca45762
+245,exercise self-reflection,Soft Skill,esco:http://data.europa.eu/esco/skill/409a0245-0e6c-4aac-ba16-0920ecb76a8d,http://data.europa.eu/esco/skill/409a0245-0e6c-4aac-ba16-0920ecb76a8d
+246,Expo,Other,stackoverflow-tags:expo,expo
+247,Express,Framework/Library,stackoverflow-2026:WebFramework,Q16878131
+248,express yourself creatively,Soft Skill,esco:http://data.europa.eu/esco/skill/93350886-a21b-4e61-a1b1-319a325c0f90,http://data.europa.eu/esco/skill/93350886-a21b-4e61-a1b1-319a325c0f90
+249,F#,Programming Language,stackoverflow-2026:Languages,Q648619
+250,FastAPI,Framework/Library,stackoverflow-2026:WebFramework,Q101119404
+251,Fastify,Framework/Library,stackoverflow-2026:WebFramework,Q131247600
+252,Fastlane,Tool/Platform,wikidata:Q96474452,Q96474452
+253,Fedora,Tool/Platform,stackoverflow-2025:OpSys,Q48267
+254,Figma,Tool/Platform,wikidata:Q96186334,Q96186334
+255,Finnish,Soft Skill,esco:http://data.europa.eu/esco/skill/0e3493f4-0cad-4fbc-8e02-025f169b8114,http://data.europa.eu/esco/skill/0e3493f4-0cad-4fbc-8e02-025f169b8114
+256,Firebase,Tool/Platform,stackoverflow-2026:CloudPlat,Q18150728
+257,Firebase Realtime Database,Database,stackoverflow-2026:Databases,Q59909615
+258,firebird,Database,stackoverflow-2025:Database,
+259,Firewall,Other,stackoverflow-tags:firewall,firewall
+260,Flask,Framework/Library,stackoverflow-2026:WebFramework,Q289281
+261,Fleet,Tool/Platform,stackoverflow-2024:NEWCollabTools,
+262,Flutter,Framework/Library,stackoverflow-2026:WebFramework,Q39072787
+263,Fly.io,Cloud,stackoverflow-2026:CloudPlat,
+264,Flyer,Methodology/Concept,wikidata:Q327611,Q327611
+265,Flyway,Tool/Platform,wikidata:Q21113187,Q21113187
+266,forgejo,Tool/Platform,stackoverflow-2025:OfficeStackAsync,Q115962387
+267,Fortinet,Security,stackoverflow-2026:SecOps,
+268,Fortran,Programming Language,stackoverflow-2026:Languages,Q83303
+269,FreeRTOS,Tool/Platform,wikidata:Q1186761,Q1186761
+270,French,Soft Skill,esco:http://data.europa.eu/esco/skill/e747e77e-0ea1-4001-8b07-1d11946b5f1b,http://data.europa.eu/esco/skill/e747e77e-0ea1-4001-8b07-1d11946b5f1b
+271,Galician,Soft Skill,esco:http://data.europa.eu/esco/skill/66212ff2-34b9-4812-be58-f53a0b751863,http://data.europa.eu/esco/skill/66212ff2-34b9-4812-be58-f53a0b751863
+272,Gatsby,Framework/Library,stackoverflow-2024:Webframe,Q95972615
+273,GDScript,Programming Language,stackoverflow-2026:Languages,Q28942599
+274,Geany,Tool/Platform,stackoverflow-2024:NEWCollabTools,Q1122464
+275,Georgian,Soft Skill,esco:http://data.europa.eu/esco/skill/b2c1f90a-72ce-4499-ab9a-a9a5c9355d5b,http://data.europa.eu/esco/skill/b2c1f90a-72ce-4499-ab9a-a9a5c9355d5b
+276,German,Soft Skill,esco:http://data.europa.eu/esco/skill/4812a4ea-dc55-4dc6-b9b0-4a59bba2c647,http://data.europa.eu/esco/skill/4812a4ea-dc55-4dc6-b9b0-4a59bba2c647
+277,Git,Tool/Platform,wikidata:Q186055,Q186055
+278,gitea,Tool/Platform,stackoverflow-2025:OfficeStackAsync,Q28714270
+279,GitHub,Tool/Platform,stackoverflow-2025:OfficeStackAsync,Q364
+280,GitHub Actions,Tool/Platform,wikidata:Q97185096,Q97185096
+281,GitHub Codespaces,Tool/Platform,stackoverflow-2026:DevIDE,Q135672383
+282,GitHub Discussions,Tool/Platform,stackoverflow-2024:OfficeStackAsync,Q114693612
+283,Gitlab,Tool/Platform,stackoverflow-2026:KnowMgmt,Q25973915
+284,GitLab CI,Other,stackoverflow-tags:gitlab-ci,gitlab-ci
+285,Gleam,Programming Language,stackoverflow-2026:Languages,Q66370905
+286,Glean,Tool/Platform,stackoverflow-2026:EntSearch,
+287,GNU GCC,Tool/Platform,stackoverflow-2024:Embedded,
+288,Go,Programming Language,stackoverflow-2026:Languages,Q37227
+289,Godot,DevOps/CI-CD,stackoverflow-2024:ToolsTech,Q16972633
+290,GoLand,Tool/Platform,stackoverflow-2026:DevIDE,Q63065478
+291,Google Cloud,Cloud,stackoverflow-2026:CloudPlat,Q17054505
+292,Google Cloud Search,Tool/Platform,wikidata:Q28957014,Q28957014
+293,Google Cloud Search / Vertex AI Search,Tool/Platform,stackoverflow-2026:EntSearch,
+294,Google Colab,Tool/Platform,stackoverflow-2025:OfficeStackAsync,Q126084995
+295,Google Docs,Cloud,wikidata:Q9344,Q9344
+296,Google Drive,Cloud,wikidata:Q125851182,Q125851182
+297,Google Workspace,Cloud,wikidata:Q509284,Q509284
+298,Google Workspace / Google Drive / Google Docs,Tool/Platform,stackoverflow-2026:KnowMgmt,
+299,GoogleTest,Testing/QA,stackoverflow-2026:CodeTest,Q4039599
+300,Gradle,Tool/Platform,stackoverflow-2026:CloudPlat,Q965596
+301,Grafana,Tool/Platform,wikidata:Q43399271,Q43399271
+302,Graphite,Testing/QA,stackoverflow-2026:CodeTest,Q1027984
+303,GraphQL,Methodology/Concept,wikidata:Q25104949,Q25104949
+304,Greek,Soft Skill,esco:http://data.europa.eu/esco/skill/ea4ebfa1-e17a-4416-ac54-955f33e6ade7,http://data.europa.eu/esco/skill/ea4ebfa1-e17a-4416-ac54-955f33e6ade7
+305,Greptile,Testing/QA,stackoverflow-2026:CodeTest,
+306,Groovy,Programming Language,stackoverflow-2026:Languages,Q504453
+307,GRPC,Framework/Library,wikidata:Q26356541,Q26356541
+308,GTK,Framework/Library,stackoverflow-2024:MiscTech,Q189464
+309,Gujarati,Soft Skill,esco:http://data.europa.eu/esco/skill/9b0baaa7-fed3-41b7-b74e-9d459f11acfe,http://data.europa.eu/esco/skill/9b0baaa7-fed3-41b7-b74e-9d459f11acfe
+310,Guru,Tool/Platform,stackoverflow-2026:KnowMgmt,
+311,H2,Database,stackoverflow-2026:Databases,
+312,Hadoop,Framework/Library,stackoverflow-2024:MiscTech,Q29120
+313,Haiku,Tool/Platform,stackoverflow-2024:OpSys,Q215448
+314,Hangfire,Framework/Library,wikidata:Q109310071,Q109310071
+315,Haskell,Programming Language,stackoverflow-2026:Languages,Q34010
+316,Hebrew,Soft Skill,esco:http://data.europa.eu/esco/skill/8a45f04a-cd28-4ac1-8e8b-ecfd21be0b18,http://data.europa.eu/esco/skill/8a45f04a-cd28-4ac1-8e8b-ecfd21be0b18
+317,Helix,Tool/Platform,stackoverflow-2026:DevIDE,
+318,Helm,Cloud,stackoverflow-2026:CloudPlat,
+319,Helpjuice,Tool/Platform,stackoverflow-2026:KnowMgmt,
+320,Heroku,Cloud,stackoverflow-2026:CloudPlat,
+321,Hetzner,Cloud,stackoverflow-2024:Platform,
+322,Hetzner Cloud,Cloud,stackoverflow-2026:CloudPlat,
+323,Hibernate,Framework/Library,wikidata:Q747866,Q747866
+324,Hindi,Soft Skill,esco:http://data.europa.eu/esco/skill/d93a7370-bf56-43f5-be54-e108f8ec3107,http://data.europa.eu/esco/skill/d93a7370-bf56-43f5-be54-e108f8ec3107
+325,Hive,Methodology/Concept,wikidata:Q88783712,Q88783712
+326,Homebrew,Tool/Platform,stackoverflow-2026:CloudPlat,Q11223506
+327,Hono,Framework/Library,stackoverflow-2026:WebFramework,
+328,HTML,Programming Language,wikidata:Q8811,Q8811
+329,HTML/CSS,Programming Language,stackoverflow-2026:Languages,
+330,HTML5,Programming Language,wikidata:Q2053,Q2053
+331,htmx,Framework/Library,stackoverflow-2026:WebFramework,Q109462071
+332,Hugging Face,Other,stackoverflow-tags:huggingface,huggingface
+333,Hugging Face Transformers,Framework/Library,stackoverflow-2024:MiscTech,Q107382298
+334,hugo,Framework/Library,stackoverflow-2025:Webframe,Q24415127
+335,Hungarian,Soft Skill,esco:http://data.europa.eu/esco/skill/ddd3596a-43f3-402e-960a-5f79362a8609,http://data.europa.eu/esco/skill/ddd3596a-43f3-402e-960a-5f79362a8609
+336,IBM Cloud,Cloud,stackoverflow-2026:CloudPlat,Q96381605
+337,IBM Cloud Or Watson,Cloud,stackoverflow-2024:Platform,
+338,IBM DB2,Database,stackoverflow-2026:Databases,Q431195
+339,IBM Watson Discovery,Tool/Platform,stackoverflow-2026:EntSearch,
+340,Icelandic,Soft Skill,esco:http://data.europa.eu/esco/skill/a18e3090-6afb-4afb-a055-1f83bbe498e3,http://data.europa.eu/esco/skill/a18e3090-6afb-4afb-a055-1f83bbe498e3
+341,identify problems,Soft Skill,esco:http://data.europa.eu/esco/skill/a628d2d1-f40a-4c37-a357-2801726f2996,http://data.europa.eu/esco/skill/a628d2d1-f40a-4c37-a357-2801726f2996
+342,improvise,Soft Skill,esco:http://data.europa.eu/esco/skill/b40584aa-7c63-4eed-9422-a9798fb95fdc,http://data.europa.eu/esco/skill/b40584aa-7c63-4eed-9422-a9798fb95fdc
+343,InfluxDB,Database,stackoverflow-2026:Databases,Q28127110
+344,instruct others,Soft Skill,esco:http://data.europa.eu/esco/skill/699e7c26-6502-4e78-a823-3656ff5a5b8b,http://data.europa.eu/esco/skill/699e7c26-6502-4e78-a823-3656ff5a5b8b
+345,IntelliJ IDEA,Tool/Platform,stackoverflow-2026:DevIDE,Q1206660
+346,Internet protocol suite,Methodology/Concept,wikidata:Q81414,Q81414
+347,interpret mathematical information,Soft Skill,esco:http://data.europa.eu/esco/skill/6fc6f757-6baa-49fe-9a82-6ba6a52f2e13,http://data.europa.eu/esco/skill/6fc6f757-6baa-49fe-9a82-6ba6a52f2e13
+348,Ionic,Framework/Library,stackoverflow-2024:MiscTech,Q17576071
+349,iOS,Tool/Platform,stackoverflow-2025:OpSys,Q48493
+350,iPadOS,Tool/Platform,stackoverflow-2025:OpSys,Q64350339
+351,IPython,Tool/Platform,stackoverflow-2024:NEWCollabTools,Q2659957
+352,Irish,Soft Skill,esco:http://data.europa.eu/esco/skill/8f4c0fe6-10c7-409e-92d6-245f46728209,http://data.europa.eu/esco/skill/8f4c0fe6-10c7-409e-92d6-245f46728209
+353,ISO/IEC 27001,Methodology/Concept,wikidata:Q852641,Q852641
+354,Istio,Other,stackoverflow-tags:istio,istio
+355,Italian,Soft Skill,esco:http://data.europa.eu/esco/skill/87219dfe-a21c-4160-8cc8-1eabf9b16b44,http://data.europa.eu/esco/skill/87219dfe-a21c-4160-8cc8-1eabf9b16b44
+356,I²C bus,Methodology/Concept,wikidata:Q750469,Q750469
+357,JaCoCo,Testing/QA,stackoverflow-2026:CodeTest,Q6109486
+358,Jakarta Persistence,Methodology/Concept,wikidata:Q908660,Q908660
+359,Japanese,Soft Skill,esco:http://data.europa.eu/esco/skill/39c675c4-af13-49db-bbed-cf762102f85e,http://data.europa.eu/esco/skill/39c675c4-af13-49db-bbed-cf762102f85e
+360,Jasmine,Framework/Library,wikidata:Q6161738,Q6161738
+361,Java,Programming Language,stackoverflow-2026:Languages,Q251
+362,Java 17,Other,stackoverflow-tags:java-17,java-17
+363,Java 21,Programming Language,wikidata:Q124615070,Q124615070
+364,Javanese,Soft Skill,esco:http://data.europa.eu/esco/skill/7a86907d-1fd5-4e8f-b0f1-f366a14f6f6d,http://data.europa.eu/esco/skill/7a86907d-1fd5-4e8f-b0f1-f366a14f6f6d
+365,JavaScript,Programming Language,stackoverflow-2026:Languages,Q2005
+366,JAX,Framework/Library,stackoverflow-2024:MiscTech,
+367,Jenkins,Tool/Platform,wikidata:Q7491312,Q7491312
+368,Jest,Testing/QA,stackoverflow-2026:CodeTest,
+369,Jetpack Compose,Framework/Library,wikidata:Q114646061,Q114646061
+370,Jira,Tool/Platform,stackoverflow-2025:OfficeStackAsync,Q1359246
+371,JMeter,Other,stackoverflow-tags:jmeter,jmeter
+372,jQuery,Framework/Library,stackoverflow-2026:WebFramework,Q230036
+373,JSON Web Token,Methodology/Concept,wikidata:Q22284678,Q22284678
+374,Julia,Programming Language,stackoverflow-2026:Languages,
+375,JUnit,Testing/QA,stackoverflow-2026:CodeTest,Q847675
+376,JUnit 5,Other,stackoverflow-tags:junit5,junit5
+377,Jupyter Nb/JupyterLab,Tool/Platform,stackoverflow-2025:DevEnvs,
+378,Jupyter Notebook,Tool/Platform,wikidata:Q105099901,Q105099901
+379,Jupyter Notebook/JupyterLab,Tool/Platform,stackoverflow-2026:DevIDE,
+380,JupyterLab,Tool/Platform,wikidata:Q99439725,Q99439725
+381,k6,Testing/QA,stackoverflow-2026:CodeTest,
+382,Kali Linux,Tool/Platform,wikidata:Q8364850,Q8364850
+383,Kanban,Methodology/Concept,wikidata:Q180591,Q180591
+384,Kate,Tool/Platform,stackoverflow-2026:DevIDE,Q261933
+385,Kazakh,Soft Skill,esco:http://data.europa.eu/esco/skill/f37dbb3c-dafc-4835-86d1-de9615626f9b,http://data.europa.eu/esco/skill/f37dbb3c-dafc-4835-86d1-de9615626f9b
+386,keep an open mind,Soft Skill,esco:http://data.europa.eu/esco/skill/fd89f784-88dc-4d35-abd7-86aa073cab12,http://data.europa.eu/esco/skill/fd89f784-88dc-4d35-abd7-86aa073cab12
+387,Keras,Framework/Library,stackoverflow-2024:MiscTech,Q28470421
+388,Keycloak,Security,stackoverflow-2026:SecOps,Q42916195
+389,Kiro,Tool/Platform,stackoverflow-2026:DevIDE,
+390,KnowledgeOwl,Tool/Platform,stackoverflow-2026:KnowMgmt,
+391,Koa,Framework/Library,stackoverflow-2026:WebFramework,
+392,Korean,Soft Skill,esco:http://data.europa.eu/esco/skill/f9bc2890-d1f2-4a83-bd7b-b150a7679c79,http://data.europa.eu/esco/skill/f9bc2890-d1f2-4a83-bd7b-b150a7679c79
+393,Kotlin,Programming Language,stackoverflow-2026:Languages,Q3816639
+394,Ktor,Framework/Library,stackoverflow-2024:MiscTech,
+395,Kubernetes,Tool/Platform,stackoverflow-2026:CloudPlat,Q22661306
+396,Kurdish,Soft Skill,esco:http://data.europa.eu/esco/skill/2874065e-6ca3-430c-912a-467da3c23704,http://data.europa.eu/esco/skill/2874065e-6ca3-430c-912a-467da3c23704
+397,Language Integrated Query,Programming Language,wikidata:Q595637,Q595637
+398,Laravel,Framework/Library,stackoverflow-2026:WebFramework,Q13634357
+399,Lark,Tool/Platform,wikidata:Q104845845,Q104845845
+400,Latvian,Soft Skill,esco:http://data.europa.eu/esco/skill/5de39924-769c-4301-82a5-525358dffe50,http://data.europa.eu/esco/skill/5de39924-769c-4301-82a5-525358dffe50
+401,lead others,Soft Skill,esco:http://data.europa.eu/esco/skill/75d8e5d9-bef3-418b-9011-01bff9f27207,http://data.europa.eu/esco/skill/75d8e5d9-bef3-418b-9011-01bff9f27207
+402,Leptos,Framework/Library,stackoverflow-2026:WebFramework,
+403,Limburgish,Soft Skill,esco:http://data.europa.eu/esco/skill/cf5b3ca0-a844-42b9-b9cd-bd15465b9cac,http://data.europa.eu/esco/skill/cf5b3ca0-a844-42b9-b9cd-bd15465b9cac
+404,Linear,Tool/Platform,stackoverflow-2025:OfficeStackAsync,
+405,"Linode, now Akamai",Cloud,stackoverflow-2024:Platform,
+406,Linux,Tool/Platform,wikidata:Q388,Q388
+407,Linux (non-WSL),Tool/Platform,stackoverflow-2025:OpSys,
+408,Liquibase,Tool/Platform,wikidata:Q17097280,Q17097280
+409,Lisp,Programming Language,stackoverflow-2026:Languages,Q132874
+410,Lit,Framework/Library,stackoverflow-2026:WebFramework,
+411,Lithuanian,Soft Skill,esco:http://data.europa.eu/esco/skill/b3950b87-a980-4cd4-a795-be8a9b63661d,http://data.europa.eu/esco/skill/b3950b87-a980-4cd4-a795-be8a9b63661d
+412,LLVM's Clang,Tool/Platform,stackoverflow-2024:Embedded,
+413,logseq,Tool/Platform,stackoverflow-2025:OfficeStackAsync,Q116748304
+414,Lombok,Other,stackoverflow-tags:lombok,lombok
+415,Lovable.dev,Tool/Platform,stackoverflow-2025:DevEnvs,
+416,Lua,Programming Language,stackoverflow-2026:Languages,Q207316
+417,Lucid,Tool/Platform,stackoverflow-2024:OfficeStackAsync,
+418,Lucid (includes Lucidchart),Tool/Platform,stackoverflow-2025:OfficeStackAsync,
+419,Lucidworks,Tool/Platform,stackoverflow-2026:EntSearch,Q6696906
+420,Lumen,Framework/Library,wikidata:Q53360474,Q53360474
+421,Lustre,Framework/Library,stackoverflow-2026:WebFramework,Q1877782
+422,Luxembourgish,Soft Skill,esco:http://data.europa.eu/esco/skill/7d16f1e4-1003-4f1f-9595-5cafb25a67df,http://data.europa.eu/esco/skill/7d16f1e4-1003-4f1f-9595-5cafb25a67df
+423,Macedonian,Soft Skill,esco:http://data.europa.eu/esco/skill/15f261e6-4379-437e-b137-b0c473ae3e74,http://data.europa.eu/esco/skill/15f261e6-4379-437e-b137-b0c473ae3e74
+424,Machine learning,Data/AI,wikidata:Q2539,Q2539
+425,MacOS,Tool/Platform,stackoverflow-2025:OpSys,Q14116
+426,maintain concentration for long periods,Soft Skill,esco:http://data.europa.eu/esco/skill/9cfd2219-553c-4d67-81e5-951e87c65135,http://data.europa.eu/esco/skill/9cfd2219-553c-4d67-81e5-951e87c65135
+427,maintain physical fitness,Soft Skill,esco:http://data.europa.eu/esco/skill/a68bdf1e-b325-4880-b456-192c2891931a,http://data.europa.eu/esco/skill/a68bdf1e-b325-4880-b456-192c2891931a
+428,maintain psychological well-being,Soft Skill,esco:http://data.europa.eu/esco/skill/4c772721-9280-49cb-9988-b6ea3d36b06d,http://data.europa.eu/esco/skill/4c772721-9280-49cb-9988-b6ea3d36b06d
+429,Make,Cloud,stackoverflow-2026:CloudPlat,
+430,make an informed use of the health-care system,Soft Skill,esco:http://data.europa.eu/esco/skill/88b0c49e-7c2e-4ccc-aca3-fbd4bbc2081c,http://data.europa.eu/esco/skill/88b0c49e-7c2e-4ccc-aca3-fbd4bbc2081c
+431,make decisions,Soft Skill,esco:http://data.europa.eu/esco/skill/d62d2b4c-a6f8-439e-8a1b-4f29ab5f2c47,http://data.europa.eu/esco/skill/d62d2b4c-a6f8-439e-8a1b-4f29ab5f2c47
+432,Malay,Soft Skill,esco:http://data.europa.eu/esco/skill/1f90c205-f869-4dcf-a374-c4fdeded9cbc,http://data.europa.eu/esco/skill/1f90c205-f869-4dcf-a374-c4fdeded9cbc
+433,Maltese,Soft Skill,esco:http://data.europa.eu/esco/skill/cb50f9cd-3638-409b-8f93-befaf17d313e,http://data.europa.eu/esco/skill/cb50f9cd-3638-409b-8f93-befaf17d313e
+434,manage chronic health conditions,Soft Skill,esco:http://data.europa.eu/esco/skill/dcc99418-d896-4b3b-8596-658093a17a8f,http://data.europa.eu/esco/skill/dcc99418-d896-4b3b-8596-658093a17a8f
+435,manage digital identity,Soft Skill,esco:http://data.europa.eu/esco/skill/bc0b0b5d-f6be-405a-b224-b6902a4dbe97,http://data.europa.eu/esco/skill/bc0b0b5d-f6be-405a-b224-b6902a4dbe97
+436,manage financial and material resources,Soft Skill,esco:http://data.europa.eu/esco/skill/1ddc021d-d818-4731-904f-842d7491f419,http://data.europa.eu/esco/skill/1ddc021d-d818-4731-904f-842d7491f419
+437,manage frustration,Soft Skill,esco:http://data.europa.eu/esco/skill/1d1fedcb-4995-44ac-90f5-f31a157ce512,http://data.europa.eu/esco/skill/1d1fedcb-4995-44ac-90f5-f31a157ce512
+438,manage personal progression,Soft Skill,esco:http://data.europa.eu/esco/skill/468135b7-5757-48c3-9509-fde0e13ec5be,http://data.europa.eu/esco/skill/468135b7-5757-48c3-9509-fde0e13ec5be
+439,manage quality,Soft Skill,esco:http://data.europa.eu/esco/skill/35ebe444-9ece-4fbc-a55d-e99ea37267ae,http://data.europa.eu/esco/skill/35ebe444-9ece-4fbc-a55d-e99ea37267ae
+440,manage time,Soft Skill,esco:http://data.europa.eu/esco/skill/d9013e0e-e937-43d5-ab71-0e917ee882b8,http://data.europa.eu/esco/skill/d9013e0e-e937-43d5-ab71-0e917ee882b8
+441,Managed Hosting,Cloud,stackoverflow-2024:Platform,
+442,Manual testing,Testing/QA,wikidata:Q6752328,Q6752328
+443,Marathi,Soft Skill,esco:http://data.europa.eu/esco/skill/2080075c-0488-4fbf-a786-734dbbef31ce,http://data.europa.eu/esco/skill/2080075c-0488-4fbf-a786-734dbbef31ce
+444,MariaDB,Database,stackoverflow-2026:Databases,Q787177
+445,Markdown File,Tool/Platform,stackoverflow-2025:OfficeStackAsync,
+446,MassTransit,Other,stackoverflow-tags:masstransit,masstransit
+447,MATLAB,Programming Language,stackoverflow-2026:Languages,Q169478
+448,Maven,Tool/Platform,stackoverflow-2026:CloudPlat,Q139941
+449,Maven (build tool),Cloud,stackoverflow-2025:Platform,
+450,MediatR,Other,stackoverflow-tags:mediatr,mediatr
+451,Mediawiki,Tool/Platform,stackoverflow-2026:KnowMgmt,Q83
+452,meet commitments,Soft Skill,esco:http://data.europa.eu/esco/skill/113b4428-0a31-4199-8496-070af7854b91,http://data.europa.eu/esco/skill/113b4428-0a31-4199-8496-070af7854b91
+453,memorise information,Soft Skill,esco:http://data.europa.eu/esco/skill/fa46a48d-9cb9-422d-afab-1047654dbcdd,http://data.europa.eu/esco/skill/fa46a48d-9cb9-422d-afab-1047654dbcdd
+454,Mend.io,Security,stackoverflow-2026:SecOps,
+455,Meson,Tool/Platform,stackoverflow-2024:Embedded,Q23810842
+456,Metasploit,Tool/Platform,wikidata:Q1147445,Q1147445
+457,MFC,Framework/Library,stackoverflow-2024:MiscTech,
+458,Micronaut,Tool/Platform,stackoverflow-2024:Embedded,Q110912899
+459,MicroPython,Programming Language,stackoverflow-2026:Languages,Q25313489
+460,Microservices,Methodology/Concept,wikidata:Q18344624,Q18344624
+461,Microsoft Access,Database,stackoverflow-2026:Databases,Q80689
+462,Microsoft Azure,Cloud,stackoverflow-2026:CloudPlat,Q725967
+463,Microsoft Entra,Security,stackoverflow-2026:SecOps,
+464,Microsoft Excel,Tool/Platform,wikidata:Q11272,Q11272
+465,Microsoft Lists,Tool/Platform,stackoverflow-2024:OfficeStackAsync,Q115987455
+466,Microsoft Planner,Tool/Platform,stackoverflow-2025:OfficeStackAsync,Q24895410
+467,Microsoft PowerPoint,Tool/Platform,wikidata:Q11266,Q11266
+468,Microsoft Search,Tool/Platform,stackoverflow-2026:EntSearch,
+469,Microsoft SharePoint,Tool/Platform,stackoverflow-2026:KnowMgmt,Q18833
+470,Microsoft SQL Server,Database,stackoverflow-2026:Databases,Q215819
+471,Microsoft Word,Tool/Platform,wikidata:Q11261,Q11261
+472,Miro,Tool/Platform,stackoverflow-2025:OfficeStackAsync,
+473,mlflow,Framework/Library,stackoverflow-2024:MiscTech,Q107381745
+474,Mocha,Testing/QA,stackoverflow-2026:CodeTest,Q18346290
+475,Mockito,Framework/Library,wikidata:Q1941695,Q1941695
+476,Model–view–controller,Methodology/Concept,wikidata:Q44860,Q44860
+477,moderate a discussion,Soft Skill,esco:http://data.europa.eu/esco/skill/5b46f572-7ced-4efd-b270-a81a164d521c,http://data.europa.eu/esco/skill/5b46f572-7ced-4efd-b270-a81a164d521c
+478,Mojo,Programming Language,stackoverflow-2026:Languages,
+479,Monday.com,Tool/Platform,stackoverflow-2025:OfficeStackAsync,Q65073369
+480,MongoDB,Database,stackoverflow-2026:Databases,Q1165204
+481,MongoDB Atlas Search,Tool/Platform,stackoverflow-2026:EntSearch,
+482,Montenegrin,Soft Skill,esco:http://data.europa.eu/esco/skill/2358a146-6e8f-43cb-872f-a12ac9c57d60,http://data.europa.eu/esco/skill/2358a146-6e8f-43cb-872f-a12ac9c57d60
+483,motivate others,Soft Skill,esco:http://data.europa.eu/esco/skill/e2d44a9b-f28c-489e-9861-b654b5ded507,http://data.europa.eu/esco/skill/e2d44a9b-f28c-489e-9861-b654b5ded507
+484,move objects,Soft Skill,esco:http://data.europa.eu/esco/skill/b6bdf202-524f-475d-b813-2aa9af005c37,http://data.europa.eu/esco/skill/b6bdf202-524f-475d-b813-2aa9af005c37
+485,Mqtt,Framework/Library,wikidata:Q117049351,Q117049351
+486,MSBuild,Tool/Platform,stackoverflow-2026:CloudPlat,Q2065919
+487,MSTest,Testing/QA,stackoverflow-2026:CodeTest,
+488,MSVC,Tool/Platform,stackoverflow-2024:Embedded,Q847296
+489,MUI,Framework/Library,wikidata:Q118628169,Q118628169
+490,MyBatis,Framework/Library,wikidata:Q5851860,Q5851860
+491,MySQL,Database,stackoverflow-2026:Databases,Q850
+492,MySQL Workbench,Tool/Platform,wikidata:Q640741,Q640741
+493,Nano,Tool/Platform,stackoverflow-2026:DevIDE,Q306101
+494,negotiate compromises,Soft Skill,esco:http://data.europa.eu/esco/skill/7954861c-86d4-4529-afbb-2c23dab9ac74,http://data.europa.eu/esco/skill/7954861c-86d4-4529-afbb-2c23dab9ac74
+495,Neo4J,Database,stackoverflow-2026:Databases,Q1628290
+496,Neovim,Tool/Platform,stackoverflow-2026:DevIDE,Q28975246
+497,NestJS,Framework/Library,stackoverflow-2026:WebFramework,Q107015664
+498,NetBeans,Tool/Platform,stackoverflow-2026:DevIDE,Q264456
+499,Netlify,Cloud,stackoverflow-2026:CloudPlat,
+500,New Relic,Testing/QA,stackoverflow-2026:CodeTest,
+501,Next.js,Framework/Library,stackoverflow-2026:WebFramework,Q56062435
+502,Nginx,Tool/Platform,wikidata:Q306144,Q306144
+503,NgRx,Other,stackoverflow-tags:ngrx,ngrx
+504,Nim,Programming Language,stackoverflow-2024:Language,Q20080327
+505,Ninja,Cloud,stackoverflow-2026:CloudPlat,
+506,Nix,Programming Language,stackoverflow-2026:Languages,
+507,NixOS,Tool/Platform,stackoverflow-2025:OpSys,Q21998874
+508,Nmap,Tool/Platform,wikidata:Q623332,Q623332
+509,Node.js,Framework/Library,stackoverflow-2026:WebFramework,Q756100
+510,Norwegian,Soft Skill,esco:http://data.europa.eu/esco/skill/829f6eb5-0b26-4152-8eb3-82dd32b2b6f2,http://data.europa.eu/esco/skill/829f6eb5-0b26-4152-8eb3-82dd32b2b6f2
+511,Notepad++,Tool/Platform,stackoverflow-2026:DevIDE,Q2033
+512,Notion,Tool/Platform,stackoverflow-2026:KnowMgmt,Q60747998
+513,npm,Tool/Platform,stackoverflow-2026:CloudPlat,Q7067518
+514,Nuclino,Tool/Platform,stackoverflow-2026:KnowMgmt,Q28135062
+515,NuGet,Tool/Platform,stackoverflow-2026:CloudPlat,Q975870
+516,NumPy,Framework/Library,stackoverflow-2024:MiscTech,Q197520
+517,NUnit,Testing/QA,stackoverflow-2026:CodeTest,Q1747342
+518,Nuxt.js,Framework/Library,stackoverflow-2026:WebFramework,Q55641291
+519,Object-oriented programming,Methodology/Concept,wikidata:Q79872,Q79872
+520,Objective-C,Programming Language,stackoverflow-2026:Languages,Q188531
+521,Obsidian,Tool/Platform,stackoverflow-2026:KnowMgmt,Q103994532
+522,OCaml,Programming Language,stackoverflow-2026:Languages,Q212587
+523,Occitan,Soft Skill,esco:http://data.europa.eu/esco/skill/57cc6587-7efe-4ba5-982f-ac15ce1617ac,http://data.europa.eu/esco/skill/57cc6587-7efe-4ba5-982f-ac15ce1617ac
+524,Odin,Programming Language,stackoverflow-2026:Languages,Q64840933
+525,Okta,Security,stackoverflow-2026:SecOps,
+526,OneLogin,Security,stackoverflow-2026:SecOps,
+527,OpenCL,Framework/Library,stackoverflow-2024:MiscTech,Q681360
+528,Opencv,Framework/Library,stackoverflow-2024:MiscTech,Q165277
+529,OpenGL,Framework/Library,stackoverflow-2024:MiscTech,Q178570
+530,OpenSearch,Tool/Platform,stackoverflow-2026:EntSearch,Q106497646
+531,OpenShift,Tool/Platform,stackoverflow-2026:CloudPlat,Q2912272
+532,OpenStack,Cloud,stackoverflow-2024:Platform,Q1470293
+533,OpenText,Security,stackoverflow-2026:SecOps,
+534,OpenTofu,Tool/Platform,stackoverflow-2026:CloudPlat,Q122779433
+535,operate digital hardware,Soft Skill,esco:http://data.europa.eu/esco/skill/6b2f8802-0cbf-436e-a37f-ca55ede41bbc,http://data.europa.eu/esco/skill/6b2f8802-0cbf-436e-a37f-ca55ede41bbc
+536,Oracle,Database,stackoverflow-2026:Databases,Q185524
+537,Oracle Cloud Infrastructure (OCI),Cloud,stackoverflow-2026:CloudPlat,Q43401211
+538,Orca Security,Security,stackoverflow-2026:SecOps,
+539,"organise information, objects and resources",Soft Skill,esco:http://data.europa.eu/esco/skill/6b305973-8993-475f-bd8a-daf037c61401,http://data.europa.eu/esco/skill/6b305973-8993-475f-bd8a-daf037c61401
+540,Outline,Tool/Platform,stackoverflow-2026:KnowMgmt,Q59205228
+541,OVHcloud,Cloud,stackoverflow-2026:CloudPlat,Q568183
+542,OWASP Top 10,Methodology/Concept,wikidata:Q17058065,Q17058065
+543,Pacman,Tool/Platform,stackoverflow-2026:CloudPlat,Q69952
+544,Pandas,Framework/Library,stackoverflow-2024:MiscTech,Q15967387
+545,participate actively in civic life,Soft Skill,esco:http://data.europa.eu/esco/skill/7d9bace0-63d0-4848-ac87-350a98082c12,http://data.europa.eu/esco/skill/7d9bace0-63d0-4848-ac87-350a98082c12
+546,Perl,Programming Language,stackoverflow-2026:Languages,Q42478
+547,Persian,Soft Skill,esco:http://data.europa.eu/esco/skill/58cabf75-2520-4358-a210-2cbc628f4aa2,http://data.europa.eu/esco/skill/58cabf75-2520-4358-a210-2cbc628f4aa2
+548,Phoenix,Framework/Library,stackoverflow-2026:WebFramework,
+549,PHP,Programming Language,stackoverflow-2026:Languages,Q59
+550,PhpStorm,Tool/Platform,stackoverflow-2026:DevIDE,Q1786113
+551,PHPUnit,Testing/QA,stackoverflow-2026:CodeTest,Q1663673
+552,Ping Identity,Security,stackoverflow-2026:SecOps,
+553,Pinia,Other,stackoverflow-tags:pinia,pinia
+554,pip,Tool/Platform,stackoverflow-2026:CloudPlat,Q6541095
+555,PL/SQL,Programming Language,wikidata:Q41574,Q41574
+556,plan,Soft Skill,esco:http://data.europa.eu/esco/skill/e49f4158-9d4c-425d-bf32-dfe89b19840a,http://data.europa.eu/esco/skill/e49f4158-9d4c-425d-bf32-dfe89b19840a
+557,PlatformIO,Tool/Platform,stackoverflow-2024:Embedded,Q107383860
+558,Play Framework,Framework/Library,stackoverflow-2024:Webframe,Q3392101
+559,Playwright,Testing/QA,stackoverflow-2026:CodeTest,Q123162820
+560,pnpm,Tool/Platform,stackoverflow-2026:CloudPlat,Q118939881
+561,Pocketbase,Database,stackoverflow-2026:Databases,Q136776322
+562,Podman,Tool/Platform,stackoverflow-2026:CloudPlat,Q70876440
+563,Poetry,Cloud,stackoverflow-2026:CloudPlat,
+564,Polish,Soft Skill,esco:http://data.europa.eu/esco/skill/f3e9b964-0c2d-46c4-a895-8b3583054d69,http://data.europa.eu/esco/skill/f3e9b964-0c2d-46c4-a895-8b3583054d69
+565,Pop!_OS,Tool/Platform,stackoverflow-2025:OpSys,Q81388644
+566,PortSwigger,Security,stackoverflow-2026:SecOps,
+567,Portuguese,Soft Skill,esco:http://data.europa.eu/esco/skill/584c13e8-fd06-4ca3-a45b-cca5b2f147a7,http://data.europa.eu/esco/skill/584c13e8-fd06-4ca3-a45b-cca5b2f147a7
+568,PostgreSQL,Database,stackoverflow-2026:Databases,Q192490
+569,Postman,Methodology/Concept,wikidata:Q105538901,Q105538901
+570,Postman / Newman,Testing/QA,stackoverflow-2026:CodeTest,
+571,Power BI,Other,stackoverflow-tags:powerbi,powerbi
+572,PowerShell,Programming Language,stackoverflow-2026:Languages,Q840410
+573,Preact,Framework/Library,stackoverflow-2026:WebFramework,Q117049316
+574,Presentation,Soft Skill,wikidata:Q604733,Q604733
+575,Presto,Database,stackoverflow-2024:Database,
+576,Prisma ORM,Framework/Library,wikidata:Q124705023,Q124705023
+577,process spatial information,Soft Skill,esco:http://data.europa.eu/esco/skill/5c526c52-4f0a-4647-8c51-c91568acebb1,http://data.europa.eu/esco/skill/5c526c52-4f0a-4647-8c51-c91568acebb1
+578,Prolog,Programming Language,stackoverflow-2026:Languages,Q163468
+579,Prometheus,Tool/Platform,stackoverflow-2025:Platform,Q52534999
+580,"promote ideas, products, services",Soft Skill,esco:http://data.europa.eu/esco/skill/df5e3d02-9f0f-44ee-91c2-85c62f161868,http://data.europa.eu/esco/skill/df5e3d02-9f0f-44ee-91c2-85c62f161868
+581,promote the principles of democracy and rule of law,Soft Skill,esco:http://data.europa.eu/esco/skill/896a5e0c-7ac9-4e59-a9bf-17fdca6b1c37,http://data.europa.eu/esco/skill/896a5e0c-7ac9-4e59-a9bf-17fdca6b1c37
+582,protect the health of others,Soft Skill,esco:http://data.europa.eu/esco/skill/4cde32b5-fc2f-4257-a8b9-5b15a67ee3e5,http://data.europa.eu/esco/skill/4cde32b5-fc2f-4257-a8b9-5b15a67ee3e5
+583,Protocol Buffers,Methodology/Concept,wikidata:Q1645574,Q1645574
+584,Provider,Other,stackoverflow-tags:provider,provider
+585,Pulumi,Tool/Platform,stackoverflow-2026:CloudPlat,Q138634162
+586,Punjabi,Soft Skill,esco:http://data.europa.eu/esco/skill/e05b9e06-d298-4646-b762-acbd485a20e9,http://data.europa.eu/esco/skill/e05b9e06-d298-4646-b762-acbd485a20e9
+587,Puppet,DevOps/CI-CD,stackoverflow-2024:ToolsTech,Q2095962
+588,PyCharm,Tool/Platform,stackoverflow-2026:DevIDE,Q1484375
+589,pytest,Testing/QA,stackoverflow-2026:CodeTest,Q28975377
+590,Python,Programming Language,stackoverflow-2026:Languages,Q28865
+591,PythonAnywhere,Tool/Platform,stackoverflow-2024:Platform,Q7263915
+592,PyTorch,Framework/Library,wikidata:Q47509047,Q47509047
+593,Qdrant,Database,wikidata:Q137839573,Q137839573
+594,QMake,Tool/Platform,stackoverflow-2024:Embedded,Q287034
+595,Qodo,Testing/QA,stackoverflow-2026:CodeTest,
+596,Qt,Framework/Library,stackoverflow-2024:MiscTech,Q201904
+597,Qt Creator,Tool/Platform,stackoverflow-2024:NEWCollabTools,Q2121795
+598,Quarkus,Framework/Library,stackoverflow-2026:WebFramework,Q98139844
+599,Quip,Tool/Platform,stackoverflow-2026:KnowMgmt,Q20539341
+600,R,Programming Language,stackoverflow-2026:Languages,Q206904
+601,R Studio,Tool/Platform,stackoverflow-2026:DevIDE,Q4798119
+602,RabbitMQ,Framework/Library,stackoverflow-2024:MiscTech,Q2081413
+603,"Rad Studio (Delphi, C++ Builder)",Tool/Platform,stackoverflow-2024:NEWCollabTools,
+604,Railway,Cloud,stackoverflow-2026:CloudPlat,
+605,Rancher,Cloud,stackoverflow-2026:CloudPlat,
+606,Raspberry Pi,Tool/Platform,stackoverflow-2024:Embedded,Q890474
+607,RavenDB,Database,stackoverflow-2024:Database,Q97280779
+608,React,Framework/Library,stackoverflow-2026:WebFramework,Q19399674
+609,React Native,Framework/Library,stackoverflow-2024:MiscTech,Q55774523
+610,React Query,Other,stackoverflow-tags:react-query,react-query
+611,React Testing Library,Other,stackoverflow-tags:react-testing-library,react-testing-library
+612,react to physical changes or hazards,Soft Skill,esco:http://data.europa.eu/esco/skill/ef7562b2-f176-4d7c-a0b2-27ae8cce0b7d,http://data.europa.eu/esco/skill/ef7562b2-f176-4d7c-a0b2-27ae8cce0b7d
+613,React-hook-form,Framework/Library,wikidata:Q116951295,Q116951295
+614,Red Hat,Tool/Platform,stackoverflow-2025:OpSys,
+615,Redis,Database,stackoverflow-2026:Databases,Q107381063
+616,Redmine,Tool/Platform,stackoverflow-2025:OfficeStackAsync,Q1149365
+617,Redux,Framework/Library,wikidata:Q28957057,Q28957057
+618,Redux Toolkit,Other,stackoverflow-tags:redux-toolkit,redux-toolkit
+619,Remix,Framework/Library,stackoverflow-2026:WebFramework,
+620,Render,Cloud,stackoverflow-2026:CloudPlat,
+621,Replit,Tool/Platform,stackoverflow-2026:DevIDE,Q60768699
+622,report facts,Soft Skill,esco:http://data.europa.eu/esco/skill/be6ab363-3de1-427f-a8ef-85d5b0250822,http://data.europa.eu/esco/skill/be6ab363-3de1-427f-a8ef-85d5b0250822
+623,resolve conflicts,Soft Skill,esco:http://data.europa.eu/esco/skill/96de2e86-e287-41f2-88ab-15a2343afc6f,http://data.europa.eu/esco/skill/96de2e86-e287-41f2-88ab-15a2343afc6f
+624,respect confidentiality obligations,Soft Skill,esco:http://data.europa.eu/esco/skill/e37d64dc-0f05-4ee8-b065-bf76f70d8f5c,http://data.europa.eu/esco/skill/e37d64dc-0f05-4ee8-b065-bf76f70d8f5c
+625,respect the diversity of cultural values and norms,Soft Skill,esco:http://data.europa.eu/esco/skill/5ca953f7-541d-4f67-bc55-7721348366cf,http://data.europa.eu/esco/skill/5ca953f7-541d-4f67-bc55-7721348366cf
+626,Responsive web design,Design/UI-UX,wikidata:Q420295,Q420295
+627,REST-Assured,Other,stackoverflow-tags:rest-assured,rest-assured
+628,Retrofit,Other,stackoverflow-tags:retrofit,retrofit
+629,Rider,Tool/Platform,stackoverflow-2026:DevIDE,
+630,Riverpod,Framework/Library,wikidata:Q137777697,Q137777697
+631,Robot Framework,Testing/QA,stackoverflow-2026:CodeTest,Q2160022
+632,Romani,Soft Skill,esco:http://data.europa.eu/esco/skill/8ef3eccc-a847-430e-b828-cf178803b8c1,http://data.europa.eu/esco/skill/8ef3eccc-a847-430e-b828-cf178803b8c1
+633,Romanian,Soft Skill,esco:http://data.europa.eu/esco/skill/4b9f1ae5-0ee6-4738-8999-9b8191fba808,http://data.europa.eu/esco/skill/4b9f1ae5-0ee6-4738-8999-9b8191fba808
+634,Roslyn,Framework/Library,stackoverflow-2024:MiscTech,Q6840207
+635,RSpec,Testing/QA,stackoverflow-2026:CodeTest,Q3463141
+636,Ruby,Programming Language,stackoverflow-2026:Languages,Q161053
+637,Ruby on Rails,Framework/Library,stackoverflow-2026:WebFramework,Q190478
+638,RubyGems,Tool/Platform,wikidata:Q1853420,Q1853420
+639,RubyGems / Bundler,Cloud,stackoverflow-2026:CloudPlat,
+640,RubyMine,Tool/Platform,stackoverflow-2026:DevIDE,Q4048590
+641,Ruff,Framework/Library,stackoverflow-2024:MiscTech,Q115911873
+642,Russian,Soft Skill,esco:http://data.europa.eu/esco/skill/6891bbce-20bf-4afc-bd5e-75bdf54c0165,http://data.europa.eu/esco/skill/6891bbce-20bf-4afc-bd5e-75bdf54c0165
+643,Rust,Programming Language,stackoverflow-2026:Languages,Q575650
+644,RustRover,Tool/Platform,stackoverflow-2026:DevIDE,Q131839363
+645,Rxjs,Framework/Library,wikidata:Q95961420,Q95961420
+646,Salesforce Einstein Search,Tool/Platform,stackoverflow-2026:EntSearch,
+647,Sardinian,Soft Skill,esco:http://data.europa.eu/esco/skill/1627c1b9-31e1-4742-bf5c-cfec2ce33cfc,http://data.europa.eu/esco/skill/1627c1b9-31e1-4742-bf5c-cfec2ce33cfc
+648,Sassy Cascading Style Sheets,Methodology/Concept,wikidata:Q34305098,Q34305098
+649,Scala,Programming Language,stackoverflow-2026:Languages,Q460584
+650,Scaleway,Cloud,stackoverflow-2026:CloudPlat,Q3352745
+651,Scikit-Learn,Framework/Library,stackoverflow-2024:MiscTech,Q1026367
+652,SCons,Tool/Platform,stackoverflow-2024:Embedded,Q539042
+653,Scrum,Methodology/Concept,wikidata:Q460387,Q460387
+654,SearchStax,Tool/Platform,stackoverflow-2026:EntSearch,
+655,Selenium,Testing/QA,stackoverflow-2026:CodeTest,Q752522
+656,Selenium WebDriver,Other,stackoverflow-tags:selenium-webdriver,selenium-webdriver
+657,Semgrep,Testing/QA,stackoverflow-2026:CodeTest,Q105563018
+658,SentinelOne,Security,stackoverflow-2026:SecOps,
+659,Sentry,Testing/QA,stackoverflow-2026:CodeTest,
+660,Sequelize,Framework/Library,wikidata:Q117049281,Q117049281
+661,Serbian,Soft Skill,esco:http://data.europa.eu/esco/skill/c5cb0cc1-c40b-4544-a21c-8472f0b5c14a,http://data.europa.eu/esco/skill/c5cb0cc1-c40b-4544-a21c-8472f0b5c14a
+662,Server-side web API,Methodology/Concept,wikidata:Q557770,Q557770
+663,Serverless Framework,Framework/Library,wikidata:Q22952981,Q22952981
+664,ServiceNow AI Search,Tool/Platform,stackoverflow-2026:EntSearch,
+665,ServiceNow Knowledge Management,Tool/Platform,stackoverflow-2026:KnowMgmt,
+666,Shortcut,Tool/Platform,stackoverflow-2024:OfficeStackAsync,Q2516568
+667,show commitment,Soft Skill,esco:http://data.europa.eu/esco/skill/1fce1197-3a5b-45b7-8797-575cd3b57a01,http://data.europa.eu/esco/skill/1fce1197-3a5b-45b7-8797-575cd3b57a01
+668,show confidence,Soft Skill,esco:http://data.europa.eu/esco/skill/669b75d8-671c-4a1c-8e0b-6466c513c27d,http://data.europa.eu/esco/skill/669b75d8-671c-4a1c-8e0b-6466c513c27d
+669,show determination,Soft Skill,esco:http://data.europa.eu/esco/skill/19a64e91-bfe3-4c48-9225-3bb1229b12f0,http://data.europa.eu/esco/skill/19a64e91-bfe3-4c48-9225-3bb1229b12f0
+670,show empathy,Soft Skill,esco:http://data.europa.eu/esco/skill/77b636e8-fab3-41a8-8022-1e0a354059dc,http://data.europa.eu/esco/skill/77b636e8-fab3-41a8-8022-1e0a354059dc
+671,show entrepreneurial spirit,Soft Skill,esco:http://data.europa.eu/esco/skill/bdcf429c-5ccf-4c3d-bb61-4c987573a35e,http://data.europa.eu/esco/skill/bdcf429c-5ccf-4c3d-bb61-4c987573a35e
+672,show initiative,Soft Skill,esco:http://data.europa.eu/esco/skill/001115fb-569f-4ee6-8381-c6807ef2527f,http://data.europa.eu/esco/skill/001115fb-569f-4ee6-8381-c6807ef2527f
+673,SignalR,Framework/Library,wikidata:Q7512622,Q7512622
+674,Sinequa,Tool/Platform,stackoverflow-2026:EntSearch,
+675,Slab,Tool/Platform,stackoverflow-2026:KnowMgmt,
+676,slack,Tool/Platform,stackoverflow-2025:OfficeStackAsync,Q58436
+677,Slovak,Soft Skill,esco:http://data.europa.eu/esco/skill/246980fe-6222-4852-ade8-b372f7e0fd20,http://data.europa.eu/esco/skill/246980fe-6222-4852-ade8-b372f7e0fd20
+678,Slovenian,Soft Skill,esco:http://data.europa.eu/esco/skill/9ace3aae-aeae-4ed6-b625-26bc58345554,http://data.europa.eu/esco/skill/9ace3aae-aeae-4ed6-b625-26bc58345554
+679,Smartsheet,Tool/Platform,stackoverflow-2024:OfficeStackAsync,Q7544153
+680,Snowflake,Database,stackoverflow-2026:Databases,Q114880973
+681,Snyk Code,Testing/QA,stackoverflow-2026:CodeTest,
+682,Socket.IO,Framework/Library,wikidata:Q7552998,Q7552998
+683,Solaris,Tool/Platform,stackoverflow-2024:OpSys,Q14646
+684,Solidity,Programming Language,stackoverflow-2026:Languages,Q24909565
+685,SolidJS,Framework/Library,stackoverflow-2026:WebFramework,Q114159171
+686,solve problems,Soft Skill,esco:http://data.europa.eu/esco/skill/adc6dc11-3376-467b-96c5-9b0a21edc869,http://data.europa.eu/esco/skill/adc6dc11-3376-467b-96c5-9b0a21edc869
+687,SonarQube,Tool/Platform,wikidata:Q541691,Q541691
+688,SonarQube / SonarCloud,Testing/QA,stackoverflow-2026:CodeTest,
+689,Sourcery,Testing/QA,stackoverflow-2026:CodeTest,Q111465365
+690,Spacemacs,Tool/Platform,stackoverflow-2024:NEWCollabTools,Q28687323
+691,spacetimedb,Database,stackoverflow-2025:Database,
+692,Spanish,Soft Skill,esco:http://data.europa.eu/esco/skill/14ee9f76-3524-43d5-8a1a-5ba8283f8bd7,http://data.europa.eu/esco/skill/14ee9f76-3524-43d5-8a1a-5ba8283f8bd7
+693,SPI,Other,stackoverflow-tags:spi,spi
+694,Splunk,Security,stackoverflow-2026:SecOps,Q125525849
+695,Spring Boot,Framework/Library,stackoverflow-2026:WebFramework,Q98731994
+696,Spring Cloud,Other,stackoverflow-tags:spring-cloud,spring-cloud
+697,Spring Cloud Gateway,Other,stackoverflow-tags:spring-cloud-gateway,spring-cloud-gateway
+698,Spring Data JPA,Other,stackoverflow-tags:spring-data-jpa,spring-data-jpa
+699,Spring Framework,Framework/Library,stackoverflow-2024:MiscTech,Q720314
+700,Spring MVC,Other,stackoverflow-tags:spring-mvc,spring-mvc
+701,Spring Security,Tool/Platform,wikidata:Q4049968,Q4049968
+702,Spring WebFlux,Other,stackoverflow-tags:spring-webflux,spring-webflux
+703,Spyder,Tool/Platform,stackoverflow-2024:NEWCollabTools,Q7581736
+704,SQL,Programming Language,stackoverflow-2026:Languages,Q47607
+705,SQLite,Database,stackoverflow-2026:Databases,Q319417
+706,Stack Internal / Stack Overflow for Teams,Tool/Platform,stackoverflow-2026:KnowMgmt,
+707,Stack Overflow for Teams,Tool/Platform,stackoverflow-2025:OfficeStackAsync,
+708,Stored procedure,Methodology/Concept,wikidata:Q846619,Q846619
+709,Storybook,Tool/Platform,wikidata:Q4050213,Q4050213
+710,Strapi,Framework/Library,stackoverflow-2024:Webframe,Q105826887
+711,Streaming SIMD Extensions,Methodology/Concept,wikidata:Q741291,Q741291
+712,Styled-components,Framework/Library,wikidata:Q95969528,Q95969528
+713,Sublime Text,Tool/Platform,stackoverflow-2026:DevIDE,Q267193
+714,Supabase,Database,stackoverflow-2026:Databases,Q136776342
+715,surrealdb,Database,stackoverflow-2025:Database,Q124316308
+716,Svelte,Framework/Library,stackoverflow-2026:WebFramework,Q16863097
+717,SvelteKit,Framework/Library,stackoverflow-2026:WebFramework,
+718,Swagger,Tool/Platform,wikidata:Q39069667,Q39069667
+719,Swedish,Soft Skill,esco:http://data.europa.eu/esco/skill/7ee51257-8947-4b69-9bdf-322baf0a6398,http://data.europa.eu/esco/skill/7ee51257-8947-4b69-9bdf-322baf0a6398
+720,Swift,Programming Language,stackoverflow-2026:Languages,Q17118377
+721,SwiftUI,Framework/Library,stackoverflow-2024:MiscTech,Q97455771
+722,Symfony,Framework/Library,stackoverflow-2026:WebFramework,Q1322933
+723,Tailwind CSS,Framework/Library,wikidata:Q102173844,Q102173844
+724,Tamil,Soft Skill,esco:http://data.europa.eu/esco/skill/e9e9b625-f59f-4bda-952d-1f9831e6dfda,http://data.europa.eu/esco/skill/e9e9b625-f59f-4bda-952d-1f9831e6dfda
+725,Tauri,Framework/Library,stackoverflow-2024:MiscTech,Q124047549
+726,Teleport,Security,stackoverflow-2026:SecOps,Q4050803
+727,Telugu,Soft Skill,esco:http://data.europa.eu/esco/skill/64fe09ac-f419-4c04-8997-d1dde2e31bfc,http://data.europa.eu/esco/skill/64fe09ac-f419-4c04-8997-d1dde2e31bfc
+728,Tenable,Security,stackoverflow-2026:SecOps,
+729,TensorFlow,Framework/Library,stackoverflow-2024:MiscTech,Q21447895
+730,Tensorrt,Tool/Platform,wikidata:Q120550237,Q120550237
+731,Terraform,Tool/Platform,stackoverflow-2026:CloudPlat,Q28957072
+732,Test automation,Testing/QA,wikidata:Q1475717,Q1475717
+733,Testcontainers,Testing/QA,stackoverflow-2026:CodeTest,Q107381826
+734,TestNG,Testing/QA,stackoverflow-2026:CodeTest,Q4385601
+735,think analytically,Soft Skill,esco:http://data.europa.eu/esco/skill/4707da90-9cfc-46ca-8de0-38a0b7bfb137,http://data.europa.eu/esco/skill/4707da90-9cfc-46ca-8de0-38a0b7bfb137
+736,think creatively,Soft Skill,esco:http://data.europa.eu/esco/skill/c624c6a3-b0ba-4a31-a296-0d433fe47e41,http://data.europa.eu/esco/skill/c624c6a3-b0ba-4a31-a296-0d433fe47e41
+737,think critically,Soft Skill,esco:http://data.europa.eu/esco/skill/7dd94ad3-13d6-43fe-8b94-51fcbf67ced9,http://data.europa.eu/esco/skill/7dd94ad3-13d6-43fe-8b94-51fcbf67ced9
+738,think holistically,Soft Skill,esco:http://data.europa.eu/esco/skill/d56e2c2f-3e01-4b76-a7bb-ecb6d430172f,http://data.europa.eu/esco/skill/d56e2c2f-3e01-4b76-a7bb-ecb6d430172f
+739,think innovatively,Soft Skill,esco:http://data.europa.eu/esco/skill/c2a0c52c-0b4b-4180-a918-92650ea3b458,http://data.europa.eu/esco/skill/c2a0c52c-0b4b-4180-a918-92650ea3b458
+740,think quickly,Soft Skill,esco:http://data.europa.eu/esco/skill/20012caa-b63c-4cb9-b2b8-01a1cfdfc1d1,http://data.europa.eu/esco/skill/20012caa-b63c-4cb9-b2b8-01a1cfdfc1d1
+741,Thymeleaf,Framework/Library,wikidata:Q3526177,Q3526177
+742,TiDB,Database,stackoverflow-2024:Database,Q56375088
+743,Tidyverse,Framework/Library,stackoverflow-2024:MiscTech,Q60755534
+744,timescaledb,Database,stackoverflow-2025:Database,Q111012643
+745,Torch/PyTorch,Framework/Library,stackoverflow-2024:MiscTech,
+746,Trae,Tool/Platform,stackoverflow-2026:DevIDE,
+747,Transmission Control Protocol,Methodology/Concept,wikidata:Q8803,Q8803
+748,Trello,Tool/Platform,stackoverflow-2025:OfficeStackAsync,Q7838011
+749,Turkish,Soft Skill,esco:http://data.europa.eu/esco/skill/aa66a033-8522-40e9-a5c0-ff2593e2669c,http://data.europa.eu/esco/skill/aa66a033-8522-40e9-a5c0-ff2593e2669c
+750,TypeORM,Other,stackoverflow-tags:typeorm,typeorm
+751,TypeScript,Programming Language,stackoverflow-2026:Languages,Q978185
+752,Ubuntu,Tool/Platform,stackoverflow-2025:OpSys,Q381
+753,UIKit,Framework/Library,wikidata:Q117480832,Q117480832
+754,Ukrainian,Soft Skill,esco:http://data.europa.eu/esco/skill/354b948c-7eef-4ebc-bfd6-f60d7d5acb62,http://data.europa.eu/esco/skill/354b948c-7eef-4ebc-bfd6-f60d7d5acb62
+755,Unit testing,Testing/QA,wikidata:Q907375,Q907375
+756,Unity 3D,DevOps/CI-CD,stackoverflow-2024:ToolsTech,Q63966
+757,Unreal Engine,DevOps/CI-CD,stackoverflow-2024:ToolsTech,Q84583653
+758,Urdu,Soft Skill,esco:http://data.europa.eu/esco/skill/bc546a09-1103-4184-b757-3508ef5f8490,http://data.europa.eu/esco/skill/bc546a09-1103-4184-b757-3508ef5f8490
+759,use communication and collaboration software,Soft Skill,esco:http://data.europa.eu/esco/skill/b080a008-a35d-4bd0-92e9-edf3773bb2b7,http://data.europa.eu/esco/skill/b080a008-a35d-4bd0-92e9-edf3773bb2b7
+760,"use equipment, tools or technology with precision",Soft Skill,esco:http://data.europa.eu/esco/skill/9c0f93f7-2592-4d4d-9673-fd640502345f,http://data.europa.eu/esco/skill/9c0f93f7-2592-4d4d-9673-fd640502345f
+761,uv,Cloud,stackoverflow-2026:CloudPlat,
+762,Valkey,Database,stackoverflow-2026:Databases,Q125195483
+763,Vault,Tool/Platform,wikidata:Q4052619,Q4052619
+764,VBA,Programming Language,stackoverflow-2026:Languages,Q667566
+765,Veracode,Security,stackoverflow-2026:SecOps,
+766,Vercel,Cloud,stackoverflow-2026:CloudPlat,
+767,Vietnamese,Soft Skill,esco:http://data.europa.eu/esco/skill/bf60009d-8afb-4306-9b0d-cfe2f66ab08f,http://data.europa.eu/esco/skill/bf60009d-8afb-4306-9b0d-cfe2f66ab08f
+768,Vim,Tool/Platform,stackoverflow-2026:DevIDE,Q131382
+769,Visual Basic (.Net),Programming Language,stackoverflow-2026:Languages,Q50077
+770,Visual Studio,Tool/Platform,stackoverflow-2026:DevIDE,Q134067
+771,Visual Studio Code,Tool/Platform,stackoverflow-2026:DevIDE,Q19841877
+772,Visual Studio Solution,DevOps/CI-CD,stackoverflow-2024:ToolsTech,
+773,Vite,Tool/Platform,stackoverflow-2026:CloudPlat,Q111590996
+774,Vitest,Testing/QA,stackoverflow-2026:CodeTest,
+775,VMware,Cloud,stackoverflow-2024:Platform,
+776,VPN,Other,stackoverflow-tags:vpn,vpn
+777,VSCodium,Tool/Platform,stackoverflow-2026:DevIDE,Q111967621
+778,Vue.js,Framework/Library,stackoverflow-2026:WebFramework,Q24589705
+779,Vultr,Cloud,stackoverflow-2026:CloudPlat,
+780,Walloon,Soft Skill,esco:http://data.europa.eu/esco/skill/d54d7c00-87c4-4f78-af8d-e84577372974,http://data.europa.eu/esco/skill/d54d7c00-87c4-4f78-af8d-e84577372974
+781,Wazuh,Tool/Platform,wikidata:Q30121803,Q30121803
+782,Webpack,Tool/Platform,stackoverflow-2026:CloudPlat,Q22909730
+783,WebSocket-Node,Framework/Library,wikidata:Q95971865,Q95971865
+784,WebStorm,Tool/Platform,stackoverflow-2026:DevIDE,Q4053021
+785,Welsh,Soft Skill,esco:http://data.europa.eu/esco/skill/8dbd15c6-ecf0-468c-8ae1-f6eb360743dd,http://data.europa.eu/esco/skill/8dbd15c6-ecf0-468c-8ae1-f6eb360743dd
+786,Wikis,Tool/Platform,stackoverflow-2025:OfficeStackAsync,
+787,Windows,Tool/Platform,stackoverflow-2025:OpSys,Q1406
+788,Windows Subsystem for Linux (WSL),Tool/Platform,stackoverflow-2025:OpSys,
+789,Windsurf,Tool/Platform,stackoverflow-2026:DevIDE,
+790,Winget,Tool/Platform,stackoverflow-2026:CloudPlat,Q95225611
+791,WireMock,Other,stackoverflow-tags:wiremock,wiremock
+792,Wireshark,Tool/Platform,wikidata:Q403539,Q403539
+793,Wiz,Security,stackoverflow-2026:SecOps,
+794,WordPress,Framework/Library,stackoverflow-2026:WebFramework,Q13166
+795,work efficiently,Soft Skill,esco:http://data.europa.eu/esco/skill/7a93e22f-54d8-4bf0-9213-d711f6601b49,http://data.europa.eu/esco/skill/7a93e22f-54d8-4bf0-9213-d711f6601b49
+796,work in teams,Soft Skill,esco:http://data.europa.eu/esco/skill/60c78287-22eb-4103-9c8c-28deaa460da0,http://data.europa.eu/esco/skill/60c78287-22eb-4103-9c8c-28deaa460da0
+797,work independently,Soft Skill,esco:http://data.europa.eu/esco/skill/c29aa9d2-4da8-4bdd-831c-8d4a2fb51730,http://data.europa.eu/esco/skill/c29aa9d2-4da8-4bdd-831c-8d4a2fb51730
+798,Xamarin,Framework/Library,stackoverflow-2024:MiscTech,
+799,Xcode,Tool/Platform,stackoverflow-2026:DevIDE,Q250328
+800,XCTest,Other,stackoverflow-tags:xctest,xctest
+801,xUnit.net,Testing/QA,stackoverflow-2026:CodeTest,Q17048771
+802,XWiki,Tool/Platform,stackoverflow-2026:KnowMgmt,Q526699
+803,Yandex Cloud,Cloud,stackoverflow-2025:Platform,Q109918390
+804,Yarn,Tool/Platform,stackoverflow-2026:CloudPlat,Q28518314
+805,Yext,Tool/Platform,stackoverflow-2026:EntSearch,
+806,Yiddish,Soft Skill,esco:http://data.europa.eu/esco/skill/d59ef10f-ad20-4791-957d-b315196ecdc2,http://data.europa.eu/esco/skill/d59ef10f-ad20-4791-957d-b315196ecdc2
+807,Yii 2,Framework/Library,stackoverflow-2024:Webframe,
+808,YouTrack,Tool/Platform,stackoverflow-2025:OfficeStackAsync,Q4053466
+809,Zed,Tool/Platform,stackoverflow-2026:DevIDE,
+810,Zendesk Guide,Tool/Platform,stackoverflow-2026:KnowMgmt,
+811,Zephyr,Programming Language,stackoverflow-2024:Language,Q22909895
+812,Zig,Programming Language,stackoverflow-2026:Languages,Q51885456
+813,ZMK,Tool/Platform,stackoverflow-2024:Embedded,

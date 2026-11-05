@@ -1,17 +1,17 @@
-id,name
-1,Programming Language
-2,Framework/Library
-3,Frontend
-4,Mobile
-5,Database
-6,Cloud
-7,DevOps/CI-CD
-8,Testing/QA
-9,Data/AI
-10,Business Analysis
-11,Design/UI-UX
-12,Security
-13,Tool/Platform
-14,Methodology/Concept
-15,Soft Skill
-16,Other
+id,name,source
+1,Programming Language,stackoverflow-2026:Languages
+2,Framework/Library,wikidata:Q21622213
+3,Frontend,stackoverflow-2024:MiscTech
+4,Mobile,stackoverflow-2024:MiscTech
+5,Database,stackoverflow-2026:Databases
+6,Cloud,stackoverflow-2024:Platform
+7,DevOps/CI-CD,stackoverflow-2024:ToolsTech
+8,Testing/QA,wikidata:Q25303630
+9,Data/AI,wikidata:Q2539
+10,Business Analysis,stackoverflow-2024:MiscTech
+11,Design/UI-UX,wikidata:Q420295
+12,Security,stackoverflow-2026:SecOps
+13,Tool/Platform,wikidata:Q55692
+14,Methodology/Concept,wikidata:Q30232
+15,Soft Skill,esco:http://data.europa.eu/esco/skill/05aa7c09-46e7-433f-a81b-92841f4551e7
+16,Other,stackoverflow-tags:angular-material

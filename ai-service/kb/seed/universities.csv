@@ -1,296 +1,388 @@
-id,name,reviewed
-1,Công nghệ Hà Nội,false
-2,Hệ thống Đào tạo Lập trình viên Quốc tế Aptech,true
-3,Học viện An ninh nhân dân,false
-4,Học viện Biên phòng,false
-5,Học viện Báo chí và Tuyên truyền,false
-6,Học viện cao đài Tiên Thiên,false
-7,Học viện Chiến lược Khoa học và Công nghệ,false
-8,Học viện Chính sách và Phát triển,false
-9,Học viện Chính trị - Công an Nhân dân,false
-10,Học viện Chính trị Quân đội Nhân dân Việt Nam,false
-11,Học viện Chính trị Quốc gia Hồ Chí Minh,false
-12,Học viện Cán bộ Thành phố Hồ Chí Minh,false
-13,Học viện Công giáo Việt Nam,false
-14,Học viện Công nghệ Bưu chính Viễn thông,true
-15,Học viện Cảnh sát nhân dân,false
-16,Học viện Dân tộc,false
-17,Học viện Hàng không Việt Nam,false
-18,Học viện Hành chính và Quản trị công,false
-19,Học viện Hải quân,false
-20,Học viện Hậu cần,false
-21,Học viện Khoa học Quân sự,false
-22,Học viện Khoa học và Công nghệ,false
-23,Học viện Khoa học Xã hội,false
-24,Học viện Kỹ thuật Mật mã,true
-25,Học viện Kỹ thuật Quân sự,false
-26,Học viện Kỹ thuật và Công nghệ An ninh,false
-27,Học viện Lục quân,false
-28,Học viện Múa Việt Nam,false
-29,Học viện Ngoại giao,false
-30,Học viện Ngân hàng,false
-31,Học viện Nông nghiệp Việt Nam,false
-32,Học viện Phòng cháy chữa cháy và Cứu nạn cứu hộ,false
-33,Học viện Phòng không – Không quân,false
-34,Học viện Phật giáo Nam tông Khmer,false
-35,Học viện Phật giáo Việt Nam tại Huế,false
-36,Học viện Phật giáo Việt Nam tại Hà Nội,false
-37,Học viện Phật giáo Việt Nam tại Thành phố Hồ Chí Minh,false
-38,Học viện Phụ nữ Việt Nam,false
-39,Học viện Quân y,false
-40,Học viện Quản lý giáo dục,false
-41,Học viện Quốc phòng,false
-42,Học viện Quốc tế,false
-43,Học viện Thanh thiếu niên Việt Nam,false
-44,Học viện Tài chính,false
-45,Học viện Tòa án,false
-46,Học viện Viettel,true
-47,Học viện Y – Dược học cổ truyền Việt Nam,false
-48,Học viện Âm nhạc Huế,false
-49,Học viện Âm nhạc Quốc gia Việt Nam,false
-50,Nhạc viện Thành phố Hồ Chí Minh,false
-51,Trường Cao đẳng An ninh mạng iSpace,true
-52,Trường Cao đẳng Công nghiệp Quốc phòng,true
-53,Trường Cao đẳng Công nghệ Hà Nội,true
-54,Trường Cao đẳng Công nghệ Sài Gòn,true
-55,Trường Cao đẳng FPT Polytechnic,true
-56,Trường Cao đẳng Kỹ thuật Cao Thắng,true
-57,Trường Cao đẳng Sài Gòn Công nghệ,true
-58,"Trường Đại học An Giang, ĐHQG-HCM",false
-59,Trường Đại học An ninh nhân dân,false
-60,Trường Đại học Anh Quốc tại Việt Nam,false
-61,Trường Đại học Bà Rịa – Vũng Tàu,false
-62,"Trường Đại học Bách khoa, ĐHQG-HCM",true
-63,"Trường Đại học Bách khoa, Đại học Đà Nẵng",false
-64,Trường Đại học Bình Dương,false
-65,Trường Đại học Bạc Liêu,false
-66,Trường Đại học CMC,false
-67,Trường Đại học Công nghiệp Quảng Ninh,false
-68,Trường Đại học Công nghiệp Thành phố Hồ Chí Minh,true
-69,Trường Đại học Công nghiệp Vinh,false
-70,Trường Đại học Công nghiệp Việt Trì,false
-71,Trường Đại học Công nghiệp Việt–Hung,false
-72,Trường Đại học Công nghiệp và Thương mại Hà Nội,false
-73,Trường Đại học Công nghệ Giao thông Vận tải,false
-74,Trường Đại học Công nghệ Kỹ thuật Hưng Yên,false
-75,Trường Đại học Công nghệ Kỹ thuật Thành phố Hồ Chí Minh,true
-76,Trường Đại học Công nghệ Kỹ thuật Vinh,false
-77,Trường Đại học Công nghệ Kỹ thuật Vĩnh Long,false
-78,Trường Đại học Công nghệ Miền Đông,false
-79,Trường Đại học Công nghệ Swinburne - FPT Việt Nam,false
-80,Trường Đại học Công nghệ Sài Gòn,false
-81,Trường Đại học Công nghệ Thành phố Hồ Chí Minh,true
-82,"Trường Đại học Công nghệ thông tin và Truyền thông Việt – Hàn, Đại học Đà Nẵng",false
-83,"Trường Đại học Công nghệ Thông tin và Truyền thông, Đại học Thái Nguyên",false
-84,"Trường Đại học Công nghệ Thông tin, ĐHQG-HCM",true
-85,Trường Đại học Công nghệ và Quản lý Hữu Nghị,false
-86,Trường Đại học Công nghệ Vạn Xuân,false
-87,Trường Đại học Công nghệ Đông Á,false
-88,Trường Đại học Công nghệ Đồng Nai,false
-89,"Trường Đại học Công nghệ, ĐHQGHN",false
-90,Trường Đại học Công Thương Thành phố Hồ Chí Minh,true
-91,Trường Đại học Công đoàn,false
-92,Trường Đại học Cảnh sát nhân dân,false
-93,Trường Đại học Cửu Long,false
-94,Trường Đại học Dược Hà Nội,false
-95,Trường Đại học Dầu khí Việt Nam,false
-96,Trường Đại học FPT,true
-97,Trường Đại học Fulbright Việt Nam,false
-98,Trường Đại học Gia Định,false
-99,Trường Đại học Giao thông Vận tải,true
-100,Trường Đại học Giao thông vận tải Thành phố Hồ Chí Minh,false
-101,"Trường Đại học Giáo dục, ĐHQGHN",false
-102,Trường Đại học Greenwich - FPT Việt Nam,false
-103,Trường Đại học Hoa Lư,false
-104,Trường Đại học Hoa Sen,false
-105,Trường Đại học Hà Hoa Tiên,false
-106,Trường Đại học Hà Nội,false
-107,Trường Đại học Hà Tĩnh,false
-108,Trường Đại học Hàng hải Việt Nam,false
-109,Trường Đại học Hòa Bình,false
-110,Trường Đại học Hùng Vương,false
-111,Trường Đại học Hùng Vương Thành phố Hồ Chí Minh,false
-112,Trường Đại học Hạ Long,false
-113,Trường Đại học Hải Dương,false
-114,Trường Đại học Hải Phòng,false
-115,Trường Đại học Hồng Đức,false
-116,Trường Đại học Intracom,false
-117,"Trường Đại học Khoa học Sức khoẻ, ĐHQG-HCM",false
-118,"Trường Đại học Khoa học Tự nhiên, ĐHQG-HCM",true
-119,"Trường Đại học Khoa học Tự nhiên, ĐHQGHN",true
-120,Trường Đại học Khoa học và Công nghệ Hà Nội,false
-121,"Trường Đại học Khoa học Xã hội và Nhân văn, ĐHQG-HCM",false
-122,"Trường Đại học Khoa học Xã hội và Nhân văn, ĐHQGHN",false
-123,"Trường Đại học Khoa học, Đại học Huế",false
-124,"Trường Đại học Khoa học, Đại học Thái Nguyên",false
-125,Trường Đại học Khánh Hòa,false
-126,Trường Đại học Kinh Bắc,false
-127,Trường Đại học Kinh doanh và Công nghệ Hà Nội,false
-128,Trường Đại học Kinh tế - Kỹ thuật TP.HCM,true
-129,Trường Đại học Kinh tế Công nghiệp Long An,false
-130,Trường Đại học Kinh tế Nghệ An,false
-131,"Trường Đại học Kinh tế và Quản trị kinh doanh, Đại học Thái Nguyên",false
-132,Trường Đại học Kinh tế – Công nghệ Thái Nguyên,false
-133,Trường Đại học Kinh tế – Kỹ thuật Bình Dương,true
-134,Trường Đại học Kinh tế – Kỹ thuật Công nghiệp,true
-135,"Trường Đại học Kinh tế – Luật, ĐHQG-HCM",false
-136,Trường Đại học Kinh tế – Tài chính Thành phố Hồ Chí Minh,true
-137,"Trường Đại học Kinh tế, ĐHQGHN",false
-138,"Trường Đại học Kinh tế, Đại học Huế",false
-139,"Trường Đại học Kinh tế, Đại học Đà Nẵng",false
-140,Trường Đại học Kiên Giang,false
-141,Trường Đại học Kiến trúc Hà Nội,false
-142,Trường Đại học Kiến trúc Thành phố Hồ Chí Minh,false
-143,Trường Đại học Kiến trúc Đà Nẵng,false
-144,Trường Đại học Kiểm sát,false
-145,"Trường Đại học Kỹ thuật Công nghiệp, Đại học Thái Nguyên",false
-146,Trường Đại học Kỹ thuật Y Dược Đà Nẵng,false
-147,Trường Đại học Kỹ thuật Y tế Hải Dương,false
-148,Trường Đại học Kỹ thuật – Công nghệ Cần Thơ,false
-149,Trường Đại học Lao động – Xã hội,false
-150,Trường Đại học Luật Hà Nội,false
-151,Trường Đại học Luật Thành phố Hồ Chí Minh,false
-152,"Trường Đại học Luật, ĐHQGHN",false
-153,"Trường Đại học Luật, Đại học Huế",false
-154,Trường Đại học Lâm nghiệp,false
-155,Trường Đại học Lương Thế Vinh,false
-156,Trường Đại học Lạc Hồng,false
-157,Trường Đại học Mỏ – Địa chất,false
-158,Trường Đại học Mở Hà Nội,false
-159,Trường Đại học Mở Thành phố Hồ Chí Minh,false
-160,Trường Đại học Mỹ thuật Công nghiệp,false
-161,Trường Đại học Mỹ thuật Thành phố Hồ Chí Minh,false
-162,Trường Đại học Mỹ thuật Việt Nam,false
-163,Trường Đại học Mỹ tại Việt Nam,false
-164,Trường Đại học Nam Cần Thơ,false
-165,"Trường Đại học Nghệ thuật, Đại học Huế",false
-166,Trường Đại học Ngoại ngữ – Tin học Thành phố Hồ Chí Minh,false
-167,"Trường Đại học Ngoại ngữ, ĐHQGHN",false
-168,"Trường Đại học Ngoại ngữ, Đại học Huế",false
-169,"Trường Đại học Ngoại ngữ, Đại học Đà Nẵng",false
-170,Trường Đại học Ngoại thương,false
-171,Trường Đại học Nguyễn Huệ / Trường Đại học Sĩ quan Lục quân 2,false
-172,Trường Đại học Nguyễn Trãi,false
-173,Trường Đại học Nguyễn Tất Thành,false
-174,Trường Đại học Ngân hàng Thành phố Hồ Chí Minh,false
-175,Trường Đại học Ngô Quyền / Trường Đại học Sĩ quan Công Binh,false
-176,Trường Đại học Nha Trang,true
-177,Trường Đại học Nông - Lâm Bắc Giang,false
-178,Trường Đại học Nông Lâm Thành phố Hồ Chí Minh,false
-179,"Trường Đại học Nông Lâm, Đại học Huế",false
-180,"Trường Đại học Nông Lâm, Đại học Thái Nguyên",false
-181,Trường Đại học Phan Châu Trinh,false
-182,Trường Đại học Phan Thiết,false
-183,Trường Đại học Phú Xuân,false
-184,Trường Đại học Phú Yên,false
-185,Trường Đại học Phạm Văn Đồng,false
-186,Trường Đại học Quang Trung,false
-187,Trường Đại học Quy Nhơn,false
-188,Trường Đại học Quản lý và Công nghệ Hải Phòng,false
-189,Trường Đại học Quản lý và Công nghệ Thành phố Hồ Chí Minh,false
-190,Trường Đại học Quảng Bình,false
-191,Trường Đại học Quảng Nam,false
-192,Trường Đại học Quốc tế Bắc Hà,false
-193,Trường Đại học Quốc tế Hồng Bàng,false
-194,Trường Đại học Quốc tế Miền Đông,false
-195,Trường Đại học Quốc tế RMIT Việt Nam,false
-196,Trường Đại học Quốc tế Sài Gòn,false
-197,"Trường Đại học Quốc tế, ĐHQG-HCM",false
-198,Trường Đại học Sao Đỏ,false
-199,Trường Đại học Sài Gòn,true
-200,Trường Đại học Sân khấu – Điện ảnh Hà Nội,false
-201,Trường Đại học Sân khấu – Điện ảnh Thành phố Hồ Chí Minh,false
-202,Trường Đại học Sĩ quan Chính trị,false
-203,Trường Đại học Sĩ quan Pháo binh,false
-204,Trường Đại học Sĩ quan Phòng hóa,false
-205,Trường Đại học Sĩ quan Thông tin liên lạc,false
-206,Trường Đại học Sĩ quan Tăng – Thiết giáp,false
-207,Trường Đại học Sĩ quan Đặc công,false
-208,Trường Đại học Sư phạm Hà Nội,false
-209,Trường Đại học Sư phạm Hà Nội 2,false
-210,Trường Đại học Sư phạm Kỹ thuật Nam Định,false
-211,"Trường Đại học Sư phạm Kỹ thuật, Đại học Đà Nẵng",false
-212,Trường Đại học Sư phạm Nghệ thuật Trung ương,false
-213,Trường Đại học Sư phạm Thành phố Hồ Chí Minh,false
-214,Trường Đại học Sư phạm Thể dục Thể thao Hà Nội,false
-215,Trường Đại học Sư phạm Thể dục Thể thao Thành phố Hồ Chí Minh,false
-216,"Trường Đại học Sư phạm, Đại học Huế",false
-217,"Trường Đại học Sư phạm, Đại học Thái Nguyên",false
-218,"Trường Đại học Sư phạm, Đại học Đà Nẵng",false
-219,Trường Đại học Thành Đô,true
-220,Trường Đại học Thành Đông,false
-221,Trường Đại học Thái Bình,false
-222,Trường Đại học Thái Bình Dương,false
-223,Trường Đại học Thăng Long,false
-224,Trường Đại học Thương mại,false
-225,Trường Đại học Thể dục Thể thao Bắc Ninh,false
-226,Trường Đại học Thể dục Thể thao Thành phố Hồ Chí Minh,false
-227,Trường Đại học Thể dục Thể thao Đà Nẵng,false
-228,Trường Đại học Thủ Dầu Một,false
-229,Trường Đại học Thủ đô Hà Nội,false
-230,Trường Đại học Thủy lợi,true
-231,Trường Đại học Tiền Giang,false
-232,Trường Đại học Trưng Vương,false
-233,Trường Đại học Trần Quốc Tuấn / Trường Đại học Sĩ quan Lục quân 1,false
-234,Trường Đại học Trần Đại Nghĩa / Trường Đại học Sĩ quan Kỹ thuật Quân sự Vin - hem - pích,false
-235,Trường Đại học Tài chính – Marketing,false
-236,Trường Đại học Tài chính – Ngân hàng Hà Nội,false
-237,Trường Đại học Tài chính – Quản trị kinh doanh,false
-238,Trường Đại học Tài nguyên và Môi trường Hà Nội,true
-239,Trường Đại học Tài nguyên và Môi trường Thành phố Hồ Chí Minh,false
-240,Trường Đại học Tân Trào,false
-241,Trường Đại học Tân Tạo,false
-242,Trường Đại học Tây Bắc,false
-243,Trường Đại học Tây Nguyên,false
-244,Trường Đại học Tây Đô,false
-245,Trường Đại học Tôn Đức Thắng,false
-246,Trường Đại học Vinh,false
-247,Trường Đại học VinUni,false
-248,"Trường Đại học Việt Nhật, ĐHQGHN",false
-249,Trường Đại học Việt Đức,false
-250,Trường Đại học Võ Trường Toản,false
-251,Trường Đại học Văn Hiến,false
-252,Trường Đại học Văn hoá Nghệ thuật Quân đội,false
-253,Trường Đại học Văn hóa Hà Nội,false
-254,Trường Đại học Văn hóa Thành phố Hồ Chí Minh,false
-255,Trường Đại học Văn Lang,false
-256,Trường Đại học Xây dựng Hà Nội,true
-257,Trường Đại học Xây dựng Miền Trung,false
-258,Trường Đại học Xây dựng Miền Tây,false
-259,Trường Đại học Y Dược Buôn Ma Thuột,false
-260,Trường Đại học Y Dược Cần Thơ,false
-261,Trường Đại học Y Dược Hải Phòng,false
-262,Trường Đại học Y Dược Thái Bình,false
-263,"Trường Đại học Y Dược, ĐHQGHN",false
-264,"Trường Đại học Y Dược, Đại học Huế",false
-265,"Trường Đại học Y Dược, Đại học Thái Nguyên",false
-266,Trường Đại học Y Hà Nội,false
-267,Trường Đại học Y khoa Phạm Ngọc Thạch,false
-268,Trường Đại học Y khoa Tokyo Việt Nam,false
-269,Trường Đại học Y khoa Vinh,false
-270,Trường Đại học Y tế Công cộng,false
-271,Trường Đại học Yersin Đà Lạt,true
-272,Trường Đại học Điều dưỡng Nam Định,false
-273,Trường Đại học Điện lực,true
-274,Trường Đại học Đà Lạt,false
-275,Trường Đại học Đông Á,false
-276,Trường Đại học Đông Đô,false
-277,Trường Đại học Đại Nam,false
-278,Trường Đại học Đồng Nai,false
-279,Trường Đại học Đồng Tháp,true
-280,Viện Đào tạo Quốc tế NTT - Đại học Nguyễn Tất Thành,true
-281,Zero To Mastery,true
-282,Đại học Bách khoa Hà Nội,true
-283,Đại học Công nghiệp Hà Nội,false
-284,Đại học Cần Thơ,true
-285,Đại học Duy Tân,false
-286,Đại học Huế,false
-287,Đại học Kinh tế Quốc dân,false
-288,Đại học Kinh tế Thành phố Hồ Chí Minh,false
-289,Đại học Phenikaa,false
-290,Đại học Quốc gia Hà Nội,false
-291,Đại học Quốc gia Thành phố Hồ Chí Minh,true
-292,Đại học Thái Nguyên,false
-293,Đại học Trà Vinh,false
-294,Đại học Y Dược Thành phố Hồ Chí Minh,false
-295,Đại học Đà Nẵng,false
+id,name,source
+1,Học viện An ninh nhân dân,wikipedia:vi:75654510
+2,Học viện Biên phòng,wikipedia:vi:75654510
+3,Học viện Báo chí và Tuyên truyền,wikipedia:vi:75654510
+4,Học viện Chiến lược Khoa học và Công nghệ,wikipedia:vi:75654510
+5,Học viện Chính sách và Phát triển,wikipedia:vi:75654510
+6,Học viện Chính trị - Công an Nhân dân,wikipedia:vi:75654510
+7,Học viện Chính trị Quân đội Nhân dân Việt Nam,wikipedia:vi:75654510
+8,Học viện Chính trị Quốc gia Hồ Chí Minh,wikipedia:vi:75654510
+9,Học viện Cán bộ Thành phố Hồ Chí Minh,wikipedia:vi:75654510
+10,Học viện Công giáo Việt Nam,wikipedia:vi:75654510
+11,Học viện Công nghệ Bưu chính Viễn thông,wikipedia:vi:75654510
+12,Học viện Cảnh sát nhân dân,wikipedia:vi:75654510
+13,Học viện Dân tộc,wikipedia:vi:75654510
+14,Học viện Hàng không Việt Nam,wikipedia:vi:75654510
+15,Học viện Hành chính và Quản trị công,wikipedia:vi:75654510
+16,Học viện Hải quân,wikipedia:vi:75654510
+17,Học viện Hậu cần,wikipedia:vi:75654510
+18,Học viện Khoa học Quân sự,wikipedia:vi:75654510
+19,Học viện Khoa học Xã hội,wikipedia:vi:75654510
+20,Học viện Khoa học và Công nghệ,wikipedia:vi:75654510
+21,Học viện Kỹ thuật Mật mã,wikipedia:vi:75654510
+22,Học viện Kỹ thuật Quân sự,wikipedia:vi:75654510
+23,Học viện Kỹ thuật và Công nghệ An ninh,wikipedia:vi:75654510
+24,Học viện Lục quân,wikipedia:vi:75654510
+25,Học viện Múa Việt Nam,wikipedia:vi:75654510
+26,Học viện Ngoại giao,wikipedia:vi:75654510
+27,Học viện Ngân hàng,wikipedia:vi:75654510
+28,Học viện Nông nghiệp Việt Nam,wikipedia:vi:75654510
+29,Học viện Phòng cháy chữa cháy và Cứu nạn cứu hộ,wikipedia:vi:75654510
+30,Học viện Phòng không – Không quân,wikipedia:vi:75654510
+31,Học viện Phật giáo Nam tông Khmer,wikipedia:vi:75654510
+32,Học viện Phật giáo Việt Nam tại Huế,wikipedia:vi:75654510
+33,Học viện Phật giáo Việt Nam tại Hà Nội,wikipedia:vi:75654510
+34,Học viện Phật giáo Việt Nam tại Thành phố Hồ Chí Minh,wikipedia:vi:75654510
+35,Học viện Phụ nữ Việt Nam,wikipedia:vi:75654510
+36,Học viện Quân y,wikipedia:vi:75654510
+37,Học viện Quản lý giáo dục,wikipedia:vi:75654510
+38,Học viện Quốc phòng,wikipedia:vi:75654510
+39,Học viện Quốc tế,wikipedia:vi:75654510
+40,Học viện Thanh thiếu niên Việt Nam,wikipedia:vi:75654510
+41,Học viện Tài chính,wikipedia:vi:75654510
+42,Học viện Tòa án,wikipedia:vi:75654510
+43,Học viện Y – Dược học cổ truyền Việt Nam,wikipedia:vi:75654510
+44,Học viện cao đài Tiên Thiên,wikipedia:vi:75654510
+45,Học viện Âm nhạc Huế,wikipedia:vi:75654510
+46,Học viện Âm nhạc Quốc gia Việt Nam,wikipedia:vi:75654510
+47,Nhạc viện Thành phố Hồ Chí Minh,wikipedia:vi:75654510
+48,"Trường Đại học An Giang, ĐHQG-HCM",wikipedia:vi:75654510
+49,Trường Đại học An ninh nhân dân,wikipedia:vi:75654510
+50,Trường Đại học Anh Quốc tại Việt Nam,wikipedia:vi:75654510
+51,Trường Đại học Bà Rịa – Vũng Tàu,wikipedia:vi:75654510
+52,"Trường Đại học Bách khoa, ĐHQG-HCM",wikipedia:vi:75654510
+53,"Trường Đại học Bách khoa, Đại học Đà Nẵng",wikipedia:vi:75654510
+54,Trường Đại học Bình Dương,wikipedia:vi:75654510
+55,Trường Đại học Bạc Liêu,wikipedia:vi:75654510
+56,Trường Đại học CMC,wikipedia:vi:75654510
+57,Trường Đại học Công Thương Thành phố Hồ Chí Minh,wikipedia:vi:75654510
+58,Trường Đại học Công nghiệp Quảng Ninh,wikipedia:vi:75654510
+59,Trường Đại học Công nghiệp Thành phố Hồ Chí Minh,wikipedia:vi:75654510
+60,Trường Đại học Công nghiệp Vinh,wikipedia:vi:75654510
+61,Trường Đại học Công nghiệp Việt Trì,wikipedia:vi:75654510
+62,Trường Đại học Công nghiệp Việt–Hung,wikipedia:vi:75654510
+63,Trường Đại học Công nghiệp và Thương mại Hà Nội,wikipedia:vi:75654510
+64,Trường Đại học Công nghệ Giao thông Vận tải,wikipedia:vi:75654510
+65,Trường Đại học Công nghệ Kỹ thuật Hưng Yên,wikipedia:vi:75654510
+66,Trường Đại học Công nghệ Kỹ thuật Thành phố Hồ Chí Minh,wikipedia:vi:75654510
+67,Trường Đại học Công nghệ Kỹ thuật Vinh,wikipedia:vi:75654510
+68,Trường Đại học Công nghệ Kỹ thuật Vĩnh Long,wikipedia:vi:75654510
+69,Trường Đại học Công nghệ Miền Đông,wikipedia:vi:75654510
+70,Trường Đại học Công nghệ Swinburne - FPT Việt Nam,wikipedia:vi:75654510
+71,Trường Đại học Công nghệ Sài Gòn,wikipedia:vi:75654510
+72,Trường Đại học Công nghệ Thành phố Hồ Chí Minh,wikipedia:vi:75654510
+73,"Trường Đại học Công nghệ Thông tin và Truyền thông, Đại học Thái Nguyên",wikipedia:vi:75654510
+74,"Trường Đại học Công nghệ Thông tin, ĐHQG-HCM",wikipedia:vi:75654510
+75,Trường Đại học Công nghệ Vạn Xuân,wikipedia:vi:75654510
+76,"Trường Đại học Công nghệ thông tin và Truyền thông Việt – Hàn, Đại học Đà Nẵng",wikipedia:vi:75654510
+77,Trường Đại học Công nghệ và Quản lý Hữu Nghị,wikipedia:vi:75654510
+78,Trường Đại học Công nghệ Đông Á,wikipedia:vi:75654510
+79,Trường Đại học Công nghệ Đồng Nai,wikipedia:vi:75654510
+80,"Trường Đại học Công nghệ, ĐHQGHN",wikipedia:vi:75654510
+81,Trường Đại học Công đoàn,wikipedia:vi:75654510
+82,Trường Đại học Cảnh sát nhân dân,wikipedia:vi:75654510
+83,Trường Đại học Cửu Long,wikipedia:vi:75654510
+84,Trường Đại học Dược Hà Nội,wikipedia:vi:75654510
+85,Trường Đại học Dầu khí Việt Nam,wikipedia:vi:75654510
+86,Trường Đại học FPT,wikipedia:vi:75654510
+87,Trường Đại học Fulbright Việt Nam,wikipedia:vi:75654510
+88,Trường Đại học Gia Định,wikipedia:vi:75654510
+89,Trường Đại học Giao thông Vận tải,wikipedia:vi:75654510
+90,Trường Đại học Giao thông vận tải Thành phố Hồ Chí Minh,wikipedia:vi:75654510
+91,"Trường Đại học Giáo dục, ĐHQGHN",wikipedia:vi:75654510
+92,Trường Đại học Greenwich - FPT Việt Nam,wikipedia:vi:75654510
+93,Trường Đại học Hoa Lư,wikipedia:vi:75654510
+94,Trường Đại học Hoa Sen,wikipedia:vi:75654510
+95,Trường Đại học Hà Hoa Tiên,wikipedia:vi:75654510
+96,Trường Đại học Hà Nội,wikipedia:vi:75654510
+97,Trường Đại học Hà Tĩnh,wikipedia:vi:75654510
+98,Trường Đại học Hàng hải Việt Nam,wikipedia:vi:75654510
+99,Trường Đại học Hòa Bình,wikipedia:vi:75654510
+100,Trường Đại học Hùng Vương,wikipedia:vi:75654510
+101,Trường Đại học Hùng Vương Thành phố Hồ Chí Minh,wikipedia:vi:75654510
+102,Trường Đại học Hạ Long,wikipedia:vi:75654510
+103,Trường Đại học Hải Dương,wikipedia:vi:75654510
+104,Trường Đại học Hải Phòng,wikipedia:vi:75654510
+105,Trường Đại học Hồng Đức,wikipedia:vi:75654510
+106,Trường Đại học Intracom,wikipedia:vi:75654510
+107,"Trường Đại học Khoa học Sức khoẻ, ĐHQG-HCM",wikipedia:vi:75654510
+108,"Trường Đại học Khoa học Tự nhiên, ĐHQG-HCM",wikipedia:vi:75654510
+109,"Trường Đại học Khoa học Tự nhiên, ĐHQGHN",wikipedia:vi:75654510
+110,"Trường Đại học Khoa học Xã hội và Nhân văn, ĐHQG-HCM",wikipedia:vi:75654510
+111,"Trường Đại học Khoa học Xã hội và Nhân văn, ĐHQGHN",wikipedia:vi:75654510
+112,Trường Đại học Khoa học và Công nghệ Hà Nội,wikipedia:vi:75654510
+113,"Trường Đại học Khoa học, Đại học Huế",wikipedia:vi:75654510
+114,"Trường Đại học Khoa học, Đại học Thái Nguyên",wikipedia:vi:75654510
+115,Trường Đại học Khánh Hòa,wikipedia:vi:75654510
+116,Trường Đại học Kinh Bắc,wikipedia:vi:75654510
+117,Trường Đại học Kinh doanh và Công nghệ Hà Nội,wikipedia:vi:75654510
+118,Trường Đại học Kinh tế Công nghiệp Long An,wikipedia:vi:75654510
+119,Trường Đại học Kinh tế Nghệ An,wikipedia:vi:75654510
+120,"Trường Đại học Kinh tế và Quản trị kinh doanh, Đại học Thái Nguyên",wikipedia:vi:75654510
+121,Trường Đại học Kinh tế – Công nghệ Thái Nguyên,wikipedia:vi:75654510
+122,Trường Đại học Kinh tế – Kỹ thuật Bình Dương,wikipedia:vi:75654510
+123,Trường Đại học Kinh tế – Kỹ thuật Công nghiệp,wikipedia:vi:75654510
+124,"Trường Đại học Kinh tế – Luật, ĐHQG-HCM",wikipedia:vi:75654510
+125,Trường Đại học Kinh tế – Tài chính Thành phố Hồ Chí Minh,wikipedia:vi:75654510
+126,"Trường Đại học Kinh tế, ĐHQGHN",wikipedia:vi:75654510
+127,"Trường Đại học Kinh tế, Đại học Huế",wikipedia:vi:75654510
+128,"Trường Đại học Kinh tế, Đại học Đà Nẵng",wikipedia:vi:75654510
+129,Trường Đại học Kiên Giang,wikipedia:vi:75654510
+130,Trường Đại học Kiến trúc Hà Nội,wikipedia:vi:75654510
+131,Trường Đại học Kiến trúc Thành phố Hồ Chí Minh,wikipedia:vi:75654510
+132,Trường Đại học Kiến trúc Đà Nẵng,wikipedia:vi:75654510
+133,Trường Đại học Kiểm sát,wikipedia:vi:75654510
+134,"Trường Đại học Kỹ thuật Công nghiệp, Đại học Thái Nguyên",wikipedia:vi:75654510
+135,Trường Đại học Kỹ thuật Y Dược Đà Nẵng,wikipedia:vi:75654510
+136,Trường Đại học Kỹ thuật Y tế Hải Dương,wikipedia:vi:75654510
+137,Trường Đại học Kỹ thuật – Công nghệ Cần Thơ,wikipedia:vi:75654510
+138,Trường Đại học Lao động – Xã hội,wikipedia:vi:75654510
+139,Trường Đại học Luật Hà Nội,wikipedia:vi:75654510
+140,Trường Đại học Luật Thành phố Hồ Chí Minh,wikipedia:vi:75654510
+141,"Trường Đại học Luật, ĐHQGHN",wikipedia:vi:75654510
+142,"Trường Đại học Luật, Đại học Huế",wikipedia:vi:75654510
+143,Trường Đại học Lâm nghiệp,wikipedia:vi:75654510
+144,Trường Đại học Lương Thế Vinh,wikipedia:vi:75654510
+145,Trường Đại học Lạc Hồng,wikipedia:vi:75654510
+146,Trường Đại học Mỏ – Địa chất,wikipedia:vi:75654510
+147,Trường Đại học Mở Hà Nội,wikipedia:vi:75654510
+148,Trường Đại học Mở Thành phố Hồ Chí Minh,wikipedia:vi:75654510
+149,Trường Đại học Mỹ thuật Công nghiệp,wikipedia:vi:75654510
+150,Trường Đại học Mỹ thuật Thành phố Hồ Chí Minh,wikipedia:vi:75654510
+151,Trường Đại học Mỹ thuật Việt Nam,wikipedia:vi:75654510
+152,Trường Đại học Mỹ tại Việt Nam,wikipedia:vi:75654510
+153,Trường Đại học Nam Cần Thơ,wikipedia:vi:75654510
+154,"Trường Đại học Nghệ thuật, Đại học Huế",wikipedia:vi:75654510
+155,Trường Đại học Ngoại ngữ – Tin học Thành phố Hồ Chí Minh,wikipedia:vi:75654510
+156,"Trường Đại học Ngoại ngữ, ĐHQGHN",wikipedia:vi:75654510
+157,"Trường Đại học Ngoại ngữ, Đại học Huế",wikipedia:vi:75654510
+158,"Trường Đại học Ngoại ngữ, Đại học Đà Nẵng",wikipedia:vi:75654510
+159,Trường Đại học Ngoại thương,wikipedia:vi:75654510
+160,Trường Đại học Nguyễn Huệ / Trường Đại học Sĩ quan Lục quân 2,wikipedia:vi:75654510
+161,Trường Đại học Nguyễn Trãi,wikipedia:vi:75654510
+162,Trường Đại học Nguyễn Tất Thành,wikipedia:vi:75654510
+163,Trường Đại học Ngân hàng Thành phố Hồ Chí Minh,wikipedia:vi:75654510
+164,Trường Đại học Ngô Quyền / Trường Đại học Sĩ quan Công Binh,wikipedia:vi:75654510
+165,Trường Đại học Nha Trang,wikipedia:vi:75654510
+166,Trường Đại học Nông - Lâm Bắc Giang,wikipedia:vi:75654510
+167,Trường Đại học Nông Lâm Thành phố Hồ Chí Minh,wikipedia:vi:75654510
+168,"Trường Đại học Nông Lâm, Đại học Huế",wikipedia:vi:75654510
+169,"Trường Đại học Nông Lâm, Đại học Thái Nguyên",wikipedia:vi:75654510
+170,Trường Đại học Phan Châu Trinh,wikipedia:vi:75654510
+171,Trường Đại học Phan Thiết,wikipedia:vi:75654510
+172,Trường Đại học Phú Xuân,wikipedia:vi:75654510
+173,Trường Đại học Phú Yên,wikipedia:vi:75654510
+174,Trường Đại học Phạm Văn Đồng,wikipedia:vi:75654510
+175,Trường Đại học Quang Trung,wikipedia:vi:75654510
+176,Trường Đại học Quy Nhơn,wikipedia:vi:75654510
+177,Trường Đại học Quản lý và Công nghệ Hải Phòng,wikipedia:vi:75654510
+178,Trường Đại học Quản lý và Công nghệ Thành phố Hồ Chí Minh,wikipedia:vi:75654510
+179,Trường Đại học Quảng Bình,wikipedia:vi:75654510
+180,Trường Đại học Quảng Nam,wikipedia:vi:75654510
+181,Trường Đại học Quốc tế Bắc Hà,wikipedia:vi:75654510
+182,Trường Đại học Quốc tế Hồng Bàng,wikipedia:vi:75654510
+183,Trường Đại học Quốc tế Miền Đông,wikipedia:vi:75654510
+184,Trường Đại học Quốc tế RMIT Việt Nam,wikipedia:vi:75654510
+185,Trường Đại học Quốc tế Sài Gòn,wikipedia:vi:75654510
+186,"Trường Đại học Quốc tế, ĐHQG-HCM",wikipedia:vi:75654510
+187,Trường Đại học Sao Đỏ,wikipedia:vi:75654510
+188,Trường Đại học Sài Gòn,wikipedia:vi:75654510
+189,Trường Đại học Sân khấu – Điện ảnh Hà Nội,wikipedia:vi:75654510
+190,Trường Đại học Sân khấu – Điện ảnh Thành phố Hồ Chí Minh,wikipedia:vi:75654510
+191,Trường Đại học Sĩ quan Chính trị,wikipedia:vi:75654510
+192,Trường Đại học Sĩ quan Pháo binh,wikipedia:vi:75654510
+193,Trường Đại học Sĩ quan Phòng hóa,wikipedia:vi:75654510
+194,Trường Đại học Sĩ quan Thông tin liên lạc,wikipedia:vi:75654510
+195,Trường Đại học Sĩ quan Tăng – Thiết giáp,wikipedia:vi:75654510
+196,Trường Đại học Sĩ quan Đặc công,wikipedia:vi:75654510
+197,Trường Đại học Sư phạm Hà Nội,wikipedia:vi:75654510
+198,Trường Đại học Sư phạm Hà Nội 2,wikipedia:vi:75654510
+199,Trường Đại học Sư phạm Kỹ thuật Nam Định,wikipedia:vi:75654510
+200,"Trường Đại học Sư phạm Kỹ thuật, Đại học Đà Nẵng",wikipedia:vi:75654510
+201,Trường Đại học Sư phạm Nghệ thuật Trung ương,wikipedia:vi:75654510
+202,Trường Đại học Sư phạm Thành phố Hồ Chí Minh,wikipedia:vi:75654510
+203,Trường Đại học Sư phạm Thể dục Thể thao Hà Nội,wikipedia:vi:75654510
+204,Trường Đại học Sư phạm Thể dục Thể thao Thành phố Hồ Chí Minh,wikipedia:vi:75654510
+205,"Trường Đại học Sư phạm, Đại học Huế",wikipedia:vi:75654510
+206,"Trường Đại học Sư phạm, Đại học Thái Nguyên",wikipedia:vi:75654510
+207,"Trường Đại học Sư phạm, Đại học Đà Nẵng",wikipedia:vi:75654510
+208,Trường Đại học Thành Đô,wikipedia:vi:75654510
+209,Trường Đại học Thành Đông,wikipedia:vi:75654510
+210,Trường Đại học Thái Bình,wikipedia:vi:75654510
+211,Trường Đại học Thái Bình Dương,wikipedia:vi:75654510
+212,Trường Đại học Thăng Long,wikipedia:vi:75654510
+213,Trường Đại học Thương mại,wikipedia:vi:75654510
+214,Trường Đại học Thể dục Thể thao Bắc Ninh,wikipedia:vi:75654510
+215,Trường Đại học Thể dục Thể thao Thành phố Hồ Chí Minh,wikipedia:vi:75654510
+216,Trường Đại học Thể dục Thể thao Đà Nẵng,wikipedia:vi:75654510
+217,Trường Đại học Thủ Dầu Một,wikipedia:vi:75654510
+218,Trường Đại học Thủ đô Hà Nội,wikipedia:vi:75654510
+219,Trường Đại học Thủy lợi,wikipedia:vi:75654510
+220,Trường Đại học Tiền Giang,wikipedia:vi:75654510
+221,Trường Đại học Trưng Vương,wikipedia:vi:75654510
+222,Trường Đại học Trần Quốc Tuấn / Trường Đại học Sĩ quan Lục quân 1,wikipedia:vi:75654510
+223,Trường Đại học Trần Đại Nghĩa / Trường Đại học Sĩ quan Kỹ thuật Quân sự Vin - hem - pích,wikipedia:vi:75654510
+224,Trường Đại học Tài chính – Marketing,wikipedia:vi:75654510
+225,Trường Đại học Tài chính – Ngân hàng Hà Nội,wikipedia:vi:75654510
+226,Trường Đại học Tài chính – Quản trị kinh doanh,wikipedia:vi:75654510
+227,Trường Đại học Tài nguyên và Môi trường Hà Nội,wikipedia:vi:75654510
+228,Trường Đại học Tài nguyên và Môi trường Thành phố Hồ Chí Minh,wikipedia:vi:75654510
+229,Trường Đại học Tân Trào,wikipedia:vi:75654510
+230,Trường Đại học Tân Tạo,wikipedia:vi:75654510
+231,Trường Đại học Tây Bắc,wikipedia:vi:75654510
+232,Trường Đại học Tây Nguyên,wikipedia:vi:75654510
+233,Trường Đại học Tây Đô,wikipedia:vi:75654510
+234,Trường Đại học Tôn Đức Thắng,wikipedia:vi:75654510
+235,Trường Đại học VinUni,wikipedia:vi:75654510
+236,Trường Đại học Vinh,wikipedia:vi:75654510
+237,"Trường Đại học Việt Nhật, ĐHQGHN",wikipedia:vi:75654510
+238,Trường Đại học Việt Đức,wikipedia:vi:75654510
+239,Trường Đại học Võ Trường Toản,wikipedia:vi:75654510
+240,Trường Đại học Văn Hiến,wikipedia:vi:75654510
+241,Trường Đại học Văn Lang,wikipedia:vi:75654510
+242,Trường Đại học Văn hoá Nghệ thuật Quân đội,wikipedia:vi:75654510
+243,Trường Đại học Văn hóa Hà Nội,wikipedia:vi:75654510
+244,Trường Đại học Văn hóa Thành phố Hồ Chí Minh,wikipedia:vi:75654510
+245,Trường Đại học Xây dựng Hà Nội,wikipedia:vi:75654510
+246,Trường Đại học Xây dựng Miền Trung,wikipedia:vi:75654510
+247,Trường Đại học Xây dựng Miền Tây,wikipedia:vi:75654510
+248,Trường Đại học Y Dược Buôn Ma Thuột,wikipedia:vi:75654510
+249,Trường Đại học Y Dược Cần Thơ,wikipedia:vi:75654510
+250,Trường Đại học Y Dược Hải Phòng,wikipedia:vi:75654510
+251,Trường Đại học Y Dược Thái Bình,wikipedia:vi:75654510
+252,"Trường Đại học Y Dược, ĐHQGHN",wikipedia:vi:75654510
+253,"Trường Đại học Y Dược, Đại học Huế",wikipedia:vi:75654510
+254,"Trường Đại học Y Dược, Đại học Thái Nguyên",wikipedia:vi:75654510
+255,Trường Đại học Y Hà Nội,wikipedia:vi:75654510
+256,Trường Đại học Y khoa Phạm Ngọc Thạch,wikipedia:vi:75654510
+257,Trường Đại học Y khoa Tokyo Việt Nam,wikipedia:vi:75654510
+258,Trường Đại học Y khoa Vinh,wikipedia:vi:75654510
+259,Trường Đại học Y tế Công cộng,wikipedia:vi:75654510
+260,Trường Đại học Yersin Đà Lạt,wikipedia:vi:75654510
+261,Trường Đại học Điều dưỡng Nam Định,wikipedia:vi:75654510
+262,Trường Đại học Điện lực,wikipedia:vi:75654510
+263,Trường Đại học Đà Lạt,wikipedia:vi:75654510
+264,Trường Đại học Đông Á,wikipedia:vi:75654510
+265,Trường Đại học Đông Đô,wikipedia:vi:75654510
+266,Trường Đại học Đại Nam,wikipedia:vi:75654510
+267,Trường Đại học Đồng Nai,wikipedia:vi:75654510
+268,Trường Đại học Đồng Tháp,wikipedia:vi:75654510
+269,Đại học Bách khoa Hà Nội,wikipedia:vi:75654510
+270,Đại học Công nghiệp Hà Nội,wikipedia:vi:75654510
+271,Đại học Cần Thơ,wikipedia:vi:75654510
+272,Đại học Duy Tân,wikipedia:vi:75654510
+273,Đại học Huế,wikipedia:vi:75654510
+274,Đại học Kinh tế Quốc dân,wikipedia:vi:75654510
+275,Đại học Kinh tế Thành phố Hồ Chí Minh,wikipedia:vi:75654510
+276,Đại học Phenikaa,wikipedia:vi:75654510
+277,Đại học Quốc gia Hà Nội,wikipedia:vi:75654510
+278,Đại học Quốc gia Thành phố Hồ Chí Minh,wikipedia:vi:75654510
+279,Đại học Thái Nguyên,wikipedia:vi:75654510
+280,Đại học Trà Vinh,wikipedia:vi:75654510
+281,Đại học Y Dược Thành phố Hồ Chí Minh,wikipedia:vi:75654510
+282,Đại học Đà Nẵng,wikipedia:vi:75654510
+283,Dong Nai University of Technology,wikidata:Q101000030
+284,University of Danang College of Economics,wikidata:Q101000034
+285,University of Danang College of Education,wikidata:Q101000036
+286,University of Danang College of Foreign Languages,wikidata:Q101000037
+287,University of Danang Faculty of Medicine and Pharmacy,wikidata:Q101000041
+288,University of Danang School of Technology,wikidata:Q101000047
+289,Danang University of Science and Technology,wikidata:Q101000050
+290,Haiphong Private University,wikidata:Q101000053
+291,Hanoi University of Industrial Fine Arts,wikidata:Q101000061
+292,Hanoi University of Science and Technology Faculty of Physical Education,wikidata:Q101000068
+293,Vietnam National University Faculty of History,wikidata:Q101000098
+294,Vietnam National University Faculty of Sociology,wikidata:Q101000102
+295,Ho Chi Minh City University of Fine Art,wikidata:Q101000113
+296,Ho Chi Minh City University of Medicine and Pharmacy Faculty of Medicine,wikidata:Q101000120
+297,Ho Chi Minh City University of Pedagogy Faculty of Foreign Languages,wikidata:Q101000123
+298,Ho Chi Minhh City University of Transport,wikidata:Q101000130
+299,University of Social Sciences and Humanities Faculty of Anthropology,wikidata:Q101000133
+300,University of Social Sciences and Humanities Faculty of Oriental Studies,wikidata:Q101000139
+301,University of Social Sciences and Humanities Faculty of Sociology,wikidata:Q101000144
+302,Hue University College of Arts,wikidata:Q101000147
+303,University of Technology and Education Faculty of Basic Sciences,wikidata:Q101000169
+304,University of Technology and Education Faculty of Chemical and Environmental Technology,wikidata:Q101000172
+305,University of Technology and Education Faculty of Electronic and Electrical Engineering,wikidata:Q101000173
+306,University of Technology and Education Faculty of Fashion Design,wikidata:Q101000176
+307,University of Technology and Education Faculty of Foreign Languages,wikidata:Q101000180
+308,University of Technology and Education Faculty of Information Technology,wikidata:Q101000187
+309,University of Technology and Education Faculty of Mechanical Dynamics,wikidata:Q101000190
+310,University of Technology and Education Faculty of Mechanical Technology,wikidata:Q101000193
+311,University of Technology and Education Faculty of Political Theory,wikidata:Q101000196
+312,Thai Binh Medical University,wikidata:Q101000199
+313,Tra Vinh University Faculty of Education,wikidata:Q101000203
+314,Tra Vinh University Department of Electrical Refrigeration,wikidata:Q101000214
+315,Tra Vinh University Department of Electronic Engineering Telecommunications,wikidata:Q101000218
+316,Tra Vinh University Department of Finance and Banking,wikidata:Q101000220
+317,Tra Vinh University Department of Law,wikidata:Q101000225
+318,Tra Vinh University Department of Mechanics Dynamics,wikidata:Q101000228
+319,Tra Vinh University Faculty of Basic Sciences,wikidata:Q101000234
+320,Tra Vinh University School of Engineering and Technology,wikidata:Q101000239
+321,Giáo hoàng Học viện Thánh Piô X Đà Lạt,wikidata:Q10761706
+322,Học viện Quốc phòng Việt Nam,wikidata:Q10771903
+323,Học viện Tư pháp Việt Nam,wikidata:Q10771905
+324,Trường Quản trị Kinh doanh - Đại học Quốc gia Hà Nội,wikidata:Q10779338
+325,Phân hiệu Đại học Đà Nẵng tại Kon Tum,wikidata:Q10805714
+326,Trường Cao đẳng Bách nghệ Tây Hà,wikidata:Q10828782
+327,Trường Cao đẳng Kỹ thuật Cao Thắng,wikidata:Q10828800
+328,Trường Cao đẳng Sư phạm Đà Lạt,wikidata:Q10828808
+329,Trường Cao đẳng Văn hoá Nghệ thuật và Du lịch Sài Gòn,wikidata:Q10828813
+330,Trường Cao đẳng Y tế Hà Nội,wikidata:Q10828817
+331,Trường Hậu bổ (Hà Nội),wikidata:Q10828851
+332,Trường Sĩ quan không quân,wikidata:Q10828884
+333,Trường Võ bị Quốc gia Đà Lạt,wikidata:Q10828976
+334,Trường Đại học Phương Đông (Việt Nam),wikidata:Q10829112
+335,Trường Đại học Thành Tây,wikidata:Q10829136
+336,Trường Đại học Trần Quốc Tuấn,wikidata:Q10829150
+337,Trường Đại học Trần Đại Nghĩa,wikidata:Q10829151
+338,"Trường Đại học Văn hóa, Thể thao và Du lịch Thanh Hóa",wikidata:Q10829162
+339,Viện Đại học Huế,wikidata:Q10832798
+340,Viện Đại học Minh Đức,wikidata:Q10832799
+341,Viện Đại học Vạn Hạnh,wikidata:Q10832802
+342,Đại chủng viện Sao Biển,wikidata:Q10841198
+343,Đại chủng viện Thánh Giuse Hà Nội,wikidata:Q10841199
+344,Đại chủng viện Thánh Giuse Sài Gòn,wikidata:Q10841200
+345,Đại chủng viện Thánh Giuse Xuân Lộc,wikidata:Q10841203
+346,Đại chủng viện Xuân Bích Huế,wikidata:Q10841206
+347,Viện Đào tạo Y học dự phòng và Y tế công cộng,wikidata:Q109340125
+348,Trường Đại học Tài chính - Kế toán,wikidata:Q118446437
+349,Trường Cao đẳng Sư phạm Lạng Sơn,wikidata:Q123425613
+350,Trường Y khoa Đông Dương,wikidata:Q124175321
+351,Viện Công nghệ Việt – Nhật,wikidata:Q125164592
+352,Trường Cao đẳng nghề Vĩnh Long,wikidata:Q125375684
+353,Trường Cao đẳng Sư phạm Nam Định,wikidata:Q134286143
+354,Trường Bồi dưỡng cán bộ Kinh tế - Tài chính,wikidata:Q139413981
+355,"Học viện Chiến lược, Bồi dưỡng Cán bộ Xây dựng",wikidata:Q141448592
+356,VTC Academy,wikidata:Q141603920
+357,Trường Cao đẳng Ngoại ngữ - Công nghệ Việt Nhật,wikidata:Q14655485
+358,VATC,wikidata:Q14817590
+359,Trường Sĩ quan Thông tin,wikidata:Q16480503
+360,MICA Institute,wikidata:Q17073291
+361,Trường Cao đẳng Công nghiệp Huế,wikidata:Q17266876
+362,History of Trà Vinh University,wikidata:Q19645950
+363,Viện Đào tạo quốc tế (UEH),wikidata:Q19892791
+364,Trường Đại học Phòng cháy chữa cháy,wikidata:Q20026261
+365,Viện Tin học Pháp ngữ,wikidata:Q2496369
+366,University of Medicine and Pharmacy of Ho Chi Minh City,wikidata:Q25063984
+367,Trường Cao đẳng Cộng đồng Hà Nội,wikidata:Q3126884
+368,Hai Phong Medical University,wikidata:Q3551454
+369,Vietnam Military Medical University,wikidata:Q43896632
+370,PSB College - Trường Cao Đẳng quốc tế PSB,wikidata:Q5065626
+371,Trường Cao đẳng Sài Gòn,wikidata:Q7400076
+372,The American University of Vietnam,wikidata:Q7713573
+373,The International Center for Interdisciplinary Science and Education,wikidata:Q77957779
+374,Học viện Hải quân (Việt Nam),wikidata:Q7928533
+375,"Danh sách các trường đại học, cao đẳng quân sự Việt Nam",wikidata:Q7928650
+376,Viện Trần Nhân Tông,wikidata:Q86012753
+377,Hanoi University of Science and Technology School of Chemical Engineering,wikidata:Q99290776
+378,Hanoi University of Science and Technology School of Electrical Engineering,wikidata:Q99290777
+379,Hanoi University of Science and Technology School of Electronics and Telecommunications,wikidata:Q99290778
+380,Hanoi University of Science and Technology School of Engineering Pedagogy,wikidata:Q99290781
+381,Hanoi University of Science and Technology School of Engineering Physics,wikidata:Q99290782
+382,Hanoi University of Science and Technology School of Heat Engineering and Refrigeration,wikidata:Q99290783
+383,Hanoi University of Science and Technology School of Material Science and Engineering,wikidata:Q99290784
+384,Hanoi University of Science and Technology School of Mechanical Engineering,wikidata:Q99290785
+385,Hanoi University of Science and Technology School of Nuclear Engineering and Environmental Physics,wikidata:Q99290786
+386,Hanoi University of Science and Technology School of Transportation Engineering,wikidata:Q99290787
+387,Cao Đẳng FPT Polytechnic,institution:caodang.fpt.edu.vn

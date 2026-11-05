@@ -357,6 +357,9 @@ def load(
             with conn.cursor() as cur:
                 # 1. Apply schema
                 cur.execute(schema_sql)
+                # Apply additive migrations before loading source-bearing snapshots.
+                migration = Path(__file__).resolve().parent / "sql" / "002_source.sql"
+                cur.execute(migration.read_text(encoding="utf-8"))
 
                 # 2. Truncate existing data
                 cur.execute(
@@ -383,66 +386,67 @@ def load(
                         r["name"],
                         category_map[r["category"]],
                         _to_bool(r.get("reviewed", False)),
+                        r.get("source", ""),
                     )
                     for r in seed["skills"]
                 ]
                 cur.executemany(
-                    "INSERT INTO skill (id, name, category_id, reviewed) VALUES (%s, %s, %s, %s);",
+                    "INSERT INTO skill (id, name, category_id, reviewed, source) VALUES (%s, %s, %s, %s, %s);",
                     skill_rows,
                 )
 
                 # 5. Skill Aliases
                 if seed.get("skill_aliases"):
                     alias_rows = [
-                        (r["alias_key"], int(r["skill_id"]), r["surface"])
+                        (r["alias_key"], int(r["skill_id"]), r["surface"], r.get("source", ""))
                         for r in seed["skill_aliases"]
                     ]
                     cur.executemany(
-                        "INSERT INTO skill_alias (alias_key, skill_id, surface) VALUES (%s, %s, %s);",
+                        "INSERT INTO skill_alias (alias_key, skill_id, surface, source) VALUES (%s, %s, %s, %s);",
                         alias_rows,
                     )
 
                 # 6. Skill Edges
                 if seed.get("skill_edges"):
                     edge_rows = [
-                        (int(r["src_id"]), r["rel"], int(r["dst_id"]))
+                        (int(r["src_id"]), r["rel"], int(r["dst_id"]), r.get("source", ""))
                         for r in seed["skill_edges"]
                     ]
                     cur.executemany(
-                        "INSERT INTO skill_edge (src_id, rel, dst_id) VALUES (%s, %s, %s);",
+                        "INSERT INTO skill_edge (src_id, rel, dst_id, source) VALUES (%s, %s, %s, %s);",
                         edge_rows,
                     )
 
                 # 7. Universities
                 if seed.get("universities"):
                     uni_rows = [
-                        (int(r["id"]), r["name"], _to_bool(r.get("reviewed", False)))
+                        (int(r["id"]), r["name"], _to_bool(r.get("reviewed", False)), r.get("source", ""))
                         for r in seed["universities"]
                     ]
                     cur.executemany(
-                        "INSERT INTO university (id, name, reviewed) VALUES (%s, %s, %s);",
+                        "INSERT INTO university (id, name, reviewed, source) VALUES (%s, %s, %s, %s);",
                         uni_rows,
                     )
 
                 # 8. University Aliases
                 if seed.get("university_aliases"):
                     uni_alias_rows = [
-                        (r["alias_key"], int(r["university_id"]), r.get("surface", ""))
+                        (r["alias_key"], int(r["university_id"]), r.get("surface", ""), r.get("source", ""))
                         for r in seed["university_aliases"]
                     ]
                     cur.executemany(
-                        "INSERT INTO university_alias (alias_key, university_id, surface) VALUES (%s, %s, %s);",
+                        "INSERT INTO university_alias (alias_key, university_id, surface, source) VALUES (%s, %s, %s, %s);",
                         uni_alias_rows,
                     )
 
                 # 9. Job Titles
                 if seed.get("job_titles"):
                     jt_rows = [
-                        (int(r["id"]), r["name"], r["alias_key"])
+                        (int(r["id"]), r["name"], r["alias_key"], r.get("source", ""))
                         for r in seed["job_titles"]
                     ]
                     cur.executemany(
-                        "INSERT INTO job_title (id, name, alias_key) VALUES (%s, %s, %s);",
+                        "INSERT INTO job_title (id, name, alias_key, source) VALUES (%s, %s, %s, %s);",
                         jt_rows,
                     )
 

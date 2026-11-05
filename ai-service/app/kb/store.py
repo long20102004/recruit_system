@@ -49,6 +49,7 @@ class KnowledgeBase:
 
     @classmethod
     def from_csv(cls, seed_dir: str | Path) -> KnowledgeBase:
+        """Read named columns; public-source provenance columns are metadata only."""
         seed_path = Path(seed_dir)
         if not seed_path.exists() or not seed_path.is_dir():
             raise FileNotFoundError(f"Seed directory not found: {seed_path}")

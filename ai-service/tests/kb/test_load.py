@@ -323,6 +323,33 @@ def test_load_validation_failure_raises(tmp_path: Path) -> None:
         load("postgresql://invalid:invalid@localhost/none", tmp_path, schema_path)
 
 
+def test_load_persists_provenance(tmp_path, valid_seed_data):
+    """The migration runs before inserts and all six knowledge tables retain source."""
+    from unittest.mock import MagicMock, patch
+
+    data = copy.deepcopy(valid_seed_data)
+    for table in ("skills", "skill_aliases", "skill_edges", "universities", "university_aliases", "job_titles"):
+        for row in data[table]:
+            row["source"] = "wikidata:Q123"
+    _write_seed_dir(tmp_path, data)
+    cursor = MagicMock()
+    cursor.fetchone.return_value = (0,)
+    connection = MagicMock()
+    connection.__enter__.return_value = connection
+    connection.cursor.return_value.__enter__.return_value = cursor
+    schema = Path(__file__).resolve().parents[2] / "kb/sql/001_schema.sql"
+    with patch("kb.load.psycopg.connect", return_value=connection):
+        load("mock", tmp_path, schema)
+    assert "ADD COLUMN IF NOT EXISTS source TEXT" in cursor.execute.call_args_list[1].args[0]
+    source_tables = set()
+    for call in cursor.executemany.call_args_list:
+        sql, rows = call.args
+        if "source)" in sql:
+            source_tables.add(sql.split()[2])
+            assert all(r[-1] == "wikidata:Q123" for r in rows)
+    assert source_tables == {"skill", "skill_alias", "skill_edge", "university", "university_alias", "job_title"}
+
+
 @pytest.mark.kb_db
 def test_load_idempotent_integration(
     tmp_path: Path, valid_seed_data: dict[str, list[dict[str, str]]]

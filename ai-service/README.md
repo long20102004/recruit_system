@@ -309,26 +309,26 @@ docker compose -f infra/kb/docker-compose.yml --env-file infra/kb/.env up -d
 ```
 *Ghi chú: Service chạy trên cổng `5433` để tránh xung đột với các instance PostgreSQL khác trên máy.*
 
-### 2. Làm sạch dữ liệu silver
-```bash
-cd ai-service
-python -m kb.clean_silver --in data/*.jsonl --out-dir data/clean
-```
+### 2. Xây dựng seed từ nguồn bên ngoài (feature 009)
+KB chỉ được dựng từ nguồn công khai có giấy phép mở; mỗi dòng seed có cột `source`. Trích dẫn đầy đủ, số liệu và phương pháp: `kb/seed/SOURCES.md`.
 
-### 3. Xây dựng seed kỹ năng
+| Nguồn | Giấy phép | Dùng cho |
+|---|---|---|
+| Stack Overflow Developer Survey 2024–2026 | ODbL 1.0 / DbCL 1.0 | Tên chuẩn kỹ năng + nhóm |
+| Stack Overflow tags (tag ≥ 500 câu hỏi + tag đồng nghĩa) | CC BY-SA 4.0 | Thư viện/công cụ khảo sát không hỏi (Spring MVC, Lombok…) |
+| Wikidata | CC0 1.0 | Alias en/vi, khái niệm (OOP, MVC…), quan hệ KG (P277, P361, P527), trường ĐH/CĐ |
+| GitHub Linguist | MIT | Alias ngôn ngữ lập trình |
+| ESCO v1.2.1 | CC BY 4.0 | Kỹ năng mềm, nghề ICT |
+| Wikipedia tiếng Việt (rev. 75654510) | CC BY-SA 4.0 | Tên chính thức trường |
+
 ```bash
 cd ai-service
-python -m kb.build_seed \
-  --train data/clean/train.jsonl \
-  --out kb/seed \
-  --curated kb/seed \
-  --section-dict ../backend/src/main/java/recruit/demo/extraction/section/SectionDictionary.java
+python -m kb.fetch_sources            # tải snapshot -> kb/sources/ + MANIFEST.json (dùng cache; --refresh để tải lại)
+python -m kb.build_external           # offline: kb/sources/ -> kb/seed/*.csv + SOURCES.md
 ```
-- Bộ seed CSV (`skills.csv`, `skill_aliases.csv`, `skill_edges.csv`, `skill_categories.csv`, `universities.csv`, `university_aliases.csv`) được commit vào repo để phục vụ offline linker (`from_csv`) và fallback khi không có DB.
-- File `kb/seed/skill_aliases_curated.csv` dùng để gộp thủ công biến thể kỹ năng (cột: `variant,canonical,reviewed`): khi đặt `reviewed=true`, quá trình build sẽ ánh xạ biến thể sang canonical skill tương ứng.
-- Các file `*_curated.csv` khác: đề xuất từ máy, đã được Claude duyệt ngày 2026-11-04 (`reviewed=true`); giá trị `EXCLUDE` loại mục rác; `university_alias_blocklist.csv` chặn alias mơ hồ. Xem `kb/seed/README.md`.
-- **Quy trình duyệt**: Chỉnh sửa category/edge/alias trong file curated, đổi cờ thành `reviewed=true`, sau đó chạy lại lệnh build để tích hợp.
-- Thuật toán tự động gộp các lỗi chính tả hiếm gặp vào kỹ năng phổ biến bằng fuzzy matching ($\ge 90$).
+- Từ vựng dùng để tra Wikidata / Stack Overflow tags chỉ lấy từ CV **tổng hợp/hư cấu** (`data/clean/silver_dataset.jsonl`, `data/synth_v3/profiles/`), không bao giờ từ CV thật.
+- Cập nhật KB: chạy lại hai lệnh trên, xem diff CSV, rồi nạp DB (bước 4) và khởi động lại service. Không cần train lại mô hình.
+- Khi serve: kỹ năng / tech_stack / trường link được KB được thay bằng tên chuẩn (kỹ năng mềm giữ như CV); phần KG (`skills_normalized`, `implied_skills`, `skills_detected`, `flags`, `school_normalized`) chỉ trả khi gọi `?include=kg`; `?include=raw` trả thêm `raw_profile` (trước chuẩn hoá).
 
 ### 4. Nạp dữ liệu vào DB (Load)
 ```bash

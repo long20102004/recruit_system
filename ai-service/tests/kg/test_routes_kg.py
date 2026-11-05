@@ -15,7 +15,7 @@ from app import main
 
 @pytest.fixture(autouse=True)
 def kg_on(monkeypatch) -> None:
-    """KG enrichment is off by default; these tests exercise it explicitly."""
+    """KG enrichment is on by default; fixture ensures KG_ENABLED is True."""
     monkeypatch.setattr(config, "KG_ENABLED", True)
 
 
@@ -66,11 +66,11 @@ def test_extract_cv_enriched_success(client, fake_engine, fake_kb: KnowledgeBase
     })
     cv_text = "Kỹ năng lập trình: Spring Boot. Học vấn: PTIT."
 
-    resp = client.post("/api/v1/extract-cv", json={"cv_text": cv_text})
+    resp = client.post("/api/v1/extract-cv?include=kg", json={"cv_text": cv_text})
     assert resp.status_code == 200
 
     data = resp.json()["data"]
-    # skills is unchanged
+    # skills is canonicalized
     assert data["skills"] == ["Spring Boot"]
 
     # skills_normalized present and canonical
@@ -85,9 +85,10 @@ def test_extract_cv_enriched_success(client, fake_engine, fake_kb: KnowledgeBase
     assert "Java" in implied_names
     assert any(item["id"] == 2 for item in data["implied_skills"])
 
-    # education[0].school_normalized mapped
+    # education[0].school is canonicalized, and school_normalized mapped
     assert "education" in data
     assert len(data["education"]) >= 1
+    assert data["education"][0]["school"] == "Học viện Công nghệ Bưu chính Viễn thông"
     assert data["education"][0]["school_normalized"] == {
         "id": 10,
         "name": "Học viện Công nghệ Bưu chính Viễn thông",
@@ -104,7 +105,7 @@ def test_extract_cv_kg_disabled(client, fake_engine, fake_kb: KnowledgeBase, mon
     })
     cv_text = "Kỹ năng Spring Boot, tốt nghiệp PTIT."
 
-    resp = client.post("/api/v1/extract-cv", json={"cv_text": cv_text})
+    resp = client.post("/api/v1/extract-cv?include=kg", json={"cv_text": cv_text})
     assert resp.status_code == 200
 
     data = resp.json()["data"]
@@ -121,7 +122,7 @@ def test_extract_cv_kb_state_none(client, fake_engine) -> None:
     })
     cv_text = "Kỹ năng Spring Boot, tốt nghiệp PTIT."
 
-    resp = client.post("/api/v1/extract-cv", json={"cv_text": cv_text})
+    resp = client.post("/api/v1/extract-cv?include=kg", json={"cv_text": cv_text})
     assert resp.status_code == 200
 
     data = resp.json()["data"]
@@ -145,7 +146,7 @@ def test_extract_cv_enrich_raises_handled(
 
     monkeypatch.setattr("app.api.routes.enrich", _boom)
 
-    resp = client.post("/api/v1/extract-cv", json={"cv_text": cv_text})
+    resp = client.post("/api/v1/extract-cv?include=kg", json={"cv_text": cv_text})
     assert resp.status_code == 200
 
     data = resp.json()["data"]
@@ -184,7 +185,7 @@ def test_logging_counts_only_no_raw_skills(
     cv_text = "Kỹ năng Spring Boot, tốt nghiệp PTIT."
 
     with caplog.at_level(logging.INFO):
-        resp = client.post("/api/v1/extract-cv", json={"cv_text": cv_text})
+        resp = client.post("/api/v1/extract-cv?include=kg", json={"cv_text": cv_text})
 
     assert resp.status_code == 200
 

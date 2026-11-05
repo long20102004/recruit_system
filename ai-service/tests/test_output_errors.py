@@ -41,16 +41,20 @@ def test_skills_detected_when_kg_enabled(client, fake_engine, tmp_path, monkeypa
     (tmp_path / "university_aliases.csv").write_text("university_id,alias_key\n", encoding="utf-8")
     kb_state["kb"] = KnowledgeBase.from_csv(tmp_path)
     fake_engine.output = json.dumps({"personal_info": {"full_name": "SYNTHETIC CANDIDATE"}, "skills": ["Java"]})
-    resp = client.post("/api/v1/extract-cv", json={"cv_text": CV})
+    resp = client.post("/api/v1/extract-cv?include=kg", json={"cv_text": CV})
     assert resp.status_code == 200
     detected = {s["name"]: s["source"] for s in resp.json()["data"]["skills_detected"]}
     assert detected == {"Java": "both", "Docker": "text"}
 
 
 def test_default_response_has_only_cv_fields(client, fake_engine, tmp_path):
-    """KG off by default: even with a KB loaded, no enrichment fields are added."""
-    kb_state["kb"] = None
+    """KG is active but hidden by default: even with a KB loaded, no enrichment fields are added."""
+    (tmp_path / "skills.csv").write_text("id,name,category\n1,Java,Programming Language\n", encoding="utf-8")
+    (tmp_path / "skill_edges.csv").write_text("src_id,rel,dst_id\n", encoding="utf-8")
+    (tmp_path / "universities.csv").write_text("id,name\n", encoding="utf-8")
+    (tmp_path / "university_aliases.csv").write_text("university_id,alias_key\n", encoding="utf-8")
+    kb_state["kb"] = KnowledgeBase.from_csv(tmp_path)
     fake_engine.output = json.dumps({"personal_info": {"full_name": "SYNTHETIC CANDIDATE"}, "skills": ["Java"]})
     data = client.post("/api/v1/extract-cv", json={"cv_text": CV}).json()["data"]
-    for key in ("skills_normalized", "implied_skills", "skills_detected", "flags"):
+    for key in ("skills_normalized", "implied_skills", "skills_detected", "flags", "raw_profile"):
         assert key not in data

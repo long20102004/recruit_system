@@ -44,10 +44,10 @@ POSTPROCESS_ENABLED: bool = (
     os.getenv("POSTPROCESS_ENABLED", "true").strip().lower() not in {"0", "false", "no", "off"}
 )
 
-# KB/KG enrichment (skills_normalized, implied_skills, school_normalized, skills_detected, flags) is off by
-# default: module 1 returns only what the CV says, module 2 does the matching. Kept for ablation / experiments.
+# KB/KG enrichment runs by default (KG_ENABLED=true) but its extra fields are hidden by default;
+# see include=kg query param on POST /api/v1/extract-cv.
 KG_ENABLED: bool = (
-    os.getenv("KG_ENABLED", "false").strip().lower() not in {"0", "false", "no", "off"}
+    os.getenv("KG_ENABLED", "true").strip().lower() not in {"0", "false", "no", "off"}
 )
 
 KB_DSN: str | None = os.getenv("KB_DSN") or None

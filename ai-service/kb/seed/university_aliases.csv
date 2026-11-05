@@ -1,737 +1,1260 @@
-alias_key,university_id,surface
-academy of cryptography techniques,24,Academy Of Cryptography Techniques
-academy of finance,44,Academy of Finance
-academy of journalism and communication,5,Academy of Journalism and Communication
-academy of policy and development,8,Academy of Policy and Development
-academy of posts and telecommunications technology,14,Academy of Posts and Telecommunications Technology
-academy of public administration and governance,18,Academy of Public Administration and Governance
-ajc,5,AJC
-am nhac hue,48,Học viện Âm nhạc Huế
-am nhac quoc gia viet nam,49,Học viện Âm nhạc Quốc gia Việt Nam
-american university in vietnam,163,The American University in Vietnam
-an giang,58,Trường Đại học An Giang
-an giang dhqg hcm,58,"Trường Đại học An Giang, ĐHQG-HCM"
-anh quoc tai viet nam,60,Trường Đại học Anh Quốc tại Việt Nam
-aof,44,AOF
-apag,18,APAG
-apd,8,APD
-aptech,2,Aptech
-aptech computer education,2,Aptech Computer Education
-architecture ho chi minh city,142,University of Architecture Ho Chi Minh City
-ba ria vung tau,61,Trường Đại học Bà Rịa – Vũng Tàu
-bac giang university of agriculture and forestry,177,Bac Giang University of Agriculture and Forestry
-bac ha international,192,Bac Ha International University
-bac lieu,65,Trường Đại học Bạc Liêu
-bac ninh sport,225,Bac Ninh Sport University
-bach khoa dai hoc da nang,63,"Trường Đại học Bách khoa, Đại học Đà Nẵng"
-bach khoa dhqg hcm,62,"Trường Đại học Bách khoa, ĐHQG-HCM"
-bach khoa ha noi,282,Trường Đại học Bách Khoa Hà Nội
-bach khoa tp hcm,62,Trường Đại học Bách Khoa TP.HCM
-banking academy of vietnam,30,Banking Academy of Vietnam
-bao chi va tuyen truyen,5,Học viện Báo chí và Tuyên truyền
-bav,30,BAV
-betu,133,BETU
-bguaf,177,BGUAF
-bhiu,192,BHIU
-bien phong,4,Học viện Biên phòng
-binh duong,64,Trường Đại học Bình Dương
-binh duong economics and technology,133,Binh Duong Economics and Technology University
-blu,65,BLU
-british university vietnam,60,British University Vietnam
-bvu,61,BVU
-can bo thanh pho ho chi minh,12,Học viện Cán bộ Thành phố Hồ Chí Minh
-can tho,284,Can Tho University
-can tho university of medicine and pharmacy,260,Can Tho University of Medicine and Pharmacy
-can tho university of technology,148,Can Tho University of Technology
-cao dai tien thien,6,Học viện cao đài Tiên Thiên
-cao dang cong nghe fpt,55,Trường Cao đẳng Công nghệ FPT
-cao dang cong nghe ha noi,53,Trường Cao đẳng Công nghệ Hà Nội
-cao dang cong nghe sai gon,54,Trường Cao đẳng Công nghệ Sài Gòn
-cao dang cong nghiep quoc phong,52,Cao đẳng Công nghiệp Quốc Phòng
-cao dang fpoly,55,Trường Cao đẳng FPoly
-cao dang fpt,55,Cao đẳng FPT
-cao dang fpt polytechnic,55,Cao đẳng FPT Polytechnic
-cao thang college tphcm,56,Cao Thang College. TPHCM
-cao thang technical college,56,Cao Thang Technical College
-cdcnqp,52,CDCNQP
-chien luoc khoa hoc va cong nghe,7,Học viện Chiến lược Khoa học và Công nghệ
-chinh sach va phat trien,8,Học viện Chính sách và Phát triển
-chinh tri cong an nhan dan,9,Học viện Chính trị - Công an Nhân dân
-chinh tri quan doi nhan dan viet nam,10,Học viện Chính trị Quân đội Nhân dân Việt Nam
-chinh tri quoc gia ho chi minh,11,Học viện Chính trị Quốc gia Hồ Chí Minh
-civ,13,CIV
-ckc,56,CKC
-cmc,66,Trường Đại học CMC
-cmcu,66,CMCU
-codegym,219,CodeGym
-cong doan,91,Trường Đại học Công đoàn
-cong giao viet nam,13,Học viện Công giáo Việt Nam
-cong nghe,89,Trường Đại học Công nghệ
-cong nghe buu chinh vien thong,14,Học viện Công nghệ Bưu chính Viễn thông
-cong nghe dhqghn,89,"Trường Đại học Công nghệ, ĐHQGHN"
-cong nghe dong a,87,Trường Đại học Công nghệ Đông Á
-cong nghe dong nai,88,Trường Đại học Công nghệ Đồng Nai
-cong nghe fpt,96,Công nghệ FPT
-cong nghe giao thong van tai,73,Trường Đại học Công nghệ Giao thông Vận tải
-cong nghe ha noi,1,Công nghệ Hà Nội
-cong nghe ky thuat hung yen,74,Trường Đại học Công nghệ Kỹ thuật Hưng Yên
-cong nghe ky thuat thanh pho ho chi minh,75,Trường Đại học Công nghệ Kỹ thuật Thành phố Hồ Chí Minh
-cong nghe ky thuat vinh,76,Trường Đại học Công nghệ Kỹ thuật Vinh
-cong nghe ky thuat vinh long,77,Trường Đại học Công nghệ Kỹ thuật Vĩnh Long
-cong nghe mien dong,78,Trường Đại học Công nghệ Miền Đông
-cong nghe sai gon,80,Trường Đại học Công nghệ Sài Gòn
-cong nghe swinburne fpt viet nam,79,Trường Đại học Công nghệ Swinburne - FPT Việt Nam
-cong nghe thanh pho ho chi minh,81,Trường Đại học Công nghệ Thành phố Hồ Chí Minh
-cong nghe thong tin,84,Trường Đại học Công nghệ Thông tin
-cong nghe thong tin dhqg hcm,84,"Trường Đại học Công nghệ Thông tin, ĐHQG-HCM"
-cong nghe thong tin va truyen thong,83,Trường Đại học Công nghệ Thông tin và Truyền thông
-cong nghe thong tin va truyen thong dai hoc thai nguyen,83,"Trường Đại học Công nghệ Thông tin và Truyền thông, Đại học Thái Nguyên"
-cong nghe thong tin va truyen thong viet han,82,Trường Đại học Công nghệ thông tin và Truyền thông Việt – Hàn
-cong nghe thong tin va truyen thong viet han dai hoc da nang,82,"Trường Đại học Công nghệ thông tin và Truyền thông Việt – Hàn, Đại học Đà Nẵng"
-cong nghe tp hcm,81,Trường Đại học Công nghệ TP.HCM
-cong nghe va quan ly huu nghi,85,Trường Đại học Công nghệ và Quản lý Hữu Nghị
-cong nghe van xuan,86,Trường Đại học Công nghệ Vạn Xuân
-cong nghe viettel,46,Học viện Công nghệ Viettel
-cong nghiep ha noi,283,Đại học Công nghiệp Hà Nội
-cong nghiep quang ninh,67,Trường Đại học Công nghiệp Quảng Ninh
-cong nghiep thanh pho ho chi minh,68,Trường Đại học Công nghiệp Thành phố Hồ Chí Minh
-cong nghiep tp hcm,68,Trường Đại học Công nghiệp TP.HCM
-cong nghiep va thuong mai ha noi,72,Trường Đại học Công nghiệp và Thương mại Hà Nội
-cong nghiep viet hung,71,Trường Đại học Công nghiệp Việt–Hung
-cong nghiep viet tri,70,Trường Đại học Công nghiệp Việt Trì
-cong nghiep vinh,69,Trường Đại học Công nghiệp Vinh
-cong thuong,90,Đại học Công Thương
-cong thuong thanh pho ho chi minh,90,Trường Đại học Công Thương Thành phố Hồ Chí Minh
-ctu,284,CTU
-ctump,260,CTUMP
-ctut,148,CTUT
-cuu long,93,Trường Đại học Cửu Long
-da lat,274,Trường Đại học Đà Lạt
-da nang,295,Đại học Đà Nẵng
-dai nam,277,Trường Đại học Đại Nam
-dan toc,16,Học viện Dân tộc
-danang sport,227,Danang Sport University
-danang university of economics,139,Danang University of Economics
-danang university of education,218,Danang University of Education
-danang university of foreign language,169,Danang University of Foreign Language
-danang university of medical technology and pharmacy,146,Danang University of Medical Technology and Pharmacy
-danang university of technology,63,Danang University of Technology
-danang university of technology and education,211,Danang University of Technology and Education
-dau khi viet nam,95,Trường Đại học Dầu khí Việt Nam
-dav,29,DAV
-dhhp,114,DHHP
-dhqg hcm,291,ĐHQG-HCM
-dhv,111,DHV
-dien luc,273,Trường Đại học Điện lực
-dieu duong nam dinh,272,Trường Đại học Điều dưỡng Nam Định
-diplomatic academy of vietnam,29,Diplomatic Academy of Vietnam
-dlu,274,DLU
-dnufl,169,DNUFL
-dnute,211,DNUTE
-dong a,275,Trường Đại học Đông Á
-dong do,276,Trường Đại học Đông Đô
-dong nai,278,Trường Đại học Đồng Nai
-dong thap,279,Dong Thap University
-dsu,227,DSU
-dthu,279,DThU
-duc the thao bac ninh,225,Trường Đại học Thể dục Thể thao Bắc Ninh
-duc the thao da nang,227,Trường Đại học Thể dục Thể thao Đà Nẵng
-duc the thao thanh pho ho chi minh,226,Trường Đại học Thể dục Thể thao Thành phố Hồ Chí Minh
-due,139,DUE
-dumtp,146,DUMTP
-duoc ha noi,94,Trường Đại học Dược Hà Nội
-dut,63,DUT
-duy tan,285,Đại học Duy Tân
-east asian university of technology,87,East-Asian University of Technology
-eastern international,194,Eastern International University
-eaut,87,EAUT
-economics and finance,136,University of Economics and Finance
-economics and finance uef,136,UNIVERSITY OF ECONOMICS AND FINANCE (UEF)
-economics technology for industries,134,University of Economics - Technology for Industries
-economics technology or industries,134,University of Economics - Technology or Industries
-eiu,194,EIU
-electric power,273,Electric Power University
-electronic power,273,Electronic Power University
-epu,273,EPU
-fbu,236,FBU
-finance and business administration,237,University of Finance and Business Administration
-finance and marketing,235,University of Finance and Marketing
-foreign trade,170,Foreign Trade University
-fpoly,55,FPoly
-fpt,96,Trường Đại học FPT
-fpt ho chi minh,96,Đại học FPT Hồ chí Minh
-fpt polytechnic,55,FPT Polytechnic
-fpt polytechnic college,55,FPT Polytechnic College
-fpt polytechnic college of hanoi,55,FPT Polytechnic College of Hanoi
-fpt polytechnic hanoi,55,FPT Polytechnic Hanoi
-fptu,96,FPTU
-ftu,170,FTU
-fulbright viet nam,97,Trường Đại học Fulbright Việt Nam
-gass,23,GASS
-gdu,98,GDU
-gia dinh,98,Trường Đại học Gia Định
-giao duc,101,Trường Đại học Giáo dục
-giao duc dhqghn,101,"Trường Đại học Giáo dục, ĐHQGHN"
-giao thong van tai,99,Trường Đại học Giao thông Vận tải
-giao thong van tai thanh pho ho chi minh,100,Trường Đại học Giao thông vận tải Thành phố Hồ Chí Minh
-graduate academy of social science,23,Graduate Academy of Social Science
-graduate university of science and technology,22,Graduate University of Science and Technology
-greenwich fpt viet nam,102,Trường Đại học Greenwich - FPT Việt Nam
-gust,22,GUST
-ha hoa tien,105,Trường Đại học Hà Hoa Tiên
-ha long,112,Trường Đại học Hạ Long
-ha noi,106,Trường Đại học Hà Nội
-ha tinh,107,Trường Đại học Hà Tĩnh
-hai duong,113,Trường Đại học Hải Dương
-hai duong medical technology,147,Hai Duong Medical Technology University
-hai phong,114,Trường Đại học Hải Phòng
-hai phong pharmacy and medicine,261,Hai Phong Pharmacy and Medicine University
-hai quan,19,Học viện Hải quân
-ham,48,HAM
-hang hai viet nam,108,Trường Đại học Hàng hải Việt Nam
-hang khong viet nam,17,Học viện Hàng không Việt Nam
-hanh chinh va quan tri cong,18,Học viện Hành chính và Quản trị công
-hanoi,106,Hanoi University
-hanoi academy of theatre and cinema,200,Hanoi Academy of Theatre and Cinema
-hanoi architectural,141,Hanoi Architectural University
-hanoi finance and banking,236,Hanoi Finance and Banking University
-hanoi industrial and trade,72,Hanoi Industrial and Trade University
-hanoi law,150,Hanoi Law University
-hanoi medical,266,Hanoi Medical University
-hanoi metropolitan,229,Hanoi Metropolitan University
-hanoi national university of education,208,Hanoi National University of Education
-hanoi open,158,Hanoi Open University
-hanoi pedagogical university 2,209,Hanoi Pedagogical University 2
-hanoi technology college,53,Hanoi Technology College
-hanoi university of arts and design,160,Hanoi University of Arts and Design
-hanoi university of business and technology,127,Hanoi University of Business and Technology
-hanoi university of civil engineering,256,Hanoi University of Civil Engineering
-hanoi university of culture,253,Hanoi University of Culture
-hanoi university of mining and geology,157,Hanoi University of Mining and Geology
-hanoi university of natural resources and environment,238,HANOI UNIVERSITY OF NATURAL RESOURCES AND ENVIRONMENT
-hanoi university of pharmacy,94,Hanoi University of Pharmacy
-hanoi university of physical education and sports,214,Hanoi University of Physical Education and Sports
-hanoi university of public health,270,Hanoi University of Public Health
-hanoi university of science,119,Hanoi University Of Science
-hanoi university of science and technology,282,Hanoi University of Science and Technology
-hanu,106,HANU
-hau,141,HAU
-hau can,20,Học viện Hậu cần
-haui,283,HaUI
-hbu,109,HBU
-hca,12,HCA
-hce,138,HCE
-hcma,11,HCMA
-hcmc university of technology and education,75,HCMC University of Technology and Education
-hcmc university of technology hutech,81,HCMC University of Technology (HUTECH)
-hcmcons,50,HCMCONS
-hcmou,159,HCMOU
-hcmue,213,HCMUE
-hcmufa,161,HCMUFA
-hcmunre,239,HCMUNRE
-hcmupes,215,HCMUPES
-hcmus,118,HCMUS
-hcmut,62,HCMUT
-hcmute,75,HCMUTE
-hdiu,276,HDIU
-hdu,115,HDU
-he thong dao tao lap trinh vien aptech,2,Hệ thống đạo tạo Lập trình viên Aptech
-hict,72,HICT
-hitech,53,Hitech
-hiu,193,HIU
-hlu,150,HLU
-hluv,103,HLUV
-hmtu,147,HMTU
-hmu,266,HMU
-hnmu,229,HNMU
-hnue,208,HNUE
-ho chi minh cadre academy,12,Ho Chi Minh Cadre Academy
-ho chi minh city open,159,Ho Chi Minh City Open University
-ho chi minh city university of banking,174,Ho Chi Minh City University of Banking
-ho chi minh city university of culture,254,Ho Chi Minh City University of Culture
-ho chi minh city university of economics and technology,128,Ho Chi Minh City University of Economics and Technology
-ho chi minh city university of fine arts,161,Ho Chi Minh City University of Fine Arts
-ho chi minh city university of foreign language and information technology,166,Ho Chi Minh City University of Foreign Language and Information Technology
-ho chi minh city university of industry and trade,90,Ho Chi Minh City University of Industry and Trade
-ho chi minh city university of medicine and pharmacy,294,Ho Chi Minh City University of Medicine and Pharmacy
-ho chi minh city university of natural resources and environment,239,Ho Chi Minh City University of Natural Resources and Environment
-ho chi minh city university of technology and education,75,Ho Chi Minh City University of Technology and Education
-ho chi minh city university of technology hutech,81,Ho Chi Minh City University of Technology HUTECH
-ho chi minh conservatory of music,50,Ho Chi Minh Conservatory of Music
-ho chi minh national academy of politics,11,Ho Chi Minh National Academy of Politics
-ho chi minh university of education,213,Ho Chi Minh University of Education
-ho chi minh university of industry and trade,90,Ho Chi Minh University Of Industry And Trade
-ho chi minh university of law,151,Ho Chi Minh University of Law
-ho chi minh university of physical education and sports,215,Ho Chi Minh University of Physical Education and Sports
-ho chi minh university of technology and engineering,75,Ho Chi Minh University of Technology and Engineering
-hoa binh,109,Trường Đại học Hòa Bình
-hoa lu,103,Trường Đại học Hoa Lư
-hoa sen,104,Trường Đại học Hoa Sen
-hong bang international,193,Hong Bang International University
-hong duc,115,Trường Đại học Hồng Đức
-hou,158,HOU
-hpmu,261,HPMU
-hpu,188,HPU
-hpu2,209,HPU2
-hsu,104,HSU
-htu,107,HTU
-hua,165,HUA
-huaf,179,HUAF
-hub,174,HUB
-hubt,127,HUBT
-huc,253,HUC
-huce,256,HUCE
-hucfl,168,HUCFL
-hue,286,Đại học Huế
-hue academy of music,48,Hue Academy of Music
-hue university college of economics,138,Hue University College of Economics
-hue university college of education,216,Hue University College of Education
-hue university college of foreign languages,168,Hue University College of Foreign Languages
-hue university of agriculture and forestry,179,Hue University of Agriculture and Forestry
-hue university of arts,165,Hue University of Arts
-hue university of laws,153,Hue University of Laws
-hue university of medicine and pharmacy,264,Hue University of Medicine and Pharmacy
-hue university science college,123,Hue University Science College
-huflit,166,HUFLIT
-huit,90,HUIT
-hul,153,HUL
-humg,157,HUMG
-hung vuong,110,Trường Đại học Hùng Vương
-hung vuong thanh pho ho chi minh,111,Trường Đại học Hùng Vương Thành phố Hồ Chí Minh
-hung yen university of technology education,74,Hung Yen University of Technology Education
-hunre,238,HUNRE
-hup,94,HUP
-hupes,214,HUPES
-huph,270,HUPH
-hus,119,HUS
-husc,123,HUSC
-hust,282,HUST
-hute,128,HUTE
-hutech,81,HUTECH University
-hutech university ho chi minh city university of technology,81,HUTECH University – Ho Chi Minh City University of Technology
-hvu,110,HVU
-hyute,74,HYUTE
-ictu,83,ICTU
-industrial university ho chi minh city,68,Industrial University Ho Chi Minh City
-industrial university of ho chi minh city,68,Industrial University of Ho Chi Minh City
-information technology,84,University of Information Technology
-information technology vnu hcm,84,University of Information Technology VNU-HCM
-institute of post and telecommunications technology,14,Institute of Post and Telecommunications Technology
-intracom,116,Trường Đại học Intracom
-ispace,51,iSpace
-ispace college,51,ISPACE COLLEGE
-ispace cybersecurity college,51,iSpace Cybersecurity College
-iuh,68,IUH
-kgu,140,KGU
-khanh hoa,125,Trường Đại học Khánh Hòa
-khoa hoc dai hoc hue,123,"Trường Đại học Khoa học, Đại học Huế"
-khoa hoc dai hoc thai nguyen,124,"Trường Đại học Khoa học, Đại học Thái Nguyên"
-khoa hoc quan su,21,Học viện Khoa học Quân sự
-khoa hoc suc khoe,117,Trường Đại học Khoa học Sức khoẻ
-khoa hoc suc khoe dhqg hcm,117,"Trường Đại học Khoa học Sức khoẻ, ĐHQG-HCM"
-khoa hoc tu nhien dhqg hcm,118,"Trường Đại học Khoa học Tự nhiên, ĐHQG-HCM"
-khoa hoc tu nhien dhqghn,119,"Trường Đại học Khoa học Tự nhiên, ĐHQGHN"
-khoa hoc va cong nghe,22,Học viện Khoa học và Công nghệ
-khoa hoc va cong nghe ha noi,120,Trường Đại học Khoa học và Công nghệ Hà Nội
-khoa hoc xa hoi,23,Học viện Khoa học Xã hội
-khoa hoc xa hoi va nhan van dhqg hcm,121,"Trường Đại học Khoa học Xã hội và Nhân văn, ĐHQG-HCM"
-khoa hoc xa hoi va nhan van dhqghn,122,"Trường Đại học Khoa học Xã hội và Nhân văn, ĐHQGHN"
-ki thuat mat ma,24,Học viện kĩ thuật mật mã
-kiem sat,144,Trường Đại học Kiểm sát
-kien giang,140,Trường Đại học Kiên Giang
-kien truc da nang,143,Trường Đại học Kiến trúc Đà Nẵng
-kien truc ha noi,141,Trường Đại học Kiến trúc Hà Nội
-kien truc thanh pho ho chi minh,142,Trường Đại học Kiến trúc Thành phố Hồ Chí Minh
-kinh bac,126,Trường Đại học Kinh Bắc
-kinh doanh va cong nghe ha noi,127,Trường Đại học Kinh doanh và Công nghệ Hà Nội
-kinh te cong nghe thai nguyen,132,Trường Đại học Kinh tế – Công nghệ Thái Nguyên
-kinh te cong nghiep long an,129,Trường Đại học Kinh tế Công nghiệp Long An
-kinh te dai hoc da nang,139,"Trường Đại học Kinh tế, Đại học Đà Nẵng"
-kinh te dai hoc hue,138,"Trường Đại học Kinh tế, Đại học Huế"
-kinh te dhqghn,137,"Trường Đại học Kinh tế, ĐHQGHN"
-kinh te ky thuat binh duong,133,Đại Học Kinh Tế - Kỹ Thuật Bình Dương
-kinh te ky thuat cong nghiep,134,Trường Đại học Kinh tế – Kỹ thuật Công nghiệp
-kinh te ky thuat tp hcm,128,Trường Đại học Kinh tế - Kỹ thuật TP.HCM
-kinh te luat,135,Trường Đại học Kinh tế – Luật
-kinh te luat dhqg hcm,135,"Trường Đại học Kinh tế – Luật, ĐHQG-HCM"
-kinh te nghe an,130,Trường Đại học Kinh tế Nghệ An
-kinh te quoc dan,287,Đại học Kinh tế Quốc dân
-kinh te tai chinh thanh pho ho chi minh,136,Trường Đại học Kinh tế – Tài chính Thành phố Hồ Chí Minh
-kinh te thanh pho ho chi minh,288,Đại học Kinh tế Thành phố Hồ Chí Minh
-kinh te va quan tri kinh doanh,131,Trường Đại học Kinh tế và Quản trị kinh doanh
-kinh te va quan tri kinh doanh dai hoc thai nguyen,131,"Trường Đại học Kinh tế và Quản trị kinh doanh, Đại học Thái Nguyên"
-kma,24,KMA
-ky thuat cong nghe can tho,148,Trường Đại học Kỹ thuật – Công nghệ Cần Thơ
-ky thuat cong nghiep,145,Trường Đại học Kỹ thuật Công nghiệp
-ky thuat cong nghiep dai hoc thai nguyen,145,"Trường Đại học Kỹ thuật Công nghiệp, Đại học Thái Nguyên"
-ky thuat mat ma,24,Học viện Kỹ thuật Mật mã
-ky thuat quan su,25,Học viện Kỹ thuật Quân sự
-ky thuat va cong nghe an ninh,26,Học viện Kỹ thuật và Công nghệ An ninh
-ky thuat y duoc da nang,146,Trường Đại học Kỹ thuật Y Dược Đà Nẵng
-ky thuat y te hai duong,147,Trường Đại học Kỹ thuật Y tế Hải Dương
-labour and social affairs,149,University of Labour and Social Affairs
-lac hong,156,Trường Đại học Lạc Hồng
-lam nghiep,154,Trường Đại học Lâm nghiệp
-lao dong xa hoi,149,Trường Đại học Lao động – Xã hội
-luat dai hoc hue,153,"Trường Đại học Luật, Đại học Huế"
-luat dhqghn,152,"Trường Đại học Luật, ĐHQGHN"
-luat ha noi,150,Trường Đại học Luật Hà Nội
-luat thanh pho ho chi minh,151,Trường Đại học Luật Thành phố Hồ Chí Minh
-luc quan,27,Học viện Lục quân
-luong the vinh,155,Trường Đại học Lương Thế Vinh
-management and technology ho chi minh city,189,University of Management and Technology Ho Chi Minh City
-mien tay university of civil engineering,258,Mien Tay University of Civil Engineering
-mien trung university of civil engineering,257,Mien Trung University of Civil Engineering
-mo dia chat,157,Trường Đại học Mỏ – Địa chất
-mo ha noi,158,Trường Đại học Mở Hà Nội
-mo thanh pho ho chi minh,159,Trường Đại học Mở Thành phố Hồ Chí Minh
-mtu,258,MTU
-mua viet nam,28,Học viện Múa Việt Nam
-muce,257,MUCE
-my tai viet nam,163,Trường Đại học Mỹ tại Việt Nam
-my thuat cong nghiep,160,Trường Đại học Mỹ thuật Công nghiệp
-my thuat thanh pho ho chi minh,161,Trường Đại học Mỹ thuật Thành phố Hồ Chí Minh
-my thuat viet nam,162,Trường Đại học Mỹ thuật Việt Nam
-naem,40,NAEM
-nam can tho,164,Trường Đại học Nam Cần Thơ
-nam dinh university of nursing,272,Nam Dinh University of Nursing
-nam dinh university of technology education,210,Nam Dinh University of Technology Education
-national academy of education management,40,National Academy of Education Management
-national defense industry college,52,National Defense Industry College
-national university of art education,212,National University of Art Education
-naue,130,NAUE
-ndun,272,NDUN
-neu,287,NEU
-ngan hang,30,Học viện Ngân hàng
-ngan hang thanh pho ho chi minh,174,Trường Đại học Ngân hàng Thành phố Hồ Chí Minh
-nghe an university of economics,130,Nghe An University of Economics
-nghe thuat,165,Trường Đại học Nghệ thuật
-nghe thuat dai hoc hue,165,"Trường Đại học Nghệ thuật, Đại học Huế"
-ngo quyen truong dai hoc si quan cong binh,175,Trường Đại học Ngô Quyền / Trường Đại học Sĩ quan Công Binh
-ngoai giao,29,Học viện Ngoại giao
-ngoai ngu dai hoc da nang,169,"Trường Đại học Ngoại ngữ, Đại học Đà Nẵng"
-ngoai ngu dai hoc hue,168,"Trường Đại học Ngoại ngữ, Đại học Huế"
-ngoai ngu dhqghn,167,"Trường Đại học Ngoại ngữ, ĐHQGHN"
-ngoai ngu tin hoc thanh pho ho chi minh,166,Trường Đại học Ngoại ngữ – Tin học Thành phố Hồ Chí Minh
-ngoai thuong,170,Trường Đại học Ngoại thương
-nguyen hue truong dai hoc si quan luc quan 2,171,Trường Đại học Nguyễn Huệ / Trường Đại học Sĩ quan Lục quân 2
-nguyen tat thanh,173,Trường Đại học Nguyễn Tất Thành
-nguyen trai,172,Trường Đại học Nguyễn Trãi
-nha trang,176,Trường Đại học Nha Trang
-nha trang university ntu,176,Nha Trang University - NTU
-nhac vien thanh pho ho chi minh,50,Nhạc viện Thành phố Hồ Chí Minh
-niie,280,NIIE
-nlu,178,NLU
-nong lam bac giang,177,Trường Đại học Nông - Lâm Bắc Giang
-nong lam dai hoc hue,179,"Trường Đại học Nông Lâm, Đại học Huế"
-nong lam dai hoc thai nguyen,180,"Trường Đại học Nông Lâm, Đại học Thái Nguyên"
-nong lam thanh pho ho chi minh,178,Trường Đại học Nông Lâm Thành phố Hồ Chí Minh
-nong nghiep viet nam,31,Học viện Nông nghiệp Việt Nam
-ntt institute of international education,280,NTT Institute of International Education
-nttu,173,NTTU
-ntu,176,NTU
-nuae,212,NUAE
-nuce,256,NUCE
-nute,210,NUTE
-pdu,185,PDU
-petro vietnam,95,Petro Vietnam University
-pham ngoc thach medical,267,Pham Ngoc Thach Medical University
-pham van dong,185,Trường Đại học Phạm Văn Đồng
-phan chau trinh,181,Trường Đại học Phan Châu Trinh
-phan thiet,182,Trường Đại học Phan Thiết
-phat giao nam tong khmer,34,Học viện Phật giáo Nam tông Khmer
-phat giao viet nam tai ha noi,36,Học viện Phật giáo Việt Nam tại Hà Nội
-phat giao viet nam tai hue,35,Học viện Phật giáo Việt Nam tại Huế
-phat giao viet nam tai thanh pho ho chi minh,37,Học viện Phật giáo Việt Nam tại Thành phố Hồ Chí Minh
-phenikaa,289,Đại học Phenikaa
-phong chay chua chay va cuu nan cuu ho,32,Học viện Phòng cháy chữa cháy và Cứu nạn cứu hộ
-phong khong khong quan,33,Học viện Phòng không – Không quân
-phu nu viet nam,38,Học viện Phụ nữ Việt Nam
-phu xuan,183,Trường Đại học Phú Xuân
-phu yen,184,Trường Đại học Phú Yên
-pntu,267,PNTU
-post and telecommunications institute ptit,14,Post and Telecommunications institute - PTIT
-posts and telecommunications institute of technology,14,Posts and Telecommunications Institute of Technology
-posts and telecommunications institute ptit,14,Posts and Telecommunications institute - PTIT
-posts telecoms institute of technology,14,Posts & Telecoms Institute of Technology
-ptit,14,PTIT
-pvu,95,PVU
-pyu,184,PYU
-qbu,190,QBU
-qnamuni,191,QNamUni
-qnu,187,QNU
-quan ly giao duc,40,Học viện Quản lý giáo dục
-quan ly va cong nghe hai phong,188,Trường Đại học Quản lý và Công nghệ Hải Phòng
-quan ly va cong nghe thanh pho ho chi minh,189,Trường Đại học Quản lý và Công nghệ Thành phố Hồ Chí Minh
-quan y,39,Học viện Quân y
-quang binh,190,Trường Đại học Quảng Bình
-quang nam,191,Trường Đại học Quảng Nam
-quang ninh university of industry,67,Quang Ninh University of Industry
-quang trung,186,Trường Đại học Quang Trung
-qui,67,QUI
-quoc gia ha noi,290,Đại học Quốc gia Hà Nội
-quoc gia thanh pho ho chi minh,291,Đại học Quốc gia Thành phố Hồ Chí Minh
-quoc gia tp hcm,291,Trường Đại học Quốc gia TP.HCM
-quoc phong,41,Học viện Quốc phòng
-quoc te bac ha,192,Trường Đại học Quốc tế Bắc Hà
-quoc te dhqg hcm,197,"Trường Đại học Quốc tế, ĐHQG-HCM"
-quoc te hong bang,193,Trường Đại học Quốc tế Hồng Bàng
-quoc te mien dong,194,Trường Đại học Quốc tế Miền Đông
-quoc te rmit viet nam,195,Trường Đại học Quốc tế RMIT Việt Nam
-quoc te sai gon,196,Trường Đại học Quốc tế Sài Gòn
-quy nhon,187,Trường Đại học Quy Nhơn
-sai gon,199,Trường Đại học Sài Gòn
-saigon,199,Saigon University
-saigon institute of technology,57,Saigon Institute of Technology
-saigon international,196,Saigon International University
-saigon technology,80,Saigon Technology University
-saigon technology college,54,Saigon Technology College
-saigon university sgu,199,Saigon University (SGU)
-saigontech,57,SaigonTech
-saigontech tp hcm,57,SaigonTech. TP.HCM
-san khau dien anh ha noi,200,Trường Đại học Sân khấu – Điện ảnh Hà Nội
-san khau dien anh thanh pho ho chi minh,201,Trường Đại học Sân khấu – Điện ảnh Thành phố Hồ Chí Minh
-sao do,198,Trường Đại học Sao Đỏ
-science and technology hanoi,120,University of Science and Technology Hanoi
-sdu,198,SDU
-sgu,199,SGU
-si quan chinh tri,202,Trường Đại học Sĩ quan Chính trị
-si quan dac cong,207,Trường Đại học Sĩ quan Đặc công
-si quan phao binh,203,Trường Đại học Sĩ quan Pháo binh
-si quan phong hoa,204,Trường Đại học Sĩ quan Phòng hóa
-si quan tang thiet giap,206,Trường Đại học Sĩ quan Tăng – Thiết giáp
-si quan thong tin lien lac,205,Trường Đại học Sĩ quan Thông tin liên lạc
-siu,196,SIU
-skda,200,SKDA
-skdahcm,201,SKDAHCM
-sports ho chi minh city,226,University of Sports Ho Chi Minh City
-stage movie university of ho chi minh city,201,The Stage-Movie University of Ho Chi Minh City
-stu,80,STU
-su pham dai hoc da nang,218,"Trường Đại học Sư phạm, Đại học Đà Nẵng"
-su pham dai hoc hue,216,"Trường Đại học Sư phạm, Đại học Huế"
-su pham dai hoc thai nguyen,217,"Trường Đại học Sư phạm, Đại học Thái Nguyên"
-su pham ha noi,208,Trường Đại học Sư phạm Hà Nội
-su pham ha noi 2,209,Trường Đại học Sư phạm Hà Nội 2
-su pham ky thuat,211,Trường Đại học Sư phạm Kỹ thuật
-su pham ky thuat dai hoc da nang,211,"Trường Đại học Sư phạm Kỹ thuật, Đại học Đà Nẵng"
-su pham ky thuat nam dinh,210,Trường Đại học Sư phạm Kỹ thuật Nam Định
-su pham nghe thuat trung uong,212,Trường Đại học Sư phạm Nghệ thuật Trung ương
-su pham thanh pho ho chi minh,213,Trường Đại học Sư phạm Thành phố Hồ Chí Minh
-su pham the duc the thao ha noi,214,Trường Đại học Sư phạm Thể dục Thể thao Hà Nội
-su pham the duc the thao thanh pho ho chi minh,215,Trường Đại học Sư phạm Thể dục Thể thao Thành phố Hồ Chí Minh
-tai chinh,44,Học viện Tài chính
-tai chinh marketing,235,Trường Đại học Tài chính – Marketing
-tai chinh ngan hang ha noi,236,Trường Đại học Tài chính – Ngân hàng Hà Nội
-tai chinh quan tri kinh doanh,237,Trường Đại học Tài chính – Quản trị kinh doanh
-tai nguyen va moi truong ha noi,238,Trường Đại học Tài nguyên và Môi trường Hà Nội
-tai nguyen va moi truong thanh pho ho chi minh,239,Trường Đại học Tài nguyên và Môi trường Thành phố Hồ Chí Minh
-tan tao,241,Trường Đại học Tân Tạo
-tan trao,240,Trường Đại học Tân Trào
-tay bac,242,Trường Đại học Tây Bắc
-tay do,244,Trường Đại học Tây Đô
-tay nguyen,243,Trường Đại học Tây Nguyên
-tbd,222,TBD
-tbu,221,TBU
-tbump,262,TBUMP
-tdmu,228,TDMU
-tdtu,245,TDTU
-tdu,219,TDU
-technology and management,85,University of Technology and Management
-tgu,231,TGU
-thai binh,221,Trường Đại học Thái Bình
-thai binh duong,222,Trường Đại học Thái Bình Dương
-thai binh university of medicine and pharmacy,262,Thai Binh University of Medicine and Pharmacy
-thai nguyen,292,Đại học Thái Nguyên
-thai nguyen university of agriculture and forestry,180,Thai Nguyen University of Agriculture and Forestry
-thai nguyen university of economics and business administration,131,Thai Nguyen University of Economics and Business Administration
-thai nguyen university of education,217,Thai Nguyen University of Education
-thai nguyen university of information and communication technology,83,Thai Nguyen University of Information and Communication Technology
-thai nguyen university of medicine and pharmacy,265,Thai Nguyen University of Medicine and Pharmacy
-thai nguyen university of science,124,Thai Nguyen University of Science
-thai nguyen university of technology,145,Thai Nguyen University of Technology
-thang long,223,Trường Đại học Thăng Long
-thanh do,219,Trường Đại học Thành Đô
-thanh do khoa cntt codegym,219,Trường Đại học Thành Đô - Khoa CNTT CodeGym
-thanh dong,220,Trường Đại học Thành Đông
-thanh thieu nien viet nam,43,Học viện Thanh thiếu niên Việt Nam
-thu dau mot,228,Trường Đại học Thủ Dầu Một
-thu do ha noi,229,Trường Đại học Thủ đô Hà Nội
-thuong mai,224,Trường Đại học Thương mại
-thuongmai,224,Thuongmai University
-thuy loi,230,Trường Đại học Thủy Lợi
-thuyloi,230,Thuyloi University
-tien giang,231,Trường Đại học Tiền Giang
-tlu,230,TLU
-tmu,224,TMU
-tnue,217,TNUE
-tnus,124,TNUS
-tnut,145,TNUT
-toa an,45,Học viện Tòa án
-ton duc thang,245,Trường Đại học Tôn Đức Thắng
-tra vinh,293,Đại học Trà Vinh
-trade union,91,Trade Union University
-tran dai nghia truong dai hoc si quan ky thuat quan su vin hem pich,234,Trường Đại học Trần Đại Nghĩa / Trường Đại học Sĩ quan Kỹ thuật Quân sự Vin - hem - pích
-tran quoc tuan truong dai hoc si quan luc quan 1,233,Trường Đại học Trần Quốc Tuấn / Trường Đại học Sĩ quan Lục quân 1
-transport,99,University of Transport
-transport and communications,99,University of Transport and Communications
-transport and communucations utc,99,University of Transport and Communucations (UTC)
-transport technology,73,University of Transport Technology
-transports ho chi minh city,100,University of Transports Ho Chi Minh City
-trung vuong,232,Trường Đại học Trưng Vương
-ttn,243,TTN
-ttru,240,TTrU
-tuaf,180,TUAF
-tueba,131,TUEBA
-tump,265,TUMP
-tuu,91,TUU
-uad,160,UAD
-uah,142,UAH
-ued,218,UED
-uef,136,UEF
-ueh,288,UEH
-ufba,237,UFBA
-ufm,235,UFM
-uhd,113,UHD
-uhl,112,UHL
-uit,84,UIT
-ukb,126,UKB
-ukh,125,UKH
-ulaw,151,ULaw
-ulsa,149,ULSA
-umt,189,UMT
-uneti,134,UNETI
-upes1,225,UPES1
-ush,226,USH
-usth,120,USTH
-utb,242,UTB
-utc,99,UTC
-ute,75,UTE
-uth,100,UTH
-utm,85,UTM
-utt,73,UTT
-vaa,17,VAA
-vaem,16,VAEM
-van hien,251,Trường Đại học Văn Hiến
-van hoa ha noi,253,Trường Đại học Văn hóa Hà Nội
-van hoa nghe thuat quan doi,252,Trường Đại học Văn hoá Nghệ thuật Quân đội
-van hoa thanh pho ho chi minh,254,Trường Đại học Văn hóa Thành phố Hồ Chí Minh
-van lang,255,Trường Đại học Văn Lang
-vba,36,VBA
-vbah,35,VBAH
-vbu,37,VBU
-vca,45,VCA
-vgu,249,VGU
-vhs,254,VHS
-vhu,251,VHU
-viet duc,249,Trường Đại học Việt Đức
-viet hung industrial,71,Viet Hung Industrial University
-viet nhat,248,Trường Đại học Việt Nhật
-viet nhat dhqghn,248,"Trường Đại học Việt Nhật, ĐHQGHN"
-viet tri university of industry,70,Viet Tri University of Industry
-vietnam academy for ethnic minorities,16,Vietnam Academy for Ethnic Minorities
-vietnam academy of aviation,17,Vietnam Academy of Aviation
-vietnam buddhism,37,Vietnam Buddhism University
-vietnam buddhism academy,36,Vietnam Buddhism Academy
-vietnam buddism academy at hue,35,Vietnam Buddism Academy at Hue
-vietnam court academy,45,Vietnam Court Academy
-vietnam institute of science and technology strategy,7,Vietnam Institute of Science and Technology Strategy
-vietnam korea university of information technology and communication,82,Vietnam - Korea University of Information Technology and Communication
-vietnam maritime,108,Vietnam Maritime University
-vietnam national academy of dance,28,Vietnam National Academy of Dance
-vietnam national academy of music,49,Vietnam National Academy of Music
-vietnam national university ho chi minh city,291,Vietnam National University Ho Chi Minh City
-vietnam national university of agriculture,31,Vietnam National University of Agriculture
-vietnam national university of fine arts,162,Vietnam National University of Fine Arts
-vietnam national university of forestry,154,Vietnam National University of Forestry
-vietnam procuratorate,144,Vietnam Procuratorate University
-vietnam theravada buddism,34,Vietnam Theravada Buddism University
-vietnam university of traditional medicine,47,Vietnam University of Traditional Medicine
-vietnam women academy,38,Vietnam Women Academy
-vietnam youth academy,43,Vietnam Youth Academy
-vietnamese german,249,Vietnamese - German University
-viettel academy,46,Viettel Academy
-vinh,246,Trường Đại học Vinh
-vinh long university of technology education,77,Vinh Long University of Technology Education
-vinh medical,269,Vinh Medical University
-vinh university of technology education,76,Vinh University of Technology Education
-vinhuni,246,VinhUni
-vinuni,247,Trường Đại học VinUni
-vists,7,VISTS
-viu,71,VIU
-vku,82,VKU
-vlu,255,VLU
-vlute,77,VLUTE
-vnad,28,VNAD
-vnam,49,VNAM
-vnu hanoi university of science,119,VNU-Hanoi University of Science
-vnu hanoi university of social sciences and humanities,122,VNU-Hanoi University of Social Sciences and Humanities
-vnu hcm,291,VNU-HCM
-vnu hus,119,VNU - HUS
-vnu ueb,137,VNU - UEB
-vnu ued,101,VNU - UEd
-vnu uet,89,VNU - UET
-vnu ul,152,VNU - UL
-vnu ulis,167,VNU - ULIS
-vnu ump,263,VNU - UMP
-vnu university of economics and business,137,VNU-University of Economics and Business
-vnu university of education,101,VNU-University of Education
-vnu university of engineering and technology,89,VNU-University of Engineering and Technology
-vnu university of languages and international studies,167,VNU-University of Languages and International Studies
-vnu university of laws,152,VNU-University of Laws
-vnu university of medicine and pharmacy,263,VNU-University of Medicine and Pharmacy
-vnu ussh,122,VNU - USSH
-vnu vietnam japan,248,VNU-Vietnam - Japan University
-vnu vju,248,VNU - VJU
-vnua,31,VNUA
-vnuf,154,VNUF
-vnufa,162,VNUFA
-vnuhcm agu,58,VNUHCM - AGU
-vnuhcm an giang,58,VNUHCM-An Giang University
-vnuhcm international,197,VNUHCM-International University
-vnuhcm iu,197,VNUHCM - IU
-vnuhcm uel,135,VNUHCM - UEL
-vnuhcm uhs,117,VNUHCM - UHS
-vnuhcm uit,84,VNUHCM - UIT
-vnuhcm university of economics and law,135,VNUHCM-University of Economics and Law
-vnuhcm university of health science,117,VNUHCM-University of Health Science
-vnuhcm university of information and technology,84,VNUHCM-University of Information and Technology
-vnuhcm university of science,118,VNUHCM-University of Science
-vnuhcm university of science hcmus,118,VNUHCM - University of Science (HCMUS)
-vnuhcm university of social sciences and humanities,121,VNUHCM-University of Social Sciences and Humanities
-vnuhcm university of technology,62,VNUHCM-University of Technology
-vnuhcm us,118,VNUHCM - US
-vnuhcm ussh,121,VNUHCM - USSH
-vnuhcm ut,62,VNUHCM - UT
-vo truong toan,250,Trường Đại học Võ Trường Toản
-vpu,144,VPU
-vui,70,VUI
-vute,76,VUTE
-vutm,47,VUTM
-vwa,38,VWA
-vya,43,VYA
-xay dung ha noi,256,Trường Đại học Xây dựng Hà Nội
-xay dung mien tay,258,Trường Đại học Xây dựng Miền Tây
-xay dung mien trung,257,Trường Đại học Xây dựng Miền Trung
-y duoc buon ma thuot,259,Trường Đại học Y Dược Buôn Ma Thuột
-y duoc can tho,260,Trường Đại học Y Dược Cần Thơ
-y duoc dai hoc hue,264,"Trường Đại học Y Dược, Đại học Huế"
-y duoc dai hoc thai nguyen,265,"Trường Đại học Y Dược, Đại học Thái Nguyên"
-y duoc dhqghn,263,"Trường Đại học Y Dược, ĐHQGHN"
-y duoc hai phong,261,Trường Đại học Y Dược Hải Phòng
-y duoc hoc co truyen viet nam,47,Học viện Y – Dược học cổ truyền Việt Nam
-y duoc thai binh,262,Trường Đại học Y Dược Thái Bình
-y duoc thanh pho ho chi minh,294,Đại học Y Dược Thành phố Hồ Chí Minh
-y ha noi,266,Trường Đại học Y Hà Nội
-y khoa pham ngoc thach,267,Trường Đại học Y khoa Phạm Ngọc Thạch
-y khoa tokyo viet nam,268,Trường Đại học Y khoa Tokyo Việt Nam
-y khoa vinh,269,Trường Đại học Y khoa Vinh
-y te cong cong,270,Trường Đại học Y tế Công cộng
-ydh,264,YDH
-yds,294,YDS
-yersin,271,Yersin
-yersin da lat,271,Trường Đại học Yersin Đà Lạt
-yersin dalat,271,Yersin Dalat University
-yersin university of da lat,271,Yersin University of Da Lat
-zero to mastery,281,ZERO TO MASTERY
-zero to mastery academy,281,Zero To Mastery Academy
-ztm,281,ZTM
+university_id,alias_key,source
+355,academy of construction strategy and cadres training,wikidata:Q141448592
+41,academy of finance,wikipedia:vi:75654510
+3,academy of journalism and communication,wikidata:Q10771877
+5,academy of policy and development,wikipedia:vi:75654510
+15,academy of public administration and governance,wikidata:Q10771885
+355,acst,wikidata:Q141448592
+3,ajc,wikipedia:vi:75654510
+45,am nhac hue,wikipedia:vi:75654510
+46,am nhac quoc gia viet nam,wikidata:Q5649320
+46,am nhac viet nam,wikidata:Q5649320
+372,american university of vietnam,wikidata:Q7713573
+48,an giang,wikidata:Q4750013
+48,an giang dai hoc quoc gia thanh pho ho chi minh,wikidata:Q4750013
+48,an giang dai hoc quoc gia tp hcm,wikidata:Q4750013
+48,an giang dai hoc quoc gia tphcm,wikidata:Q4750013
+48,an giang dhqg hcm,wikipedia:vi:75654510
+50,anh quoc tai viet nam,wikipedia:vi:75654510
+41,aof,wikipedia:vi:75654510
+15,apag,wikipedia:vi:75654510
+5,apd,wikipedia:vi:75654510
+131,architecture hcmc,wikidata:Q3037890
+131,architecture ho chi minh city,wikidata:Q3037890
+195,armored and tank officer school vietnam,wikidata:Q10828883
+24,army academy,wikidata:Q16480294
+51,ba ria vung tau,wikidata:Q10829018
+166,bac giang university of agriculture and forestry,wikipedia:vi:75654510
+181,bac ha international,wikidata:Q10829118
+55,bac lieu,wikidata:Q10829021
+214,bac ninh sport,wikipedia:vi:75654510
+53,bach khoa dai hoc da nang,wikipedia:vi:75654510
+52,bach khoa dhqg hcm,wikipedia:vi:75654510
+269,bach khoa ha noi,wikidata:Q3075696
+326,bach nghe tay ha college,wikidata:Q10828782
+224,ban cong maketing,wikidata:Q10829152
+27,banking academy of vietnam,wikidata:Q10771894
+163,banking university of hcmc,wikidata:Q4856328
+163,banking university of ho chi minh city,wikidata:Q4856328
+3,bao chi va tuyen truyen,wikidata:Q10771877
+51,baria vungtau,wikidata:Q10829018
+27,bav,wikidata:Q10771894
+122,betu,wikipedia:vi:75654510
+166,bguaf,wikipedia:vi:75654510
+181,bhiu,wikipedia:vi:75654510
+2,bien phong,wikipedia:vi:75654510
+54,binh duong,wikipedia:vi:75654510
+122,binh duong economics and technology,wikipedia:vi:75654510
+269,bkhn,wikidata:Q3075696
+55,blu,wikipedia:vi:75654510
+354,boi duong can bo kinh te tai chinh,wikidata:Q139413981
+50,british university vietnam,wikipedia:vi:75654510
+51,bvu,wikipedia:vi:75654510
+325,campus of the university of da nang in kon tum,wikidata:Q10805714
+9,can bo thanh pho ho chi minh,wikipedia:vi:75654510
+9,can bo tp hcm,wikipedia:vi:75654510
+9,can bo tphcm,wikipedia:vi:75654510
+271,can tho,wikidata:Q5029090
+249,can tho university of medicine and pharmacy,wikidata:Q20026263
+137,can tho university of technology,wikidata:Q10828441
+27,cao cap nghiep vu ngan hang,wikidata:Q10771894
+44,cao dai tien thien,wikipedia:vi:75654510
+326,cao dang bach nghe tay ha,wikidata:Q10828782
+367,cao dang cong dong ha noi,wikidata:Q3126884
+208,cao dang cong nghe thanh do,wikidata:Q10829137
+76,cao dang cong nghe thong tin huu nghi viet han,wikidata:Q16480474
+326,cao dang cong nghe va thuong mai ha noi,wikidata:Q10828782
+361,cao dang cong nghiep hue,wikidata:Q17266876
+328,cao dang da lat,wikidata:Q10828808
+264,cao dang dong a,wikidata:Q10829180
+387,cao dang fpt polytechnic,institution:caodang.fpt.edu.vn
+327,cao dang ky thuat cao thang,wikidata:Q10828800
+337,cao dang ky thuat vinhem pic,wikidata:Q10829151
+151,cao dang my thuat dong duong,wikidata:Q3815307
+352,cao dang nghe vinh long,wikidata:Q125375684
+357,cao dang ngoai ngu cong nghe viet nhat,wikidata:Q14655485
+371,cao dang sai gon,wikidata:Q7400076
+190,cao dang san khau dien anh thanh pho ho chi minh,wikidata:Q5873944
+190,cao dang san khau dien anh tp hcm,wikidata:Q5873944
+190,cao dang san khau dien anh tphcm,wikidata:Q5873944
+328,cao dang su pham da lat,wikidata:Q10828808
+268,cao dang su pham dong thap,wikidata:Q30263747
+349,cao dang su pham lang son,wikidata:Q123425613
+353,cao dang su pham nam dinh,wikidata:Q134286143
+115,cao dang su pham nha trang,wikidata:Q10828807
+228,cao dang tai nguyen va moi truong thanh pho ho chi minh,wikidata:Q10829153
+228,cao dang tai nguyen va moi truong tp hcm,wikidata:Q10829153
+228,cao dang tai nguyen va moi truong tphcm,wikidata:Q10829153
+242,cao dang van hoa nghe thuat quan doi,wikidata:Q10829163
+338,cao dang van hoa nghe thuat thanh hoa,wikidata:Q10829162
+329,cao dang van hoa nghe thuat va du lich sai gon,wikidata:Q10828813
+246,cao dang xay dung so 3,wikidata:Q10829166
+330,cao dang y te ha noi,wikidata:Q10828817
+327,cao thang technical college,wikidata:Q10828800
+370,cetana psb intellis international college,wikidata:Q5065626
+370,cetana psb international college english business tourism hospitality,wikidata:Q5065626
+355,chien luoc boi duong can bo xay dung,wikidata:Q141448592
+4,chien luoc khoa hoc va cong nghe,wikipedia:vi:75654510
+5,chinh sach va phat trien,wikipedia:vi:75654510
+7,chinh tri,wikidata:Q16480519
+6,chinh tri cong an nhan dan,wikidata:Q122143828
+6,chinh tri cong an nhan dan viet nam,wikidata:Q122143828
+8,chinh tri hanh chinh quoc gia ho chi minh,wikidata:Q10771879
+7,chinh tri quan doi nhan dan viet nam,wikidata:Q16480519
+8,chinh tri quoc gia ho chi minh,wikidata:Q10771879
+344,chung vien thanh giuse sai gon,wikidata:Q10841200
+269,chuyen nghiep bach khoa,wikidata:Q3075696
+10,civ,wikipedia:vi:75654510
+245,civil engineering of vietnam,wikidata:Q6134439
+56,cmc,wikipedia:vi:75654510
+56,cmcu,wikipedia:vi:75654510
+81,cong doan,wikidata:Q16480704
+367,cong dong ha noi college,wikidata:Q3126884
+10,cong giao viet nam,wikipedia:vi:75654510
+80,cong nghe,wikidata:Q10829028
+11,cong nghe buu chinh vien thong,wikidata:Q10771881
+11,cong nghe buu chinh vien thong ha noi,wikidata:Q10771881
+80,cong nghe dai hoc quoc gia ha noi,wikidata:Q10829028
+80,cong nghe dhqghn,wikipedia:vi:75654510
+78,cong nghe dong a,wikipedia:vi:75654510
+79,cong nghe dong nai,wikidata:Q10829032
+64,cong nghe giao thong van tai,wikidata:Q20025751
+80,cong nghe ha noi,wikidata:Q10829028
+65,cong nghe ky thuat hung yen,wikidata:Q7896405
+66,cong nghe ky thuat thanh pho ho chi minh,wikidata:Q10829131
+66,cong nghe ky thuat tp hcm,wikidata:Q10829131
+66,cong nghe ky thuat tphcm,wikidata:Q10829131
+67,cong nghe ky thuat vinh,wikidata:Q10829132
+68,cong nghe ky thuat vinh long,wikidata:Q108737605
+69,cong nghe mien dong,wikidata:Q134695487
+71,cong nghe sai gon,wikidata:Q7400087
+70,cong nghe swinburne fpt viet nam,wikipedia:vi:75654510
+208,cong nghe thanh do college,wikidata:Q10829137
+72,cong nghe thanh pho ho chi minh,wikidata:Q10829029
+74,cong nghe thong tin dai hoc quoc gia thanh pho ho chi minh,wikidata:Q5873994
+74,cong nghe thong tin dai hoc quoc gia tp hcm,wikidata:Q5873994
+74,cong nghe thong tin dai hoc quoc gia tphcm,wikidata:Q5873994
+74,cong nghe thong tin dhqg hcm,wikipedia:vi:75654510
+76,cong nghe thong tin huu nghi viet han college,wikidata:Q16480474
+356,cong nghe thong tin va thiet ke vtc vtca,wikidata:Q141603920
+73,cong nghe thong tin va truyen thong dai hoc thai nguyen,wikipedia:vi:75654510
+76,cong nghe thong tin va truyen thong viet han dai hoc da nang,wikidata:Q16480474
+72,cong nghe tp hcm,wikidata:Q10829029
+72,cong nghe tphcm,wikidata:Q10829029
+77,cong nghe va quan ly huu nghi,wikipedia:vi:75654510
+326,cong nghe va thuong mai ha noi college,wikidata:Q10828782
+75,cong nghe van xuan,wikidata:Q7913787
+270,cong nghiep ha noi,wikidata:Q16892082
+361,cong nghiep hue college,wikidata:Q17266876
+58,cong nghiep quang ninh,wikidata:Q10829025
+59,cong nghiep thanh pho ho chi minh,wikidata:Q7895548
+59,cong nghiep tp hcm,wikidata:Q7895548
+59,cong nghiep tphcm,wikidata:Q7895548
+63,cong nghiep va thuong mai ha noi,wikipedia:vi:75654510
+62,cong nghiep viet hung,wikidata:Q16480995
+61,cong nghiep viet tri,wikidata:Q10829016
+60,cong nghiep vinh,wikipedia:vi:75654510
+57,cong thuong thanh pho ho chi minh,wikipedia:vi:75654510
+57,cong thuong tp hcm,wikipedia:vi:75654510
+57,cong thuong tphcm,wikipedia:vi:75654510
+47,conservatory of hcmc,wikidata:Q1377237
+47,conservatory of ho chi minh city,wikidata:Q1377237
+249,ctump,wikipedia:vi:75654510
+137,ctut,wikipedia:vi:75654510
+83,cuu long,wikidata:Q10829034
+263,da lat,wikidata:Q3177493
+328,da lat college,wikidata:Q10828808
+282,da nang,wikidata:Q945839
+132,da nang architecture,wikidata:Q5207275
+132,da nang university of architecture,wikidata:Q5207275
+216,da nang university of physical education and sports,wikidata:Q10829144
+346,dai chung vien hue,wikidata:Q10841206
+344,dai chung vien sai gon,wikidata:Q10841200
+342,dai chung vien sao bien,wikidata:Q10841198
+342,dai chung vien sao bien nha trang,wikidata:Q10841198
+343,dai chung vien thanh giuse ha noi,wikidata:Q10841199
+344,dai chung vien thanh giuse sai gon,wikidata:Q10841200
+345,dai chung vien thanh giuse sai gon co so ii,wikidata:Q10841203
+344,dai chung vien thanh giuse saigon,wikidata:Q10841200
+345,dai chung vien thanh giuse xuan loc,wikidata:Q10841203
+346,dai chung vien xuan bich hue,wikidata:Q10841206
+266,dai nam,wikidata:Q10829182
+263,dalat,wikidata:Q3177493
+71,dan lap cong nghe sai gon,wikidata:Q7400087
+83,dan lap cuu long,wikidata:Q10829034
+265,dan lap dong do,wikidata:Q10829181
+272,dan lap duy tan,wikidata:Q5317667
+177,dan lap hai phong,wikidata:Q10829035
+182,dan lap hong bang,wikidata:Q661322
+100,dan lap hung vuong,wikidata:Q10829053
+145,dan lap lac hong,wikidata:Q10829092
+155,dan lap ngoai ngu tin hoc thanh pho ho chi minh,wikidata:Q5873989
+155,dan lap ngoai ngu tin hoc tp hcm,wikidata:Q5873989
+155,dan lap ngoai ngu tin hoc tphcm,wikidata:Q5873989
+334,dan lap phuong dong,wikidata:Q10829112
+240,dan lap van hien,wikidata:Q7913402
+241,dan lap van lang,wikidata:Q7913477
+260,dan lap yersin da lat,wikidata:Q10829037
+13,dan toc,wikidata:Q65164557
+13,dan toc viet nam,wikidata:Q65164557
+282,danang,wikidata:Q945839
+132,danang architecture,wikidata:Q5207275
+284,danang college of economics,wikidata:Q101000034
+285,danang college of education,wikidata:Q101000036
+286,danang college of foreign languages,wikidata:Q101000037
+287,danang faculty of medicine and pharmacy,wikidata:Q101000041
+288,danang school of technology,wikidata:Q101000047
+216,danang sport,wikipedia:vi:75654510
+128,danang university of economics,wikipedia:vi:75654510
+207,danang university of education,wikipedia:vi:75654510
+158,danang university of foreign language,wikipedia:vi:75654510
+135,danang university of medical technology and pharmacy,wikipedia:vi:75654510
+135,danang university of medicine and pharmacy technology,wikidata:Q109435303
+289,danang university of science and technology,wikidata:Q101000050
+53,danang university of technology,wikipedia:vi:75654510
+200,danang university of technology and education,wikipedia:vi:75654510
+8,dang cao cap nguyen ai quoc,wikidata:Q10771879
+8,dang trung uong viet nam,wikidata:Q10771879
+375,danh sach cac truong dai hoc cao dang quan su viet nam,wikidata:Q7928650
+375,danh sach truong dai hoc cao dang quan su viet nam,wikidata:Q7928650
+132,dau,wikidata:Q5207275
+85,dau khi viet nam,wikidata:Q10829040
+26,dav,wikipedia:vi:75654510
+265,ddu,wikidata:Q10829181
+74,dh cong nghe thong tin,wikidata:Q5873994
+177,dh dan lap hai phong,wikidata:Q10829035
+85,dh dau khi viet nam,wikidata:Q10829040
+162,dh nguyen tat thanh,wikidata:Q10829104
+66,dh su pham ky thuat tp hcm,wikidata:Q10829131
+48,dhag,wikidata:Q4750013
+241,dhdl van lang,wikidata:Q7913477
+177,dhdlhp,wikidata:Q10829035
+104,dhhp,wikipedia:vi:75654510
+143,dhln,wikidata:Q10829090
+277,dhqghn,wikidata:Q1076729
+202,dhsphcm,wikidata:Q10489198
+197,dhsphn,wikidata:Q5649329
+101,dhv,wikipedia:vi:75654510
+189,dien anh viet nam,wikidata:Q10829124
+262,dien luc,wikidata:Q5357466
+261,dieu duong nam dinh,wikipedia:vi:75654510
+26,diplomatic academy of vietnam,wikidata:Q10771893
+263,dlu,wikipedia:vi:75654510
+158,dnufl,wikipedia:vi:75654510
+200,dnute,wikipedia:vi:75654510
+264,dong a,wikidata:Q10829180
+264,dong a college,wikidata:Q10829180
+265,dong do,wikidata:Q10829181
+267,dong nai,wikidata:Q24884974
+79,dong nai technology,wikidata:Q10829032
+283,dong nai university of technology,wikidata:Q101000030
+268,dong thap,wikidata:Q30263747
+268,dong thap pedagogical college,wikidata:Q30263747
+216,dsu,wikipedia:vi:75654510
+268,dthu,wikidata:Q30263747
+215,duc the thao 2,wikidata:Q7579810
+214,duc the thao bac ninh,wikipedia:vi:75654510
+216,duc the thao da nang,wikidata:Q10829144
+215,duc the thao ii,wikidata:Q7579810
+216,duc the thao iii da nang,wikidata:Q10829144
+215,duc the thao thanh pho ho chi minh,wikidata:Q7579810
+215,duc the thao tp hcm,wikidata:Q7579810
+215,duc the thao tphcm,wikidata:Q7579810
+128,due,wikipedia:vi:75654510
+135,dumtp,wikipedia:vi:75654510
+84,duoc ha noi,wikidata:Q16944333
+53,dut,wikipedia:vi:75654510
+272,duy tan,wikidata:Q5317667
+78,east asian university of technology,wikipedia:vi:75654510
+183,eastern international,wikipedia:vi:75654510
+78,eaut,wikipedia:vi:75654510
+331,ecole d apprentis mandarins,wikidata:Q10828851
+255,ecole de medecine de l indochine,wikidata:Q4383725
+331,ecole des aspirants mandarins,wikidata:Q10828851
+151,ecole des beaux arts de l indochine,wikidata:Q3815307
+151,ecole superieure des beaux arts de l indochine,wikidata:Q3815307
+125,economics and finance,wikipedia:vi:75654510
+125,economics and finance hcmc,wikidata:Q10829074
+125,economics and finance ho chi minh city,wikidata:Q10829074
+124,economics and law,wikidata:Q10829073
+275,economics hcmc,wikidata:Q2562140
+275,economics ho chi minh city,wikidata:Q2562140
+123,economics technology for industries,wikipedia:vi:75654510
+183,eiu,wikipedia:vi:75654510
+262,electric power,wikidata:Q5357466
+262,electronic power,wikipedia:vi:75654510
+262,epu,wikipedia:vi:75654510
+225,fbu,wikipedia:vi:75654510
+226,finance and business administration,wikipedia:vi:75654510
+224,finance and marketing,wikipedia:vi:75654510
+224,finance marketing,wikidata:Q10829152
+364,fire fighting and prevention,wikidata:Q20026261
+159,foreign trade,wikidata:Q5468340
+86,fpt,wikidata:Q610220
+387,fpt polytechnic,institution:caodang.fpt.edu.vn
+86,fptu,wikipedia:vi:75654510
+159,ftu,wikidata:Q5468340
+87,fulbright university vietnam,wikidata:Q24259245
+87,fulbright viet nam,wikidata:Q24259245
+19,gass,wikidata:Q10771889
+88,gdu,wikipedia:vi:75654510
+88,gia dinh,wikipedia:vi:75654510
+91,giao duc dai hoc quoc gia ha noi,wikidata:Q10829046
+91,giao duc dhqghn,wikipedia:vi:75654510
+321,giao hoang hoc vien pio x da lat,wikidata:Q10761706
+321,giao hoang hoc vien thanh pio x da lat,wikidata:Q10761706
+89,giao thong van tai,wikidata:Q10829041
+90,giao thong van tai thanh pho ho chi minh,wikidata:Q10829043
+90,giao thong van tai tp hcm,wikidata:Q10829043
+90,giao thong van tai tphcm,wikidata:Q10829043
+19,graduate academy of social science,wikipedia:vi:75654510
+19,graduate academy of social sciences,wikidata:Q10771889
+20,graduate university of science and technology,wikidata:Q61128190
+92,greenwich fpt viet nam,wikipedia:vi:75654510
+185,group of asian international education,wikidata:Q10829119
+20,gust,wikidata:Q61128190
+95,ha hoa tien,wikipedia:vi:75654510
+102,ha long,wikipedia:vi:75654510
+96,ha noi,wikidata:Q10829049
+84,ha noi university of pharmacy,wikidata:Q16944333
+97,ha tinh,wikidata:Q10829051
+103,hai duong,wikipedia:vi:75654510
+136,hai duong medical technical,wikidata:Q10829084
+136,hai duong medical technology,wikipedia:vi:75654510
+104,hai phong,wikidata:Q5638944
+104,hai phong cong lap,wikidata:Q5638944
+368,hai phong medical,wikidata:Q3551454
+250,hai phong pharmacy and medicine,wikipedia:vi:75654510
+177,hai phong tu thuc,wikidata:Q10829035
+177,hai phong university of management and technology,wikidata:Q10829035
+16,hai quan,wikipedia:vi:75654510
+374,hai quan viet nam,wikidata:Q7928533
+104,haiphong,wikidata:Q5638944
+45,ham,wikipedia:vi:75654510
+98,hang hai viet nam,wikidata:Q7928523
+14,hang khong viet nam,wikidata:Q302448
+15,hanh chinh,wikidata:Q10771885
+15,hanh chinh quoc gia,wikidata:Q10771885
+15,hanh chinh va quan tri cong,wikidata:Q10771885
+96,hanoi,wikidata:Q10829049
+189,hanoi academy of theater and cinema,wikidata:Q10829124
+189,hanoi academy of theatre and cinema,wikipedia:vi:75654510
+130,hanoi architectural,wikidata:Q6131246
+270,hanoi chamber of commerce,wikidata:Q16892082
+151,hanoi college of fine arts,wikidata:Q3815307
+326,hanoi college of technology and commerce,wikidata:Q10828782
+46,hanoi conservatory of music,wikidata:Q5649320
+225,hanoi finance and banking,wikipedia:vi:75654510
+63,hanoi industrial and trade,wikipedia:vi:75654510
+139,hanoi law,wikidata:Q10829088
+255,hanoi medical,wikidata:Q4383725
+330,hanoi medical college,wikidata:Q10828817
+218,hanoi metropolitan,wikipedia:vi:75654510
+277,hanoi national,wikidata:Q1076729
+197,hanoi national university of education,wikidata:Q5649329
+147,hanoi open,wikipedia:vi:75654510
+198,hanoi pedagogical university 2,wikidata:Q50309576
+198,hanoi pedagogical university n 2,wikidata:Q10829128
+324,hanoi school of business and management,wikidata:Q10779338
+28,hanoi university of agriculture,wikidata:Q5649335
+149,hanoi university of arts and design,wikipedia:vi:75654510
+117,hanoi university of business and technology,wikipedia:vi:75654510
+245,hanoi university of civil engineering,wikidata:Q6134439
+243,hanoi university of culture,wikipedia:vi:75654510
+203,hanoi university of education and sport,wikidata:Q10829134
+80,hanoi university of engineering and technology,wikidata:Q10829028
+291,hanoi university of industrial fine arts,wikidata:Q101000061
+270,hanoi university of industry,wikidata:Q16892082
+146,hanoi university of mining and geology,wikidata:Q10829093
+227,hanoi university of natural resources and environment,wikidata:Q18461615
+84,hanoi university of pharmacy,wikidata:Q16944333
+203,hanoi university of physical education and sports,wikipedia:vi:75654510
+259,hanoi university of public health,wikidata:Q5649327
+269,hanoi university of science and technology,wikidata:Q3075696
+292,hanoi university of science and technology faculty of physical education,wikidata:Q101000068
+377,hanoi university of science and technology school of chemical engineering,wikidata:Q99290776
+378,hanoi university of science and technology school of electrical engineering,wikidata:Q99290777
+379,hanoi university of science and technology school of electronics and telecommunications,wikidata:Q99290778
+380,hanoi university of science and technology school of engineering pedagogy,wikidata:Q99290781
+381,hanoi university of science and technology school of engineering physics,wikidata:Q99290782
+382,hanoi university of science and technology school of heat engineering and refrigeration,wikidata:Q99290783
+383,hanoi university of science and technology school of material science and engineering,wikidata:Q99290784
+384,hanoi university of science and technology school of mechanical engineering,wikidata:Q99290785
+385,hanoi university of science and technology school of nuclear engineering and environmental physics,wikidata:Q99290786
+386,hanoi university of science and technology school of transportation engineering,wikidata:Q99290787
+96,hanu,wikidata:Q10829049
+97,hatinh,wikidata:Q10829051
+130,hau,wikidata:Q6131246
+331,hau bo ha noi,wikidata:Q10828851
+17,hau can,wikipedia:vi:75654510
+270,haui,wikipedia:vi:75654510
+99,hbu,wikipedia:vi:75654510
+9,hca,wikipedia:vi:75654510
+127,hce,wikipedia:vi:75654510
+66,hcm ute,wikidata:Q10829131
+8,hcma,wikidata:Q10771879
+131,hcmc architecture,wikidata:Q3037890
+190,hcmc college of stage performance and cinematics,wikidata:Q5873944
+150,hcmc fine arts,wikidata:Q877269
+148,hcmc open,wikidata:Q10829094
+163,hcmc university of banking,wikipedia:vi:75654510
+244,hcmc university of culture,wikidata:Q5873981
+125,hcmc university of economics and finance,wikidata:Q10829074
+124,hcmc university of economics and law,wikidata:Q10829073
+202,hcmc university of education,wikidata:Q10489198
+295,hcmc university of fine art,wikidata:Q101000113
+150,hcmc university of fine arts,wikidata:Q877269
+155,hcmc university of foreign language and information technology,wikipedia:vi:75654510
+155,hcmc university of foreign languages and information technology,wikidata:Q5873989
+59,hcmc university of industry,wikidata:Q7895548
+57,hcmc university of industry and trade,wikipedia:vi:75654510
+74,hcmc university of information technology,wikidata:Q5873994
+140,hcmc university of law,wikidata:Q5874003
+281,hcmc university of medicine and pharmacy,wikidata:Q986462
+296,hcmc university of medicine and pharmacy faculty of medicine,wikidata:Q101000120
+228,hcmc university of natural resources and environment,wikipedia:vi:75654510
+297,hcmc university of pedagogy faculty of foreign languages,wikidata:Q101000123
+215,hcmc university of sport,wikidata:Q7579810
+72,hcmc university of technology,wikidata:Q10829029
+66,hcmc university of technology and education,wikidata:Q10829131
+66,hcmc university of technology and engineering,wikidata:Q10829131
+90,hcmc university of transport,wikidata:Q10829043
+90,hcmc university of transportation,wikidata:Q10829043
+47,hcmcons,wikipedia:vi:75654510
+148,hcmou,wikipedia:vi:75654510
+131,hcmuarc,wikidata:Q3037890
+202,hcmue,wikidata:Q10489198
+150,hcmufa,wikipedia:vi:75654510
+228,hcmunre,wikipedia:vi:75654510
+202,hcmup,wikidata:Q10489198
+204,hcmupes,wikipedia:vi:75654510
+66,hcmute,wikipedia:vi:75654510
+265,hdiu,wikipedia:vi:75654510
+105,hdu,wikipedia:vi:75654510
+105,hdu vietnam,wikidata:Q10829017
+63,hict,wikipedia:vi:75654510
+362,history of tra vinh,wikidata:Q19645950
+182,hiu,wikidata:Q661322
+139,hlu,wikidata:Q10829088
+93,hluv,wikipedia:vi:75654510
+136,hmtu,wikidata:Q10829084
+255,hmu,wikipedia:vi:75654510
+218,hnmu,wikipedia:vi:75654510
+197,hnue,wikidata:Q5649329
+9,ho chi minh cadre academy,wikipedia:vi:75654510
+131,ho chi minh city architecture,wikidata:Q3037890
+190,ho chi minh city college of stage performance and cinematics,wikidata:Q5873944
+150,ho chi minh city fine arts,wikidata:Q877269
+148,ho chi minh city open,wikidata:Q10829094
+163,ho chi minh city university of banking,wikipedia:vi:75654510
+244,ho chi minh city university of culture,wikidata:Q5873981
+125,ho chi minh city university of economics and finance,wikidata:Q10829074
+124,ho chi minh city university of economics and law,wikidata:Q10829073
+202,ho chi minh city university of education,wikidata:Q10489198
+295,ho chi minh city university of fine art,wikidata:Q101000113
+150,ho chi minh city university of fine arts,wikidata:Q877269
+155,ho chi minh city university of foreign language and information technology,wikipedia:vi:75654510
+155,ho chi minh city university of foreign languages and information technology,wikidata:Q5873989
+59,ho chi minh city university of industry,wikidata:Q7895548
+57,ho chi minh city university of industry and trade,wikipedia:vi:75654510
+74,ho chi minh city university of information technology,wikidata:Q5873994
+140,ho chi minh city university of law,wikidata:Q5874003
+281,ho chi minh city university of medicine and pharmacy,wikidata:Q986462
+296,ho chi minh city university of medicine and pharmacy faculty of medicine,wikidata:Q101000120
+228,ho chi minh city university of natural resources and environment,wikipedia:vi:75654510
+297,ho chi minh city university of pedagogy faculty of foreign languages,wikidata:Q101000123
+215,ho chi minh city university of sport,wikidata:Q7579810
+66,ho chi minh city university of technology and education,wikidata:Q10829131
+66,ho chi minh city university of technology and engineering,wikidata:Q10829131
+90,ho chi minh city university of transport,wikidata:Q10829043
+90,ho chi minh city university of transportation,wikidata:Q10829043
+47,ho chi minh conservatory of music,wikipedia:vi:75654510
+8,ho chi minh national academy of politics,wikidata:Q10771879
+163,ho chi minh university of banking,wikidata:Q4856328
+202,ho chi minh university of education,wikidata:Q10489198
+59,ho chi minh university of industry,wikidata:Q7895548
+140,ho chi minh university of law,wikipedia:vi:75654510
+228,ho chi minh university of natural resources and environment,wikidata:Q10829153
+204,ho chi minh university of physical education and sports,wikipedia:vi:75654510
+66,ho chi minh university of technology and engineering,wikipedia:vi:75654510
+298,ho chi minhh city university of transport,wikidata:Q101000130
+99,hoa binh,wikipedia:vi:75654510
+93,hoa lu,wikidata:Q10829047
+94,hoa sen,wikidata:Q1002930
+182,hong bang,wikidata:Q661322
+182,hong bang international,wikidata:Q661322
+105,hong duc,wikidata:Q10829017
+147,hou,wikipedia:vi:75654510
+250,hpmu,wikipedia:vi:75654510
+177,hpu,wikidata:Q10829035
+198,hpu2,wikidata:Q10829128
+324,hsb,wikidata:Q10779338
+94,hsu,wikipedia:vi:75654510
+97,htu,wikipedia:vi:75654510
+154,hua,wikipedia:vi:75654510
+168,huaf,wikipedia:vi:75654510
+336,huan luyen can bo viet nam,wikidata:Q10829150
+163,hub,wikipedia:vi:75654510
+117,hubt,wikipedia:vi:75654510
+243,huc,wikipedia:vi:75654510
+157,hucfl,wikipedia:vi:75654510
+273,hue,wikidata:Q1310048
+45,hue academy of music,wikipedia:vi:75654510
+361,hue industrial college,wikidata:Q17266876
+302,hue university college of arts,wikidata:Q101000147
+127,hue university college of economics,wikidata:Q101000149
+205,hue university college of education,wikidata:Q101000153
+157,hue university college of foreign languages,wikidata:Q101000158
+168,hue university of agriculture and forestry,wikipedia:vi:75654510
+154,hue university of arts,wikipedia:vi:75654510
+142,hue university of laws,wikipedia:vi:75654510
+253,hue university of medicine and pharmacy,wikipedia:vi:75654510
+113,hue university science college,wikipedia:vi:75654510
+155,huflit,wikidata:Q5873989
+96,hufs,wikidata:Q10829049
+57,huit,wikipedia:vi:75654510
+142,hul,wikipedia:vi:75654510
+146,humg,wikidata:Q10829093
+100,hung vuong,wikidata:Q10829053
+100,hung vuong cong lap,wikidata:Q10829053
+101,hung vuong thanh pho ho chi minh,wikipedia:vi:75654510
+101,hung vuong tp hcm,wikipedia:vi:75654510
+101,hung vuong tphcm,wikipedia:vi:75654510
+65,hung yen university of technology and education,wikidata:Q7896405
+65,hung yen university of technology education,wikipedia:vi:75654510
+227,hunre,wikidata:Q18461615
+84,hup,wikipedia:vi:75654510
+203,hupes,wikipedia:vi:75654510
+259,huph,wikipedia:vi:75654510
+113,husc,wikipedia:vi:75654510
+269,hust,wikidata:Q3075696
+269,hut,wikidata:Q3075696
+72,hutech,wikidata:Q10829029
+27,hvnh,wikidata:Q10771894
+100,hvu,wikipedia:vi:75654510
+65,hyute,wikipedia:vi:75654510
+373,icise,wikidata:Q77957779
+73,ictu,wikipedia:vi:75654510
+255,indochina medical college,wikidata:Q4383725
+59,industrial university hcmc,wikipedia:vi:75654510
+59,industrial university ho chi minh city,wikipedia:vi:75654510
+59,industrial university of hcmc,wikidata:Q7895548
+59,industrial university of ho chi minh city,wikidata:Q7895548
+74,information technology,wikidata:Q5873994
+365,institut de la francophonie pour l informatique,wikidata:Q2496369
+347,institute for preventive medicine and public health,wikidata:Q109340125
+354,institute of economic financial training,wikidata:Q139413981
+373,international center for interdisciplinary science and education,wikidata:Q77957779
+363,international school of business,wikidata:Q19892791
+106,intracom,wikipedia:vi:75654510
+347,ipmph,wikidata:Q109340125
+59,iuh,wikipedia:vi:75654510
+323,judicial academy,wikidata:Q10771905
+129,kgu,wikipedia:vi:75654510
+115,khanh hoa,wikidata:Q10828807
+113,khoa hoc dai hoc hue,wikipedia:vi:75654510
+114,khoa hoc dai hoc thai nguyen,wikipedia:vi:75654510
+18,khoa hoc quan su,wikidata:Q10771888
+107,khoa hoc suc khoe dhqg hcm,wikipedia:vi:75654510
+108,khoa hoc tu nhien dhqg hcm,wikipedia:vi:75654510
+109,khoa hoc tu nhien dhqghn,wikipedia:vi:75654510
+20,khoa hoc va cong nghe,wikidata:Q61128190
+112,khoa hoc va cong nghe ha noi,wikidata:Q15260958
+19,khoa hoc xa hoi,wikidata:Q10771889
+110,khoa hoc xa hoi va nhan van dhqg hcm,wikipedia:vi:75654510
+111,khoa hoc xa hoi va nhan van dhqghn,wikipedia:vi:75654510
+124,khoa kinh te dai hoc quoc gia thanh pho ho chi minh,wikidata:Q10829073
+124,khoa kinh te dai hoc quoc gia tp hcm,wikidata:Q10829073
+124,khoa kinh te dai hoc quoc gia tphcm,wikidata:Q10829073
+124,khoa kinh te luat dai hoc quoc gia thanh pho ho chi minh,wikidata:Q10829073
+124,khoa kinh te luat dai hoc quoc gia tp hcm,wikidata:Q10829073
+124,khoa kinh te luat dai hoc quoc gia tphcm,wikidata:Q10829073
+324,khoa quan tri kinh doanh dai hoc quoc gia ha noi,wikidata:Q10779338
+324,khoa quan tri kinh doanh hsb,wikidata:Q10779338
+365,khoa quoc te phap ngu dai hoc quoc gia ha noi,wikidata:Q2496369
+133,kiem sat,wikipedia:vi:75654510
+129,kien giang,wikidata:Q65172352
+132,kien truc da nang,wikidata:Q5207275
+130,kien truc ha noi,wikidata:Q6131246
+131,kien truc sai gon,wikidata:Q3037890
+131,kien truc thanh pho ho chi minh,wikidata:Q3037890
+131,kien truc tp hcm,wikidata:Q3037890
+131,kien truc tphcm,wikidata:Q3037890
+116,kinh bac,wikipedia:vi:75654510
+117,kinh doanh va cong nghe ha noi,wikipedia:vi:75654510
+121,kinh te cong nghe thai nguyen,wikipedia:vi:75654510
+118,kinh te cong nghiep long an,wikidata:Q10829075
+128,kinh te dai hoc da nang,wikipedia:vi:75654510
+127,kinh te dai hoc hue,wikipedia:vi:75654510
+126,kinh te dhqghn,wikipedia:vi:75654510
+122,kinh te ky thuat binh duong,wikipedia:vi:75654510
+123,kinh te ky thuat cong nghiep,wikipedia:vi:75654510
+124,kinh te luat,wikidata:Q10829073
+124,kinh te luat dai hoc quoc gia thanh pho ho chi minh,wikidata:Q10829073
+124,kinh te luat dai hoc quoc gia tp hcm,wikidata:Q10829073
+124,kinh te luat dai hoc quoc gia tphcm,wikidata:Q10829073
+124,kinh te luat dhqg hcm,wikipedia:vi:75654510
+119,kinh te nghe an,wikidata:Q16481176
+274,kinh te quoc dan,wikidata:Q6972380
+125,kinh te tai chinh thanh pho ho chi minh,wikidata:Q10829074
+125,kinh te tai chinh tp hcm,wikidata:Q10829074
+125,kinh te tai chinh tphcm,wikidata:Q10829074
+120,kinh te thai nguyen,wikidata:Q10829077
+275,kinh te thanh pho ho chi minh,wikidata:Q2562140
+275,kinh te tp hcm,wikidata:Q2562140
+275,kinh te tphcm,wikidata:Q2562140
+120,kinh te va quan tri kinh doanh dai hoc thai nguyen,wikidata:Q10829077
+120,kinh te va quan tri kinh doanh thai nguyen,wikidata:Q10829077
+327,ky thuat cao thang college,wikidata:Q10828800
+137,ky thuat cong nghe can tho,wikidata:Q10828441
+134,ky thuat cong nghiep dai hoc thai nguyen,wikidata:Q10829082
+134,ky thuat cong nghiep thai nguyen,wikidata:Q10829082
+22,ky thuat le qui don,wikidata:Q4130078
+21,ky thuat mat ma,wikipedia:vi:75654510
+22,ky thuat quan su,wikidata:Q4130078
+23,ky thuat va cong nghe an ninh,wikipedia:vi:75654510
+337,ky thuat vinhem pic college,wikidata:Q10829151
+135,ky thuat y duoc da nang,wikidata:Q109435303
+136,ky thuat y te hai duong,wikidata:Q10829084
+138,labour and social affairs,wikipedia:vi:75654510
+145,lac hong,wikidata:Q10829092
+143,lam nghiep,wikidata:Q10829090
+143,lam nghiep ha noi,wikidata:Q10829090
+143,lam nghiep viet nam,wikidata:Q10829090
+349,lang son college of education,wikidata:Q123425613
+138,lao dong xa hoi,wikipedia:vi:75654510
+22,le quy don,wikidata:Q4130078
+22,le quy don technical,wikidata:Q4130078
+22,le quy don university of science and technology,wikidata:Q4130078
+118,long an university of economics and industry,wikidata:Q10829075
+142,luat dai hoc hue,wikipedia:vi:75654510
+141,luat dhqghn,wikipedia:vi:75654510
+139,luat ha noi,wikidata:Q10829088
+139,luat khoa ha noi,wikidata:Q10829088
+140,luat thanh pho ho chi minh,wikidata:Q5874003
+140,luat tp hcm,wikidata:Q5874003
+140,luat tphcm,wikidata:Q5874003
+24,luc quan,wikidata:Q16480294
+336,luc quan tran quoc tuan,wikidata:Q10829150
+336,luc quan trung hoc tran quoc tuan,wikidata:Q10829150
+144,luong the vinh,wikipedia:vi:75654510
+328,lycee yersin,wikidata:Q10828808
+178,management and technology hcmc,wikipedia:vi:75654510
+178,management and technology ho chi minh city,wikipedia:vi:75654510
+224,marketing,wikidata:Q10829152
+281,medicine and pharmacy at hcmc,wikidata:Q986462
+281,medicine and pharmacy at ho chi minh city,wikidata:Q986462
+366,medicine and pharmacy of hcmc,wikidata:Q25063984
+366,medicine and pharmacy of ho chi minh city,wikidata:Q25063984
+281,medicine pharmacy of hcmc,wikidata:Q986462
+281,medicine pharmacy of ho chi minh city,wikidata:Q986462
+83,mekong,wikidata:Q10829034
+360,mica institute,wikidata:Q17073291
+247,mien tay construction,wikidata:Q61128838
+247,mien tay university of civil engineering,wikipedia:vi:75654510
+246,mien trung university of civil engineering,wikipedia:vi:75654510
+246,mientrung university of civil engineering,wikidata:Q10829166
+22,military institute of science and technology,wikidata:Q4130078
+18,military science academy,wikidata:Q10771888
+22,military technical academy,wikidata:Q4130078
+242,military university of culture and arts,wikidata:Q10829163
+340,minh duc,wikidata:Q10832799
+69,mit university vietnam,wikidata:Q134695487
+146,mo,wikidata:Q10829093
+148,mo ban cong thanh pho ho chi minh,wikidata:Q10829094
+148,mo ban cong tp hcm,wikidata:Q10829094
+148,mo ban cong tphcm,wikidata:Q10829094
+146,mo dia chat,wikidata:Q10829093
+146,mo dia chat ha noi,wikidata:Q10829093
+147,mo ha noi,wikipedia:vi:75654510
+148,mo thanh pho ho chi minh,wikidata:Q10829094
+148,mo tp hcm,wikidata:Q10829094
+148,mo tphcm,wikidata:Q10829094
+247,mtu,wikipedia:vi:75654510
+25,mua viet nam,wikidata:Q65172277
+246,muce,wikidata:Q10829166
+152,my tai viet nam,wikipedia:vi:75654510
+149,my thuat cong nghiep,wikidata:Q16481353
+149,my thuat cong nghiep ha noi,wikidata:Q16481353
+151,my thuat dong duong,wikidata:Q3815307
+151,my thuat dong duong college,wikidata:Q3815307
+151,my thuat ha noi,wikidata:Q3815307
+150,my thuat thanh pho ho chi minh,wikidata:Q877269
+150,my thuat tp hcm,wikidata:Q877269
+150,my thuat tphcm,wikidata:Q877269
+151,my thuat viet nam,wikidata:Q3815307
+37,naem,wikipedia:vi:75654510
+153,nam can tho,wikipedia:vi:75654510
+353,nam dinh college of education,wikidata:Q134286143
+261,nam dinh university of nursing,wikipedia:vi:75654510
+199,nam dinh university of technology education,wikipedia:vi:75654510
+37,national academy of education management,wikipedia:vi:75654510
+274,national economics,wikidata:Q6972380
+201,national university of art education,wikipedia:vi:75654510
+245,national university of civil engineering,wikidata:Q6134439
+119,naue,wikipedia:vi:75654510
+261,ndun,wikipedia:vi:75654510
+274,neu,wikidata:Q6972380
+27,ngan hang,wikidata:Q10771894
+163,ngan hang thanh pho ho chi minh,wikidata:Q4856328
+163,ngan hang tp hcm,wikidata:Q4856328
+163,ngan hang tphcm,wikidata:Q4856328
+27,ngan hang viet nam,wikidata:Q10771894
+119,nghe an,wikidata:Q16481176
+119,nghe an university of economics,wikipedia:vi:75654510
+154,nghe thuat dai hoc hue,wikipedia:vi:75654510
+190,nghe thuat san khau 2,wikidata:Q5873944
+352,nghe vinh long college,wikidata:Q125375684
+164,ngo quyen truong dai hoc si quan cong binh,wikipedia:vi:75654510
+26,ngoai giao,wikipedia:vi:75654510
+26,ngoai giao viet nam,wikidata:Q10771893
+357,ngoai ngu cong nghe viet nhat college,wikidata:Q14655485
+158,ngoai ngu dai hoc da nang,wikipedia:vi:75654510
+157,ngoai ngu dai hoc hue,wikipedia:vi:75654510
+156,ngoai ngu dhqghn,wikipedia:vi:75654510
+96,ngoai ngu ha noi,wikidata:Q10829049
+155,ngoai ngu tin hoc thanh pho ho chi minh,wikidata:Q5873989
+155,ngoai ngu tin hoc tp hcm,wikidata:Q5873989
+155,ngoai ngu tin hoc tphcm,wikidata:Q5873989
+159,ngoai thuong,wikidata:Q5468340
+160,nguyen hue truong dai hoc si quan luc quan 2,wikipedia:vi:75654510
+162,nguyen tat thanh,wikidata:Q10829104
+161,nguyen trai,wikipedia:vi:75654510
+165,nha trang,wikidata:Q2740474
+46,nhac vien ha noi,wikidata:Q5649320
+46,nhac vien quoc gia ha noi,wikidata:Q5649320
+47,nhac vien thanh pho ho chi minh,wikidata:Q1377237
+47,nhac vien tp hcm,wikidata:Q1377237
+47,nhac vien tphcm,wikidata:Q1377237
+167,nlu,wikipedia:vi:75654510
+166,nong lam bac giang,wikipedia:vi:75654510
+168,nong lam dai hoc hue,wikipedia:vi:75654510
+169,nong lam dai hoc thai nguyen,wikipedia:vi:75654510
+28,nong lam ha noi,wikidata:Q5649335
+167,nong lam thanh pho ho chi minh,wikipedia:vi:75654510
+167,nong lam tp hcm,wikipedia:vi:75654510
+167,nong lam tphcm,wikipedia:vi:75654510
+28,nong nghiep 1,wikidata:Q5649335
+28,nong nghiep 1 ha noi,wikidata:Q5649335
+28,nong nghiep ha noi,wikidata:Q5649335
+28,nong nghiep i ha noi,wikidata:Q5649335
+28,nong nghiep viet nam,wikidata:Q5649335
+162,nttu,wikidata:Q10829104
+201,nuae,wikipedia:vi:75654510
+245,nuce,wikidata:Q6134439
+199,nute,wikipedia:vi:75654510
+148,ou,wikidata:Q10829094
+211,pacific ocean,wikidata:Q10829139
+174,pdu,wikipedia:vi:75654510
+328,pedagogical college of da lat,wikidata:Q10828808
+268,pedagogical university of dong thap,wikidata:Q30263747
+85,petro vietnam,wikipedia:vi:75654510
+85,petrovietnam,wikidata:Q10829040
+256,pham ngoc thach medical,wikipedia:vi:75654510
+256,pham ngoc thach university of medicine,wikidata:Q10829174
+174,pham van dong,wikidata:Q10829114
+170,phan chau trinh,wikipedia:vi:75654510
+22,phan hieu 2 dai hoc bach khoa ha noi,wikidata:Q4130078
+325,phan hieu dai hoc da nang tai kon tum,wikidata:Q10805714
+171,phan thiet,wikidata:Q10829109
+3,phan vien bao chi va tuyen truyen,wikidata:Q10771877
+31,phat giao nam tong khmer,wikipedia:vi:75654510
+341,phat giao van hanh,wikidata:Q10832802
+33,phat giao viet nam tai ha noi,wikipedia:vi:75654510
+32,phat giao viet nam tai hue,wikipedia:vi:75654510
+34,phat giao viet nam tai thanh pho ho chi minh,wikipedia:vi:75654510
+34,phat giao viet nam tai tp hcm,wikipedia:vi:75654510
+34,phat giao viet nam tai tphcm,wikipedia:vi:75654510
+276,phenikaa,wikipedia:vi:75654510
+364,phong chay chua chay,wikidata:Q20026261
+29,phong chay chua chay va cuu nan cuu ho,wikipedia:vi:75654510
+364,phong chay chua chay viet nam,wikidata:Q20026261
+30,phong khong khong quan,wikipedia:vi:75654510
+35,phu nu viet nam,wikipedia:vi:75654510
+172,phu xuan,wikidata:Q16481063
+173,phu yen,wikidata:Q10829111
+334,phuong dong,wikidata:Q10829112
+334,phuong dong viet nam,wikidata:Q10829112
+256,pntu,wikipedia:vi:75654510
+321,pontifical college of st pius x,wikidata:Q10761706
+321,pontifical college st pius x,wikidata:Q10761706
+11,posts and telecommunications institute of technology,wikidata:Q10771881
+11,posts telecoms institute of technology,wikipedia:vi:75654510
+211,pou,wikidata:Q10829139
+370,psb college,wikidata:Q5065626
+370,psb college truong cao dang quoc te psb,wikidata:Q5065626
+11,ptit,wikidata:Q10771881
+85,pvu,wikidata:Q10829040
+173,pyu,wikidata:Q10829111
+179,qbu,wikipedia:vi:75654510
+180,qnamuni,wikipedia:vi:75654510
+336,quan chinh khang nhat,wikidata:Q10829150
+336,quan chinh viet nam,wikidata:Q10829150
+37,quan ly giao duc,wikipedia:vi:75654510
+177,quan ly va cong nghe hai phong,wikidata:Q10829035
+178,quan ly va cong nghe thanh pho ho chi minh,wikipedia:vi:75654510
+178,quan ly va cong nghe tp hcm,wikipedia:vi:75654510
+178,quan ly va cong nghe tphcm,wikipedia:vi:75654510
+322,quan su cao cap,wikidata:Q10771903
+322,quan su cap cao,wikidata:Q10771903
+324,quan tri kinh doanh dai hoc quoc gia ha noi,wikidata:Q10779338
+324,quan tri va kinh doanh dai hoc quoc gia ha noi,wikidata:Q10779338
+36,quan y,wikidata:Q10771896
+36,quan y viet nam,wikidata:Q10771896
+179,quang binh,wikidata:Q2406422
+180,quang nam,wikidata:Q10829117
+58,quang ninh university of industry,wikidata:Q10829025
+175,quang trung,wikipedia:vi:75654510
+58,qui,wikipedia:vi:75654510
+277,quoc gia ha noi,wikidata:Q1076729
+278,quoc gia thanh pho ho chi minh,wikipedia:vi:75654510
+278,quoc gia tp hcm,wikipedia:vi:75654510
+278,quoc gia tphcm,wikipedia:vi:75654510
+322,quoc phong viet nam,wikidata:Q10771903
+39,quoc te,wikipedia:vi:75654510
+181,quoc te bac ha,wikidata:Q10829118
+186,quoc te dhqg hcm,wikipedia:vi:75654510
+182,quoc te hong bang,wikidata:Q661322
+183,quoc te mien dong,wikipedia:vi:75654510
+184,quoc te rmit viet nam,wikidata:Q7277005
+185,quoc te sai gon,wikidata:Q10829119
+176,quy nhon,wikipedia:vi:75654510
+184,rmit international university vietnam,wikidata:Q7277005
+184,rmit university vietnam,wikidata:Q7277005
+184,rmit viet nam,wikidata:Q7277005
+184,rmit vietnam,wikidata:Q7277005
+184,royal melbourne institute of technology vietnam,wikidata:Q7277005
+188,sai gon,wikidata:Q368923
+371,sai gon college,wikidata:Q7400076
+188,saigon,wikidata:Q368923
+371,saigon institute of technology,wikidata:Q7400076
+185,saigon international,wikidata:Q10829119
+71,saigon technology,wikidata:Q7400087
+329,saigonact,wikidata:Q10828813
+371,saigontech,wikidata:Q7400076
+189,san khau dien anh ha noi,wikidata:Q10829124
+190,san khau dien anh thanh pho ho chi minh,wikidata:Q5873944
+190,san khau dien anh thanh pho ho chi minh college,wikidata:Q5873944
+190,san khau dien anh tp hcm,wikidata:Q5873944
+190,san khau dien anh tphcm,wikidata:Q5873944
+189,san khau va dien anh,wikidata:Q10829124
+189,san khau va dien anh ha noi,wikidata:Q10829124
+187,sao do,wikipedia:vi:75654510
+354,school of economic and financial officials,wikidata:Q139413981
+354,school of economic and financial training,wikidata:Q139413981
+259,school of health management,wikidata:Q5649327
+369,school of military medicine,wikidata:Q43896632
+112,science and technology hanoi,wikipedia:vi:75654510
+112,science and technology of hanoi,wikidata:Q15260958
+187,sdu,wikipedia:vi:75654510
+188,sgu,wikipedia:vi:75654510
+191,si quan chinh tri,wikipedia:vi:75654510
+196,si quan dac cong,wikipedia:vi:75654510
+374,si quan hai quan,wikidata:Q7928533
+332,si quan khong quan,wikidata:Q10828884
+332,si quan khong quan viet nam,wikidata:Q10828884
+337,si quan ky thuat quan su,wikidata:Q10829151
+336,si quan luc quan,wikidata:Q10829150
+336,si quan luc quan 1,wikidata:Q10829150
+336,si quan luc quan 1 dai hoc tran quoc tuan,wikidata:Q10829150
+192,si quan phao binh,wikipedia:vi:75654510
+193,si quan phong hoa,wikipedia:vi:75654510
+195,si quan tang thiet giap,wikidata:Q10828883
+359,si quan thong tin,wikidata:Q16480503
+359,si quan thong tin dai hoc thong tin lien lac,wikidata:Q16480503
+194,si quan thong tin lien lac,wikipedia:vi:75654510
+185,siu,wikipedia:vi:75654510
+189,skda,wikipedia:vi:75654510
+190,skdahcm,wikipedia:vi:75654510
+67,skv,wikidata:Q10829132
+299,social sciences and humanities faculty of anthropology,wikidata:Q101000133
+300,social sciences and humanities faculty of oriental studies,wikidata:Q101000139
+301,social sciences and humanities faculty of sociology,wikidata:Q101000144
+202,sphcm,wikidata:Q10489198
+215,sports and physical gymnastics university ii,wikidata:Q7579810
+215,sports hcmc,wikipedia:vi:75654510
+215,sports ho chi minh city,wikipedia:vi:75654510
+190,stage movie university of hcmc,wikipedia:vi:75654510
+190,stage movie university of ho chi minh city,wikipedia:vi:75654510
+71,stu,wikipedia:vi:75654510
+328,su pham da lat college,wikidata:Q10828808
+207,su pham dai hoc da nang,wikipedia:vi:75654510
+205,su pham dai hoc hue,wikipedia:vi:75654510
+206,su pham dai hoc thai nguyen,wikipedia:vi:75654510
+268,su pham dong thap,wikidata:Q30263747
+268,su pham dong thap college,wikidata:Q30263747
+197,su pham ha noi,wikidata:Q5649329
+197,su pham ha noi 1,wikidata:Q5649329
+198,su pham ha noi 2,wikidata:Q10829128
+197,su pham ha noi i,wikidata:Q5649329
+197,su pham khoa hoc,wikidata:Q5649329
+200,su pham ky thuat dai hoc da nang,wikipedia:vi:75654510
+65,su pham ky thuat hung yen,wikidata:Q7896405
+199,su pham ky thuat nam dinh,wikipedia:vi:75654510
+66,su pham ky thuat thanh pho ho chi minh,wikidata:Q10829131
+66,su pham ky thuat thu duc,wikidata:Q10829131
+66,su pham ky thuat tp hcm,wikidata:Q10829131
+66,su pham ky thuat tphcm,wikidata:Q10829131
+67,su pham ky thuat vinh,wikidata:Q10829132
+349,su pham lang son college,wikidata:Q123425613
+353,su pham nam dinh college,wikidata:Q134286143
+201,su pham nghe thuat trung uong,wikipedia:vi:75654510
+115,su pham nha trang college,wikidata:Q10828807
+202,su pham sai gon,wikidata:Q10489198
+202,su pham thanh pho ho chi minh,wikidata:Q10489198
+203,su pham the duc the thao ha noi,wikidata:Q10829134
+203,su pham the duc the thao ha tay,wikidata:Q10829134
+204,su pham the duc the thao thanh pho ho chi minh,wikipedia:vi:75654510
+204,su pham the duc the thao tp hcm,wikipedia:vi:75654510
+204,su pham the duc the thao tphcm,wikipedia:vi:75654510
+202,su pham tp hcm,wikidata:Q10489198
+202,su pham tphcm,wikidata:Q10489198
+236,su pham vinh,wikidata:Q20984308
+336,sy quan luc quan viet nam,wikidata:Q10829150
+41,tai chinh,wikipedia:vi:75654510
+348,tai chinh ke toan,wikidata:Q118446437
+348,tai chinh ke toan ha noi,wikidata:Q118446437
+224,tai chinh marketing,wikidata:Q10829152
+225,tai chinh ngan hang ha noi,wikipedia:vi:75654510
+226,tai chinh quan tri kinh doanh,wikipedia:vi:75654510
+227,tai nguyen moi truong,wikidata:Q18461615
+228,tai nguyen moi truong thanh pho ho chi minh,wikidata:Q10829153
+228,tai nguyen moi truong tp hcm,wikidata:Q10829153
+228,tai nguyen moi truong tphcm,wikidata:Q10829153
+227,tai nguyen va moi truong ha noi,wikidata:Q18461615
+228,tai nguyen va moi truong thanh pho ho chi minh,wikidata:Q10829153
+228,tai nguyen va moi truong thanh pho ho chi minh college,wikidata:Q10829153
+228,tai nguyen va moi truong tp hcm,wikidata:Q10829153
+228,tai nguyen va moi truong tphcm,wikidata:Q10829153
+230,tan tao,wikidata:Q10829155
+229,tan trao,wikidata:Q123724532
+231,tay bac,wikidata:Q10829156
+233,tay do,wikipedia:vi:75654510
+232,tay nguyen,wikidata:Q16480583
+211,tbd,wikipedia:vi:75654510
+210,tbu,wikidata:Q10829138
+251,tbump,wikipedia:vi:75654510
+217,tdmu,wikipedia:vi:75654510
+216,tdtt da nang,wikidata:Q10829144
+215,tdtt thanh pho ho chi minh,wikidata:Q7579810
+215,tdtt tp hcm,wikidata:Q7579810
+215,tdtt tphcm,wikidata:Q7579810
+234,tdtu,wikidata:Q1457082
+208,tdu,wikipedia:vi:75654510
+65,technology and education,wikidata:Q7896405
+303,technology and education faculty of basic sciences,wikidata:Q101000169
+304,technology and education faculty of chemical and environmental technology,wikidata:Q101000172
+305,technology and education faculty of electronic and electrical engineering,wikidata:Q101000173
+306,technology and education faculty of fashion design,wikidata:Q101000176
+307,technology and education faculty of foreign languages,wikidata:Q101000180
+308,technology and education faculty of information technology,wikidata:Q101000187
+309,technology and education faculty of mechanical dynamics,wikidata:Q101000190
+310,technology and education faculty of mechanical technology,wikidata:Q101000193
+311,technology and education faculty of political theory,wikidata:Q101000196
+77,technology and management,wikipedia:vi:75654510
+359,telecommunications,wikidata:Q16480503
+220,tgu,wikipedia:vi:75654510
+210,thai binh,wikidata:Q10829138
+211,thai binh duong,wikidata:Q10829139
+312,thai binh medical,wikidata:Q101000199
+251,thai binh university of medicine and pharmacy,wikipedia:vi:75654510
+279,thai nguyen,wikidata:Q10841229
+169,thai nguyen university of agriculture and forestry,wikipedia:vi:75654510
+120,thai nguyen university of economics and business administration,wikidata:Q10829077
+206,thai nguyen university of education,wikipedia:vi:75654510
+73,thai nguyen university of information and communication technology,wikipedia:vi:75654510
+254,thai nguyen university of medicine and pharmacy,wikipedia:vi:75654510
+114,thai nguyen university of science,wikipedia:vi:75654510
+134,thai nguyen university of technology,wikidata:Q10829082
+212,thang long,wikipedia:vi:75654510
+208,thanh do,wikidata:Q10829137
+209,thanh dong,wikipedia:vi:75654510
+338,thanh hoa university of culture sports and tourism,wikidata:Q10829162
+335,thanh tay,wikidata:Q10829136
+40,thanh thieu nien viet nam,wikipedia:vi:75654510
+190,theatre and cinema hcmc,wikidata:Q5873944
+190,theatre and cinema ho chi minh city,wikidata:Q5873944
+217,thu dau mot,wikidata:Q10829145
+218,thu do ha noi,wikipedia:vi:75654510
+213,thuong mai,wikipedia:vi:75654510
+213,thuongmai,wikipedia:vi:75654510
+219,thuy loi,wikidata:Q7973360
+219,thuy loi ha noi,wikidata:Q7973360
+165,thuy san,wikidata:Q2740474
+165,thuy san nha trang,wikidata:Q2740474
+219,thuyloi,wikidata:Q7973360
+220,tien giang,wikidata:Q10829147
+213,tmu,wikipedia:vi:75654510
+206,tnue,wikipedia:vi:75654510
+114,tnus,wikipedia:vi:75654510
+134,tnut,wikipedia:vi:75654510
+42,toa an,wikidata:Q24956933
+269,toan tin ung dung,wikidata:Q3075696
+234,ton duc thang,wikidata:Q1457082
+22,tong hop ky thuat le quy don,wikidata:Q4130078
+280,tra vinh,wikidata:Q10829149
+314,tra vinh university department of electrical refrigeration,wikidata:Q101000214
+315,tra vinh university department of electronic engineering telecommunications,wikidata:Q101000218
+316,tra vinh university department of finance and banking,wikidata:Q101000220
+317,tra vinh university department of law,wikidata:Q101000225
+318,tra vinh university department of mechanics dynamics,wikidata:Q101000228
+319,tra vinh university faculty of basic sciences,wikidata:Q101000234
+313,tra vinh university faculty of education,wikidata:Q101000203
+320,tra vinh university school of engineering and technology,wikidata:Q101000239
+81,trade union,wikidata:Q16480704
+337,tran dai nghia,wikidata:Q10829151
+223,tran dai nghia truong dai hoc si quan ky thuat quan su vin hem pich,wikipedia:vi:75654510
+376,tran nhan tong institute,wikidata:Q86012753
+336,tran quoc tuan,wikidata:Q10829150
+222,tran quoc tuan truong dai hoc si quan luc quan 1,wikipedia:vi:75654510
+89,transport and communications,wikidata:Q10829041
+64,transport technology,wikidata:Q20025751
+90,transports hcmc,wikipedia:vi:75654510
+90,transports ho chi minh city,wikipedia:vi:75654510
+270,trung cao cap co dien ha noi,wikidata:Q16892082
+327,trung hoc ky thuat cao thang,wikidata:Q10828800
+137,trung tam dai hoc tai chuc can tho,wikidata:Q10828441
+256,trung tam dao tao boi duong can bo y te thanh pho ho chi minh,wikidata:Q10829174
+256,trung tam dao tao boi duong can bo y te tp hcm,wikidata:Q10829174
+256,trung tam dao tao boi duong can bo y te tphcm,wikidata:Q10829174
+221,trung vuong,wikipedia:vi:75654510
+232,ttn,wikipedia:vi:75654510
+229,ttru,wikipedia:vi:75654510
+323,tu phap viet nam,wikidata:Q10771905
+71,tu thuc cong nghe sai gon,wikidata:Q7400087
+75,tu thuc cong nghe van xuan,wikidata:Q7913787
+83,tu thuc cuu long,wikidata:Q10829034
+266,tu thuc dai nam,wikidata:Q10829182
+264,tu thuc dong a,wikidata:Q10829180
+265,tu thuc dong do,wikidata:Q10829181
+272,tu thuc duy tan,wikidata:Q5317667
+182,tu thuc hong bang,wikidata:Q661322
+145,tu thuc lac hong,wikidata:Q10829092
+155,tu thuc ngoai ngu tin hoc thanh pho ho chi minh,wikidata:Q5873989
+155,tu thuc ngoai ngu tin hoc tp hcm,wikidata:Q5873989
+155,tu thuc ngoai ngu tin hoc tphcm,wikidata:Q5873989
+211,tu thuc thai binh duong,wikidata:Q10829139
+208,tu thuc thanh do,wikidata:Q10829137
+335,tu thuc thanh tay,wikidata:Q10829136
+240,tu thuc van hien,wikidata:Q7913402
+241,tu thuc van lang,wikidata:Q7913477
+169,tuaf,wikipedia:vi:75654510
+120,tueba,wikidata:Q10829077
+254,tump,wikipedia:vi:75654510
+81,tuu,wikipedia:vi:75654510
+3,tuyen giao,wikidata:Q10771877
+149,uad,wikipedia:vi:75654510
+131,uah,wikipedia:vi:75654510
+325,ud ck,wikidata:Q10805714
+325,ud ck dai hoc da nang,wikidata:Q10805714
+207,ued,wikipedia:vi:75654510
+125,uef,wikidata:Q10829074
+275,ueh,wikipedia:vi:75654510
+363,ueh international school of business,wikidata:Q19892791
+80,uet hanoi,wikidata:Q10829028
+226,ufba,wikipedia:vi:75654510
+224,ufm,wikipedia:vi:75654510
+103,uhd,wikipedia:vi:75654510
+102,uhl,wikipedia:vi:75654510
+74,uit,wikidata:Q5873994
+116,ukb,wikipedia:vi:75654510
+115,ukh,wikipedia:vi:75654510
+140,ulaw,wikidata:Q5874003
+138,ulsa,wikipedia:vi:75654510
+178,umt,wikipedia:vi:75654510
+123,uneti,wikipedia:vi:75654510
+241,universitas vanlangensis,wikidata:Q7913477
+214,upes1,wikipedia:vi:75654510
+215,ush,wikipedia:vi:75654510
+112,usth,wikidata:Q15260958
+231,utb,wikipedia:vi:75654510
+89,utc,wikipedia:vi:75654510
+90,uth,wikipedia:vi:75654510
+77,utm,wikipedia:vi:75654510
+64,utt,wikipedia:vi:75654510
+14,vaa,wikidata:Q302448
+13,vaem,wikidata:Q65164557
+341,van hanh,wikidata:Q10832802
+240,van hien,wikidata:Q7913402
+243,van hoa ha noi,wikipedia:vi:75654510
+242,van hoa nghe thuat quan doi,wikidata:Q10829163
+242,van hoa nghe thuat quan doi college,wikidata:Q10829163
+338,van hoa nghe thuat thanh hoa college,wikidata:Q10829162
+329,van hoa nghe thuat va du lich sai gon college,wikidata:Q10828813
+244,van hoa thanh pho ho chi minh,wikidata:Q5873981
+338,van hoa the thao va du lich thanh hoa,wikidata:Q10829162
+244,van hoa tp hcm,wikidata:Q5873981
+244,van hoa tphcm,wikidata:Q5873981
+241,van lang,wikidata:Q7913477
+75,van xuan university of technology,wikidata:Q7913787
+358,vatc,wikidata:Q14817590
+33,vba,wikipedia:vi:75654510
+32,vbah,wikipedia:vi:75654510
+34,vbu,wikipedia:vi:75654510
+42,vca,wikidata:Q24956933
+143,vfu,wikidata:Q10829090
+238,vgu,wikidata:Q835285
+244,vhs,wikipedia:vi:75654510
+240,vhu,wikipedia:vi:75654510
+351,vien cong nghe viet nhat,wikidata:Q125164592
+339,vien dai hoc hue,wikidata:Q10832798
+340,vien dai hoc minh duc,wikidata:Q10832799
+341,vien dai hoc van hanh,wikidata:Q10832802
+363,vien dao tao quoc te ueh,wikidata:Q19892791
+347,vien dao tao y hoc du phong va y te cong cong,wikidata:Q109340125
+365,vien tin hoc phap ngu,wikidata:Q2496369
+376,vien tran nhan tong,wikidata:Q86012753
+376,vien tran nhan tong dai hoc quoc gia ha noi,wikidata:Q86012753
+238,viet duc,wikidata:Q835285
+62,viet hung industrial,wikidata:Q16480995
+237,viet nhat,wikidata:Q20026262
+237,viet nhat dai hoc quoc gia ha noi,wikidata:Q20026262
+237,viet nhat dhqghn,wikipedia:vi:75654510
+112,viet phap,wikidata:Q15260958
+61,viet tri university of industry,wikipedia:vi:75654510
+13,vietnam academy for ethnic minorities,wikidata:Q65164557
+14,vietnam academy of aviation,wikipedia:vi:75654510
+14,vietnam aviation academy,wikidata:Q302448
+34,vietnam buddhism,wikipedia:vi:75654510
+33,vietnam buddhism academy,wikipedia:vi:75654510
+32,vietnam buddism academy at hue,wikipedia:vi:75654510
+42,vietnam court academy,wikidata:Q24956933
+4,vietnam institute of science and technology strategy,wikipedia:vi:75654510
+237,vietnam japan,wikidata:Q20026262
+351,vietnam japan institute of technology,wikidata:Q125164592
+76,vietnam korea university of information and communications,wikidata:Q16480474
+76,vietnam korea university of information technology and communication,wikipedia:vi:75654510
+98,vietnam maritime,wikidata:Q7928523
+369,vietnam military medical,wikidata:Q43896632
+277,vietnam national,wikidata:Q1076729
+25,vietnam national academy of dance,wikipedia:vi:75654510
+46,vietnam national academy of music,wikidata:Q5649320
+293,vietnam national university faculty of history,wikidata:Q101000098
+294,vietnam national university faculty of sociology,wikidata:Q101000102
+277,vietnam national university hanoi,wikidata:Q1076729
+28,vietnam national university of agriculture,wikidata:Q5649335
+151,vietnam national university of fine arts,wikipedia:vi:75654510
+143,vietnam national university of forestry,wikidata:Q10829090
+374,vietnam naval academy,wikidata:Q7928533
+133,vietnam procuratorate,wikipedia:vi:75654510
+31,vietnam theravada buddism,wikipedia:vi:75654510
+151,vietnam university of fine arts,wikidata:Q3815307
+43,vietnam university of traditional medicine,wikidata:Q10771907
+35,vietnam women academy,wikipedia:vi:75654510
+40,vietnam youth academy,wikipedia:vi:75654510
+358,vietnamese american vocational training college,wikidata:Q14817590
+238,vietnamese german,wikidata:Q835285
+357,vietnamese japanese foreign language technology college,wikidata:Q14655485
+375,vietnamese military academies,wikidata:Q7928650
+333,vietnamese national military academy,wikidata:Q10828976
+333,vietnamese national military academy of dalat,wikidata:Q10828976
+236,vinh,wikidata:Q20984308
+68,vinh long university of engineering education,wikidata:Q108737605
+68,vinh long university of technology and engineering,wikidata:Q108737605
+68,vinh long university of technology education,wikipedia:vi:75654510
+67,vinh mechanical worker training school,wikidata:Q10829132
+258,vinh medical,wikidata:Q717262
+67,vinh university of technology education,wikidata:Q10829132
+236,vinhuni,wikipedia:vi:75654510
+235,vinuni,wikidata:Q86012411
+235,vinuniversity,wikidata:Q86012411
+4,vists,wikipedia:vi:75654510
+62,viu,wikipedia:vi:75654510
+351,vjit,wikidata:Q125164592
+76,vku,wikipedia:vi:75654510
+241,vlu,wikipedia:vi:75654510
+68,vlute,wikidata:Q108737605
+369,vmmu,wikidata:Q43896632
+25,vnad,wikipedia:vi:75654510
+46,vnam,wikipedia:vi:75654510
+277,vnu,wikidata:Q1076729
+277,vnu hanoi,wikidata:Q1076729
+109,vnu hanoi university of science,wikipedia:vi:75654510
+111,vnu hanoi university of social sciences and humanities,wikipedia:vi:75654510
+324,vnu hsb,wikidata:Q10779338
+109,vnu hus,wikipedia:vi:75654510
+376,vnu tnti,wikidata:Q86012753
+126,vnu ueb,wikipedia:vi:75654510
+91,vnu ued,wikipedia:vi:75654510
+80,vnu uet,wikipedia:vi:75654510
+141,vnu ul,wikipedia:vi:75654510
+156,vnu ulis,wikipedia:vi:75654510
+252,vnu ump,wikipedia:vi:75654510
+126,vnu university of economics and business,wikipedia:vi:75654510
+91,vnu university of education,wikidata:Q10829046
+80,vnu university of engineering and technology,wikidata:Q10829028
+156,vnu university of languages and international studies,wikipedia:vi:75654510
+141,vnu university of laws,wikipedia:vi:75654510
+252,vnu university of medicine and pharmacy,wikipedia:vi:75654510
+111,vnu ussh,wikipedia:vi:75654510
+237,vnu vietnam japan,wikidata:Q20026262
+237,vnu vju,wikipedia:vi:75654510
+28,vnua,wikipedia:vi:75654510
+143,vnuf,wikipedia:vi:75654510
+151,vnufa,wikipedia:vi:75654510
+48,vnuhcm agu,wikipedia:vi:75654510
+48,vnuhcm an giang,wikipedia:vi:75654510
+186,vnuhcm international,wikipedia:vi:75654510
+186,vnuhcm iu,wikipedia:vi:75654510
+124,vnuhcm uel,wikipedia:vi:75654510
+107,vnuhcm uhs,wikipedia:vi:75654510
+74,vnuhcm uit,wikipedia:vi:75654510
+124,vnuhcm university of economics and law,wikipedia:vi:75654510
+107,vnuhcm university of health science,wikipedia:vi:75654510
+74,vnuhcm university of information and technology,wikipedia:vi:75654510
+108,vnuhcm university of science,wikipedia:vi:75654510
+110,vnuhcm university of social sciences and humanities,wikipedia:vi:75654510
+52,vnuhcm university of technology,wikipedia:vi:75654510
+108,vnuhcm us,wikipedia:vi:75654510
+110,vnuhcm ussh,wikipedia:vi:75654510
+52,vnuhcm ut,wikipedia:vi:75654510
+333,vo bi da lat,wikidata:Q10828976
+333,vo bi lien quan da lat,wikidata:Q10828976
+333,vo bi quoc gia da lat,wikidata:Q10828976
+336,vo bi tran quoc tuan,wikidata:Q10829150
+239,vo truong toan,wikipedia:vi:75654510
+27,vocational college of banking,wikidata:Q10771894
+133,vpu,wikipedia:vi:75654510
+356,vtc academy,wikidata:Q141603920
+356,vtc information technology and design academy,wikidata:Q141603920
+61,vui,wikipedia:vi:75654510
+67,vute,wikidata:Q10829132
+67,vuted,wikidata:Q10829132
+43,vutm,wikipedia:vi:75654510
+35,vwa,wikipedia:vi:75654510
+75,vxut,wikidata:Q7913787
+40,vya,wikipedia:vi:75654510
+219,water resources,wikidata:Q7973360
+245,xay dung,wikidata:Q6134439
+245,xay dung ha noi,wikidata:Q6134439
+247,xay dung mien tay,wikidata:Q61128838
+246,xay dung mien trung,wikidata:Q10829166
+246,xay dung so 3 college,wikidata:Q10829166
+255,y dong duong,wikidata:Q4383725
+248,y duoc buon ma thuot,wikipedia:vi:75654510
+249,y duoc can tho,wikidata:Q20026263
+253,y duoc dai hoc hue,wikipedia:vi:75654510
+254,y duoc dai hoc thai nguyen,wikipedia:vi:75654510
+252,y duoc dhqghn,wikipedia:vi:75654510
+255,y duoc ha noi,wikidata:Q4383725
+250,y duoc hai phong,wikipedia:vi:75654510
+43,y duoc hoc co truyen viet nam,wikidata:Q10771907
+255,y duoc khoa ha noi,wikidata:Q4383725
+251,y duoc thai binh,wikipedia:vi:75654510
+281,y duoc thanh pho ho chi minh,wikidata:Q986462
+281,y duoc tp hcm,wikidata:Q986462
+281,y duoc tphcm,wikidata:Q986462
+255,y ha noi,wikidata:Q4383725
+256,y khoa pham ngoc thach,wikidata:Q10829174
+257,y khoa tokyo viet nam,wikipedia:vi:75654510
+258,y khoa vinh,wikidata:Q717262
+256,y pham ngoc thach,wikidata:Q10829174
+259,y te cong cong,wikidata:Q5649327
+330,y te ha noi college,wikidata:Q10828817
+255,y viet nam,wikidata:Q4383725
+253,ydh,wikipedia:vi:75654510
+281,yds,wikipedia:vi:75654510
+260,yersin,wikidata:Q10829037
+260,yersin da lat,wikidata:Q10829037
+347,yhdp va ytcc,wikidata:Q109340125
+347,yhdp ytcc,wikidata:Q109340125

@@ -12,6 +12,7 @@ from rapidfuzz import fuzz, process
 
 from app.kb.keys import skill_key
 from app.postprocess.skills import clean_skill_list
+from app.postprocess.text_match import normalize
 
 __all__ = ["Link", "SkillLinker"]
 
@@ -30,6 +31,20 @@ class SkillLinker:
     """In-memory skill linker resolving raw skill mentions to canonical entities."""
 
     _SPLIT_REGEX = re.compile(r"\s*/\s*|\s+&\s+|\s+and\s+|\s*[(),]\s*")
+    _JOIN_REGEX = re.compile(r"\s*\+\s*|(?<=[A-Za-z0-9.])-(?=[A-Za-z])")
+    _VERSION = re.compile(r"[\s-]*v?\d+(?:\.(?:\d+|x))*\+?$", re.IGNORECASE)
+    _GENERIC_TAIL = re.compile(r"\s+(?:core|authentication|framework|library|basics?|cơ bản|programming)$", re.IGNORECASE)
+
+    @classmethod
+    def _variant_text(cls, text: str) -> str:
+        """"ASP.NET MVC Core 6.x" -> "ASP.NET MVC", "JavaScript(ES6+)" -> "JavaScript", "Java Core" -> "Java"."""
+        v = re.sub(r"\s*\([^)]*\)\s*", " ", text).strip()
+        for _ in range(3):
+            v2 = cls._GENERIC_TAIL.sub("", cls._VERSION.sub("", v)).strip(" -")
+            if v2 == v:
+                break
+            v = v2
+        return v
 
     def __init__(
         self,
@@ -54,10 +69,27 @@ class SkillLinker:
 
         # Lưu list key cho fuzzy
         self._keys: list[str] = sorted(self.aliases.keys())
+        # Linguistic normalization, not new KB facts: Vietnamese soft-skill
+        # names may omit the connective "theo" or nominal "chủ nghĩa" prefix.
+        # Restrict to source-backed Soft Skill surfaces and unique owners.
+        soft_candidates: dict[str, set[int]] = {}
+        for surface, sid in self.surfaces.items():
+            if self.skills[sid][1] != "Soft Skill":
+                continue
+            text = normalize(surface)
+            reduced = re.sub(r"^chu nghia\s+", "", text)
+            reduced = re.sub(r"\btheo\b", " ", reduced)
+            if reduced != text:
+                soft_candidates.setdefault(skill_key(reduced), set()).add(sid)
+        self._soft_variants = {k: next(iter(ids)) for k, ids in soft_candidates.items()
+                               if k and len(ids) == 1 and (k not in self.aliases or self.aliases[k] in ids)}
 
     @classmethod
     def from_csv(cls, seed_dir: str | Path) -> SkillLinker:
-        """Load skills and aliases from versioned seed CSV files."""
+        """Load named columns, tolerating source/source_id provenance metadata.
+
+        Explicit DB projections below likewise do not depend on table column order.
+        """
         seed_path = Path(seed_dir)
         skills: dict[int, tuple[str, str]] = {}
         aliases: dict[str, int] = {}
@@ -151,11 +183,19 @@ class SkillLinker:
                 score=100.0,
             )
 
+        if key in self._soft_variants:
+            sid = self._soft_variants[key]
+            name, category = self.skills[sid]
+            return Link(raw=stripped, skill_id=sid, name=name, category=category,
+                        method="normalized", score=100.0)
+
         # 3. Fuzzy (key length >= 4)
         if key and len(key) >= 4 and self._keys:
             match = process.extractOne(
                 key, self._keys, scorer=fuzz.ratio, score_cutoff=90
             )
+            if match is not None and self.skills[self.aliases[match[0]]][1] == "Soft Skill":
+                match = None  # soft skills link only exactly: fuzzy hits technical words ("Delegates")
             if match is not None:
                 matched_key, score, _ = match
                 sid = self.aliases[matched_key]
@@ -209,6 +249,28 @@ class SkillLinker:
                 )
             ]
 
+        if key in self._soft_variants:
+            sid = self._soft_variants[key]
+            name, category = self.skills[sid]
+            return [Link(raw=stripped, skill_id=sid, name=name, category=category,
+                         method="normalized", score=100.0)]
+
+        # 2b. Spelling variant: drop "(...)", version suffixes, generic trailing words
+        variant = self._variant_text(stripped)
+        if variant and variant.casefold() != stripped.casefold():
+            v = self._link_atomic(variant)
+            if v is not None:
+                return [Link(raw=stripped, skill_id=v.skill_id, name=v.name, category=v.category,
+                             method="variant", score=v.score)]
+
+        # 2c. Joined with "-" or "+" ("Nodejs-Expressjs"): only when every part links
+        joined = [p.strip() for p in self._JOIN_REGEX.split(stripped) if p and p.strip()]
+        if len(joined) >= 2:
+            joined_links = [self._link_atomic(p) for p in joined]
+            if all(joined_links):
+                return [Link(raw=p, skill_id=l.skill_id, name=l.name, category=l.category, method="split", score=l.score)
+                        for p, l in zip(joined, joined_links)]
+
         # 3. Split: regex r"\s*/\s*|\s+&\s+|\s+and\s+|\s*[(),]\s*"
         parts = [p.strip() for p in self._SPLIT_REGEX.split(stripped) if p and p.strip()]
         if len(parts) >= 2:
@@ -247,6 +309,8 @@ class SkillLinker:
             match = process.extractOne(
                 key, self._keys, scorer=fuzz.ratio, score_cutoff=90
             )
+            if match is not None and self.skills[self.aliases[match[0]]][1] == "Soft Skill":
+                match = None  # soft skills link only exactly: fuzzy hits technical words ("Delegates")
             if match is not None:
                 matched_key, score, _ = match
                 sid = self.aliases[matched_key]
