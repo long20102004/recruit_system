@@ -14,6 +14,12 @@ from app import main
 
 
 @pytest.fixture(autouse=True)
+def kg_on(monkeypatch) -> None:
+    """KG enrichment is off by default; these tests exercise it explicitly."""
+    monkeypatch.setattr(config, "KG_ENABLED", True)
+
+
+@pytest.fixture(autouse=True)
 def reset_kb_state() -> Iterator[None]:
     """Ensure kb_state['kb'] is cleared after every test."""
     yield

@@ -31,6 +31,12 @@ If the model output cannot be parsed into a JSON object, or the object has no co
 - Response `data`: new optional field `skills_detected` (list) and new flag code `OUTPUT_TRUNCATED` in `flags`. Backward compatible.
 - Error behaviour: 502 for empty/unparseable model output (was 200 with an empty profile, or 500 when parsing raised).
 
+## Amendment (2026-11-05, user: "module 2 sẽ tự match, module 1 chỉ cần trả về output tương đối từ cv")
+- KB/KG enrichment is **off by default** (`KG_ENABLED=false`): the response holds only the CV fields (personal_info, objective, education, experience, personal_projects, skills, certificates, honours, languages). `skills_normalized`, `implied_skills`, `school_normalized`, `skills_detected` and `flags` appear only with `KG_ENABLED=true` (experiments / ablation).
+- No `OUTPUT_TRUNCATED` flag: the loop guard still stops generation and salvages the JSON; truncation is logged (reason code only).
+- Backend `CandidateProfile` drops the enrichment fields (unknown fields are ignored).
+- Grounding post-processing stays on (it removes values not found in the CV; it adds no field).
+
 ## Success Criteria
 - SC-001: On the 20 real CVs, no response spends more than ~1.3× the gold length in tokens on a loop; degenerate outputs are flagged.
 - SC-002: `skills_detected` recall ≥ 0.80 on the 20 real CVs, precision ≥ 0.6.

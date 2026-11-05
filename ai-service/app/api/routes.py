@@ -130,11 +130,6 @@ def extract_cv(request: CVRequest, response: Response):
                     type(e).__name__,
                 )
 
-        if gen.truncated and isinstance(data, dict):
-            flags = data.get("flags") if isinstance(data.get("flags"), list) else []
-            flags.append({"code": "OUTPUT_TRUNCATED", "count": None, "field": gen.reason})
-            data["flags"] = flags
-
         return {"data": data}
 
     except InputTooLongError as e:

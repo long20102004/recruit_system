@@ -72,7 +72,7 @@ pip install -r requirements.txt
 | `LOOP_MAX_REPEATS` | `3` | Chặn lặp: dừng sinh khi cùng một chuỗi (≥ 15 ký tự) lặp lại ngần này lần trong cùng một danh sách |
 | `QUEUE_WAIT_SECONDS` | `30` | Thời gian tối đa chờ hàng đợi trước khi trả `503` "bận" |
 | `POSTPROCESS_ENABLED` | `true` | Bật/tắt tầng hậu kiểm grounding (`0`/`false`/`no`/`off` để tắt — phục vụ ablation) |
-| `KG_ENABLED` | `true` | Bật/tắt tầng làm giàu KG (`0`/`false`/`no`/`off` để tắt) |
+| `KG_ENABLED` | `false` | Tầng làm giàu KB/KG (`skills_normalized`, `implied_skills`, `school_normalized`, `skills_detected`, `flags`). Tắt mặc định: module 1 chỉ trả nội dung CV, module 2 tự match. `true` để thử nghiệm / ablation |
 | `KB_DSN` | unset | Connection string PostgreSQL KB (ví dụ: `postgresql://user:pass@host:5433/recruit_kb`) |
 | `KB_SEED_DIR` | `./kb/seed` | Thư mục chứa các file seed CSV dùng khi offline hoặc fallback |
 | `LOG_CV_CONTENT` | tắt | Đặt `1`/`true`/`yes`/`on` để log nội dung CV và raw output của model |
@@ -374,7 +374,7 @@ Tải GGUF v3 về `merged_model/model-v3-q4_k_m.gguf` (file trên Drive dự á
 gdown 1mqmolAF-4nJXg1db89oHAYZKYlZ3CUcq -O merged_model/model-v3-q4_k_m.gguf
 uvicorn main:app --port 8000
 ```
-Serving v3 có thêm (feature 008): chặn vòng lặp khi sinh (flag `OUTPUT_TRUNCATED`), ghép lại JSON bị đóng ngoặc sớm, trường `skills_detected` (skill của model ∪ skill KB tìm thấy trong text CV — Module 2 nên dùng trường này), và trả `502` khi model không trả về JSON có nội dung. Kết quả trên 20 CV thật: `specs/008-serving-robustness-v3/results.md`.
+Serving v3 có thêm (feature 008): chặn vòng lặp khi sinh, ghép lại JSON bị đóng ngoặc sớm, và trả `502` khi model không trả về JSON có nội dung. Response chỉ gồm các trường trích từ CV; các trường KB/KG chỉ có khi `KG_ENABLED=true`. Kết quả trên 20 CV thật: `specs/008-serving-robustness-v3/results.md`.
 
 Retrain v3: `python -m training.build_dataset_v3` → upload `data/retrain_v3/` lên `MyDrive/cv-analysis-service/retrain_v3/` → `training/retrain_qwen3_v2.ipynb` với `RUN_NAME="v3"` (mặc định `EVAL="real"`: chỉ chấm 20 CV thật; `SERVE=True`: mở API + tunnel sau khi xuất GGUF).
 

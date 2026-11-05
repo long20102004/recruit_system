@@ -14,6 +14,11 @@ import java.util.Objects;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+/**
+ * Profile extracted from a CV (module 1): only what the CV says. Matching against job
+ * descriptions is module 2's job, so KB/KG enrichment fields sent by the ai-service
+ * (if enabled there) are ignored.
+ */
 @Data
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class CandidateProfile {
@@ -42,14 +47,6 @@ public class CandidateProfile {
     @JsonFormat(with = JsonFormat.Feature.ACCEPT_SINGLE_VALUE_AS_ARRAY)
     private List<Language> languages;
 
-    // --- KG enrichment from ai-service (feature 005); absent/null for rule-based extraction ---
-    @JsonFormat(with = JsonFormat.Feature.ACCEPT_SINGLE_VALUE_AS_ARRAY)
-    private List<NormalizedSkill> skills_normalized;
-    @JsonFormat(with = JsonFormat.Feature.ACCEPT_SINGLE_VALUE_AS_ARRAY)
-    private List<ImpliedSkill> implied_skills;
-    @JsonFormat(with = JsonFormat.Feature.ACCEPT_SINGLE_VALUE_AS_ARRAY)
-    private List<Flag> flags;
-
     @Data
     @JsonIgnoreProperties(ignoreUnknown = true)
     public static class PersonalInfo {
@@ -67,8 +64,6 @@ public class CandidateProfile {
         private Integer start_year;
         private Integer end_year;
         private String gpa;
-        /** KB-normalised school (open set: null when not in the KB). */
-        private NormalizedRef school_normalized;
 
         public void setStart_year(Object val) {
             this.start_year = parseIntegerSafely(val);
@@ -122,51 +117,6 @@ public class CandidateProfile {
         public void setTech_stack(Object val) {
             this.tech_stack = parseListStringSafely(val);
         }
-    }
-
-    /** A raw skill linked to a KB skill (id/name/category null when method = "unlinked"). */
-    @Data
-    @JsonIgnoreProperties(ignoreUnknown = true)
-    public static class NormalizedSkill {
-        private String raw;
-        private Integer id;
-        private String name;
-        private String category;
-        private String method;
-    }
-
-    /** A skill implied by listed skills via KB relations; never part of {@code skills}. */
-    @Data
-    @JsonIgnoreProperties(ignoreUnknown = true)
-    public static class ImpliedSkill {
-        private Integer id;
-        private String name;
-        private String category;
-        @JsonFormat(with = JsonFormat.Feature.ACCEPT_SINGLE_VALUE_AS_ARRAY)
-        private List<Via> via;
-    }
-
-    @Data
-    @JsonIgnoreProperties(ignoreUnknown = true)
-    public static class Via {
-        private String from;
-        private String rel;
-    }
-
-    /** Advisory warning for human confirmation (codes/counts only, no CV values). */
-    @Data
-    @JsonIgnoreProperties(ignoreUnknown = true)
-    public static class Flag {
-        private String code;
-        private Integer count;
-        private String field;
-    }
-
-    @Data
-    @JsonIgnoreProperties(ignoreUnknown = true)
-    public static class NormalizedRef {
-        private Integer id;
-        private String name;
     }
 
     @Data
