@@ -34,3 +34,8 @@ v1 / v2 rows are the feature 007 baseline (served GGUF, before feature 008).
 2. job_title and company on real CVs: error analysis needed (title/company on the same line with dates, interleaved columns).
 3. The test set is small (certificates 9 items, honours 5): ±1 item moves these F1 by 0.1–0.2. The gold labels still need the user's review.
 4. Eval in the train notebook generates in batches of 8 (left padding), which loops on CVs that do not loop when served one at a time: scores from the notebook are a lower bound; final numbers come from the served GGUF.
+
+## Colab GPU (T4) through the API — 2026-11-05
+`run_on_colab.ipynb`, model v3, all of feature 008, 20 real CVs via `eval.predict` (variant B):
+company 0.722, school 0.872, skills 0.730 (canonical 0.762), job_title 0.800, projects 0.787, certificates 0.308, honours 0.400, languages 0.875, phone 18/18, hallucination 1.5 %, skills_detected P 0.661 / R 0.973; 20/20 HTTP 200, 2 flagged `OUTPUT_TRUNCATED`; latency mean 7.9 s, p95 15.7 s.
+GPU and CPU builds of llama.cpp give slightly different greedy outputs (identical skills list on 5/20 CVs), hence small differences with the CPU column. On GPU, v3 is ≥ v2 on every field except job_title (−0.15) and honours (−0.04).
