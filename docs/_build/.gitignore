@@ -1,0 +1,8 @@
+node_modules/
+package-lock.json
+.plotenv/
+demo/pdf1/
+demo/pdf2/
+demo/ai.log
+*.pdf
+demo/render/

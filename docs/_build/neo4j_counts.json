@@ -1,0 +1,2 @@
+{"nodes": {"Skill": 813, "Category": 16, "Alias": 2284, "University": 387, "UniversityAlias": 1259, "JobTitle": 743, "Book": 2, "Section": 353},
+ "rels": {"IN_CATEGORY": 813, "ALIAS_OF": 3543, "REQUIRES": 116, "PART_OF": 16, "HAS_SECTION": 353, "MENTIONS": 805, "RELATED_TO": 222, "ABOUT": 3}}

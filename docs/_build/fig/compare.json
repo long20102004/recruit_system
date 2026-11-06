@@ -1,0 +1,216 @@
+{
+ "table": {
+  "rule|val": {
+   "experience.company": 0.103,
+   "education.school": 0.675,
+   "skills": 0.71,
+   "personal_projects.name": 0.525,
+   "certificates": 0.76,
+   "honours": 0.625,
+   "languages.language": 0.726
+  },
+  "rule|val_swap": {
+   "experience.company": 0.551,
+   "education.school": 0.67,
+   "skills": 0.7,
+   "personal_projects.name": 0.521,
+   "certificates": 0.744,
+   "honours": 0.625,
+   "languages.language": 0.727
+  },
+  "rule|dev": {
+   "education.school": 0.9195402298850575,
+   "experience.company": 0.31137724550898205,
+   "experience.job_title": 0.9600000000000001,
+   "personal_projects.name": 0.5533980582524272,
+   "skills": 0.5927007299270074,
+   "certificates": 0.8533333333333333,
+   "honours": 0.8,
+   "languages.language": 0.25742574257425743,
+   "skills_canonical": 0.6067415730337078,
+   "languages": 0.25742574257425743
+  },
+  "rule|test_real": {
+   "education.school": 0.7647058823529412,
+   "experience.company": 0.5294117647058824,
+   "experience.job_title": 0.4,
+   "personal_projects.name": 0.2622950819672132,
+   "skills": 0.33820459290187893,
+   "certificates": 0.0,
+   "honours": 0.07142857142857142,
+   "languages.language": 0.19047619047619047,
+   "skills_canonical": 0.3654618473895582,
+   "languages": 0.19047619047619047
+  },
+  "v1|val": {
+   "experience.company": 0.918,
+   "education.school": 0.961,
+   "skills": 0.839,
+   "personal_projects.name": 0.949,
+   "certificates": 0.89,
+   "honours": 0.768,
+   "languages.language": 0.849
+  },
+  "v1|val_swap": {
+   "experience.company": 0.926,
+   "education.school": 0.966,
+   "skills": 0.829,
+   "personal_projects.name": 0.949,
+   "certificates": 0.824,
+   "honours": 0.693,
+   "languages.language": 0.799
+  },
+  "v1|dev": null,
+  "v1|test_real": {
+   "education.school": 0.8000000000000002,
+   "experience.company": 0.576923076923077,
+   "experience.job_title": 0.6,
+   "personal_projects.name": 0.558139534883721,
+   "skills": 0.603648424543947,
+   "certificates": 0.0,
+   "honours": 0.20000000000000004,
+   "languages.language": 0.7999999999999999,
+   "skills_canonical": 0.6656249999999999,
+   "languages": 0.7999999999999999
+  },
+  "v2|val": {
+   "experience.company": 0.995,
+   "education.school": 1.0,
+   "skills": 0.932,
+   "personal_projects.name": 0.982,
+   "certificates": 0.958,
+   "honours": 0.981,
+   "languages.language": 0.972
+  },
+  "v2|val_swap": {
+   "experience.company": 0.995,
+   "education.school": 0.995,
+   "skills": 0.928,
+   "personal_projects.name": 0.982,
+   "certificates": 0.976,
+   "honours": 0.981,
+   "languages.language": 0.981
+  },
+  "v2|dev": null,
+  "v2|test_real": {
+   "education.school": 0.75,
+   "experience.company": 0.7058823529411765,
+   "experience.job_title": 0.9473684210526316,
+   "personal_projects.name": 0.7865168539325843,
+   "skills": 0.5328719723183392,
+   "certificates": 0.16666666666666666,
+   "honours": 0.4444444444444445,
+   "languages.language": 0.35135135135135137,
+   "skills_canonical": 0.5612903225806453,
+   "languages": 0.35135135135135137
+  },
+  "v3|val": {
+   "education.school": 1.0,
+   "experience.company": 0.9973753280839895,
+   "experience.job_title": 0.9894179894179894,
+   "personal_projects.name": 0.9886914378029079,
+   "skills": 0.9631490787269682,
+   "certificates": 0.9815950920245399,
+   "honours": 0.9743589743589743,
+   "languages.language": 0.9835294117647059,
+   "skills_canonical": 0.971206225680934,
+   "languages": 0.9835294117647059
+  },
+  "v3|val_swap": {
+   "education.school": 1.0,
+   "experience.company": 0.9973753280839895,
+   "experience.job_title": 0.9947089947089947,
+   "personal_projects.name": 0.9804560260586319,
+   "skills": 0.9585600669736292,
+   "certificates": 0.9726443768996961,
+   "honours": 0.9712460063897764,
+   "languages.language": 0.9929078014184397,
+   "skills_canonical": 0.9716063788409178,
+   "languages": 0.9929078014184397
+  },
+  "v3|dev": null,
+  "v3|test_real": {
+   "education.school": 0.8717948717948718,
+   "experience.company": 0.7222222222222222,
+   "experience.job_title": 0.7999999999999999,
+   "personal_projects.name": 0.7865168539325843,
+   "skills": 0.7304075235109717,
+   "certificates": 0.30769230769230765,
+   "honours": 0.4000000000000001,
+   "languages.language": 0.8750000000000001,
+   "skills_canonical": 0.762043795620438,
+   "languages": 0.8750000000000001
+  }
+ },
+ "origin": {
+  "rule|val": "spec",
+  "rule|val_swap": "spec",
+  "rule|dev": "local",
+  "rule|test_real": "local",
+  "v1|val": "spec",
+  "v1|val_swap": "spec",
+  "v1|dev": null,
+  "v1|test_real": "local",
+  "v2|val": "spec",
+  "v2|val_swap": "spec",
+  "v2|dev": null,
+  "v2|test_real": "local",
+  "v3|val": "colab-train",
+  "v3|val_swap": "colab-train",
+  "v3|dev": null,
+  "v3|test_real": "local"
+ },
+ "fields": [
+  [
+   "experience.company",
+   "company"
+  ],
+  [
+   "education.school",
+   "school"
+  ],
+  [
+   "skills",
+   "skills"
+  ],
+  [
+   "personal_projects.name",
+   "project"
+  ],
+  [
+   "experience.job_title",
+   "job_title"
+  ],
+  [
+   "certificates",
+   "certificates"
+  ],
+  [
+   "honours",
+   "honours"
+  ],
+  [
+   "languages.language",
+   "languages"
+  ]
+ ],
+ "models": [
+  "rule",
+  "v1",
+  "v2",
+  "v3"
+ ],
+ "splits": [
+  "val",
+  "val_swap",
+  "dev",
+  "test_real"
+ ],
+ "label": {
+  "rule": "Rule-based",
+  "base": "Qwen3-1.7B gốc",
+  "v1": "LLM v1",
+  "v2": "LLM v2",
+  "v3": "LLM v3"
+ }
+}

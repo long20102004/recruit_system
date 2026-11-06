@@ -1,0 +1,14 @@
+fastapi
+uvicorn
+pydantic
+torch
+transformers
+peft
+accelerate
+llama-cpp-python
+gguf
+json-repair
+rapidfuzz
+psycopg[binary]
+neo4j>=5.20
+

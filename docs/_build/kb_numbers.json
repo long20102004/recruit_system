@@ -1,0 +1,36 @@
+{
+ "date": "05/11/2026",
+ "table": [
+  [
+   "Kỹ năng (skills)",
+   "813",
+   "Stack Overflow 2026 317, ESCO 167, Wikidata 129, Stack Overflow 2024 104, Stack Overflow 2025 56, Stack Overflow tags 40"
+  ],
+  [
+   "Alias kỹ năng",
+   "2.284",
+   "ESCO 995, Wikidata 712, Stack Overflow 2024 317, Stack Overflow 2026 121, Stack Overflow tags 57, Stack Overflow 2025 47, Linguist 35"
+  ],
+  [
+   "Quan hệ KG (skill_edges)",
+   "132",
+   "Wikidata 132"
+  ],
+  [
+   "Trường học",
+   "387",
+   "Wikipedia 282, Wikidata 104, Website trường 1"
+  ],
+  [
+   "Alias trường",
+   "1.259",
+   "Wikidata 848, Wikipedia 409, Website trường 2"
+  ],
+  [
+   "Chức danh / nghề",
+   "743",
+   "ESCO 743"
+  ]
+ ],
+ "coverage_note": "Độ phủ đo trên nhãn chuẩn (gold) của 20 CV thật: KB mới link được 276/362 kỹ năng (76,2 %) và 17/20 tên trường (85 %); KB cũ (dựng từ nhãn dữ liệu + đề xuất LLM, không trích dẫn được) đạt 77,1 % và 95 %. Phần chênh chủ yếu là các cụm từ tự do (\"Have the spirit of self-study\") mà chỉ KB dựng từ chính nhãn CV mới có, và 3 trường cao đẳng không có trong Wikidata/Wikipedia. Trên dự đoán của mô hình v3 cho 20 CV này, chuẩn hoá đổi tên 90/276 kỹ năng về tên chuẩn (ReactJS → React, NodeJS → Node.js, SQL Server → Microsoft SQL Server, OOP → Object-oriented programming…), 114 đã đúng tên chuẩn, 72 giữ nguyên vì không có trong KB."
+}

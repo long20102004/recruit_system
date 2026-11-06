@@ -1,0 +1,14 @@
+# IDE / Editor
+.idea/
+*.iws
+*.iml
+*.ipr
+.vscode/
+.openidea/
+# OS files
+.DS_Store
+Thumbs.db
+
+
+# Real CVs (personal data) — never commit
+dataset/
