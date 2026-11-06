@@ -1,5 +1,6 @@
 // Build the thesis-format report (Vietnamese) for Module 1 as .docx
-// Run from docs/_build:  node thesis.js ../DoAn_Module1_TrichXuatCV.docx
+// Run from docs/_build:  node thesis.js demo/render/raw.docx && python3 update_toc.py demo/render/raw.docx ../DoAn_Module1_TrichXuatCV.docx
+//   (the second step fills the TOC / list of figures / list of tables with page numbers via LibreOffice)
 // Real CVs appear only as counts; every CV shown in full is fictional (synthetic).
 const fs = require("fs");
 const {
@@ -143,7 +144,7 @@ cover.push(ctr("HÀ NỘI – 2026", 26, { before: 1500 }));
 // =====================================================================================
 // FRONT MATTER (roman page numbers)
 const front = [];
-const frontH = (t) => new Paragraph({ heading: HeadingLevel.HEADING_1, children: [new TextRun(t)], pageBreakBefore: front.length > 0 });
+const frontH = (t) => new Paragraph({ style: "FrontTitle", children: [new TextRun(t)], pageBreakBefore: front.length > 0 });
 front.push(frontH("LỜI CẢM ƠN"));
 front.push(P("[Phần này sinh viên tự viết: lời cảm ơn giảng viên hướng dẫn, khoa, gia đình và bạn bè.]", { alignment: AlignmentType.LEFT }));
 front.push(frontH("LỜI CAM ĐOAN"));
@@ -818,6 +819,8 @@ const doc = new Document({
         run: { font: FONT, size: 27, bold: true }, paragraph: { spacing: { before: 240, after: 120 }, keepNext: true, outlineLevel: 1 } },
       { id: "Heading3", name: "Heading 3", basedOn: "Normal", next: "Normal", quickFormat: true,
         run: { font: FONT, size: 26, bold: true, italics: true }, paragraph: { spacing: { before: 180, after: 100 }, keepNext: true, outlineLevel: 2 } },
+      { id: "FrontTitle", name: "Front Title", basedOn: "Normal", next: "Normal", quickFormat: true,
+        run: { font: FONT, size: 30, bold: true }, paragraph: { alignment: AlignmentType.CENTER, spacing: { before: 0, after: 360 }, keepNext: true } },
       { id: "HinhCaption", name: "Hinh Caption", basedOn: "Normal", next: "Normal", quickFormat: true,
         run: { font: FONT, size: 24, italics: true }, paragraph: { alignment: AlignmentType.CENTER, spacing: { before: 60, after: 240 } } },
       { id: "BangCaption", name: "Bang Caption", basedOn: "Normal", next: "Normal", quickFormat: true,
