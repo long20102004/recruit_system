@@ -42,10 +42,6 @@
    "skills_canonical": 0.3654618473895582,
    "languages": 0.19047619047619047
   },
-  "base|val": null,
-  "base|val_swap": null,
-  "base|dev": null,
-  "base|test_real": null,
   "v1|val": {
    "experience.company": 0.918,
    "education.school": 0.961,
@@ -151,10 +147,6 @@
   "rule|val_swap": "spec",
   "rule|dev": "local",
   "rule|test_real": "local",
-  "base|val": null,
-  "base|val_swap": null,
-  "base|dev": null,
-  "base|test_real": null,
   "v1|val": "spec",
   "v1|val_swap": "spec",
   "v1|dev": null,
@@ -204,7 +196,6 @@
  ],
  "models": [
   "rule",
-  "base",
   "v1",
   "v2",
   "v3"

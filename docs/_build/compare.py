@@ -11,7 +11,7 @@ from pathlib import Path
 FIELDS = [("experience.company", "company"), ("education.school", "school"), ("skills", "skills"),
           ("personal_projects.name", "project"), ("experience.job_title", "job_title"),
           ("certificates", "certificates"), ("honours", "honours"), ("languages.language", "languages")]
-MODELS = ["rule", "base", "v1", "v2", "v3"]
+MODELS = ["rule", "v1", "v2", "v3"]  # "base" (zero-shot) not run on GPU yet
 SPLITS = ["val", "val_swap", "dev", "test_real"]
 LABEL = {"rule": "Rule-based", "base": "Qwen3-1.7B gốc", "v1": "LLM v1", "v2": "LLM v2", "v3": "LLM v3"}
 
@@ -87,14 +87,14 @@ def main():
     w = 0.16
     for i, m in enumerate(MODELS):
         ys = [mean(table[f"{m}|{s}"]) for s in SPLITS]
-        xs = [j + (i - 2) * w for j in range(len(SPLITS))]
+        xs = [j + (i - 1.5) * w for j in range(len(SPLITS))]
         bars = ax.bar([x for x, y in zip(xs, ys) if y is not None], [y for y in ys if y is not None], w,
                       label=LABEL[m], color=colors[m], edgecolor="#404040", linewidth=0.5)
         for b in bars:
             ax.text(b.get_x() + b.get_width() / 2, b.get_height() + 0.01, f"{b.get_height():.2f}", ha="center", fontsize=6.5)
         for x, y in zip(xs, ys):
             if y is None:
-                ax.text(x, 0.02, "chờ\nchạy", ha="center", fontsize=6, color="#C00000")
+                ax.text(x, 0.02, "chưa\nđo", ha="center", fontsize=6, color="#C00000")
     ax.set_xticks(range(len(SPLITS)))
     ax.set_xticklabels(["val (99 CV tổng hợp)", "val_swap (99, đổi tên)", "dev (45 CV bố cục thật)", "test_real (20 CV thật)"])
     ax.set_ylabel("F1 trung bình 7 trường"); ax.set_ylim(0, 1.08)
@@ -106,7 +106,7 @@ def main():
     for i, m in enumerate(MODELS):
         cell = table[f"{m}|test_real"] or {}
         ys = [cell.get(f) for f, _ in FIELDS]
-        xs = [j + (i - 2) * w for j in range(len(FIELDS))]
+        xs = [j + (i - 1.5) * w for j in range(len(FIELDS))]
         ax.bar([x for x, y in zip(xs, ys) if y is not None], [y for y in ys if y is not None], w, label=LABEL[m],
                color=colors[m], edgecolor="#404040", linewidth=0.5)
     ax.set_xticks(range(len(FIELDS))); ax.set_xticklabels([n for _, n in FIELDS])
