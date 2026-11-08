@@ -9,7 +9,7 @@
   "local_files_only": false,
   "model_max_length": 40960,
   "pad_token": "<|vision_pad|>",
-  "padding_side": "right",
+  "padding_side": "left",
   "split_special_tokens": false,
   "tokenizer_class": "Qwen2Tokenizer",
   "unk_token": null,

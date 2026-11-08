@@ -33,3 +33,7 @@ Thumbs.db
 
 # Datasets / CV texts (may contain real personal data, never commit)
 data/
+
+# Old checkpoints
+checkpoint-250/
+

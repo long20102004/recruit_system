@@ -19,5 +19,5 @@ spring:
             read-timeout: 1200000000
 ai:
   service:
-#    url: ${AI_SERVICE_URL:https://bennett-scheme-acts-glass.trycloudflare.com}
-    url: ${AI_SERVICE_URL:http://localhost:8000}
+    # url: ${AI_SERVICE_URL:https://solutions-anticipated-saw-complement.trycloudflare.com}
+   url: ${AI_SERVICE_URL:http://localhost:8000}

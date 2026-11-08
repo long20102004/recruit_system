@@ -6,8 +6,8 @@ import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 
-//@FeignClient(name = "ai-service", url = "${ai.service.url:https://bennett-scheme-acts-glass.trycloudflare.com}")
-@FeignClient(name = "ai-service", url = "${ai.service.url:http://localhost:8000}")
+@FeignClient(name = "ai-service", url = "${ai.service.url:https://solutions-anticipated-saw-complement.trycloudflare.com}")
+//@FeignClient(name = "ai-service", url = "${ai.service.url:http://localhost:8000}")
 
 public interface AiServiceClient {
 
