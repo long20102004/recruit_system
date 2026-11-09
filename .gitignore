@@ -1,0 +1,25 @@
+# IDE / Editor
+.idea/
+*.iws
+*.iml
+*.ipr
+.vscode/
+.openidea/
+# OS files
+.DS_Store
+Thumbs.db
+
+# Agent rules
+AGENTS.md
+.opencode/
+.specify/
+
+
+
+
+# Real CVs (personal data) — never commit
+dataset/
+
+# Old checkpoints
+ai-service/checkpoint-250/
+

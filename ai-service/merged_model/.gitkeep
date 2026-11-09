@@ -1,0 +1,3 @@
+# Thư mục chứa mô hình GGUF lượng tử hóa (ví dụ: model-qwen3-1.7b-q4_k_m.gguf)
+# File .gguf dung lượng lớn (>1GB) được bỏ qua bởi .gitignore.
+# Tải file .gguf và đặt vào thư mục này để chạy bằng llama.cpp.
