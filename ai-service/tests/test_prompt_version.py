@@ -22,7 +22,7 @@ def config_process(**env_vars):
 
 
 @pytest.mark.parametrize("env_vars, expected", [
-    ({}, "v3 2048"),
+    ({}, "v4 2048"),
     ({"PROMPT_VERSION": " V2 "}, "v2 2048"),
     ({"PROMPT_VERSION": "v2", "MAX_NEW_TOKENS": "123"}, "v2 123"),
     ({"PROMPT_VERSION": "v1", "MAX_NEW_TOKENS": "456"}, "v1 456"),

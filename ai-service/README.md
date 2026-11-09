@@ -59,15 +59,37 @@ pip install -r requirements.txt
 
 ### 3. Biến môi trường (tùy chọn, tất cả có giá trị mặc định)
 
+Service tự nạp file `.env` ngay trong thư mục `ai-service/` khi khởi động và đọc các biến môi trường sau đó nếu chưa có giá trị nào. Copy file mẫu rồi sửa trong `.env`:
+
+```bash
+cd ai-service
+cp .env.example .env
+```
+
+PowerShell (Windows):
+```powershell
+cd ai-service
+Copy-Item .env.example .env
+```
+
+Trong `.env`, sửa các biến điều khiển engine/model: `MODEL_ENGINE` (`transformers` hoặc `llama_cpp`), `PROMPT_VERSION` (`v1`–`v5`) và `GGUF_MODEL_PATH` (cho `llama_cpp`) hoặc `LORA_PATH` (cho `transformers`), rồi chạy service:
+
+```bash
+python main.py
+```
+
+Lưu ý: biến môi trường hệ điều hành luôn ưu tiên hơn giá trị trong `.env` (ví dụ `PROMPT_VERSION=v2 python main.py` sẽ đè `PROMPT_VERSION` trong `.env`); sau khi đổi `.env` cần khởi động lại service để giá trị mới có hiệu lực.
+
 | Biến | Mặc định | Mô tả |
 |---|---|---|
-| `BASE_MODEL_NAME` | `unsloth/Qwen3-1.7B` | Base model dùng khi fallback `transformers` + LoRA |
-| `LORA_PATH` | `./checkpoint-250` | Thư mục LoRA adapter |
-| `GGUF_MODEL_PATH` | `./merged_model/model-v3-q4_k_m.gguf` (v3), `./merged_model/model-v2-q4_k_m.gguf` (v2), `./merged_model/model.gguf` (v1) | File GGUF; nếu không tồn tại thì tự dò khi `merged_model/` chỉ có đúng 1 file `*.gguf`. Với v2/v3, thiếu file thì service báo lỗi (không dùng LoRA v1 thay thế) |
+| `BASE_MODEL_NAME` | `unsloth/Qwen3-1.7B` | Base model cho `transformers` + LoRA (có thể được thay bằng base khai trong adapter) |
+| `MODEL_ENGINE` | `transformers` | Chọn `transformers` (LoRA) hoặc `llama_cpp` (GGUF) |
+| `LORA_PATH` | `./checkpoint-v4` (v4), `./checkpoint-250` (v1), không đặt (v2/v3/v5) | Thư mục adapter tương ứng prompt; các phiên bản không có mặc định cần chỉ định adapter |
+| `GGUF_MODEL_PATH` | `./merged_model/model-v4-q4_k_m.gguf` (v4) | Mặc định v1: `model.gguf`; v2/v3/v5: `model-v2-q4_k_m.gguf` / `model-v3-q4_k_m.gguf` / `model-v5-q4_k_m.gguf`, đều trong `./merged_model/` |
 | `CONTEXT_TOKENS` | `8192` | Context window; nếu chưa set thì fallback sang `MAX_INPUT_TOKENS` |
 | `MAX_INPUT_TOKENS` | `8192` | Giá trị fallback cũ của `CONTEXT_TOKENS` |
-| `PROMPT_VERSION` | `v3` | Chọn model + prompt: `v3` (mặc định, feature 007/008), `v2` (feature 006) hoặc `v1` (model cũ). Prompt và trọng số phải cùng phiên bản |
-| `MAX_NEW_TOKENS` | `1500` (v1), `2048` (v2/v3) | Giới hạn số token sinh ra cho mỗi request |
+| `PROMPT_VERSION` | `v4` | Chọn phiên bản `v1`–`v5`; prompt và trọng số phải cùng phiên bản |
+| `MAX_NEW_TOKENS` | `1500` (v1), `2048` (v2–v5) | Giới hạn số token sinh ra cho mỗi request |
 | `LOOP_MAX_STRING_CHARS` | `2000` | Chặn lặp: dừng sinh khi một chuỗi JSON dài hơn ngưỡng này (feature 008) |
 | `LOOP_MAX_REPEATS` | `3` | Chặn lặp: dừng sinh khi cùng một chuỗi (≥ 15 ký tự) lặp lại ngần này lần trong cùng một danh sách |
 | `QUEUE_WAIT_SECONDS` | `30` | Thời gian tối đa chờ hàng đợi trước khi trả `503` "bận" |
@@ -91,15 +113,20 @@ python -m pytest -q
 
 ## ⚙️ Các Chế Độ Chạy Inference
 
-Dịch vụ hỗ trợ **2 cơ chế suy luận** (tự động phát hiện khi khởi động `main.py`):
+Dịch vụ chọn một trong **2 cơ chế suy luận** qua `MODEL_ENGINE`. Đường dẫn `LORA_PATH` và `GGUF_MODEL_PATH` tương đối được tính từ thư mục `ai-service`, không phụ thuộc thư mục chạy lệnh.
 
-### 🔹 Cách 1: Chạy trực tiếp bằng LoRA Adapter (Mặc định - Sẵn sàng ngay sau khi clone)
-- Thư mục `checkpoint-250/` đã chứa đầy đủ adapter và tokenizer.
-- Khi khởi chạy, hệ thống sẽ tự động tải base model `unsloth/Qwen3-1.7B` từ Hugging Face và áp dụng LoRA adapter.
-- **Lệnh khởi chạy:**
+### 🔹 Cách 1: LoRA v4 qua transformers (mặc định)
+- Chuẩn bị adapter v4 tại `checkpoint-v4/`; base model có thể được tải từ Hugging Face. Không dùng adapter v1 `checkpoint-250/` với prompt v4.
+- Chạy từ `ai-service` (các biến dưới đây cũng là mặc định):
   ```bash
-  python3 main.py
-  # Hoặc: uvicorn main:app --host 0.0.0.0 --port 8000
+  PROMPT_VERSION=v4 MODEL_ENGINE=transformers LORA_PATH=./checkpoint-v4 python main.py
+  ```
+  PowerShell (Windows):
+  ```powershell
+  $env:PROMPT_VERSION = "v4"
+  $env:MODEL_ENGINE = "transformers"
+  $env:LORA_PATH = "./checkpoint-v4"
+  python main.py
   ```
 
 ### 🔹 Cách 2: Chạy tối ưu hóa với GGUF qua llama.cpp (Nhanh hơn, tiết kiệm RAM)
@@ -109,16 +136,18 @@ Dịch vụ hỗ trợ **2 cơ chế suy luận** (tự động phát hiện khi
   # Nếu dùng GPU NVIDIA (CUDA):
   CMAKE_ARGS="-DGGML_CUDA=on" pip install llama-cpp-python
   ```
-- Do file GGUF (`model-qwen3-1.7b-q4_k_m.gguf` ~ 1.11 GB) vượt quá hạn mức 100MB của GitHub nên file này không được push trực tiếp lên repo.
-- **Cách sử dụng:**
-  1. Tải file `model-qwen3-1.7b-q4_k_m.gguf` từ link lưu trữ chia sẻ của dự án (Google Drive / Hugging Face).
-  2. Đặt file vào thư mục `ai-service/merged_model/`:
-     ```
-     ai-service/merged_model/model-qwen3-1.7b-q4_k_m.gguf
-     ```
-  3. Khởi chạy: `python3 main.py`. Hệ thống sẽ tự động ưu tiên nạp GGUF và chạy qua engine `llama.cpp`.
-- **Tự động nhận file GGUF:** nếu `GGUF_MODEL_PATH` không trỏ tới file tồn tại, service tự động dùng file `*.gguf` duy nhất trong `merged_model/`. Có nhiều hơn một file `.gguf` thì phải đặt `GGUF_MODEL_PATH` rõ ràng (không nạp được sẽ fallback sang `transformers` + LoRA).
-- **Khi GGUF không được dùng** (thiếu file, chưa cài `llama-cpp-python`, lỗi nạp), `/health` báo `fallback_reason` kèm lý do.
+- Chuẩn bị GGUF v4 tại `merged_model/model-v4-q4_k_m.gguf`, rồi chạy từ `ai-service`:
+  ```bash
+  PROMPT_VERSION=v4 MODEL_ENGINE=llama_cpp GGUF_MODEL_PATH=./merged_model/model-v4-q4_k_m.gguf python main.py
+  ```
+  PowerShell (Windows):
+  ```powershell
+  $env:PROMPT_VERSION = "v4"
+  $env:MODEL_ENGINE = "llama_cpp"
+  $env:GGUF_MODEL_PATH = "./merged_model/model-v4-q4_k_m.gguf"
+  python main.py
+  ```
+- Chế độ GGUF nghiêm ngặt: thiếu file, thiếu thư viện hoặc lỗi nạp đều báo lỗi, **không fallback sang LoRA**. Nếu không đặt `GGUF_MODEL_PATH` và file mặc định không tồn tại, service chỉ tự chọn khi thư mục chứa đúng một file `*.gguf`; cần tự bảo đảm file đó khớp prompt. Nếu đã đặt biến, đường dẫn phải trỏ đúng file tồn tại.
 
 ---
 
@@ -281,10 +310,10 @@ python -m eval.report  --run data/runs/v1 --splits data/val.jsonl data/val_swap.
     "status": "ok",
     "engine": "transformers",
     "model": "unsloth/Qwen3-1.7B",
-    "lora": "./checkpoint-250",
+    "lora": "./checkpoint-v4",
     "device": "cuda:0",
     "context_tokens": 8192,
-    "fallback_reason": "Không tìm thấy file GGUF",
+    "fallback_reason": null,
     "kb": {
       "source": "postgres",
       "skills": 1250,
@@ -293,7 +322,7 @@ python -m eval.report  --run data/runs/v1 --splits data/val.jsonl data/val_swap.
   }
   ```
   Khi engine là `llama_cpp`, `model` là đường dẫn file GGUF và không có `lora`, `device`.
-- **Luôn có** `context_tokens` (số token context thực dùng). `fallback_reason` chỉ xuất hiện khi engine **không** phải `llama_cpp` (lý do không nạp được GGUF). Trường `"kb"` phản ánh trạng thái nạp Knowledge Base (`{"source": "postgres" | "csv", "skills": int, "universities": int}` hoặc `null` nếu tắt/chưa nạp).
+- `context_tokens` là số token context thực dùng; không có fallback tự động từ GGUF sang LoRA. Trường `"kb"` phản ánh trạng thái nạp Knowledge Base (`{"source": "postgres" | "csv", "skills": int, "universities": int}` hoặc `null` nếu tắt/chưa nạp).
 
 ---
 
@@ -380,12 +409,12 @@ export KB_TEST_DSN="postgresql://postgres:postgres@localhost:5433/recruit_kb_tes
 pytest -m kb_db
 ```
 
-## 🧠 Model v3 (mặc định, feature 007/008)
+## 🧠 Model v3 (feature 007/008)
 
 Tải GGUF v3 về `merged_model/model-v3-q4_k_m.gguf` (file trên Drive dự án, ~1,1 GB) rồi chạy service như thường:
 ```bash
 gdown 1mqmolAF-4nJXg1db89oHAYZKYlZ3CUcq -O merged_model/model-v3-q4_k_m.gguf
-uvicorn main:app --port 8000
+PROMPT_VERSION=v3 MODEL_ENGINE=llama_cpp uvicorn main:app --port 8000
 ```
 Serving v3 có thêm (feature 008): chặn vòng lặp khi sinh, ghép lại JSON bị đóng ngoặc sớm, và trả `502` khi model không trả về JSON có nội dung. Response chỉ gồm các trường trích từ CV; các trường KB/KG chỉ có khi `KG_ENABLED=true`. Kết quả trên 20 CV thật: `specs/008-serving-robustness-v3/results.md`.
 
@@ -406,7 +435,7 @@ Model v2 dùng **một prompt duy nhất** cho cả train và serve: `app/servic
 4. Serve model v2 (`PROMPT_VERSION=v2`): tải `finetune_output_v2/gguf_gguf/Qwen3-1.7B.Q4_K_M.gguf` từ Drive dự án về `merged_model/model-v2-q4_k_m.gguf`:
    ```bash
    gdown 1X4A2sVFDWbtIIP6hwjjJuiA3Sb-mjrUY -O merged_model/model-v2-q4_k_m.gguf
-   uvicorn main:app --port 8000
+    PROMPT_VERSION=v2 MODEL_ENGINE=llama_cpp uvicorn main:app --port 8000
    ```
    Model cũ: `PROMPT_VERSION=v1` (file `merged_model/model.gguf`).
    Chạy trên Colab GPU thay vì local: `run_on_colab.ipynb`.

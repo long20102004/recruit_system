@@ -1,3 +1,6 @@
+# Local environment files (real .env is ignored; .env.example is tracked)
+.env
+
 # Python Virtual Environment
 .venv/
 venv/

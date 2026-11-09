@@ -4,8 +4,6 @@ import os
 from app.core.config import (
     BASE_MODEL_NAME,
     CONTEXT_TOKENS,
-    GGUF_MODEL_PATH,
-    LORA_PATH,
     _resolve,
 )
 from app.core.logging import logger
@@ -114,62 +112,76 @@ def _preload_cuda_libs():
         logger.debug(f"Preload CUDA libs note: {_ce}")
 
 
-def load_model():
-    logger.info("=" * 70)
-    logger.info("Loading CV Extraction Model")
-    logger.info("=" * 70)
-
-    # Ưu tiên 1: GGUF merged (standalone, không cần LoRA adapter)
-    gguf_path, reason = resolve_gguf_path(_resolve(GGUF_MODEL_PATH))
-    if not gguf_path:
-        state.fallback_reason = reason
-        logger.warning(f"Bỏ qua GGUF ({reason}), fallback sang transformers...")
-    else:
-        try:
-            _preload_cuda_libs()
-
-            from llama_cpp import Llama
-
-            logger.info(f"GGUF found: {gguf_path}")
-            logger.info("Loading GGUF (merged finetune, LoRA adapter KHÔNG cần thiết)...")
-            state.llm = Llama(
-                model_path=gguf_path,
-                n_ctx=CONTEXT_TOKENS,
-                n_threads=6,
-                n_gpu_layers=99,      # Offload 100% layers lên GPU
-                verbose=True
-            )
-            state.engine = "llama_cpp"
-            state.gguf_path_used = gguf_path
-            state.context_tokens = CONTEXT_TOKENS
-            state.fallback_reason = None
-            logger.info("=" * 70)
-            logger.info("MODEL LOADED SUCCESSFULLY (llama.cpp GGUF)")
-            logger.info("=" * 70)
-            return
-        except ImportError:
-            state.fallback_reason = "llama_cpp chưa được cài (ImportError)"
-            logger.exception("Nạp GGUF thất bại, fallback sang transformers...")
-        except Exception as e:
-            state.fallback_reason = f"Nạp GGUF thất bại ({type(e).__name__})"
-            logger.exception("Nạp GGUF thất bại, fallback sang transformers...")
-
-    # The bundled LoRA adapter (checkpoint-250) is model v1: never pair it with the v2 prompt.
+def get_lora_path() -> str | None:
     from app.core import config as _cfg
-    if _cfg.PROMPT_VERSION in ("v2", "v3", "v4", "v5") and os.path.normpath(LORA_PATH) == os.path.normpath("./checkpoint-250"):
+
+    return _cfg.LORA_PATH
+
+
+def _load_llama_cpp():
+    from app.core import config as _cfg
+
+    configured = _resolve(_cfg.GGUF_MODEL_PATH)
+    if "GGUF_MODEL_PATH" in os.environ and not os.path.isfile(configured):
+        raise RuntimeError(f"Không tìm thấy file GGUF được chỉ định: {configured}")
+    gguf_path, reason = resolve_gguf_path(configured)
+    if not gguf_path:
+        raise RuntimeError(f"Không thể nạp GGUF ({configured}): {reason}")
+
+    try:
+        _preload_cuda_libs()
+
+        from llama_cpp import Llama
+
+        logger.info(f"GGUF found: {gguf_path}")
+        logger.info("Loading GGUF (merged finetune, LoRA adapter KHÔNG cần thiết)...")
+        llm = Llama(
+            model_path=gguf_path,
+            n_ctx=CONTEXT_TOKENS,
+            n_threads=6,
+            n_gpu_layers=99,      # Offload 100% layers lên GPU
+            verbose=True
+        )
+        state.llm = llm
+        state.engine = "llama_cpp"
+        state.gguf_path_used = gguf_path
+        state.context_tokens = CONTEXT_TOKENS
+        state.fallback_reason = None
+        logger.info("=" * 70)
+        logger.info("MODEL LOADED SUCCESSFULLY (llama.cpp GGUF)")
+        logger.info("=" * 70)
+    except Exception as e:
+        raise RuntimeError(f"Nạp GGUF thất bại ({gguf_path}): {type(e).__name__}: {e}") from e
+
+
+def _load_transformers():
+    from app.core import config as _cfg
+
+    lora_path = get_lora_path()
+    if not lora_path:
+        raise RuntimeError(f"PROMPT_VERSION={_cfg.PROMPT_VERSION} cần LORA_PATH tới adapter tương ứng")
+    lora_abs = _resolve(lora_path)
+
+    # Only pair the known bundled adapters with their corresponding prompts.
+    known_adapters = {"v1": "./checkpoint-250", "v4": "./checkpoint-v4"}
+    for version, path in known_adapters.items():
+        if os.path.realpath(lora_abs) != os.path.realpath(_resolve(path)) or _cfg.PROMPT_VERSION == version:
+            continue
         raise RuntimeError(
-            f"PROMPT_VERSION={_cfg.PROMPT_VERSION} cần model cùng phiên bản: đặt file GGUF vào "
-            f"{_cfg.DEFAULT_GGUF[_cfg.PROMPT_VERSION]} (hoặc GGUF_MODEL_PATH), hoặc LORA_PATH tới adapter tương ứng. "
-            f"Lý do không nạp được GGUF: {state.fallback_reason}"
+            f"PROMPT_VERSION={_cfg.PROMPT_VERSION} không tương thích với adapter {version} "
+            f"tại {lora_abs}; đặt LORA_PATH tới adapter tương ứng."
         )
 
-    # Ưu tiên 2: transformers base + LoRA (fallback, chậm hơn ~5 lần)
+    if not os.path.exists(lora_abs):
+        raise RuntimeError(
+            f"Không tìm thấy LoRA checkpoint: {lora_abs}"
+        )
+
     import torch
     from transformers import AutoTokenizer, AutoModelForCausalLM
     from peft import PeftModel
 
-    lora_abs = _resolve(LORA_PATH)
-    base_from_adapter = _adapter_base(LORA_PATH)
+    base_from_adapter = _adapter_base(lora_path)
     base_name = BASE_MODEL_NAME
     if base_from_adapter and base_from_adapter != BASE_MODEL_NAME:
         logger.info(
@@ -182,11 +194,6 @@ def load_model():
     logger.info(f"Base model : {base_name}")
     logger.info(f"LoRA path  : {lora_abs}")
 
-    if not os.path.exists(lora_abs):
-        raise RuntimeError(
-            f"Không tìm thấy LoRA checkpoint: {lora_abs}"
-        )
-
     device = "cuda" if torch.cuda.is_available() else "cpu"
     dtype = torch.float16 if device == "cuda" else torch.float32
 
@@ -194,7 +201,7 @@ def load_model():
     logger.info(f"Dtype  : {dtype}")
 
     logger.info("Loading tokenizer...")
-    state.tokenizer = AutoTokenizer.from_pretrained(
+    tokenizer = AutoTokenizer.from_pretrained(
         lora_abs,
         use_fast=True
     )
@@ -207,15 +214,39 @@ def load_model():
     )
 
     logger.info("Loading LoRA adapter...")
-    state.model = PeftModel.from_pretrained(
+    model = PeftModel.from_pretrained(
         base_model,
         lora_abs
     )
-    state.model.to(device)
-    state.model.eval()
+    model.to(device)
+    model.eval()
+    state.tokenizer = tokenizer
+    state.model = model
     state.engine = "transformers"
     state.context_tokens = CONTEXT_TOKENS
+    state.fallback_reason = None
 
     logger.info("=" * 70)
     logger.info("MODEL LOADED SUCCESSFULLY (transformers + LoRA)")
     logger.info("=" * 70)
+
+
+def load_model():
+    logger.info("=" * 70)
+    logger.info("Loading CV Extraction Model")
+    logger.info("=" * 70)
+
+    from app.core import config as _cfg
+
+    engine_pref = getattr(_cfg, "MODEL_ENGINE", "transformers").strip().lower()
+    logger.info(f"Target model engine: {engine_pref}")
+
+    if engine_pref not in ("transformers", "llama_cpp"):
+        raise ValueError(f"MODEL_ENGINE không hợp lệ: {engine_pref!r}; chọn 'transformers' hoặc 'llama_cpp'")
+
+    # Clear the previous model before attempting a new load.
+    state.__init__()
+    if engine_pref == "transformers":
+        _load_transformers()
+    else:
+        _load_llama_cpp()
