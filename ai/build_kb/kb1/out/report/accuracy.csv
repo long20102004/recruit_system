@@ -1,0 +1,11 @@
+﻿chi_so,gia_tri,so_mau
+do_chinh_xac_gan_nhom,0.82,50
+do_chinh_xac_phan_loai_nhan,0.68,50
+ti_le_nhan_llm,0.951,1847
+ti_le_nhan_rule,0.049,96
+ti_le_gan_cha_cluster_heading,0.156,289
+ti_le_gan_cha_connector,0.513,953
+ti_le_gan_cha_frame_heading,0.205,380
+ti_le_gan_cha_frame_main,0.014,26
+ti_le_gan_cha_nearest,0.104,193
+ti_le_gan_cha_orphan,0.008,15

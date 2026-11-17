@@ -1,0 +1,15 @@
+# Mau hoc tap (A7 -> is_coursework). Van ban da chuan hoa.
+môn học
+bài tập
+bài tập lớn
+đồ án môn
+khoá học
+khóa học
+học qua
+tự học qua
+trên lớp
+course
+coursework
+tutorial
+assignment
+homework

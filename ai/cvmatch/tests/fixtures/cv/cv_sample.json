@@ -1,0 +1,24 @@
+{
+  "full_name": "Nguyễn Văn A",
+  "email": "a.nguyen@example.com",
+  "phone": "0901234567",
+  "birth_year": 1998,
+  "location": "TP.HCM",
+  "summary": "Backend developer 4 năm kinh nghiệm Java",
+  "skills": ["Java", "Spring Boot", "PostgreSQL", "Docker"],
+  "experiences": [
+    {
+      "title": "Senior Java Developer",
+      "company": "Công ty X",
+      "start": "2022-03", "end": null, "is_current": true,
+      "description": [
+        "Xây dựng API thanh toán bằng Spring Boot",
+        "Tối ưu truy vấn PostgreSQL, giảm 40% thời gian"
+      ],
+      "technologies": ["Java", "Spring Boot", "Kafka"]
+    }
+  ],
+  "projects": [],
+  "education": [{"school": "ĐH Bách Khoa", "major": "Kỹ thuật phần mềm", "end": "2020"}],
+  "certificates": [], "languages": ["Tiếng Anh"]
+}

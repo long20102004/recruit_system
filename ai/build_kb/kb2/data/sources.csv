@@ -1,0 +1,4 @@
+source_id,type,title,publisher,uri,lang,trust,license,accessed,sha256
+W01,web,ITviec IT jobs by expertise,ITviec,https://itviec.com/jobs-expertise-index,vi+en,medium,ITviec giữ bản quyền; chưa xin đồng ý bằng văn bản (điều khoản mục 2.2),2026-11-05,94d7664d27613dc8f468c5c402b199c8944472445cd444af1821d8489e67c01e
+M01,generated,Danh mục ngành học tự sinh,Claude,kb2/data/majors.csv,vi+en,low,tự sinh; chưa đối chiếu nguồn,2026-11-05,2717a8c16fcbf2b0cf99005450020b3a35c2273e08dc589cee7f3d385a8302e6
+M02,generated,Alias cấp bậc tự soạn,Claude,kb2/data/levels.csv,vi+en,low,tự sinh; thang rank theo Knowledge base.md,2026-11-05,fed09a331eea7bdd60316076904bdf71f7400feab480fa29e4d4a4f17d51a06a

@@ -1,0 +1,598 @@
+synonym,target,skill,decision,reason,added
+sql-server-vnext,sql-server,sql server,drop,phiên bản,
+sql-server-on-linux,sql-server,sql server,drop,không chắc cùng nghĩa,
+azure-database-postgresql,postgresql,postgresql,drop,không chắc cùng nghĩa,
+dockerfile,docker,docker,drop,không chắc cùng nghĩa,
+htm,html,html,drop,không chắc cùng nghĩa,
+wss-websocket,websocket,websocket,drop,không chắc cùng nghĩa,
+flutter-provider,flutter,flutter,drop,không chắc cùng nghĩa,
+android-compose,android-jetpack-compose,jetpack compose,alias,đã duyệt tay,android compose|android-compose
+snowflake-stage,snowflake-cloud-data-platform,snowflake,drop,không chắc cùng nghĩa,
+snowflake-webui,snowflake-cloud-data-platform,snowflake,drop,không chắc cùng nghĩa,
+snowflake-time-travel,snowflake-cloud-data-platform,snowflake,drop,không chắc cùng nghĩa,
+gcs,google-cloud-storage,google cloud storage,alias,đã duyệt tay,gcs
+csp,content-security-policy,content security policy,conflict,"đã thuộc skill csp, xem có nên gộp không",
+selenium-webdriver-python,selenium-webdriver,selenium,drop,không chắc cùng nghĩa,
+react-native-web,react-native,react native,drop,không chắc cùng nghĩa,
+fine-tune,fine-tuning,fine-tuning,alias,đã duyệt tay,fine tune|fine-tune
+loki,grafana-loki,loki,exists,đã có,
+jetpack-compose,android-jetpack-compose,jetpack compose,alias,"cùng tên, khác cách viết",jetpack-compose
+sql-standards,sql,sql,drop,không chắc cùng nghĩa,
+pandas-2.x,pandas,pandas,drop,phiên bản,
+pandas-1.x,pandas,pandas,drop,phiên bản,
+linux-development,linux,linux,drop,không chắc cùng nghĩa,
+aws-neptune,amazon-neptune,aws neptune,alias,"cùng tên, khác cách viết",aws-neptune
+html-manipulation,dom-manipulation,dom manipulation,drop,không chắc cùng nghĩa,
+kafka-cluster,apache-kafka,apache kafka,drop,không chắc cùng nghĩa,
+custom-data-generator,data-generation,data generation,drop,không chắc cùng nghĩa,
+selenium,selenium-webdriver,selenium,exists,đã có,
+openai,openai-api,openai api,alias,đã duyệt tay,openai
+chat-gpt,openai-api,openai api,drop,không chắc cùng nghĩa,
+chatgpt,openai-api,openai api,drop,không chắc cùng nghĩa,
+assistive-technology,accessibility,accessibility,drop,không chắc cùng nghĩa,
+aws-cdk-python,aws-cdk,aws cdk,drop,không chắc cùng nghĩa,
+cdk,aws-cdk,aws cdk,alias,đã duyệt tay,cdk
+tailwind,tailwind-css,tailwind css,conflict,"đã thuộc skill tailwind, xem có nên gộp không",
+flutter-test,flutter,flutter,drop,không chắc cùng nghĩa,
+flutter-web,flutter,flutter,drop,không chắc cùng nghĩa,
+flutter-desktop,flutter,flutter,drop,không chắc cùng nghĩa,
+flutter-ios,flutter,flutter,drop,không chắc cùng nghĩa,
+flutter-android,flutter,flutter,drop,không chắc cùng nghĩa,
+sql-or,sql,sql,drop,không chắc cùng nghĩa,
+sql-and,sql,sql,drop,không chắc cùng nghĩa,
+react-component,reactjs,react,drop,không chắc cùng nghĩa,
+snowpark,snowflake-cloud-data-platform,snowflake,drop,không chắc cùng nghĩa,
+flutter-widget,flutter,flutter,drop,không chắc cùng nghĩa,
+kubernetes-pod,kubernetes,kubernetes,drop,không chắc cùng nghĩa,
+azure-vm,azure-virtual-machine,azure vm,alias,"cùng tên, khác cách viết",azure-vm
+flutter-layout,flutter,flutter,drop,không chắc cùng nghĩa,
+gitlab-pipelines,gitlab-ci,gitlab ci,drop,không chắc cùng nghĩa,
+azure-sql-server,azure-sql-database,azure sql database,alias,đã duyệt tay,azure sql server|azure-sql-server
+bspline,spline,spline,drop,không chắc cùng nghĩa,
+cubic-spline,spline,spline,drop,không chắc cùng nghĩa,
+reflect,reflection,reflection,drop,không chắc cùng nghĩa,
+airflow-scheduler,airflow,airflow,drop,không chắc cùng nghĩa,
+scatter,scatter-plot,scatter plot,drop,không chắc cùng nghĩa,
+supabase-auth,supabase,supabase,drop,không chắc cùng nghĩa,
+bq,google-bigquery,google bigquery,ambiguous,từ thường hoặc quá ngắn,bq
+points,point,point,drop,không chắc cùng nghĩa,
+crashlytics-android,crashlytics,crashlytics,drop,không chắc cùng nghĩa,
+snowflake-connector,snowflake-cloud-data-platform,snowflake,drop,không chắc cùng nghĩa,
+base-r,r,r,drop,không chắc cùng nghĩa,
+ratelimit,rate-limiting,rate limiting,alias,đã duyệt tay,ratelimit
+tabpanel,tabs,tabs,drop,không chắc cùng nghĩa,
+11ty,eleventy,eleventy,alias,đã duyệt tay,11ty
+amazon-s3-bucket,amazon-s3,s3,drop,không chắc cùng nghĩa,
+android-accessibility,accessibility,accessibility,drop,không chắc cùng nghĩa,
+svelte.js,svelte,svelte,alias,"cùng tên, khác cách viết",svelte.js
+aws-dynamodb,amazon-dynamodb,dynamodb,alias,"cùng tên, khác cách viết",aws dynamodb|aws-dynamodb
+html-syntax,html,html,drop,không chắc cùng nghĩa,
+phpinfo,php,php,drop,không chắc cùng nghĩa,
+vitejs,vite,vite,alias,"cùng tên, khác cách viết",vitejs
+maping,mapping,mapping,drop,không chắc cùng nghĩa,
+restapi,rest,rest,alias,đã duyệt tay,restapi
+react-native-ios,react-native,react native,drop,không chắc cùng nghĩa,
+react-native-android,react-native,react native,drop,không chắc cùng nghĩa,
+azure-sql,azure-sql-database,azure sql database,alias,đã duyệt tay,azure sql|azure-sql
+airflow-operator,airflow,airflow,drop,không chắc cùng nghĩa,
+apache-airflow-xcom,airflow,airflow,drop,không chắc cùng nghĩa,
+airflow-worker,airflow,airflow,drop,không chắc cùng nghĩa,
+flutter-sdk,flutter,flutter,drop,không chắc cùng nghĩa,
+snowflake-xml,snowflake-cloud-data-platform,snowflake,drop,không chắc cùng nghĩa,
+snowflake-sql,snowflake-cloud-data-platform,snowflake,drop,không chắc cùng nghĩa,
+azure-storage-blobs,azure-blob-storage,azure blob storage,alias,đã duyệt tay,azure storage blobs|azure-storage-blobs
+vanilla-typescript,typescript,typescript,drop,không chắc cùng nghĩa,
+deep-neural-network,deep-learning,deep learning,drop,không chắc cùng nghĩa,
+dnn-learning,deep-learning,deep learning,drop,không chắc cùng nghĩa,
+delimiter-separated-values,csv,csv,drop,không chắc cùng nghĩa,
+delimited-text,csv,csv,drop,không chắc cùng nghĩa,
+tab-delimited-text,csv,csv,drop,không chắc cùng nghĩa,
+tab-delimited,csv,csv,drop,không chắc cùng nghĩa,
+reactjs-native,react-native,react native,drop,không chắc cùng nghĩa,
+nuxtjs,nuxt.js,nuxt.js,alias,"cùng tên, khác cách viết",nuxtjs
+eventsource,server-sent-events,server‑sent events,drop,không chắc cùng nghĩa,
+paginate,pagination,pagination,drop,không chắc cùng nghĩa,
+firebasefirestore,google-cloud-firestore,firestore,drop,không chắc cùng nghĩa,
+azure-function-app,azure-functions,azure functions,drop,không chắc cùng nghĩa,
+snowflake-stream,snowflake-cloud-data-platform,snowflake,drop,không chắc cùng nghĩa,
+github-workflow,github-actions,github actions,drop,không chắc cùng nghĩa,
+jwt-auth,jwt,jwt,conflict,"đã thuộc skill jwt auth, xem có nên gộp không",
+firebasecrashlytics,crashlytics,crashlytics,drop,không chắc cùng nghĩa,
+keyvaluepair,key-value,key-value store,drop,không chắc cùng nghĩa,
+jest,jestjs,jest,exists,đã có,
+snowflake-pipe,snowflake-cloud-data-platform,snowflake,drop,không chắc cùng nghĩa,
+snowflake-task,snowflake-cloud-data-platform,snowflake,drop,không chắc cùng nghĩa,
+snowsql,snowflake-cloud-data-platform,snowflake,drop,không chắc cùng nghĩa,
+snowflake-data-masking,snowflake-cloud-data-platform,snowflake,drop,không chắc cùng nghĩa,
+cypressio,cypress,cypress,alias,đã duyệt tay,cypressio
+git-commands,git,git,drop,không chắc cùng nghĩa,
+wlan,wifi,wifi,conflict,"đã thuộc skill wlan, xem có nên gộp không",
+802.11,wifi,wifi,alias,đã duyệt tay,802.11
+wificonfiguration,wifi,wifi,drop,không chắc cùng nghĩa,
+az,azure,azure,ambiguous,từ thường hoặc quá ngắn,az
+eks,amazon-eks,aws eks,alias,"cùng tên, khác cách viết",eks
+aws-eks,amazon-eks,aws eks,alias,"cùng tên, khác cách viết",aws-eks
+offline-web-app,web-applications,web application,drop,không chắc cùng nghĩa,
+hilt-dagger,dagger-hilt,hilt,drop,không chắc cùng nghĩa,
+android-hilt,dagger-hilt,hilt,drop,không chắc cùng nghĩa,
+android-jetpack-hilt,dagger-hilt,hilt,drop,không chắc cùng nghĩa,
+hilt,dagger-hilt,hilt,exists,đã có,
+html-head,html,html,drop,không chắc cùng nghĩa,
+chefdk,chef-infra,chef,drop,không chắc cùng nghĩa,
+chef-recipe,chef-infra,chef,drop,không chắc cùng nghĩa,
+chef12.0,chef-infra,chef,drop,phiên bản,
+chef-solo,chef-infra,chef,drop,không chắc cùng nghĩa,
+box-shadow,css,css,drop,không chắc cùng nghĩa,
+chef,chef-infra,chef,exists,đã có,
+box-sizing,css,css,drop,không chắc cùng nghĩa,
+zeit,vercel,vercel,alias,đã duyệt tay,zeit
+aws-sqs,amazon-sqs,aws sqs,alias,"cùng tên, khác cách viết",aws-sqs
+rds,amazon-rds,amazon rds,alias,"cùng tên, khác cách viết",rds
+java-api,java,java,drop,không chắc cùng nghĩa,
+react.js,reactjs,react,alias,"cùng tên, khác cách viết",react.js
+zeit-now,vercel,vercel,drop,không chắc cùng nghĩa,
+snowflake-data-warehouse,snowflake-cloud-data-platform,snowflake,drop,không chắc cùng nghĩa,
+nuxt,nuxt.js,nuxt.js,alias,"cùng tên, khác cách viết",nuxt
+serverside-rendering,server-side-rendering,server side rendering,alias,"cùng tên, khác cách viết",serverside rendering|serverside-rendering
+ssr,server-side-rendering,server side rendering,exists,đã có,
+snowflake-connector-python,snowflake-cloud-data-platform,snowflake,drop,không chắc cùng nghĩa,
+snowflake-datawarehouse,snowflake-cloud-data-platform,snowflake,drop,không chắc cùng nghĩa,
+bigquery,google-bigquery,google bigquery,alias,đã duyệt tay,bigquery
+firebase-android,firebase,firebase,drop,không chắc cùng nghĩa,
+infrastructure-as-a-code,infrastructure-as-code,infrastructure as code,alias,đã duyệt tay,infrastructure as a code|infrastructure-as-a-code
+snowflake,snowflake-cloud-data-platform,snowflake,exists,đã có,
+s3-bucket,amazon-s3,s3,drop,không chắc cùng nghĩa,
+bigquery-standard-sql,google-bigquery,google bigquery,drop,không chắc cùng nghĩa,
+bigquery-ml,google-bigquery,google bigquery,drop,không chắc cùng nghĩa,
+python-bigquery,google-bigquery,google bigquery,drop,không chắc cùng nghĩa,
+npmjs,npm,npm,alias,"cùng tên, khác cách viết",npmjs
+google-bigquery-ml,google-bigquery,google bigquery,drop,không chắc cùng nghĩa,
+okhttp3,okhttp,okhttp,drop,phiên bản,
+cxx,c++,c++,alias,đã duyệt tay,cxx
+client-scripting,client-side,client‑side caching,drop,không chắc cùng nghĩa,
+csrf-protection,csrf,csrf,drop,không chắc cùng nghĩa,
+mysql-if,mysql,mysql,drop,không chắc cùng nghĩa,
+login,authentication,authentication,drop,không chắc cùng nghĩa,
+natural-language-processing,nlp,natural language processing,alias,"cùng tên, khác cách viết",natural-language-processing
+css-text-overflow,css,css,drop,không chắc cùng nghĩa,
+css-border-image,css,css,drop,không chắc cùng nghĩa,
+css-border-radius,css,css,drop,không chắc cùng nghĩa,
+css-box-shadow,css,css,drop,không chắc cùng nghĩa,
+css-text-shadow,css,css,drop,không chắc cùng nghĩa,
+css3,css,css,drop,phiên bản,
+okhttpclient,okhttp,okhttp,drop,không chắc cùng nghĩa,
+nowjs,vercel,vercel,drop,không chắc cùng nghĩa,
+transactional,transactions,transactions,drop,không chắc cùng nghĩa,
+dagger.android,dagger,dagger,drop,không chắc cùng nghĩa,
+dagger-android,dagger,dagger,drop,không chắc cùng nghĩa,
+html5,html,html,drop,phiên bản,
+time-tag,html,html,drop,không chắc cùng nghĩa,
+redshift,amazon-redshift,amazon redshift,alias,"cùng tên, khác cách viết",redshift
+android-textview,textview,textview,drop,không chắc cùng nghĩa,
+integration-tests,integration-testing,integration testing,alias,"cùng tên, số nhiều hoặc -ing",integration tests|integration-tests
+sqlite3,sqlite,sqlite,drop,phiên bản,
+angularjs2,angular,angular,drop,phiên bản,
+trimming,trim,trim,drop,không chắc cùng nghĩa,
+scraper,web-scraping,web scraping,drop,không chắc cùng nghĩa,
+circle,geometry,geometry,drop,không chắc cùng nghĩa,
+normalisation,normalization,normalization,alias,đã duyệt tay,normalisation
+throttle,throttling,throttling,drop,không chắc cùng nghĩa,
+aws-sagemaker,amazon-sagemaker,aws sagemaker,alias,"cùng tên, khác cách viết",aws-sagemaker
+sagemaker,amazon-sagemaker,aws sagemaker,alias,"cùng tên, khác cách viết",sagemaker
+android-architecture-livedata,android-livedata,livedata,drop,không chắc cùng nghĩa,
+livedata,android-livedata,livedata,exists,đã có,
+vue-js,vue.js,vue.js,alias,"cùng tên, khác cách viết",vue js|vue-js
+envoy,envoyproxy,envoy,exists,đã có,
+google-services-json,google-play-services,google play services,drop,không chắc cùng nghĩa,
+google-services,google-play-services,google play services,drop,không chắc cùng nghĩa,
+testdrivendesign,tdd,test‑driven development,alias,đã duyệt tay,testdrivendesign
+webpage,html,html,drop,không chắc cùng nghĩa,
+atscript,typescript,typescript,drop,không chắc cùng nghĩa,
+wifi-configuration,wifi,wifi,drop,không chắc cùng nghĩa,
+espresso,android-espresso,espresso,exists,đã có,
+travis,travis-ci,travis ci,alias,đã duyệt tay,travis
+finite-state-machine,state-machine,state machine,drop,không chắc cùng nghĩa,
+state-machines,state-machine,state machine,alias,"cùng tên, số nhiều hoặc -ing",state machines|state-machines
+dynamodb,amazon-dynamodb,dynamodb,exists,đã có,
+ses,amazon-ses,ses,exists,đã có,
+mysqlsh,mysql,mysql,drop,không chắc cùng nghĩa,
+php-namespaces,php,php,drop,không chắc cùng nghĩa,
+rnn,recurrent-neural-network,rnn,exists,đã có,
+text-analysis,nlp,natural language processing,drop,không chắc cùng nghĩa,
+google-admob,admob,google admob,alias,"cùng tên, khác cách viết",google-admob
+vanillajs,javascript,javascript,alias,đã duyệt tay,vanillajs
+vanilla-js,javascript,javascript,alias,đã duyệt tay,vanilla js|vanilla-js
+lights,light,light,drop,không chắc cùng nghĩa,
+vsts,azure-devops,azure devops,alias,đã duyệt tay,vsts
+curves,curve,curve,drop,không chắc cùng nghĩa,
+endpoints,endpoint,endpoint,drop,không chắc cùng nghĩa,
+perspectives,perspective,perspective,drop,không chắc cùng nghĩa,
+shadows,shadow,shadow,drop,không chắc cùng nghĩa,
+polygons,polygon,polygon,drop,không chắc cùng nghĩa,
+gang-of-four,design-patterns,design patterns,drop,không chắc cùng nghĩa,
+instances,instance,instance,drop,không chắc cùng nghĩa,
+py,python,python,ambiguous,từ thường hoặc quá ngắn,py
+elk-stack,elastic-stack,elastic stack,alias,đã duyệt tay,elk stack|elk-stack
+ports,port,port,drop,không chắc cùng nghĩa,
+packages,package,package,drop,không chắc cùng nghĩa,
+clients,client,client,drop,không chắc cùng nghĩa,
+mappings,mapping,mapping,drop,không chắc cùng nghĩa,
+data-stores,datastore,datastore,alias,"cùng tên, số nhiều hoặc -ing",data stores|data-stores
+ajax-request,ajax,ajax,drop,không chắc cùng nghĩa,
+restful-architecture,rest,rest,alias,đã duyệt tay,restful architecture|restful-architecture
+radius-protocol,radius,radius,drop,không chắc cùng nghĩa,
+nextjs,next.js,next.js,alias,"cùng tên, khác cách viết",nextjs
+aws-sns,amazon-sns,aws sns,alias,"cùng tên, khác cách viết",aws-sns
+javax,java,java,drop,không chắc cùng nghĩa,
+windows-applications,windows,windows,drop,không chắc cùng nghĩa,
+k8s,kubernetes,kubernetes,alias,đã duyệt tay,k8s
+openjdk,java,java,drop,không chắc cùng nghĩa,
+json-web-token,jwt,jwt,alias,đã duyệt tay,json web token|json-web-token
+aws-ses,amazon-ses,ses,alias,"cùng tên, khác cách viết",aws ses|aws-ses
+gcp,google-cloud-platform,gcp,exists,đã có,
+apache-airflow,airflow,airflow,conflict,"đã thuộc skill apache airflow, xem có nên gộp không",
+tensorflow-gpu,tensorflow,tensorflow,drop,không chắc cùng nghĩa,
+aws-redshift,amazon-redshift,amazon redshift,alias,"cùng tên, khác cách viết",aws redshift|aws-redshift
+osx,macos,macos,alias,đã duyệt tay,osx
+firebase-cloud-firestore,google-cloud-firestore,firestore,drop,không chắc cùng nghĩa,
+vue,vue.js,vue.js,alias,"cùng tên, khác cách viết",vue
+elastic,elasticsearch,elasticsearch,ambiguous,từ thường hoặc quá ngắn,elastic
+cloud-firestore,google-cloud-firestore,firestore,alias,đã duyệt tay,cloud firestore|cloud-firestore
+firestore,google-cloud-firestore,firestore,exists,đã có,
+firebase-firestore,google-cloud-firestore,firestore,alias,đã duyệt tay,firebase firestore|firebase-firestore
+sql-azure,azure-sql-database,azure sql database,alias,đã duyệt tay,sql azure|sql-azure
+rest-api,rest,rest,alias,đã duyệt tay,rest api|rest-api
+amazon-cloudformation,aws-cloudformation,cloudformation,alias,"cùng tên, khác cách viết",amazon cloudformation|amazon-cloudformation
+cloudformation,aws-cloudformation,cloudformation,exists,đã có,
+onedrive-api,onedrive,onedrive,drop,không chắc cùng nghĩa,
+webpagescraping,web-scraping,web scraping,drop,không chắc cùng nghĩa,
+visual-studio-team-services,azure-devops,azure devops,alias,đã duyệt tay,visual studio team services|visual-studio-team-services
+vs-team-services,azure-devops,azure devops,drop,không chắc cùng nghĩa,
+plt,matplotlib,matplotlib,ambiguous,từ thường hoặc quá ngắn,plt
+bash-function,bash,bash,drop,không chắc cùng nghĩa,
+.bash-profile,bash,bash,drop,đuôi file,
+react-jsx,reactjs,react,drop,không chắc cùng nghĩa,
+angular4.x,angular,angular,drop,phiên bản,
+angular4,angular,angular,drop,phiên bản,
+angular2,angular,angular,drop,phiên bản,
+vuejs,vue.js,vue.js,alias,"cùng tên, khác cách viết",vuejs
+bezier-curve,bezier,bezier,drop,không chắc cùng nghĩa,
+css-font-weight,css,css,drop,không chắc cùng nghĩa,
+oauth2,oauth-2.0,oauth 2.0,alias,đã duyệt tay,oauth2
+ansible-playbook,ansible,ansible,drop,không chắc cùng nghĩa,
+php-include,php,php,drop,không chắc cùng nghĩa,
+aws-rds,amazon-rds,amazon rds,alias,"cùng tên, khác cách viết",aws rds|aws-rds
+splines,spline,spline,drop,không chắc cùng nghĩa,
+dynamic-css,css,css,drop,không chắc cùng nghĩa,
+css-borders,css,css,drop,không chắc cùng nghĩa,
+amazon-lambda,aws-lambda,aws lambda,alias,"cùng tên, khác cách viết",amazon lambda|amazon-lambda
+webdriverjs,selenium-webdriver,selenium,drop,không chắc cùng nghĩa,
+ood,oop,oop,alias,đã duyệt tay,ood
+oo,oop,oop,ambiguous,từ thường hoặc quá ngắn,oo
+object-orientation,oop,oop,alias,đã duyệt tay,object orientation|object-orientation
+mysqldump,mysql,mysql,drop,không chắc cùng nghĩa,
+oraclejdk,java,java,drop,không chắc cùng nghĩa,
+aws-ec2,amazon-ec2,amazon ec2,alias,"cùng tên, khác cách viết",aws ec2|aws-ec2
+visual-studio-online,azure-devops,azure devops,drop,không chắc cùng nghĩa,
+.cs-file,c#,c#,drop,đuôi file,
+ionic,ionic-framework,ionic,exists,đã có,
+phtml,php,php,drop,không chắc cùng nghĩa,
+react,reactjs,react,exists,đã có,
+javascript-module,javascript,javascript,drop,không chắc cùng nghĩa,
+vanilla-javascript,javascript,javascript,alias,đã duyệt tay,vanilla javascript|vanilla-javascript
+tsv,csv,csv,drop,không chắc cùng nghĩa,
+flink,apache-flink,flink,exists,đã có,
+css-reset,css,css,drop,không chắc cùng nghĩa,
+css-menu,css,css,drop,không chắc cùng nghĩa,
+kafka,apache-kafka,apache kafka,conflict,"đã thuộc skill kafka, xem có nên gộp không",
+deciphering,encryption,encryption,drop,không chắc cùng nghĩa,
+javascript-runtime,javascript,javascript,drop,không chắc cùng nghĩa,
+php-fpm,php,php,drop,không chắc cùng nghĩa,
+io.js,node.js,node.js,drop,không chắc cùng nghĩa,
+pgrep,grep,grep,drop,không chắc cùng nghĩa,
+font-weight,css,css,drop,không chắc cùng nghĩa,
+javascript-library,javascript,javascript,drop,không chắc cùng nghĩa,
+css-box-model,css,css,drop,không chắc cùng nghĩa,
+mysqlclient,mysql,mysql,drop,không chắc cùng nghĩa,
+mysqld,mysql,mysql,drop,không chắc cùng nghĩa,
+select-statement,sql,sql,drop,không chắc cùng nghĩa,
+unittest,unit-testing,unit testing,alias,đã duyệt tay,unittest
+inline-block,css,css,drop,không chắc cùng nghĩa,
+google-cloud,google-cloud-platform,gcp,conflict,"đã thuộc skill google cloud, xem có nên gộp không",
+alternate-stylesheets,css,css,drop,không chắc cùng nghĩa,
+android-test-kit,android-espresso,espresso,drop,không chắc cùng nghĩa,
+windows-azure-blob,azure-blob-storage,azure blob storage,alias,đã duyệt tay,windows azure blob|windows-azure-blob
+spark,apache-spark,apache spark,conflict,"đã thuộc skill spark, xem có nên gộp không",
+r-language,r,r,alias,"cùng tên, khác cách viết",r language|r-language
+apache-jmeter,jmeter,jmeter,alias,"cùng tên, khác cách viết",apache jmeter|apache-jmeter
+encrypted,encryption,encryption,drop,không chắc cùng nghĩa,
+css-overflow,css,css,drop,không chắc cùng nghĩa,
+css-line-height,css,css,drop,không chắc cùng nghĩa,
+data-encryption,encryption,encryption,drop,không chắc cùng nghĩa,
+client-authentication,authentication,authentication,drop,không chắc cùng nghĩa,
+user-authentication,authentication,authentication,drop,không chắc cùng nghĩa,
+opscode,chef-infra,chef,drop,không chắc cùng nghĩa,
+apple-metal,metal,metal,alias,đã duyệt tay,apple metal|apple-metal
+metal-framework,metal,metal,alias,"cùng tên, khác cách viết",metal framework|metal-framework
+vso,azure-devops,azure devops,drop,không chắc cùng nghĩa,
+decisiontrees,decision-tree,decision tree,drop,không chắc cùng nghĩa,
+java-libraries,java,java,drop,không chắc cùng nghĩa,
+ranges,range,range,drop,không chắc cùng nghĩa,
+csharp,c#,c#,alias,đã duyệt tay,csharp
+software-as-a-service,saas,saas,alias,đã duyệt tay,software as a service|software-as-a-service
+team-foundation-service,azure-devops,azure devops,drop,không chắc cùng nghĩa,
+dbms,database,database,drop,không chắc cùng nghĩa,
+sqlselect,sql,sql,drop,không chắc cùng nghĩa,
+javascript-disabled,javascript,javascript,drop,không chắc cùng nghĩa,
+python-shell,python,python,drop,không chắc cùng nghĩa,
+span,html,html,drop,không chắc cùng nghĩa,
+html-comments,html,html,drop,không chắc cùng nghĩa,
+div-layouts,html,html,drop,không chắc cùng nghĩa,
+nested-divs,html,html,drop,không chắc cùng nghĩa,
+divs,html,html,drop,không chắc cùng nghĩa,
+div,html,html,drop,không chắc cùng nghĩa,
+php-session,php,php,drop,không chắc cùng nghĩa,
+gof,design-patterns,design patterns,drop,không chắc cùng nghĩa,
+neo4j2.0,neo4j,neo4j,drop,phiên bản,
+javascript-dom,javascript,javascript,drop,không chắc cùng nghĩa,
+css-display,css,css,drop,không chắc cùng nghĩa,
+spark-cluster-framework,apache-spark,apache spark,drop,không chắc cùng nghĩa,
+selenium-webdriver-java,selenium-webdriver,selenium,drop,không chắc cùng nghĩa,
+selenium-webdriver-c#,selenium-webdriver,selenium,drop,không chắc cùng nghĩa,
+selenium2,selenium-webdriver,selenium,drop,phiên bản,
+cipher,encryption,encryption,drop,không chắc cùng nghĩa,
+avg,average,average,drop,không chắc cùng nghĩa,
+php-functions,php,php,drop,không chắc cùng nghĩa,
+sqlitedatabase,sqlite,sqlite,drop,không chắc cùng nghĩa,
+php-cgi,php,php,drop,không chắc cùng nghĩa,
+css-validation,css,css,drop,không chắc cùng nghĩa,
+fgrep,grep,grep,drop,không chắc cùng nghĩa,
+html-attributes,html,html,drop,không chắc cùng nghĩa,
+php-mail,php,php,drop,không chắc cùng nghĩa,
+style.css-template-file,css,css,drop,không chắc cùng nghĩa,
+box-model,css,css,drop,không chắc cùng nghĩa,
+sql-srever,sql-server,sql server,drop,không chắc cùng nghĩa,
+apache-hadoop,hadoop,hadoop,alias,"cùng tên, khác cách viết",apache hadoop|apache-hadoop
+javascript-alert,javascript,javascript,drop,không chắc cùng nghĩa,
+bash-variables,bash,bash,drop,không chắc cùng nghĩa,
+indexes,indexing,indexing,ambiguous,từ thường hoặc quá ngắn,indexes
+index,indexing,indexing,ambiguous,từ thường hoặc quá ngắn,index
+bash-alias,bash,bash,drop,không chắc cùng nghĩa,
+max-width,css,css,drop,không chắc cùng nghĩa,
+max-height,css,css,drop,không chắc cùng nghĩa,
+min-width,css,css,drop,không chắc cùng nghĩa,
+min-height,css,css,drop,không chắc cùng nghĩa,
+a11y,accessibility,accessibility,alias,đã duyệt tay,a11y
+css-centering,css,css,drop,không chắc cùng nghĩa,
+mysql-table,mysql,mysql,drop,không chắc cùng nghĩa,
+php-errors,php,php,drop,không chắc cùng nghĩa,
+jre,java,java,drop,không chắc cùng nghĩa,
+jdk,java,java,drop,không chắc cùng nghĩa,
+patterns,design-patterns,design patterns,ambiguous,từ thường hoặc quá ngắn,patterns
+loadtest,load-testing,load testing,alias,đã duyệt tay,loadtest
+php-cli,php,php,drop,không chắc cùng nghĩa,
+nodejs,node.js,node.js,alias,"cùng tên, khác cách viết",nodejs
+uml-modeling,uml,uml,drop,không chắc cùng nghĩa,
+decrypt,encryption,encryption,drop,không chắc cùng nghĩa,
+vm,virtual-machine,vm,exists,đã có,
+egrep,grep,grep,drop,không chắc cùng nghĩa,
+google-storage,google-cloud-storage,google cloud storage,alias,đã duyệt tay,google storage|google-storage
+css-inheritance,css,css,drop,không chắc cùng nghĩa,
+sso,single-sign-on,sso,exists,đã có,
+language-processing,nlp,natural language processing,drop,không chắc cùng nghĩa,
+httpd,apache,apache,alias,đã duyệt tay,httpd
+ggplot,ggplot2,ggplot2,alias,đã duyệt tay,ggplot
+qplot,ggplot2,ggplot2,drop,không chắc cùng nghĩa,
+python-interpreter,python,python,drop,không chắc cùng nghĩa,
+php.ini,php,php,drop,không chắc cùng nghĩa,
+html-tag,html,html,drop,không chắc cùng nghĩa,
+css-columns,css,css,drop,không chắc cùng nghĩa,
+scss,sass,sass,alias,đã duyệt tay,scss
+css2,css,css,drop,phiên bản,
+hypertext-preprocessor,php,php,alias,đã duyệt tay,hypertext preprocessor|hypertext-preprocessor
+xss-prevention,xss,xss,conflict,"đã thuộc skill xss prevention, xem có nên gộp không",
+mysql-server,mysql,mysql,drop,không chắc cùng nghĩa,
+tts,text-to-speech,text‑to‑speech,alias,đã duyệt tay,tts
+performance-test,performance-testing,performance testing,alias,"cùng tên, số nhiều hoặc -ing",performance test|performance-test
+web-performance-test,performance-testing,performance testing,drop,không chắc cùng nghĩa,
+storing,storage,storage,drop,không chắc cùng nghĩa,
+tfs-service,azure-devops,azure devops,drop,không chắc cùng nghĩa,
+php-frameworks,php,php,drop,không chắc cùng nghĩa,
+impersonate,impersonation,impersonation,drop,không chắc cùng nghĩa,
+php5,php,php,drop,phiên bản,
+reuse,reusability,reusability,drop,không chắc cùng nghĩa,
+php-date,php,php,drop,không chắc cùng nghĩa,
+sql-select,sql,sql,drop,không chắc cùng nghĩa,
+comma-separated,csv,csv,drop,không chắc cùng nghĩa,
+pylab,matplotlib,matplotlib,drop,không chắc cùng nghĩa,
+mongod,mongodb,mongodb,drop,không chắc cùng nghĩa,
+domain,dns,dns,drop,không chắc cùng nghĩa,
+pythonic,python,python,drop,không chắc cùng nghĩa,
+pyplot,matplotlib,matplotlib,drop,không chắc cùng nghĩa,
+authenticate,authentication,authentication,drop,không chắc cùng nghĩa,
+parallelism,parallel-processing,parallel processing,alias,đã duyệt tay,parallelism
+parallelization,parallel-processing,parallel processing,drop,không chắc cùng nghĩa,
+parallel,parallel-processing,parallel processing,ambiguous,từ thường hoặc quá ngắn,parallel
+parallel-computing,parallel-processing,parallel processing,alias,đã duyệt tay,parallel computing|parallel-computing
+shaders,shader,shader,drop,không chắc cùng nghĩa,
+auth,authentication,authentication,ambiguous,từ thường hoặc quá ngắn,auth
+logon,authentication,authentication,drop,không chắc cùng nghĩa,
+css-height,css,css,drop,không chắc cùng nghĩa,
+design-pattern,design-patterns,design patterns,alias,"cùng tên, số nhiều hoặc -ing",design pattern|design-pattern
+css-classes,css,css,drop,không chắc cùng nghĩa,
+idempotence,idempotent,idempotency,drop,không chắc cùng nghĩa,
+idempotency,idempotent,idempotency,exists,đã có,
+classic-javascript,javascript,javascript,drop,không chắc cùng nghĩa,
+parallel-programming,parallel-processing,parallel processing,alias,đã duyệt tay,parallel programming|parallel-programming
+pattern,design-patterns,design patterns,ambiguous,từ thường hoặc quá ngắn,pattern
+lesscss,less,less,alias,đã duyệt tay,lesscss
+gmaps,google-maps,google maps,drop,không chắc cùng nghĩa,
+cache-coherence,caching,caching,drop,không chắc cùng nghĩa,
+solution-architecture,architecture,architecture,conflict,"đã thuộc skill solution architecture, xem có nên gộp không",
+cached,caching,caching,drop,không chắc cùng nghĩa,
+php-oop,php,php,drop,không chắc cùng nghĩa,
+css-attributes,css,css,drop,không chắc cùng nghĩa,
+apache-tomcat,tomcat,tomcat,alias,"cùng tên, khác cách viết",apache tomcat|apache-tomcat
+computational-linguistics,nlp,natural language processing,drop,không chắc cùng nghĩa,
+visual-c#,c#,c#,drop,không chắc cùng nghĩa,
+sql-syntax,sql,sql,drop,không chắc cùng nghĩa,
+mac,macos,macos,ambiguous,từ thường hoặc quá ngắn,mac
+model-view-presenter,mvp,mvp,alias,đã duyệt tay,model view presenter|model-view-presenter
+mongo,mongodb,mongodb,alias,đã duyệt tay,mongo
+uml-modelling,uml,uml,drop,không chắc cùng nghĩa,
+core-java,java,java,alias,đã duyệt tay,core java|core-java
+decryption,encryption,encryption,drop,không chắc cùng nghĩa,
+system-architecture,architecture,architecture,drop,không chắc cùng nghĩa,
+apache-solr,solr,solr,alias,"cùng tên, khác cách viết",apache solr|apache-solr
+debugger,debugging,debugging,drop,không chắc cùng nghĩa,
+functional,functional-programming,functional programming,ambiguous,từ thường hoặc quá ngắn,functional
+j2se,java,java,drop,không chắc cùng nghĩa,
+windows-application,windows,windows,drop,không chắc cùng nghĩa,
+oo-design,oop,oop,drop,không chắc cùng nghĩa,
+application-architecture,architecture,architecture,conflict,"đã thuộc skill application architecture, xem có nên gộp không",
+software-architecture,architecture,architecture,alias,đã duyệt tay,software architecture|software-architecture
+object-oriented-modeling,oop,oop,drop,không chắc cùng nghĩa,
+websockets,websocket,websocket,exists,đã có,
+.java,java,java,drop,đuôi file,
+unit-tests,unit-testing,unit testing,alias,"cùng tên, số nhiều hoặc -ing",unit tests|unit-tests
+css-background-image,css,css,drop,không chắc cùng nghĩa,
+.net-framework,.net,.net framework,alias,"cùng tên, khác cách viết",.net-framework
+model-view-viewmodel,mvvm,mvvm,alias,đã duyệt tay,model view viewmodel|model-view-viewmodel
+oops,oop,oop,alias,đã duyệt tay,oops
+.bashrc,bash,bash,drop,đuôi file,
+bashrc,bash,bash,drop,không chắc cùng nghĩa,
+test-driven,tdd,test‑driven development,alias,đã duyệt tay,test driven|test-driven
+opengles,opengl-es,opengl es,alias,"cùng tên, khác cách viết",opengles
+sql-statement,sql,sql,drop,không chắc cùng nghĩa,
+sql-postgres,postgresql,postgresql,drop,không chắc cùng nghĩa,
+database-structure,database,database,drop,không chắc cùng nghĩa,
+cpp,c++,c++,alias,đã duyệt tay,cpp
+windows-programming,windows,windows,drop,không chắc cùng nghĩa,
+sql-query,sql,sql,drop,không chắc cùng nghĩa,
+mysql-query,mysql,mysql,drop,không chắc cùng nghĩa,
+encrypt,encryption,encryption,drop,không chắc cùng nghĩa,
+natural-language,nlp,natural language processing,drop,không chắc cùng nghĩa,
+vectors,vector,vector mathematics,drop,không chắc cùng nghĩa,
+cache,caching,caching,ambiguous,từ thường hoặc quá ngắn,cache
+apache-cassandra,cassandra,cassandra,alias,"cùng tên, khác cách viết",apache cassandra|apache-cassandra
+orthogonality,orthogonal,orthogonal,drop,không chắc cùng nghĩa,
+object-oriented-design,oop,oop,alias,đã duyệt tay,object oriented design|object-oriented-design
+test,testing,testing,ambiguous,từ thường hoặc quá ngắn,test
+tests,testing,testing,ambiguous,từ thường hoặc quá ngắn,tests
+sqllite,sqlite,sqlite,alias,đã duyệt tay,sqllite
+memcache,memcached,memcached,alias,đã duyệt tay,memcache
+debug,debugging,debugging,drop,không chắc cùng nghĩa,
+.ajax,ajax,ajax,drop,đuôi file,
+load-balance,load-balancing,load balancing,alias,đã duyệt tay,load balance|load-balance
+load-balancer,load-balancing,load balancing,conflict,"đã thuộc skill load balancer, xem có nên gộp không",
+css-layout,css,css,drop,không chắc cùng nghĩa,
+tab,tabs,tabs,drop,không chắc cùng nghĩa,
+software-testing,testing,testing,alias,đã duyệt tay,software testing|software-testing
+functional-tests,functional-testing,functional testing,alias,"cùng tên, số nhiều hoặc -ing",functional tests|functional-tests
+java-se,java,java,alias,đã duyệt tay,java se|java-se
+javascript-execution,javascript,javascript,drop,không chắc cùng nghĩa,
+credential,credentials,credentials,drop,không chắc cùng nghĩa,
+aws-s3,amazon-s3,s3,alias,"cùng tên, khác cách viết",aws s3|aws-s3
+cross-site-scripting,xss,xss,alias,đã duyệt tay,cross site scripting|cross-site-scripting
+webapps,web-applications,web application,alias,đã duyệt tay,webapps
+webapp,web-applications,web application,alias,đã duyệt tay,webapp
+mvc,model-view-controller,mvc,exists,đã có,
+domains,dns,dns,drop,không chắc cùng nghĩa,
+restful-web-services,rest,rest,alias,đã duyệt tay,restful web services|restful-web-services
+sccs,version-control,version control,drop,không chắc cùng nghĩa,
+scc,version-control,version control,drop,không chắc cùng nghĩa,
+object-oriented,oop,oop,alias,đã duyệt tay,object oriented|object-oriented
+bash-script,bash,bash,drop,không chắc cùng nghĩa,
+cookie,cookies,cookies,drop,không chắc cùng nghĩa,
+c#-language,c#,c#,alias,"cùng tên, khác cách viết",c# language|c#-language
+salesforce.com,salesforce,salesforce,alias,đã duyệt tay,salesforce.com
+pgsql,postgresql,postgresql,alias,đã duyệt tay,pgsql
+natural-language-process,nlp,natural language processing,alias,"cùng tên, số nhiều hoặc -ing",natural language process|natural-language-process
+sessions,session,session,drop,không chắc cùng nghĩa,
+source-code-control,version-control,version control,alias,đã duyệt tay,source code control|source-code-control
+vcs,version-control,version control,alias,đã duyệt tay,vcs
+data-generators,data-generation,data generation,drop,không chắc cùng nghĩa,
+matrices,matrix,matrix,drop,không chắc cùng nghĩa,
+db,database,database,ambiguous,từ thường hoặc quá ngắn,db
+.js,javascript,javascript,drop,đuôi file,
+.csv,csv,csv,drop,đuôi file,
+authorisation,authorization,authorization,alias,đã duyệt tay,authorisation
+notification,notifications,notifications,drop,không chắc cùng nghĩa,
+windows-azure,azure,azure,alias,đã duyệt tay,windows azure|windows-azure
+sqs,amazon-sqs,aws sqs,alias,"cùng tên, khác cách viết",sqs
+s3,amazon-s3,s3,exists,đã có,
+http-status-code,http-status-codes,http status codes,alias,"cùng tên, số nhiều hoặc -ing",http status code|http-status-code
+ec2,amazon-ec2,amazon ec2,conflict,"đã thuộc skill ec2, xem có nên gộp không",
+windows-powershell,powershell,powershell,alias,đã duyệt tay,windows powershell|windows-powershell
+ecmascript,javascript,javascript,alias,đã duyệt tay,ecmascript
+ms-sql-server,sql-server,sql server,alias,"cùng tên, khác cách viết",ms sql server|ms-sql-server
+dot-net,.net,.net framework,alias,đã duyệt tay,dot net|dot-net
+memory-leak,memory-leaks,memory leak,alias,"cùng tên, khác cách viết",memory-leak
+transaction,transactions,transactions,drop,không chắc cùng nghĩa,
+unit-test,unit-testing,unit testing,alias,"cùng tên, số nhiều hoặc -ing",unit test|unit-test
+web-application,web-applications,web application,alias,"cùng tên, khác cách viết",web-application
+testdrivendevelopment,tdd,test‑driven development,alias,đã duyệt tay,testdrivendevelopment
+cascading-style-sheet,css,css,alias,đã duyệt tay,cascading style sheet|cascading-style-sheet
+my-sql,mysql,mysql,alias,"cùng tên, khác cách viết",my sql|my-sql
+rstats,r,r,alias,đã duyệt tay,rstats
+restful,rest,rest,alias,đã duyệt tay,restful
+google-maps-api,google-maps,google maps,drop,không chắc cùng nghĩa,
+aws,amazon-web-services,aws,exists,đã có,
+golang,go,go,alias,đã duyệt tay,golang
+go-language,go,go,alias,"cùng tên, khác cách viết",go language|go-language
+revision-control,version-control,version control,alias,đã duyệt tay,revision control|revision-control
+scm,version-control,version control,ambiguous,từ thường hoặc quá ngắn,scm
+source-code-management,version-control,version control,alias,đã duyệt tay,source code management|source-code-management
+os,operating-system,operating system,ambiguous,từ thường hoặc quá ngắn,os
+operating-systems,operating-system,operating system,conflict,"đã thuộc skill operating systems, xem có nên gộp không",
+mssql,sql-server,sql server,alias,đã duyệt tay,mssql
+databases,database,database,conflict,"đã thuộc skill databases, xem có nên gộp không",
+data-warehousing,data-warehouse,data warehouse,alias,đã duyệt tay,data warehousing|data-warehousing
+c#.net,c#,c#,drop,không chắc cùng nghĩa,
+mac-addr,mac-address,mac address,drop,không chắc cùng nghĩa,
+ddd,domain-driven-design,domain driven design,conflict,"đã thuộc skill domain-driven design, xem có nên gộp không",
+di,dependency-injection,dependency injection,ambiguous,từ thường hoặc quá ngắn,di
+xsrf,csrf,csrf,alias,đã duyệt tay,xsrf
+batch-process,batch-processing,batch processing,alias,đã duyệt tay,batch process|batch-process
+macosx,macos,macos,alias,đã duyệt tay,macosx
+postgres,postgresql,postgresql,alias,đã duyệt tay,postgres
+source-control,version-control,version control,alias,đã duyệt tay,source control|source-control
+js,javascript,javascript,alias,đã duyệt tay,js
+dotnet,.net,.net framework,alias,đã duyệt tay,dotnet
+c-sharp,c#,c#,alias,đã duyệt tay,c sharp|c-sharp
+.net,.net,.net framework,alias,đã duyệt tay,.net
+admob,admob,google admob,alias,đã duyệt tay,admob
+amazon-dynamodb,amazon-dynamodb,dynamodb,alias,đã duyệt tay,amazon dynamodb|amazon-dynamodb
+amazon-eks,amazon-eks,aws eks,alias,đã duyệt tay,amazon eks|amazon-eks
+amazon-neptune,amazon-neptune,aws neptune,alias,đã duyệt tay,amazon neptune|amazon-neptune
+amazon-s3,amazon-s3,s3,alias,đã duyệt tay,amazon s3|amazon-s3
+amazon-sagemaker,amazon-sagemaker,aws sagemaker,alias,đã duyệt tay,amazon sagemaker|amazon-sagemaker
+amazon-ses,amazon-ses,ses,alias,đã duyệt tay,amazon ses|amazon-ses
+amazon-sns,amazon-sns,aws sns,alias,đã duyệt tay,amazon sns|amazon-sns
+amazon-sqs,amazon-sqs,aws sqs,alias,đã duyệt tay,amazon sqs|amazon-sqs
+amazon-web-services,amazon-web-services,aws,alias,đã duyệt tay,amazon web services|amazon-web-services
+android-espresso,android-espresso,espresso,alias,đã duyệt tay,android espresso|android-espresso
+android-jetpack-compose,android-jetpack-compose,jetpack compose,alias,đã duyệt tay,android jetpack compose|android-jetpack-compose
+android-livedata,android-livedata,livedata,alias,đã duyệt tay,android livedata|android-livedata
+apache-flink,apache-flink,flink,alias,đã duyệt tay,apache flink|apache-flink
+aws-cloudformation,aws-cloudformation,cloudformation,alias,đã duyệt tay,aws cloudformation|aws-cloudformation
+azure-virtual-machine,azure-virtual-machine,azure vm,alias,đã duyệt tay,azure virtual machine|azure-virtual-machine
+chef-infra,chef-infra,chef,alias,đã duyệt tay,chef infra|chef-infra
+dagger-hilt,dagger-hilt,hilt,alias,đã duyệt tay,dagger hilt|dagger-hilt
+envoyproxy,envoyproxy,envoy,alias,đã duyệt tay,envoyproxy
+google-cloud-firestore,google-cloud-firestore,firestore,alias,đã duyệt tay,google cloud firestore|google-cloud-firestore
+google-cloud-platform,google-cloud-platform,gcp,alias,đã duyệt tay,google cloud platform|google-cloud-platform
+grafana-loki,grafana-loki,loki,alias,đã duyệt tay,grafana loki|grafana-loki
+idempotent,idempotent,idempotency,alias,đã duyệt tay,idempotent
+ionic-framework,ionic-framework,ionic,alias,đã duyệt tay,ionic framework|ionic-framework
+jestjs,jestjs,jest,alias,đã duyệt tay,jestjs
+memory-leaks,memory-leaks,memory leak,alias,đã duyệt tay,memory leaks|memory-leaks
+model-view-controller,model-view-controller,mvc,alias,đã duyệt tay,model view controller|model-view-controller
+nlp,nlp,natural language processing,alias,đã duyệt tay,nlp
+reactjs,reactjs,react,alias,đã duyệt tay,reactjs
+recurrent-neural-network,recurrent-neural-network,rnn,alias,đã duyệt tay,recurrent neural network|recurrent-neural-network
+selenium-webdriver,selenium-webdriver,selenium,alias,đã duyệt tay,selenium webdriver|selenium-webdriver
+single-sign-on,single-sign-on,sso,alias,đã duyệt tay,single sign on|single-sign-on
+snowflake-cloud-data-platform,snowflake-cloud-data-platform,snowflake,alias,đã duyệt tay,snowflake cloud data platform|snowflake-cloud-data-platform
+virtual-machine,virtual-machine,vm,alias,đã duyệt tay,virtual machine|virtual-machine
+web-applications,web-applications,web application,alias,đã duyệt tay,web applications|web-applications

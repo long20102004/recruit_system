@@ -1,0 +1,34 @@
+{"skill_id": "S0001", "name": "Java", "aliases": ["java"], "type": "technology"}
+{"skill_id": "S0002", "name": "Spring Boot", "aliases": ["spring boot", "springboot", "spring-boot"], "type": "technology", "parents": ["S0001"]}
+{"skill_id": "S0003", "name": "Spring Framework", "aliases": ["spring framework", "spring"], "type": "technology", "parents": ["S0001"]}
+{"skill_id": "S0004", "name": "JavaScript", "aliases": ["javascript", "js"], "type": "technology"}
+{"skill_id": "S0005", "name": "TypeScript", "aliases": ["typescript"], "type": "technology", "parents": ["S0004"]}
+{"skill_id": "S0006", "name": "React", "aliases": ["react", "reactjs", "react.js"], "type": "technology", "parents": ["S0004"]}
+{"skill_id": "S0007", "name": "React Native", "aliases": ["react native"], "type": "technology", "parents": ["S0006"]}
+{"skill_id": "S0008", "name": "Node.js", "aliases": ["node.js", "nodejs", "node"], "type": "technology", "parents": ["S0004"]}
+{"skill_id": "S0009", "name": "Python", "aliases": ["python"], "type": "technology"}
+{"skill_id": "S0010", "name": "Django", "aliases": ["django"], "type": "technology", "parents": ["S0009"]}
+{"skill_id": "S0011", "name": "Go", "aliases": ["go", "golang"], "type": "technology"}
+{"skill_id": "S0012", "name": "C", "aliases": ["c"], "type": "technology"}
+{"skill_id": "S0013", "name": "C++", "aliases": ["c++", "cpp"], "type": "technology"}
+{"skill_id": "S0014", "name": "C#", "aliases": ["c#", "csharp"], "type": "technology"}
+{"skill_id": "S0015", "name": "PostgreSQL", "aliases": ["postgresql", "postgres", "psql"], "type": "technology", "categories_sibling_ok": ["Relational Databases"]}
+{"skill_id": "S0016", "name": "MySQL", "aliases": ["mysql"], "type": "technology", "categories_sibling_ok": ["Relational Databases"]}
+{"skill_id": "S0017", "name": ".NET", "aliases": [".net", "dotnet"], "type": "technology"}
+{"skill_id": "S0018", "name": "ASP.NET", "aliases": ["asp.net", "asp.net core"], "type": "technology", "parents": ["S0017"]}
+{"skill_id": "S0019", "name": "Docker", "aliases": ["docker"], "type": "technology"}
+{"skill_id": "S0020", "name": "Kubernetes", "aliases": ["kubernetes", "k8s"], "type": "technology"}
+{"skill_id": "S0021", "name": "Kafka", "aliases": ["kafka", "apache kafka"], "type": "technology", "categories_sibling_ok": ["Message brokers"]}
+{"skill_id": "S0022", "name": "RabbitMQ", "aliases": ["rabbitmq"], "type": "technology", "categories_sibling_ok": ["Message brokers"]}
+{"skill_id": "S0023", "name": "Microservices", "aliases": ["microservices", "microservice", "kiến trúc microservices"], "type": "concept"}
+{"skill_id": "S0024", "name": "REST API", "aliases": ["rest api", "restful api", "restful", "rest", "api"], "type": "concept"}
+{"skill_id": "S0025", "name": "CI/CD", "aliases": ["ci/cd", "cicd"], "type": "concept"}
+{"skill_id": "S0026", "name": "Jenkins", "aliases": ["jenkins"], "type": "technology", "categories_sibling_ok": ["CI/CD tools"]}
+{"skill_id": "S0027", "name": "Git", "aliases": ["git"], "type": "technology"}
+{"skill_id": "S0028", "name": "Redis", "aliases": ["redis"], "type": "technology"}
+{"skill_id": "S0029", "name": "AWS", "aliases": ["aws", "amazon web services"], "type": "technology"}
+{"skill_id": "S0030", "name": "Kotlin", "aliases": ["kotlin"], "type": "technology"}
+{"skill_id": "S0031", "name": "R", "aliases": ["r"], "type": "technology"}
+{"skill_id": "S0032", "name": "Vue.js", "aliases": ["vue.js", "vuejs", "vue"], "type": "technology", "parents": ["S0004"]}
+{"skill_id": "S0033", "name": "Photoshop", "aliases": ["photoshop", "adobe photoshop"], "type": "technology"}
+{"skill_id": "S0034", "name": "SQL", "aliases": ["sql"], "type": "technology"}

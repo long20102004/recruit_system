@@ -1,0 +1,15 @@
+services:
+  postgres:
+    image: pgvector/pgvector:pg16
+    container_name: cvmatch-postgres
+    environment:
+      POSTGRES_USER: cvmatch
+      POSTGRES_PASSWORD: cvmatch
+      POSTGRES_DB: cvmatch
+    ports:
+      - "5433:5432"
+    volumes:
+      - cvmatch_pg:/var/lib/postgresql/data
+
+volumes:
+  cvmatch_pg:

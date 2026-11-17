@@ -1,0 +1,51 @@
+pdf,child,parent_expected
+ai-engineer,AI Code Editors,Development Tools
+ai-engineer,Agents Usecases,AI Agents
+ai-engineer,Anomaly Detection,Use Cases for Embeddings
+ai-engineer,Anthropic's Claude,Popular AI Models
+ai-engineer,DALL-E API,Implementing Multimodal AI
+ai-engineer,Data Classification,Use Cases for Embeddings
+ai-engineer,Embedding,Implementing RAG
+ai-engineer,FAISS,Popular Vector DBs (pick one)
+ai-engineer,Generation,Implementing RAG
+ai-engineer,Impact on Product Development,What is an AI Engineer?
+ai-engineer,Know your Customers / Usecases,Safety Best Practices
+ai-engineer,LLMs,Common Terminology
+ai-engineer,Models on Hugging Face,Open-Source Embeddings
+ai-engineer,Open AI Embedding Models,Open AI Embeddings API
+ai-engineer,Open AI Models,OpenAI Models
+ai-engineer,Open AI Playground,OpenAI API
+ai-engineer,OpenAI Assistant API,Building AI Agents
+ai-engineer,OpenAI Moderation API,Safety Best Practices
+ai-engineer,Purpose and Functionality,Vector Databases
+ai-engineer,Qdrant,Popular Vector DBs (pick one)
+ai-engineer,Text-to-Speech,Multimodal AI Tasks
+ai-engineer,Token Counting,Managing Tokens
+ai-engineer,Training,Common Terminology
+ai-engineer,Vector Database,Implementing RAG
+ai-engineer,Writing Prompts,OpenAI API
+backend,C#,Pick a Language
+backend,CAP Theorem,Scaling Databases
+backend,Cassandra,Column DBs
+backend,GOF Design Patterns,Design and Development Principles
+backend,Influx DB,Time Series
+backend,JWT,Authentication
+backend,MD5,Web Security
+backend,MS IIS,Web Servers
+backend,Memcached,Server Side
+backend,Neo4j,Graph DBs
+backend,OAuth,Authentication
+backend,PHP,Pick a Language
+backend,RabbitMQ,Message Brokers
+backend,Redis,Key-Value
+backend,SAML,Authentication
+backend,SSL/TLS,Web Security
+backend,Server Security,Web Security
+backend,Server Sent Events,Real-Time Data
+backend,Service Mesh,Architectural Patterns
+backend,Sharding Strategies,Scaling Databases
+backend,Telemetry,Difference & Usage
+backend,TimeScale,Time Series
+backend,Twelve Factor Apps,Architectural Patterns
+backend,What is hosting?,Internet
+backend,bcrypt,Web Security

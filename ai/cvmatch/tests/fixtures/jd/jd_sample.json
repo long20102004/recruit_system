@@ -1,0 +1,21 @@
+{
+  "jd_id": "JD-0412",
+  "title": "Senior Backend Developer (Java)",
+  "company_intro": "Công ty fintech hàng đầu, môi trường năng động...",
+  "location": "Hồ Chí Minh", "work_mode": "hybrid",
+  "min_years": 4,
+  "skills": [
+    {"name": "Java", "required": true, "importance": "core"},
+    {"name": "Spring Boot", "required": true, "importance": "core"},
+    {"name": "PostgreSQL", "required": true, "importance": "medium"},
+    {"name": "Kafka", "required": false, "importance": "minor"}
+  ],
+  "requirements": ["Tối thiểu 4 năm kinh nghiệm backend", "Hiểu biết về microservices"],
+  "responsibilities": [
+    "Thiết kế và phát triển API cho hệ thống thanh toán",
+    "Tối ưu hiệu năng truy vấn cơ sở dữ liệu",
+    "Tham gia các buổi họp của team"
+  ],
+  "benefits": ["Lương tháng 13", "Bảo hiểm sức khoẻ"],
+  "status": "open"
+}
