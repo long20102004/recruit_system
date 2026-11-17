@@ -73,6 +73,23 @@ Vì sao cần: fine-tune học từ cặp (text CV, JSON đúng); JSON đúng kh
 
 Phát hiện ngày 17/11/2026: benchmark base–v4 ngày 09/11 chấm v4 trên output đã chuẩn hoá KB (đổi tên kỹ năng/trường) nên thấp giả. Trên 20 CV val synthetic, cùng output v4: school 0,750 → 1,000 và skills 0,717 → 0,970 khi chấm trên `raw_profile`.
 
+So sánh công bằng base – v4 (17/11/2026): cùng 20 CV val synthetic (nhãn silver), cùng llama.cpp GGUF Q4_K_M, prompt v3, sinh nối tiếp + hậu kiểm; base chấm biến thể B, v4 chấm `raw_profile`. Chạy CPU local (`data/real_test/runs/cmp_base_v4_n20`).
+
+| Trường | Base | v4 raw | v4 API mặc định (KB) |
+|---|---|---|---|
+| company | 0,974 | 0,987 | 0,987 |
+| job_title | 1,000 | 1,000 | 1,000 |
+| school | 0,952 | 1,000 | 0,750 |
+| project | 1,000 | 1,000 | 1,000 |
+| skills | 0,907 (41 FP) | 0,970 (6 FP) | 0,717 |
+| certificates | 0,943 | 0,930 | 0,930 |
+| honours | 0,892 | 0,923 | 0,923 |
+| languages | 1,000 | 0,952 | 0,952 |
+| email | 1,000 | 0,950 | 0,950 |
+| JSON hợp lệ | 20/20 | 20/20 | 20/20 |
+
+Kết luận: tập val synthetic quá dễ để phân biệt (base đã ~0,95); khác biệt chính là base thêm nhiều kỹ năng thừa. Lợi ích của fine-tune cần đo trên CV thật (test cố định).
+
 - Sửa `ai-service/eval/benchmark_base_vs_v4_colab.ipynb`: gọi `?include=raw`, chấm `raw_profile`.
 - Thêm `v4` (và các bản sau) vào `eval_models_colab.ipynb`; chạy base trên `test_real`.
 
