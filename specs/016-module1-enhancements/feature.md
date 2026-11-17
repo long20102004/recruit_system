@@ -13,7 +13,7 @@ Hiện trạng liên quan (17/11/2026):
 - Backend: Spring Boot, PDFBox + XY-cut; **chưa có database / entity** (chưa cấu hình datasource); pom đã có `tess4j` (Tesseract cho Java).
 - Frontend: React mới có trang chủ + đăng nhập; các màn hình Module 1 mới ở `ui-prototype/` (HTML tĩnh, dữ liệu giả).
 
-Thứ tự đề xuất: **F2 → F1 → F3 → F4** (F2 độc lập, không cần train; F1 dùng chung công cụ với feature 015; F3 dùng lại OCR của 015).
+Thứ tự đề xuất: **F2 → F1 → F3 → F5 → F4** (F2 độc lập, không cần train; F1 dùng chung công cụ với feature 015; F3 dùng lại OCR của 015).
 
 ---
 
@@ -129,7 +129,7 @@ Model chỉ chép nguyên văn; Module 2 cần số liệu để so khớp. F2 t
 
 ---
 
-## F3 — Mở rộng input: DOCX, OCR dự phòng, kiểm tra đầu vào
+## F3 — Mở rộng input: DOCX/DOC/ODT, ảnh, OCR dự phòng, CV dạng link, kiểm tra đầu vào
 
 ### F3a — Nhận .docx
 - Backend: `analyze-pdf` nhận thêm `.docx` (giữ tên endpoint hoặc thêm `/analyze-file`). Chuyển DOCX → PDF bằng LibreOffice headless (`soffice --convert-to pdf`, chạy trong thư mục tạm, timeout 60 s, profile riêng) rồi đi đúng pipeline PDF hiện có (XY-cut).
@@ -143,6 +143,12 @@ Model chỉ chép nguyên văn; Module 2 cần số liệu để so khớp. F2 t
 - Đánh dấu `text_source = "ocr"` trong response; F1 hạ độ tin cậy mặc định của hồ sơ OCR một bậc.
 - Ngưỡng chất lượng lấy từ Giai đoạn 0 của feature 015 (CER trên 59 PDF thật).
 - Nhận thêm ảnh `.png/.jpg` qua cùng đường.
+
+### F3d — Định dạng khác và CV dạng link
+- `.doc`, `.odt`, `.rtf`: như F3a (LibreOffice → PDF → pipeline PDF).
+- Ảnh `.png/.jpg/.webp`: qua F3b (OCR).
+- Link Google Drive / OneDrive công khai (thường gặp trong email): tải file (giới hạn dung lượng, chỉ domain cho phép, timeout) rồi xử lý như file thường.
+- Link hồ sơ TopCV / ITviec / LinkedIn: **không** tự lấy (cần đăng nhập, điều khoản không cho thu thập tự động) → gắn cờ `CV_AS_LINK`, nhà tuyển dụng tự tải.
 
 ### F3c — Kiểm tra đầu vào
 - Từ chối / cảnh báo sớm, trước khi gọi model (tiết kiệm 15–40 s):
@@ -184,6 +190,46 @@ F4a ~1 ngày (in-memory) / thêm 0,5 ngày khi có DB; F4b ~1–2 ngày.
 
 ---
 
+## F5 — Tự động lấy CV từ email tuyển dụng
+
+### Mục tiêu
+Thay việc nhà tuyển dụng upload hàng loạt: CV ứng viên gửi về hộp thư tuyển dụng được tự động lấy, trích xuất và đưa vào matching.
+
+### Lựa chọn kỹ thuật
+| Cách | Đánh giá |
+|---|---|
+| **IMAP polling** hộp thư tuyển dụng riêng (khuyến nghị) | Đơn giản, chạy với Gmail và Microsoft 365, dữ liệu không qua bên thứ ba; trễ 1–5 phút |
+| Push: Gmail API `watch` + Pub/Sub / Microsoft Graph subscription | Gần tức thời; cấu hình phức tạp (đăng ký app, webhook công khai) — cân nhắc sau |
+| Forward sang dịch vụ inbound parse (SendGrid, Mailgun) | CV đi qua bên thứ ba → **không dùng** (bảo mật dữ liệu CV) |
+
+### Luồng (IMAP)
+1. **Kết nối**: Spring Integration Mail / Jakarta Mail, **OAuth2** (Microsoft 365 đã bỏ basic auth; Gmail dùng OAuth2 hoặc app password). Credential trong biến môi trường / kho secret; chỉ quyền đọc hộp thư tuyển dụng.
+2. **Lấy thư**: định kỳ 1–5 phút, thư chưa xử lý; bỏ auto-reply, bounce, newsletter (header `Auto-Submitted`, `List-Unsubscribe`); khử trùng `Message-ID` + `sha256` file; đánh dấu đã xử lý (flag hoặc chuyển thư mục "Đã xử lý").
+3. **Tách nội dung**: file đính kèm pdf/docx/doc/odt/ảnh; bỏ ảnh inline nhỏ (chữ ký, logo: `Content-Disposition: inline`, < ~30 KB); link Drive/OneDrive trong body → F3d.
+4. **Gắn tin tuyển dụng**: plus-addressing theo tin (`tuyendung+<job-id>@…`) hoặc khớp tiêu đề thư với tên tin; không xác định được → nhóm "Chưa phân loại".
+5. **Kiểm tra file**: giới hạn dung lượng, quét virus (ClamAV), F3c loại file không phải CV (thư xin việc, bảng điểm, chứng chỉ); nhiều file → chọn file có điểm "là CV" cao nhất, các file còn lại lưu kèm.
+6. **Xử lý**: F3 (chuyển đổi / OCR) → trích xuất → F1 (độ tin cậy, chạy lại / gắn cờ) → Module 2. Email người gửi lưu làm liên hệ dự phòng nếu CV thiếu email.
+7. **Phản hồi (tuỳ chọn)**: thư tự động xác nhận đã nhận CV + link để ứng viên xem/xác nhận hồ sơ (F1) + thông báo xử lý dữ liệu cá nhân.
+8. **Theo dõi**: màn hình nhà tuyển dụng — CV từ email theo trạng thái: mới, đang xử lý, đã trích xuất, cần xem CV gốc, lỗi (kèm lý do: không phải CV, file hỏng, link cần đăng nhập).
+
+### Dữ liệu (backend, cùng DB với F1)
+- `mail_message(id, message_id UNIQUE, received_at, sender_email, subject_hash, job_id NULL, status)` — không lưu toàn văn thư nếu không cần.
+- `mail_attachment(id, mail_message_id, file_hash, mime, size, is_cv, cv_document_id NULL)`.
+
+### Bảo mật và pháp lý
+- Chỉ hộp thư tuyển dụng riêng, không đọc hộp thư cá nhân.
+- CV từ email là dữ liệu cá nhân (Nghị định 13/2023): dùng cho mục đích tuyển dụng; thư phản hồi kèm thông báo xử lý dữ liệu; **chỉ đưa vào dữ liệu train khi ứng viên đồng ý** qua bước xác nhận F1.
+- Log chỉ ghi số đếm và trạng thái, không ghi nội dung thư / CV.
+
+### Tiêu chí chấp nhận
+- Với hộp thư thử nghiệm và thư hư cấu: lấy đủ CV đính kèm (pdf, docx, ảnh), bỏ ảnh chữ ký, không xử lý trùng khi chạy lại, gắn đúng tin theo plus-address, thư không có CV được đánh dấu đúng lý do.
+- Mất kết nối / lỗi OAuth không làm mất thư (thư chỉ được đánh dấu đã xử lý sau khi lưu thành công).
+
+### Ước lượng
+~3–4 ngày (sau khi có DB của F1 và F3a/F3c).
+
+---
+
 ## Phụ thuộc giữa các feature
 
 | Feature | Phụ thuộc | Dùng chung với |
@@ -193,3 +239,4 @@ F4a ~1 ngày (in-memory) / thêm 0,5 ngày khi có DB; F4b ~1–2 ngày.
 | F3b | 015 Giai đoạn 0 (đo OCR) | 015 Giai đoạn 1 (ảnh → PDF có lớp chữ) |
 | F4a | (tốt hơn khi có DB của F1) | F1 |
 | F4b | không | F1 (tỷ lệ ứng viên sửa) |
+| F5 | DB của F1; F3a, F3c (F3b, F3d nếu nhận ảnh / link) | F1 (ứng viên xác nhận qua link trong thư phản hồi) |
