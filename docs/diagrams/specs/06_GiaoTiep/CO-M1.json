@@ -1,0 +1,158 @@
+{
+  "id": "CO-M1",
+  "type": "communication",
+  "name": "Biểu đồ giao tiếp pha phân tích - Đăng ký, đăng nhập và chọn vai trò",
+  "elements": [
+    {
+      "key": "UserActor",
+      "kind": "actor",
+      "name": "Người dùng",
+      "src": "source/recruit_system/frontend/src/App.tsx:22"
+    },
+    {
+      "key": "RegisterView",
+      "kind": "object",
+      "name": ":RegisterView",
+      "class": "RegisterView",
+      "stereotype": "boundary",
+      "src": "source/recruit_system/frontend/src/pages/RegisterPage.tsx:17"
+    },
+    {
+      "key": "ChooseRoleView",
+      "kind": "object",
+      "name": ":ChooseRoleView",
+      "class": "ChooseRoleView",
+      "stereotype": "boundary",
+      "src": "source/recruit_system/frontend/src/pages/ChooseRolePage.tsx:17"
+    },
+    {
+      "key": "User",
+      "kind": "object",
+      "name": ":User",
+      "class": "User",
+      "stereotype": "entity",
+      "src": "source/recruit_system/backend/identity-service/src/main/java/recruit/demo/entity/User.java:17"
+    }
+  ],
+  "links": [
+    {
+      "from": "UserActor",
+      "to": "RegisterView",
+      "src": "source/recruit_system/frontend/src/pages/RegisterPage.tsx:42"
+    },
+    {
+      "from": "RegisterView",
+      "to": "User",
+      "src": "source/recruit_system/frontend/src/pages/RegisterPage.tsx:32"
+    },
+    {
+      "from": "User",
+      "to": "User",
+      "src": "source/recruit_system/backend/identity-service/src/main/java/recruit/demo/service/AuthService.java:28"
+    },
+    {
+      "from": "RegisterView",
+      "to": "ChooseRoleView",
+      "src": "source/recruit_system/frontend/src/pages/RegisterPage.tsx:34"
+    },
+    {
+      "from": "ChooseRoleView",
+      "to": "UserActor",
+      "src": "source/recruit_system/frontend/src/pages/ChooseRolePage.tsx:41"
+    },
+    {
+      "from": "ChooseRoleView",
+      "to": "User",
+      "src": "source/recruit_system/frontend/src/pages/ChooseRolePage.tsx:31"
+    }
+  ],
+  "messages": [
+    {
+      "seq": 1,
+      "from": "UserActor",
+      "to": "RegisterView",
+      "label": "register",
+      "src": "source/recruit_system/frontend/src/pages/RegisterPage.tsx:74"
+    },
+    {
+      "seq": 2,
+      "from": "RegisterView",
+      "to": "User",
+      "label": "call",
+      "src": "source/recruit_system/frontend/src/pages/RegisterPage.tsx:32"
+    },
+    {
+      "seq": 3,
+      "from": "User",
+      "to": "User",
+      "label": "register()",
+      "src": "source/recruit_system/backend/identity-service/src/main/java/recruit/demo/service/AuthService.java:28"
+    },
+    {
+      "seq": 4,
+      "from": "User",
+      "to": "RegisterView",
+      "label": "return",
+      "src": "source/recruit_system/backend/identity-service/src/main/java/recruit/demo/service/AuthService.java:45"
+    },
+    {
+      "seq": 5,
+      "from": "RegisterView",
+      "to": "ChooseRoleView",
+      "label": "call",
+      "src": "source/recruit_system/frontend/src/pages/RegisterPage.tsx:34"
+    },
+    {
+      "seq": 6,
+      "from": "ChooseRoleView",
+      "to": "UserActor",
+      "label": "show",
+      "src": "source/recruit_system/frontend/src/pages/ChooseRolePage.tsx:41"
+    },
+    {
+      "seq": 7,
+      "from": "UserActor",
+      "to": "ChooseRoleView",
+      "label": "chooseRole",
+      "src": "source/recruit_system/frontend/src/pages/ChooseRolePage.tsx:67"
+    },
+    {
+      "seq": 8,
+      "from": "ChooseRoleView",
+      "to": "User",
+      "label": "call",
+      "src": "source/recruit_system/frontend/src/pages/ChooseRolePage.tsx:31"
+    },
+    {
+      "seq": 9,
+      "from": "User",
+      "to": "User",
+      "label": "chooseRole()",
+      "src": "source/recruit_system/backend/identity-service/src/main/java/recruit/demo/service/AuthService.java:49"
+    },
+    {
+      "seq": 10,
+      "from": "User",
+      "to": "ChooseRoleView",
+      "label": "return",
+      "src": "source/recruit_system/backend/identity-service/src/main/java/recruit/demo/service/AuthService.java:65"
+    },
+    {
+      "seq": 11,
+      "from": "ChooseRoleView",
+      "to": "UserActor",
+      "label": "show",
+      "src": "source/recruit_system/frontend/src/pages/ChooseRolePage.tsx:33"
+    }
+  ],
+  "notes": [
+    "Biểu đồ giao tiếp pha phân tích CO-M1 thể hiện kịch bản chuẩn V2 cho luồng chính (Happy Path) của chức năng M1: khởi tạo tài khoản mới và chọn vai trò ban đầu.",
+    "Các đối tượng tham gia được lấy trực tiếp từ biểu đồ lớp pha phân tích AN-M1 gồm lớp biên RegisterView (boundary), ChooseRoleView (boundary) và lớp thực thể User (entity).",
+    "Các phương thức register() và chooseRole() được phân công cho lớp chủ thể User trong pha phân tích, tương ứng với các hàm nghiệp vụ thật sự của AuthService trong identity-service.",
+    "Nhánh ngoại lệ/thay thế đăng nhập tài khoản có sẵn qua LoginView (với các hàm login(), me()) đã được đặc tả trong kịch bản KB-M1 và biểu đồ trạng thái ST-M1, không đưa vào luồng chính của biểu đồ giao tiếp này nhằm đảm bảo tính đơn nhất của kịch bản chuẩn V2."
+  ],
+  "open_questions": [
+    "[cần xác nhận] Biểu đồ giao tiếp pha phân tích CO-M1 tập trung đặc tả luồng chính (Happy Path) gồm đăng ký tài khoản mới và phân định vai trò lần đầu; luồng đăng nhập tài khoản có sẵn qua LoginView được quản lý như kịch bản ngoại lệ/thay thế.",
+    "[cần xác nhận] Quá trình tự động tạo CandidateProfile hoặc RecruiterProfile trong recruitment-service được thực hiện ngầm định tại tầng hạ tầng (ProfileProvisioningFilter) khi người dùng truy cập trang chủ vai trò lần đầu, không phát sinh thông điệp trực tiếp từ lớp biên ChooseRoleView trong pha phân tích M1."
+  ]
+}

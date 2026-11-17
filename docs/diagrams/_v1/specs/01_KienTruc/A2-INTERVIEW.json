@@ -1,0 +1,41 @@
+{
+  "id": "A2-INTERVIEW",
+  "type": "package",
+  "name": "Biểu đồ package - Kiến trúc MVC interview-service",
+  "elements": [
+    {"key":"View","kind":"package","notes":"DTO nhận/trả của interview-service và DTO common được dùng trong luồng interview.","src":"source/recruit_system/backend/interview-service/src/main/java/recruit/demo/dto/InterviewDtos.java:11"},
+    {"key":"Controller","kind":"package","notes":"REST controllers của interview-service.","src":"source/recruit_system/backend/interview-service/src/main/java/recruit/demo/controller/InterviewController.java:1"},
+    {"key":"Model","kind":"package","notes":"Service nghiệp vụ, client AI, repository và entity tiêu biểu.","src":"source/recruit_system/backend/interview-service/src/main/java/recruit/demo/service/InterviewService.java:1"},
+    {"key":"common","kind":"package","notes":"Thư viện dùng chung được interview-service sử dụng: security, exception, HTTP client.","src":"source/recruit_system/backend/common/src/main/java/recruit/demo/security/SecurityUtils.java:1"},
+
+    {"key":"InterviewDtos.QuestionResponse","kind":"class","parent":"View","src":"source/recruit_system/backend/interview-service/src/main/java/recruit/demo/dto/InterviewDtos.java:16"},
+    {"key":"InterviewDtos.CreateSessionRequest","kind":"class","parent":"View","src":"source/recruit_system/backend/interview-service/src/main/java/recruit/demo/dto/InterviewDtos.java:27"},
+    {"key":"InterviewDtos.SessionResponse","kind":"class","parent":"View","src":"source/recruit_system/backend/interview-service/src/main/java/recruit/demo/dto/InterviewDtos.java:39"},
+    {"key":"InterviewDtos.SubmitResponseRequest","kind":"class","parent":"View","src":"source/recruit_system/backend/interview-service/src/main/java/recruit/demo/dto/InterviewDtos.java:53"},
+
+    {"key":"InterviewController","kind":"class","parent":"Controller","src":"source/recruit_system/backend/interview-service/src/main/java/recruit/demo/controller/InterviewController.java:14"},
+    {"key":"InternalInterviewController","kind":"class","parent":"Controller","src":"source/recruit_system/backend/interview-service/src/main/java/recruit/demo/controller/InternalInterviewController.java:8"},
+
+    {"key":"InterviewService","kind":"class","parent":"Model","src":"source/recruit_system/backend/interview-service/src/main/java/recruit/demo/service/InterviewService.java:23"},
+    {"key":"AiScoringClient","kind":"class","parent":"Model","src":"source/recruit_system/backend/interview-service/src/main/java/recruit/demo/service/AiScoringClient.java:26"},
+    {"key":"InterviewSessionRepository","kind":"interface","parent":"Model","src":"source/recruit_system/backend/interview-service/src/main/java/recruit/demo/repository/InterviewSessionRepository.java:8"},
+    {"key":"InterviewSession","kind":"class","parent":"Model","src":"source/recruit_system/backend/interview-service/src/main/java/recruit/demo/entity/InterviewSession.java:1"},
+
+    {"key":"SecurityUtils","kind":"class","parent":"common","src":"source/recruit_system/backend/common/src/main/java/recruit/demo/security/SecurityUtils.java:1"},
+    {"key":"UserPrincipal","kind":"class","parent":"common","src":"source/recruit_system/backend/common/src/main/java/recruit/demo/security/UserPrincipal.java:1"},
+    {"key":"ApiException","kind":"class","parent":"common","src":"source/recruit_system/backend/common/src/main/java/recruit/demo/exception/ApiException.java:1"},
+    {"key":"ServiceHttpClient","kind":"class","parent":"common","src":"source/recruit_system/backend/common/src/main/java/recruit/demo/client/ServiceHttpClient.java:1"}
+  ],
+  "relations": [
+    {"from":"View","to":"Controller","kind":"dependency","label":"DTO qua chữ ký endpoint","src":"source/recruit_system/backend/interview-service/src/main/java/recruit/demo/controller/InterviewController.java:18"},
+    {"from":"Controller","to":"Model","kind":"dependency","label":"gọi service/repository","src":"source/recruit_system/backend/interview-service/src/main/java/recruit/demo/controller/InterviewController.java:16"},
+    {"from":"Model","to":"common","kind":"dependency","label":"security, exception, HTTP client","src":"source/recruit_system/backend/interview-service/src/main/java/recruit/demo/service/InterviewService.java:10"}
+  ],
+  "notes": [
+    "Lược bỏ: DTO InterviewDtos.SessionQuestionItem, SessionSummary, EvaluationResponse; AiScoringDtos.CriterionIn, EvaluateResult; ServiceDtos.InterviewContext, QuestionCount; các DTO common khác; InternalInterviewController được giữ làm controller tiêu biểu.",
+    "Lược bỏ: QuestionSelectionService; các repository EvaluationRubricRepository, EvaluationResultRepository, InterviewQuestionRepository, InterviewResponseRepository, InterviewSessionQuestionRepository, ModelVersionRepository; các entity EvaluationRubric, EvaluationResult, InterviewQuestion, InterviewResponse, InterviewSessionQuestion, ModelVersion, SessionStatus.",
+    "Ánh xạ: View là DTO request/response, Controller là REST handler, Model gồm service/client/repository/entity. Các class common được đưa riêng vào package common.",
+    "Sử dụng common được xác nhận trực tiếp trong InterviewService (SecurityUtils, UserPrincipal, ApiException, ServiceHttpClient); AiScoringClient cũng dùng common ApiException."
+  ],
+  "open_questions": []
+}

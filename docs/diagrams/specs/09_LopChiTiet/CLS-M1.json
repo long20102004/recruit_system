@@ -1,0 +1,1124 @@
+{
+  "id": "CLS-M1",
+  "type": "class",
+  "name": "Biểu đồ lớp chi tiết - Đăng ký, đăng nhập và chọn vai trò",
+  "elements": [
+    {
+      "key": "View",
+      "kind": "package",
+      "src": "source/recruit_system/frontend/src/pages/RegisterPage.tsx:17"
+    },
+    {
+      "key": "Client",
+      "kind": "package",
+      "src": "source/recruit_system/frontend/src/api/client.ts:32"
+    },
+    {
+      "key": "Controller",
+      "kind": "package",
+      "src": "source/recruit_system/backend/identity-service/src/main/java/recruit/demo/controller/AuthController.java:12"
+    },
+    {
+      "key": "Service/Repository",
+      "kind": "package",
+      "src": "source/recruit_system/backend/identity-service/src/main/java/recruit/demo/service/AuthService.java:20"
+    },
+    {
+      "key": "Entity",
+      "kind": "package",
+      "src": "source/recruit_system/backend/identity-service/src/main/java/recruit/demo/entity/User.java:17"
+    },
+    {
+      "key": "RegisterPage",
+      "name": "RegisterPage.tsx",
+      "kind": "class",
+      "parent": "View",
+      "src": "source/recruit_system/frontend/src/pages/RegisterPage.tsx:17",
+      "attributes": [
+        {
+          "name": "txtEmail",
+          "type": "input",
+          "visibility": "-",
+          "src": "source/recruit_system/frontend/src/pages/RegisterPage.tsx:55",
+          "proposed": true
+        },
+        {
+          "name": "txtPassword",
+          "type": "input",
+          "visibility": "-",
+          "src": "source/recruit_system/frontend/src/pages/RegisterPage.tsx:64",
+          "proposed": true
+        },
+        {
+          "name": "btnRegister",
+          "type": "Button",
+          "visibility": "-",
+          "src": "source/recruit_system/frontend/src/pages/RegisterPage.tsx:74",
+          "proposed": true
+        },
+        {
+          "name": "btnLogin",
+          "type": "link",
+          "visibility": "-",
+          "src": "source/recruit_system/frontend/src/pages/RegisterPage.tsx:78",
+          "proposed": true
+        },
+        {
+          "name": "btnBack",
+          "type": "link",
+          "visibility": "-",
+          "src": "source/recruit_system/frontend/src/pages/RegisterPage.tsx:80",
+          "proposed": true
+        },
+        {
+          "name": "email",
+          "type": "string",
+          "visibility": "-",
+          "src": "source/recruit_system/frontend/src/pages/RegisterPage.tsx:21"
+        },
+        {
+          "name": "password",
+          "type": "string",
+          "visibility": "-",
+          "src": "source/recruit_system/frontend/src/pages/RegisterPage.tsx:22"
+        },
+        {
+          "name": "busy",
+          "type": "boolean",
+          "visibility": "-",
+          "src": "source/recruit_system/frontend/src/pages/RegisterPage.tsx:23"
+        },
+        {
+          "name": "user",
+          "type": "UserDto | null",
+          "visibility": "-",
+          "src": "source/recruit_system/frontend/src/pages/RegisterPage.tsx:18"
+        },
+        {
+          "name": "loading",
+          "type": "boolean",
+          "visibility": "-",
+          "src": "source/recruit_system/frontend/src/pages/RegisterPage.tsx:18"
+        }
+      ],
+      "operations": [
+        {
+          "name": "onSubmit",
+          "params": [],
+          "returns": "Promise<void>",
+          "visibility": "+",
+          "src": "source/recruit_system/frontend/src/pages/RegisterPage.tsx:29"
+        }
+      ]
+    },
+    {
+      "key": "LoginPage",
+      "name": "LoginPage.tsx",
+      "kind": "class",
+      "parent": "View",
+      "src": "source/recruit_system/frontend/src/pages/LoginPage.tsx:17",
+      "attributes": [
+        {
+          "name": "txtEmail",
+          "type": "input",
+          "visibility": "-",
+          "src": "source/recruit_system/frontend/src/pages/LoginPage.tsx:55",
+          "proposed": true
+        },
+        {
+          "name": "txtPassword",
+          "type": "input",
+          "visibility": "-",
+          "src": "source/recruit_system/frontend/src/pages/LoginPage.tsx:64",
+          "proposed": true
+        },
+        {
+          "name": "btnLogin",
+          "type": "Button",
+          "visibility": "-",
+          "src": "source/recruit_system/frontend/src/pages/LoginPage.tsx:73",
+          "proposed": true
+        },
+        {
+          "name": "btnRegister",
+          "type": "link",
+          "visibility": "-",
+          "src": "source/recruit_system/frontend/src/pages/LoginPage.tsx:77",
+          "proposed": true
+        },
+        {
+          "name": "btnBack",
+          "type": "link",
+          "visibility": "-",
+          "src": "source/recruit_system/frontend/src/pages/LoginPage.tsx:79",
+          "proposed": true
+        },
+        {
+          "name": "email",
+          "type": "string",
+          "visibility": "-",
+          "src": "source/recruit_system/frontend/src/pages/LoginPage.tsx:21"
+        },
+        {
+          "name": "password",
+          "type": "string",
+          "visibility": "-",
+          "src": "source/recruit_system/frontend/src/pages/LoginPage.tsx:22"
+        },
+        {
+          "name": "busy",
+          "type": "boolean",
+          "visibility": "-",
+          "src": "source/recruit_system/frontend/src/pages/LoginPage.tsx:23"
+        },
+        {
+          "name": "user",
+          "type": "UserDto | null",
+          "visibility": "-",
+          "src": "source/recruit_system/frontend/src/pages/LoginPage.tsx:18"
+        },
+        {
+          "name": "loading",
+          "type": "boolean",
+          "visibility": "-",
+          "src": "source/recruit_system/frontend/src/pages/LoginPage.tsx:18"
+        }
+      ],
+      "operations": [
+        {
+          "name": "onSubmit",
+          "params": [],
+          "returns": "Promise<void>",
+          "visibility": "+",
+          "src": "source/recruit_system/frontend/src/pages/LoginPage.tsx:29"
+        }
+      ]
+    },
+    {
+      "key": "ChooseRolePage",
+      "name": "ChooseRolePage.tsx",
+      "kind": "class",
+      "parent": "View",
+      "src": "source/recruit_system/frontend/src/pages/ChooseRolePage.tsx:17",
+      "attributes": [
+        {
+          "name": "btnCandidate",
+          "type": "RoleOption",
+          "visibility": "-",
+          "src": "source/recruit_system/frontend/src/pages/ChooseRolePage.tsx:54",
+          "proposed": true
+        },
+        {
+          "name": "btnRecruiter",
+          "type": "RoleOption",
+          "visibility": "-",
+          "src": "source/recruit_system/frontend/src/pages/ChooseRolePage.tsx:60",
+          "proposed": true
+        },
+        {
+          "name": "btnConfirmRole",
+          "type": "Button",
+          "visibility": "-",
+          "src": "source/recruit_system/frontend/src/pages/ChooseRolePage.tsx:67",
+          "proposed": true
+        },
+        {
+          "name": "role",
+          "type": "Exclude<RoleDto, \"ADMIN\">",
+          "visibility": "-",
+          "src": "source/recruit_system/frontend/src/pages/ChooseRolePage.tsx:21"
+        },
+        {
+          "name": "busy",
+          "type": "boolean",
+          "visibility": "-",
+          "src": "source/recruit_system/frontend/src/pages/ChooseRolePage.tsx:22"
+        },
+        {
+          "name": "user",
+          "type": "UserDto | null",
+          "visibility": "-",
+          "src": "source/recruit_system/frontend/src/pages/ChooseRolePage.tsx:18"
+        },
+        {
+          "name": "loading",
+          "type": "boolean",
+          "visibility": "-",
+          "src": "source/recruit_system/frontend/src/pages/ChooseRolePage.tsx:18"
+        }
+      ],
+      "operations": [
+        {
+          "name": "onSubmit",
+          "params": [],
+          "returns": "Promise<void>",
+          "visibility": "+",
+          "src": "source/recruit_system/frontend/src/pages/ChooseRolePage.tsx:28"
+        }
+      ]
+    },
+    {
+      "key": "AuthProvider",
+      "kind": "class",
+      "stereotype": "control",
+      "parent": "View",
+      "attributes": [
+        {
+          "name": "user",
+          "type": "UserDto | null",
+          "visibility": "-",
+          "src": "source/recruit_system/frontend/src/context/AuthContext.tsx:45"
+        },
+        {
+          "name": "loading",
+          "type": "boolean",
+          "visibility": "-",
+          "src": "source/recruit_system/frontend/src/context/AuthContext.tsx:46"
+        }
+      ],
+      "operations": [
+        {
+          "name": "login",
+          "params": [
+            {
+              "name": "email",
+              "type": "string"
+            },
+            {
+              "name": "password",
+              "type": "string"
+            }
+          ],
+          "returns": "Promise<UserDto>",
+          "visibility": "+",
+          "src": "source/recruit_system/frontend/src/context/AuthContext.tsx:61"
+        },
+        {
+          "name": "register",
+          "params": [
+            {
+              "name": "input",
+              "type": "{ email: string; password: string }"
+            }
+          ],
+          "returns": "Promise<UserDto>",
+          "visibility": "+",
+          "src": "source/recruit_system/frontend/src/context/AuthContext.tsx:68"
+        },
+        {
+          "name": "chooseRole",
+          "params": [
+            {
+              "name": "role",
+              "type": "\"CANDIDATE\" | \"RECRUITER\""
+            }
+          ],
+          "returns": "Promise<UserDto>",
+          "visibility": "+",
+          "src": "source/recruit_system/frontend/src/context/AuthContext.tsx:75"
+        },
+        {
+          "name": "logout",
+          "params": [],
+          "returns": "void",
+          "visibility": "+",
+          "src": "source/recruit_system/frontend/src/context/AuthContext.tsx:82"
+        }
+      ],
+      "src": "source/recruit_system/frontend/src/context/AuthContext.tsx:44"
+    },
+    {
+      "key": "authApi",
+      "kind": "class",
+      "stereotype": "client",
+      "parent": "Client",
+      "operations": [
+        {
+          "name": "login",
+          "params": [
+            {
+              "name": "email",
+              "type": "string"
+            },
+            {
+              "name": "password",
+              "type": "string"
+            }
+          ],
+          "returns": "Promise<AuthResponse>",
+          "visibility": "+",
+          "src": "source/recruit_system/frontend/src/api/client.ts:52"
+        },
+        {
+          "name": "register",
+          "params": [
+            {
+              "name": "body",
+              "type": "RegisterBody"
+            }
+          ],
+          "returns": "Promise<AuthResponse>",
+          "visibility": "+",
+          "src": "source/recruit_system/frontend/src/api/client.ts:57"
+        },
+        {
+          "name": "me",
+          "params": [],
+          "returns": "Promise<UserDto>",
+          "visibility": "+",
+          "src": "source/recruit_system/frontend/src/api/client.ts:62"
+        },
+        {
+          "name": "chooseRole",
+          "params": [
+            {
+              "name": "role",
+              "type": "\"CANDIDATE\" | \"RECRUITER\""
+            }
+          ],
+          "returns": "Promise<AuthResponse>",
+          "visibility": "+",
+          "src": "source/recruit_system/frontend/src/api/client.ts:63"
+        }
+      ],
+      "src": "source/recruit_system/frontend/src/api/client.ts:51"
+    },
+    {
+      "key": "client.ts",
+      "kind": "class",
+      "parent": "Client",
+      "src": "source/recruit_system/frontend/src/api/client.ts:32",
+      "operations": [
+        {
+          "name": "api<T>",
+          "params": [
+            {
+              "name": "path",
+              "type": "string"
+            },
+            {
+              "name": "options",
+              "type": "RequestInit"
+            }
+          ],
+          "returns": "Promise<T>",
+          "visibility": "+",
+          "src": "source/recruit_system/frontend/src/api/client.ts:32"
+        }
+      ]
+    },
+    {
+      "key": "AuthController",
+      "kind": "class",
+      "parent": "Controller",
+      "attributes": [
+        {
+          "name": "authService",
+          "type": "AuthService",
+          "visibility": "-",
+          "src": "source/recruit_system/backend/identity-service/src/main/java/recruit/demo/controller/AuthController.java:14"
+        }
+      ],
+      "operations": [
+        {
+          "name": "login",
+          "params": [
+            {
+              "name": "request",
+              "type": "AuthDtos.LoginRequest"
+            }
+          ],
+          "returns": "AuthDtos.AuthResponse",
+          "visibility": "+",
+          "src": "source/recruit_system/backend/identity-service/src/main/java/recruit/demo/controller/AuthController.java:17"
+        },
+        {
+          "name": "register",
+          "params": [
+            {
+              "name": "request",
+              "type": "AuthDtos.RegisterRequest"
+            }
+          ],
+          "returns": "AuthDtos.AuthResponse",
+          "visibility": "+",
+          "src": "source/recruit_system/backend/identity-service/src/main/java/recruit/demo/controller/AuthController.java:22"
+        },
+        {
+          "name": "me",
+          "params": [],
+          "returns": "AuthDtos.UserResponse",
+          "visibility": "+",
+          "src": "source/recruit_system/backend/identity-service/src/main/java/recruit/demo/controller/AuthController.java:27"
+        },
+        {
+          "name": "chooseRole",
+          "params": [
+            {
+              "name": "request",
+              "type": "AuthDtos.ChooseRoleRequest"
+            }
+          ],
+          "returns": "AuthDtos.AuthResponse",
+          "visibility": "+",
+          "src": "source/recruit_system/backend/identity-service/src/main/java/recruit/demo/controller/AuthController.java:32"
+        }
+      ],
+      "src": "source/recruit_system/backend/identity-service/src/main/java/recruit/demo/controller/AuthController.java:12"
+    },
+    {
+      "key": "AuthService",
+      "kind": "class",
+      "parent": "Service/Repository",
+      "attributes": [
+        {
+          "name": "userRepository",
+          "type": "UserRepository",
+          "visibility": "-",
+          "src": "source/recruit_system/backend/identity-service/src/main/java/recruit/demo/service/AuthService.java:22"
+        },
+        {
+          "name": "jwtService",
+          "type": "JwtService",
+          "visibility": "-",
+          "src": "source/recruit_system/backend/identity-service/src/main/java/recruit/demo/service/AuthService.java:25"
+        }
+      ],
+      "operations": [
+        {
+          "name": "register",
+          "params": [
+            {
+              "name": "request",
+              "type": "AuthDtos.RegisterRequest"
+            }
+          ],
+          "returns": "AuthDtos.AuthResponse",
+          "visibility": "+",
+          "src": "source/recruit_system/backend/identity-service/src/main/java/recruit/demo/service/AuthService.java:28"
+        },
+        {
+          "name": "chooseRole",
+          "params": [
+            {
+              "name": "request",
+              "type": "AuthDtos.ChooseRoleRequest"
+            }
+          ],
+          "returns": "AuthDtos.AuthResponse",
+          "visibility": "+",
+          "src": "source/recruit_system/backend/identity-service/src/main/java/recruit/demo/service/AuthService.java:49"
+        },
+        {
+          "name": "login",
+          "params": [
+            {
+              "name": "request",
+              "type": "AuthDtos.LoginRequest"
+            }
+          ],
+          "returns": "AuthDtos.AuthResponse",
+          "visibility": "+",
+          "src": "source/recruit_system/backend/identity-service/src/main/java/recruit/demo/service/AuthService.java:68"
+        },
+        {
+          "name": "me",
+          "params": [],
+          "returns": "AuthDtos.UserResponse",
+          "visibility": "+",
+          "src": "source/recruit_system/backend/identity-service/src/main/java/recruit/demo/service/AuthService.java:77"
+        }
+      ],
+      "src": "source/recruit_system/backend/identity-service/src/main/java/recruit/demo/service/AuthService.java:20"
+    },
+    {
+      "key": "UserRepository",
+      "kind": "interface",
+      "parent": "Service/Repository",
+      "attributes": [],
+      "operations": [
+        {
+          "name": "findByEmailIgnoreCase",
+          "params": [
+            {
+              "name": "email",
+              "type": "String"
+            }
+          ],
+          "returns": "Optional<User>",
+          "visibility": "+",
+          "src": "source/recruit_system/backend/identity-service/src/main/java/recruit/demo/repository/UserRepository.java:9"
+        },
+        {
+          "name": "existsByEmailIgnoreCase",
+          "params": [
+            {
+              "name": "email",
+              "type": "String"
+            }
+          ],
+          "returns": "boolean",
+          "visibility": "+",
+          "src": "source/recruit_system/backend/identity-service/src/main/java/recruit/demo/repository/UserRepository.java:10"
+        }
+      ],
+      "src": "source/recruit_system/backend/identity-service/src/main/java/recruit/demo/repository/UserRepository.java:8"
+    },
+    {
+      "key": "ProfileProvisioningFilter",
+      "kind": "class",
+      "parent": "Controller",
+      "attributes": [
+        {
+          "name": "profiles",
+          "type": "ProfileProvisioningService",
+          "visibility": "-",
+          "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/security/ProfileProvisioningFilter.java:15"
+        }
+      ],
+      "operations": [
+        {
+          "name": "doFilterInternal",
+          "params": [
+            {
+              "name": "req",
+              "type": "HttpServletRequest"
+            },
+            {
+              "name": "res",
+              "type": "HttpServletResponse"
+            },
+            {
+              "name": "chain",
+              "type": "FilterChain"
+            }
+          ],
+          "returns": "void",
+          "visibility": "#",
+          "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/security/ProfileProvisioningFilter.java:17"
+        }
+      ],
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/security/ProfileProvisioningFilter.java:14"
+    },
+    {
+      "key": "ProfileProvisioningService",
+      "kind": "class",
+      "parent": "Service/Repository",
+      "attributes": [
+        {
+          "name": "candidates",
+          "type": "CandidateProfileRepository",
+          "visibility": "-",
+          "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/service/ProfileProvisioningService.java:11"
+        },
+        {
+          "name": "recruiters",
+          "type": "RecruiterProfileRepository",
+          "visibility": "-",
+          "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/service/ProfileProvisioningService.java:12"
+        },
+        {
+          "name": "companies",
+          "type": "CompanyRepository",
+          "visibility": "-",
+          "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/service/ProfileProvisioningService.java:13"
+        }
+      ],
+      "operations": [
+        {
+          "name": "ensureProfile",
+          "params": [
+            {
+              "name": "user",
+              "type": "UserPrincipal"
+            }
+          ],
+          "returns": "void",
+          "visibility": "+",
+          "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/service/ProfileProvisioningService.java:15"
+        }
+      ],
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/service/ProfileProvisioningService.java:10"
+    },
+    {
+      "key": "CandidateProfileRepository",
+      "kind": "interface",
+      "parent": "Service/Repository",
+      "attributes": [],
+      "operations": [
+        {
+          "name": "insertIfAbsent",
+          "params": [
+            {
+              "name": "userId",
+              "type": "Integer"
+            }
+          ],
+          "returns": "void",
+          "visibility": "+",
+          "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/repository/CandidateProfileRepository.java:11"
+        }
+      ],
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/repository/CandidateProfileRepository.java:8"
+    },
+    {
+      "key": "RecruiterProfileRepository",
+      "kind": "interface",
+      "parent": "Service/Repository",
+      "attributes": [],
+      "operations": [
+        {
+          "name": "insertIfAbsent",
+          "params": [
+            {
+              "name": "userId",
+              "type": "Integer"
+            },
+            {
+              "name": "companyId",
+              "type": "Integer"
+            }
+          ],
+          "returns": "void",
+          "visibility": "+",
+          "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/repository/RecruiterProfileRepository.java:14"
+        },
+        {
+          "name": "findFirstByUserIdOrderByCreatedAtAsc",
+          "params": [
+            {
+              "name": "userId",
+              "type": "Integer"
+            }
+          ],
+          "returns": "Optional<RecruiterProfile>",
+          "visibility": "+",
+          "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/repository/RecruiterProfileRepository.java:18"
+        }
+      ],
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/repository/RecruiterProfileRepository.java:11"
+    },
+    {
+      "key": "CompanyRepository",
+      "kind": "interface",
+      "parent": "Service/Repository",
+      "attributes": [],
+      "operations": [
+        {
+          "name": "insertIfAbsent",
+          "params": [
+            {
+              "name": "name",
+              "type": "String"
+            }
+          ],
+          "returns": "void",
+          "visibility": "+",
+          "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/repository/CompanyRepository.java:11"
+        },
+        {
+          "name": "findByNameIgnoreCase",
+          "params": [
+            {
+              "name": "name",
+              "type": "String"
+            }
+          ],
+          "returns": "Optional<Company>",
+          "visibility": "+",
+          "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/repository/CompanyRepository.java:13"
+        }
+      ],
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/repository/CompanyRepository.java:8"
+    },
+    {
+      "key": "User",
+      "kind": "class",
+      "parent": "Entity",
+      "src": "source/recruit_system/backend/identity-service/src/main/java/recruit/demo/entity/User.java:17",
+      "attributes": [
+        {
+          "name": "id",
+          "type": "Integer",
+          "visibility": "-",
+          "src": "source/recruit_system/backend/identity-service/src/main/java/recruit/demo/entity/User.java:21"
+        },
+        {
+          "name": "fullName",
+          "type": "String",
+          "visibility": "-",
+          "src": "source/recruit_system/backend/identity-service/src/main/java/recruit/demo/entity/User.java:24"
+        },
+        {
+          "name": "email",
+          "type": "String",
+          "visibility": "-",
+          "src": "source/recruit_system/backend/identity-service/src/main/java/recruit/demo/entity/User.java:27"
+        },
+        {
+          "name": "passwordHash",
+          "type": "String",
+          "visibility": "-",
+          "src": "source/recruit_system/backend/identity-service/src/main/java/recruit/demo/entity/User.java:30"
+        },
+        {
+          "name": "phone",
+          "type": "String",
+          "visibility": "-",
+          "src": "source/recruit_system/backend/identity-service/src/main/java/recruit/demo/entity/User.java:32"
+        },
+        {
+          "name": "role",
+          "type": "Role",
+          "visibility": "-",
+          "src": "source/recruit_system/backend/identity-service/src/main/java/recruit/demo/entity/User.java:37"
+        },
+        {
+          "name": "roleChosen",
+          "type": "boolean",
+          "visibility": "-",
+          "src": "source/recruit_system/backend/identity-service/src/main/java/recruit/demo/entity/User.java:41"
+        },
+        {
+          "name": "status",
+          "type": "UserStatus",
+          "visibility": "-",
+          "src": "source/recruit_system/backend/identity-service/src/main/java/recruit/demo/entity/User.java:46"
+        },
+        {
+          "name": "createdAt",
+          "type": "LocalDateTime",
+          "visibility": "-",
+          "src": "source/recruit_system/backend/identity-service/src/main/java/recruit/demo/entity/User.java:50"
+        },
+        {
+          "name": "updatedAt",
+          "type": "LocalDateTime",
+          "visibility": "-",
+          "src": "source/recruit_system/backend/identity-service/src/main/java/recruit/demo/entity/User.java:54"
+        }
+      ]
+    },
+    {
+      "key": "CandidateProfile",
+      "kind": "class",
+      "parent": "Entity",
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/entity/CandidateProfile.java:19",
+      "attributes": [
+        {
+          "name": "id",
+          "type": "Integer",
+          "visibility": "-",
+          "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/entity/CandidateProfile.java:23"
+        },
+        {
+          "name": "dateOfBirth",
+          "type": "LocalDate",
+          "visibility": "-",
+          "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/entity/CandidateProfile.java:29"
+        },
+        {
+          "name": "address",
+          "type": "String",
+          "visibility": "-",
+          "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/entity/CandidateProfile.java:31"
+        },
+        {
+          "name": "headline",
+          "type": "String",
+          "visibility": "-",
+          "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/entity/CandidateProfile.java:32"
+        },
+        {
+          "name": "summary",
+          "type": "String",
+          "visibility": "-",
+          "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/entity/CandidateProfile.java:35"
+        },
+        {
+          "name": "yearsOfExperience",
+          "type": "BigDecimal",
+          "visibility": "-",
+          "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/entity/CandidateProfile.java:38"
+        },
+        {
+          "name": "educationLevel",
+          "type": "String",
+          "visibility": "-",
+          "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/entity/CandidateProfile.java:41"
+        },
+        {
+          "name": "createdAt",
+          "type": "LocalDateTime",
+          "visibility": "-",
+          "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/entity/CandidateProfile.java:45"
+        },
+        {
+          "name": "updatedAt",
+          "type": "LocalDateTime",
+          "visibility": "-",
+          "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/entity/CandidateProfile.java:49"
+        },
+        {
+          "name": "userId",
+          "type": "Integer",
+          "visibility": "-",
+          "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/entity/CandidateProfile.java:26"
+        }
+      ]
+    },
+    {
+      "key": "RecruiterProfile",
+      "kind": "class",
+      "parent": "Entity",
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/entity/RecruiterProfile.java:16",
+      "attributes": [
+        {
+          "name": "id",
+          "type": "Integer",
+          "visibility": "-",
+          "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/entity/RecruiterProfile.java:20"
+        },
+        {
+          "name": "position",
+          "type": "String",
+          "visibility": "-",
+          "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/entity/RecruiterProfile.java:29"
+        },
+        {
+          "name": "createdAt",
+          "type": "LocalDateTime",
+          "visibility": "-",
+          "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/entity/RecruiterProfile.java:33"
+        },
+        {
+          "name": "userId",
+          "type": "Integer",
+          "visibility": "-",
+          "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/entity/RecruiterProfile.java:23"
+        },
+        {
+          "name": "company",
+          "type": "Company",
+          "visibility": "-",
+          "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/entity/RecruiterProfile.java:27"
+        }
+      ]
+    },
+    {
+      "key": "Company",
+      "kind": "class",
+      "parent": "Entity",
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/entity/Company.java:16",
+      "attributes": [
+        {
+          "name": "id",
+          "type": "Integer",
+          "visibility": "-",
+          "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/entity/Company.java:20"
+        },
+        {
+          "name": "name",
+          "type": "String",
+          "visibility": "-",
+          "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/entity/Company.java:23"
+        },
+        {
+          "name": "description",
+          "type": "String",
+          "visibility": "-",
+          "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/entity/Company.java:26"
+        },
+        {
+          "name": "website",
+          "type": "String",
+          "visibility": "-",
+          "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/entity/Company.java:28"
+        },
+        {
+          "name": "address",
+          "type": "String",
+          "visibility": "-",
+          "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/entity/Company.java:29"
+        },
+        {
+          "name": "createdAt",
+          "type": "LocalDateTime",
+          "visibility": "-",
+          "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/entity/Company.java:33"
+        },
+        {
+          "name": "listRecruiterProfile",
+          "type": "List<RecruiterProfile>",
+          "visibility": "-",
+          "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/entity/RecruiterProfile.java:27",
+          "proposed": true
+        }
+      ]
+    }
+  ],
+  "relations": [
+    {
+      "from": "RegisterPage",
+      "to": "AuthProvider",
+      "kind": "dependency",
+      "src": "source/recruit_system/frontend/src/pages/RegisterPage.tsx:18",
+      "label": "register"
+    },
+    {
+      "from": "LoginPage",
+      "to": "AuthProvider",
+      "kind": "dependency",
+      "src": "source/recruit_system/frontend/src/pages/LoginPage.tsx:18",
+      "label": "login"
+    },
+    {
+      "from": "ChooseRolePage",
+      "to": "AuthProvider",
+      "kind": "dependency",
+      "src": "source/recruit_system/frontend/src/pages/ChooseRolePage.tsx:18",
+      "label": "chooseRole"
+    },
+    {
+      "from": "AuthProvider",
+      "to": "authApi",
+      "kind": "dependency",
+      "src": "source/recruit_system/frontend/src/context/AuthContext.tsx:54",
+      "label": "login / register / chooseRole / me"
+    },
+    {
+      "from": "authApi",
+      "to": "client.ts",
+      "kind": "dependency",
+      "src": "source/recruit_system/frontend/src/api/client.ts:53",
+      "label": "api<T>()"
+    },
+    {
+      "from": "authApi",
+      "to": "AuthController",
+      "kind": "dependency",
+      "src": "source/recruit_system/frontend/src/api/client.ts:52",
+      "label": "HTTP POST /api/auth/login"
+    },
+    {
+      "from": "authApi",
+      "to": "AuthController",
+      "kind": "dependency",
+      "src": "source/recruit_system/frontend/src/api/client.ts:57",
+      "label": "HTTP POST /api/auth/register"
+    },
+    {
+      "from": "authApi",
+      "to": "AuthController",
+      "kind": "dependency",
+      "src": "source/recruit_system/frontend/src/api/client.ts:62",
+      "label": "HTTP GET /api/auth/me"
+    },
+    {
+      "from": "authApi",
+      "to": "AuthController",
+      "kind": "dependency",
+      "src": "source/recruit_system/frontend/src/api/client.ts:63",
+      "label": "HTTP POST /api/auth/role"
+    },
+    {
+      "from": "AuthController",
+      "to": "AuthService",
+      "kind": "association",
+      "src": "source/recruit_system/backend/identity-service/src/main/java/recruit/demo/controller/AuthController.java:14"
+    },
+    {
+      "from": "AuthService",
+      "to": "UserRepository",
+      "kind": "association",
+      "src": "source/recruit_system/backend/identity-service/src/main/java/recruit/demo/service/AuthService.java:22"
+    },
+    {
+      "from": "UserRepository",
+      "to": "User",
+      "kind": "dependency",
+      "src": "source/recruit_system/backend/identity-service/src/main/java/recruit/demo/repository/UserRepository.java:8",
+      "label": "JpaRepository<User, Integer>"
+    },
+    {
+      "from": "ProfileProvisioningFilter",
+      "to": "ProfileProvisioningService",
+      "kind": "association",
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/security/ProfileProvisioningFilter.java:20",
+      "label": "ensureProfile"
+    },
+    {
+      "from": "ProfileProvisioningService",
+      "to": "CandidateProfileRepository",
+      "kind": "association",
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/service/ProfileProvisioningService.java:17"
+    },
+    {
+      "from": "CandidateProfileRepository",
+      "to": "CandidateProfile",
+      "kind": "dependency",
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/repository/CandidateProfileRepository.java:8",
+      "label": "JpaRepository"
+    },
+    {
+      "from": "ProfileProvisioningService",
+      "to": "RecruiterProfileRepository",
+      "kind": "association",
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/service/ProfileProvisioningService.java:19"
+    },
+    {
+      "from": "RecruiterProfileRepository",
+      "to": "RecruiterProfile",
+      "kind": "dependency",
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/repository/RecruiterProfileRepository.java:11",
+      "label": "JpaRepository"
+    },
+    {
+      "from": "ProfileProvisioningService",
+      "to": "CompanyRepository",
+      "kind": "association",
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/service/ProfileProvisioningService.java:22"
+    },
+    {
+      "from": "CompanyRepository",
+      "to": "Company",
+      "kind": "dependency",
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/repository/CompanyRepository.java:8",
+      "label": "JpaRepository"
+    },
+    {
+      "from": "CandidateProfile",
+      "to": "User",
+      "kind": "association",
+      "fromMult": "1",
+      "toMult": "1",
+      "label": "",
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/entity/CandidateProfile.java:26"
+    },
+    {
+      "from": "RecruiterProfile",
+      "to": "User",
+      "kind": "association",
+      "fromMult": "n",
+      "toMult": "1",
+      "label": "",
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/entity/RecruiterProfile.java:23"
+    },
+    {
+      "from": "Company",
+      "to": "RecruiterProfile",
+      "kind": "aggregation",
+      "fromMult": "1",
+      "toMult": "n",
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/entity/RecruiterProfile.java:27"
+    }
+  ],
+  "notes": [
+    "Các trang, AuthProvider, authApi và module client.ts được biểu diễn bằng hộp lớp để mô hình hóa component, object và module TypeScript; các thuộc tính txt/btn là tên đề xuất từ JSX, không phải biến trong source.",
+    "ProfileProvisioningFilter chạy khi request tới recruitment-service có UserPrincipal; không có lời gọi trực tiếp từ AuthService hoặc ChooseRolePage. Không có bước AI trong M1.",
+    "Quan hệ profile–User chỉ logical qua userId; không có FK xuyên service.",
+    "E1 dùng DateTime/Date/Decimal và Boolean để mô hình hóa; spec này dùng kiểu Java thật LocalDateTime/LocalDate/BigDecimal và boolean.",
+    "Các đường nối giữa hai package service khác nhau là liên kết logical (khác service): chỉ lưu id, không có khóa ngoại/tham chiếu đối tượng."
+  ],
+  "open_questions": []
+}

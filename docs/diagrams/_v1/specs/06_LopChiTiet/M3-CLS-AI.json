@@ -1,0 +1,841 @@
+{
+  "id": "M3-CLS-AI",
+  "type": "class",
+  "name": "Biểu đồ lớp chi tiết - Đối sánh CV-JD phía AI (cv-matching-ai)",
+  "elements": [
+    {
+      "key": "View",
+      "kind": "package",
+      "name": "View",
+      "notes": "Tầng biên giao tiếp (Boundary/API Route) tiếp nhận HTTP request từ recruitment-service",
+      "src": "source/recruit_system/services/cv-matching-ai/app/main.py:18"
+    },
+    {
+      "key": "Controller",
+      "kind": "package",
+      "name": "Controller",
+      "notes": "Tầng điều khiển (Control) điều phối luồng xử lý đối sánh CV–JD không dùng LLM",
+      "src": "source/recruit_system/services/cv-matching-ai/app/main.py:57"
+    },
+    {
+      "key": "Model",
+      "kind": "package",
+      "name": "Model",
+      "notes": "Tầng nghiệp vụ (Service, Adapter, Ontology, Schema/Entity)",
+      "src": "source/recruit_system/services/cv-matching-ai/app/scoring.py:1"
+    },
+    {
+      "key": "main",
+      "kind": "class",
+      "stereotype": "boundary",
+      "parent": "View",
+      "attributes": [
+        {
+          "name": "app",
+          "type": "FastAPI",
+          "visibility": "+",
+          "src": "source/recruit_system/services/cv-matching-ai/app/main.py:18"
+        }
+      ],
+      "operations": [
+        {
+          "name": "match_without_llm",
+          "params": [
+            {
+              "name": "request",
+              "type": "MatchRequest"
+            }
+          ],
+          "returns": "dict[str, Any]",
+          "visibility": "+",
+          "src": "source/recruit_system/services/cv-matching-ai/app/main.py:91"
+        },
+        {
+          "name": "_run_match",
+          "params": [
+            {
+              "name": "request",
+              "type": "MatchRequest"
+            },
+            {
+              "name": "use_llm",
+              "type": "bool"
+            }
+          ],
+          "returns": "dict[str, Any]",
+          "visibility": "-",
+          "src": "source/recruit_system/services/cv-matching-ai/app/main.py:57"
+        },
+        {
+          "name": "load_required_embedding_model",
+          "params": [],
+          "returns": "None",
+          "visibility": "+",
+          "src": "source/recruit_system/services/cv-matching-ai/app/main.py:41"
+        }
+      ],
+      "src": "source/recruit_system/services/cv-matching-ai/app/main.py:41"
+    },
+    {
+      "key": "MatchRequest",
+      "kind": "class",
+      "stereotype": "entity",
+      "parent": "Model",
+      "attributes": [
+        {
+          "name": "candidate",
+          "type": "dict[str, Any]",
+          "visibility": "+",
+          "src": "source/recruit_system/services/cv-matching-ai/app/main.py:28"
+        },
+        {
+          "name": "jd",
+          "type": "dict[str, Any]",
+          "visibility": "+",
+          "src": "source/recruit_system/services/cv-matching-ai/app/main.py:29"
+        },
+        {
+          "name": "weights",
+          "type": "dict[str, float] | None",
+          "visibility": "+",
+          "src": "source/recruit_system/services/cv-matching-ai/app/main.py:30"
+        }
+      ],
+      "operations": [],
+      "src": "source/recruit_system/services/cv-matching-ai/app/main.py:27"
+    },
+    {
+      "key": "extraction_adapter",
+      "kind": "class",
+      "stereotype": "module",
+      "parent": "Controller",
+      "attributes": [],
+      "operations": [
+        {
+          "name": "adapt_candidate",
+          "params": [
+            {
+              "name": "candidate",
+              "type": "dict[str, Any]"
+            }
+          ],
+          "returns": "dict[str, Any]",
+          "visibility": "+",
+          "src": "source/recruit_system/services/cv-matching-ai/app/extraction_adapter.py:40"
+        },
+        {
+          "name": "experience_years",
+          "params": [
+            {
+              "name": "jobs",
+              "type": "list[dict[str, Any]]"
+            }
+          ],
+          "returns": "float",
+          "visibility": "+",
+          "src": "source/recruit_system/services/cv-matching-ai/app/extraction_adapter.py:28"
+        },
+        {
+          "name": "_month",
+          "params": [
+            {
+              "name": "value",
+              "type": "Any"
+            },
+            {
+              "name": "current",
+              "type": "bool"
+            }
+          ],
+          "returns": "int | None",
+          "visibility": "-",
+          "src": "source/recruit_system/services/cv-matching-ai/app/extraction_adapter.py:8"
+        }
+      ],
+      "src": "source/recruit_system/services/cv-matching-ai/app/extraction_adapter.py:8"
+    },
+    {
+      "key": "normalize",
+      "kind": "class",
+      "stereotype": "module",
+      "parent": "Controller",
+      "attributes": [
+        {
+          "name": "ROOT",
+          "type": "Path",
+          "visibility": "-",
+          "src": "source/recruit_system/services/cv-matching-ai/app/normalize.py:13"
+        },
+        {
+          "name": "DICTIONARY_PATH",
+          "type": "Path",
+          "visibility": "-",
+          "src": "source/recruit_system/services/cv-matching-ai/app/normalize.py:14"
+        }
+      ],
+      "operations": [
+        {
+          "name": "normalize_candidate",
+          "params": [
+            {
+              "name": "candidate",
+              "type": "dict[str, Any]"
+            },
+            {
+              "name": "dictionary",
+              "type": "dict[str, str] | None"
+            }
+          ],
+          "returns": "dict[str, Any]",
+          "visibility": "+",
+          "src": "source/recruit_system/services/cv-matching-ai/app/normalize.py:44"
+        },
+        {
+          "name": "normalize_jd",
+          "params": [
+            {
+              "name": "jd",
+              "type": "dict[str, Any]"
+            },
+            {
+              "name": "dictionary",
+              "type": "dict[str, str] | None"
+            }
+          ],
+          "returns": "dict[str, Any]",
+          "visibility": "+",
+          "src": "source/recruit_system/services/cv-matching-ai/app/normalize.py:67"
+        },
+        {
+          "name": "load_skill_dictionary",
+          "params": [
+            {
+              "name": "path",
+              "type": "Path"
+            }
+          ],
+          "returns": "dict[str, str]",
+          "visibility": "+",
+          "src": "source/recruit_system/services/cv-matching-ai/app/normalize.py:31"
+        },
+        {
+          "name": "_normalize_skills",
+          "params": [
+            {
+              "name": "value",
+              "type": "Any"
+            },
+            {
+              "name": "dictionary",
+              "type": "dict[str, str]"
+            }
+          ],
+          "returns": "list[str]",
+          "visibility": "-",
+          "src": "source/recruit_system/services/cv-matching-ai/app/normalize.py:37"
+        },
+        {
+          "name": "_education_requirement",
+          "params": [
+            {
+              "name": "value",
+              "type": "Any"
+            }
+          ],
+          "returns": "str",
+          "visibility": "-",
+          "src": "source/recruit_system/services/cv-matching-ai/app/normalize.py:80"
+        },
+        {
+          "name": "_text",
+          "params": [
+            {
+              "name": "value",
+              "type": "Any"
+            }
+          ],
+          "returns": "str",
+          "visibility": "-",
+          "src": "source/recruit_system/services/cv-matching-ai/app/normalize.py:17"
+        },
+        {
+          "name": "_items",
+          "params": [
+            {
+              "name": "value",
+              "type": "Any"
+            }
+          ],
+          "returns": "list[str]",
+          "visibility": "-",
+          "src": "source/recruit_system/services/cv-matching-ai/app/normalize.py:21"
+        }
+      ],
+      "src": "source/recruit_system/services/cv-matching-ai/app/normalize.py:17"
+    },
+    {
+      "key": "features",
+      "kind": "class",
+      "stereotype": "module",
+      "parent": "Controller",
+      "attributes": [
+        {
+          "name": "PARTIAL_MATCH_THRESHOLD",
+          "type": "float",
+          "visibility": "-",
+          "src": "source/recruit_system/services/cv-matching-ai/app/features.py:10"
+        },
+        {
+          "name": "EDUCATION_LEVELS",
+          "type": "dict[str, int]",
+          "visibility": "-",
+          "src": "source/recruit_system/services/cv-matching-ai/app/features.py:11"
+        }
+      ],
+      "operations": [
+        {
+          "name": "extract_features",
+          "params": [
+            {
+              "name": "candidate",
+              "type": "dict[str, Any]"
+            },
+            {
+              "name": "jd",
+              "type": "dict[str, Any]"
+            }
+          ],
+          "returns": "tuple[dict[str, float], list[str], list[str]]",
+          "visibility": "+",
+          "src": "source/recruit_system/services/cv-matching-ai/app/features.py:111"
+        },
+        {
+          "name": "skill_match_details",
+          "params": [
+            {
+              "name": "candidate",
+              "type": "dict[str, Any]"
+            },
+            {
+              "name": "jd",
+              "type": "dict[str, Any]"
+            }
+          ],
+          "returns": "tuple[float, list[str], list[str]]",
+          "visibility": "+",
+          "src": "source/recruit_system/services/cv-matching-ai/app/features.py:28"
+        },
+        {
+          "name": "score_skill_pair",
+          "params": [
+            {
+              "name": "graph",
+              "type": "Any"
+            },
+            {
+              "name": "skill_cv",
+              "type": "str"
+            },
+            {
+              "name": "skill_jd",
+              "type": "str"
+            },
+            {
+              "name": "w_graph",
+              "type": "float"
+            },
+            {
+              "name": "w_semantic",
+              "type": "float"
+            }
+          ],
+          "returns": "float",
+          "visibility": "+",
+          "src": "source/recruit_system/services/cv-matching-ai/app/features.py:54"
+        },
+        {
+          "name": "score_skill",
+          "params": [
+            {
+              "name": "candidate",
+              "type": "dict[str, Any]"
+            },
+            {
+              "name": "jd",
+              "type": "dict[str, Any]"
+            }
+          ],
+          "returns": "float",
+          "visibility": "+",
+          "src": "source/recruit_system/services/cv-matching-ai/app/features.py:77"
+        },
+        {
+          "name": "score_experience",
+          "params": [
+            {
+              "name": "candidate",
+              "type": "dict[str, Any]"
+            },
+            {
+              "name": "jd",
+              "type": "dict[str, Any]"
+            }
+          ],
+          "returns": "float",
+          "visibility": "+",
+          "src": "source/recruit_system/services/cv-matching-ai/app/features.py:81"
+        },
+        {
+          "name": "score_education",
+          "params": [
+            {
+              "name": "candidate",
+              "type": "dict[str, Any]"
+            },
+            {
+              "name": "jd",
+              "type": "dict[str, Any]"
+            }
+          ],
+          "returns": "float",
+          "visibility": "+",
+          "src": "source/recruit_system/services/cv-matching-ai/app/features.py:91"
+        },
+        {
+          "name": "score_context",
+          "params": [
+            {
+              "name": "candidate",
+              "type": "dict[str, Any]"
+            },
+            {
+              "name": "jd",
+              "type": "dict[str, Any]"
+            }
+          ],
+          "returns": "float",
+          "visibility": "+",
+          "src": "source/recruit_system/services/cv-matching-ai/app/features.py:103"
+        }
+      ],
+      "src": "source/recruit_system/services/cv-matching-ai/app/features.py:28"
+    },
+    {
+      "key": "graph",
+      "kind": "class",
+      "stereotype": "module",
+      "parent": "Controller",
+      "attributes": [
+        {
+          "name": "ROOT",
+          "type": "Path",
+          "visibility": "-",
+          "src": "source/recruit_system/services/cv-matching-ai/app/graph.py:15"
+        },
+        {
+          "name": "GRAPH_PATH",
+          "type": "Path",
+          "visibility": "-",
+          "src": "source/recruit_system/services/cv-matching-ai/app/graph.py:16"
+        },
+        {
+          "name": "KB_GRAPH_PATH",
+          "type": "Path",
+          "visibility": "-",
+          "src": "source/recruit_system/services/cv-matching-ai/app/graph.py:17"
+        },
+        {
+          "name": "_RELATION_RANK",
+          "type": "dict[str, int]",
+          "visibility": "-",
+          "src": "source/recruit_system/services/cv-matching-ai/app/graph.py:18"
+        },
+        {
+          "name": "_BROAD_TYPES",
+          "type": "set[str]",
+          "visibility": "-",
+          "src": "source/recruit_system/services/cv-matching-ai/app/graph.py:19"
+        }
+      ],
+      "operations": [
+        {
+          "name": "default_skill_graph",
+          "params": [],
+          "returns": "nx.Graph",
+          "visibility": "+",
+          "src": "source/recruit_system/services/cv-matching-ai/app/graph.py:74"
+        },
+        {
+          "name": "skill_node_lookup",
+          "params": [],
+          "returns": "dict[str, str]",
+          "visibility": "+",
+          "src": "source/recruit_system/services/cv-matching-ai/app/graph.py:81"
+        },
+        {
+          "name": "skill_to_node_id",
+          "params": [
+            {
+              "name": "skill",
+              "type": "str"
+            }
+          ],
+          "returns": "str | None",
+          "visibility": "+",
+          "src": "source/recruit_system/services/cv-matching-ai/app/graph.py:90"
+        },
+        {
+          "name": "direct_relation",
+          "params": [
+            {
+              "name": "graph",
+              "type": "nx.Graph"
+            },
+            {
+              "name": "left",
+              "type": "str"
+            },
+            {
+              "name": "right",
+              "type": "str"
+            }
+          ],
+          "returns": "str | None",
+          "visibility": "+",
+          "src": "source/recruit_system/services/cv-matching-ai/app/graph.py:94"
+        },
+        {
+          "name": "skills_for_title",
+          "params": [
+            {
+              "name": "title",
+              "type": "str"
+            }
+          ],
+          "returns": "list[str]",
+          "visibility": "+",
+          "src": "source/recruit_system/services/cv-matching-ai/app/graph.py:100"
+        },
+        {
+          "name": "graph_distance",
+          "params": [
+            {
+              "name": "g",
+              "type": "nx.Graph"
+            },
+            {
+              "name": "skill_a_id",
+              "type": "str"
+            },
+            {
+              "name": "skill_b_id",
+              "type": "str"
+            }
+          ],
+          "returns": "int | None",
+          "visibility": "+",
+          "src": "source/recruit_system/services/cv-matching-ai/app/graph.py:120"
+        },
+        {
+          "name": "graph_match_score",
+          "params": [
+            {
+              "name": "g",
+              "type": "nx.Graph"
+            },
+            {
+              "name": "skill_a_id",
+              "type": "str"
+            },
+            {
+              "name": "skill_b_id",
+              "type": "str"
+            },
+            {
+              "name": "max_distance",
+              "type": "int"
+            }
+          ],
+          "returns": "float",
+          "visibility": "+",
+          "src": "source/recruit_system/services/cv-matching-ai/app/graph.py:129"
+        },
+        {
+          "name": "load_skill_graph",
+          "params": [
+            {
+              "name": "path",
+              "type": "Path | str"
+            }
+          ],
+          "returns": "nx.Graph",
+          "visibility": "+",
+          "src": "source/recruit_system/services/cv-matching-ai/app/graph.py:39"
+        },
+        {
+          "name": "_load_kb_graph",
+          "params": [
+            {
+              "name": "data",
+              "type": "dict"
+            }
+          ],
+          "returns": "nx.Graph",
+          "visibility": "-",
+          "src": "source/recruit_system/services/cv-matching-ai/app/graph.py:52"
+        },
+        {
+          "name": "graph_key",
+          "params": [
+            {
+              "name": "text",
+              "type": "str"
+            }
+          ],
+          "returns": "str",
+          "visibility": "+",
+          "src": "source/recruit_system/services/cv-matching-ai/app/graph.py:31"
+        }
+      ],
+      "src": "source/recruit_system/services/cv-matching-ai/app/graph.py:31"
+    },
+    {
+      "key": "scoring",
+      "kind": "class",
+      "stereotype": "module",
+      "parent": "Controller",
+      "attributes": [
+        {
+          "name": "DEFAULT_WEIGHTS",
+          "type": "dict[str, float]",
+          "visibility": "+",
+          "src": "source/recruit_system/services/cv-matching-ai/app/scoring.py:7"
+        }
+      ],
+      "operations": [
+        {
+          "name": "validate_weights",
+          "params": [
+            {
+              "name": "weights",
+              "type": "Mapping[str, float]"
+            }
+          ],
+          "returns": "dict[str, float]",
+          "visibility": "+",
+          "src": "source/recruit_system/services/cv-matching-ai/app/scoring.py:10"
+        },
+        {
+          "name": "compute_final_score",
+          "params": [
+            {
+              "name": "features",
+              "type": "Mapping[str, float]"
+            },
+            {
+              "name": "weights",
+              "type": "Mapping[str, float] | None"
+            }
+          ],
+          "returns": "float",
+          "visibility": "+",
+          "src": "source/recruit_system/services/cv-matching-ai/app/scoring.py:22"
+        }
+      ],
+      "src": "source/recruit_system/services/cv-matching-ai/app/scoring.py:10"
+    },
+    {
+      "key": "embeddings",
+      "kind": "class",
+      "stereotype": "module",
+      "parent": "Model",
+      "attributes": [
+        {
+          "name": "embedding_service",
+          "type": "EmbeddingService",
+          "visibility": "+",
+          "src": "source/recruit_system/services/cv-matching-ai/app/embeddings.py:63"
+        }
+      ],
+      "operations": [
+        {
+          "name": "cosine_similarity",
+          "params": [
+            {
+              "name": "left",
+              "type": "str"
+            },
+            {
+              "name": "right",
+              "type": "str"
+            }
+          ],
+          "returns": "float",
+          "visibility": "+",
+          "src": "source/recruit_system/services/cv-matching-ai/app/embeddings.py:66"
+        }
+      ],
+      "src": "source/recruit_system/services/cv-matching-ai/app/embeddings.py:66"
+    },
+    {
+      "key": "EmbeddingService",
+      "kind": "class",
+      "stereotype": "service",
+      "parent": "Model",
+      "attributes": [
+        {
+          "name": "model_name",
+          "type": "str",
+          "visibility": "+",
+          "src": "source/recruit_system/services/cv-matching-ai/app/embeddings.py:19"
+        },
+        {
+          "name": "_model",
+          "type": "Any",
+          "visibility": "-",
+          "src": "source/recruit_system/services/cv-matching-ai/app/embeddings.py:22"
+        },
+        {
+          "name": "_load_attempted",
+          "type": "bool",
+          "visibility": "-",
+          "src": "source/recruit_system/services/cv-matching-ai/app/embeddings.py:23"
+        }
+      ],
+      "operations": [
+        {
+          "name": "__init__",
+          "params": [
+            {
+              "name": "model_name",
+              "type": "str | None"
+            }
+          ],
+          "returns": "None",
+          "visibility": "+",
+          "src": "source/recruit_system/services/cv-matching-ai/app/embeddings.py:18"
+        },
+        {
+          "name": "_load_model",
+          "params": [],
+          "returns": "None",
+          "visibility": "-",
+          "src": "source/recruit_system/services/cv-matching-ai/app/embeddings.py:25"
+        },
+        {
+          "name": "encode",
+          "params": [
+            {
+              "name": "texts",
+              "type": "list[str]"
+            }
+          ],
+          "returns": "np.ndarray",
+          "visibility": "+",
+          "src": "source/recruit_system/services/cv-matching-ai/app/embeddings.py:42"
+        },
+        {
+          "name": "_hash_embedding",
+          "params": [
+            {
+              "name": "text",
+              "type": "str"
+            },
+            {
+              "name": "dimensions",
+              "type": "int"
+            }
+          ],
+          "returns": "tuple[float, ...]",
+          "visibility": "-",
+          "src": "source/recruit_system/services/cv-matching-ai/app/embeddings.py:50"
+        }
+      ],
+      "src": "source/recruit_system/services/cv-matching-ai/app/embeddings.py:15"
+    }
+  ],
+  "relations": [
+    {
+      "from": "main",
+      "to": "MatchRequest",
+      "kind": "dependency",
+      "label": "deserialize request",
+      "src": "source/recruit_system/services/cv-matching-ai/app/main.py:91"
+    },
+    {
+      "from": "main",
+      "to": "normalize",
+      "kind": "dependency",
+      "label": "chuẩn hóa dữ liệu",
+      "src": "source/recruit_system/services/cv-matching-ai/app/main.py:60"
+    },
+    {
+      "from": "main",
+      "to": "features",
+      "kind": "dependency",
+      "label": "trích xuất đặc trưng",
+      "src": "source/recruit_system/services/cv-matching-ai/app/main.py:62"
+    },
+    {
+      "from": "main",
+      "to": "scoring",
+      "kind": "dependency",
+      "label": "tính điểm đối sánh",
+      "src": "source/recruit_system/services/cv-matching-ai/app/main.py:64"
+    },
+    {
+      "from": "main",
+      "to": "embeddings",
+      "kind": "dependency",
+      "label": "khởi động nạp model",
+      "src": "source/recruit_system/services/cv-matching-ai/app/main.py:43"
+    },
+    {
+      "from": "normalize",
+      "to": "extraction_adapter",
+      "kind": "dependency",
+      "label": "chuyển đổi cấu trúc CV",
+      "src": "source/recruit_system/services/cv-matching-ai/app/normalize.py:45"
+    },
+    {
+      "from": "features",
+      "to": "graph",
+      "kind": "dependency",
+      "label": "tra cứu đồ thị kỹ năng",
+      "src": "source/recruit_system/services/cv-matching-ai/app/features.py:8"
+    },
+    {
+      "from": "features",
+      "to": "embeddings",
+      "kind": "dependency",
+      "label": "tính tương đồng ngữ nghĩa",
+      "src": "source/recruit_system/services/cv-matching-ai/app/features.py:7"
+    },
+    {
+      "from": "graph",
+      "to": "normalize",
+      "kind": "dependency",
+      "label": "làm sạch chuỗi",
+      "src": "source/recruit_system/services/cv-matching-ai/app/graph.py:13"
+    },
+    {
+      "from": "embeddings",
+      "to": "EmbeddingService",
+      "kind": "association",
+      "fromMult": "1",
+      "toMult": "1",
+      "label": "sử dụng singleton",
+      "src": "source/recruit_system/services/cv-matching-ai/app/embeddings.py:63"
+    }
+  ],
+  "notes": [
+    "Biểu đồ thể hiện chi tiết thiết kế lớp/module của dịch vụ AI cv-matching-ai (Python FastAPI) phục vụ luồng đối sánh không dùng LLM (POST /match/no-llm) trong Module 3.",
+    "Mọi tên phần tử phản ánh chính xác cấu trúc mã nguồn: các lớp thật (MatchRequest, EmbeddingService) giữ nguyên tên lớp; các module Python chứa hàm (main, extraction_adapter, normalize, features, graph, scoring, embeddings) được biểu diễn với stereotype module (riêng main giữ stereotype boundary do đóng vai trò API route tiếp nhận HTTP).",
+    "Luồng xử lý không kích hoạt LLM (explain.py) và không dùng hybrid retrieval cho batch (retrieval.py), do recruitment-service gọi tuần tự từng tin tuyển dụng qua API /match/no-llm.",
+    "EmbeddingService là một lớp thực tế trong mã nguồn (embeddings.py) kết hợp khởi tạo đối tượng Singleton (embedding_service) và cơ chế tải lười (lazy loading) cùng hàm băm fallback khi không tải được model từ HuggingFace."
+  ],
+  "open_questions": [
+    "[cần xác nhận] Trong tương lai có dự định cho phép ứng viên chọn giải thích bằng LLM (gọi /match kèm OpenAI API) trong luồng xem việc phù hợp hay cố định sử dụng giải thích tất định qua /match/no-llm để tối ưu chi phí và thời gian đáp ứng?",
+    "[cần xác nhận] Đồ thị kỹ năng và từ điển kỹ năng hiện tại đọc từ tệp JSON tĩnh local (data/kb_skill_graph.json, data/skills_dictionary.json), có kế hoạch đồng bộ động với bảng skills trong CSDL hirelens_recruitment hay không?"
+  ]
+}

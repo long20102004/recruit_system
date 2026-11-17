@@ -1,0 +1,583 @@
+{
+  "id": "ACT-M2",
+  "type": "activity",
+  "name": "Biểu đồ hoạt động - Tải và xác nhận CV",
+  "partitions": [
+    {
+      "key": "page",
+      "name": "CandidateCvPage.tsx",
+      "src": "source/recruit_system/frontend/src/pages/candidate/CandidateCvPage.tsx:94"
+    },
+    {
+      "key": "client",
+      "name": "client",
+      "src": "source/recruit_system/frontend/src/api/client.ts:32"
+    },
+    {
+      "key": "controller",
+      "name": "CvController",
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/controller/CvController.java:13"
+    },
+    {
+      "key": "service",
+      "name": "CvService",
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/service/CvService.java:32"
+    },
+    {
+      "key": "profile",
+      "name": "CandidateProfileRepository",
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/repository/CandidateProfileRepository.java:8"
+    },
+    {
+      "key": "data",
+      "name": "CvDataRepository",
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/repository/CvDataRepository.java:8"
+    },
+    {
+      "key": "extract",
+      "name": "CvExtractionModule",
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/service/cv/CvExtractionModule.java:12"
+    },
+    {
+      "key": "pdf",
+      "name": "PdfTextExtractor",
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/extraction/pdf/PdfTextExtractor.java:31"
+    },
+    {
+      "key": "http",
+      "name": "AiJsonClient",
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/client/AiJsonClient.java:21"
+    },
+    {
+      "key": "ai",
+      "name": "cv-extraction-ai",
+      "src": "source/recruit_system/services/cv-extraction-ai/app/api/routes.py:64"
+    },
+    {
+      "key": "mapper",
+      "name": "CvProfileMapper",
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/service/cv/CvProfileMapper.java:9"
+    },
+    {
+      "key": "identity",
+      "name": "IdentityClient",
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/client/IdentityClient.java:13"
+    }
+  ],
+  "nodes": [
+    {
+      "key": "start",
+      "kind": "initial",
+      "name": "Bắt đầu",
+      "partition": "page",
+      "src": "source/recruit_system/frontend/src/pages/candidate/CandidateCvPage.tsx:94"
+    },
+    {
+      "key": "mine",
+      "kind": "action",
+      "name": "Gọi hàm mine()",
+      "partition": "page",
+      "src": "source/recruit_system/frontend/src/pages/candidate/CandidateCvPage.tsx:115"
+    },
+    {
+      "key": "mc",
+      "kind": "action",
+      "name": "api<T>() / fetch()",
+      "partition": "client",
+      "src": "source/recruit_system/frontend/src/api/client.ts:100"
+    },
+    {
+      "key": "mt",
+      "kind": "action",
+      "name": "mine()",
+      "partition": "controller",
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/controller/CvController.java:18"
+    },
+    {
+      "key": "ms",
+      "kind": "action",
+      "name": "Gọi hàm mine()",
+      "partition": "service",
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/service/CvService.java:47"
+    },
+    {
+      "key": "mp",
+      "kind": "action",
+      "name": "Gọi hàm findByUserId()",
+      "partition": "profile",
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/service/CvService.java:218"
+    },
+    {
+      "key": "md",
+      "kind": "action",
+      "name": "Gọi hàm findByCandidateIdAndFieldOrderByIdAsc()",
+      "partition": "data",
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/service/CvService.java:175"
+    },
+    {
+      "key": "mr",
+      "kind": "action",
+      "name": "mine() — trả kết quả",
+      "partition": "controller",
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/controller/CvController.java:19"
+    },
+    {
+      "key": "mcr",
+      "kind": "action",
+      "name": "api<T>() — trả kết quả",
+      "partition": "client",
+      "src": "source/recruit_system/frontend/src/api/client.ts:49"
+    },
+    {
+      "key": "display",
+      "kind": "action",
+      "name": "Hiện giao diện",
+      "partition": "page",
+      "src": "source/recruit_system/frontend/src/pages/candidate/CandidateCvPage.tsx:173"
+    },
+    {
+      "key": "file",
+      "kind": "action",
+      "name": "Lấy từ form: file",
+      "partition": "page",
+      "src": "source/recruit_system/frontend/src/pages/candidate/CandidateCvPage.tsx:246"
+    },
+    {
+      "key": "valid",
+      "kind": "decision",
+      "name": "Tệp PDF hợp lệ?",
+      "partition": "page",
+      "src": "source/recruit_system/frontend/src/pages/candidate/CandidateCvPage.tsx:123"
+    },
+    {
+      "key": "bad",
+      "kind": "action",
+      "name": "Thông báo Chỉ nhận file PDF",
+      "partition": "page",
+      "src": "source/recruit_system/frontend/src/pages/candidate/CandidateCvPage.tsx:124"
+    },
+    {
+      "key": "upload",
+      "kind": "action",
+      "name": "Gọi hàm upload()",
+      "partition": "page",
+      "src": "source/recruit_system/frontend/src/pages/candidate/CandidateCvPage.tsx:129"
+    },
+    {
+      "key": "uc",
+      "kind": "action",
+      "name": "api<T>() / fetch()",
+      "partition": "client",
+      "src": "source/recruit_system/frontend/src/api/client.ts:101"
+    },
+    {
+      "key": "ut",
+      "kind": "action",
+      "name": "upload()",
+      "partition": "controller",
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/controller/CvController.java:23"
+    },
+    {
+      "key": "us",
+      "kind": "action",
+      "name": "Gọi hàm upload()",
+      "partition": "service",
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/service/CvService.java:53"
+    },
+    {
+      "key": "ex",
+      "kind": "action",
+      "name": "Gọi hàm extract()",
+      "partition": "extract",
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/service/CvService.java:65"
+    },
+    {
+      "key": "pdf",
+      "kind": "action",
+      "name": "Gọi hàm extract()",
+      "partition": "pdf",
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/service/cv/CvExtractionModule.java:20"
+    },
+    {
+      "key": "post",
+      "kind": "action",
+      "name": "Gọi hàm post()",
+      "partition": "http",
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/service/cv/CvExtractionModule.java:24"
+    },
+    {
+      "key": "route",
+      "kind": "action",
+      "name": "extract_cv()",
+      "partition": "ai",
+      "src": "source/recruit_system/services/cv-extraction-ai/app/api/routes.py:64"
+    },
+    {
+      "key": "gen",
+      "kind": "action",
+      "name": "Gọi hàm generate_cv_result()",
+      "partition": "ai",
+      "src": "source/recruit_system/services/cv-extraction-ai/app/api/routes.py:100"
+    },
+    {
+      "key": "map",
+      "kind": "action",
+      "name": "Gọi hàm fields()",
+      "partition": "mapper",
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/service/CvService.java:76"
+    },
+    {
+      "key": "ur",
+      "kind": "action",
+      "name": "upload() — trả kết quả",
+      "partition": "controller",
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/controller/CvController.java:24"
+    },
+    {
+      "key": "ucr",
+      "kind": "action",
+      "name": "api<T>() — trả kết quả",
+      "partition": "client",
+      "src": "source/recruit_system/frontend/src/api/client.ts:49"
+    },
+    {
+      "key": "ud",
+      "kind": "decision",
+      "name": "Tải lên thành công?",
+      "partition": "page",
+      "src": "source/recruit_system/frontend/src/pages/candidate/CandidateCvPage.tsx:129"
+    },
+    {
+      "key": "save",
+      "kind": "action",
+      "name": "Lưu vào state: fields, values, fileName, step",
+      "partition": "page",
+      "src": "source/recruit_system/frontend/src/pages/candidate/CandidateCvPage.tsx:103"
+    },
+    {
+      "key": "edit",
+      "kind": "action",
+      "name": "Lấy từ form: các trường hồ sơ; lưu vào state: values",
+      "partition": "page",
+      "src": "source/recruit_system/frontend/src/pages/candidate/CandidateCvPage.tsx:271"
+    },
+    {
+      "key": "state",
+      "kind": "action",
+      "name": "Lấy từ state: fileName, fields, values",
+      "partition": "page",
+      "src": "source/recruit_system/frontend/src/pages/candidate/CandidateCvPage.tsx:139"
+    },
+    {
+      "key": "confirm",
+      "kind": "action",
+      "name": "Gọi hàm confirm()",
+      "partition": "page",
+      "src": "source/recruit_system/frontend/src/pages/candidate/CandidateCvPage.tsx:146"
+    },
+    {
+      "key": "cc",
+      "kind": "action",
+      "name": "api<T>() / fetch()",
+      "partition": "client",
+      "src": "source/recruit_system/frontend/src/api/client.ts:106"
+    },
+    {
+      "key": "ct",
+      "kind": "action",
+      "name": "confirm()",
+      "partition": "controller",
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/controller/CvController.java:28"
+    },
+    {
+      "key": "cs",
+      "kind": "action",
+      "name": "Gọi hàm confirm()",
+      "partition": "service",
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/service/CvService.java:86"
+    },
+    {
+      "key": "sync",
+      "kind": "action",
+      "name": "Gọi hàm syncProfile()",
+      "partition": "service",
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/service/CvService.java:105"
+    },
+    {
+      "key": "identity",
+      "kind": "action",
+      "name": "Gọi hàm update()",
+      "partition": "identity",
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/service/CvService.java:114"
+    },
+    {
+      "key": "cr",
+      "kind": "action",
+      "name": "confirm() — trả kết quả",
+      "partition": "controller",
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/controller/CvController.java:29"
+    },
+    {
+      "key": "ccr",
+      "kind": "action",
+      "name": "api<T>() — trả kết quả",
+      "partition": "client",
+      "src": "source/recruit_system/frontend/src/api/client.ts:49"
+    },
+    {
+      "key": "cd",
+      "kind": "decision",
+      "name": "Xác nhận thành công?",
+      "partition": "page",
+      "src": "source/recruit_system/frontend/src/pages/candidate/CandidateCvPage.tsx:146"
+    },
+    {
+      "key": "finish",
+      "kind": "final",
+      "name": "Kết thúc",
+      "partition": "page",
+      "src": "source/recruit_system/frontend/src/pages/candidate/CandidateCvPage.tsx:150"
+    }
+  ],
+  "flows": [
+    {
+      "to": "mine",
+      "src": "source/recruit_system/frontend/src/pages/candidate/CandidateCvPage.tsx:114",
+      "from": "start"
+    },
+    {
+      "to": "mc",
+      "src": "source/recruit_system/frontend/src/pages/candidate/CandidateCvPage.tsx:115",
+      "from": "mine"
+    },
+    {
+      "to": "mt",
+      "src": "source/recruit_system/frontend/src/api/client.ts:100",
+      "from": "mc"
+    },
+    {
+      "to": "ms",
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/controller/CvController.java:19",
+      "from": "mt"
+    },
+    {
+      "to": "mp",
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/service/CvService.java:48",
+      "from": "ms"
+    },
+    {
+      "to": "md",
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/service/CvService.java:49",
+      "from": "mp"
+    },
+    {
+      "to": "mr",
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/service/CvService.java:49",
+      "from": "md"
+    },
+    {
+      "to": "mcr",
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/controller/CvController.java:19",
+      "from": "mr"
+    },
+    {
+      "to": "display",
+      "src": "source/recruit_system/frontend/src/pages/candidate/CandidateCvPage.tsx:117",
+      "from": "mcr"
+    },
+    {
+      "to": "file",
+      "src": "source/recruit_system/frontend/src/pages/candidate/CandidateCvPage.tsx:246",
+      "from": "display"
+    },
+    {
+      "to": "valid",
+      "src": "source/recruit_system/frontend/src/pages/candidate/CandidateCvPage.tsx:123",
+      "from": "file"
+    },
+    {
+      "to": "display",
+      "src": "source/recruit_system/frontend/src/pages/candidate/CandidateCvPage.tsx:125",
+      "from": "bad"
+    },
+    {
+      "to": "uc",
+      "src": "source/recruit_system/frontend/src/pages/candidate/CandidateCvPage.tsx:129",
+      "from": "upload"
+    },
+    {
+      "to": "ut",
+      "src": "source/recruit_system/frontend/src/api/client.ts:101",
+      "from": "uc"
+    },
+    {
+      "to": "us",
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/controller/CvController.java:24",
+      "from": "ut"
+    },
+    {
+      "to": "ex",
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/service/CvService.java:65",
+      "from": "us"
+    },
+    {
+      "to": "pdf",
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/service/cv/CvExtractionModule.java:20",
+      "from": "ex"
+    },
+    {
+      "to": "post",
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/service/cv/CvExtractionModule.java:24",
+      "from": "pdf"
+    },
+    {
+      "to": "route",
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/service/cv/CvExtractionModule.java:24",
+      "from": "post"
+    },
+    {
+      "to": "gen",
+      "src": "source/recruit_system/services/cv-extraction-ai/app/api/routes.py:100",
+      "from": "route"
+    },
+    {
+      "to": "map",
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/service/CvService.java:76",
+      "from": "gen"
+    },
+    {
+      "to": "ur",
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/service/CvService.java:79",
+      "from": "map"
+    },
+    {
+      "to": "ucr",
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/controller/CvController.java:24",
+      "from": "ur"
+    },
+    {
+      "to": "ud",
+      "src": "source/recruit_system/frontend/src/pages/candidate/CandidateCvPage.tsx:129",
+      "from": "ucr"
+    },
+    {
+      "to": "edit",
+      "src": "source/recruit_system/frontend/src/pages/candidate/CandidateCvPage.tsx:271",
+      "from": "save"
+    },
+    {
+      "to": "state",
+      "src": "source/recruit_system/frontend/src/pages/candidate/CandidateCvPage.tsx:139",
+      "from": "edit"
+    },
+    {
+      "to": "confirm",
+      "src": "source/recruit_system/frontend/src/pages/candidate/CandidateCvPage.tsx:146",
+      "from": "state"
+    },
+    {
+      "to": "cc",
+      "src": "source/recruit_system/frontend/src/pages/candidate/CandidateCvPage.tsx:146",
+      "from": "confirm"
+    },
+    {
+      "to": "ct",
+      "src": "source/recruit_system/frontend/src/api/client.ts:106",
+      "from": "cc"
+    },
+    {
+      "to": "cs",
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/controller/CvController.java:29",
+      "from": "ct"
+    },
+    {
+      "to": "sync",
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/service/CvService.java:105",
+      "from": "cs"
+    },
+    {
+      "to": "cr",
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/service/CvService.java:108",
+      "from": "identity"
+    },
+    {
+      "to": "ccr",
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/controller/CvController.java:29",
+      "from": "cr"
+    },
+    {
+      "to": "cd",
+      "src": "source/recruit_system/frontend/src/pages/candidate/CandidateCvPage.tsx:146",
+      "from": "ccr"
+    },
+    {
+      "to": "bad",
+      "src": "source/recruit_system/frontend/src/pages/candidate/CandidateCvPage.tsx:123",
+      "from": "valid",
+      "guard": "[Thất bại]"
+    },
+    {
+      "to": "upload",
+      "src": "source/recruit_system/frontend/src/pages/candidate/CandidateCvPage.tsx:123",
+      "from": "valid",
+      "guard": "[Thành công]"
+    },
+    {
+      "to": "save",
+      "src": "source/recruit_system/frontend/src/pages/candidate/CandidateCvPage.tsx:130",
+      "from": "ud",
+      "guard": "[Thành công]"
+    },
+    {
+      "to": "display",
+      "src": "source/recruit_system/frontend/src/pages/candidate/CandidateCvPage.tsx:132",
+      "from": "ud",
+      "guard": "[Thất bại]"
+    },
+    {
+      "to": "finish",
+      "src": "source/recruit_system/frontend/src/pages/candidate/CandidateCvPage.tsx:149",
+      "from": "cd",
+      "guard": "[Thành công]"
+    },
+    {
+      "to": "edit",
+      "src": "source/recruit_system/frontend/src/pages/candidate/CandidateCvPage.tsx:151",
+      "from": "cd",
+      "guard": "[Thất bại]"
+    },
+    {
+      "to": "identity",
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/service/CvService.java:113",
+      "from": "sync",
+      "guard": "[Họ tên không rỗng hoặc Điện thoại]"
+    },
+    {
+      "to": "cr",
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/service/CvService.java:117",
+      "from": "sync",
+      "guard": "[Trường khác]"
+    },
+    {
+      "to": "display",
+      "src": "source/recruit_system/frontend/src/pages/candidate/CandidateCvPage.tsx:118",
+      "from": "mcr",
+      "guard": "[Thất bại: bỏ qua lỗi]"
+    },
+    {
+      "to": "edit",
+      "src": "source/recruit_system/frontend/src/pages/candidate/CandidateCvPage.tsx:214",
+      "from": "display",
+      "guard": "[Cập nhật hồ sơ]"
+    }
+  ],
+  "notes": [
+    "Các action trả kết quả được tách theo từng request để tránh nhầm luồng; chi tiết nội bộ được rút gọn để không vượt 40 node.",
+    "Khi mine thất bại trang bỏ qua lỗi và hiện bước 1; upload đặt COMPLETED trước confirm.",
+    "Lời gọi AI và mapper được biểu diễn theo thứ tự điều phối, trả kết quả trung gian gộp vào luồng tiếp theo."
+  ],
+  "open_questions": [
+    "[cần xác nhận] Đích điều hướng khi API trả 401/403, theo KB-M2.",
+    "[cần xác nhận] Với giới hạn 40 node, có cần tách biểu đồ phụ để thể hiện đầy đủ lời gọi và luồng trả của requireCandidate(), cvFields(), replaceLines(), findByCandidateIdAndFieldOrderByIdAsc(), update() và extract()?"
+  ]
+}

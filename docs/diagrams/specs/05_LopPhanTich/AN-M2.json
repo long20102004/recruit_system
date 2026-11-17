@@ -1,0 +1,222 @@
+{
+  "id": "AN-M2",
+  "type": "class",
+  "name": "Biểu đồ lớp pha phân tích - Tải và xác nhận CV",
+  "elements": [
+    {
+      "key": "CandidateCvProfileView",
+      "kind": "class",
+      "src": "source/recruit_system/frontend/src/pages/candidate/CandidateCvPage.tsx:173",
+      "attributes": [
+        {
+          "name": "outName",
+          "src": "source/recruit_system/frontend/src/pages/candidate/CandidateCvPage.tsx:174"
+        },
+        {
+          "name": "outContact",
+          "src": "source/recruit_system/frontend/src/pages/candidate/CandidateCvPage.tsx:178"
+        },
+        {
+          "name": "outFields",
+          "src": "source/recruit_system/frontend/src/pages/candidate/CandidateCvPage.tsx:205"
+        },
+        {
+          "name": "subUpdateProfile",
+          "src": "source/recruit_system/frontend/src/pages/candidate/CandidateCvPage.tsx:214"
+        },
+        {
+          "name": "subViewMatching",
+          "src": "source/recruit_system/frontend/src/pages/candidate/CandidateCvPage.tsx:217"
+        }
+      ]
+    },
+    {
+      "key": "CandidateCvReviewView",
+      "kind": "class",
+      "src": "source/recruit_system/frontend/src/pages/candidate/CandidateCvPage.tsx:228",
+      "attributes": [
+        {
+          "name": "inFile",
+          "src": "source/recruit_system/frontend/src/components/common/UploadZone.tsx:56"
+        },
+        {
+          "name": "outFileName",
+          "src": "source/recruit_system/frontend/src/pages/candidate/CandidateCvPage.tsx:247"
+        },
+        {
+          "name": "outStep",
+          "src": "source/recruit_system/frontend/src/pages/candidate/CandidateCvPage.tsx:237"
+        },
+        {
+          "name": "inFields",
+          "src": "source/recruit_system/frontend/src/pages/candidate/CandidateCvPage.tsx:266"
+        },
+        {
+          "name": "subUploadAnother",
+          "src": "source/recruit_system/frontend/src/pages/candidate/CandidateCvPage.tsx:249"
+        },
+        {
+          "name": "subConfirm",
+          "src": "source/recruit_system/frontend/src/pages/candidate/CandidateCvPage.tsx:281"
+        }
+      ]
+    },
+    {
+      "key": "User",
+      "kind": "class",
+      "src": "source/recruit_system/backend/identity-service/src/main/java/recruit/demo/entity/User.java:17",
+      "attributes": [
+        {
+          "name": "fullName",
+          "src": "source/recruit_system/backend/identity-service/src/main/java/recruit/demo/entity/User.java:24"
+        },
+        {
+          "name": "email",
+          "src": "source/recruit_system/backend/identity-service/src/main/java/recruit/demo/entity/User.java:27"
+        },
+        {
+          "name": "passwordHash",
+          "src": "source/recruit_system/backend/identity-service/src/main/java/recruit/demo/entity/User.java:30"
+        },
+        {
+          "name": "phone",
+          "src": "source/recruit_system/backend/identity-service/src/main/java/recruit/demo/entity/User.java:32"
+        },
+        {
+          "name": "role",
+          "src": "source/recruit_system/backend/identity-service/src/main/java/recruit/demo/entity/User.java:37"
+        },
+        {
+          "name": "roleChosen",
+          "src": "source/recruit_system/backend/identity-service/src/main/java/recruit/demo/entity/User.java:41"
+        },
+        {
+          "name": "status",
+          "src": "source/recruit_system/backend/identity-service/src/main/java/recruit/demo/entity/User.java:46"
+        }
+      ]
+    },
+    {
+      "key": "CandidateProfile",
+      "kind": "class",
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/entity/CandidateProfile.java:19",
+      "attributes": [
+        {
+          "name": "dateOfBirth",
+          "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/entity/CandidateProfile.java:29"
+        },
+        {
+          "name": "address",
+          "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/entity/CandidateProfile.java:31"
+        },
+        {
+          "name": "headline",
+          "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/entity/CandidateProfile.java:32"
+        },
+        {
+          "name": "summary",
+          "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/entity/CandidateProfile.java:35"
+        },
+        {
+          "name": "yearsOfExperience",
+          "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/entity/CandidateProfile.java:38"
+        },
+        {
+          "name": "educationLevel",
+          "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/entity/CandidateProfile.java:41"
+        }
+      ]
+    },
+    {
+      "key": "CvData",
+      "kind": "class",
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/entity/CvData.java:13",
+      "attributes": [
+        {
+          "name": "field",
+          "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/entity/CvData.java:23"
+        },
+        {
+          "name": "value",
+          "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/entity/CvData.java:26"
+        }
+      ],
+      "operations": [
+        {
+          "name": "mine",
+          "visibility": "+",
+          "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/service/CvService.java:47"
+        },
+        {
+          "name": "upload",
+          "visibility": "+",
+          "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/service/CvService.java:53"
+        },
+        {
+          "name": "confirm",
+          "visibility": "+",
+          "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/service/CvService.java:86"
+        }
+      ]
+    }
+  ],
+  "relations": [
+    {
+      "from": "CandidateCvProfileView",
+      "to": "CandidateCvReviewView",
+      "kind": "association",
+      "label": "Cập nhật hồ sơ",
+      "src": "source/recruit_system/frontend/src/pages/candidate/CandidateCvPage.tsx:214"
+    },
+    {
+      "from": "CandidateCvReviewView",
+      "to": "CandidateCvProfileView",
+      "kind": "association",
+      "label": "Xác nhận thành công",
+      "src": "source/recruit_system/frontend/src/pages/candidate/CandidateCvPage.tsx:146"
+    },
+    {
+      "from": "CandidateCvProfileView",
+      "to": "CvData",
+      "kind": "association",
+      "label": "mine",
+      "src": "source/recruit_system/frontend/src/pages/candidate/CandidateCvPage.tsx:114"
+    },
+    {
+      "from": "CandidateCvReviewView",
+      "to": "CvData",
+      "kind": "association",
+      "label": "upload, confirm",
+      "src": "source/recruit_system/frontend/src/pages/candidate/CandidateCvPage.tsx:122"
+    },
+    {
+      "from": "CandidateProfile",
+      "to": "User",
+      "kind": "association",
+      "fromMult": "1",
+      "toMult": "1",
+      "label": "",
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/entity/CandidateProfile.java:26"
+    },
+    {
+      "from": "CvData",
+      "to": "CandidateProfile",
+      "kind": "association",
+      "fromMult": "n",
+      "toMult": "1",
+      "label": "candidateId",
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/entity/CvData.java:20"
+    }
+  ],
+  "notes": [
+    "Hai lớp biên là hai chế độ của cùng CandidateCvPage.tsx, không phải hai route hoặc trang riêng.",
+    "mine, upload, confirm là hàm CvService, được gán cho CvData chỉ trong mô hình pha phân tích; không phải phương thức khai báo trên entity.",
+    "Liên kết CandidateProfile–User là logic giữa service, không khẳng định khóa ngoại.",
+    "Nút xem việc phù hợp điều hướng sang chức năng M3, không bổ sung lớp biên ngoài phạm vi M2.",
+    "Trạng thái COMPLETED được ghi khi upload, không chứng minh có xác nhận riêng.",
+    "Các đường nối giữa hai package service khác nhau là liên kết logical (khác service): chỉ lưu id, không có khóa ngoại/tham chiếu đối tượng."
+  ],
+  "open_questions": [
+    "[cần xác nhận] Đích điều hướng cụ thể khi hết phiên hoặc sai vai trò và API trả 401/403."
+  ]
+}

@@ -1,0 +1,281 @@
+{
+  "id": "ST-M3",
+  "type": "state",
+  "name": "Biểu đồ trạng thái - Đối sánh CV với việc làm, xem chi tiết việc, ứng tuyển",
+  "states": [
+    {
+      "key": "initial_state",
+      "kind": "initial",
+      "name": "",
+      "src": "source/recruit_system/frontend/src/App.tsx:72"
+    },
+    {
+      "key": "state_home",
+      "kind": "state",
+      "name": "Hiện giao diện Trang chủ ứng viên",
+      "src": "source/recruit_system/frontend/src/pages/candidate/CandidateHomePage.tsx:36"
+    },
+    {
+      "key": "choice_cv",
+      "kind": "choice",
+      "name": "",
+      "src": "source/recruit_system/frontend/src/pages/candidate/CandidateMatchingPage.tsx:31"
+    },
+    {
+      "key": "state_empty_cv",
+      "kind": "state",
+      "name": "Hiện thông báo yêu cầu tải CV",
+      "src": "source/recruit_system/frontend/src/pages/candidate/CandidateMatchingPage.tsx:104"
+    },
+    {
+      "key": "choice_ai",
+      "kind": "choice",
+      "name": "",
+      "src": "source/recruit_system/frontend/src/pages/candidate/CandidateMatchingPage.tsx:50"
+    },
+    {
+      "key": "state_matching",
+      "kind": "state",
+      "name": "Hiện giao diện Việc làm phù hợp (đã xếp hạng)",
+      "src": "source/recruit_system/frontend/src/pages/candidate/CandidateMatchingPage.tsx:147"
+    },
+    {
+      "key": "state_matching_fallback",
+      "kind": "state",
+      "name": "Hiện giao diện Việc làm phù hợp (chế độ dự phòng)",
+      "src": "source/recruit_system/frontend/src/pages/candidate/CandidateMatchingPage.tsx:120"
+    },
+    {
+      "key": "state_error_matching",
+      "kind": "state",
+      "name": "Hiện thông báo lỗi tải việc phù hợp",
+      "src": "source/recruit_system/frontend/src/pages/candidate/CandidateMatchingPage.tsx:63"
+    },
+    {
+      "key": "choice_job",
+      "kind": "choice",
+      "name": "",
+      "src": "source/recruit_system/frontend/src/pages/candidate/CandidateJobDetailPage.tsx:51"
+    },
+    {
+      "key": "state_job_detail",
+      "kind": "state",
+      "name": "Hiện giao diện Chi tiết việc làm",
+      "src": "source/recruit_system/frontend/src/pages/candidate/CandidateJobDetailPage.tsx:88"
+    },
+    {
+      "key": "state_job_not_found",
+      "kind": "state",
+      "name": "Hiện thông báo không tìm thấy tin tuyển dụng",
+      "src": "source/recruit_system/frontend/src/pages/candidate/CandidateJobDetailPage.tsx:86"
+    },
+    {
+      "key": "choice_apply",
+      "kind": "choice",
+      "name": "",
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/service/ApplicationService.java:29"
+    },
+    {
+      "key": "state_apply_success",
+      "kind": "state",
+      "name": "Hiện thông báo nộp hồ sơ thành công",
+      "src": "source/recruit_system/frontend/src/pages/candidate/CandidateHomePage.tsx:94"
+    },
+    {
+      "key": "state_apply_error",
+      "kind": "state",
+      "name": "Hiện thông báo lỗi ứng tuyển",
+      "src": "source/recruit_system/frontend/src/pages/candidate/CandidateHomePage.tsx:96"
+    },
+    {
+      "key": "final_state",
+      "kind": "final",
+      "name": "Kết thúc",
+      "src": "source/recruit_system/frontend/src/pages/candidate/CandidateHomePage.tsx:94"
+    }
+  ],
+  "transitions": [
+    {
+      "from": "initial_state",
+      "to": "state_home",
+      "label": "[Ứng viên truy cập /candidate] / Khởi tạo Trang chủ ứng viên",
+      "src": "source/recruit_system/frontend/src/App.tsx:72"
+    },
+    {
+      "from": "state_home",
+      "to": "choice_cv",
+      "label": "[Nhấn nút Xem xếp hạng] / Gọi cvsApi.mine() kiểm tra trạng thái CV",
+      "src": "source/recruit_system/frontend/src/pages/candidate/CandidateHomePage.tsx:141"
+    },
+    {
+      "from": "state_home",
+      "to": "choice_apply",
+      "label": "[Chọn tin và nhấn nút Ứng tuyển] / Gửi yêu cầu nộp đơn applicationsApi.apply()",
+      "src": "source/recruit_system/frontend/src/pages/candidate/CandidateHomePage.tsx:212"
+    },
+    {
+      "from": "choice_cv",
+      "to": "state_empty_cv",
+      "label": "[CV chưa phân tích] / Hiển thị hướng dẫn và nút Tải CV",
+      "src": "source/recruit_system/frontend/src/pages/candidate/CandidateMatchingPage.tsx:34"
+    },
+    {
+      "from": "choice_cv",
+      "to": "choice_ai",
+      "label": "[CV đã phân tích] / Tải tin và gọi matchingApi.refreshMine()",
+      "src": "source/recruit_system/frontend/src/pages/candidate/CandidateMatchingPage.tsx:50"
+    },
+    {
+      "from": "state_empty_cv",
+      "to": "state_home",
+      "label": "[Click back] / Quay về Trang chủ ứng viên",
+      "src": "source/recruit_system/frontend/src/components/common/SiteHeader.tsx:46"
+    },
+    {
+      "from": "state_empty_cv",
+      "to": "final_state",
+      "label": "[Nhấn nút Tải CV] / Chuyển sang /candidate/cv",
+      "src": "source/recruit_system/frontend/src/pages/candidate/CandidateMatchingPage.tsx:110"
+    },
+    {
+      "from": "choice_ai",
+      "to": "state_matching",
+      "label": "[AI đối sánh thành công] / Lưu kết quả và xếp hạng theo điểm giảm dần",
+      "src": "source/recruit_system/frontend/src/pages/candidate/CandidateMatchingPage.tsx:52"
+    },
+    {
+      "from": "choice_ai",
+      "to": "state_matching_fallback",
+      "label": "[AI gặp sự cố nhưng có điểm cũ hoặc tin mở] / Hiển thị tin kèm cảnh báo AI không chạy",
+      "src": "source/recruit_system/frontend/src/pages/candidate/CandidateMatchingPage.tsx:57"
+    },
+    {
+      "from": "choice_ai",
+      "to": "state_error_matching",
+      "label": "[Lỗi xác thực hoặc không có dữ liệu] / Hiển thị toast lỗi tải việc phù hợp",
+      "src": "source/recruit_system/frontend/src/pages/candidate/CandidateMatchingPage.tsx:56"
+    },
+    {
+      "from": "state_error_matching",
+      "to": "state_home",
+      "label": "[Click OK] / Quay về Trang chủ ứng viên",
+      "src": "source/recruit_system/frontend/src/pages/candidate/CandidateMatchingPage.tsx:63"
+    },
+    {
+      "from": "state_error_matching",
+      "to": "final_state",
+      "label": "[Đóng / Rời trang] / Thoát chức năng",
+      "src": "source/recruit_system/frontend/src/pages/candidate/CandidateMatchingPage.tsx:63"
+    },
+    {
+      "from": "state_matching",
+      "to": "choice_ai",
+      "label": "[Nhấn nút Cập nhật theo CV] / Gọi rematch() làm mới điểm đối sánh",
+      "src": "source/recruit_system/frontend/src/pages/candidate/CandidateMatchingPage.tsx:67"
+    },
+    {
+      "from": "state_matching",
+      "to": "choice_job",
+      "label": "[Nhấn nút Xem chi tiết] / Trích xuất jobId và kiểm tra mã tin",
+      "src": "source/recruit_system/frontend/src/pages/candidate/CandidateMatchingPage.tsx:158"
+    },
+    {
+      "from": "state_matching",
+      "to": "state_home",
+      "label": "[Chọn menu Việc làm] / Điều hướng về Trang chủ ứng viên",
+      "src": "source/recruit_system/frontend/src/components/common/SiteHeader.tsx:46"
+    },
+    {
+      "from": "state_matching_fallback",
+      "to": "choice_ai",
+      "label": "[Nhấn nút Cập nhật theo CV] / Thử lại tiến trình đối sánh AI",
+      "src": "source/recruit_system/frontend/src/pages/candidate/CandidateMatchingPage.tsx:67"
+    },
+    {
+      "from": "state_matching_fallback",
+      "to": "choice_job",
+      "label": "[Nhấn nút Xem chi tiết] / Trích xuất jobId và kiểm tra mã tin",
+      "src": "source/recruit_system/frontend/src/pages/candidate/CandidateMatchingPage.tsx:139"
+    },
+    {
+      "from": "state_matching_fallback",
+      "to": "state_home",
+      "label": "[Chọn menu Việc làm] / Điều hướng về Trang chủ ứng viên",
+      "src": "source/recruit_system/frontend/src/components/common/SiteHeader.tsx:46"
+    },
+    {
+      "from": "choice_job",
+      "to": "state_job_detail",
+      "label": "[Tin tuyển dụng hợp lệ và tồn tại] / Tải dữ liệu và hiển thị chi tiết việc làm",
+      "src": "source/recruit_system/frontend/src/pages/candidate/CandidateJobDetailPage.tsx:58"
+    },
+    {
+      "from": "choice_job",
+      "to": "state_job_not_found",
+      "label": "[Mã tin không hợp lệ hoặc không tồn tại] / Hiển thị thông báo không tìm thấy",
+      "src": "source/recruit_system/frontend/src/pages/candidate/CandidateJobDetailPage.tsx:53"
+    },
+    {
+      "from": "state_job_not_found",
+      "to": "state_matching",
+      "label": "[Click back] / Quay lại Trang việc làm phù hợp",
+      "src": "source/recruit_system/frontend/src/pages/candidate/CandidateJobDetailPage.tsx:77"
+    },
+    {
+      "from": "state_job_detail",
+      "to": "state_matching",
+      "label": "[Click back] / Quay lại Trang việc làm phù hợp",
+      "src": "source/recruit_system/frontend/src/pages/candidate/CandidateJobDetailPage.tsx:77"
+    },
+    {
+      "from": "state_job_detail",
+      "to": "state_home",
+      "label": "[Chọn menu Việc làm] / Trở về Trang chủ ứng viên để ứng tuyển",
+      "src": "source/recruit_system/frontend/src/components/common/SiteHeader.tsx:46"
+    },
+    {
+      "from": "state_job_detail",
+      "to": "final_state",
+      "label": "[Nhấn nút Ôn tập phỏng vấn] / Chuyển sang mô-đun luyện phỏng vấn",
+      "src": "source/recruit_system/frontend/src/pages/candidate/CandidateJobDetailPage.tsx:154"
+    },
+    {
+      "from": "choice_apply",
+      "to": "state_apply_success",
+      "label": "[Tin đang mở và chưa ứng tuyển] / Lưu đơn SUBMITTED và hiển thị toast thành công",
+      "src": "source/recruit_system/frontend/src/pages/candidate/CandidateHomePage.tsx:94"
+    },
+    {
+      "from": "choice_apply",
+      "to": "state_apply_error",
+      "label": "[Đã ứng tuyển trước đó hoặc tin đã đóng] / Hiển thị toast lỗi ứng tuyển",
+      "src": "source/recruit_system/frontend/src/pages/candidate/CandidateHomePage.tsx:96"
+    },
+    {
+      "from": "state_apply_error",
+      "to": "state_home",
+      "label": "[Click OK] / Đóng thông báo lỗi và giữ trạng thái trang chủ",
+      "src": "source/recruit_system/frontend/src/pages/candidate/CandidateHomePage.tsx:96"
+    },
+    {
+      "from": "state_apply_success",
+      "to": "final_state",
+      "label": "[Click OK] / Hoàn tất nộp hồ sơ ứng tuyển",
+      "src": "source/recruit_system/frontend/src/pages/candidate/CandidateHomePage.tsx:94"
+    },
+    {
+      "from": "state_apply_success",
+      "to": "state_home",
+      "label": "[Tiếp tục tìm việc] / Quay lại danh sách tin tuyển dụng",
+      "src": "source/recruit_system/frontend/src/pages/candidate/CandidateHomePage.tsx:160"
+    }
+  ],
+  "notes": [
+    "Biểu đồ mô tả vòng đời trạng thái tương tác giao diện của ứng viên trong chức năng M3 gồm duyệt việc, xem đối sánh AI, xem chi tiết và ứng tuyển.",
+    "Thao tác ứng tuyển được kích hoạt trực tiếp từ Trang chủ ứng viên (SidePanel), không bố trí trên Trang chi tiết việc làm.",
+    "Trang việc làm phù hợp có cơ chế tự động chuyển sang chế độ dự phòng khi dịch vụ AI gián đoạn (HTTP 502/503), bảo đảm tính sẵn sàng của hệ thống."
+  ],
+  "open_questions": [
+    "Trang chi tiết việc làm hiện chỉ có nút 'Ôn tập phỏng vấn' (dẫn sang M4) mà không có nút 'Ứng tuyển'; ứng viên cần quay lại trang chủ để nộp đơn. Cần xác nhận nhóm phát triển có kế hoạch bổ sung nút ứng tuyển trực tiếp tại trang chi tiết trong các phiên bản sau hay không."
+  ]
+}

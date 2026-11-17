@@ -1,0 +1,401 @@
+{
+  "id": "M1-SEQ-FE",
+  "type": "sequence",
+  "name": "Biểu đồ tuần tự chi tiết - Đăng nhập và chọn vai trò (Frontend)",
+  "lifelines": [
+    {
+      "key": "u",
+      "name": "Người dùng",
+      "kind": "actor",
+      "class": "Người dùng",
+      "src": "source/recruit_system/frontend/src/pages/LoginPage.tsx:54-71"
+    },
+    {
+      "key": "lp",
+      "name": ":LoginPage",
+      "kind": "object",
+      "class": "LoginPage",
+      "src": "source/recruit_system/frontend/src/pages/LoginPage.tsx:17-39"
+    },
+    {
+      "key": "crp",
+      "name": ":ChooseRolePage",
+      "kind": "object",
+      "class": "ChooseRolePage",
+      "src": "source/recruit_system/frontend/src/pages/ChooseRolePage.tsx:17-39"
+    },
+    {
+      "key": "ap",
+      "name": ":AuthProvider",
+      "kind": "object",
+      "class": "AuthProvider",
+      "src": "source/recruit_system/frontend/src/context/AuthContext.tsx:44-85"
+    },
+    {
+      "key": "tp",
+      "name": ":ToastProvider",
+      "kind": "object",
+      "class": "ToastProvider",
+      "src": "source/recruit_system/frontend/src/context/ToastContext.tsx:17-33"
+    },
+    {
+      "key": "api",
+      "name": ":authApi",
+      "kind": "object",
+      "class": "authApi",
+      "src": "source/recruit_system/frontend/src/api/client.ts:51-68"
+    },
+    {
+      "key": "srv",
+      "name": ":AuthController",
+      "kind": "object",
+      "class": "AuthController",
+      "src": "source/recruit_system/backend/identity-service/src/main/java/recruit/demo/controller/AuthController.java:12-34"
+    }
+  ],
+  "messages": [
+    {
+      "seq": 1,
+      "from": "u",
+      "to": "lp",
+      "operation": "onSubmit",
+      "params": [],
+      "kind": "sync",
+      "src": "source/recruit_system/frontend/src/pages/LoginPage.tsx:29"
+    },
+    {
+      "seq": 2,
+      "from": "lp",
+      "to": "ap",
+      "operation": "login",
+      "params": [
+        "email",
+        "password"
+      ],
+      "kind": "sync",
+      "src": "source/recruit_system/frontend/src/pages/LoginPage.tsx:32"
+    },
+    {
+      "seq": 3,
+      "from": "ap",
+      "to": "api",
+      "operation": "login",
+      "params": [
+        "email",
+        "password"
+      ],
+      "kind": "sync",
+      "src": "source/recruit_system/frontend/src/context/AuthContext.tsx:61-62"
+    },
+    {
+      "seq": 4,
+      "from": "api",
+      "to": "srv",
+      "operation": "POST /api/auth/login",
+      "params": [
+        "{ email, password }"
+      ],
+      "kind": "sync",
+      "src": "source/recruit_system/frontend/src/api/client.ts:52-56"
+    },
+    {
+      "seq": 5,
+      "from": "srv",
+      "to": "api",
+      "operation": "POST /api/auth/login",
+      "params": "401 Unauthorized / error",
+      "kind": "return",
+      "fragment": {
+        "id": "alt_login",
+        "kind": "alt",
+        "guard": "sai email hoặc mật khẩu"
+      },
+      "src": "source/recruit_system/frontend/src/api/client.ts:44-46"
+    },
+    {
+      "seq": 6,
+      "from": "api",
+      "to": "ap",
+      "operation": "login",
+      "params": "throw ApiError(401, \"Đăng nhập thất bại\")",
+      "kind": "return",
+      "fragment": {
+        "id": "alt_login",
+        "kind": "alt",
+        "guard": "sai email hoặc mật khẩu"
+      },
+      "src": "source/recruit_system/frontend/src/api/client.ts:45"
+    },
+    {
+      "seq": 7,
+      "from": "ap",
+      "to": "lp",
+      "operation": "login",
+      "params": "throw ApiError",
+      "kind": "return",
+      "fragment": {
+        "id": "alt_login",
+        "kind": "alt",
+        "guard": "sai email hoặc mật khẩu"
+      },
+      "src": "source/recruit_system/frontend/src/pages/LoginPage.tsx:32-35"
+    },
+    {
+      "seq": 8,
+      "from": "lp",
+      "to": "tp",
+      "operation": "toast",
+      "params": [
+        "\"Đăng nhập thất bại\""
+      ],
+      "kind": "sync",
+      "fragment": {
+        "id": "alt_login",
+        "kind": "alt",
+        "guard": "sai email hoặc mật khẩu"
+      },
+      "src": "source/recruit_system/frontend/src/pages/LoginPage.tsx:36"
+    },
+    {
+      "seq": 9,
+      "from": "srv",
+      "to": "api",
+      "operation": "POST /api/auth/login",
+      "params": "{ token, user: { id, email, role, roleChosen: false } }",
+      "kind": "return",
+      "fragment": {
+        "id": "alt_login",
+        "kind": "alt",
+        "guard": "thông tin hợp lệ"
+      },
+      "src": "source/recruit_system/frontend/src/api/client.ts:48"
+    },
+    {
+      "seq": 10,
+      "from": "api",
+      "to": "ap",
+      "operation": "login",
+      "params": "AuthResponse",
+      "kind": "return",
+      "fragment": {
+        "id": "alt_login",
+        "kind": "alt",
+        "guard": "thông tin hợp lệ"
+      },
+      "src": "source/recruit_system/frontend/src/context/AuthContext.tsx:62"
+    },
+    {
+      "seq": 11,
+      "from": "ap",
+      "to": "lp",
+      "operation": "login",
+      "params": "UserDto",
+      "kind": "return",
+      "fragment": {
+        "id": "alt_login",
+        "kind": "alt",
+        "guard": "thông tin hợp lệ"
+      },
+      "src": "source/recruit_system/frontend/src/pages/LoginPage.tsx:32"
+    },
+    {
+      "seq": 12,
+      "from": "lp",
+      "to": "tp",
+      "operation": "toast",
+      "params": [
+        "\"Đăng nhập thành công\""
+      ],
+      "kind": "sync",
+      "fragment": {
+        "id": "alt_login",
+        "kind": "alt",
+        "guard": "thông tin hợp lệ"
+      },
+      "src": "source/recruit_system/frontend/src/pages/LoginPage.tsx:33"
+    },
+    {
+      "seq": 13,
+      "from": "lp",
+      "to": "crp",
+      "operation": "navigate",
+      "params": [
+        "\"/choose-role\""
+      ],
+      "kind": "create",
+      "fragment": {
+        "id": "alt_login",
+        "kind": "alt",
+        "guard": "thông tin hợp lệ"
+      },
+      "src": "source/recruit_system/frontend/src/pages/LoginPage.tsx:34"
+    },
+    {
+      "seq": 14,
+      "from": "u",
+      "to": "crp",
+      "operation": "onSubmit",
+      "params": [],
+      "kind": "sync",
+      "src": "source/recruit_system/frontend/src/pages/ChooseRolePage.tsx:28"
+    },
+    {
+      "seq": 15,
+      "from": "crp",
+      "to": "ap",
+      "operation": "chooseRole",
+      "params": [
+        "\"CANDIDATE\""
+      ],
+      "kind": "sync",
+      "src": "source/recruit_system/frontend/src/pages/ChooseRolePage.tsx:31"
+    },
+    {
+      "seq": 16,
+      "from": "ap",
+      "to": "api",
+      "operation": "chooseRole",
+      "params": [
+        "\"CANDIDATE\""
+      ],
+      "kind": "sync",
+      "src": "source/recruit_system/frontend/src/context/AuthContext.tsx:75-76"
+    },
+    {
+      "seq": 17,
+      "from": "api",
+      "to": "srv",
+      "operation": "POST /api/auth/role",
+      "params": [
+        "{ role: \"CANDIDATE\" }"
+      ],
+      "kind": "sync",
+      "src": "source/recruit_system/frontend/src/api/client.ts:63-67"
+    },
+    {
+      "seq": 18,
+      "from": "srv",
+      "to": "api",
+      "operation": "POST /api/auth/role",
+      "params": "400/409 error",
+      "kind": "return",
+      "fragment": {
+        "id": "alt_role",
+        "kind": "alt",
+        "guard": "vai trò không hợp lệ hoặc đã chọn"
+      },
+      "src": "source/recruit_system/frontend/src/api/client.ts:44-46"
+    },
+    {
+      "seq": 19,
+      "from": "api",
+      "to": "ap",
+      "operation": "chooseRole",
+      "params": "throw ApiError(status, message)",
+      "kind": "return",
+      "fragment": {
+        "id": "alt_role",
+        "kind": "alt",
+        "guard": "vai trò không hợp lệ hoặc đã chọn"
+      },
+      "src": "source/recruit_system/frontend/src/api/client.ts:45"
+    },
+    {
+      "seq": 20,
+      "from": "ap",
+      "to": "crp",
+      "operation": "chooseRole",
+      "params": "throw ApiError",
+      "kind": "return",
+      "fragment": {
+        "id": "alt_role",
+        "kind": "alt",
+        "guard": "vai trò không hợp lệ hoặc đã chọn"
+      },
+      "src": "source/recruit_system/frontend/src/pages/ChooseRolePage.tsx:31-34"
+    },
+    {
+      "seq": 21,
+      "from": "crp",
+      "to": "tp",
+      "operation": "toast",
+      "params": [
+        "e.message"
+      ],
+      "kind": "sync",
+      "fragment": {
+        "id": "alt_role",
+        "kind": "alt",
+        "guard": "vai trò không hợp lệ hoặc đã chọn"
+      },
+      "src": "source/recruit_system/frontend/src/pages/ChooseRolePage.tsx:35"
+    },
+    {
+      "seq": 22,
+      "from": "srv",
+      "to": "api",
+      "operation": "POST /api/auth/role",
+      "params": "{ token, user: { id, email, role: \"CANDIDATE\", roleChosen: true } }",
+      "kind": "return",
+      "fragment": {
+        "id": "alt_role",
+        "kind": "alt",
+        "guard": "lưu vai trò thành công"
+      },
+      "src": "source/recruit_system/frontend/src/api/client.ts:48"
+    },
+    {
+      "seq": 23,
+      "from": "api",
+      "to": "ap",
+      "operation": "chooseRole",
+      "params": "AuthResponse",
+      "kind": "return",
+      "fragment": {
+        "id": "alt_role",
+        "kind": "alt",
+        "guard": "lưu vai trò thành công"
+      },
+      "src": "source/recruit_system/frontend/src/context/AuthContext.tsx:76"
+    },
+    {
+      "seq": 24,
+      "from": "ap",
+      "to": "crp",
+      "operation": "chooseRole",
+      "params": "UserDto",
+      "kind": "return",
+      "fragment": {
+        "id": "alt_role",
+        "kind": "alt",
+        "guard": "lưu vai trò thành công"
+      },
+      "src": "source/recruit_system/frontend/src/pages/ChooseRolePage.tsx:31"
+    },
+    {
+      "seq": 25,
+      "from": "crp",
+      "to": "tp",
+      "operation": "toast",
+      "params": [
+        "\"Đã lưu vai trò\""
+      ],
+      "kind": "sync",
+      "fragment": {
+        "id": "alt_role",
+        "kind": "alt",
+        "guard": "lưu vai trò thành công"
+      },
+      "src": "source/recruit_system/frontend/src/pages/ChooseRolePage.tsx:32"
+    }
+  ],
+  "notes": [
+    "Lifelines và operations bám sát M1-CLS-FE.json và source code React/TS.",
+    "Bao gồm luồng chính (đăng nhập + chọn vai trò lần đầu) và 2 nhánh ngoại lệ alt: sai thông tin đăng nhập (E2) và lỗi chọn vai trò (E3).",
+    "Lifeline backend đại diện bởi :AuthController (identity-service) tiếp nhận request HTTP qua gateway."
+  ],
+  "open_questions": [
+    "Trường hợp đăng nhập thành công từ LoginPage điều hướng sang ChooseRolePage sử dụng hàm navigate(accountPath(user)) (react-router-dom) không phải là operation khai báo trong M1-CLS-FE.json. Cần xem xét có cần bổ sung useNavigate/navigate vào M1-CLS-FE.json hay giữ dạng message navigate như hiện tại.",
+    "Module M1 gồm cả RegisterPage và LoginPage; do giới hạn <= 26 message và <= 8 lifeline, biểu đồ tập trung thể hiện chuỗi tương tác đặc trưng Đăng nhập -> Chọn vai trò (Role Selection) kèm 2 ngoại lệ thực tế."
+  ]
+}

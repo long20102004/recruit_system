@@ -1,0 +1,415 @@
+{
+  "id": "M2-SEQ-BE",
+  "type": "sequence",
+  "name": "Biểu đồ tuần tự - Tải lên CV PDF, kiểm tra và xác nhận các trường hồ sơ (Backend)",
+  "lifelines": [
+    {
+      "key": "client",
+      "name": ":client (Frontend)",
+      "kind": "object",
+      "class": "Frontend",
+      "src": "source/recruit_system/frontend/src/pages/candidate/CandidateCvPage.tsx:129"
+    },
+    {
+      "key": "controller",
+      "name": ":CvController",
+      "kind": "object",
+      "class": "CvController",
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/controller/CvController.java:13"
+    },
+    {
+      "key": "service",
+      "name": ":CvService",
+      "kind": "object",
+      "class": "CvService",
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/service/CvService.java:32"
+    },
+    {
+      "key": "extraction",
+      "name": ":CvExtractionModule",
+      "kind": "object",
+      "class": "CvExtractionModule",
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/service/cv/CvExtractionModule.java:12"
+    },
+    {
+      "key": "pdf",
+      "name": ":PdfTextExtractor",
+      "kind": "object",
+      "class": "PdfTextExtractor",
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/extraction/pdf/PdfTextExtractor.java:24"
+    },
+    {
+      "key": "http",
+      "name": ":AiJsonClient",
+      "kind": "object",
+      "class": "AiJsonClient",
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/client/AiJsonClient.java:11"
+    },
+    {
+      "key": "ai",
+      "name": ":cv-extraction-ai",
+      "kind": "object",
+      "class": "cv-extraction-ai",
+      "src": "source/recruit_system/services/cv-extraction-ai/app/api/routes.py:63"
+    },
+    {
+      "key": "mapper",
+      "name": ":CvProfileMapper",
+      "kind": "object",
+      "class": "CvProfileMapper",
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/service/cv/CvProfileMapper.java:6"
+    }
+  ],
+  "messages": [
+    {
+      "seq": 1,
+      "from": "client",
+      "to": "controller",
+      "operation": "upload",
+      "params": [
+        "file"
+      ],
+      "kind": "sync",
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/controller/CvController.java:22"
+    },
+    {
+      "seq": 2,
+      "from": "controller",
+      "to": "service",
+      "operation": "upload",
+      "params": [
+        "file"
+      ],
+      "kind": "sync",
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/controller/CvController.java:24"
+    },
+    {
+      "seq": 3,
+      "from": "service",
+      "to": "extraction",
+      "operation": "extract",
+      "params": [
+        "pdf"
+      ],
+      "kind": "sync",
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/service/CvService.java:65"
+    },
+    {
+      "seq": 4,
+      "from": "extraction",
+      "to": "pdf",
+      "operation": "extract",
+      "params": [
+        "pdfBytes"
+      ],
+      "kind": "sync",
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/service/cv/CvExtractionModule.java:20"
+    },
+    {
+      "seq": 5,
+      "from": "pdf",
+      "to": "extraction",
+      "operation": "extract",
+      "params": "ExtractionResult",
+      "kind": "return",
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/extraction/pdf/PdfTextExtractor.java:188",
+      "fragment": {
+        "id": "pdf_validity",
+        "kind": "alt",
+        "guard": "PDF hợp lệ, đủ văn bản và AI thành công"
+      }
+    },
+    {
+      "seq": 6,
+      "from": "extraction",
+      "to": "http",
+      "operation": "post",
+      "params": [
+        "url",
+        "body"
+      ],
+      "kind": "sync",
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/service/cv/CvExtractionModule.java:24",
+      "fragment": {
+        "id": "pdf_validity",
+        "kind": "alt",
+        "guard": "PDF hợp lệ, đủ văn bản và AI thành công"
+      }
+    },
+    {
+      "seq": 7,
+      "from": "http",
+      "to": "ai",
+      "operation": "POST /api/v1/extract-cv?include=kg",
+      "params": [
+        "cv_text"
+      ],
+      "kind": "sync",
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/service/cv/CvExtractionModule.java:24",
+      "fragment": {
+        "id": "pdf_validity",
+        "kind": "alt",
+        "guard": "PDF hợp lệ, đủ văn bản và AI thành công"
+      }
+    },
+    {
+      "seq": 8,
+      "from": "ai",
+      "to": "http",
+      "operation": "POST /api/v1/extract-cv?include=kg",
+      "params": "CVResponse",
+      "kind": "return",
+      "src": "source/recruit_system/services/cv-extraction-ai/app/api/routes.py:63",
+      "fragment": {
+        "id": "pdf_validity",
+        "kind": "alt",
+        "guard": "PDF hợp lệ, đủ văn bản và AI thành công"
+      }
+    },
+    {
+      "seq": 9,
+      "from": "http",
+      "to": "extraction",
+      "operation": "post",
+      "params": "JsonNode",
+      "kind": "return",
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/client/AiJsonClient.java:23",
+      "fragment": {
+        "id": "pdf_validity",
+        "kind": "alt",
+        "guard": "PDF hợp lệ, đủ văn bản và AI thành công"
+      }
+    },
+    {
+      "seq": 10,
+      "from": "extraction",
+      "to": "service",
+      "operation": "extract",
+      "params": "data",
+      "kind": "return",
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/service/cv/CvExtractionModule.java:25",
+      "fragment": {
+        "id": "pdf_validity",
+        "kind": "alt",
+        "guard": "PDF hợp lệ, đủ văn bản và AI thành công"
+      }
+    },
+    {
+      "seq": 11,
+      "from": "service",
+      "to": "mapper",
+      "operation": "fields",
+      "params": [
+        "profile"
+      ],
+      "kind": "sync",
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/service/CvService.java:76",
+      "fragment": {
+        "id": "pdf_validity",
+        "kind": "alt",
+        "guard": "PDF hợp lệ, đủ văn bản và AI thành công"
+      }
+    },
+    {
+      "seq": 12,
+      "from": "mapper",
+      "to": "service",
+      "operation": "fields",
+      "params": "Map<String, List<String>>",
+      "kind": "return",
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/service/cv/CvProfileMapper.java:28",
+      "fragment": {
+        "id": "pdf_validity",
+        "kind": "alt",
+        "guard": "PDF hợp lệ, đủ văn bản và AI thành công"
+      }
+    },
+    {
+      "seq": 13,
+      "from": "service",
+      "to": "service",
+      "operation": "toForm",
+      "params": [
+        "candidateId"
+      ],
+      "kind": "self",
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/service/CvService.java:79",
+      "fragment": {
+        "id": "pdf_validity",
+        "kind": "alt",
+        "guard": "PDF hợp lệ, đủ văn bản và AI thành công"
+      }
+    },
+    {
+      "seq": 14,
+      "from": "service",
+      "to": "controller",
+      "operation": "upload",
+      "params": "CvFormResponse",
+      "kind": "return",
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/service/CvService.java:79",
+      "fragment": {
+        "id": "pdf_validity",
+        "kind": "alt",
+        "guard": "PDF hợp lệ, đủ văn bản và AI thành công"
+      }
+    },
+    {
+      "seq": 15,
+      "from": "controller",
+      "to": "client",
+      "operation": "upload",
+      "params": "CvFormResponse",
+      "kind": "return",
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/controller/CvController.java:24",
+      "fragment": {
+        "id": "pdf_validity",
+        "kind": "alt",
+        "guard": "PDF hợp lệ, đủ văn bản và AI thành công"
+      }
+    },
+    {
+      "seq": 16,
+      "from": "pdf",
+      "to": "extraction",
+      "operation": "extract",
+      "params": "IOException hoặc IllegalArgumentException",
+      "kind": "return",
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/extraction/pdf/PdfTextExtractor.java:168",
+      "fragment": {
+        "id": "pdf_validity",
+        "kind": "alt",
+        "guard": "PDF không hợp lệ hoặc quá 10 trang"
+      }
+    },
+    {
+      "seq": 17,
+      "from": "extraction",
+      "to": "service",
+      "operation": "extract",
+      "params": "ApiException 400",
+      "kind": "return",
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/service/cv/CvExtractionModule.java:21",
+      "fragment": {
+        "id": "pdf_validity",
+        "kind": "alt",
+        "guard": "PDF không hợp lệ hoặc quá 10 trang"
+      }
+    },
+    {
+      "seq": 18,
+      "from": "service",
+      "to": "controller",
+      "operation": "upload",
+      "params": "ApiException 400",
+      "kind": "return",
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/service/CvService.java:65",
+      "fragment": {
+        "id": "pdf_validity",
+        "kind": "alt",
+        "guard": "PDF không hợp lệ hoặc quá 10 trang"
+      }
+    },
+    {
+      "seq": 19,
+      "from": "controller",
+      "to": "client",
+      "operation": "upload",
+      "params": "HTTP 400",
+      "kind": "return",
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/service/cv/CvExtractionModule.java:21",
+      "fragment": {
+        "id": "pdf_validity",
+        "kind": "alt",
+        "guard": "PDF không hợp lệ hoặc quá 10 trang"
+      }
+    },
+    {
+      "seq": 20,
+      "from": "client",
+      "to": "controller",
+      "operation": "confirm",
+      "params": [
+        "request"
+      ],
+      "kind": "sync",
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/controller/CvController.java:27"
+    },
+    {
+      "seq": 21,
+      "from": "controller",
+      "to": "service",
+      "operation": "confirm",
+      "params": [
+        "request"
+      ],
+      "kind": "sync",
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/controller/CvController.java:29"
+    },
+    {
+      "seq": 22,
+      "from": "service",
+      "to": "service",
+      "operation": "replaceLines",
+      "params": [
+        "candidateId",
+        "field",
+        "lines"
+      ],
+      "kind": "self",
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/service/CvService.java:104"
+    },
+    {
+      "seq": 23,
+      "from": "service",
+      "to": "service",
+      "operation": "syncProfile",
+      "params": [
+        "candidate",
+        "field",
+        "lines"
+      ],
+      "kind": "self",
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/service/CvService.java:105"
+    },
+    {
+      "seq": 24,
+      "from": "service",
+      "to": "service",
+      "operation": "toForm",
+      "params": [
+        "candidateId"
+      ],
+      "kind": "self",
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/service/CvService.java:108"
+    },
+    {
+      "seq": 25,
+      "from": "service",
+      "to": "controller",
+      "operation": "confirm",
+      "params": "CvFormResponse",
+      "kind": "return",
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/service/CvService.java:108"
+    },
+    {
+      "seq": 26,
+      "from": "controller",
+      "to": "client",
+      "operation": "confirm",
+      "params": "CvFormResponse",
+      "kind": "return",
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/controller/CvController.java:29"
+    }
+  ],
+  "notes": [
+    "Frontend và cv-extraction-ai là lifeline đại diện bên ngoài; upload và confirm là hai HTTP request tách biệt. Nhánh xác nhận chỉ diễn ra sau upload thành công và người dùng chỉnh sửa.",
+    "Các thao tác ghi repository, lưu file, kiểm tra điều kiện và gọi identity được tóm lược trong các phương thức CvService; không vẽ message tới phương thức ngoài biểu đồ lớp hoặc vượt giới hạn lifeline.",
+    "Thông điệp 22–23 minh họa một phần tử hợp lệ trong vòng lặp confirm; syncProfile chỉ gọi identity với Họ tên không rỗng hoặc Điện thoại.",
+    "Các return ngoại lệ biểu thị truyền exception, không phải giá trị trả về bình thường."
+  ],
+  "open_questions": [
+    "[cần xác nhận] Có bổ sung các phương thức JpaRepository kế thừa save, deleteAll, flush của CvDataRepository và save của CandidateProfileRepository vào M2-CLS-BE để thể hiện rõ ghi dữ liệu trong tuần tự?",
+    "[cần xác nhận] Có cho phép mở rộng giới hạn 8 lifeline để thể hiện IdentityClient, ServiceHttpClient và identity-service cùng đường PATCH /internal/users/{id} trong luồng xác nhận?"
+  ]
+}

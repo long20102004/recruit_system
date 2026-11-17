@@ -1,0 +1,197 @@
+{
+  "id": "A2-IDENTITY",
+  "type": "package",
+  "name": "Kiến trúc chiều ngang (MVC) - identity-service",
+  "elements": [
+    {
+      "key": "pkg_view",
+      "kind": "package",
+      "name": "View",
+      "notes": "DTO request/response mà controller nhận và trả về. Phần lớn là record trong common (recruit.demo.dto); identity-service không có gói dto riêng.",
+      "src": "source/recruit_system/backend/common/src/main/java/recruit/demo/dto/AuthDtos.java:9"
+    },
+    {
+      "key": "pkg_controller",
+      "kind": "package",
+      "name": "Controller",
+      "notes": "REST controller của identity-service: /api/auth (công khai) và /internal/users (nội bộ, chặn bằng X-Service-Token).",
+      "src": "source/recruit_system/backend/identity-service/src/main/java/recruit/demo/controller/AuthController.java:1"
+    },
+    {
+      "key": "pkg_model",
+      "kind": "package",
+      "name": "Model",
+      "notes": "Tầng nghiệp vụ và truy cập dữ liệu của identity-service (service, repository, entity, security, config).",
+      "src": "source/recruit_system/backend/identity-service/src/main/java/recruit/demo/service/AuthService.java:1"
+    },
+    {
+      "key": "dto_login_request",
+      "kind": "class",
+      "name": "AuthDtos.LoginRequest",
+      "stereotype": "dto",
+      "parent": "pkg_view",
+      "notes": "record (email, password)",
+      "src": "source/recruit_system/backend/common/src/main/java/recruit/demo/dto/AuthDtos.java:14"
+    },
+    {
+      "key": "dto_register_request",
+      "kind": "class",
+      "name": "AuthDtos.RegisterRequest",
+      "stereotype": "dto",
+      "parent": "pkg_view",
+      "notes": "record (email, password)",
+      "src": "source/recruit_system/backend/common/src/main/java/recruit/demo/dto/AuthDtos.java:20"
+    },
+    {
+      "key": "dto_user_response",
+      "kind": "class",
+      "name": "AuthDtos.UserResponse",
+      "stereotype": "dto",
+      "parent": "pkg_view",
+      "notes": "record (id, fullName, email, role, roleChosen)",
+      "src": "source/recruit_system/backend/common/src/main/java/recruit/demo/dto/AuthDtos.java:31"
+    },
+    {
+      "key": "dto_auth_response",
+      "kind": "class",
+      "name": "AuthDtos.AuthResponse",
+      "stereotype": "dto",
+      "parent": "pkg_view",
+      "notes": "record (token, user)",
+      "src": "source/recruit_system/backend/common/src/main/java/recruit/demo/dto/AuthDtos.java:40"
+    },
+    {
+      "key": "ctrl_auth",
+      "kind": "class",
+      "name": "AuthController",
+      "stereotype": "control",
+      "parent": "pkg_controller",
+      "src": "source/recruit_system/backend/identity-service/src/main/java/recruit/demo/controller/AuthController.java:12"
+    },
+    {
+      "key": "ctrl_internal_user",
+      "kind": "class",
+      "name": "InternalUserController",
+      "stereotype": "control",
+      "parent": "pkg_controller",
+      "src": "source/recruit_system/backend/identity-service/src/main/java/recruit/demo/controller/InternalUserController.java:13"
+    },
+    {
+      "key": "svc_auth",
+      "kind": "class",
+      "name": "AuthService",
+      "stereotype": "service",
+      "parent": "pkg_model",
+      "src": "source/recruit_system/backend/identity-service/src/main/java/recruit/demo/service/AuthService.java:20"
+    },
+    {
+      "key": "repo_user",
+      "kind": "interface",
+      "name": "UserRepository",
+      "stereotype": "repository",
+      "parent": "pkg_model",
+      "notes": "extends JpaRepository<User, Integer>",
+      "src": "source/recruit_system/backend/identity-service/src/main/java/recruit/demo/repository/UserRepository.java:8"
+    },
+    {
+      "key": "ent_user",
+      "kind": "class",
+      "name": "User",
+      "stereotype": "entity",
+      "parent": "pkg_model",
+      "notes": "@Entity @Table(name = \"users\")",
+      "src": "source/recruit_system/backend/identity-service/src/main/java/recruit/demo/entity/User.java:17"
+    }
+  ],
+  "relations": [
+    {
+      "from": "pkg_controller",
+      "to": "pkg_view",
+      "kind": "dependency",
+      "fromMult": "1",
+      "toMult": "1",
+      "label": "nhận/trả DTO",
+      "src": "source/recruit_system/backend/identity-service/src/main/java/recruit/demo/controller/AuthController.java:17"
+    },
+    {
+      "from": "pkg_controller",
+      "to": "pkg_model",
+      "kind": "dependency",
+      "fromMult": "1",
+      "toMult": "1",
+      "label": "gọi service/repository",
+      "src": "source/recruit_system/backend/identity-service/src/main/java/recruit/demo/controller/AuthController.java:14"
+    },
+    {
+      "from": "pkg_model",
+      "to": "pkg_view",
+      "kind": "dependency",
+      "fromMult": "1",
+      "toMult": "1",
+      "label": "trả về DTO",
+      "src": "source/recruit_system/backend/identity-service/src/main/java/recruit/demo/service/AuthService.java:10"
+    },
+    {
+      "from": "ctrl_auth",
+      "to": "svc_auth",
+      "kind": "association",
+      "fromMult": "1",
+      "toMult": "1",
+      "label": "authService",
+      "src": "source/recruit_system/backend/identity-service/src/main/java/recruit/demo/controller/AuthController.java:14"
+    },
+    {
+      "from": "ctrl_internal_user",
+      "to": "repo_user",
+      "kind": "association",
+      "fromMult": "1",
+      "toMult": "1",
+      "label": "users",
+      "src": "source/recruit_system/backend/identity-service/src/main/java/recruit/demo/controller/InternalUserController.java:14"
+    },
+    {
+      "from": "svc_auth",
+      "to": "repo_user",
+      "kind": "association",
+      "fromMult": "1",
+      "toMult": "1",
+      "label": "userRepository",
+      "src": "source/recruit_system/backend/identity-service/src/main/java/recruit/demo/service/AuthService.java:22"
+    },
+    {
+      "from": "svc_auth",
+      "to": "dto_auth_response",
+      "kind": "dependency",
+      "fromMult": "1",
+      "toMult": "1",
+      "label": "trả về",
+      "src": "source/recruit_system/backend/identity-service/src/main/java/recruit/demo/service/AuthService.java:45"
+    },
+    {
+      "from": "svc_auth",
+      "to": "ent_user",
+      "kind": "dependency",
+      "fromMult": "1",
+      "toMult": "1",
+      "label": "tạo/đọc User",
+      "src": "source/recruit_system/backend/identity-service/src/main/java/recruit/demo/service/AuthService.java:34"
+    },
+    {
+      "from": "repo_user",
+      "to": "ent_user",
+      "kind": "dependency",
+      "fromMult": "1",
+      "toMult": "1",
+      "label": "JpaRepository<User, Integer>",
+      "src": "source/recruit_system/backend/identity-service/src/main/java/recruit/demo/repository/UserRepository.java:8"
+    }
+  ],
+  "notes": [
+    "Ánh xạ MVC theo source: View = các record DTO (common/recruit.demo.dto) mà controller nhận/trả; Controller = recruit.demo.controller; Model = service + repository + entity + security + config của identity-service.",
+    "Hướng mũi tên phụ thuộc vẽ theo code: Controller và Model đều import DTO, nên có dependency Controller→View và Model→View; Controller→Model là lời gọi nghiệp vụ. Thứ tự trình bày trên hình vẫn là View (trái) → Controller (giữa) → Model (phải).",
+    "Các DTO nằm trong common nhưng được xếp vào View vì đó là dữ liệu vào/ra của tầng controller, không phải entity nghiệp vụ.",
+    "UserRepository là interface Spring Data JPA; CustomUserDetailsService implements PrincipalLookup (cài đặt cục bộ khi app.identity.remote=false, đúng cấu hình identity-service).",
+    "Lược bỏ: AuthDtos.ChooseRoleRequest, ServiceDtos.UserSnapshot, ServiceDtos.ProfileUpdate, ErrorResponse, CustomUserDetailsService, IdentitySecurityConfig, JwtService, JwtAuthenticationFilter, InternalAccessFilter, UserPrincipal, SecurityUtils, PrincipalLookup, ApiException, GlobalExceptionHandler, SecurityConfig, AppProperties, Role, UserStatus."
+  ],
+  "open_questions": []
+}

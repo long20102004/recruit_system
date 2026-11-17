@@ -1,0 +1,414 @@
+{
+  "id": "M4-SEQ-FE",
+  "type": "sequence",
+  "name": "Biểu đồ tuần tự chi tiết - Ôn tập và chấm phỏng vấn (Frontend)",
+  "lifelines": [
+    {
+      "key": "user",
+      "name": "Người dùng",
+      "kind": "actor",
+      "src": "source/recruit_system/frontend/src/pages/candidate/CandidateInterviewPage.tsx:9"
+    },
+    {
+      "key": "page",
+      "name": ":CandidateInterviewPage",
+      "kind": "object",
+      "class": "CandidateInterviewPage",
+      "src": "source/recruit_system/frontend/src/pages/candidate/CandidateInterviewPage.tsx:9"
+    },
+    {
+      "key": "toastCtx",
+      "name": ":ToastContext",
+      "kind": "object",
+      "class": "ToastContext",
+      "src": "source/recruit_system/frontend/src/context/ToastContext.tsx:15"
+    },
+    {
+      "key": "api",
+      "name": ":interviewsApi",
+      "kind": "object",
+      "class": "interviewsApi",
+      "src": "source/recruit_system/frontend/src/api/client.ts:125"
+    },
+    {
+      "key": "client",
+      "name": ":client",
+      "kind": "object",
+      "class": "client",
+      "src": "source/recruit_system/frontend/src/api/client.ts:32"
+    },
+    {
+      "key": "evalBlock",
+      "name": ":EvalBlock",
+      "kind": "object",
+      "class": "EvalBlock",
+      "src": "source/recruit_system/frontend/src/components/common/EvalBlock.tsx:24"
+    },
+    {
+      "key": "server",
+      "name": ":InterviewController",
+      "kind": "object",
+      "class": "InterviewController",
+      "src": "source/recruit_system/backend/interview-service/src/main/java/recruit/demo/controller/InterviewController.java:14"
+    }
+  ],
+  "messages": [
+    {
+      "seq": 1,
+      "from": "user",
+      "to": "page",
+      "operation": "submit",
+      "params": [],
+      "kind": "sync",
+      "src": "source/recruit_system/frontend/src/pages/candidate/CandidateInterviewPage.tsx:40"
+    },
+    {
+      "seq": 2,
+      "from": "page",
+      "to": "toastCtx",
+      "operation": "toast",
+      "params": [
+        "msg"
+      ],
+      "kind": "sync",
+      "fragment": {
+        "id": "validateAnswer",
+        "kind": "alt",
+        "guard": "câu trả lời trống"
+      },
+      "src": "source/recruit_system/frontend/src/pages/candidate/CandidateInterviewPage.tsx:41"
+    },
+    {
+      "seq": 3,
+      "from": "toastCtx",
+      "to": "page",
+      "operation": "toast",
+      "params": "void",
+      "kind": "return",
+      "fragment": {
+        "id": "validateAnswer",
+        "kind": "alt",
+        "guard": "câu trả lời trống"
+      },
+      "src": "source/recruit_system/frontend/src/pages/candidate/CandidateInterviewPage.tsx:41"
+    },
+    {
+      "seq": 4,
+      "from": "page",
+      "to": "user",
+      "operation": "submit",
+      "params": "void",
+      "kind": "return",
+      "fragment": {
+        "id": "validateAnswer",
+        "kind": "alt",
+        "guard": "câu trả lời trống"
+      },
+      "src": "source/recruit_system/frontend/src/pages/candidate/CandidateInterviewPage.tsx:41"
+    },
+    {
+      "seq": 5,
+      "from": "page",
+      "to": "api",
+      "operation": "submit",
+      "params": [
+        "sessionId",
+        "questionId",
+        "answerText"
+      ],
+      "kind": "sync",
+      "fragment": {
+        "id": "validateAnswer",
+        "kind": "alt",
+        "guard": "câu trả lời hợp lệ"
+      },
+      "src": "source/recruit_system/frontend/src/pages/candidate/CandidateInterviewPage.tsx:44"
+    },
+    {
+      "seq": 6,
+      "from": "api",
+      "to": "client",
+      "operation": "api<T>",
+      "params": [
+        "path",
+        "options"
+      ],
+      "kind": "sync",
+      "fragment": {
+        "id": "validateAnswer",
+        "kind": "alt",
+        "guard": "câu trả lời hợp lệ"
+      },
+      "src": "source/recruit_system/frontend/src/api/client.ts:141"
+    },
+    {
+      "seq": 7,
+      "from": "client",
+      "to": "server",
+      "operation": "POST /api/interviews/sessions/{id}/responses",
+      "params": [
+        "questionId",
+        "answerText"
+      ],
+      "kind": "sync",
+      "fragment": {
+        "id": "validateAnswer",
+        "kind": "alt",
+        "guard": "câu trả lời hợp lệ"
+      },
+      "src": "source/recruit_system/frontend/src/api/client.ts:43"
+    },
+    {
+      "seq": 8,
+      "from": "server",
+      "to": "client",
+      "operation": "POST /api/interviews/sessions/{id}/responses",
+      "params": "409/500 Error",
+      "kind": "return",
+      "fragment": {
+        "id": "submitCall",
+        "kind": "alt",
+        "guard": "lỗi máy chủ hoặc AI"
+      },
+      "src": "source/recruit_system/frontend/src/api/client.ts:44"
+    },
+    {
+      "seq": 9,
+      "from": "client",
+      "to": "api",
+      "operation": "api<T>",
+      "params": "ApiError",
+      "kind": "return",
+      "fragment": {
+        "id": "submitCall",
+        "kind": "alt",
+        "guard": "lỗi máy chủ hoặc AI"
+      },
+      "src": "source/recruit_system/frontend/src/api/client.ts:45"
+    },
+    {
+      "seq": 10,
+      "from": "api",
+      "to": "page",
+      "operation": "submit",
+      "params": "Error",
+      "kind": "return",
+      "fragment": {
+        "id": "submitCall",
+        "kind": "alt",
+        "guard": "lỗi máy chủ hoặc AI"
+      },
+      "src": "source/recruit_system/frontend/src/pages/candidate/CandidateInterviewPage.tsx:47"
+    },
+    {
+      "seq": 11,
+      "from": "page",
+      "to": "toastCtx",
+      "operation": "toast",
+      "params": [
+        "msg"
+      ],
+      "kind": "sync",
+      "fragment": {
+        "id": "submitCall",
+        "kind": "alt",
+        "guard": "lỗi máy chủ hoặc AI"
+      },
+      "src": "source/recruit_system/frontend/src/pages/candidate/CandidateInterviewPage.tsx:47"
+    },
+    {
+      "seq": 12,
+      "from": "toastCtx",
+      "to": "page",
+      "operation": "toast",
+      "params": "void",
+      "kind": "return",
+      "fragment": {
+        "id": "submitCall",
+        "kind": "alt",
+        "guard": "lỗi máy chủ hoặc AI"
+      },
+      "src": "source/recruit_system/frontend/src/pages/candidate/CandidateInterviewPage.tsx:47"
+    },
+    {
+      "seq": 13,
+      "from": "server",
+      "to": "client",
+      "operation": "POST /api/interviews/sessions/{id}/responses",
+      "params": "200 EvaluationResponse",
+      "kind": "return",
+      "fragment": {
+        "id": "submitCall",
+        "kind": "alt",
+        "guard": "chấm điểm thành công"
+      },
+      "src": "source/recruit_system/frontend/src/api/client.ts:48"
+    },
+    {
+      "seq": 14,
+      "from": "client",
+      "to": "api",
+      "operation": "api<T>",
+      "params": "EvaluationDto",
+      "kind": "return",
+      "fragment": {
+        "id": "submitCall",
+        "kind": "alt",
+        "guard": "chấm điểm thành công"
+      },
+      "src": "source/recruit_system/frontend/src/api/client.ts:48"
+    },
+    {
+      "seq": 15,
+      "from": "api",
+      "to": "page",
+      "operation": "submit",
+      "params": "EvaluationDto",
+      "kind": "return",
+      "fragment": {
+        "id": "submitCall",
+        "kind": "alt",
+        "guard": "chấm điểm thành công"
+      },
+      "src": "source/recruit_system/frontend/src/pages/candidate/CandidateInterviewPage.tsx:44"
+    },
+    {
+      "seq": 16,
+      "from": "page",
+      "to": "api",
+      "operation": "getSession",
+      "params": [
+        "id"
+      ],
+      "kind": "sync",
+      "fragment": {
+        "id": "submitCall",
+        "kind": "alt",
+        "guard": "chấm điểm thành công"
+      },
+      "src": "source/recruit_system/frontend/src/pages/candidate/CandidateInterviewPage.tsx:45"
+    },
+    {
+      "seq": 17,
+      "from": "api",
+      "to": "page",
+      "operation": "getSession",
+      "params": "SessionDto",
+      "kind": "return",
+      "fragment": {
+        "id": "submitCall",
+        "kind": "alt",
+        "guard": "chấm điểm thành công"
+      },
+      "src": "source/recruit_system/frontend/src/pages/candidate/CandidateInterviewPage.tsx:45"
+    },
+    {
+      "seq": 18,
+      "from": "page",
+      "to": "api",
+      "operation": "summary",
+      "params": [
+        "id"
+      ],
+      "kind": "sync",
+      "fragment": {
+        "id": "submitCall",
+        "kind": "alt",
+        "guard": "chấm điểm thành công"
+      },
+      "src": "source/recruit_system/frontend/src/pages/candidate/CandidateInterviewPage.tsx:45"
+    },
+    {
+      "seq": 19,
+      "from": "api",
+      "to": "page",
+      "operation": "summary",
+      "params": "SessionSummaryDto",
+      "kind": "return",
+      "fragment": {
+        "id": "submitCall",
+        "kind": "alt",
+        "guard": "chấm điểm thành công"
+      },
+      "src": "source/recruit_system/frontend/src/pages/candidate/CandidateInterviewPage.tsx:45"
+    },
+    {
+      "seq": 20,
+      "from": "page",
+      "to": "toastCtx",
+      "operation": "toast",
+      "params": [
+        "msg"
+      ],
+      "kind": "sync",
+      "fragment": {
+        "id": "submitCall",
+        "kind": "alt",
+        "guard": "chấm điểm thành công"
+      },
+      "src": "source/recruit_system/frontend/src/pages/candidate/CandidateInterviewPage.tsx:46"
+    },
+    {
+      "seq": 21,
+      "from": "toastCtx",
+      "to": "page",
+      "operation": "toast",
+      "params": "void",
+      "kind": "return",
+      "fragment": {
+        "id": "submitCall",
+        "kind": "alt",
+        "guard": "chấm điểm thành công"
+      },
+      "src": "source/recruit_system/frontend/src/pages/candidate/CandidateInterviewPage.tsx:46"
+    },
+    {
+      "seq": 22,
+      "from": "page",
+      "to": "evalBlock",
+      "operation": "render",
+      "params": [],
+      "kind": "sync",
+      "fragment": {
+        "id": "submitCall",
+        "kind": "alt",
+        "guard": "chấm điểm thành công"
+      },
+      "src": "source/recruit_system/frontend/src/pages/candidate/CandidateInterviewPage.tsx:81"
+    },
+    {
+      "seq": 23,
+      "from": "evalBlock",
+      "to": "page",
+      "operation": "render",
+      "params": "JSX.Element",
+      "kind": "return",
+      "fragment": {
+        "id": "submitCall",
+        "kind": "alt",
+        "guard": "chấm điểm thành công"
+      },
+      "src": "source/recruit_system/frontend/src/components/common/EvalBlock.tsx:115"
+    },
+    {
+      "seq": 24,
+      "from": "page",
+      "to": "user",
+      "operation": "submit",
+      "params": "void",
+      "kind": "return",
+      "fragment": {
+        "id": "submitCall",
+        "kind": "alt",
+        "guard": "chấm điểm thành công"
+      },
+      "src": "source/recruit_system/frontend/src/pages/candidate/CandidateInterviewPage.tsx:48"
+    }
+  ],
+  "notes": [
+    "Biểu đồ thể hiện chi tiết luồng xử lý bên Frontend React khi ứng viên gửi câu trả lời và nhận kết quả đánh giá (bước 8-17 trong M4-ACT).",
+    "Tất cả các lifeline (trừ Actor Người dùng và Server InterviewController) đều khớp 1-1 với các lớp trong M4-CLS-FE.json.",
+    "Bao gồm luồng chính và 2 nhánh ngoại lệ: (1) kiểm tra câu trả lời trống phía client; (2) lỗi phản hồi từ phía máy chủ/AI."
+  ],
+  "open_questions": []
+}

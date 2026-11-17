@@ -1,0 +1,241 @@
+{
+  "id": "SEQ-M3",
+  "type": "sequence",
+  "name": "Biểu đồ tuần tự M3 - Ứng tuyển tại trang chủ",
+  "lifelines": [
+    {
+      "key": "actor",
+      "name": "Ứng viên",
+      "kind": "actor",
+      "src": "source/recruit_system/frontend/src/pages/candidate/CandidateHomePage.tsx:212"
+    },
+    {
+      "key": "home",
+      "name": ":CandidateHomePage.tsx",
+      "kind": "object",
+      "src": "source/recruit_system/frontend/src/pages/candidate/CandidateHomePage.tsx:36",
+      "stereotype": "boundary",
+      "class": "CandidateHomePage.tsx"
+    },
+    {
+      "key": "client",
+      "name": ":client",
+      "kind": "object",
+      "src": "source/recruit_system/frontend/src/api/client.ts:32",
+      "stereotype": "control",
+      "class": "client"
+    },
+    {
+      "key": "controller",
+      "name": ":ApplicationsController",
+      "kind": "object",
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/controller/ApplicationsController.java:13",
+      "stereotype": "control",
+      "class": "ApplicationsController"
+    },
+    {
+      "key": "service",
+      "name": ":ApplicationService",
+      "kind": "object",
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/service/ApplicationService.java:18",
+      "stereotype": "control",
+      "class": "ApplicationService"
+    },
+    {
+      "key": "jobRepo",
+      "name": ":JobRepository",
+      "kind": "object",
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/repository/JobRepository.java:11",
+      "stereotype": "control",
+      "class": "JobRepository"
+    },
+    {
+      "key": "appRepo",
+      "name": ":JobApplicationRepository",
+      "kind": "object",
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/repository/JobApplicationRepository.java:11",
+      "stereotype": "control",
+      "class": "JobApplicationRepository"
+    },
+    {
+      "key": "entity",
+      "name": ":JobApplication",
+      "kind": "object",
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/entity/JobApplication.java:17",
+      "stereotype": "entity",
+      "class": "JobApplication"
+    }
+  ],
+  "messages": [
+    {
+      "seq": 1,
+      "from": "actor",
+      "to": "home",
+      "label": "Chọn tin và nhấn Ứng tuyển",
+      "kind": "sync",
+      "src": "source/recruit_system/frontend/src/pages/candidate/CandidateHomePage.tsx:212"
+    },
+    {
+      "seq": 2,
+      "from": "home",
+      "to": "client",
+      "label": "call",
+      "kind": "sync",
+      "src": "source/recruit_system/frontend/src/pages/candidate/CandidateHomePage.tsx:93"
+    },
+    {
+      "seq": 3,
+      "from": "client",
+      "to": "client",
+      "label": "api()",
+      "kind": "sync",
+      "src": "source/recruit_system/frontend/src/api/client.ts:91"
+    },
+    {
+      "seq": 4,
+      "from": "client",
+      "to": "controller",
+      "label": "call",
+      "kind": "sync",
+      "src": "source/recruit_system/frontend/src/api/client.ts:43"
+    },
+    {
+      "seq": 5,
+      "from": "controller",
+      "to": "controller",
+      "label": "apply()",
+      "kind": "sync",
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/controller/ApplicationsController.java:20"
+    },
+    {
+      "seq": 6,
+      "from": "controller",
+      "to": "service",
+      "label": "call",
+      "kind": "sync",
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/controller/ApplicationsController.java:20"
+    },
+    {
+      "seq": 7,
+      "from": "service",
+      "to": "service",
+      "label": "apply()",
+      "kind": "sync",
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/service/ApplicationService.java:26"
+    },
+    {
+      "seq": 8,
+      "from": "service",
+      "to": "jobRepo",
+      "label": "call",
+      "kind": "sync",
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/service/ApplicationService.java:29"
+    },
+    {
+      "seq": 9,
+      "from": "jobRepo",
+      "to": "service",
+      "label": "return",
+      "kind": "return",
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/service/ApplicationService.java:29"
+    },
+    {
+      "seq": 10,
+      "from": "service",
+      "to": "appRepo",
+      "label": "call",
+      "kind": "sync",
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/service/ApplicationService.java:34"
+    },
+    {
+      "seq": 11,
+      "from": "appRepo",
+      "to": "service",
+      "label": "return",
+      "kind": "return",
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/service/ApplicationService.java:34"
+    },
+    {
+      "seq": 12,
+      "from": "service",
+      "to": "entity",
+      "label": "call",
+      "kind": "sync",
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/service/ApplicationService.java:38"
+    },
+    {
+      "seq": 13,
+      "from": "entity",
+      "to": "entity",
+      "label": "builder(), build()",
+      "kind": "sync",
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/service/ApplicationService.java:38"
+    },
+    {
+      "seq": 14,
+      "from": "entity",
+      "to": "service",
+      "label": "return",
+      "kind": "return",
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/service/ApplicationService.java:43"
+    },
+    {
+      "seq": 15,
+      "from": "service",
+      "to": "appRepo",
+      "label": "call",
+      "kind": "sync",
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/service/ApplicationService.java:44"
+    },
+    {
+      "seq": 16,
+      "from": "appRepo",
+      "to": "service",
+      "label": "return",
+      "kind": "return",
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/service/ApplicationService.java:44"
+    },
+    {
+      "seq": 17,
+      "from": "service",
+      "to": "controller",
+      "label": "return",
+      "kind": "return",
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/service/ApplicationService.java:45"
+    },
+    {
+      "seq": 18,
+      "from": "controller",
+      "to": "client",
+      "label": "return",
+      "kind": "return",
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/controller/ApplicationsController.java:20"
+    },
+    {
+      "seq": 19,
+      "from": "client",
+      "to": "home",
+      "label": "return",
+      "kind": "return",
+      "src": "source/recruit_system/frontend/src/api/client.ts:48"
+    },
+    {
+      "seq": 20,
+      "from": "home",
+      "to": "actor",
+      "label": "show",
+      "kind": "return",
+      "src": "source/recruit_system/frontend/src/pages/candidate/CandidateHomePage.tsx:94"
+    }
+  ],
+  "notes": [
+    "Lát cắt ứng tuyển tương ứng bước 10–13 KB-M3; các luồng tải trang, đối sánh và xem chi tiết không được biểu diễn.",
+    "JobApplication được tạo bằng Lombok builder, không gọi setter; các lời gọi repository kế thừa JpaRepository được giữ đúng source.",
+    "requireCandidate() và toResponse() có gọi các lớp không có trong CLS-M3 nên được lược chi tiết; không phải lời gọi trực tiếp giữa repository và entity.",
+    "client là module và trang là React function component được ký hiệu như đối tượng theo quy ước thiết kế."
+  ],
+  "open_questions": [
+    "[cần xác nhận] Có tách thêm biểu đồ tuần tự cho đối sánh CV và xem chi tiết việc không? Một hình ≤ 10 lifeline không đủ biểu diễn đầy đủ các lớp riêng của cả ba luồng M3.",
+    "[cần xác nhận] Có bổ sung CandidateProfileRepository và IdentityClient vào CLS-M3 để biểu diễn đầy đủ requireCandidate() và toResponse() không?"
+  ]
+}

@@ -1,0 +1,442 @@
+{
+  "id": "M4-ACT",
+  "type": "activity",
+  "name": "Biểu đồ hoạt động - Ôn tập phỏng vấn theo tin/CV và chấm một câu trả lời",
+  "partitions": [
+    {
+      "key": "user",
+      "name": "Người dùng"
+    },
+    {
+      "key": "fe",
+      "name": "Frontend"
+    },
+    {
+      "key": "recruitment_svc",
+      "name": "recruitment-service"
+    },
+    {
+      "key": "interview_svc",
+      "name": "interview-service"
+    },
+    {
+      "key": "ai_svc",
+      "name": "interview-ai"
+    }
+  ],
+  "nodes": [
+    {
+      "key": "init",
+      "kind": "initial",
+      "name": "Khởi đầu",
+      "partition": "user",
+      "src": "source/recruit_system/frontend/src/pages/candidate/CandidateInterviewPage.tsx:65"
+    },
+    {
+      "key": "act_click_start",
+      "kind": "action",
+      "name": "Yêu cầu bắt đầu phiên ôn tập",
+      "partition": "user",
+      "src": "source/recruit_system/frontend/src/pages/candidate/CandidateInterviewPage.tsx:31"
+    },
+    {
+      "key": "act_send_create_session",
+      "kind": "action",
+      "name": "Gửi yêu cầu tạo phiên phỏng vấn",
+      "partition": "fe",
+      "src": "source/recruit_system/frontend/src/api/client.ts:129"
+    },
+    {
+      "key": "act_get_context",
+      "kind": "action",
+      "name": "Truy vấn ngữ cảnh JD và kỹ năng CV",
+      "partition": "recruitment_svc",
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/controller/InternalRecruitmentController.java:21"
+    },
+    {
+      "key": "dec_context_valid",
+      "kind": "decision",
+      "name": "Kiểm tra hồ sơ ứng viên?",
+      "partition": "recruitment_svc",
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/controller/InternalRecruitmentController.java:27"
+    },
+    {
+      "key": "act_notify_context_err",
+      "kind": "action",
+      "name": "Hiển thị thông báo lỗi hồ sơ",
+      "partition": "fe",
+      "src": "source/recruit_system/frontend/src/pages/candidate/CandidateInterviewPage.tsx:37"
+    },
+    {
+      "key": "act_select_questions",
+      "kind": "action",
+      "name": "Chọn bộ câu hỏi theo kỹ năng và cấp độ",
+      "partition": "interview_svc",
+      "src": "source/recruit_system/backend/interview-service/src/main/java/recruit/demo/service/QuestionSelectionService.java:26"
+    },
+    {
+      "key": "act_save_session",
+      "kind": "action",
+      "name": "Khởi tạo và lưu phiên vào CSDL",
+      "partition": "interview_svc",
+      "src": "source/recruit_system/backend/interview-service/src/main/java/recruit/demo/service/InterviewService.java:73"
+    },
+    {
+      "key": "merge_question",
+      "kind": "merge",
+      "name": "Hợp nhất luồng hiển thị câu hỏi",
+      "partition": "fe",
+      "src": "source/recruit_system/frontend/src/pages/candidate/CandidateInterviewPage.tsx:22"
+    },
+    {
+      "key": "act_display_question",
+      "kind": "action",
+      "name": "Hiển thị câu hỏi phỏng vấn",
+      "partition": "fe",
+      "src": "source/recruit_system/frontend/src/pages/candidate/CandidateInterviewPage.tsx:71"
+    },
+    {
+      "key": "merge_input",
+      "kind": "merge",
+      "name": "Hợp nhất luồng nhập câu trả lời",
+      "partition": "user",
+      "src": "source/recruit_system/frontend/src/pages/candidate/CandidateInterviewPage.tsx:75"
+    },
+    {
+      "key": "act_input_answer",
+      "kind": "action",
+      "name": "Nhập câu trả lời và nhấn gửi",
+      "partition": "user",
+      "src": "source/recruit_system/frontend/src/pages/candidate/CandidateInterviewPage.tsx:75"
+    },
+    {
+      "key": "dec_answer_valid",
+      "kind": "decision",
+      "name": "Kiểm tra nội dung câu trả lời?",
+      "partition": "fe",
+      "src": "source/recruit_system/frontend/src/pages/candidate/CandidateInterviewPage.tsx:41"
+    },
+    {
+      "key": "act_notify_empty",
+      "kind": "action",
+      "name": "Hiển thị cảnh báo yêu cầu nhập nội dung",
+      "partition": "fe",
+      "src": "source/recruit_system/frontend/src/pages/candidate/CandidateInterviewPage.tsx:41"
+    },
+    {
+      "key": "act_submit_response",
+      "kind": "action",
+      "name": "Gửi câu trả lời để chấm điểm",
+      "partition": "fe",
+      "src": "source/recruit_system/frontend/src/api/client.ts:140"
+    },
+    {
+      "key": "act_lock_session",
+      "kind": "action",
+      "name": "Khóa hàng phiên và kiểm tra quyền",
+      "partition": "interview_svc",
+      "src": "source/recruit_system/backend/interview-service/src/main/java/recruit/demo/service/InterviewService.java:108"
+    },
+    {
+      "key": "dec_session_valid",
+      "kind": "decision",
+      "name": "Kiểm tra trạng thái phiên?",
+      "partition": "interview_svc",
+      "src": "source/recruit_system/backend/interview-service/src/main/java/recruit/demo/service/InterviewService.java:111"
+    },
+    {
+      "key": "act_notify_session_err",
+      "kind": "action",
+      "name": "Hiển thị thông báo phiên đã kết thúc",
+      "partition": "fe",
+      "src": "source/recruit_system/frontend/src/pages/candidate/CandidateInterviewPage.tsx:47"
+    },
+    {
+      "key": "act_load_rubric",
+      "kind": "action",
+      "name": "Truy xuất đáp án mẫu và tiêu chí rubric",
+      "partition": "interview_svc",
+      "src": "source/recruit_system/backend/interview-service/src/main/java/recruit/demo/service/InterviewService.java:165"
+    },
+    {
+      "key": "act_call_ai",
+      "kind": "action",
+      "name": "Gửi yêu cầu đánh giá sang AI",
+      "partition": "interview_svc",
+      "src": "source/recruit_system/backend/interview-service/src/main/java/recruit/demo/service/AiScoringClient.java:85"
+    },
+    {
+      "key": "act_score_ai",
+      "kind": "action",
+      "name": "Tính điểm BERTScore, rubric và hồi quy Ridge",
+      "partition": "ai_svc",
+      "src": "source/recruit_system/AI/src/scoring.py:62"
+    },
+    {
+      "key": "dec_ai_status",
+      "kind": "decision",
+      "name": "Kiểm tra phản hồi dịch vụ AI?",
+      "partition": "interview_svc",
+      "src": "source/recruit_system/backend/interview-service/src/main/java/recruit/demo/service/AiScoringClient.java:97"
+    },
+    {
+      "key": "act_notify_ai_err",
+      "kind": "action",
+      "name": "Hiển thị thông báo lỗi dịch vụ AI",
+      "partition": "fe",
+      "src": "source/recruit_system/frontend/src/pages/candidate/CandidateInterviewPage.tsx:47"
+    },
+    {
+      "key": "act_save_evaluation",
+      "kind": "action",
+      "name": "Lưu kết quả chấm và cập nhật tiến độ phiên",
+      "partition": "interview_svc",
+      "src": "source/recruit_system/backend/interview-service/src/main/java/recruit/demo/service/InterviewService.java:179"
+    },
+    {
+      "key": "act_display_result",
+      "kind": "action",
+      "name": "Hiển thị điểm số, tiêu chí và nhận xét",
+      "partition": "fe",
+      "src": "source/recruit_system/frontend/src/components/common/EvalBlock.tsx:24"
+    },
+    {
+      "key": "dec_completed",
+      "kind": "decision",
+      "name": "Đã hoàn thành toàn bộ câu hỏi?",
+      "partition": "fe",
+      "src": "source/recruit_system/frontend/src/pages/candidate/CandidateInterviewPage.tsx:78"
+    },
+    {
+      "key": "act_click_next",
+      "kind": "action",
+      "name": "Chọn chuyển sang câu hỏi tiếp theo",
+      "partition": "user",
+      "src": "source/recruit_system/frontend/src/pages/candidate/CandidateInterviewPage.tsx:50"
+    },
+    {
+      "key": "act_display_summary",
+      "kind": "action",
+      "name": "Hiển thị tổng kết kết quả phiên ôn tập",
+      "partition": "fe",
+      "src": "source/recruit_system/frontend/src/pages/candidate/CandidateInterviewPage.tsx:82"
+    },
+    {
+      "key": "final_node",
+      "kind": "final",
+      "name": "Kết thúc hoạt động",
+      "partition": "user",
+      "src": "source/recruit_system/frontend/src/pages/candidate/CandidateInterviewPage.tsx:72"
+    }
+  ],
+  "flows": [
+    {
+      "from": "init",
+      "to": "act_click_start",
+      "guard": "",
+      "src": "source/recruit_system/frontend/src/pages/candidate/CandidateInterviewPage.tsx:65"
+    },
+    {
+      "from": "act_click_start",
+      "to": "act_send_create_session",
+      "guard": "",
+      "src": "source/recruit_system/frontend/src/pages/candidate/CandidateInterviewPage.tsx:34"
+    },
+    {
+      "from": "act_send_create_session",
+      "to": "act_get_context",
+      "guard": "",
+      "src": "source/recruit_system/backend/interview-service/src/main/java/recruit/demo/service/InterviewService.java:48"
+    },
+    {
+      "from": "act_get_context",
+      "to": "dec_context_valid",
+      "guard": "",
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/controller/InternalRecruitmentController.java:27"
+    },
+    {
+      "from": "dec_context_valid",
+      "to": "act_notify_context_err",
+      "guard": "[chưa có hồ sơ hoặc lỗi CV]",
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/controller/InternalRecruitmentController.java:28"
+    },
+    {
+      "from": "dec_context_valid",
+      "to": "act_select_questions",
+      "guard": "[hồ sơ hợp lệ]",
+      "src": "source/recruit_system/backend/interview-service/src/main/java/recruit/demo/service/InterviewService.java:68"
+    },
+    {
+      "from": "act_notify_context_err",
+      "to": "final_node",
+      "guard": "",
+      "src": "source/recruit_system/frontend/src/pages/candidate/CandidateInterviewPage.tsx:37"
+    },
+    {
+      "from": "act_select_questions",
+      "to": "act_save_session",
+      "guard": "",
+      "src": "source/recruit_system/backend/interview-service/src/main/java/recruit/demo/service/InterviewService.java:73"
+    },
+    {
+      "from": "act_save_session",
+      "to": "merge_question",
+      "guard": "",
+      "src": "source/recruit_system/backend/interview-service/src/main/java/recruit/demo/service/InterviewService.java:94"
+    },
+    {
+      "from": "merge_question",
+      "to": "act_display_question",
+      "guard": "",
+      "src": "source/recruit_system/frontend/src/pages/candidate/CandidateInterviewPage.tsx:22"
+    },
+    {
+      "from": "act_display_question",
+      "to": "merge_input",
+      "guard": "",
+      "src": "source/recruit_system/frontend/src/pages/candidate/CandidateInterviewPage.tsx:75"
+    },
+    {
+      "from": "merge_input",
+      "to": "act_input_answer",
+      "guard": "",
+      "src": "source/recruit_system/frontend/src/pages/candidate/CandidateInterviewPage.tsx:75"
+    },
+    {
+      "from": "act_input_answer",
+      "to": "dec_answer_valid",
+      "guard": "",
+      "src": "source/recruit_system/frontend/src/pages/candidate/CandidateInterviewPage.tsx:41"
+    },
+    {
+      "from": "dec_answer_valid",
+      "to": "act_notify_empty",
+      "guard": "[câu trả lời trống]",
+      "src": "source/recruit_system/frontend/src/pages/candidate/CandidateInterviewPage.tsx:41"
+    },
+    {
+      "from": "dec_answer_valid",
+      "to": "act_submit_response",
+      "guard": "[câu trả lời hợp lệ]",
+      "src": "source/recruit_system/frontend/src/pages/candidate/CandidateInterviewPage.tsx:44"
+    },
+    {
+      "from": "act_notify_empty",
+      "to": "merge_input",
+      "guard": "",
+      "src": "source/recruit_system/frontend/src/pages/candidate/CandidateInterviewPage.tsx:41"
+    },
+    {
+      "from": "act_submit_response",
+      "to": "act_lock_session",
+      "guard": "",
+      "src": "source/recruit_system/backend/interview-service/src/main/java/recruit/demo/service/InterviewService.java:108"
+    },
+    {
+      "from": "act_lock_session",
+      "to": "dec_session_valid",
+      "guard": "",
+      "src": "source/recruit_system/backend/interview-service/src/main/java/recruit/demo/service/InterviewService.java:111"
+    },
+    {
+      "from": "dec_session_valid",
+      "to": "act_notify_session_err",
+      "guard": "[phiên đã kết thúc hoặc không hợp lệ]",
+      "src": "source/recruit_system/backend/interview-service/src/main/java/recruit/demo/service/InterviewService.java:112"
+    },
+    {
+      "from": "dec_session_valid",
+      "to": "act_load_rubric",
+      "guard": "[phiên hợp lệ đang diễn ra]",
+      "src": "source/recruit_system/backend/interview-service/src/main/java/recruit/demo/service/InterviewService.java:123"
+    },
+    {
+      "from": "act_notify_session_err",
+      "to": "final_node",
+      "guard": "",
+      "src": "source/recruit_system/frontend/src/pages/candidate/CandidateInterviewPage.tsx:47"
+    },
+    {
+      "from": "act_load_rubric",
+      "to": "act_call_ai",
+      "guard": "",
+      "src": "source/recruit_system/backend/interview-service/src/main/java/recruit/demo/service/InterviewService.java:169"
+    },
+    {
+      "from": "act_call_ai",
+      "to": "act_score_ai",
+      "guard": "",
+      "src": "source/recruit_system/backend/interview-service/src/main/java/recruit/demo/service/AiScoringClient.java:86"
+    },
+    {
+      "from": "act_score_ai",
+      "to": "dec_ai_status",
+      "guard": "",
+      "src": "source/recruit_system/backend/interview-service/src/main/java/recruit/demo/service/AiScoringClient.java:97"
+    },
+    {
+      "from": "dec_ai_status",
+      "to": "act_notify_ai_err",
+      "guard": "[AI lỗi hoặc mất kết nối]",
+      "src": "source/recruit_system/backend/interview-service/src/main/java/recruit/demo/service/AiScoringClient.java:99"
+    },
+    {
+      "from": "dec_ai_status",
+      "to": "act_save_evaluation",
+      "guard": "[chấm điểm thành công]",
+      "src": "source/recruit_system/backend/interview-service/src/main/java/recruit/demo/service/InterviewService.java:176"
+    },
+    {
+      "from": "act_notify_ai_err",
+      "to": "final_node",
+      "guard": "",
+      "src": "source/recruit_system/frontend/src/pages/candidate/CandidateInterviewPage.tsx:47"
+    },
+    {
+      "from": "act_save_evaluation",
+      "to": "act_display_result",
+      "guard": "",
+      "src": "source/recruit_system/frontend/src/pages/candidate/CandidateInterviewPage.tsx:44"
+    },
+    {
+      "from": "act_display_result",
+      "to": "dec_completed",
+      "guard": "",
+      "src": "source/recruit_system/frontend/src/pages/candidate/CandidateInterviewPage.tsx:78"
+    },
+    {
+      "from": "dec_completed",
+      "to": "act_click_next",
+      "guard": "[còn câu hỏi chưa hoàn thành]",
+      "src": "source/recruit_system/frontend/src/pages/candidate/CandidateInterviewPage.tsx:78"
+    },
+    {
+      "from": "dec_completed",
+      "to": "act_display_summary",
+      "guard": "[đã hoàn thành tất cả câu]",
+      "src": "source/recruit_system/frontend/src/pages/candidate/CandidateInterviewPage.tsx:82"
+    },
+    {
+      "from": "act_click_next",
+      "to": "merge_question",
+      "guard": "",
+      "src": "source/recruit_system/frontend/src/pages/candidate/CandidateInterviewPage.tsx:52"
+    },
+    {
+      "from": "act_display_summary",
+      "to": "final_node",
+      "guard": "",
+      "src": "source/recruit_system/frontend/src/pages/candidate/CandidateInterviewPage.tsx:72"
+    }
+  ],
+  "notes": [
+    "Quy trình ôn tập phỏng vấn và chấm điểm thực thi xuyên suốt 4 bên trong kiến trúc microservices: Frontend React, recruitment-service, interview-service và interview-ai (FastAPI).",
+    "Tuyệt đối không có cơ chế chấm điểm dự phòng bằng quy tắc đơn giản (fallback-to-rule = false) khi AI lỗi, transaction được rollback toàn vẹn để tránh lưu điểm giả lập.",
+    "Chọn câu hỏi được thực hiện tất định theo trọng số kỹ năng JD (40), kỹ năng CV (20), khoảng cách đồ thị SkillGraph (8-16), độ chênh lệch cấp độ (-3/bậc) và phạt lặp lại trong 36 câu gần đây (-12).",
+    "Chấm điểm AI kết hợp BERTScore (P/R/F1 toàn câu), phân rã mệnh đề đối chiếu barem rubric (phát hiện ngộ nhận và chống nhồi từ khóa) và mô hình Ridge regression calibration."
+  ],
+  "open_questions": [
+    "Khi người dùng bấm bắt đầu ôn tập nhưng chưa có hồ sơ CV (chưa từng tải hoặc mở form CV), hệ thống ném 404 từ recruitment-service và hiện thông báo lỗi toast thay vì chủ động điều hướng sang màn hình quản lý CV.",
+    "Ngân hàng câu hỏi v2 hiện tại gồm 30 câu hỏi thuộc 10 chủ đề với cấp độ tối đa là Middle; các tin tuyển dụng cấp độ Senior/Lead hiện đang được ánh xạ về cấp độ Middle để chọn câu hỏi."
+  ]
+}

@@ -1,0 +1,423 @@
+{
+  "id": "M4-SEQ-BE",
+  "type": "sequence",
+  "name": "Biểu đồ tuần tự chi tiết - Ôn tập và chấm phỏng vấn (Backend)",
+  "lifelines": [
+    {
+      "key": "client",
+      "name": ":client (Frontend)",
+      "kind": "object",
+      "class": "",
+      "src": "source/recruit_system/frontend/src/api/client.ts:125"
+    },
+    {
+      "key": "interviewController",
+      "name": ":InterviewController",
+      "kind": "object",
+      "class": "InterviewController",
+      "src": "source/recruit_system/backend/interview-service/src/main/java/recruit/demo/controller/InterviewController.java:14"
+    },
+    {
+      "key": "interviewService",
+      "name": ":InterviewService",
+      "kind": "object",
+      "class": "InterviewService",
+      "src": "source/recruit_system/backend/interview-service/src/main/java/recruit/demo/service/InterviewService.java:23"
+    },
+    {
+      "key": "serviceHttpClient",
+      "name": ":ServiceHttpClient",
+      "kind": "object",
+      "class": "ServiceHttpClient",
+      "src": "source/recruit_system/backend/common/src/main/java/recruit/demo/client/ServiceHttpClient.java:13"
+    },
+    {
+      "key": "recruitmentService",
+      "name": ":recruitment-service",
+      "kind": "object",
+      "class": "",
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/controller/InternalRecruitmentController.java:19"
+    },
+    {
+      "key": "questionSelectionService",
+      "name": ":QuestionSelectionService",
+      "kind": "object",
+      "class": "QuestionSelectionService",
+      "src": "source/recruit_system/backend/interview-service/src/main/java/recruit/demo/service/QuestionSelectionService.java:8"
+    },
+    {
+      "key": "aiScoringClient",
+      "name": ":AiScoringClient",
+      "kind": "object",
+      "class": "AiScoringClient",
+      "src": "source/recruit_system/backend/interview-service/src/main/java/recruit/demo/service/AiScoringClient.java:26"
+    },
+    {
+      "key": "interviewAi",
+      "name": ":interview-ai",
+      "kind": "object",
+      "class": "",
+      "src": "source/recruit_system/AI/src/api.py:205"
+    }
+  ],
+  "messages": [
+    {
+      "seq": 1,
+      "from": "client",
+      "to": "interviewController",
+      "operation": "createSession",
+      "params": [
+        "request"
+      ],
+      "kind": "sync",
+      "src": "source/recruit_system/backend/interview-service/src/main/java/recruit/demo/controller/InterviewController.java:24",
+      "http": "POST /api/interviews/sessions"
+    },
+    {
+      "seq": 2,
+      "from": "interviewController",
+      "to": "interviewService",
+      "operation": "createSession",
+      "params": [
+        "request"
+      ],
+      "kind": "sync",
+      "src": "source/recruit_system/backend/interview-service/src/main/java/recruit/demo/controller/InterviewController.java:25"
+    },
+    {
+      "seq": 3,
+      "from": "interviewService",
+      "to": "serviceHttpClient",
+      "operation": "get",
+      "params": [
+        "url",
+        "type"
+      ],
+      "kind": "sync",
+      "src": "source/recruit_system/backend/interview-service/src/main/java/recruit/demo/service/InterviewService.java:51"
+    },
+    {
+      "seq": 4,
+      "from": "serviceHttpClient",
+      "to": "recruitmentService",
+      "operation": "GET /internal/interview-context",
+      "params": [
+        "userId",
+        "jobId"
+      ],
+      "kind": "sync",
+      "src": "source/recruit_system/backend/common/src/main/java/recruit/demo/client/ServiceHttpClient.java:20"
+    },
+    {
+      "seq": 5,
+      "from": "recruitmentService",
+      "to": "serviceHttpClient",
+      "operation": "GET /internal/interview-context",
+      "params": "InterviewContext",
+      "kind": "return",
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/controller/InternalRecruitmentController.java:50"
+    },
+    {
+      "seq": 6,
+      "from": "serviceHttpClient",
+      "to": "interviewService",
+      "operation": "get",
+      "params": "InterviewContext",
+      "kind": "return",
+      "src": "source/recruit_system/backend/common/src/main/java/recruit/demo/client/ServiceHttpClient.java:39"
+    },
+    {
+      "seq": 7,
+      "from": "interviewService",
+      "to": "questionSelectionService",
+      "operation": "select",
+      "params": [
+        "pool",
+        "context",
+        "recent",
+        "count"
+      ],
+      "kind": "sync",
+      "src": "source/recruit_system/backend/interview-service/src/main/java/recruit/demo/service/InterviewService.java:68"
+    },
+    {
+      "seq": 8,
+      "from": "questionSelectionService",
+      "to": "interviewService",
+      "operation": "select",
+      "params": "List<InterviewQuestion>",
+      "kind": "return",
+      "src": "source/recruit_system/backend/interview-service/src/main/java/recruit/demo/service/QuestionSelectionService.java:48"
+    },
+    {
+      "seq": 9,
+      "from": "interviewService",
+      "to": "interviewController",
+      "operation": "createSession",
+      "params": "SessionResponse",
+      "kind": "return",
+      "src": "source/recruit_system/backend/interview-service/src/main/java/recruit/demo/service/InterviewService.java:94"
+    },
+    {
+      "seq": 10,
+      "from": "interviewController",
+      "to": "client",
+      "operation": "createSession",
+      "params": "SessionResponse",
+      "kind": "return",
+      "src": "source/recruit_system/backend/interview-service/src/main/java/recruit/demo/controller/InterviewController.java:25"
+    },
+    {
+      "seq": 11,
+      "from": "client",
+      "to": "interviewController",
+      "operation": "submitResponse",
+      "params": [
+        "id",
+        "request"
+      ],
+      "kind": "sync",
+      "src": "source/recruit_system/backend/interview-service/src/main/java/recruit/demo/controller/InterviewController.java:40",
+      "http": "POST /api/interviews/sessions/{id}/responses"
+    },
+    {
+      "seq": 12,
+      "from": "interviewController",
+      "to": "interviewService",
+      "operation": "submitAndEvaluate",
+      "params": [
+        "sessionId",
+        "request"
+      ],
+      "kind": "sync",
+      "src": "source/recruit_system/backend/interview-service/src/main/java/recruit/demo/controller/InterviewController.java:42"
+    },
+    {
+      "seq": 13,
+      "from": "interviewService",
+      "to": "aiScoringClient",
+      "operation": "evaluate",
+      "params": [
+        "answer",
+        "questionText",
+        "referenceAnswer",
+        "criteria",
+        "questionIdLabel"
+      ],
+      "kind": "sync",
+      "src": "source/recruit_system/backend/interview-service/src/main/java/recruit/demo/service/InterviewService.java:169",
+      "fragment": {
+        "id": "submitResult",
+        "kind": "alt",
+        "guard": "phiên hợp lệ và AI chấm điểm thành công"
+      }
+    },
+    {
+      "seq": 14,
+      "from": "aiScoringClient",
+      "to": "interviewAi",
+      "operation": "POST /v1/interview/evaluate",
+      "params": [
+        "answer",
+        "question",
+        "reference_answer",
+        "criteria"
+      ],
+      "kind": "sync",
+      "src": "source/recruit_system/backend/interview-service/src/main/java/recruit/demo/service/AiScoringClient.java:94",
+      "fragment": {
+        "id": "submitResult",
+        "kind": "alt",
+        "guard": "phiên hợp lệ và AI chấm điểm thành công"
+      }
+    },
+    {
+      "seq": 15,
+      "from": "interviewAi",
+      "to": "aiScoringClient",
+      "operation": "POST /v1/interview/evaluate",
+      "params": "JSON kết quả",
+      "kind": "return",
+      "src": "source/recruit_system/AI/src/api.py:250",
+      "fragment": {
+        "id": "submitResult",
+        "kind": "alt",
+        "guard": "phiên hợp lệ và AI chấm điểm thành công"
+      }
+    },
+    {
+      "seq": 16,
+      "from": "aiScoringClient",
+      "to": "interviewService",
+      "operation": "evaluate",
+      "params": "EvaluateResult",
+      "kind": "return",
+      "src": "source/recruit_system/backend/interview-service/src/main/java/recruit/demo/service/AiScoringClient.java:106",
+      "fragment": {
+        "id": "submitResult",
+        "kind": "alt",
+        "guard": "phiên hợp lệ và AI chấm điểm thành công"
+      }
+    },
+    {
+      "seq": 17,
+      "from": "interviewService",
+      "to": "interviewController",
+      "operation": "submitAndEvaluate",
+      "params": "EvaluationResponse",
+      "kind": "return",
+      "src": "source/recruit_system/backend/interview-service/src/main/java/recruit/demo/service/InterviewService.java:128",
+      "fragment": {
+        "id": "submitResult",
+        "kind": "alt",
+        "guard": "phiên hợp lệ và AI chấm điểm thành công"
+      }
+    },
+    {
+      "seq": 18,
+      "from": "interviewController",
+      "to": "client",
+      "operation": "submitResponse",
+      "params": "EvaluationResponse",
+      "kind": "return",
+      "src": "source/recruit_system/backend/interview-service/src/main/java/recruit/demo/controller/InterviewController.java:42",
+      "fragment": {
+        "id": "submitResult",
+        "kind": "alt",
+        "guard": "phiên hợp lệ và AI chấm điểm thành công"
+      }
+    },
+    {
+      "seq": 19,
+      "from": "interviewService",
+      "to": "interviewController",
+      "operation": "submitAndEvaluate",
+      "params": "ApiException 409",
+      "kind": "return",
+      "src": "source/recruit_system/backend/interview-service/src/main/java/recruit/demo/service/InterviewService.java:112",
+      "fragment": {
+        "id": "submitResult",
+        "kind": "alt",
+        "guard": "phiên đã hoàn thành (COMPLETED)"
+      }
+    },
+    {
+      "seq": 20,
+      "from": "interviewController",
+      "to": "client",
+      "operation": "submitResponse",
+      "params": "HTTP 409 Conflict",
+      "kind": "return",
+      "src": "source/recruit_system/backend/common/src/main/java/recruit/demo/exception/GlobalExceptionHandler.java:18",
+      "fragment": {
+        "id": "submitResult",
+        "kind": "alt",
+        "guard": "phiên đã hoàn thành (COMPLETED)"
+      }
+    },
+    {
+      "seq": 21,
+      "from": "interviewService",
+      "to": "aiScoringClient",
+      "operation": "evaluate",
+      "params": [
+        "answer",
+        "questionText",
+        "referenceAnswer",
+        "criteria",
+        "questionIdLabel"
+      ],
+      "kind": "sync",
+      "src": "source/recruit_system/backend/interview-service/src/main/java/recruit/demo/service/InterviewService.java:169",
+      "fragment": {
+        "id": "submitResult",
+        "kind": "alt",
+        "guard": "dịch vụ AI lỗi hoặc mất kết nối"
+      }
+    },
+    {
+      "seq": 22,
+      "from": "aiScoringClient",
+      "to": "interviewAi",
+      "operation": "POST /v1/interview/evaluate",
+      "params": [
+        "answer",
+        "question",
+        "reference_answer",
+        "criteria"
+      ],
+      "kind": "sync",
+      "src": "source/recruit_system/backend/interview-service/src/main/java/recruit/demo/service/AiScoringClient.java:94",
+      "fragment": {
+        "id": "submitResult",
+        "kind": "alt",
+        "guard": "dịch vụ AI lỗi hoặc mất kết nối"
+      }
+    },
+    {
+      "seq": 23,
+      "from": "interviewAi",
+      "to": "aiScoringClient",
+      "operation": "POST /v1/interview/evaluate",
+      "params": "HTTP 502 / Lỗi kết nối",
+      "kind": "return",
+      "src": "source/recruit_system/AI/src/api.py:248",
+      "fragment": {
+        "id": "submitResult",
+        "kind": "alt",
+        "guard": "dịch vụ AI lỗi hoặc mất kết nối"
+      }
+    },
+    {
+      "seq": 24,
+      "from": "aiScoringClient",
+      "to": "interviewService",
+      "operation": "evaluate",
+      "params": "ApiException 502",
+      "kind": "return",
+      "src": "source/recruit_system/backend/interview-service/src/main/java/recruit/demo/service/AiScoringClient.java:99",
+      "fragment": {
+        "id": "submitResult",
+        "kind": "alt",
+        "guard": "dịch vụ AI lỗi hoặc mất kết nối"
+      }
+    },
+    {
+      "seq": 25,
+      "from": "interviewService",
+      "to": "interviewController",
+      "operation": "submitAndEvaluate",
+      "params": "ApiException 502",
+      "kind": "return",
+      "src": "source/recruit_system/backend/interview-service/src/main/java/recruit/demo/service/InterviewService.java:123",
+      "fragment": {
+        "id": "submitResult",
+        "kind": "alt",
+        "guard": "dịch vụ AI lỗi hoặc mất kết nối"
+      }
+    },
+    {
+      "seq": 26,
+      "from": "interviewController",
+      "to": "client",
+      "operation": "submitResponse",
+      "params": "HTTP 502 Bad Gateway",
+      "kind": "return",
+      "src": "source/recruit_system/backend/common/src/main/java/recruit/demo/exception/GlobalExceptionHandler.java:18",
+      "fragment": {
+        "id": "submitResult",
+        "kind": "alt",
+        "guard": "dịch vụ AI lỗi hoặc mất kết nối"
+      }
+    }
+  ],
+  "notes": [
+    "Biểu đồ thể hiện 2 luồng tương tác mạng cốt lõi của Backend module M4: (1) Khởi tạo phiên phỏng vấn (createSession) truy vấn ngữ cảnh JD/CV từ recruitment-service và chọn câu hỏi theo thuật toán SkillGraph; (2) Nộp câu trả lời và chấm điểm AI (submitResponse) khóa hàng phiên (PESSIMISTIC_WRITE), tải barem rubric và gọi dịch vụ interview-ai qua HTTP.",
+    "Khung kết hợp alt submitResult mô tả luồng chính khi chấm điểm thành công cùng 2 luồng ngoại lệ có thật trong mã nguồn: phiên đã kết thúc trước đó (ném ApiException 409 Conflict) và dịch vụ AI lỗi/mất kết nối (ném ApiException 502 Bad Gateway hoặc 503 Service Unavailable, rollback toàn bộ transaction CSDL).",
+    "Để tuân thủ giới hạn thiết kế 8 lifeline, các thao tác truy xuất cơ sở dữ liệu nội bộ của InterviewService (gọi InterviewSessionRepository.findForUpdate, EvaluationRubricRepository.findByQuestionId, EvaluationResultRepository.save) được thực thi ngầm định trong tầng service và được diễn giải đầy đủ tại tài liệu ghi chú đi kèm."
+  ],
+  "open_questions": [
+    "[cần xác nhận] Biểu đồ tuần tự lược giản các lời gọi nội bộ tới InterviewSessionRepository, InterviewSessionQuestionRepository, EvaluationRubricRepository và EvaluationResultRepository để đảm bảo giới hạn ≤ 8 lifeline theo quy định; các thao tác khóa dòng CSDL (PESSIMISTIC_WRITE), lưu phiên và lưu kết quả đánh giá vẫn thực sự diễn ra trong InterviewService.",
+    "[cần xác nhận] Cơ chế xác thực liên service: interview-service gọi recruitment-service qua /internal/interview-context sử dụng shared token X-Service-Token kèm userId qua tham số URL; cần xác nhận xem có cần bổ sung chuyển tiếp JWT người dùng (Token Relay) để kiểm soát quyền chặt chẽ hơn hay không."
+  ]
+}

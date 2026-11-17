@@ -1,0 +1,376 @@
+{
+  "id": "A2-FE",
+  "type": "package",
+  "name": "Biểu đồ kiến trúc chiều ngang MVC - Frontend",
+  "elements": [
+    {
+      "key": "pkg_view",
+      "name": "View",
+      "kind": "package",
+      "notes": "Tầng trình diễn giao diện người dùng (React SPA): gồm routing, các màn hình theo luồng chính (pages) và components dùng chung",
+      "src": "source/recruit_system/frontend/src/App.tsx:47"
+    },
+    {
+      "key": "pkg_view_routing",
+      "name": "routing",
+      "kind": "package",
+      "parent": "pkg_view",
+      "notes": "Định tuyến và bảo vệ truy cập theo vai trò (React Router)",
+      "src": "source/recruit_system/frontend/src/App.tsx:22"
+    },
+    {
+      "key": "AppRoutes",
+      "name": "AppRoutes",
+      "kind": "class",
+      "stereotype": "boundary",
+      "parent": "pkg_view_routing",
+      "notes": "Cấu hình 14 routes điều hướng trong toàn ứng dụng",
+      "src": "source/recruit_system/frontend/src/App.tsx:46"
+    },
+    {
+      "key": "RequireAuth",
+      "name": "RequireAuth",
+      "kind": "class",
+      "stereotype": "boundary",
+      "parent": "pkg_view_routing",
+      "notes": "Guard component kiểm tra xác thực và phân quyền vai trò",
+      "src": "source/recruit_system/frontend/src/App.tsx:22"
+    },
+    {
+      "key": "pkg_view_pages",
+      "name": "pages",
+      "kind": "package",
+      "parent": "pkg_view",
+      "notes": "Các màn hình chính tiêu biểu cho 4 luồng M1-M4",
+      "src": "source/recruit_system/frontend/src/pages/"
+    },
+    {
+      "key": "LoginPage",
+      "name": "LoginPage",
+      "kind": "class",
+      "stereotype": "boundary",
+      "parent": "pkg_view_pages",
+      "notes": "Màn hình đăng nhập người dùng (luồng M1)",
+      "src": "source/recruit_system/frontend/src/pages/LoginPage.tsx:17"
+    },
+    {
+      "key": "CandidateCvPage",
+      "name": "CandidateCvPage",
+      "kind": "class",
+      "stereotype": "boundary",
+      "parent": "pkg_view_pages",
+      "notes": "Màn hình tải và xác nhận CV ứng viên (luồng M2)",
+      "src": "source/recruit_system/frontend/src/pages/candidate/CandidateCvPage.tsx:9"
+    },
+    {
+      "key": "CandidateMatchingPage",
+      "name": "CandidateMatchingPage",
+      "kind": "class",
+      "stereotype": "boundary",
+      "parent": "pkg_view_pages",
+      "notes": "Màn hình đối sánh và việc làm phù hợp (luồng M3)",
+      "src": "source/recruit_system/frontend/src/pages/candidate/CandidateMatchingPage.tsx:21"
+    },
+    {
+      "key": "CandidateInterviewPage",
+      "name": "CandidateInterviewPage",
+      "kind": "class",
+      "stereotype": "boundary",
+      "parent": "pkg_view_pages",
+      "notes": "Màn hình ôn luyện phỏng vấn và nhận xét AI (luồng M4)",
+      "src": "source/recruit_system/frontend/src/pages/candidate/CandidateInterviewPage.tsx:9"
+    },
+    {
+      "key": "pkg_controller",
+      "name": "Controller",
+      "kind": "package",
+      "notes": "Tầng điều khiển: quản lý context/state và các module API gọi qua Gateway",
+      "src": "source/recruit_system/frontend/src/context/AuthContext.tsx:30"
+    },
+    {
+      "key": "pkg_controller_context",
+      "name": "context",
+      "kind": "package",
+      "parent": "pkg_controller",
+      "notes": "Quản lý trạng thái chia sẻ toàn cục bằng React Context",
+      "src": "source/recruit_system/frontend/src/context/"
+    },
+    {
+      "key": "AuthContext",
+      "name": "AuthContext",
+      "kind": "class",
+      "stereotype": "control",
+      "parent": "pkg_controller_context",
+      "notes": "Context và useAuth hook quản lý session đăng nhập, token và vai trò",
+      "src": "source/recruit_system/frontend/src/context/AuthContext.tsx:30"
+    },
+    {
+      "key": "ToastContext",
+      "name": "ToastContext",
+      "kind": "class",
+      "stereotype": "control",
+      "parent": "pkg_controller_context",
+      "notes": "Context và useToast hook hiển thị thông báo phản hồi thao tác",
+      "src": "source/recruit_system/frontend/src/context/ToastContext.tsx:15"
+    },
+    {
+      "key": "pkg_controller_api",
+      "name": "api",
+      "kind": "package",
+      "parent": "pkg_controller",
+      "notes": "Phân tầng module gọi API tương ứng từng microservice",
+      "src": "source/recruit_system/frontend/src/api/client.ts:51"
+    },
+    {
+      "key": "authApi",
+      "name": "authApi",
+      "kind": "class",
+      "stereotype": "control",
+      "parent": "pkg_controller_api",
+      "notes": "Điều phối API xác thực: /auth/login, /auth/register, /auth/me, /auth/role (M1)",
+      "src": "source/recruit_system/frontend/src/api/client.ts:51"
+    },
+    {
+      "key": "cvsApi",
+      "name": "cvsApi",
+      "kind": "class",
+      "stereotype": "control",
+      "parent": "pkg_controller_api",
+      "notes": "Điều phối API hồ sơ CV: /cvs multipart upload, confirm (M2)",
+      "src": "source/recruit_system/frontend/src/api/client.ts:99"
+    },
+    {
+      "key": "matchingApi",
+      "name": "matchingApi",
+      "kind": "class",
+      "stereotype": "control",
+      "parent": "pkg_controller_api",
+      "notes": "Điều phối API đối sánh AI: /matching/mine, /matching/run (M3)",
+      "src": "source/recruit_system/frontend/src/api/client.ts:113"
+    },
+    {
+      "key": "interviewsApi",
+      "name": "interviewsApi",
+      "kind": "class",
+      "stereotype": "control",
+      "parent": "pkg_controller_api",
+      "notes": "Điều phối API phỏng vấn AI: /interviews/questions, /interviews/sessions (M4)",
+      "src": "source/recruit_system/frontend/src/api/client.ts:125"
+    },
+    {
+      "key": "pkg_model",
+      "name": "Model",
+      "kind": "package",
+      "notes": "Tầng dữ liệu: HTTP client, các DTO interfaces trao đổi qua API và bộ ánh xạ dữ liệu",
+      "src": "source/recruit_system/frontend/src/api/client.ts:32"
+    },
+    {
+      "key": "pkg_model_client",
+      "name": "client",
+      "kind": "package",
+      "parent": "pkg_model",
+      "notes": "Lớp nền tảng kết nối mạng và quản lý token lưu trữ",
+      "src": "source/recruit_system/frontend/src/api/client.ts:5"
+    },
+    {
+      "key": "ApiClient",
+      "name": "api (HTTP Client)",
+      "kind": "class",
+      "stereotype": "service",
+      "parent": "pkg_model_client",
+      "notes": "Hàm fetch wrapper gắn kèm Bearer JWT token, parse JSON và ném ApiError",
+      "src": "source/recruit_system/frontend/src/api/client.ts:32"
+    },
+    {
+      "key": "ApiError",
+      "name": "ApiError",
+      "kind": "class",
+      "parent": "pkg_model_client",
+      "notes": "Lớp ngoại lệ HTTP mang theo mã trạng thái status và thông báo lỗi",
+      "src": "source/recruit_system/frontend/src/api/client.ts:14"
+    },
+    {
+      "key": "pkg_model_types",
+      "name": "types",
+      "kind": "package",
+      "parent": "pkg_model",
+      "notes": "Cấu trúc dữ liệu và TypeScript Interfaces truyền tải qua API (DTOs)",
+      "src": "source/recruit_system/frontend/src/types/index.ts:1"
+    },
+    {
+      "key": "UserDto",
+      "name": "UserDto",
+      "kind": "class",
+      "stereotype": "entity",
+      "parent": "pkg_model_types",
+      "notes": "Thông tin tài khoản đăng nhập và phân quyền người dùng (M1)",
+      "src": "source/recruit_system/frontend/src/api/client.ts:153"
+    },
+    {
+      "key": "CvFormDto",
+      "name": "CvFormDto",
+      "kind": "class",
+      "stereotype": "entity",
+      "parent": "pkg_model_types",
+      "notes": "Cấu trúc dữ liệu CV trích xuất và trạng thái phân tích (M2)",
+      "src": "source/recruit_system/frontend/src/api/client.ts:225"
+    },
+    {
+      "key": "MatchDto",
+      "name": "MatchDto",
+      "kind": "class",
+      "stereotype": "entity",
+      "parent": "pkg_model_types",
+      "notes": "Điểm số và chi tiết đối sánh độ phù hợp ứng viên - việc làm (M3)",
+      "src": "source/recruit_system/frontend/src/api/client.ts:232"
+    },
+    {
+      "key": "SessionDto",
+      "name": "SessionDto",
+      "kind": "class",
+      "stereotype": "entity",
+      "parent": "pkg_model_types",
+      "notes": "Phiên phỏng vấn luyện tập cùng các câu hỏi và đánh giá AI (M4)",
+      "src": "source/recruit_system/frontend/src/api/client.ts:285"
+    },
+    {
+      "key": "pkg_model_utils",
+      "name": "utils & mappers",
+      "kind": "package",
+      "parent": "pkg_model",
+      "notes": "Bộ chuyển đổi dữ liệu DTO sang UI Model và các tiện ích nghiệp vụ dữ liệu",
+      "src": "source/recruit_system/frontend/src/utils/mappers.ts:1"
+    },
+    {
+      "key": "mappers",
+      "name": "mappers",
+      "kind": "class",
+      "stereotype": "utility",
+      "parent": "pkg_model_utils",
+      "notes": "Chuyển đổi JobDto -> Job (UI), MatchDto -> MatchResult (UI), định dạng trạng thái hồ sơ",
+      "src": "source/recruit_system/frontend/src/utils/mappers.ts:31"
+    }
+  ],
+  "relations": [
+    {
+      "from": "pkg_view",
+      "to": "pkg_controller",
+      "kind": "dependency",
+      "label": "uses",
+      "src": "source/recruit_system/frontend/src/pages/candidate/CandidateCvPage.tsx:18"
+    },
+    {
+      "from": "pkg_controller",
+      "to": "pkg_model",
+      "kind": "dependency",
+      "label": "uses",
+      "src": "source/recruit_system/frontend/src/context/AuthContext.tsx:11"
+    },
+    {
+      "from": "LoginPage",
+      "to": "AuthContext",
+      "kind": "dependency",
+      "label": "useAuth()",
+      "src": "source/recruit_system/frontend/src/pages/LoginPage.tsx:18"
+    },
+    {
+      "from": "CandidateCvPage",
+      "to": "cvsApi",
+      "kind": "dependency",
+      "label": "calls",
+      "src": "source/recruit_system/frontend/src/pages/candidate/CandidateCvPage.tsx:18"
+    },
+    {
+      "from": "CandidateMatchingPage",
+      "to": "matchingApi",
+      "kind": "dependency",
+      "label": "calls",
+      "src": "source/recruit_system/frontend/src/pages/candidate/CandidateMatchingPage.tsx:14"
+    },
+    {
+      "from": "CandidateInterviewPage",
+      "to": "interviewsApi",
+      "kind": "dependency",
+      "label": "calls",
+      "src": "source/recruit_system/frontend/src/pages/candidate/CandidateInterviewPage.tsx:4"
+    },
+    {
+      "from": "AuthContext",
+      "to": "authApi",
+      "kind": "dependency",
+      "label": "calls",
+      "src": "source/recruit_system/frontend/src/context/AuthContext.tsx:11"
+    },
+    {
+      "from": "authApi",
+      "to": "ApiClient",
+      "kind": "dependency",
+      "label": "invokes",
+      "src": "source/recruit_system/frontend/src/api/client.ts:53"
+    },
+    {
+      "from": "cvsApi",
+      "to": "ApiClient",
+      "kind": "dependency",
+      "label": "invokes",
+      "src": "source/recruit_system/frontend/src/api/client.ts:104"
+    },
+    {
+      "from": "matchingApi",
+      "to": "ApiClient",
+      "kind": "dependency",
+      "label": "invokes",
+      "src": "source/recruit_system/frontend/src/api/client.ts:114"
+    },
+    {
+      "from": "interviewsApi",
+      "to": "ApiClient",
+      "kind": "dependency",
+      "label": "invokes",
+      "src": "source/recruit_system/frontend/src/api/client.ts:127"
+    },
+    {
+      "from": "ApiClient",
+      "to": "ApiError",
+      "kind": "dependency",
+      "label": "throws",
+      "src": "source/recruit_system/frontend/src/api/client.ts:45"
+    },
+    {
+      "from": "authApi",
+      "to": "UserDto",
+      "kind": "dependency",
+      "label": "returns",
+      "src": "source/recruit_system/frontend/src/api/client.ts:52"
+    },
+    {
+      "from": "cvsApi",
+      "to": "CvFormDto",
+      "kind": "dependency",
+      "label": "returns",
+      "src": "source/recruit_system/frontend/src/api/client.ts:100"
+    },
+    {
+      "from": "matchingApi",
+      "to": "MatchDto",
+      "kind": "dependency",
+      "label": "returns",
+      "src": "source/recruit_system/frontend/src/api/client.ts:114"
+    },
+    {
+      "from": "interviewsApi",
+      "to": "SessionDto",
+      "kind": "dependency",
+      "label": "returns",
+      "src": "source/recruit_system/frontend/src/api/client.ts:127"
+    }
+  ],
+  "notes": [
+    "Mô hình kiến trúc chiều ngang phân tầng MVC cho ứng dụng Frontend React (SPA + TypeScript).",
+    "View gồm routing và 4 trang tiêu biểu cho 4 luồng chính M1-M4 (LoginPage, CandidateCvPage, CandidateMatchingPage, CandidateInterviewPage).",
+    "Controller gồm các React Context (AuthContext, ToastContext) và các API modules tương ứng 4 luồng chính (authApi, cvsApi, matchingApi, interviewsApi).",
+    "Model gồm HTTP client cơ sở (api, ApiError), các DTO tiêu biểu (UserDto, CvFormDto, MatchDto, SessionDto) và bộ chuyển đổi dữ liệu (mappers).",
+    "Lược bỏ: Để biểu đồ cô đọng và tuân thủ giới hạn ≤ 30 elements (DIAGRAM_RULES.md §0.3 và §1.2), các phần tử sau được lược bớt khỏi biểu đồ nhưng vẫn tồn tại trong source: (1) View/pages: RegisterPage, ChooseRolePage, PublicHomePage, CandidateJobDetailPage, RecruiterJobsPage; (2) View/components: pkg_view_components, SiteHeader, UploadZone, MatchItem, ChatBubble; (3) Controller/api: jobsApi, applicationsApi, dashboardApi; (4) Model/types: JobDto, ApplicationDto, EvaluationDto; (5) Model/utils: accountUtils, jobsUtils."
+  ],
+  "open_questions": []
+}

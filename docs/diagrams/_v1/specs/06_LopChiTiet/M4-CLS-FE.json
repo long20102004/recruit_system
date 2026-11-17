@@ -1,0 +1,896 @@
+{
+  "id": "M4-CLS-FE",
+  "type": "class",
+  "name": "Biểu đồ lớp chi tiết - Ôn tập và chấm phỏng vấn (Frontend)",
+  "elements": [
+    {
+      "key": "pkg_view",
+      "name": "View",
+      "kind": "package",
+      "src": "source/recruit_system/frontend/src/pages/candidate/CandidateInterviewPage.tsx"
+    },
+    {
+      "key": "CandidateInterviewPage",
+      "name": "CandidateInterviewPage",
+      "kind": "class",
+      "stereotype": "boundary",
+      "parent": "pkg_view",
+      "attributes": [
+        {
+          "name": "jobId",
+          "type": "number",
+          "visibility": "-"
+        },
+        {
+          "name": "session",
+          "type": "SessionDto | null",
+          "visibility": "-"
+        },
+        {
+          "name": "history",
+          "type": "SessionDto[]",
+          "visibility": "-"
+        },
+        {
+          "name": "summary",
+          "type": "SessionSummaryDto | null",
+          "visibility": "-"
+        },
+        {
+          "name": "idx",
+          "type": "number",
+          "visibility": "-"
+        },
+        {
+          "name": "answer",
+          "type": "string",
+          "visibility": "-"
+        },
+        {
+          "name": "lastAnswer",
+          "type": "string | null",
+          "visibility": "-"
+        },
+        {
+          "name": "evaluation",
+          "type": "EvaluationDto | null",
+          "visibility": "-"
+        },
+        {
+          "name": "busy",
+          "type": "boolean",
+          "visibility": "-"
+        }
+      ],
+      "operations": [
+        {
+          "name": "openSession",
+          "params": [
+            {
+              "name": "id",
+              "type": "number"
+            }
+          ],
+          "returns": "Promise<void>",
+          "visibility": "~"
+        },
+        {
+          "name": "start",
+          "params": [],
+          "returns": "Promise<void>",
+          "visibility": "~"
+        },
+        {
+          "name": "submit",
+          "params": [],
+          "returns": "Promise<void>",
+          "visibility": "~"
+        },
+        {
+          "name": "next",
+          "params": [],
+          "returns": "void",
+          "visibility": "~"
+        }
+      ],
+      "src": "source/recruit_system/frontend/src/pages/candidate/CandidateInterviewPage.tsx:9"
+    },
+    {
+      "key": "EvalBlock",
+      "name": "EvalBlock",
+      "kind": "class",
+      "stereotype": "boundary",
+      "parent": "pkg_view",
+      "attributes": [
+        {
+          "name": "evaluation",
+          "type": "InterviewEvaluation",
+          "visibility": "+"
+        }
+      ],
+      "operations": [
+        {
+          "name": "render",
+          "params": [],
+          "returns": "JSX.Element",
+          "visibility": "+"
+        }
+      ],
+      "src": "source/recruit_system/frontend/src/components/common/EvalBlock.tsx:24"
+    },
+    {
+      "key": "ScoreRing",
+      "name": "ScoreRing",
+      "kind": "class",
+      "stereotype": "boundary",
+      "parent": "pkg_view",
+      "attributes": [
+        {
+          "name": "percent",
+          "type": "number",
+          "visibility": "+"
+        },
+        {
+          "name": "children",
+          "type": "ReactNode",
+          "visibility": "+"
+        },
+        {
+          "name": "size",
+          "type": "number",
+          "visibility": "+"
+        },
+        {
+          "name": "innerSize",
+          "type": "number",
+          "visibility": "+"
+        },
+        {
+          "name": "fontSize",
+          "type": "string",
+          "visibility": "+"
+        }
+      ],
+      "operations": [
+        {
+          "name": "render",
+          "params": [],
+          "returns": "JSX.Element",
+          "visibility": "+"
+        }
+      ],
+      "src": "source/recruit_system/frontend/src/components/common/ScoreRing.tsx:14"
+    },
+    {
+      "key": "EvalRow",
+      "name": "EvalRow",
+      "kind": "class",
+      "stereotype": "boundary",
+      "parent": "pkg_view",
+      "attributes": [
+        {
+          "name": "label",
+          "type": "ReactNode",
+          "visibility": "+"
+        },
+        {
+          "name": "value",
+          "type": "ReactNode",
+          "visibility": "+"
+        }
+      ],
+      "operations": [
+        {
+          "name": "render",
+          "params": [],
+          "returns": "JSX.Element",
+          "visibility": "+"
+        }
+      ],
+      "src": "source/recruit_system/frontend/src/components/common/EvalBlock.tsx:11"
+    },
+    {
+      "key": "ChatBubble",
+      "name": "ChatBubble",
+      "kind": "class",
+      "stereotype": "boundary",
+      "parent": "pkg_view",
+      "attributes": [
+        {
+          "name": "role",
+          "type": "\"ai\" | \"user\"",
+          "visibility": "+"
+        },
+        {
+          "name": "meta",
+          "type": "ReactNode",
+          "visibility": "+"
+        },
+        {
+          "name": "children",
+          "type": "ReactNode",
+          "visibility": "+"
+        }
+      ],
+      "operations": [
+        {
+          "name": "render",
+          "params": [],
+          "returns": "JSX.Element",
+          "visibility": "+"
+        }
+      ],
+      "src": "source/recruit_system/frontend/src/components/common/ChatBubble.tsx:19"
+    },
+    {
+      "key": "pkg_controller",
+      "name": "Controller",
+      "kind": "package",
+      "src": "source/recruit_system/frontend/src/context/"
+    },
+    {
+      "key": "ToastContext",
+      "name": "ToastContext",
+      "kind": "class",
+      "stereotype": "control",
+      "parent": "pkg_controller",
+      "attributes": [
+        {
+          "name": "message",
+          "type": "string | null",
+          "visibility": "-"
+        }
+      ],
+      "operations": [
+        {
+          "name": "toast",
+          "params": [
+            {
+              "name": "msg",
+              "type": "string"
+            }
+          ],
+          "returns": "void",
+          "visibility": "+"
+        },
+        {
+          "name": "useToast",
+          "params": [],
+          "returns": "ToastContextValue",
+          "visibility": "+"
+        }
+      ],
+      "src": "source/recruit_system/frontend/src/context/ToastContext.tsx:15"
+    },
+    {
+      "key": "interviewsApi",
+      "name": "interviewsApi",
+      "kind": "class",
+      "stereotype": "control",
+      "parent": "pkg_controller",
+      "attributes": [],
+      "operations": [
+        {
+          "name": "questions",
+          "params": [],
+          "returns": "Promise<QuestionDto[]>",
+          "visibility": "+"
+        },
+        {
+          "name": "mine",
+          "params": [],
+          "returns": "Promise<SessionDto[]>",
+          "visibility": "+"
+        },
+        {
+          "name": "summary",
+          "params": [
+            {
+              "name": "id",
+              "type": "number"
+            }
+          ],
+          "returns": "Promise<SessionSummaryDto>",
+          "visibility": "+"
+        },
+        {
+          "name": "createSession",
+          "params": [
+            {
+              "name": "body",
+              "type": "{ jobId?: number; applicationId?: number; questionIds?: number[]; questionCount?: number }"
+            }
+          ],
+          "returns": "Promise<SessionDto>",
+          "visibility": "+"
+        },
+        {
+          "name": "getSession",
+          "params": [
+            {
+              "name": "id",
+              "type": "number"
+            }
+          ],
+          "returns": "Promise<SessionDto>",
+          "visibility": "+"
+        },
+        {
+          "name": "submit",
+          "params": [
+            {
+              "name": "sessionId",
+              "type": "number"
+            },
+            {
+              "name": "questionId",
+              "type": "number"
+            },
+            {
+              "name": "answerText",
+              "type": "string"
+            }
+          ],
+          "returns": "Promise<EvaluationDto>",
+          "visibility": "+"
+        }
+      ],
+      "src": "source/recruit_system/frontend/src/api/client.ts:125"
+    },
+    {
+      "key": "pkg_model",
+      "name": "Model",
+      "kind": "package",
+      "src": "source/recruit_system/frontend/src/api/client.ts"
+    },
+    {
+      "key": "apiClient",
+      "name": "client",
+      "kind": "class",
+      "stereotype": "client",
+      "parent": "pkg_model",
+      "attributes": [
+        {
+          "name": "API_BASE",
+          "type": "string",
+          "visibility": "-"
+        },
+        {
+          "name": "TOKEN_KEY",
+          "type": "string",
+          "visibility": "-"
+        }
+      ],
+      "operations": [
+        {
+          "name": "getToken",
+          "params": [],
+          "returns": "string | null",
+          "visibility": "+"
+        },
+        {
+          "name": "setToken",
+          "params": [
+            {
+              "name": "token",
+              "type": "string | null"
+            }
+          ],
+          "returns": "void",
+          "visibility": "+"
+        },
+        {
+          "name": "api<T>",
+          "params": [
+            {
+              "name": "path",
+              "type": "string"
+            },
+            {
+              "name": "options",
+              "type": "RequestInit"
+            }
+          ],
+          "returns": "Promise<T>",
+          "visibility": "+"
+        }
+      ],
+      "src": "source/recruit_system/frontend/src/api/client.ts:32"
+    },
+    {
+      "key": "ApiError",
+      "name": "ApiError",
+      "kind": "class",
+      "stereotype": "entity",
+      "parent": "pkg_model",
+      "attributes": [
+        {
+          "name": "status",
+          "type": "number",
+          "visibility": "+"
+        },
+        {
+          "name": "message",
+          "type": "string",
+          "visibility": "+"
+        }
+      ],
+      "operations": [],
+      "src": "source/recruit_system/frontend/src/api/client.ts:14"
+    },
+    {
+      "key": "SessionDto",
+      "name": "SessionDto",
+      "kind": "class",
+      "stereotype": "entity",
+      "parent": "pkg_model",
+      "attributes": [
+        {
+          "name": "id",
+          "type": "number",
+          "visibility": "+"
+        },
+        {
+          "name": "status",
+          "type": "string",
+          "visibility": "+"
+        },
+        {
+          "name": "currentIndex",
+          "type": "number",
+          "visibility": "+"
+        },
+        {
+          "name": "jobId",
+          "type": "number | null",
+          "visibility": "+"
+        },
+        {
+          "name": "jobTitle",
+          "type": "string | null",
+          "visibility": "+"
+        },
+        {
+          "name": "questions",
+          "type": "SessionQuestionItem[]",
+          "visibility": "+"
+        },
+        {
+          "name": "createdAt",
+          "type": "string",
+          "visibility": "+"
+        }
+      ],
+      "operations": [],
+      "src": "source/recruit_system/frontend/src/api/client.ts:261"
+    },
+    {
+      "key": "SessionQuestionItem",
+      "name": "SessionQuestionItem",
+      "kind": "class",
+      "stereotype": "entity",
+      "parent": "pkg_model",
+      "attributes": [
+        {
+          "name": "questionId",
+          "type": "number",
+          "visibility": "+"
+        },
+        {
+          "name": "sortOrder",
+          "type": "number",
+          "visibility": "+"
+        },
+        {
+          "name": "topic",
+          "type": "string | null",
+          "visibility": "+"
+        },
+        {
+          "name": "difficulty",
+          "type": "string | null",
+          "visibility": "+"
+        },
+        {
+          "name": "questionText",
+          "type": "string",
+          "visibility": "+"
+        }
+      ],
+      "operations": [],
+      "src": "source/recruit_system/frontend/src/api/client.ts:267"
+    },
+    {
+      "key": "SessionSummaryDto",
+      "name": "SessionSummaryDto",
+      "kind": "class",
+      "stereotype": "entity",
+      "parent": "pkg_model",
+      "attributes": [
+        {
+          "name": "sessionId",
+          "type": "number",
+          "visibility": "+"
+        },
+        {
+          "name": "status",
+          "type": "string",
+          "visibility": "+"
+        },
+        {
+          "name": "totalQuestions",
+          "type": "number",
+          "visibility": "+"
+        },
+        {
+          "name": "answeredQuestions",
+          "type": "number",
+          "visibility": "+"
+        },
+        {
+          "name": "averageScore",
+          "type": "number | null",
+          "visibility": "+"
+        },
+        {
+          "name": "evaluations",
+          "type": "EvaluationDto[]",
+          "visibility": "+"
+        }
+      ],
+      "operations": [],
+      "src": "source/recruit_system/frontend/src/api/client.ts:281"
+    },
+    {
+      "key": "EvaluationDto",
+      "name": "EvaluationDto",
+      "kind": "class",
+      "stereotype": "entity",
+      "parent": "pkg_model",
+      "attributes": [
+        {
+          "name": "responseId",
+          "type": "number",
+          "visibility": "+"
+        },
+        {
+          "name": "questionId",
+          "type": "number",
+          "visibility": "+"
+        },
+        {
+          "name": "predictedScore",
+          "type": "number",
+          "visibility": "+"
+        },
+        {
+          "name": "scoreScale",
+          "type": "string",
+          "visibility": "+"
+        },
+        {
+          "name": "coveredPoints",
+          "type": "string[]",
+          "visibility": "+"
+        },
+        {
+          "name": "missingPoints",
+          "type": "string[]",
+          "visibility": "+"
+        },
+        {
+          "name": "comment",
+          "type": "string | null",
+          "visibility": "+"
+        },
+        {
+          "name": "evaluationMethod",
+          "type": "string",
+          "visibility": "+"
+        },
+        {
+          "name": "modelVersion",
+          "type": "string | null",
+          "visibility": "+"
+        },
+        {
+          "name": "scoringMode",
+          "type": "string | null",
+          "visibility": "+"
+        },
+        {
+          "name": "bertscorePrecision",
+          "type": "number | null",
+          "visibility": "+"
+        },
+        {
+          "name": "bertscoreRecall",
+          "type": "number | null",
+          "visibility": "+"
+        },
+        {
+          "name": "bertscoreF1",
+          "type": "number | null",
+          "visibility": "+"
+        },
+        {
+          "name": "coverageScore",
+          "type": "number | null",
+          "visibility": "+"
+        },
+        {
+          "name": "criterionResults",
+          "type": "CriterionResultDto[]",
+          "visibility": "+"
+        }
+      ],
+      "operations": [],
+      "src": "source/recruit_system/frontend/src/api/client.ts:285"
+    },
+    {
+      "key": "CriterionResultDto",
+      "name": "CriterionResultDto",
+      "kind": "class",
+      "stereotype": "entity",
+      "parent": "pkg_model",
+      "attributes": [
+        {
+          "name": "key",
+          "type": "string",
+          "visibility": "+"
+        },
+        {
+          "name": "label",
+          "type": "string",
+          "visibility": "+"
+        },
+        {
+          "name": "status",
+          "type": "string",
+          "visibility": "+"
+        },
+        {
+          "name": "credit",
+          "type": "number",
+          "visibility": "+"
+        },
+        {
+          "name": "points",
+          "type": "number",
+          "visibility": "+"
+        },
+        {
+          "name": "max_points",
+          "type": "number",
+          "visibility": "+"
+        },
+        {
+          "name": "semantic_f1",
+          "type": "number | null",
+          "visibility": "+"
+        },
+        {
+          "name": "feedback",
+          "type": "string",
+          "visibility": "+"
+        }
+      ],
+      "operations": [],
+      "src": "source/recruit_system/frontend/src/api/client.ts:277"
+    },
+    {
+      "key": "InterviewEvaluation",
+      "name": "InterviewEvaluation",
+      "kind": "class",
+      "stereotype": "entity",
+      "parent": "pkg_model",
+      "attributes": [
+        {
+          "name": "scoringMode",
+          "type": "string | null",
+          "visibility": "+"
+        },
+        {
+          "name": "coverageScore",
+          "type": "number | null",
+          "visibility": "+"
+        },
+        {
+          "name": "criterionResults",
+          "type": "CriterionResultItem[]",
+          "visibility": "+"
+        },
+        {
+          "name": "bertPrecision",
+          "type": "number",
+          "visibility": "+"
+        },
+        {
+          "name": "bertRecall",
+          "type": "number",
+          "visibility": "+"
+        },
+        {
+          "name": "bertF1",
+          "type": "number",
+          "visibility": "+"
+        },
+        {
+          "name": "predictedScore",
+          "type": "number",
+          "visibility": "+"
+        },
+        {
+          "name": "scoreScale",
+          "type": "string",
+          "visibility": "+"
+        },
+        {
+          "name": "coveredPoints",
+          "type": "string[]",
+          "visibility": "+"
+        },
+        {
+          "name": "missingPoints",
+          "type": "string[]",
+          "visibility": "+"
+        },
+        {
+          "name": "comment",
+          "type": "string",
+          "visibility": "+"
+        },
+        {
+          "name": "modelVersion",
+          "type": "string",
+          "visibility": "+"
+        }
+      ],
+      "operations": [],
+      "src": "source/recruit_system/frontend/src/types/index.ts:101"
+    }
+  ],
+  "relations": [
+    {
+      "from": "CandidateInterviewPage",
+      "to": "EvalBlock",
+      "kind": "association",
+      "fromMult": "1",
+      "toMult": "0..1",
+      "label": "renders",
+      "src": "source/recruit_system/frontend/src/pages/candidate/CandidateInterviewPage.tsx:81"
+    },
+    {
+      "from": "CandidateInterviewPage",
+      "to": "ChatBubble",
+      "kind": "association",
+      "fromMult": "1",
+      "toMult": "0..*",
+      "label": "renders",
+      "src": "source/recruit_system/frontend/src/pages/candidate/CandidateInterviewPage.tsx:72"
+    },
+    {
+      "from": "EvalBlock",
+      "to": "ScoreRing",
+      "kind": "association",
+      "fromMult": "1",
+      "toMult": "1",
+      "label": "renders",
+      "src": "source/recruit_system/frontend/src/components/common/EvalBlock.tsx:35"
+    },
+    {
+      "from": "EvalBlock",
+      "to": "EvalRow",
+      "kind": "association",
+      "fromMult": "1",
+      "toMult": "0..*",
+      "label": "renders",
+      "src": "source/recruit_system/frontend/src/components/common/EvalBlock.tsx:50"
+    },
+    {
+      "from": "CandidateInterviewPage",
+      "to": "ToastContext",
+      "kind": "dependency",
+      "label": "useToast()",
+      "src": "source/recruit_system/frontend/src/pages/candidate/CandidateInterviewPage.tsx:10"
+    },
+    {
+      "from": "CandidateInterviewPage",
+      "to": "interviewsApi",
+      "kind": "dependency",
+      "label": "calls API",
+      "src": "source/recruit_system/frontend/src/pages/candidate/CandidateInterviewPage.tsx:21"
+    },
+    {
+      "from": "interviewsApi",
+      "to": "apiClient",
+      "kind": "dependency",
+      "label": "api<T>()",
+      "src": "source/recruit_system/frontend/src/api/client.ts:125"
+    },
+    {
+      "from": "apiClient",
+      "to": "ApiError",
+      "kind": "dependency",
+      "label": "throws",
+      "src": "source/recruit_system/frontend/src/api/client.ts:45"
+    },
+    {
+      "from": "CandidateInterviewPage",
+      "to": "SessionDto",
+      "kind": "association",
+      "fromMult": "1",
+      "toMult": "0..1",
+      "label": "state session",
+      "src": "source/recruit_system/frontend/src/pages/candidate/CandidateInterviewPage.tsx:13"
+    },
+    {
+      "from": "CandidateInterviewPage",
+      "to": "SessionSummaryDto",
+      "kind": "association",
+      "fromMult": "1",
+      "toMult": "0..1",
+      "label": "state summary",
+      "src": "source/recruit_system/frontend/src/pages/candidate/CandidateInterviewPage.tsx:15"
+    },
+    {
+      "from": "CandidateInterviewPage",
+      "to": "EvaluationDto",
+      "kind": "association",
+      "fromMult": "1",
+      "toMult": "0..1",
+      "label": "state evaluation",
+      "src": "source/recruit_system/frontend/src/pages/candidate/CandidateInterviewPage.tsx:19"
+    },
+    {
+      "from": "CandidateInterviewPage",
+      "to": "InterviewEvaluation",
+      "kind": "dependency",
+      "label": "transforms into",
+      "src": "source/recruit_system/frontend/src/pages/candidate/CandidateInterviewPage.tsx:54"
+    },
+    {
+      "from": "EvalBlock",
+      "to": "InterviewEvaluation",
+      "kind": "association",
+      "fromMult": "1",
+      "toMult": "1",
+      "label": "props evaluation",
+      "src": "source/recruit_system/frontend/src/components/common/EvalBlock.tsx:20"
+    },
+    {
+      "from": "SessionDto",
+      "to": "SessionQuestionItem",
+      "kind": "composition",
+      "fromMult": "1",
+      "toMult": "0..*",
+      "label": "questions",
+      "src": "source/recruit_system/frontend/src/api/client.ts:267"
+    },
+    {
+      "from": "SessionSummaryDto",
+      "to": "EvaluationDto",
+      "kind": "composition",
+      "fromMult": "1",
+      "toMult": "0..*",
+      "label": "evaluations",
+      "src": "source/recruit_system/frontend/src/api/client.ts:283"
+    },
+    {
+      "from": "EvaluationDto",
+      "to": "CriterionResultDto",
+      "kind": "composition",
+      "fromMult": "1",
+      "toMult": "0..*",
+      "label": "criterionResults",
+      "src": "source/recruit_system/frontend/src/api/client.ts:300"
+    }
+  ],
+  "notes": [
+    "Mô hình hóa React TypeScript: các function component và page được mô hình hóa thành stereotype boundary.",
+    "Tầng Controller gồm ToastContext và interviewsApi module điều phối luồng gọi API.",
+    "Tầng Model gồm apiClient (HTTP client), ApiError và các DTOs/Domain types.",
+    "Phạm vi lớp và phương thức bám sát luồng hoạt động M4-ACT (khởi tạo phiên, hiển thị câu hỏi, nộp câu trả lời, nhận kết quả chấm điểm và hiển thị tổng kết)."
+  ],
+  "open_questions": []
+}

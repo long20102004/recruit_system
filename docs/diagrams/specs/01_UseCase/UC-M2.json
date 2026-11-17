@@ -1,0 +1,23 @@
+{
+  "id": "UC-M2",
+  "type": "usecase",
+  "name": "Biểu đồ use case chi tiết - Tải lên và xác nhận CV",
+  "elements": [
+    {"key":"system","kind":"system","name":"HireLens - Module M2","src":"source/recruit_system/frontend/src/pages/candidate/CandidateCvPage.tsx:94"},
+    {"key":"candidate","kind":"actor","name":"Ứng viên","src":"source/recruit_system/frontend/src/pages/candidate/CandidateCvPage.tsx:94"},
+    {"key":"main","kind":"usecase","name":"Tải lên và xác nhận CV","parent":"system","extensionPoints":["Cập nhật hồ sơ sau khi xác nhận"],"src":"source/recruit_system/frontend/src/pages/candidate/CandidateCvPage.tsx:122"},
+    {"key":"upload","kind":"usecase","name":"Tải CV PDF và trích xuất thông tin","parent":"system","src":"source/recruit_system/frontend/src/pages/candidate/CandidateCvPage.tsx:122"},
+    {"key":"review","kind":"usecase","name":"Kiểm tra và chỉnh sửa thông tin CV","parent":"system","src":"source/recruit_system/frontend/src/pages/candidate/CandidateCvPage.tsx:271"},
+    {"key":"confirm","kind":"usecase","name":"Xác nhận hồ sơ CV","parent":"system","src":"source/recruit_system/frontend/src/pages/candidate/CandidateCvPage.tsx:139"},
+    {"key":"update","kind":"usecase","name":"Cập nhật hồ sơ đã xác nhận","parent":"system","src":"source/recruit_system/frontend/src/pages/candidate/CandidateCvPage.tsx:213"}
+  ],
+  "relations": [
+    {"from":"candidate","to":"main","kind":"association","src":"source/recruit_system/frontend/src/pages/candidate/CandidateCvPage.tsx:94"},
+    {"from":"main","to":"upload","kind":"include","src":"source/recruit_system/frontend/src/pages/candidate/CandidateCvPage.tsx:122"},
+    {"from":"main","to":"review","kind":"include","src":"source/recruit_system/frontend/src/pages/candidate/CandidateCvPage.tsx:271"},
+    {"from":"main","to":"confirm","kind":"include","src":"source/recruit_system/frontend/src/pages/candidate/CandidateCvPage.tsx:139"},
+    {"from":"update","to":"main","kind":"extend","extensionPoint":"Cập nhật hồ sơ sau khi xác nhận","src":"source/recruit_system/frontend/src/pages/candidate/CandidateCvPage.tsx:213"}
+  ],
+  "notes": ["Các bước tải lên, kiểm tra/chỉnh sửa và xác nhận là các giao diện/trạng thái thuộc cùng CandidateCvPage.tsx, không phải các trang riêng."],
+  "open_questions": []
+}

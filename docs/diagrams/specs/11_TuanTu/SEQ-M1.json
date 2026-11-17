@@ -1,0 +1,476 @@
+{
+  "id": "SEQ-M1",
+  "type": "sequence",
+  "name": "Biểu đồ tuần tự thiết kế - Đăng ký, đăng nhập và chọn vai trò",
+  "lifelines": [
+    {
+      "key": "actor",
+      "name": "Người dùng",
+      "kind": "actor",
+      "class": "Người dùng",
+      "src": "source/recruit_system/frontend/src/pages/RegisterPage.tsx:29-32"
+    },
+    {
+      "key": "registerPage",
+      "name": ":RegisterPage.tsx",
+      "kind": "object",
+      "class": "RegisterPage.tsx",
+      "stereotype": "boundary",
+      "src": "source/recruit_system/frontend/src/pages/RegisterPage.tsx:17-39"
+    },
+    {
+      "key": "choosePage",
+      "name": ":ChooseRolePage.tsx",
+      "kind": "object",
+      "class": "ChooseRolePage.tsx",
+      "stereotype": "boundary",
+      "src": "source/recruit_system/frontend/src/pages/ChooseRolePage.tsx:17-39"
+    },
+    {
+      "key": "authProvider",
+      "name": ":AuthProvider",
+      "kind": "object",
+      "class": "AuthProvider",
+      "stereotype": "control",
+      "src": "source/recruit_system/frontend/src/context/AuthContext.tsx:44-85"
+    },
+    {
+      "key": "authApi",
+      "name": ":authApi",
+      "kind": "object",
+      "class": "authApi",
+      "stereotype": "control",
+      "src": "source/recruit_system/frontend/src/api/client.ts:51-68"
+    },
+    {
+      "key": "httpClient",
+      "name": ":client.ts",
+      "kind": "object",
+      "class": "client.ts",
+      "stereotype": "control",
+      "src": "source/recruit_system/frontend/src/api/client.ts:32-49"
+    },
+    {
+      "key": "controller",
+      "name": ":AuthController",
+      "kind": "object",
+      "class": "AuthController",
+      "stereotype": "control",
+      "src": "source/recruit_system/backend/identity-service/src/main/java/recruit/demo/controller/AuthController.java:12-34"
+    },
+    {
+      "key": "service",
+      "name": ":AuthService",
+      "kind": "object",
+      "class": "AuthService",
+      "stereotype": "control",
+      "src": "source/recruit_system/backend/identity-service/src/main/java/recruit/demo/service/AuthService.java:20-87"
+    },
+    {
+      "key": "repository",
+      "name": ":UserRepository",
+      "kind": "object",
+      "class": "UserRepository",
+      "stereotype": "control",
+      "src": "source/recruit_system/backend/identity-service/src/main/java/recruit/demo/repository/UserRepository.java:8-10"
+    },
+    {
+      "key": "user",
+      "name": ":User",
+      "kind": "object",
+      "class": "User",
+      "stereotype": "entity",
+      "src": "source/recruit_system/backend/identity-service/src/main/java/recruit/demo/entity/User.java:17-55"
+    }
+  ],
+  "messages": [
+    {
+      "seq": 1,
+      "from": "actor",
+      "to": "registerPage",
+      "label": "Truy cập /register, nhập email và mật khẩu, nhấn Tạo tài khoản",
+      "kind": "sync",
+      "src": "source/recruit_system/frontend/src/pages/RegisterPage.tsx:54-75"
+    },
+    {
+      "seq": 2,
+      "from": "registerPage",
+      "to": "registerPage",
+      "label": "onSubmit()",
+      "kind": "sync",
+      "src": "source/recruit_system/frontend/src/pages/RegisterPage.tsx:29-33"
+    },
+    {
+      "seq": 3,
+      "from": "registerPage",
+      "to": "authProvider",
+      "label": "call",
+      "kind": "sync",
+      "src": "source/recruit_system/frontend/src/pages/RegisterPage.tsx:32"
+    },
+    {
+      "seq": 4,
+      "from": "authProvider",
+      "to": "authProvider",
+      "label": "register()",
+      "kind": "sync",
+      "src": "source/recruit_system/frontend/src/context/AuthContext.tsx:68-73"
+    },
+    {
+      "seq": 5,
+      "from": "authProvider",
+      "to": "authApi",
+      "label": "call",
+      "kind": "sync",
+      "src": "source/recruit_system/frontend/src/context/AuthContext.tsx:69"
+    },
+    {
+      "seq": 6,
+      "from": "authApi",
+      "to": "authApi",
+      "label": "register()",
+      "kind": "sync",
+      "src": "source/recruit_system/frontend/src/api/client.ts:57-61"
+    },
+    {
+      "seq": 7,
+      "from": "authApi",
+      "to": "httpClient",
+      "label": "call",
+      "kind": "sync",
+      "src": "source/recruit_system/frontend/src/api/client.ts:57-61"
+    },
+    {
+      "seq": 8,
+      "from": "httpClient",
+      "to": "httpClient",
+      "label": "api<T>()",
+      "kind": "sync",
+      "src": "source/recruit_system/frontend/src/api/client.ts:32-49"
+    },
+    {
+      "seq": 9,
+      "from": "httpClient",
+      "to": "controller",
+      "label": "call",
+      "kind": "sync",
+      "src": "source/recruit_system/frontend/src/api/client.ts:57-61"
+    },
+    {
+      "seq": 10,
+      "from": "controller",
+      "to": "controller",
+      "label": "register()",
+      "kind": "sync",
+      "src": "source/recruit_system/backend/identity-service/src/main/java/recruit/demo/controller/AuthController.java:21-23"
+    },
+    {
+      "seq": 11,
+      "from": "controller",
+      "to": "service",
+      "label": "call",
+      "kind": "sync",
+      "src": "source/recruit_system/backend/identity-service/src/main/java/recruit/demo/controller/AuthController.java:22-23"
+    },
+    {
+      "seq": 12,
+      "from": "service",
+      "to": "service",
+      "label": "register()",
+      "kind": "sync",
+      "src": "source/recruit_system/backend/identity-service/src/main/java/recruit/demo/service/AuthService.java:28-46"
+    },
+    {
+      "seq": 13,
+      "from": "service",
+      "to": "repository",
+      "label": "call",
+      "kind": "sync",
+      "src": "source/recruit_system/backend/identity-service/src/main/java/recruit/demo/service/AuthService.java:29"
+    },
+    {
+      "seq": 14,
+      "from": "repository",
+      "to": "service",
+      "label": "return",
+      "kind": "return",
+      "src": "source/recruit_system/backend/identity-service/src/main/java/recruit/demo/repository/UserRepository.java:10"
+    },
+    {
+      "seq": 15,
+      "from": "service",
+      "to": "user",
+      "label": "call",
+      "kind": "sync",
+      "src": "source/recruit_system/backend/identity-service/src/main/java/recruit/demo/service/AuthService.java:33-41"
+    },
+    {
+      "seq": 16,
+      "from": "user",
+      "to": "user",
+      "label": "User(), setter()",
+      "kind": "sync",
+      "src": "source/recruit_system/backend/identity-service/src/main/java/recruit/demo/entity/User.java:17-55"
+    },
+    {
+      "seq": 17,
+      "from": "service",
+      "to": "repository",
+      "label": "call",
+      "kind": "sync",
+      "src": "source/recruit_system/backend/identity-service/src/main/java/recruit/demo/service/AuthService.java:42"
+    },
+    {
+      "seq": 18,
+      "from": "repository",
+      "to": "service",
+      "label": "return",
+      "kind": "return",
+      "src": "source/recruit_system/backend/identity-service/src/main/java/recruit/demo/service/AuthService.java:42"
+    },
+    {
+      "seq": 19,
+      "from": "service",
+      "to": "controller",
+      "label": "return",
+      "kind": "return",
+      "src": "source/recruit_system/backend/identity-service/src/main/java/recruit/demo/service/AuthService.java:44-46"
+    },
+    {
+      "seq": 20,
+      "from": "controller",
+      "to": "httpClient",
+      "label": "return",
+      "kind": "return",
+      "src": "source/recruit_system/backend/identity-service/src/main/java/recruit/demo/controller/AuthController.java:21-23"
+    },
+    {
+      "seq": 21,
+      "from": "httpClient",
+      "to": "authApi",
+      "label": "return",
+      "kind": "return",
+      "src": "source/recruit_system/frontend/src/api/client.ts:57-61"
+    },
+    {
+      "seq": 22,
+      "from": "authApi",
+      "to": "authProvider",
+      "label": "return",
+      "kind": "return",
+      "src": "source/recruit_system/frontend/src/context/AuthContext.tsx:68-73"
+    },
+    {
+      "seq": 23,
+      "from": "authProvider",
+      "to": "registerPage",
+      "label": "return",
+      "kind": "return",
+      "src": "source/recruit_system/frontend/src/context/AuthContext.tsx:68-73"
+    },
+    {
+      "seq": 24,
+      "from": "registerPage",
+      "to": "choosePage",
+      "label": "return",
+      "kind": "return",
+      "src": "source/recruit_system/frontend/src/pages/RegisterPage.tsx:32-34"
+    },
+    {
+      "seq": 25,
+      "from": "actor",
+      "to": "choosePage",
+      "label": "Chọn vai trò Ứng viên và nhấn xác nhận",
+      "kind": "sync",
+      "src": "source/recruit_system/frontend/src/pages/ChooseRolePage.tsx:54-69"
+    },
+    {
+      "seq": 26,
+      "from": "choosePage",
+      "to": "choosePage",
+      "label": "onSubmit()",
+      "kind": "sync",
+      "src": "source/recruit_system/frontend/src/pages/ChooseRolePage.tsx:28-32"
+    },
+    {
+      "seq": 27,
+      "from": "choosePage",
+      "to": "authProvider",
+      "label": "call",
+      "kind": "sync",
+      "src": "source/recruit_system/frontend/src/pages/ChooseRolePage.tsx:31"
+    },
+    {
+      "seq": 28,
+      "from": "authProvider",
+      "to": "authProvider",
+      "label": "chooseRole()",
+      "kind": "sync",
+      "src": "source/recruit_system/frontend/src/context/AuthContext.tsx:75-80"
+    },
+    {
+      "seq": 29,
+      "from": "authProvider",
+      "to": "authApi",
+      "label": "call",
+      "kind": "sync",
+      "src": "source/recruit_system/frontend/src/context/AuthContext.tsx:76"
+    },
+    {
+      "seq": 30,
+      "from": "authApi",
+      "to": "authApi",
+      "label": "chooseRole()",
+      "kind": "sync",
+      "src": "source/recruit_system/frontend/src/api/client.ts:63-67"
+    },
+    {
+      "seq": 31,
+      "from": "authApi",
+      "to": "httpClient",
+      "label": "call",
+      "kind": "sync",
+      "src": "source/recruit_system/frontend/src/api/client.ts:63-67"
+    },
+    {
+      "seq": 32,
+      "from": "httpClient",
+      "to": "httpClient",
+      "label": "api<T>()",
+      "kind": "sync",
+      "src": "source/recruit_system/frontend/src/api/client.ts:32-49"
+    },
+    {
+      "seq": 33,
+      "from": "httpClient",
+      "to": "controller",
+      "label": "call",
+      "kind": "sync",
+      "src": "source/recruit_system/frontend/src/api/client.ts:63-67"
+    },
+    {
+      "seq": 34,
+      "from": "controller",
+      "to": "controller",
+      "label": "chooseRole()",
+      "kind": "sync",
+      "src": "source/recruit_system/backend/identity-service/src/main/java/recruit/demo/controller/AuthController.java:31-33"
+    },
+    {
+      "seq": 35,
+      "from": "controller",
+      "to": "service",
+      "label": "call",
+      "kind": "sync",
+      "src": "source/recruit_system/backend/identity-service/src/main/java/recruit/demo/controller/AuthController.java:32-33"
+    },
+    {
+      "seq": 36,
+      "from": "service",
+      "to": "service",
+      "label": "chooseRole()",
+      "kind": "sync",
+      "src": "source/recruit_system/backend/identity-service/src/main/java/recruit/demo/service/AuthService.java:49-66"
+    },
+    {
+      "seq": 37,
+      "from": "service",
+      "to": "repository",
+      "label": "call",
+      "kind": "sync",
+      "src": "source/recruit_system/backend/identity-service/src/main/java/recruit/demo/service/AuthService.java:53-55"
+    },
+    {
+      "seq": 38,
+      "from": "repository",
+      "to": "service",
+      "label": "return",
+      "kind": "return",
+      "src": "source/recruit_system/backend/identity-service/src/main/java/recruit/demo/repository/UserRepository.java:8"
+    },
+    {
+      "seq": 39,
+      "from": "service",
+      "to": "user",
+      "label": "call",
+      "kind": "sync",
+      "src": "source/recruit_system/backend/identity-service/src/main/java/recruit/demo/service/AuthService.java:60-61"
+    },
+    {
+      "seq": 40,
+      "from": "user",
+      "to": "user",
+      "label": "setRole(), setRoleChosen()",
+      "kind": "sync",
+      "src": "source/recruit_system/backend/identity-service/src/main/java/recruit/demo/entity/User.java:37-42"
+    },
+    {
+      "seq": 41,
+      "from": "service",
+      "to": "repository",
+      "label": "call",
+      "kind": "sync",
+      "src": "source/recruit_system/backend/identity-service/src/main/java/recruit/demo/service/AuthService.java:62"
+    },
+    {
+      "seq": 42,
+      "from": "repository",
+      "to": "service",
+      "label": "return",
+      "kind": "return",
+      "src": "source/recruit_system/backend/identity-service/src/main/java/recruit/demo/repository/UserRepository.java:8"
+    },
+    {
+      "seq": 43,
+      "from": "service",
+      "to": "controller",
+      "label": "return",
+      "kind": "return",
+      "src": "source/recruit_system/backend/identity-service/src/main/java/recruit/demo/service/AuthService.java:64-66"
+    },
+    {
+      "seq": 44,
+      "from": "controller",
+      "to": "httpClient",
+      "label": "return",
+      "kind": "return",
+      "src": "source/recruit_system/backend/identity-service/src/main/java/recruit/demo/controller/AuthController.java:31-33"
+    },
+    {
+      "seq": 45,
+      "from": "httpClient",
+      "to": "authApi",
+      "label": "return",
+      "kind": "return",
+      "src": "source/recruit_system/frontend/src/api/client.ts:63-67"
+    },
+    {
+      "seq": 46,
+      "from": "authApi",
+      "to": "authProvider",
+      "label": "return",
+      "kind": "return",
+      "src": "source/recruit_system/frontend/src/context/AuthContext.tsx:75-80"
+    },
+    {
+      "seq": 47,
+      "from": "authProvider",
+      "to": "choosePage",
+      "label": "return",
+      "kind": "return",
+      "src": "source/recruit_system/frontend/src/context/AuthContext.tsx:75-80"
+    },
+    {
+      "seq": 48,
+      "from": "choosePage",
+      "to": "actor",
+      "label": "show",
+      "kind": "return",
+      "src": "source/recruit_system/frontend/src/pages/ChooseRolePage.tsx:31-34"
+    }
+  ],
+  "notes": [
+    "Luồng thể hiện đăng ký mới rồi chọn vai trò CANDIDATE; không gộp đăng nhập tài khoản đã tồn tại vào luồng chuẩn này."
+  ],
+  "open_questions": []
+}

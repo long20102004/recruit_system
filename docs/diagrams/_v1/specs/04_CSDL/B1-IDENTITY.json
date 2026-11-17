@@ -1,0 +1,132 @@
+{
+  "id": "B1-IDENTITY",
+  "type": "erd",
+  "name": "Biểu đồ ERD - CSDL hirelens_identity (identity-service)",
+  "database": "hirelens_identity",
+  "entities": [
+    {
+      "key": "users",
+      "kind": "entity",
+      "name": "users",
+      "columns": [
+        {
+          "name": "id",
+          "type": "INT",
+          "pk": true,
+          "fk": false,
+          "nullable": false,
+          "unique": false,
+          "default": null
+        },
+        {
+          "name": "full_name",
+          "type": "VARCHAR(255)",
+          "pk": false,
+          "fk": false,
+          "nullable": false,
+          "unique": false,
+          "default": null
+        },
+        {
+          "name": "email",
+          "type": "VARCHAR(255)",
+          "pk": false,
+          "fk": false,
+          "nullable": false,
+          "unique": true,
+          "default": null,
+          "constraint": "uq_users_email"
+        },
+        {
+          "name": "password_hash",
+          "type": "VARCHAR(255)",
+          "pk": false,
+          "fk": false,
+          "nullable": false,
+          "unique": false,
+          "default": null
+        },
+        {
+          "name": "phone",
+          "type": "VARCHAR(50)",
+          "pk": false,
+          "fk": false,
+          "nullable": true,
+          "unique": false,
+          "default": null
+        },
+        {
+          "name": "role",
+          "type": "VARCHAR(32)",
+          "pk": false,
+          "fk": false,
+          "nullable": false,
+          "unique": false,
+          "default": "'CANDIDATE'",
+          "constraint": "chk_users_role: CHECK (role IN ('CANDIDATE', 'RECRUITER', 'ADMIN'))"
+        },
+        {
+          "name": "role_chosen",
+          "type": "TINYINT(1)",
+          "pk": false,
+          "fk": false,
+          "nullable": false,
+          "unique": false,
+          "default": "0"
+        },
+        {
+          "name": "status",
+          "type": "VARCHAR(32)",
+          "pk": false,
+          "fk": false,
+          "nullable": false,
+          "unique": false,
+          "default": "'ACTIVE'",
+          "constraint": "chk_users_status: CHECK (status IN ('ACTIVE', 'INACTIVE', 'BANNED'))"
+        },
+        {
+          "name": "created_at",
+          "type": "DATETIME",
+          "pk": false,
+          "fk": false,
+          "nullable": false,
+          "unique": false,
+          "default": "CURRENT_TIMESTAMP"
+        },
+        {
+          "name": "updated_at",
+          "type": "DATETIME",
+          "pk": false,
+          "fk": false,
+          "nullable": true,
+          "unique": false,
+          "default": "CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP"
+        }
+      ],
+      "src": "source/recruit_system/backend/identity-service/src/main/resources/db/migration/V1__schema.sql:1",
+      "columns_src": {
+        "id": "source/recruit_system/backend/identity-service/src/main/resources/db/migration/V1__schema.sql:2",
+        "full_name": "source/recruit_system/backend/identity-service/src/main/resources/db/migration/V1__schema.sql:3",
+        "email": "source/recruit_system/backend/identity-service/src/main/resources/db/migration/V1__schema.sql:4",
+        "password_hash": "source/recruit_system/backend/identity-service/src/main/resources/db/migration/V1__schema.sql:5",
+        "phone": "source/recruit_system/backend/identity-service/src/main/resources/db/migration/V1__schema.sql:6",
+        "role": "source/recruit_system/backend/identity-service/src/main/resources/db/migration/V1__schema.sql:7",
+        "status": "source/recruit_system/backend/identity-service/src/main/resources/db/migration/V1__schema.sql:8",
+        "created_at": "source/recruit_system/backend/identity-service/src/main/resources/db/migration/V1__schema.sql:9",
+        "updated_at": "source/recruit_system/backend/identity-service/src/main/resources/db/migration/V1__schema.sql:10",
+        "uq_users_email": "source/recruit_system/backend/identity-service/src/main/resources/db/migration/V1__schema.sql:13",
+        "chk_users_role": "source/recruit_system/backend/identity-service/src/main/resources/db/migration/V1__schema.sql:11",
+        "chk_users_status": "source/recruit_system/backend/identity-service/src/main/resources/db/migration/V1__schema.sql:12",
+        "role_chosen": "source/recruit_system/backend/identity-service/src/main/resources/db/migration/V3__role_chosen_once.sql:2"
+      }
+    }
+  ],
+  "relations": [],
+  "notes": [
+    "CSDL hirelens_identity chỉ có 1 bảng users (Flyway V1-V3 của identity-service); không có bảng nào khác.",
+    "Không có FOREIGN KEY nào trong DDL và không có cột *_id, nên relations rỗng.",
+    "Tham chiếu chéo service (không vẽ relation, chỉ ghi note): users.id được các bảng thuộc hirelens_recruitment tham chiếu bằng id - candidate_profiles.user_id, recruiter_profiles.user_id, jobs.created_by (Ref trong docs/schema.dbml, nhưng các bảng này đã nằm ở recruitment-service).",
+    "users.id là INT AUTO_INCREMENT."
+  ],
+  "open_questions": []
+}

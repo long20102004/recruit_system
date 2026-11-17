@@ -1,0 +1,603 @@
+{
+  "id": "AN-M3",
+  "type": "class",
+  "name": "Biểu đồ lớp pha phân tích - Đối sánh CV với việc làm, xem chi tiết việc, ứng tuyển",
+  "elements": [
+    {
+      "key": "CandidateHomeView",
+      "kind": "class",
+      "src": "source/recruit_system/frontend/src/pages/candidate/CandidateHomePage.tsx:36",
+      "attributes": [
+        {
+          "name": "inKeyword",
+          "src": "source/recruit_system/frontend/src/pages/candidate/CandidateHomePage.tsx:39"
+        },
+        {
+          "name": "inCity",
+          "src": "source/recruit_system/frontend/src/pages/candidate/CandidateHomePage.tsx:40"
+        },
+        {
+          "name": "inMode",
+          "src": "source/recruit_system/frontend/src/pages/candidate/CandidateHomePage.tsx:41"
+        },
+        {
+          "name": "outJobList",
+          "src": "source/recruit_system/frontend/src/pages/candidate/CandidateHomePage.tsx:78"
+        },
+        {
+          "name": "outSelectedJob",
+          "src": "source/recruit_system/frontend/src/pages/candidate/CandidateHomePage.tsx:88"
+        },
+        {
+          "name": "outMatchScore",
+          "src": "source/recruit_system/frontend/src/pages/candidate/CandidateHomePage.tsx:89"
+        },
+        {
+          "name": "outBestMatch",
+          "src": "source/recruit_system/frontend/src/pages/candidate/CandidateHomePage.tsx:82"
+        },
+        {
+          "name": "subSearch",
+          "src": "source/recruit_system/frontend/src/pages/candidate/CandidateHomePage.tsx:114"
+        },
+        {
+          "name": "subFilterMode",
+          "src": "source/recruit_system/frontend/src/pages/candidate/CandidateHomePage.tsx:117"
+        },
+        {
+          "name": "subViewMatching",
+          "src": "source/recruit_system/frontend/src/pages/candidate/CandidateHomePage.tsx:141"
+        },
+        {
+          "name": "subSelectJob",
+          "src": "source/recruit_system/frontend/src/pages/candidate/CandidateHomePage.tsx:168"
+        },
+        {
+          "name": "subApply",
+          "src": "source/recruit_system/frontend/src/pages/candidate/CandidateHomePage.tsx:212"
+        },
+        {
+          "name": "subReviewInterview",
+          "src": "source/recruit_system/frontend/src/pages/candidate/CandidateHomePage.tsx:215"
+        }
+      ]
+    },
+    {
+      "key": "CandidateMatchingView",
+      "kind": "class",
+      "src": "source/recruit_system/frontend/src/pages/candidate/CandidateMatchingPage.tsx:21",
+      "attributes": [
+        {
+          "name": "outRankedMatches",
+          "src": "source/recruit_system/frontend/src/pages/candidate/CandidateMatchingPage.tsx:81"
+        },
+        {
+          "name": "outJobList",
+          "src": "source/recruit_system/frontend/src/pages/candidate/CandidateMatchingPage.tsx:40"
+        },
+        {
+          "name": "outScoreError",
+          "src": "source/recruit_system/frontend/src/pages/candidate/CandidateMatchingPage.tsx:28"
+        },
+        {
+          "name": "outCvStatusNote",
+          "src": "source/recruit_system/frontend/src/pages/candidate/CandidateMatchingPage.tsx:106"
+        },
+        {
+          "name": "subRematch",
+          "src": "source/recruit_system/frontend/src/pages/candidate/CandidateMatchingPage.tsx:67"
+        },
+        {
+          "name": "subUploadCv",
+          "src": "source/recruit_system/frontend/src/pages/candidate/CandidateMatchingPage.tsx:110"
+        },
+        {
+          "name": "outsubJobDetail",
+          "src": "source/recruit_system/frontend/src/pages/candidate/CandidateMatchingPage.tsx:158"
+        }
+      ]
+    },
+    {
+      "key": "CandidateJobDetailView",
+      "kind": "class",
+      "src": "source/recruit_system/frontend/src/pages/candidate/CandidateJobDetailPage.tsx:44",
+      "attributes": [
+        {
+          "name": "outJobHeader",
+          "src": "source/recruit_system/frontend/src/pages/candidate/CandidateJobDetailPage.tsx:70"
+        },
+        {
+          "name": "outJobMeta",
+          "src": "source/recruit_system/frontend/src/pages/candidate/CandidateJobDetailPage.tsx:90"
+        },
+        {
+          "name": "outDescription",
+          "src": "source/recruit_system/frontend/src/pages/candidate/CandidateJobDetailPage.tsx:95"
+        },
+        {
+          "name": "outRequirements",
+          "src": "source/recruit_system/frontend/src/pages/candidate/CandidateJobDetailPage.tsx:102"
+        },
+        {
+          "name": "outResponsibilities",
+          "src": "source/recruit_system/frontend/src/pages/candidate/CandidateJobDetailPage.tsx:109"
+        },
+        {
+          "name": "outBenefits",
+          "src": "source/recruit_system/frontend/src/pages/candidate/CandidateJobDetailPage.tsx:116"
+        },
+        {
+          "name": "outRequiredSkills",
+          "src": "source/recruit_system/frontend/src/pages/candidate/CandidateJobDetailPage.tsx:129"
+        },
+        {
+          "name": "outPreferredSkills",
+          "src": "source/recruit_system/frontend/src/pages/candidate/CandidateJobDetailPage.tsx:142"
+        },
+        {
+          "name": "subBack",
+          "src": "source/recruit_system/frontend/src/pages/candidate/CandidateJobDetailPage.tsx:77"
+        },
+        {
+          "name": "subReviewInterview",
+          "src": "source/recruit_system/frontend/src/pages/candidate/CandidateJobDetailPage.tsx:154"
+        }
+      ]
+    },
+    {
+      "key": "User",
+      "kind": "class",
+      "src": "source/recruit_system/backend/identity-service/src/main/java/recruit/demo/entity/User.java:17",
+      "attributes": [
+        {
+          "name": "fullName",
+          "src": "source/recruit_system/backend/identity-service/src/main/java/recruit/demo/entity/User.java:24"
+        },
+        {
+          "name": "email",
+          "src": "source/recruit_system/backend/identity-service/src/main/java/recruit/demo/entity/User.java:27"
+        },
+        {
+          "name": "passwordHash",
+          "src": "source/recruit_system/backend/identity-service/src/main/java/recruit/demo/entity/User.java:30"
+        },
+        {
+          "name": "phone",
+          "src": "source/recruit_system/backend/identity-service/src/main/java/recruit/demo/entity/User.java:32"
+        },
+        {
+          "name": "role",
+          "src": "source/recruit_system/backend/identity-service/src/main/java/recruit/demo/entity/User.java:37"
+        },
+        {
+          "name": "roleChosen",
+          "src": "source/recruit_system/backend/identity-service/src/main/java/recruit/demo/entity/User.java:41"
+        },
+        {
+          "name": "status",
+          "src": "source/recruit_system/backend/identity-service/src/main/java/recruit/demo/entity/User.java:46"
+        }
+      ]
+    },
+    {
+      "key": "CandidateProfile",
+      "kind": "class",
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/entity/CandidateProfile.java:19",
+      "attributes": [
+        {
+          "name": "dateOfBirth",
+          "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/entity/CandidateProfile.java:29"
+        },
+        {
+          "name": "address",
+          "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/entity/CandidateProfile.java:31"
+        },
+        {
+          "name": "headline",
+          "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/entity/CandidateProfile.java:32"
+        },
+        {
+          "name": "summary",
+          "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/entity/CandidateProfile.java:35"
+        },
+        {
+          "name": "yearsOfExperience",
+          "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/entity/CandidateProfile.java:38"
+        },
+        {
+          "name": "educationLevel",
+          "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/entity/CandidateProfile.java:41"
+        }
+      ]
+    },
+    {
+      "key": "Company",
+      "kind": "class",
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/entity/Company.java:16",
+      "attributes": [
+        {
+          "name": "name",
+          "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/entity/Company.java:23"
+        },
+        {
+          "name": "description",
+          "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/entity/Company.java:26"
+        },
+        {
+          "name": "website",
+          "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/entity/Company.java:28"
+        },
+        {
+          "name": "address",
+          "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/entity/Company.java:29"
+        }
+      ]
+    },
+    {
+      "key": "CvData",
+      "kind": "class",
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/entity/CvData.java:13",
+      "attributes": [
+        {
+          "name": "field",
+          "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/entity/CvData.java:23"
+        },
+        {
+          "name": "value",
+          "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/entity/CvData.java:26"
+        }
+      ],
+      "operations": [
+        {
+          "name": "mine",
+          "visibility": "+",
+          "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/service/CvService.java:47"
+        }
+      ]
+    },
+    {
+      "key": "Job",
+      "kind": "class",
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/entity/Job.java:18",
+      "attributes": [
+        {
+          "name": "title",
+          "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/entity/Job.java:32"
+        },
+        {
+          "name": "description",
+          "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/entity/Job.java:35"
+        },
+        {
+          "name": "requirements",
+          "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/entity/Job.java:38"
+        },
+        {
+          "name": "responsibilities",
+          "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/entity/Job.java:41"
+        },
+        {
+          "name": "employmentType",
+          "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/entity/Job.java:44"
+        },
+        {
+          "name": "workLocation",
+          "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/entity/Job.java:47"
+        },
+        {
+          "name": "salaryMin",
+          "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/entity/Job.java:50"
+        },
+        {
+          "name": "salaryMax",
+          "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/entity/Job.java:53"
+        },
+        {
+          "name": "status",
+          "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/entity/Job.java:65"
+        },
+        {
+          "name": "deadline",
+          "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/entity/Job.java:70"
+        }
+      ],
+      "operations": [
+        {
+          "name": "list",
+          "visibility": "+",
+          "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/service/JobService.java:33"
+        },
+        {
+          "name": "getById",
+          "visibility": "+",
+          "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/service/JobService.java:44"
+        }
+      ]
+    },
+    {
+      "key": "Skill",
+      "kind": "class",
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/entity/Skill.java:13",
+      "attributes": [
+        {
+          "name": "name",
+          "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/entity/Skill.java:20"
+        },
+        {
+          "name": "category",
+          "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/entity/Skill.java:22"
+        }
+      ]
+    },
+    {
+      "key": "JobSkill",
+      "kind": "class",
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/entity/JobSkill.java:15",
+      "attributes": [
+        {
+          "name": "required",
+          "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/entity/JobSkill.java:31"
+        },
+        {
+          "name": "minimumYears",
+          "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/entity/JobSkill.java:34"
+        }
+      ]
+    },
+    {
+      "key": "JobApplication",
+      "kind": "class",
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/entity/JobApplication.java:17",
+      "attributes": [
+        {
+          "name": "status",
+          "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/entity/JobApplication.java:37"
+        },
+        {
+          "name": "coverLetter",
+          "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/entity/JobApplication.java:40"
+        },
+        {
+          "name": "appliedAt",
+          "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/entity/JobApplication.java:44"
+        }
+      ],
+      "operations": [
+        {
+          "name": "apply",
+          "visibility": "+",
+          "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/service/ApplicationService.java:26"
+        }
+      ]
+    },
+    {
+      "key": "MatchingResult",
+      "kind": "class",
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/entity/MatchingResult.java:19",
+      "attributes": [
+        {
+          "name": "semanticScore",
+          "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/entity/MatchingResult.java:37"
+        },
+        {
+          "name": "skillsScore",
+          "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/entity/MatchingResult.java:40"
+        },
+        {
+          "name": "experienceScore",
+          "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/entity/MatchingResult.java:43"
+        },
+        {
+          "name": "overallScore",
+          "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/entity/MatchingResult.java:46"
+        },
+        {
+          "name": "matchedSkills",
+          "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/entity/MatchingResult.java:50"
+        },
+        {
+          "name": "missingSkills",
+          "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/entity/MatchingResult.java:54"
+        },
+        {
+          "name": "explanation",
+          "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/entity/MatchingResult.java:57"
+        }
+      ],
+      "operations": [
+        {
+          "name": "myMatches",
+          "visibility": "+",
+          "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/service/MatchingService.java:35"
+        },
+        {
+          "name": "refreshMine",
+          "visibility": "+",
+          "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/service/MatchingService.java:48"
+        }
+      ]
+    }
+  ],
+  "relations": [
+    {
+      "from": "CandidateHomeView",
+      "to": "CandidateMatchingView",
+      "kind": "association",
+      "label": "Xem xếp hạng",
+      "src": "source/recruit_system/frontend/src/pages/candidate/CandidateHomePage.tsx:141"
+    },
+    {
+      "from": "CandidateMatchingView",
+      "to": "CandidateJobDetailView",
+      "kind": "association",
+      "label": "Xem chi tiết",
+      "src": "source/recruit_system/frontend/src/pages/candidate/CandidateMatchingPage.tsx:158"
+    },
+    {
+      "from": "CandidateJobDetailView",
+      "to": "CandidateMatchingView",
+      "kind": "association",
+      "label": "Quay lại",
+      "src": "source/recruit_system/frontend/src/pages/candidate/CandidateJobDetailPage.tsx:77"
+    },
+    {
+      "from": "CandidateJobDetailView",
+      "to": "CandidateHomeView",
+      "kind": "association",
+      "label": "Về trang chủ ứng tuyển",
+      "src": "source/recruit_system/frontend/src/pages/candidate/CandidateJobDetailPage.tsx:67"
+    },
+    {
+      "from": "CandidateHomeView",
+      "to": "Job",
+      "kind": "association",
+      "label": "list",
+      "src": "source/recruit_system/frontend/src/pages/candidate/CandidateHomePage.tsx:48"
+    },
+    {
+      "from": "CandidateHomeView",
+      "to": "MatchingResult",
+      "kind": "association",
+      "label": "myMatches",
+      "src": "source/recruit_system/frontend/src/pages/candidate/CandidateHomePage.tsx:58"
+    },
+    {
+      "from": "CandidateHomeView",
+      "to": "JobApplication",
+      "kind": "association",
+      "label": "apply",
+      "src": "source/recruit_system/frontend/src/pages/candidate/CandidateHomePage.tsx:93"
+    },
+    {
+      "from": "CandidateHomeView",
+      "to": "CvData",
+      "kind": "association",
+      "label": "mine",
+      "src": "source/recruit_system/frontend/src/pages/candidate/CandidateHomePage.tsx:50"
+    },
+    {
+      "from": "CandidateMatchingView",
+      "to": "CvData",
+      "kind": "association",
+      "label": "mine",
+      "src": "source/recruit_system/frontend/src/pages/candidate/CandidateMatchingPage.tsx:31"
+    },
+    {
+      "from": "CandidateMatchingView",
+      "to": "Job",
+      "kind": "association",
+      "label": "list",
+      "src": "source/recruit_system/frontend/src/pages/candidate/CandidateMatchingPage.tsx:40"
+    },
+    {
+      "from": "CandidateMatchingView",
+      "to": "MatchingResult",
+      "kind": "association",
+      "label": "myMatches, refreshMine",
+      "src": "source/recruit_system/frontend/src/pages/candidate/CandidateMatchingPage.tsx:44"
+    },
+    {
+      "from": "CandidateJobDetailView",
+      "to": "Job",
+      "kind": "association",
+      "label": "getById",
+      "src": "source/recruit_system/frontend/src/pages/candidate/CandidateJobDetailPage.tsx:57"
+    },
+    {
+      "from": "CandidateProfile",
+      "to": "User",
+      "kind": "association",
+      "fromMult": "1",
+      "toMult": "1",
+      "label": "",
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/entity/CandidateProfile.java:26"
+    },
+    {
+      "from": "CvData",
+      "to": "CandidateProfile",
+      "kind": "association",
+      "fromMult": "n",
+      "toMult": "1",
+      "label": "candidateId",
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/entity/CvData.java:20"
+    },
+    {
+      "from": "Job",
+      "to": "Company",
+      "kind": "association",
+      "fromMult": "n",
+      "toMult": "1",
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/entity/Job.java:26"
+    },
+    {
+      "from": "Job",
+      "to": "User",
+      "kind": "association",
+      "fromMult": "n",
+      "toMult": "1",
+      "label": "",
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/entity/Job.java:29"
+    },
+    {
+      "from": "JobSkill",
+      "to": "Job",
+      "kind": "association",
+      "fromMult": "n",
+      "toMult": "1",
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/entity/JobSkill.java:23"
+    },
+    {
+      "from": "JobSkill",
+      "to": "Skill",
+      "kind": "association",
+      "fromMult": "n",
+      "toMult": "1",
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/entity/JobSkill.java:27"
+    },
+    {
+      "from": "JobApplication",
+      "to": "CandidateProfile",
+      "kind": "association",
+      "fromMult": "n",
+      "toMult": "1",
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/entity/JobApplication.java:25"
+    },
+    {
+      "from": "JobApplication",
+      "to": "Job",
+      "kind": "association",
+      "fromMult": "n",
+      "toMult": "1",
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/entity/JobApplication.java:29"
+    },
+    {
+      "from": "MatchingResult",
+      "to": "CandidateProfile",
+      "kind": "association",
+      "fromMult": "n",
+      "toMult": "1",
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/entity/MatchingResult.java:27"
+    },
+    {
+      "from": "MatchingResult",
+      "to": "Job",
+      "kind": "association",
+      "fromMult": "n",
+      "toMult": "1",
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/entity/MatchingResult.java:34"
+    }
+  ],
+  "notes": [
+    "Ba lớp biên tương ứng với ba màn hình giao diện thực tế của ứng viên: CandidateHomePage.tsx, CandidateMatchingPage.tsx và CandidateJobDetailPage.tsx.",
+    "Các hàm list, getById, myMatches, refreshMine, apply, mine thực tế thuộc các lớp Service phía backend (JobService, MatchingService, ApplicationService, CvService); trong mô hình phân tích, chúng được phân công cho các lớp thực thể chủ thể (Job, MatchingResult, JobApplication, CvData) theo đúng quy ước mẫu báo cáo PTIT.",
+    "Quan hệ CandidateProfile–User và Job–User là liên kết logic xuyên suốt các microservice (identity-service và recruitment-service) dựa trên user_id, không phải khóa ngoại quan hệ trong cùng một CSDL.",
+    "Thao tác nộp đơn ứng tuyển thực tế chỉ được bố trí tại CandidateHomePage.tsx; CandidateJobDetailPage.tsx chỉ phục vụ xem thông tin và chuyển tiếp sang module luyện phỏng vấn M4, do đó luồng ứng tuyển điều hướng quay lại trang chủ.",
+    "Nút 'Ôn tập phỏng vấn' trên trang chủ và trang chi tiết điều hướng sang chức năng M4 (route /candidate/interview), nút 'Cập nhật CV' và 'Tải CV' điều hướng sang chức năng M2 (/candidate/cv); các liên kết này nằm ngoài phạm vi biểu đồ phân tích M3.",
+    "Các đường nối giữa hai package service khác nhau là liên kết logical (khác service): chỉ lưu id, không có khóa ngoại/tham chiếu đối tượng."
+  ],
+  "open_questions": [
+    "[cần xác nhận] Vị trí nút ứng tuyển: Trang chi tiết việc làm (CandidateJobDetailPage.tsx) trong mã nguồn hiện chỉ có nút 'Ôn tập phỏng vấn' dẫn sang M4 mà không có nút 'Ứng tuyển' trực tiếp (ứng viên phải quay lại trang chủ để nộp đơn). Trong các pha thiết kế tiếp theo (lớp chi tiết, tuần tự) có cần bổ sung nút ứng tuyển ngay trên trang chi tiết việc làm hay giữ nguyên hiện trạng mã nguồn?",
+    "[cần xác nhận] Xử lý ngoại lệ xác thực 401/403: Khi phiên đăng nhập hết hạn hoặc người dùng sai vai trò khi gọi API đối sánh/ứng tuyển, giao diện hiện chỉ hiển thị toast thông báo lỗi mà chưa điều hướng tự động về trang đăng nhập /login.",
+    "[cần xác nhận] Ràng buộc CV khi ứng tuyển: Backend ApplicationService.apply không kiểm tra CV đã phân tích (analyzed = true), trong khi trang chủ ứng viên chỉ hiển thị điểm đối sánh khi cờ analyzed = true. Có cần bổ sung tiền điều kiện bắt buộc có CV đã phân tích khi ứng tuyển trong tài liệu thiết kế không?"
+  ]
+}

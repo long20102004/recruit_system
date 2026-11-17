@@ -1,0 +1,142 @@
+{
+  "id": "UC-M3",
+  "type": "usecase",
+  "name": "Biểu đồ use case chi tiết - Đối sánh CV với việc làm, xem chi tiết việc, ứng tuyển",
+  "elements": [
+    {
+      "key": "system_m3",
+      "kind": "system",
+      "name": "HireLens - M3 Đối sánh CV với việc làm, xem chi tiết việc, ứng tuyển",
+      "src": "source/recruit_system/frontend/src/App.tsx:58"
+    },
+    {
+      "key": "candidate",
+      "kind": "actor",
+      "name": "Ứng viên",
+      "src": "source/recruit_system/frontend/src/App.tsx:58"
+    },
+    {
+      "key": "uc_m3_main",
+      "kind": "usecase",
+      "name": "Đối sánh CV với việc làm, xem chi tiết việc, ứng tuyển",
+      "parent": "system_m3",
+      "extensionPoints": [
+        "Tìm kiếm và lọc việc làm",
+        "Cập nhật điểm đối sánh theo CV",
+        "Xem chi tiết việc làm",
+        "Nộp hồ sơ ứng tuyển"
+      ],
+      "src": "source/recruit_system/frontend/src/App.tsx:72"
+    },
+    {
+      "key": "uc_view_home",
+      "kind": "usecase",
+      "name": "Xem việc làm tại trang chủ",
+      "parent": "system_m3",
+      "src": "source/recruit_system/frontend/src/pages/candidate/CandidateHomePage.tsx:36"
+    },
+    {
+      "key": "uc_filter_jobs",
+      "kind": "usecase",
+      "name": "Tìm kiếm và lọc việc làm",
+      "parent": "system_m3",
+      "src": "source/recruit_system/frontend/src/pages/candidate/CandidateHomePage.tsx:109"
+    },
+    {
+      "key": "uc_view_matching",
+      "kind": "usecase",
+      "name": "Xem danh sách việc làm phù hợp CV",
+      "parent": "system_m3",
+      "src": "source/recruit_system/frontend/src/pages/candidate/CandidateMatchingPage.tsx:21"
+    },
+    {
+      "key": "uc_refresh_matching",
+      "kind": "usecase",
+      "name": "Cập nhật điểm đối sánh theo CV",
+      "parent": "system_m3",
+      "src": "source/recruit_system/frontend/src/pages/candidate/CandidateMatchingPage.tsx:67"
+    },
+    {
+      "key": "uc_view_job_detail",
+      "kind": "usecase",
+      "name": "Xem chi tiết việc làm",
+      "parent": "system_m3",
+      "src": "source/recruit_system/frontend/src/pages/candidate/CandidateJobDetailPage.tsx:44"
+    },
+    {
+      "key": "uc_apply_job",
+      "kind": "usecase",
+      "name": "Nộp hồ sơ ứng tuyển",
+      "parent": "system_m3",
+      "src": "source/recruit_system/frontend/src/pages/candidate/CandidateHomePage.tsx:91"
+    }
+  ],
+  "relations": [
+    {
+      "from": "candidate",
+      "to": "uc_m3_main",
+      "kind": "association",
+      "src": "source/recruit_system/frontend/src/App.tsx:58"
+    },
+    {
+      "from": "candidate",
+      "to": "uc_view_home",
+      "kind": "association",
+      "src": "source/recruit_system/frontend/src/pages/candidate/CandidateHomePage.tsx:36"
+    },
+    {
+      "from": "candidate",
+      "to": "uc_view_matching",
+      "kind": "association",
+      "src": "source/recruit_system/frontend/src/pages/candidate/CandidateMatchingPage.tsx:21"
+    },
+    {
+      "from": "uc_m3_main",
+      "to": "uc_view_home",
+      "kind": "include",
+      "src": "source/recruit_system/frontend/src/pages/candidate/CandidateHomePage.tsx:36"
+    },
+    {
+      "from": "uc_m3_main",
+      "to": "uc_view_matching",
+      "kind": "include",
+      "src": "source/recruit_system/frontend/src/pages/candidate/CandidateMatchingPage.tsx:21"
+    },
+    {
+      "from": "uc_filter_jobs",
+      "to": "uc_m3_main",
+      "kind": "extend",
+      "extensionPoint": "Tìm kiếm và lọc việc làm",
+      "src": "source/recruit_system/frontend/src/pages/candidate/CandidateHomePage.tsx:109"
+    },
+    {
+      "from": "uc_refresh_matching",
+      "to": "uc_m3_main",
+      "kind": "extend",
+      "extensionPoint": "Cập nhật điểm đối sánh theo CV",
+      "src": "source/recruit_system/frontend/src/pages/candidate/CandidateMatchingPage.tsx:67"
+    },
+    {
+      "from": "uc_view_job_detail",
+      "to": "uc_m3_main",
+      "kind": "extend",
+      "extensionPoint": "Xem chi tiết việc làm",
+      "src": "source/recruit_system/frontend/src/pages/candidate/CandidateJobDetailPage.tsx:44"
+    },
+    {
+      "from": "uc_apply_job",
+      "to": "uc_m3_main",
+      "kind": "extend",
+      "extensionPoint": "Nộp hồ sơ ứng tuyển",
+      "src": "source/recruit_system/frontend/src/pages/candidate/CandidateHomePage.tsx:91"
+    }
+  ],
+  "notes": [
+    "Module M3 bao gồm ba giao diện React chính: CandidateHomePage (/candidate), CandidateMatchingPage (/candidate/matching) và CandidateJobDetailPage (/candidate/jobs/:jobId).",
+    "Thao tác ứng tuyển (apply) được thực hiện trực tiếp từ trang chủ ứng viên CandidateHomePage.tsx (nút Ứng tuyển trong SidePanel và JobCard), không có nút ứng tuyển trên trang chi tiết việc CandidateJobDetailPage.tsx (chỉ có nút Ôn tập phỏng vấn chuyển tiếp sang Module M4).",
+    "Tính năng đối sánh sử dụng microservice cv-matching-ai qua endpoint POST /match/no-llm để xếp hạng và tính điểm cho các việc làm theo hồ sơ CV đã phân tích."
+  ],
+  "open_questions": [
+    "Trang chi tiết việc làm (CandidateJobDetailPage.tsx) hiện chỉ có nút 'Ôn tập phỏng vấn' dẫn sang Module M4 mà không có nút 'Ứng tuyển'; ứng viên phải quay lại trang chủ để ứng tuyển. Cần xác nhận trong thiết kế báo cáo có cần bổ sung nút ứng tuyển vào trang chi tiết việc hay giữ nguyên theo source code thực tế."
+  ]
+}

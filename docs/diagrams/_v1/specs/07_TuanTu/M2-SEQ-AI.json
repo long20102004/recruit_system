@@ -1,0 +1,419 @@
+{
+  "id": "M2-SEQ-AI",
+  "type": "sequence",
+  "name": "Biểu đồ tuần tự - Trích xuất hồ sơ ứng viên từ CV bằng AI và Knowledge Graph (Dịch vụ AI FastAPI)",
+  "lifelines": [
+    {
+      "key": "backend",
+      "name": ":Backend",
+      "kind": "object",
+      "class": "Backend",
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/service/cv/CvExtractionModule.java:24"
+    },
+    {
+      "key": "routes",
+      "name": ":routes",
+      "kind": "object",
+      "class": "routes",
+      "src": "source/recruit_system/services/cv-extraction-ai/app/api/routes.py:64"
+    },
+    {
+      "key": "generator",
+      "name": ":generator",
+      "kind": "object",
+      "class": "generator",
+      "src": "source/recruit_system/services/cv-extraction-ai/app/services/generator.py:216"
+    },
+    {
+      "key": "loop_guard",
+      "name": ":LoopGuard",
+      "kind": "object",
+      "class": "LoopGuard",
+      "src": "source/recruit_system/services/cv-extraction-ai/app/services/loop_guard.py:14"
+    },
+    {
+      "key": "json_parse",
+      "name": ":json_parse",
+      "kind": "object",
+      "class": "json_parse",
+      "src": "source/recruit_system/services/cv-extraction-ai/app/utils/json_parse.py:11"
+    },
+    {
+      "key": "pipeline",
+      "name": ":pipeline",
+      "kind": "object",
+      "class": "pipeline",
+      "src": "source/recruit_system/services/cv-extraction-ai/app/postprocess/pipeline.py:48"
+    },
+    {
+      "key": "enrich",
+      "name": ":enrich",
+      "kind": "object",
+      "class": "enrich",
+      "src": "source/recruit_system/services/cv-extraction-ai/app/kg/enrich.py:94"
+    },
+    {
+      "key": "normalize",
+      "name": ":normalize",
+      "kind": "object",
+      "class": "normalize",
+      "src": "source/recruit_system/services/cv-extraction-ai/app/kb/normalize.py:11"
+    }
+  ],
+  "messages": [
+    {
+      "seq": 1,
+      "from": "backend",
+      "to": "routes",
+      "operation": "extract_cv",
+      "params": [
+        "request",
+        "response",
+        "include"
+      ],
+      "kind": "sync",
+      "src": "source/recruit_system/services/cv-extraction-ai/app/api/routes.py:64"
+    },
+    {
+      "seq": 2,
+      "from": "routes",
+      "to": "generator",
+      "operation": "generate_cv_result",
+      "params": [
+        "cv_text"
+      ],
+      "kind": "sync",
+      "src": "source/recruit_system/services/cv-extraction-ai/app/api/routes.py:100"
+    },
+    {
+      "seq": 3,
+      "from": "generator",
+      "to": "generator",
+      "operation": "build_prompt",
+      "params": [
+        "cv_text"
+      ],
+      "kind": "self",
+      "src": "source/recruit_system/services/cv-extraction-ai/app/services/generator.py:217",
+      "fragment": {
+        "id": "extraction_flow",
+        "kind": "alt",
+        "guard": "Thành công: Suy luận hợp lệ, hậu xử lý và làm giàu tri thức"
+      }
+    },
+    {
+      "seq": 4,
+      "from": "generator",
+      "to": "generator",
+      "operation": "_generate_llama",
+      "params": [
+        "prompt",
+        "max_tokens",
+        "prefix",
+        "continue_output"
+      ],
+      "kind": "self",
+      "src": "source/recruit_system/services/cv-extraction-ai/app/services/generator.py:230",
+      "fragment": {
+        "id": "extraction_flow",
+        "kind": "alt",
+        "guard": "Thành công: Suy luận hợp lệ, hậu xử lý và làm giàu tri thức"
+      }
+    },
+    {
+      "seq": 5,
+      "from": "generator",
+      "to": "loop_guard",
+      "operation": "feed",
+      "params": [
+        "chunk"
+      ],
+      "kind": "sync",
+      "src": "source/recruit_system/services/cv-extraction-ai/app/services/generator.py:84",
+      "fragment": {
+        "id": "extraction_flow",
+        "kind": "alt",
+        "guard": "Thành công: Suy luận hợp lệ, hậu xử lý và làm giàu tri thức"
+      }
+    },
+    {
+      "seq": 6,
+      "from": "loop_guard",
+      "to": "generator",
+      "operation": "feed",
+      "params": "bool",
+      "kind": "return",
+      "src": "source/recruit_system/services/cv-extraction-ai/app/services/loop_guard.py:27",
+      "fragment": {
+        "id": "extraction_flow",
+        "kind": "alt",
+        "guard": "Thành công: Suy luận hợp lệ, hậu xử lý và làm giàu tri thức"
+      }
+    },
+    {
+      "seq": 7,
+      "from": "generator",
+      "to": "routes",
+      "operation": "generate_cv_result",
+      "params": "GenerationResult",
+      "kind": "return",
+      "src": "source/recruit_system/services/cv-extraction-ai/app/services/generator.py:115",
+      "fragment": {
+        "id": "extraction_flow",
+        "kind": "alt",
+        "guard": "Thành công: Suy luận hợp lệ, hậu xử lý và làm giàu tri thức"
+      }
+    },
+    {
+      "seq": 8,
+      "from": "routes",
+      "to": "json_parse",
+      "operation": "extract_json",
+      "params": [
+        "text"
+      ],
+      "kind": "sync",
+      "src": "source/recruit_system/services/cv-extraction-ai/app/api/routes.py:110",
+      "fragment": {
+        "id": "extraction_flow",
+        "kind": "alt",
+        "guard": "Thành công: Suy luận hợp lệ, hậu xử lý và làm giàu tri thức"
+      }
+    },
+    {
+      "seq": 9,
+      "from": "json_parse",
+      "to": "routes",
+      "operation": "extract_json",
+      "params": "dict",
+      "kind": "return",
+      "src": "source/recruit_system/services/cv-extraction-ai/app/utils/json_parse.py:42",
+      "fragment": {
+        "id": "extraction_flow",
+        "kind": "alt",
+        "guard": "Thành công: Suy luận hợp lệ, hậu xử lý và làm giàu tri thức"
+      }
+    },
+    {
+      "seq": 10,
+      "from": "routes",
+      "to": "pipeline",
+      "operation": "postprocess",
+      "params": [
+        "data",
+        "cv_text"
+      ],
+      "kind": "sync",
+      "src": "source/recruit_system/services/cv-extraction-ai/app/api/routes.py:121",
+      "fragment": {
+        "id": "extraction_flow",
+        "kind": "alt",
+        "guard": "Thành công: Suy luận hợp lệ, hậu xử lý và làm giàu tri thức"
+      }
+    },
+    {
+      "seq": 11,
+      "from": "pipeline",
+      "to": "routes",
+      "operation": "postprocess",
+      "params": "tuple[dict, PostprocessStats]",
+      "kind": "return",
+      "src": "source/recruit_system/services/cv-extraction-ai/app/postprocess/pipeline.py:57",
+      "fragment": {
+        "id": "extraction_flow",
+        "kind": "alt",
+        "guard": "Thành công: Suy luận hợp lệ, hậu xử lý và làm giàu tri thức"
+      }
+    },
+    {
+      "seq": 12,
+      "from": "routes",
+      "to": "enrich",
+      "operation": "enrich",
+      "params": [
+        "profile",
+        "kb",
+        "pp_stats",
+        "cv_text"
+      ],
+      "kind": "sync",
+      "src": "source/recruit_system/services/cv-extraction-ai/app/api/routes.py:138",
+      "fragment": {
+        "id": "extraction_flow",
+        "kind": "alt",
+        "guard": "Thành công: Suy luận hợp lệ, hậu xử lý và làm giàu tri thức"
+      }
+    },
+    {
+      "seq": 13,
+      "from": "enrich",
+      "to": "routes",
+      "operation": "enrich",
+      "params": "dict",
+      "kind": "return",
+      "src": "source/recruit_system/services/cv-extraction-ai/app/kg/enrich.py:94",
+      "fragment": {
+        "id": "extraction_flow",
+        "kind": "alt",
+        "guard": "Thành công: Suy luận hợp lệ, hậu xử lý và làm giàu tri thức"
+      }
+    },
+    {
+      "seq": 14,
+      "from": "routes",
+      "to": "normalize",
+      "operation": "normalize_profile_with_kb",
+      "params": [
+        "profile",
+        "kb"
+      ],
+      "kind": "sync",
+      "src": "source/recruit_system/services/cv-extraction-ai/app/api/routes.py:160",
+      "fragment": {
+        "id": "extraction_flow",
+        "kind": "alt",
+        "guard": "Thành công: Suy luận hợp lệ, hậu xử lý và làm giàu tri thức"
+      }
+    },
+    {
+      "seq": 15,
+      "from": "normalize",
+      "to": "routes",
+      "operation": "normalize_profile_with_kb",
+      "params": "dict",
+      "kind": "return",
+      "src": "source/recruit_system/services/cv-extraction-ai/app/kb/normalize.py:50",
+      "fragment": {
+        "id": "extraction_flow",
+        "kind": "alt",
+        "guard": "Thành công: Suy luận hợp lệ, hậu xử lý và làm giàu tri thức"
+      }
+    },
+    {
+      "seq": 16,
+      "from": "routes",
+      "to": "backend",
+      "operation": "extract_cv",
+      "params": "CVResponse",
+      "kind": "return",
+      "src": "source/recruit_system/services/cv-extraction-ai/app/api/routes.py:192",
+      "fragment": {
+        "id": "extraction_flow",
+        "kind": "alt",
+        "guard": "Thành công: Suy luận hợp lệ, hậu xử lý và làm giàu tri thức"
+      }
+    },
+    {
+      "seq": 17,
+      "from": "generator",
+      "to": "routes",
+      "operation": "generate_cv_result",
+      "params": "GenerationResult (text rỗng/lỗi)",
+      "kind": "return",
+      "src": "source/recruit_system/services/cv-extraction-ai/app/services/generator.py:115",
+      "fragment": {
+        "id": "extraction_flow",
+        "kind": "alt",
+        "guard": "Ngoại lệ: Mô hình sinh JSON lỗi cú pháp hoặc rỗng (ModelOutputError)"
+      }
+    },
+    {
+      "seq": 18,
+      "from": "routes",
+      "to": "json_parse",
+      "operation": "extract_json",
+      "params": [
+        "text"
+      ],
+      "kind": "sync",
+      "src": "source/recruit_system/services/cv-extraction-ai/app/api/routes.py:110",
+      "fragment": {
+        "id": "extraction_flow",
+        "kind": "alt",
+        "guard": "Ngoại lệ: Mô hình sinh JSON lỗi cú pháp hoặc rỗng (ModelOutputError)"
+      }
+    },
+    {
+      "seq": 19,
+      "from": "json_parse",
+      "to": "routes",
+      "operation": "extract_json",
+      "params": "ValueError",
+      "kind": "return",
+      "src": "source/recruit_system/services/cv-extraction-ai/app/utils/json_parse.py:42",
+      "fragment": {
+        "id": "extraction_flow",
+        "kind": "alt",
+        "guard": "Ngoại lệ: Mô hình sinh JSON lỗi cú pháp hoặc rỗng (ModelOutputError)"
+      }
+    },
+    {
+      "seq": 20,
+      "from": "routes",
+      "to": "backend",
+      "operation": "extract_cv",
+      "params": "HTTP 502 Bad Gateway",
+      "kind": "return",
+      "src": "source/recruit_system/services/cv-extraction-ai/app/api/routes.py:211",
+      "fragment": {
+        "id": "extraction_flow",
+        "kind": "alt",
+        "guard": "Ngoại lệ: Mô hình sinh JSON lỗi cú pháp hoặc rỗng (ModelOutputError)"
+      }
+    },
+    {
+      "seq": 21,
+      "from": "generator",
+      "to": "generator",
+      "operation": "count_prompt_tokens",
+      "params": [
+        "prompt"
+      ],
+      "kind": "self",
+      "src": "source/recruit_system/services/cv-extraction-ai/app/services/generator.py:223",
+      "fragment": {
+        "id": "extraction_flow",
+        "kind": "alt",
+        "guard": "Ngoại lệ: Độ dài prompt vượt quá giới hạn ngữ cảnh (InputTooLongError)"
+      }
+    },
+    {
+      "seq": 22,
+      "from": "generator",
+      "to": "routes",
+      "operation": "generate_cv_result",
+      "params": "InputTooLongError",
+      "kind": "return",
+      "src": "source/recruit_system/services/cv-extraction-ai/app/services/generator.py:227",
+      "fragment": {
+        "id": "extraction_flow",
+        "kind": "alt",
+        "guard": "Ngoại lệ: Độ dài prompt vượt quá giới hạn ngữ cảnh (InputTooLongError)"
+      }
+    },
+    {
+      "seq": 23,
+      "from": "routes",
+      "to": "backend",
+      "operation": "extract_cv",
+      "params": "HTTP 413 Payload Too Large",
+      "kind": "return",
+      "src": "source/recruit_system/services/cv-extraction-ai/app/api/routes.py:200",
+      "fragment": {
+        "id": "extraction_flow",
+        "kind": "alt",
+        "guard": "Ngoại lệ: Độ dài prompt vượt quá giới hạn ngữ cảnh (InputTooLongError)"
+      }
+    }
+  ],
+  "notes": [
+    "Biểu đồ thể hiện tuần tự xử lý nội bộ phía dịch vụ AI cv-extraction-ai (FastAPI, cổng 8001) khi nhận yêu cầu trích xuất CV từ recruitment-service.",
+    "Tất cả lifeline kiểu 'object' (ngoại trừ :Backend là hệ thống gọi bên ngoài) đều ánh xạ trực tiếp sang các lớp/module tương ứng trong biểu đồ lớp chi tiết M2-CLS-AI.",
+    "Tất cả các thông điệp đồng bộ (sync), tự gọi (self) và trả về (return) đều có tên phương thức và tham số khớp chính xác với chữ ký phương thức được định nghĩa trong M2-CLS-AI và mã nguồn thực tế.",
+    "Khối Combined Fragment loại 'alt' thể hiện ba nhánh thực thi có thật trong mã nguồn: (1) Nhánh luồng chính trích xuất qua LLM, hậu xử lý và làm giàu tri thức thành công (HTTP 200); (2) Nhánh ngoại lệ ModelOutputError khi mô hình sinh chuỗi không phân tích được cú pháp JSON hoặc rỗng (HTTP 502); (3) Nhánh ngoại lệ InputTooLongError khi tổng số token của văn bản vượt quá ngân sách ngữ cảnh cho phép (HTTP 413)."
+  ],
+  "open_questions": [
+    "[cần xác nhận] Trong luồng suy luận GGUF bằng llama.cpp, hàm _continue_llama có cơ chế tự động kích hoạt lượt suy luận thứ hai (continuation) nếu phát hiện cắt cụt (truncated). Hiện tại biểu đồ tuần tự đã rút gọn và thể hiện chu trình suy luận đại diện qua feed của LoopGuard để đảm bảo giới hạn số message (<= 26), có cần bổ sung một biểu đồ chi tiết riêng biệt cho thuật toán multi-turn continuation hay không?",
+    "[cần xác nhận] Việc làm giàu tri thức bằng Knowledge Graph (enrich và normalize) phụ thuộc vào tham số include=kg từ recruitment-service; khi gọi không có tham số này, nhánh enrich được bỏ qua và normalize chỉ chạy chuẩn hóa cơ bản. Đồ án có kế hoạch luôn bật mặc định tính năng làm giàu KG trên toàn bộ môi trường hay không?"
+  ]
+}

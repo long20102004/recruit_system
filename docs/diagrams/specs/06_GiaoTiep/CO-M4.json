@@ -1,0 +1,302 @@
+{
+  "id": "CO-M4",
+  "type": "communication",
+  "name": "Biểu đồ giao tiếp pha phân tích M4 - Ôn tập và chấm phỏng vấn",
+  "elements": [
+    {
+      "key": "Candidate",
+      "kind": "actor",
+      "name": "Ứng viên",
+      "src": "source/recruit_system/frontend/src/pages/candidate/CandidateInterviewPage.tsx:31"
+    },
+    {
+      "key": "CandidateJobDetailViewObj",
+      "kind": "object",
+      "name": ":CandidateJobDetailView",
+      "class": "CandidateJobDetailView",
+      "stereotype": "boundary",
+      "src": "source/recruit_system/frontend/src/pages/candidate/CandidateJobDetailPage.tsx:153"
+    },
+    {
+      "key": "CandidateInterviewViewObj",
+      "kind": "object",
+      "name": ":CandidateInterviewView",
+      "class": "CandidateInterviewView",
+      "stereotype": "boundary",
+      "src": "source/recruit_system/frontend/src/pages/candidate/CandidateInterviewPage.tsx:9"
+    },
+    {
+      "key": "JobObj",
+      "kind": "object",
+      "name": ":Job",
+      "class": "Job",
+      "stereotype": "entity",
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/entity/Job.java:18"
+    },
+    {
+      "key": "InterviewSessionObj",
+      "kind": "object",
+      "name": ":InterviewSession",
+      "class": "InterviewSession",
+      "stereotype": "entity",
+      "src": "source/recruit_system/backend/interview-service/src/main/java/recruit/demo/entity/InterviewSession.java:16"
+    },
+    {
+      "key": "InterviewQuestionObj",
+      "kind": "object",
+      "name": ":InterviewQuestion",
+      "class": "InterviewQuestion",
+      "stereotype": "entity",
+      "src": "source/recruit_system/backend/interview-service/src/main/java/recruit/demo/entity/InterviewQuestion.java:17"
+    },
+    {
+      "key": "InterviewResponseObj",
+      "kind": "object",
+      "name": ":InterviewResponse",
+      "class": "InterviewResponse",
+      "stereotype": "entity",
+      "src": "source/recruit_system/backend/interview-service/src/main/java/recruit/demo/entity/InterviewResponse.java:16"
+    },
+    {
+      "key": "EvaluationResultObj",
+      "kind": "object",
+      "name": ":EvaluationResult",
+      "class": "EvaluationResult",
+      "stereotype": "entity",
+      "src": "source/recruit_system/backend/interview-service/src/main/java/recruit/demo/entity/EvaluationResult.java:20"
+    }
+  ],
+  "links": [
+    {
+      "from": "Candidate",
+      "to": "CandidateJobDetailViewObj",
+      "src": "source/recruit_system/frontend/src/pages/candidate/CandidateJobDetailPage.tsx:129"
+    },
+    {
+      "from": "CandidateJobDetailViewObj",
+      "to": "JobObj",
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/entity/Job.java:32"
+    },
+    {
+      "from": "CandidateJobDetailViewObj",
+      "to": "CandidateInterviewViewObj",
+      "src": "source/recruit_system/frontend/src/pages/candidate/CandidateJobDetailPage.tsx:156"
+    },
+    {
+      "from": "Candidate",
+      "to": "CandidateInterviewViewObj",
+      "src": "source/recruit_system/frontend/src/pages/candidate/CandidateInterviewPage.tsx:31"
+    },
+    {
+      "from": "CandidateInterviewViewObj",
+      "to": "InterviewSessionObj",
+      "src": "source/recruit_system/frontend/src/pages/candidate/CandidateInterviewPage.tsx:23"
+    },
+    {
+      "from": "CandidateInterviewViewObj",
+      "to": "InterviewQuestionObj",
+      "src": "source/recruit_system/backend/interview-service/src/main/java/recruit/demo/entity/InterviewQuestion.java:36"
+    },
+    {
+      "from": "CandidateInterviewViewObj",
+      "to": "InterviewResponseObj",
+      "src": "source/recruit_system/frontend/src/pages/candidate/CandidateInterviewPage.tsx:40"
+    },
+    {
+      "from": "CandidateInterviewViewObj",
+      "to": "EvaluationResultObj",
+      "src": "source/recruit_system/frontend/src/pages/candidate/CandidateInterviewPage.tsx:44"
+    },
+    {
+      "from": "InterviewSessionObj",
+      "to": "EvaluationResultObj",
+      "src": "source/recruit_system/backend/interview-service/src/main/java/recruit/demo/entity/EvaluationResult.java:28"
+    },
+    {
+      "from": "InterviewSessionObj",
+      "to": "InterviewResponseObj",
+      "src": "source/recruit_system/backend/interview-service/src/main/java/recruit/demo/entity/InterviewResponse.java:24"
+    },
+    {
+      "from": "InterviewSessionObj",
+      "to": "InterviewSessionObj",
+      "src": "source/recruit_system/backend/interview-service/src/main/java/recruit/demo/service/InterviewService.java:139"
+    }
+  ],
+  "messages": [
+    {
+      "seq": 1,
+      "from": "Candidate",
+      "to": "CandidateJobDetailViewObj",
+      "label": "open detail",
+      "src": "source/recruit_system/frontend/src/pages/candidate/CandidateJobDetailPage.tsx:129"
+    },
+    {
+      "seq": 2,
+      "from": "CandidateJobDetailViewObj",
+      "to": "Candidate",
+      "label": "show",
+      "src": "source/recruit_system/frontend/src/pages/candidate/CandidateJobDetailPage.tsx:153"
+    },
+    {
+      "seq": 3,
+      "from": "Candidate",
+      "to": "CandidateJobDetailViewObj",
+      "label": "choose practice",
+      "src": "source/recruit_system/frontend/src/pages/candidate/CandidateJobDetailPage.tsx:153"
+    },
+    {
+      "seq": 4,
+      "from": "CandidateJobDetailViewObj",
+      "to": "CandidateInterviewViewObj",
+      "label": "call",
+      "src": "source/recruit_system/frontend/src/pages/candidate/CandidateJobDetailPage.tsx:156"
+    },
+    {
+      "seq": 5,
+      "from": "CandidateInterviewViewObj",
+      "to": "InterviewSessionObj",
+      "label": "mySessions()",
+      "src": "source/recruit_system/frontend/src/pages/candidate/CandidateInterviewPage.tsx:23"
+    },
+    {
+      "seq": 6,
+      "from": "InterviewSessionObj",
+      "to": "CandidateInterviewViewObj",
+      "label": "return",
+      "src": "source/recruit_system/backend/interview-service/src/main/java/recruit/demo/service/InterviewService.java:132"
+    },
+    {
+      "seq": 7,
+      "from": "CandidateInterviewViewObj",
+      "to": "Candidate",
+      "label": "show",
+      "src": "source/recruit_system/frontend/src/pages/candidate/CandidateInterviewPage.tsx:64"
+    },
+    {
+      "seq": 8,
+      "from": "Candidate",
+      "to": "CandidateInterviewViewObj",
+      "label": "start session",
+      "src": "source/recruit_system/frontend/src/pages/candidate/CandidateInterviewPage.tsx:31"
+    },
+    {
+      "seq": 9,
+      "from": "CandidateInterviewViewObj",
+      "to": "InterviewSessionObj",
+      "label": "createSession()",
+      "src": "source/recruit_system/backend/interview-service/src/main/java/recruit/demo/service/InterviewService.java:45"
+    },
+    {
+      "seq": 10,
+      "from": "InterviewSessionObj",
+      "to": "CandidateInterviewViewObj",
+      "label": "return",
+      "src": "source/recruit_system/backend/interview-service/src/main/java/recruit/demo/service/InterviewService.java:45"
+    },
+    {
+      "seq": 11,
+      "from": "CandidateInterviewViewObj",
+      "to": "Candidate",
+      "label": "show",
+      "src": "source/recruit_system/frontend/src/pages/candidate/CandidateInterviewPage.tsx:70"
+    },
+    {
+      "seq": 12,
+      "from": "Candidate",
+      "to": "CandidateInterviewViewObj",
+      "label": "submit answer",
+      "src": "source/recruit_system/frontend/src/pages/candidate/CandidateInterviewPage.tsx:40"
+    },
+    {
+      "seq": 13,
+      "from": "CandidateInterviewViewObj",
+      "to": "EvaluationResultObj",
+      "label": "submitAndEvaluate()",
+      "src": "source/recruit_system/backend/interview-service/src/main/java/recruit/demo/service/InterviewService.java:106"
+    },
+    {
+      "seq": 14,
+      "from": "InterviewSessionObj",
+      "to": "EvaluationResultObj",
+      "label": "call",
+      "src": "source/recruit_system/backend/interview-service/src/main/java/recruit/demo/entity/EvaluationResult.java:28"
+    },
+    {
+      "seq": 15,
+      "from": "InterviewSessionObj",
+      "to": "InterviewResponseObj",
+      "label": "call",
+      "src": "source/recruit_system/backend/interview-service/src/main/java/recruit/demo/entity/InterviewResponse.java:24"
+    },
+    {
+      "seq": 16,
+      "from": "EvaluationResultObj",
+      "to": "CandidateInterviewViewObj",
+      "label": "return",
+      "src": "source/recruit_system/backend/interview-service/src/main/java/recruit/demo/service/InterviewService.java:106"
+    },
+    {
+      "seq": 17,
+      "from": "CandidateInterviewViewObj",
+      "to": "Candidate",
+      "label": "show evaluation",
+      "src": "source/recruit_system/frontend/src/pages/candidate/CandidateInterviewPage.tsx:44"
+    },
+    {
+      "seq": 18,
+      "from": "Candidate",
+      "to": "CandidateInterviewViewObj",
+      "label": "next question",
+      "src": "source/recruit_system/frontend/src/pages/candidate/CandidateInterviewPage.tsx:78"
+    },
+    {
+      "seq": 19,
+      "from": "CandidateInterviewViewObj",
+      "to": "Candidate",
+      "label": "show evaluation",
+      "src": "source/recruit_system/frontend/src/pages/candidate/CandidateInterviewPage.tsx:44"
+    },
+    {
+      "seq": 20,
+      "from": "Candidate",
+      "to": "CandidateInterviewViewObj",
+      "label": "next question",
+      "src": "source/recruit_system/frontend/src/pages/candidate/CandidateInterviewPage.tsx:78"
+    },
+    {
+      "seq": 21,
+      "from": "CandidateInterviewViewObj",
+      "to": "InterviewSessionObj",
+      "label": "call",
+      "src": "source/recruit_system/frontend/src/pages/candidate/CandidateInterviewPage.tsx:50"
+    },
+    {
+      "seq": 22,
+      "from": "InterviewSessionObj",
+      "to": "InterviewSessionObj",
+      "label": "summary()",
+      "src": "source/recruit_system/backend/interview-service/src/main/java/recruit/demo/service/InterviewService.java:139"
+    },
+    {
+      "seq": 23,
+      "from": "InterviewSessionObj",
+      "to": "CandidateInterviewViewObj",
+      "label": "return",
+      "src": "source/recruit_system/backend/interview-service/src/main/java/recruit/demo/service/InterviewService.java:139"
+    },
+    {
+      "seq": 24,
+      "from": "CandidateInterviewViewObj",
+      "to": "Candidate",
+      "label": "show summary",
+      "src": "source/recruit_system/frontend/src/pages/candidate/CandidateInterviewPage.tsx:50"
+    }
+  ],
+  "notes": [
+    "Elements contain both analysis boundary classes and all analysis entity classes. Messages use only operations listed in AN-M4; V2 user gestures and displays are represented as communication messages."
+  ],
+  "open_questions": [
+    "AN-M4 does not define a named operation for opening a saved session or advancing to the next question; therefore these V2 actions are represented as user-to-view interactions, without inventing an operation message."
+  ]
+}

@@ -1,0 +1,81 @@
+{
+  "id": "UC-M4",
+  "type": "usecase",
+  "name": "Biểu đồ use case chi tiết - Ôn tập và chấm phỏng vấn",
+  "elements": [
+    {
+      "key": "system_m4",
+      "kind": "system",
+      "name": "HireLens - M4 Ôn tập và chấm phỏng vấn",
+      "src": "source/recruit_system/frontend/src/App.tsx:87"
+    },
+    {
+      "key": "candidate",
+      "kind": "actor",
+      "name": "Ứng viên",
+      "src": "source/recruit_system/frontend/src/App.tsx:89"
+    },
+    {
+      "key": "uc_practice",
+      "kind": "usecase",
+      "name": "Ôn tập và chấm phỏng vấn",
+      "parent": "system_m4",
+      "extensionPoints": ["Mở phiên ôn tập trước đây", "Chuyển sang câu hỏi tiếp theo", "Xem tổng kết phiên"],
+      "src": "source/recruit_system/frontend/src/pages/candidate/CandidateInterviewPage.tsx:9"
+    },
+    {
+      "key": "uc_interview_page",
+      "kind": "usecase",
+      "name": "Sử dụng trang Luyện phỏng vấn",
+      "parent": "system_m4",
+      "src": "source/recruit_system/frontend/src/pages/candidate/CandidateInterviewPage.tsx:61"
+    },
+    {
+      "key": "uc_start",
+      "kind": "usecase",
+      "name": "Bắt đầu phiên 6 câu",
+      "parent": "system_m4",
+      "src": "source/recruit_system/frontend/src/pages/candidate/CandidateInterviewPage.tsx:31"
+    },
+    {
+      "key": "uc_submit_evaluate",
+      "kind": "usecase",
+      "name": "Gửi câu trả lời và nhận đánh giá",
+      "parent": "system_m4",
+      "src": "source/recruit_system/frontend/src/pages/candidate/CandidateInterviewPage.tsx:40"
+    },
+    {
+      "key": "uc_open_old",
+      "kind": "usecase",
+      "name": "Mở phiên ôn tập trước đây",
+      "parent": "system_m4",
+      "src": "source/recruit_system/frontend/src/pages/candidate/CandidateInterviewPage.tsx:23"
+    },
+    {
+      "key": "uc_next",
+      "kind": "usecase",
+      "name": "Chuyển sang câu hỏi tiếp theo",
+      "parent": "system_m4",
+      "src": "source/recruit_system/frontend/src/pages/candidate/CandidateInterviewPage.tsx:50"
+    },
+    {
+      "key": "uc_summary",
+      "kind": "usecase",
+      "name": "Xem tổng kết phiên",
+      "parent": "system_m4",
+      "src": "source/recruit_system/frontend/src/pages/candidate/CandidateInterviewPage.tsx:82"
+    }
+  ],
+  "relations": [
+    {"from": "candidate", "to": "uc_practice", "kind": "association", "src": "source/recruit_system/frontend/src/App.tsx:87"},
+    {"from": "candidate", "to": "uc_interview_page", "kind": "association", "src": "source/recruit_system/frontend/src/pages/candidate/CandidateInterviewPage.tsx:61"},
+    {"from": "uc_practice", "to": "uc_interview_page", "kind": "include", "src": "source/recruit_system/frontend/src/pages/candidate/CandidateInterviewPage.tsx:61"},
+    {"from": "uc_practice", "to": "uc_start", "kind": "include", "src": "source/recruit_system/frontend/src/pages/candidate/CandidateInterviewPage.tsx:31"},
+    {"from": "uc_practice", "to": "uc_submit_evaluate", "kind": "include", "src": "source/recruit_system/frontend/src/pages/candidate/CandidateInterviewPage.tsx:40"},
+    {"from": "uc_open_old", "to": "uc_practice", "kind": "extend", "extensionPoint": "Mở phiên ôn tập trước đây", "src": "source/recruit_system/frontend/src/pages/candidate/CandidateInterviewPage.tsx:23"},
+    {"from": "uc_next", "to": "uc_practice", "kind": "extend", "extensionPoint": "Chuyển sang câu hỏi tiếp theo", "src": "source/recruit_system/frontend/src/pages/candidate/CandidateInterviewPage.tsx:50"},
+    {"from": "uc_summary", "to": "uc_practice", "kind": "extend", "extensionPoint": "Xem tổng kết phiên", "src": "source/recruit_system/frontend/src/pages/candidate/CandidateInterviewPage.tsx:82"}
+  ],
+  "notes": ["Các chức năng khởi tạo phiên và gửi câu trả lời là thao tác chính trên cùng trang CandidateInterviewPage.tsx; mở phiên cũ, chuyển câu và xem tổng kết chỉ phát sinh theo lựa chọn/trạng thái."],
+  "open_questions": ["CandidateInterviewPage là giao diện đơn, không có trang/hộp thoại riêng cho câu hỏi, đánh giá hay tổng kết; các use case này được xem là hành vi của cùng giao diện. Xác nhận cách phân rã use case chi tiết phù hợp yêu cầu báo cáo."]
+}

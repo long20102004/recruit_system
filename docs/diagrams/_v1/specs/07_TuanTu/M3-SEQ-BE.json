@@ -1,0 +1,281 @@
+{
+  "id": "M3-SEQ-BE",
+  "type": "sequence",
+  "name": "Biểu đồ tuần tự chi tiết - Đối sánh, xem chi tiết việc, ứng tuyển (Backend)",
+  "lifelines": [
+    {
+      "key": "client",
+      "name": ":client (Frontend)",
+      "kind": "object",
+      "class": "",
+      "src": "source/recruit_system/frontend/src/api/client.ts:113"
+    },
+    {
+      "key": "matchingController",
+      "name": ":MatchingController",
+      "kind": "object",
+      "class": "MatchingController",
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/controller/MatchingController.java:13"
+    },
+    {
+      "key": "matchingService",
+      "name": ":MatchingService",
+      "kind": "object",
+      "class": "MatchingService",
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/service/MatchingService.java:20"
+    },
+    {
+      "key": "matchingModule",
+      "name": ":CvMatchingModule",
+      "kind": "object",
+      "class": "CvMatchingModule",
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/service/matching/CvMatchingModule.java:11"
+    },
+    {
+      "key": "aiClient",
+      "name": ":AiJsonClient",
+      "kind": "object",
+      "class": "AiJsonClient",
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/client/AiJsonClient.java:11"
+    },
+    {
+      "key": "matchingAI",
+      "name": ":cv-matching-ai",
+      "kind": "object",
+      "class": "",
+      "src": "source/recruit_system/services/cv-matching-ai/app/main.py:90"
+    },
+    {
+      "key": "applicationsController",
+      "name": ":ApplicationsController",
+      "kind": "object",
+      "class": "ApplicationsController",
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/controller/ApplicationsController.java:13"
+    },
+    {
+      "key": "applicationService",
+      "name": ":ApplicationService",
+      "kind": "object",
+      "class": "ApplicationService",
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/service/ApplicationService.java:18"
+    }
+  ],
+  "messages": [
+    {
+      "seq": 1,
+      "from": "client",
+      "to": "matchingController",
+      "operation": "refreshMine",
+      "params": [],
+      "kind": "sync",
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/controller/MatchingController.java:22",
+      "http": "POST /api/matching/mine/refresh"
+    },
+    {
+      "seq": 2,
+      "from": "matchingController",
+      "to": "matchingService",
+      "operation": "refreshMine",
+      "params": [],
+      "kind": "sync",
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/controller/MatchingController.java:24"
+    },
+    {
+      "seq": 3,
+      "from": "matchingService",
+      "to": "matchingService",
+      "operation": "runMatching",
+      "params": [
+        "request"
+      ],
+      "kind": "self",
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/service/MatchingService.java:57",
+      "fragment": {
+        "id": "jobs",
+        "kind": "loop",
+        "guard": "mỗi tin PUBLISHED"
+      }
+    },
+    {
+      "seq": 4,
+      "from": "matchingService",
+      "to": "matchingModule",
+      "operation": "match",
+      "params": [
+        "candidate",
+        "jd"
+      ],
+      "kind": "sync",
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/service/MatchingService.java:125"
+    },
+    {
+      "seq": 5,
+      "from": "matchingModule",
+      "to": "aiClient",
+      "operation": "post",
+      "params": [
+        "url",
+        "body"
+      ],
+      "kind": "sync",
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/service/matching/CvMatchingModule.java:18"
+    },
+    {
+      "seq": 6,
+      "from": "aiClient",
+      "to": "matchingAI",
+      "operation": "POST /match/no-llm",
+      "params": [
+        "candidate",
+        "jd"
+      ],
+      "kind": "sync",
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/client/AiJsonClient.java:17"
+    },
+    {
+      "seq": 7,
+      "from": "matchingAI",
+      "to": "aiClient",
+      "operation": "POST /match/no-llm",
+      "params": "JSON kết quả",
+      "kind": "return",
+      "src": "source/recruit_system/services/cv-matching-ai/app/main.py:90"
+    },
+    {
+      "seq": 8,
+      "from": "aiClient",
+      "to": "matchingModule",
+      "operation": "post",
+      "params": "JsonNode",
+      "kind": "return",
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/client/AiJsonClient.java:23"
+    },
+    {
+      "seq": 9,
+      "from": "matchingModule",
+      "to": "matchingService",
+      "operation": "match",
+      "params": "JsonNode",
+      "kind": "return",
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/service/matching/CvMatchingModule.java:31"
+    },
+    {
+      "seq": 10,
+      "from": "matchingService",
+      "to": "matchingService",
+      "operation": "runMatching",
+      "params": "MatchResponse",
+      "kind": "return",
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/service/MatchingService.java:153"
+    },
+    {
+      "seq": 11,
+      "from": "matchingService",
+      "to": "matchingController",
+      "operation": "refreshMine",
+      "params": "List<MatchResponse>",
+      "kind": "return",
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/service/MatchingService.java:59"
+    },
+    {
+      "seq": 12,
+      "from": "matchingController",
+      "to": "client",
+      "operation": "refreshMine",
+      "params": "List<MatchResponse>",
+      "kind": "return",
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/controller/MatchingController.java:24"
+    },
+    {
+      "seq": 13,
+      "from": "client",
+      "to": "applicationsController",
+      "operation": "apply",
+      "params": [
+        "jobId",
+        "request"
+      ],
+      "kind": "sync",
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/controller/ApplicationsController.java:17",
+      "http": "POST /api/applications/jobs/{jobId}"
+    },
+    {
+      "seq": 14,
+      "from": "applicationsController",
+      "to": "applicationService",
+      "operation": "apply",
+      "params": [
+        "jobId",
+        "request"
+      ],
+      "kind": "sync",
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/controller/ApplicationsController.java:20"
+    },
+    {
+      "seq": 15,
+      "from": "applicationService",
+      "to": "applicationsController",
+      "operation": "apply",
+      "params": "ApplicationResponse",
+      "kind": "return",
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/service/ApplicationService.java:44",
+      "fragment": {
+        "id": "applyResult",
+        "kind": "alt",
+        "guard": "tin mở và chưa ứng tuyển"
+      }
+    },
+    {
+      "seq": 16,
+      "from": "applicationsController",
+      "to": "client",
+      "operation": "apply",
+      "params": "ApplicationResponse",
+      "kind": "return",
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/controller/ApplicationsController.java:20",
+      "fragment": {
+        "id": "applyResult",
+        "kind": "alt",
+        "guard": "tin mở và chưa ứng tuyển"
+      }
+    },
+    {
+      "seq": 17,
+      "from": "applicationService",
+      "to": "applicationsController",
+      "operation": "apply",
+      "params": "ApiException 409",
+      "kind": "return",
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/service/ApplicationService.java:34",
+      "fragment": {
+        "id": "applyResult",
+        "kind": "alt",
+        "guard": "đã ứng tuyển"
+      }
+    },
+    {
+      "seq": 18,
+      "from": "applicationsController",
+      "to": "client",
+      "operation": "apply",
+      "params": "HTTP 409",
+      "kind": "return",
+      "src": "source/recruit_system/backend/common/src/main/java/recruit/demo/exception/GlobalExceptionHandler.java:18",
+      "fragment": {
+        "id": "applyResult",
+        "kind": "alt",
+        "guard": "đã ứng tuyển"
+      }
+    }
+  ],
+  "notes": [
+    "Biểu đồ chọn lát cắt refresh đối sánh → ứng tuyển; các request độc lập do người dùng/frontend khởi phát. HTTP vào controller được ghi tại trường http, operation giữ tên phương thức để nhất quán CLS.",
+    "Vòng lặp gọi runMatching tuần tự; chỉ message 3 mang fragment loop, các message 4–10 mô tả thân một vòng được lược giản do định dạng fragment phẳng.",
+    "Các lời gọi repository, IdentityClient và request chi tiết việc không được vẽ; xem notes."
+  ],
+  "open_questions": [
+    "[cần xác nhận] Có nên tách biểu đồ để bổ sung request GET /api/jobs/{id}, JobsController.get và JobService.getById mà vẫn giữ giới hạn 8 lifeline?",
+    "[cần xác nhận] M3-CLS-BE thiếu IdentityClient.get và các operation JpaRepository kế thừa như save/findById cần thể hiện đầy đủ luồng lưu và tạo response; có bổ sung vào biểu đồ lớp hay tiếp tục lược giản?",
+    "[cần xác nhận] Có dự định bổ sung nút ứng tuyển tại trang chi tiết việc hay giữ thao tác ứng tuyển tại trang chủ?"
+  ]
+}

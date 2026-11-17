@@ -1,0 +1,365 @@
+{
+  "id": "M3-SEQ-AI",
+  "type": "sequence",
+  "name": "Biểu đồ tuần tự chi tiết - Đối sánh CV-JD phía AI (cv-matching-ai)",
+  "lifelines": [
+    {
+      "key": "Backend",
+      "name": ":Backend",
+      "kind": "object",
+      "class": "Backend",
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/service/matching/CvMatchingModule.java:18"
+    },
+    {
+      "key": "main",
+      "name": ":main",
+      "kind": "object",
+      "class": "main",
+      "src": "source/recruit_system/services/cv-matching-ai/app/main.py:18"
+    },
+    {
+      "key": "normalize",
+      "name": ":normalize",
+      "kind": "object",
+      "class": "normalize",
+      "src": "source/recruit_system/services/cv-matching-ai/app/normalize.py:44"
+    },
+    {
+      "key": "extraction_adapter",
+      "name": ":extraction_adapter",
+      "kind": "object",
+      "class": "extraction_adapter",
+      "src": "source/recruit_system/services/cv-matching-ai/app/extraction_adapter.py:40"
+    },
+    {
+      "key": "features",
+      "name": ":features",
+      "kind": "object",
+      "class": "features",
+      "src": "source/recruit_system/services/cv-matching-ai/app/features.py:111"
+    },
+    {
+      "key": "graph",
+      "name": ":graph",
+      "kind": "object",
+      "class": "graph",
+      "src": "source/recruit_system/services/cv-matching-ai/app/graph.py:74"
+    },
+    {
+      "key": "embeddings",
+      "name": ":embeddings",
+      "kind": "object",
+      "class": "embeddings",
+      "src": "source/recruit_system/services/cv-matching-ai/app/embeddings.py:66"
+    },
+    {
+      "key": "scoring",
+      "name": ":scoring",
+      "kind": "object",
+      "class": "scoring",
+      "src": "source/recruit_system/services/cv-matching-ai/app/scoring.py:10"
+    }
+  ],
+  "messages": [
+    {
+      "seq": 1,
+      "from": "Backend",
+      "to": "main",
+      "operation": "match_without_llm",
+      "params": [
+        "request"
+      ],
+      "kind": "sync",
+      "src": "source/recruit_system/services/cv-matching-ai/app/main.py:91"
+    },
+    {
+      "seq": 2,
+      "from": "main",
+      "to": "main",
+      "operation": "_run_match",
+      "params": [
+        "request",
+        "use_llm"
+      ],
+      "kind": "self",
+      "src": "source/recruit_system/services/cv-matching-ai/app/main.py:57"
+    },
+    {
+      "seq": 3,
+      "from": "main",
+      "to": "normalize",
+      "operation": "normalize_candidate",
+      "params": [
+        "candidate"
+      ],
+      "kind": "sync",
+      "src": "source/recruit_system/services/cv-matching-ai/app/normalize.py:44"
+    },
+    {
+      "seq": 4,
+      "from": "normalize",
+      "to": "extraction_adapter",
+      "operation": "adapt_candidate",
+      "params": [
+        "candidate"
+      ],
+      "kind": "sync",
+      "src": "source/recruit_system/services/cv-matching-ai/app/normalize.py:45"
+    },
+    {
+      "seq": 5,
+      "from": "extraction_adapter",
+      "to": "normalize",
+      "operation": "adapt_candidate",
+      "params": "candidate",
+      "kind": "return",
+      "src": "source/recruit_system/services/cv-matching-ai/app/extraction_adapter.py:40"
+    },
+    {
+      "seq": 6,
+      "from": "normalize",
+      "to": "main",
+      "operation": "normalize_candidate",
+      "params": "candidate",
+      "kind": "return",
+      "src": "source/recruit_system/services/cv-matching-ai/app/normalize.py:54"
+    },
+    {
+      "seq": 7,
+      "from": "main",
+      "to": "normalize",
+      "operation": "normalize_jd",
+      "params": [
+        "jd"
+      ],
+      "kind": "sync",
+      "src": "source/recruit_system/services/cv-matching-ai/app/normalize.py:67"
+    },
+    {
+      "seq": 8,
+      "from": "normalize",
+      "to": "main",
+      "operation": "normalize_jd",
+      "params": "jd",
+      "kind": "return",
+      "src": "source/recruit_system/services/cv-matching-ai/app/normalize.py:70"
+    },
+    {
+      "seq": 9,
+      "from": "main",
+      "to": "features",
+      "operation": "extract_features",
+      "params": [
+        "candidate",
+        "jd"
+      ],
+      "kind": "sync",
+      "src": "source/recruit_system/services/cv-matching-ai/app/features.py:111"
+    },
+    {
+      "seq": 10,
+      "from": "features",
+      "to": "graph",
+      "operation": "default_skill_graph",
+      "params": [],
+      "kind": "sync",
+      "src": "source/recruit_system/services/cv-matching-ai/app/features.py:31"
+    },
+    {
+      "seq": 11,
+      "from": "graph",
+      "to": "features",
+      "operation": "default_skill_graph",
+      "params": "graph",
+      "kind": "return",
+      "src": "source/recruit_system/services/cv-matching-ai/app/graph.py:74"
+    },
+    {
+      "seq": 12,
+      "from": "features",
+      "to": "embeddings",
+      "operation": "cosine_similarity",
+      "params": [
+        "left",
+        "right"
+      ],
+      "kind": "sync",
+      "src": "source/recruit_system/services/cv-matching-ai/app/features.py:70"
+    },
+    {
+      "seq": 13,
+      "from": "embeddings",
+      "to": "features",
+      "operation": "cosine_similarity",
+      "params": "similarity",
+      "kind": "return",
+      "src": "source/recruit_system/services/cv-matching-ai/app/embeddings.py:66"
+    },
+    {
+      "seq": 14,
+      "from": "features",
+      "to": "main",
+      "operation": "extract_features",
+      "params": "(scores, matched, missing)",
+      "kind": "return",
+      "src": "source/recruit_system/services/cv-matching-ai/app/features.py:119"
+    },
+    {
+      "seq": 15,
+      "from": "main",
+      "to": "scoring",
+      "operation": "validate_weights",
+      "params": [
+        "weights"
+      ],
+      "kind": "sync",
+      "fragment": {
+        "id": "alt_scoring",
+        "kind": "alt",
+        "guard": "Dữ liệu và trọng số hợp lệ"
+      },
+      "src": "source/recruit_system/services/cv-matching-ai/app/scoring.py:10"
+    },
+    {
+      "seq": 16,
+      "from": "scoring",
+      "to": "main",
+      "operation": "validate_weights",
+      "params": "weights",
+      "kind": "return",
+      "fragment": {
+        "id": "alt_scoring",
+        "kind": "alt",
+        "guard": "Dữ liệu và trọng số hợp lệ"
+      },
+      "src": "source/recruit_system/services/cv-matching-ai/app/scoring.py:19"
+    },
+    {
+      "seq": 17,
+      "from": "main",
+      "to": "scoring",
+      "operation": "compute_final_score",
+      "params": [
+        "features",
+        "weights"
+      ],
+      "kind": "sync",
+      "fragment": {
+        "id": "alt_scoring",
+        "kind": "alt",
+        "guard": "Dữ liệu và trọng số hợp lệ"
+      },
+      "src": "source/recruit_system/services/cv-matching-ai/app/scoring.py:22"
+    },
+    {
+      "seq": 18,
+      "from": "scoring",
+      "to": "main",
+      "operation": "compute_final_score",
+      "params": "score",
+      "kind": "return",
+      "fragment": {
+        "id": "alt_scoring",
+        "kind": "alt",
+        "guard": "Dữ liệu và trọng số hợp lệ"
+      },
+      "src": "source/recruit_system/services/cv-matching-ai/app/scoring.py:25"
+    },
+    {
+      "seq": 19,
+      "from": "main",
+      "to": "main",
+      "operation": "_run_match",
+      "params": "result",
+      "kind": "return",
+      "fragment": {
+        "id": "alt_scoring",
+        "kind": "alt",
+        "guard": "Dữ liệu và trọng số hợp lệ"
+      },
+      "src": "source/recruit_system/services/cv-matching-ai/app/main.py:80"
+    },
+    {
+      "seq": 20,
+      "from": "main",
+      "to": "Backend",
+      "operation": "match_without_llm",
+      "params": "200 OK (result)",
+      "kind": "return",
+      "fragment": {
+        "id": "alt_scoring",
+        "kind": "alt",
+        "guard": "Dữ liệu và trọng số hợp lệ"
+      },
+      "src": "source/recruit_system/services/cv-matching-ai/app/main.py:91"
+    },
+    {
+      "seq": 21,
+      "from": "main",
+      "to": "scoring",
+      "operation": "validate_weights",
+      "params": [
+        "weights"
+      ],
+      "kind": "sync",
+      "fragment": {
+        "id": "alt_scoring",
+        "kind": "alt",
+        "guard": "Trọng số không hợp lệ hoặc sai dữ liệu (ValueError / TypeError / KeyError)"
+      },
+      "src": "source/recruit_system/services/cv-matching-ai/app/scoring.py:10"
+    },
+    {
+      "seq": 22,
+      "from": "scoring",
+      "to": "main",
+      "operation": "validate_weights",
+      "params": "raise ValueError",
+      "kind": "return",
+      "fragment": {
+        "id": "alt_scoring",
+        "kind": "alt",
+        "guard": "Trọng số không hợp lệ hoặc sai dữ liệu (ValueError / TypeError / KeyError)"
+      },
+      "src": "source/recruit_system/services/cv-matching-ai/app/scoring.py:14"
+    },
+    {
+      "seq": 23,
+      "from": "main",
+      "to": "main",
+      "operation": "_run_match",
+      "params": "raise HTTPException(status_code=422)",
+      "kind": "return",
+      "fragment": {
+        "id": "alt_scoring",
+        "kind": "alt",
+        "guard": "Trọng số không hợp lệ hoặc sai dữ liệu (ValueError / TypeError / KeyError)"
+      },
+      "src": "source/recruit_system/services/cv-matching-ai/app/main.py:82"
+    },
+    {
+      "seq": 24,
+      "from": "main",
+      "to": "Backend",
+      "operation": "match_without_llm",
+      "params": "422 Unprocessable Entity",
+      "kind": "return",
+      "fragment": {
+        "id": "alt_scoring",
+        "kind": "alt",
+        "guard": "Trọng số không hợp lệ hoặc sai dữ liệu (ValueError / TypeError / KeyError)"
+      },
+      "src": "source/recruit_system/services/cv-matching-ai/app/main.py:82"
+    }
+  ],
+  "notes": [
+    "Biểu đồ tuần tự mô tả chi tiết luồng xử lý nội bộ phía dịch vụ AI cv-matching-ai (FastAPI) khi nhận yêu cầu đối sánh CV–JD từ recruitment-service qua endpoint POST /match/no-llm (bước N10 trong M3-ACT).",
+    "Mọi lifeline kiểu object tương ứng chính xác với các lớp/module đã định nghĩa trong M3-CLS-AI: :main (boundary route), :normalize, :extraction_adapter, :features, :graph, :embeddings, :scoring. Riêng :Backend đại diện cho service bên ngoài gọi đến.",
+    "Mọi message đồng bộ và tự gọi đều khớp chính xác tên operation và tham số trong M3-CLS-AI; các message trả về (kind return) mang đúng tên operation đang kết thúc.",
+    "Combined fragment alt_scoring biểu diễn 2 nhánh: luồng chính tính điểm thành công trả về 200 OK kèm kết quả đối sánh; luồng ngoại lệ phát hiện trọng số không hợp lệ (ValueError) hoặc lỗi cấu trúc dữ liệu (KeyError/TypeError) được try-except bắt tại _run_match và trả về mã lỗi 422 Unprocessable Entity."
+  ],
+  "open_questions": [
+    "[cần xác nhận] Đồ thị kỹ năng và từ điển chuẩn hóa hiện được đọc từ file JSON tĩnh local (data/kb_skill_graph.json, data/skills_dictionary.json); trong tương lai có dự định nạp động qua API hoặc chia sẻ cache với recruitment-service hay không?",
+    "[cần xác nhận] Luồng ngoại lệ hiện quy về mã lỗi HTTP 422 Unprocessable Entity cho tất cả các ngoại lệ ValueError, KeyError, TypeError; có cần phân tách cụ thể mã 400 (Bad Request) cho trọng số sai cấu trúc để recruitment-service hiển thị thông báo chi tiết hơn hay không?"
+  ]
+}

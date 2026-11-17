@@ -1,0 +1,44 @@
+{
+  "id": "UC0",
+  "type": "usecase",
+  "name": "Biểu đồ use case tổng quan - Hệ thống tuyển dụng HireLens",
+  "elements": [
+    {"key": "system", "kind": "system", "name": "Hệ thống tuyển dụng HireLens", "src": "source/recruit_system/frontend/src/App.tsx:46"},
+    {"key": "member", "kind": "actor", "name": "Thành viên", "src": "source/recruit_system/frontend/src/App.tsx:22"},
+    {"key": "candidate", "kind": "actor", "name": "Ứng viên", "src": "source/recruit_system/frontend/src/App.tsx:58"},
+    {"key": "recruiter", "kind": "actor", "name": "Nhà tuyển dụng", "src": "source/recruit_system/frontend/src/App.tsx:99"},
+    {"key": "guest", "kind": "actor", "name": "Khách", "src": "source/recruit_system/frontend/src/App.tsx:39"},
+    {"key": "register", "kind": "usecase", "name": "Đăng ký", "parent": "system", "src": "source/recruit_system/frontend/src/pages/RegisterPage.tsx:32"},
+    {"key": "login", "kind": "usecase", "name": "Đăng nhập", "parent": "system", "src": "source/recruit_system/frontend/src/pages/LoginPage.tsx:32"},
+    {"key": "role", "kind": "usecase", "name": "Chọn vai trò", "parent": "system", "src": "source/recruit_system/frontend/src/pages/ChooseRolePage.tsx:25"},
+    {"key": "browse", "kind": "usecase", "name": "Xem danh sách việc làm công khai", "parent": "system", "src": "source/recruit_system/frontend/src/pages/PublicHomePage.tsx:41"},
+    {"key": "cv", "kind": "usecase", "name": "Tải và xác nhận CV", "parent": "system", "src": "source/recruit_system/frontend/src/pages/candidate/CandidateCvPage.tsx:122"},
+    {"key": "matching", "kind": "usecase", "name": "Đối sánh CV với việc làm", "parent": "system", "extensionPoints": ["Xem chi tiết việc"], "src": "source/recruit_system/frontend/src/pages/candidate/CandidateMatchingPage.tsx:30"},
+    {"key": "detail", "kind": "usecase", "name": "Xem chi tiết việc", "parent": "system", "src": "source/recruit_system/frontend/src/pages/candidate/CandidateMatchingPage.tsx:154"},
+    {"key": "apply", "kind": "usecase", "name": "Ứng tuyển", "parent": "system", "src": "source/recruit_system/frontend/src/pages/candidate/CandidateHomePage.tsx:91"},
+    {"key": "interview", "kind": "usecase", "name": "Ôn tập và chấm phỏng vấn", "parent": "system", "src": "source/recruit_system/frontend/src/pages/candidate/CandidateInterviewPage.tsx:31"}
+  ],
+  "relations": [
+    {"from": "candidate", "to": "member", "kind": "generalization", "src": "source/recruit_system/frontend/src/App.tsx:55"},
+    {"from": "recruiter", "to": "member", "kind": "generalization", "src": "source/recruit_system/frontend/src/App.tsx:96"},
+    {"from": "guest", "to": "register", "kind": "association", "src": "source/recruit_system/frontend/src/pages/PublicHomePage.tsx:77"},
+    {"from": "guest", "to": "login", "kind": "association", "src": "source/recruit_system/frontend/src/App.tsx:51"},
+    {"from": "guest", "to": "browse", "kind": "association", "src": "source/recruit_system/frontend/src/App.tsx:50"},
+    {"from": "member", "to": "register", "kind": "association", "src": "source/recruit_system/frontend/src/pages/RegisterPage.tsx:18"},
+    {"from": "member", "to": "login", "kind": "association", "src": "source/recruit_system/frontend/src/pages/LoginPage.tsx:32"},
+    {"from": "member", "to": "role", "kind": "association", "src": "source/recruit_system/frontend/src/pages/ChooseRolePage.tsx:31"},
+    {"from": "candidate", "to": "cv", "kind": "association", "src": "source/recruit_system/frontend/src/App.tsx:64"},
+    {"from": "candidate", "to": "matching", "kind": "association", "src": "source/recruit_system/frontend/src/App.tsx:72"},
+    {"from": "recruiter", "to": "matching", "kind": "association", "src": "source/recruit_system/frontend/src/pages/recruiter/RecruiterMatchingPage.tsx:48"},
+    {"from": "candidate", "to": "detail", "kind": "association", "src": "source/recruit_system/frontend/src/App.tsx:80"},
+    {"from": "candidate", "to": "apply", "kind": "association", "src": "source/recruit_system/frontend/src/pages/candidate/CandidateHomePage.tsx:212"},
+    {"from": "candidate", "to": "interview", "kind": "association", "src": "source/recruit_system/frontend/src/App.tsx:88"},
+    {"from": "detail", "to": "matching", "kind": "extend", "extensionPoint": "Xem chi tiết việc", "src": "source/recruit_system/frontend/src/pages/candidate/CandidateMatchingPage.tsx:154"}
+  ],
+  "notes": [
+    "Vai trò Thành viên là khái quát hóa actor; chọn vai trò chỉ dành cho người đã đăng nhập.",
+    "Ứng tuyển là use case độc lập: trang chủ ứng viên cho ứng tuyển cả ngoài chế độ phù hợp CV; trang chi tiết việc không có nút ứng tuyển.",
+    "Các dịch vụ AI là thành phần trong phạm vi hệ thống HireLens, không vẽ thành actor bên ngoài."
+  ],
+  "open_questions": []
+}

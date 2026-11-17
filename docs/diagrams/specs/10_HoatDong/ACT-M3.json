@@ -1,0 +1,595 @@
+{
+  "id": "ACT-M3",
+  "type": "activity",
+  "name": "Biểu đồ hoạt động - Đối sánh, xem chi tiết việc, ứng tuyển",
+  "partitions": [
+    {
+      "key": "CandidateHomePage.tsx",
+      "name": "CandidateHomePage.tsx",
+      "src": "source/recruit_system/frontend/src/pages/candidate/CandidateHomePage.tsx:36"
+    },
+    {
+      "key": "CandidateMatchingPage.tsx",
+      "name": "CandidateMatchingPage.tsx",
+      "src": "source/recruit_system/frontend/src/pages/candidate/CandidateMatchingPage.tsx:21"
+    },
+    {
+      "key": "CandidateJobDetailPage.tsx",
+      "name": "CandidateJobDetailPage.tsx",
+      "src": "source/recruit_system/frontend/src/pages/candidate/CandidateJobDetailPage.tsx:44"
+    },
+    {
+      "key": "client",
+      "name": "client",
+      "src": "source/recruit_system/frontend/src/api/client.ts:32"
+    },
+    {
+      "key": "MatchingController",
+      "name": "MatchingController",
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/controller/MatchingController.java:13"
+    },
+    {
+      "key": "JobsController",
+      "name": "JobsController",
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/controller/JobsController.java:14"
+    },
+    {
+      "key": "ApplicationsController",
+      "name": "ApplicationsController",
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/controller/ApplicationsController.java:13"
+    },
+    {
+      "key": "Service/Repository",
+      "name": "Service/Repository",
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/service/MatchingService.java:20"
+    },
+    {
+      "key": "AI",
+      "name": "AI",
+      "src": "source/recruit_system/services/cv-matching-ai/app/main.py:18"
+    }
+  ],
+  "nodes": [
+    {
+      "key": "N01",
+      "kind": "initial",
+      "name": "Bắt đầu",
+      "partition": "CandidateHomePage.tsx",
+      "src": "source/recruit_system/frontend/src/pages/candidate/CandidateHomePage.tsx:36"
+    },
+    {
+      "key": "N02",
+      "kind": "action",
+      "name": "Hiện giao diện",
+      "partition": "CandidateHomePage.tsx",
+      "src": "source/recruit_system/frontend/src/pages/candidate/CandidateHomePage.tsx:100"
+    },
+    {
+      "key": "N03",
+      "kind": "action",
+      "name": "Lấy từ state: cvReady",
+      "partition": "CandidateHomePage.tsx",
+      "src": "source/recruit_system/frontend/src/pages/candidate/CandidateHomePage.tsx:44"
+    },
+    {
+      "key": "N04",
+      "kind": "action",
+      "name": "Hiện giao diện",
+      "partition": "CandidateMatchingPage.tsx",
+      "src": "source/recruit_system/frontend/src/pages/candidate/CandidateMatchingPage.tsx:88"
+    },
+    {
+      "key": "N05",
+      "kind": "action",
+      "name": "Gọi hàm matchingApi.refreshMine()",
+      "partition": "CandidateMatchingPage.tsx",
+      "src": "source/recruit_system/frontend/src/pages/candidate/CandidateMatchingPage.tsx:50"
+    },
+    {
+      "key": "N06",
+      "kind": "action",
+      "name": "api<T>() / fetch()",
+      "partition": "client",
+      "src": "source/recruit_system/frontend/src/api/client.ts:115"
+    },
+    {
+      "key": "N07",
+      "kind": "action",
+      "name": "refreshMine()",
+      "partition": "MatchingController",
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/controller/MatchingController.java:23"
+    },
+    {
+      "key": "N08",
+      "kind": "action",
+      "name": "Gọi hàm MatchingService.refreshMine()",
+      "partition": "Service/Repository",
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/service/MatchingService.java:48"
+    },
+    {
+      "key": "N09",
+      "kind": "action",
+      "name": "Gọi hàm match_without_llm()",
+      "partition": "AI",
+      "src": "source/recruit_system/services/cv-matching-ai/app/main.py:91"
+    },
+    {
+      "key": "N10",
+      "kind": "action",
+      "name": "Gọi hàm MatchingResultRepository.findByCandidateId()",
+      "partition": "Service/Repository",
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/repository/MatchingResultRepository.java:12"
+    },
+    {
+      "key": "N11",
+      "kind": "action",
+      "name": "Trả kết quả List<MatchResponse>",
+      "partition": "MatchingController",
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/controller/MatchingController.java:24"
+    },
+    {
+      "key": "N12",
+      "kind": "action",
+      "name": "Trả kết quả đối sánh",
+      "partition": "client",
+      "src": "source/recruit_system/frontend/src/api/client.ts:32"
+    },
+    {
+      "key": "N13",
+      "kind": "decision",
+      "name": "Kết quả đối sánh?",
+      "partition": "CandidateMatchingPage.tsx",
+      "src": "source/recruit_system/frontend/src/pages/candidate/CandidateMatchingPage.tsx:50"
+    },
+    {
+      "key": "N14",
+      "kind": "action",
+      "name": "Thông báo lỗi đối sánh",
+      "partition": "CandidateMatchingPage.tsx",
+      "src": "source/recruit_system/frontend/src/pages/candidate/CandidateMatchingPage.tsx:63"
+    },
+    {
+      "key": "N15",
+      "kind": "action",
+      "name": "Lưu vào state: matches, jobs",
+      "partition": "CandidateMatchingPage.tsx",
+      "src": "source/recruit_system/frontend/src/pages/candidate/CandidateMatchingPage.tsx:50"
+    },
+    {
+      "key": "N16",
+      "kind": "action",
+      "name": "Hiện giao diện",
+      "partition": "CandidateMatchingPage.tsx",
+      "src": "source/recruit_system/frontend/src/pages/candidate/CandidateMatchingPage.tsx:147"
+    },
+    {
+      "key": "N17",
+      "kind": "action",
+      "name": "Lấy từ state: selectedId",
+      "partition": "CandidateMatchingPage.tsx",
+      "src": "source/recruit_system/frontend/src/pages/candidate/CandidateMatchingPage.tsx:158"
+    },
+    {
+      "key": "N18",
+      "kind": "action",
+      "name": "Hiện giao diện",
+      "partition": "CandidateJobDetailPage.tsx",
+      "src": "source/recruit_system/frontend/src/pages/candidate/CandidateJobDetailPage.tsx:67"
+    },
+    {
+      "key": "N19",
+      "kind": "action",
+      "name": "Gọi hàm jobsApi.get(id)",
+      "partition": "CandidateJobDetailPage.tsx",
+      "src": "source/recruit_system/frontend/src/pages/candidate/CandidateJobDetailPage.tsx:56"
+    },
+    {
+      "key": "N20",
+      "kind": "action",
+      "name": "api<T>() / fetch()",
+      "partition": "client",
+      "src": "source/recruit_system/frontend/src/api/client.ts:79"
+    },
+    {
+      "key": "N21",
+      "kind": "action",
+      "name": "get()",
+      "partition": "JobsController",
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/controller/JobsController.java:35"
+    },
+    {
+      "key": "N22",
+      "kind": "action",
+      "name": "Gọi hàm JobService.getById()",
+      "partition": "Service/Repository",
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/service/JobService.java:44"
+    },
+    {
+      "key": "N23",
+      "kind": "action",
+      "name": "Trả kết quả JobResponse",
+      "partition": "JobsController",
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/controller/JobsController.java:36"
+    },
+    {
+      "key": "N24",
+      "kind": "action",
+      "name": "Trả kết quả chi tiết việc",
+      "partition": "client",
+      "src": "source/recruit_system/frontend/src/api/client.ts:32"
+    },
+    {
+      "key": "N25",
+      "kind": "decision",
+      "name": "Kết quả tải tin?",
+      "partition": "CandidateJobDetailPage.tsx",
+      "src": "source/recruit_system/frontend/src/pages/candidate/CandidateJobDetailPage.tsx:58"
+    },
+    {
+      "key": "N26",
+      "kind": "action",
+      "name": "Thông báo \"Không tìm thấy tin tuyển dụng\"",
+      "partition": "CandidateJobDetailPage.tsx",
+      "src": "source/recruit_system/frontend/src/pages/candidate/CandidateJobDetailPage.tsx:59"
+    },
+    {
+      "key": "N27",
+      "kind": "action",
+      "name": "Lưu vào state: job",
+      "partition": "CandidateJobDetailPage.tsx",
+      "src": "source/recruit_system/frontend/src/pages/candidate/CandidateJobDetailPage.tsx:58"
+    },
+    {
+      "key": "N28",
+      "kind": "action",
+      "name": "Hiện giao diện",
+      "partition": "CandidateJobDetailPage.tsx",
+      "src": "source/recruit_system/frontend/src/pages/candidate/CandidateJobDetailPage.tsx:82"
+    },
+    {
+      "key": "N29",
+      "kind": "action",
+      "name": "Lấy từ state: selectedId",
+      "partition": "CandidateHomePage.tsx",
+      "src": "source/recruit_system/frontend/src/pages/candidate/CandidateHomePage.tsx:85"
+    },
+    {
+      "key": "N30",
+      "kind": "action",
+      "name": "Lấy từ form: jobId",
+      "partition": "CandidateHomePage.tsx",
+      "src": "source/recruit_system/frontend/src/pages/candidate/CandidateHomePage.tsx:212"
+    },
+    {
+      "key": "N31",
+      "kind": "action",
+      "name": "Gọi hàm applicationsApi.apply(jobId)",
+      "partition": "CandidateHomePage.tsx",
+      "src": "source/recruit_system/frontend/src/pages/candidate/CandidateHomePage.tsx:93"
+    },
+    {
+      "key": "N32",
+      "kind": "action",
+      "name": "api<T>() / fetch()",
+      "partition": "client",
+      "src": "source/recruit_system/frontend/src/api/client.ts:91"
+    },
+    {
+      "key": "N33",
+      "kind": "action",
+      "name": "apply()",
+      "partition": "ApplicationsController",
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/controller/ApplicationsController.java:18"
+    },
+    {
+      "key": "N34",
+      "kind": "action",
+      "name": "Gọi hàm ApplicationService.apply()",
+      "partition": "Service/Repository",
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/service/ApplicationService.java:26"
+    },
+    {
+      "key": "N35",
+      "kind": "action",
+      "name": "Trả kết quả ApplicationResponse",
+      "partition": "ApplicationsController",
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/controller/ApplicationsController.java:20"
+    },
+    {
+      "key": "N36",
+      "kind": "action",
+      "name": "Trả kết quả ứng tuyển",
+      "partition": "client",
+      "src": "source/recruit_system/frontend/src/api/client.ts:32"
+    },
+    {
+      "key": "N37",
+      "kind": "decision",
+      "name": "Kết quả ứng tuyển?",
+      "partition": "CandidateHomePage.tsx",
+      "src": "source/recruit_system/frontend/src/pages/candidate/CandidateHomePage.tsx:93"
+    },
+    {
+      "key": "N38",
+      "kind": "action",
+      "name": "Thông báo lỗi nộp hồ sơ",
+      "partition": "CandidateHomePage.tsx",
+      "src": "source/recruit_system/frontend/src/pages/candidate/CandidateHomePage.tsx:96"
+    },
+    {
+      "key": "N39",
+      "kind": "action",
+      "name": "Thông báo \"Đã nộp hồ sơ ứng tuyển\"",
+      "partition": "CandidateHomePage.tsx",
+      "src": "source/recruit_system/frontend/src/pages/candidate/CandidateHomePage.tsx:94"
+    },
+    {
+      "key": "N40",
+      "kind": "final",
+      "name": "Kết thúc",
+      "partition": "CandidateHomePage.tsx",
+      "src": "source/recruit_system/frontend/src/pages/candidate/CandidateHomePage.tsx:94"
+    }
+  ],
+  "flows": [
+    {
+      "from": "N01",
+      "to": "N02",
+      "guard": "",
+      "src": "source/recruit_system/frontend/src/pages/candidate/CandidateHomePage.tsx:36"
+    },
+    {
+      "from": "N02",
+      "to": "N03",
+      "guard": "",
+      "src": "source/recruit_system/frontend/src/pages/candidate/CandidateHomePage.tsx:44"
+    },
+    {
+      "from": "N03",
+      "to": "N04",
+      "guard": "[Xem xếp hạng]",
+      "src": "source/recruit_system/frontend/src/pages/candidate/CandidateHomePage.tsx:141"
+    },
+    {
+      "from": "N04",
+      "to": "N05",
+      "guard": "",
+      "src": "source/recruit_system/frontend/src/pages/candidate/CandidateMatchingPage.tsx:50"
+    },
+    {
+      "from": "N05",
+      "to": "N06",
+      "guard": "",
+      "src": "source/recruit_system/frontend/src/api/client.ts:115"
+    },
+    {
+      "from": "N06",
+      "to": "N07",
+      "guard": "",
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/controller/MatchingController.java:23"
+    },
+    {
+      "from": "N07",
+      "to": "N08",
+      "guard": "",
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/service/MatchingService.java:48"
+    },
+    {
+      "from": "N08",
+      "to": "N09",
+      "guard": "",
+      "src": "source/recruit_system/services/cv-matching-ai/app/main.py:91"
+    },
+    {
+      "from": "N09",
+      "to": "N10",
+      "guard": "",
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/repository/MatchingResultRepository.java:12"
+    },
+    {
+      "from": "N10",
+      "to": "N11",
+      "guard": "",
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/controller/MatchingController.java:24"
+    },
+    {
+      "from": "N11",
+      "to": "N12",
+      "guard": "",
+      "src": "source/recruit_system/frontend/src/api/client.ts:32"
+    },
+    {
+      "from": "N12",
+      "to": "N13",
+      "guard": "",
+      "src": "source/recruit_system/frontend/src/pages/candidate/CandidateMatchingPage.tsx:50"
+    },
+    {
+      "from": "N13",
+      "to": "N14",
+      "guard": "[Thất bại]",
+      "src": "source/recruit_system/frontend/src/pages/candidate/CandidateMatchingPage.tsx:63"
+    },
+    {
+      "from": "N13",
+      "to": "N15",
+      "guard": "[Thành công]",
+      "src": "source/recruit_system/frontend/src/pages/candidate/CandidateMatchingPage.tsx:50"
+    },
+    {
+      "from": "N14",
+      "to": "N40",
+      "guard": "[Click OK]",
+      "src": "source/recruit_system/frontend/src/pages/candidate/CandidateMatchingPage.tsx:63"
+    },
+    {
+      "from": "N15",
+      "to": "N16",
+      "guard": "",
+      "src": "source/recruit_system/frontend/src/pages/candidate/CandidateMatchingPage.tsx:147"
+    },
+    {
+      "from": "N16",
+      "to": "N17",
+      "guard": "",
+      "src": "source/recruit_system/frontend/src/pages/candidate/CandidateMatchingPage.tsx:158"
+    },
+    {
+      "from": "N17",
+      "to": "N18",
+      "guard": "[Xem chi tiết]",
+      "src": "source/recruit_system/frontend/src/pages/candidate/CandidateJobDetailPage.tsx:44"
+    },
+    {
+      "from": "N18",
+      "to": "N19",
+      "guard": "",
+      "src": "source/recruit_system/frontend/src/pages/candidate/CandidateJobDetailPage.tsx:56"
+    },
+    {
+      "from": "N19",
+      "to": "N20",
+      "guard": "",
+      "src": "source/recruit_system/frontend/src/api/client.ts:79"
+    },
+    {
+      "from": "N20",
+      "to": "N21",
+      "guard": "",
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/controller/JobsController.java:35"
+    },
+    {
+      "from": "N21",
+      "to": "N22",
+      "guard": "",
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/service/JobService.java:44"
+    },
+    {
+      "from": "N22",
+      "to": "N23",
+      "guard": "",
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/controller/JobsController.java:36"
+    },
+    {
+      "from": "N23",
+      "to": "N24",
+      "guard": "",
+      "src": "source/recruit_system/frontend/src/api/client.ts:32"
+    },
+    {
+      "from": "N24",
+      "to": "N25",
+      "guard": "",
+      "src": "source/recruit_system/frontend/src/pages/candidate/CandidateJobDetailPage.tsx:58"
+    },
+    {
+      "from": "N25",
+      "to": "N26",
+      "guard": "[Không tìm thấy]",
+      "src": "source/recruit_system/frontend/src/pages/candidate/CandidateJobDetailPage.tsx:59"
+    },
+    {
+      "from": "N25",
+      "to": "N27",
+      "guard": "[Thành công]",
+      "src": "source/recruit_system/frontend/src/pages/candidate/CandidateJobDetailPage.tsx:58"
+    },
+    {
+      "from": "N26",
+      "to": "N40",
+      "guard": "[Click OK]",
+      "src": "source/recruit_system/frontend/src/pages/candidate/CandidateJobDetailPage.tsx:77"
+    },
+    {
+      "from": "N27",
+      "to": "N28",
+      "guard": "",
+      "src": "source/recruit_system/frontend/src/pages/candidate/CandidateJobDetailPage.tsx:82"
+    },
+    {
+      "from": "N28",
+      "to": "N29",
+      "guard": "[Quay lại trang chủ]",
+      "src": "source/recruit_system/frontend/src/pages/candidate/CandidateHomePage.tsx:85"
+    },
+    {
+      "from": "N29",
+      "to": "N30",
+      "guard": "",
+      "src": "source/recruit_system/frontend/src/pages/candidate/CandidateHomePage.tsx:212"
+    },
+    {
+      "from": "N30",
+      "to": "N31",
+      "guard": "",
+      "src": "source/recruit_system/frontend/src/pages/candidate/CandidateHomePage.tsx:93"
+    },
+    {
+      "from": "N31",
+      "to": "N32",
+      "guard": "",
+      "src": "source/recruit_system/frontend/src/api/client.ts:91"
+    },
+    {
+      "from": "N32",
+      "to": "N33",
+      "guard": "",
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/controller/ApplicationsController.java:18"
+    },
+    {
+      "from": "N33",
+      "to": "N34",
+      "guard": "",
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/service/ApplicationService.java:26"
+    },
+    {
+      "from": "N34",
+      "to": "N35",
+      "guard": "",
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/controller/ApplicationsController.java:20"
+    },
+    {
+      "from": "N35",
+      "to": "N36",
+      "guard": "",
+      "src": "source/recruit_system/frontend/src/api/client.ts:32"
+    },
+    {
+      "from": "N36",
+      "to": "N37",
+      "guard": "",
+      "src": "source/recruit_system/frontend/src/pages/candidate/CandidateHomePage.tsx:93"
+    },
+    {
+      "from": "N37",
+      "to": "N38",
+      "guard": "[Thất bại]",
+      "src": "source/recruit_system/frontend/src/pages/candidate/CandidateHomePage.tsx:96"
+    },
+    {
+      "from": "N37",
+      "to": "N39",
+      "guard": "[Thành công]",
+      "src": "source/recruit_system/frontend/src/pages/candidate/CandidateHomePage.tsx:94"
+    },
+    {
+      "from": "N38",
+      "to": "N40",
+      "guard": "[Click OK]",
+      "src": "source/recruit_system/frontend/src/pages/candidate/CandidateHomePage.tsx:96"
+    },
+    {
+      "from": "N39",
+      "to": "N40",
+      "guard": "[Click OK]",
+      "src": "source/recruit_system/frontend/src/pages/candidate/CandidateHomePage.tsx:94"
+    }
+  ],
+  "notes": [
+    "Biểu đồ hoạt động mô hình hóa 3 luồng chính của M3: đối sánh CV với tin việc làm, xem chi tiết tin tuyển dụng, và ứng tuyển việc làm.",
+    "Mỗi lớp giao diện (CandidateHomePage.tsx, CandidateMatchingPage.tsx, CandidateJobDetailPage.tsx) tương ứng một làn hoạt động (partition).",
+    "Mỗi yêu cầu từ giao diện đi qua module client (fetch() / api<T>()) tới Controller tương ứng (MatchingController, JobsController, ApplicationsController), gọi Service/Repository (MatchingService, JobService, ApplicationService, MatchingResultRepository) và AI (match_without_llm()), sau đó trả kết quả ngược lại giao diện (luồng hai chiều).",
+    "Ứng tuyển thực hiện tại CandidateHomePage.tsx; trang chi tiết việc CandidateJobDetailPage.tsx chỉ hiển thị thông tin và điều hướng ôn tập phỏng vấn theo đúng mã nguồn thật."
+  ],
+  "open_questions": []
+}
