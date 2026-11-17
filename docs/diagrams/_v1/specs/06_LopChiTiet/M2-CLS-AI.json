@@ -1,0 +1,1134 @@
+{
+  "id": "M2-CLS-AI",
+  "type": "class",
+  "name": "Biểu đồ lớp chi tiết - Dịch vụ AI trích xuất CV (cv-extraction-ai)",
+  "elements": [
+    {
+      "key": "View",
+      "kind": "package",
+      "name": "View",
+      "notes": "Tầng giao diện API (FastAPI route tiếp nhận yêu cầu từ recruitment-service)",
+      "src": "source/recruit_system/services/cv-extraction-ai/app/api/routes.py:20"
+    },
+    {
+      "key": "Controller",
+      "kind": "package",
+      "name": "Controller",
+      "notes": "Tầng điều khiển: sinh kết quả qua LLM, phòng vệ vòng lặp, hoàn thiện cắt cụt, hậu xử lý và làm giàu dữ liệu tri thức",
+      "src": "source/recruit_system/services/cv-extraction-ai/app/services/generator.py:1"
+    },
+    {
+      "key": "Model",
+      "kind": "package",
+      "name": "Model",
+      "notes": "Tầng thực thể dữ liệu, cấu trúc DTO và mô hình tri thức in-memory",
+      "src": "source/recruit_system/services/cv-extraction-ai/app/schemas/cv.py:1"
+    },
+    {
+      "key": "routes",
+      "kind": "class",
+      "name": "routes",
+      "stereotype": "boundary",
+      "parent": "View",
+      "attributes": [
+        {
+          "name": "router",
+          "type": "APIRouter",
+          "visibility": "-"
+        },
+        {
+          "name": "KG_FIELDS",
+          "type": "tuple",
+          "visibility": "-"
+        }
+      ],
+      "operations": [
+        {
+          "name": "_has_content",
+          "params": [
+            {
+              "name": "value",
+              "type": "Any"
+            }
+          ],
+          "returns": "bool",
+          "visibility": "-"
+        },
+        {
+          "name": "health",
+          "params": [],
+          "returns": "dict",
+          "visibility": "+"
+        },
+        {
+          "name": "extract_cv",
+          "params": [
+            {
+              "name": "request",
+              "type": "CVRequest"
+            },
+            {
+              "name": "response",
+              "type": "Response"
+            },
+            {
+              "name": "include",
+              "type": "str | None"
+            }
+          ],
+          "returns": "dict",
+          "visibility": "+"
+        }
+      ],
+      "src": "source/recruit_system/services/cv-extraction-ai/app/api/routes.py:26"
+    },
+    {
+      "key": "CVRequest",
+      "kind": "class",
+      "name": "CVRequest",
+      "stereotype": "entity",
+      "parent": "Model",
+      "attributes": [
+        {
+          "name": "cv_text",
+          "type": "str",
+          "visibility": "+"
+        }
+      ],
+      "operations": [],
+      "src": "source/recruit_system/services/cv-extraction-ai/app/schemas/cv.py:4"
+    },
+    {
+      "key": "CVResponse",
+      "kind": "class",
+      "name": "CVResponse",
+      "stereotype": "entity",
+      "parent": "Model",
+      "attributes": [
+        {
+          "name": "data",
+          "type": "dict",
+          "visibility": "+"
+        }
+      ],
+      "operations": [],
+      "src": "source/recruit_system/services/cv-extraction-ai/app/schemas/cv.py:8"
+    },
+    {
+      "key": "generator",
+      "kind": "class",
+      "name": "generator",
+      "stereotype": "module",
+      "parent": "Controller",
+      "attributes": [
+        {
+          "name": "_lock",
+          "type": "Lock",
+          "visibility": "-"
+        }
+      ],
+      "operations": [
+        {
+          "name": "build_prompt",
+          "params": [
+            {
+              "name": "cv_text",
+              "type": "str"
+            }
+          ],
+          "returns": "str",
+          "visibility": "+"
+        },
+        {
+          "name": "count_prompt_tokens",
+          "params": [
+            {
+              "name": "prompt",
+              "type": "str"
+            }
+          ],
+          "returns": "int",
+          "visibility": "+"
+        },
+        {
+          "name": "_generate_llama",
+          "params": [
+            {
+              "name": "prompt",
+              "type": "str"
+            },
+            {
+              "name": "max_tokens",
+              "type": "int | None"
+            },
+            {
+              "name": "prefix",
+              "type": "str"
+            },
+            {
+              "name": "continue_output",
+              "type": "bool"
+            }
+          ],
+          "returns": "GenerationResult",
+          "visibility": "-"
+        },
+        {
+          "name": "_continue_llama",
+          "params": [
+            {
+              "name": "prompt",
+              "type": "str"
+            },
+            {
+              "name": "raw_text",
+              "type": "str"
+            },
+            {
+              "name": "first",
+              "type": "GenerationResult"
+            }
+          ],
+          "returns": "GenerationResult",
+          "visibility": "-"
+        },
+        {
+          "name": "_generate_transformers",
+          "params": [
+            {
+              "name": "prompt",
+              "type": "str"
+            }
+          ],
+          "returns": "GenerationResult",
+          "visibility": "-"
+        },
+        {
+          "name": "generate_cv",
+          "params": [
+            {
+              "name": "cv_text",
+              "type": "str"
+            }
+          ],
+          "returns": "str",
+          "visibility": "+"
+        },
+        {
+          "name": "generate_cv_result",
+          "params": [
+            {
+              "name": "cv_text",
+              "type": "str"
+            }
+          ],
+          "returns": "GenerationResult",
+          "visibility": "+"
+        }
+      ],
+      "src": "source/recruit_system/services/cv-extraction-ai/app/services/generator.py:29"
+    },
+    {
+      "key": "GenerationResult",
+      "kind": "class",
+      "name": "GenerationResult",
+      "stereotype": "entity",
+      "parent": "Model",
+      "attributes": [
+        {
+          "name": "text",
+          "type": "str",
+          "visibility": "+"
+        },
+        {
+          "name": "truncated",
+          "type": "bool",
+          "visibility": "+"
+        },
+        {
+          "name": "reason",
+          "type": "str | None",
+          "visibility": "+"
+        },
+        {
+          "name": "output_tokens",
+          "type": "int | None",
+          "visibility": "+"
+        },
+        {
+          "name": "continued",
+          "type": "bool",
+          "visibility": "+"
+        },
+        {
+          "name": "continuation_reason",
+          "type": "str | None",
+          "visibility": "+"
+        }
+      ],
+      "operations": [],
+      "src": "source/recruit_system/services/cv-extraction-ai/app/services/generator.py:20"
+    },
+    {
+      "key": "ModelState",
+      "kind": "class",
+      "name": "ModelState",
+      "stereotype": "control",
+      "parent": "Controller",
+      "attributes": [
+        {
+          "name": "engine",
+          "type": "str | None",
+          "visibility": "+"
+        },
+        {
+          "name": "llm",
+          "type": "Any",
+          "visibility": "+"
+        },
+        {
+          "name": "tokenizer",
+          "type": "Any",
+          "visibility": "+"
+        },
+        {
+          "name": "model",
+          "type": "Any",
+          "visibility": "+"
+        },
+        {
+          "name": "gguf_path_used",
+          "type": "str | None",
+          "visibility": "+"
+        },
+        {
+          "name": "context_tokens",
+          "type": "int | None",
+          "visibility": "+"
+        },
+        {
+          "name": "fallback_reason",
+          "type": "str | None",
+          "visibility": "+"
+        }
+      ],
+      "operations": [
+        {
+          "name": "__init__",
+          "params": [],
+          "returns": "void",
+          "visibility": "+"
+        }
+      ],
+      "src": "source/recruit_system/services/cv-extraction-ai/app/services/model_loader.py:14"
+    },
+    {
+      "key": "LoopGuard",
+      "kind": "class",
+      "name": "LoopGuard",
+      "stereotype": "control",
+      "parent": "Controller",
+      "attributes": [
+        {
+          "name": "max_string_chars",
+          "type": "int",
+          "visibility": "+"
+        },
+        {
+          "name": "max_repeats",
+          "type": "int",
+          "visibility": "+"
+        },
+        {
+          "name": "reason",
+          "type": "str | None",
+          "visibility": "+"
+        },
+        {
+          "name": "_stack",
+          "type": "list",
+          "visibility": "-"
+        },
+        {
+          "name": "_in_string",
+          "type": "bool",
+          "visibility": "-"
+        }
+      ],
+      "operations": [
+        {
+          "name": "feed",
+          "params": [
+            {
+              "name": "chunk",
+              "type": "str"
+            }
+          ],
+          "returns": "bool",
+          "visibility": "+"
+        }
+      ],
+      "src": "source/recruit_system/services/cv-extraction-ai/app/services/loop_guard.py:14"
+    },
+    {
+      "key": "continuation",
+      "kind": "class",
+      "name": "continuation",
+      "stereotype": "module",
+      "parent": "Controller",
+      "attributes": [
+        {
+          "name": "TOP_KEYS",
+          "type": "list[str]",
+          "visibility": "+"
+        }
+      ],
+      "operations": [
+        {
+          "name": "_deduplicate",
+          "params": [
+            {
+              "name": "value",
+              "type": "Any"
+            }
+          ],
+          "returns": "Any",
+          "visibility": "-"
+        },
+        {
+          "name": "plan_continuation",
+          "params": [
+            {
+              "name": "raw_text",
+              "type": "str"
+            },
+            {
+              "name": "truncated_reason",
+              "type": "str | None"
+            }
+          ],
+          "returns": "tuple[str, str] | None",
+          "visibility": "+"
+        },
+        {
+          "name": "merge_outputs",
+          "params": [
+            {
+              "name": "first",
+              "type": "dict"
+            },
+            {
+              "name": "second",
+              "type": "dict"
+            }
+          ],
+          "returns": "dict",
+          "visibility": "+"
+        }
+      ],
+      "src": "source/recruit_system/services/cv-extraction-ai/app/services/continuation.py:20"
+    },
+    {
+      "key": "json_parse",
+      "kind": "class",
+      "name": "json_parse",
+      "stereotype": "module",
+      "parent": "Controller",
+      "attributes": [
+        {
+          "name": "TOP_KEYS",
+          "type": "tuple",
+          "visibility": "+"
+        },
+        {
+          "name": "_ITEM_LIST",
+          "type": "tuple",
+          "visibility": "-"
+        }
+      ],
+      "operations": [
+        {
+          "name": "merge_fragments",
+          "params": [
+            {
+              "name": "parts",
+              "type": "Any"
+            }
+          ],
+          "returns": "dict | None",
+          "visibility": "+"
+        },
+        {
+          "name": "extract_json",
+          "params": [
+            {
+              "name": "text",
+              "type": "str"
+            }
+          ],
+          "returns": "dict",
+          "visibility": "+"
+        }
+      ],
+      "src": "source/recruit_system/services/cv-extraction-ai/app/utils/json_parse.py:11"
+    },
+    {
+      "key": "pipeline",
+      "kind": "class",
+      "name": "pipeline",
+      "stereotype": "module",
+      "parent": "Controller",
+      "attributes": [],
+      "operations": [
+        {
+          "name": "postprocess",
+          "params": [
+            {
+              "name": "data",
+              "type": "Any"
+            },
+            {
+              "name": "cv_text",
+              "type": "str"
+            }
+          ],
+          "returns": "tuple[dict, PostprocessStats]",
+          "visibility": "+"
+        }
+      ],
+      "src": "source/recruit_system/services/cv-extraction-ai/app/postprocess/pipeline.py:48"
+    },
+    {
+      "key": "PostprocessStats",
+      "kind": "class",
+      "name": "PostprocessStats",
+      "stereotype": "entity",
+      "parent": "Model",
+      "attributes": [
+        {
+          "name": "keys_renamed",
+          "type": "int",
+          "visibility": "+"
+        },
+        {
+          "name": "types_coerced",
+          "type": "int",
+          "visibility": "+"
+        },
+        {
+          "name": "skills_cleaned",
+          "type": "int",
+          "visibility": "+"
+        },
+        {
+          "name": "contacts_nulled",
+          "type": "int",
+          "visibility": "+"
+        },
+        {
+          "name": "names_snapped",
+          "type": "int",
+          "visibility": "+"
+        },
+        {
+          "name": "experience_removed_ungrounded",
+          "type": "int",
+          "visibility": "+"
+        },
+        {
+          "name": "dates_swapped",
+          "type": "int",
+          "visibility": "+"
+        },
+        {
+          "name": "duplicates_removed",
+          "type": "int",
+          "visibility": "+"
+        }
+      ],
+      "operations": [
+        {
+          "name": "as_dict",
+          "params": [],
+          "returns": "dict[str, int]",
+          "visibility": "+"
+        }
+      ],
+      "src": "source/recruit_system/services/cv-extraction-ai/app/postprocess/pipeline.py:21"
+    },
+    {
+      "key": "enrich",
+      "kind": "class",
+      "name": "enrich",
+      "stereotype": "module",
+      "parent": "Controller",
+      "attributes": [],
+      "operations": [
+        {
+          "name": "_stat_val",
+          "params": [
+            {
+              "name": "stats",
+              "type": "dict[str, Any]"
+            },
+            {
+              "name": "key",
+              "type": "str"
+            }
+          ],
+          "returns": "int",
+          "visibility": "-"
+        },
+        {
+          "name": "_extract_skill_info",
+          "params": [
+            {
+              "name": "skill_val",
+              "type": "Any"
+            }
+          ],
+          "returns": "tuple[str | None, str | None]",
+          "visibility": "-"
+        },
+        {
+          "name": "_build_skill_finder",
+          "params": [
+            {
+              "name": "kb",
+              "type": "Any"
+            }
+          ],
+          "returns": "tuple[CandidateSkillFinder, dict[str, int]] | None",
+          "visibility": "-"
+        },
+        {
+          "name": "_get_skill_finder",
+          "params": [
+            {
+              "name": "kb",
+              "type": "Any"
+            }
+          ],
+          "returns": "CandidateSkillFinder | None",
+          "visibility": "-"
+        },
+        {
+          "name": "enrich",
+          "params": [
+            {
+              "name": "profile",
+              "type": "dict[str, Any]"
+            },
+            {
+              "name": "kb",
+              "type": "Any"
+            },
+            {
+              "name": "pp_stats",
+              "type": "Any"
+            },
+            {
+              "name": "cv_text",
+              "type": "str | None"
+            }
+          ],
+          "returns": "dict[str, Any]",
+          "visibility": "+"
+        }
+      ],
+      "src": "source/recruit_system/services/cv-extraction-ai/app/kg/enrich.py:94"
+    },
+    {
+      "key": "normalize",
+      "kind": "class",
+      "name": "normalize",
+      "stereotype": "module",
+      "parent": "Controller",
+      "attributes": [],
+      "operations": [
+        {
+          "name": "_normalize_skill_list",
+          "params": [
+            {
+              "name": "items",
+              "type": "Any"
+            },
+            {
+              "name": "linker",
+              "type": "Any"
+            }
+          ],
+          "returns": "Any",
+          "visibility": "-"
+        },
+        {
+          "name": "normalize_profile_with_kb",
+          "params": [
+            {
+              "name": "profile",
+              "type": "dict[str, Any]"
+            },
+            {
+              "name": "kb",
+              "type": "Any"
+            }
+          ],
+          "returns": "dict[str, Any]",
+          "visibility": "+"
+        }
+      ],
+      "src": "source/recruit_system/services/cv-extraction-ai/app/kb/normalize.py:11"
+    },
+    {
+      "key": "KnowledgeBase",
+      "kind": "class",
+      "name": "KnowledgeBase",
+      "stereotype": "entity",
+      "parent": "Model",
+      "attributes": [
+        {
+          "name": "source",
+          "type": "str",
+          "visibility": "+"
+        },
+        {
+          "name": "linker",
+          "type": "SkillLinker",
+          "visibility": "+"
+        },
+        {
+          "name": "skills",
+          "type": "dict[int, tuple[str, str]]",
+          "visibility": "+"
+        },
+        {
+          "name": "edges",
+          "type": "dict[int, list[tuple[str, int]]]",
+          "visibility": "+"
+        },
+        {
+          "name": "school_alias",
+          "type": "dict[str, int]",
+          "visibility": "+"
+        },
+        {
+          "name": "universities",
+          "type": "dict[int, str]",
+          "visibility": "+"
+        },
+        {
+          "name": "related",
+          "type": "dict[int, list[tuple[int, float]]]",
+          "visibility": "+"
+        }
+      ],
+      "operations": [
+        {
+          "name": "link_school",
+          "params": [
+            {
+              "name": "raw",
+              "type": "str | None"
+            }
+          ],
+          "returns": "tuple[int, str] | None",
+          "visibility": "+"
+        },
+        {
+          "name": "from_csv",
+          "params": [
+            {
+              "name": "seed_dir",
+              "type": "str | Path"
+            }
+          ],
+          "returns": "KnowledgeBase",
+          "visibility": "+"
+        },
+        {
+          "name": "from_db",
+          "params": [
+            {
+              "name": "dsn",
+              "type": "str"
+            }
+          ],
+          "returns": "KnowledgeBase",
+          "visibility": "+"
+        },
+        {
+          "name": "from_neo4j",
+          "params": [
+            {
+              "name": "uri",
+              "type": "str"
+            },
+            {
+              "name": "user",
+              "type": "str"
+            },
+            {
+              "name": "password",
+              "type": "str"
+            }
+          ],
+          "returns": "KnowledgeBase",
+          "visibility": "+"
+        }
+      ],
+      "src": "source/recruit_system/services/cv-extraction-ai/app/kb/store.py:20"
+    },
+    {
+      "key": "SkillLinker",
+      "kind": "class",
+      "name": "SkillLinker",
+      "stereotype": "control",
+      "parent": "Controller",
+      "attributes": [
+        {
+          "name": "skills",
+          "type": "dict[int, tuple[str, str]]",
+          "visibility": "+"
+        },
+        {
+          "name": "aliases",
+          "type": "dict[str, int]",
+          "visibility": "+"
+        },
+        {
+          "name": "surfaces",
+          "type": "dict[str, int]",
+          "visibility": "+"
+        },
+        {
+          "name": "_keys",
+          "type": "list[str]",
+          "visibility": "-"
+        }
+      ],
+      "operations": [
+        {
+          "name": "_variant_text",
+          "params": [
+            {
+              "name": "text",
+              "type": "str"
+            }
+          ],
+          "returns": "str",
+          "visibility": "-"
+        },
+        {
+          "name": "link",
+          "params": [
+            {
+              "name": "raw",
+              "type": "str"
+            }
+          ],
+          "returns": "list[Link]",
+          "visibility": "+"
+        },
+        {
+          "name": "link_many",
+          "params": [
+            {
+              "name": "raws",
+              "type": "Iterable[str]"
+            }
+          ],
+          "returns": "list[Link]",
+          "visibility": "+"
+        },
+        {
+          "name": "from_csv",
+          "params": [
+            {
+              "name": "seed_dir",
+              "type": "str | Path"
+            }
+          ],
+          "returns": "SkillLinker",
+          "visibility": "+"
+        },
+        {
+          "name": "_link_one",
+          "params": [
+            {
+              "name": "piece",
+              "type": "str"
+            }
+          ],
+          "returns": "list[Link]",
+          "visibility": "-"
+        }
+      ],
+      "src": "source/recruit_system/services/cv-extraction-ai/app/kb/linker.py:30"
+    },
+    {
+      "key": "Link",
+      "kind": "class",
+      "name": "Link",
+      "stereotype": "entity",
+      "parent": "Model",
+      "attributes": [
+        {
+          "name": "raw",
+          "type": "str",
+          "visibility": "+"
+        },
+        {
+          "name": "skill_id",
+          "type": "int | None",
+          "visibility": "+"
+        },
+        {
+          "name": "name",
+          "type": "str | None",
+          "visibility": "+"
+        },
+        {
+          "name": "category",
+          "type": "str | None",
+          "visibility": "+"
+        },
+        {
+          "name": "method",
+          "type": "str",
+          "visibility": "+"
+        },
+        {
+          "name": "score",
+          "type": "float",
+          "visibility": "+"
+        }
+      ],
+      "operations": [],
+      "src": "source/recruit_system/services/cv-extraction-ai/app/kb/linker.py:21"
+    },
+    {
+      "key": "CandidateSkillFinder",
+      "kind": "class",
+      "name": "CandidateSkillFinder",
+      "stereotype": "control",
+      "parent": "Controller",
+      "attributes": [
+        {
+          "name": "_short_patterns",
+          "type": "list[tuple]",
+          "visibility": "-"
+        },
+        {
+          "name": "_special_long_patterns",
+          "type": "list[tuple]",
+          "visibility": "-"
+        },
+        {
+          "name": "_batched_long_patterns",
+          "type": "list[Pattern]",
+          "visibility": "-"
+        },
+        {
+          "name": "_norm_to_canonical",
+          "type": "dict[str, str]",
+          "visibility": "-"
+        }
+      ],
+      "operations": [
+        {
+          "name": "from_csv",
+          "params": [
+            {
+              "name": "seed_dir",
+              "type": "str | Path"
+            }
+          ],
+          "returns": "CandidateSkillFinder",
+          "visibility": "+"
+        },
+        {
+          "name": "find",
+          "params": [
+            {
+              "name": "cv_text",
+              "type": "str | None"
+            },
+            {
+              "name": "limit",
+              "type": "int"
+            }
+          ],
+          "returns": "list[str]",
+          "visibility": "+"
+        }
+      ],
+      "src": "source/recruit_system/services/cv-extraction-ai/app/kb/candidates.py:15"
+    }
+  ],
+  "relations": [
+    {
+      "from": "routes",
+      "to": "CVRequest",
+      "kind": "dependency",
+      "label": "nhận request",
+      "src": "source/recruit_system/services/cv-extraction-ai/app/api/routes.py:64"
+    },
+    {
+      "from": "routes",
+      "to": "CVResponse",
+      "kind": "dependency",
+      "label": "trả về response",
+      "src": "source/recruit_system/services/cv-extraction-ai/app/api/routes.py:64"
+    },
+    {
+      "from": "routes",
+      "to": "ModelState",
+      "kind": "association",
+      "fromMult": "*",
+      "toMult": "1",
+      "label": "kiểm tra trạng thái",
+      "src": "source/recruit_system/services/cv-extraction-ai/app/api/routes.py:81"
+    },
+    {
+      "from": "routes",
+      "to": "generator",
+      "kind": "dependency",
+      "label": "gọi suy luận",
+      "src": "source/recruit_system/services/cv-extraction-ai/app/api/routes.py:100"
+    },
+    {
+      "from": "routes",
+      "to": "json_parse",
+      "kind": "dependency",
+      "label": "phân tích JSON",
+      "src": "source/recruit_system/services/cv-extraction-ai/app/api/routes.py:110"
+    },
+    {
+      "from": "routes",
+      "to": "pipeline",
+      "kind": "dependency",
+      "label": "hậu xử lý",
+      "src": "source/recruit_system/services/cv-extraction-ai/app/api/routes.py:121"
+    },
+    {
+      "from": "routes",
+      "to": "KnowledgeBase",
+      "kind": "association",
+      "fromMult": "*",
+      "toMult": "0..1",
+      "label": "tham chiếu kb_state",
+      "src": "source/recruit_system/services/cv-extraction-ai/app/api/routes.py:134"
+    },
+    {
+      "from": "routes",
+      "to": "enrich",
+      "kind": "dependency",
+      "label": "làm giàu tri thức",
+      "src": "source/recruit_system/services/cv-extraction-ai/app/api/routes.py:138"
+    },
+    {
+      "from": "routes",
+      "to": "normalize",
+      "kind": "dependency",
+      "label": "chuẩn hóa dữ liệu",
+      "src": "source/recruit_system/services/cv-extraction-ai/app/api/routes.py:160"
+    },
+    {
+      "from": "generator",
+      "to": "ModelState",
+      "kind": "association",
+      "fromMult": "*",
+      "toMult": "1",
+      "label": "sử dụng mô hình",
+      "src": "source/recruit_system/services/cv-extraction-ai/app/services/generator.py:47"
+    },
+    {
+      "from": "generator",
+      "to": "GenerationResult",
+      "kind": "dependency",
+      "label": "sinh kết quả",
+      "src": "source/recruit_system/services/cv-extraction-ai/app/services/generator.py:115"
+    },
+    {
+      "from": "generator",
+      "to": "LoopGuard",
+      "kind": "dependency",
+      "label": "ngăn lặp vô hạn",
+      "src": "source/recruit_system/services/cv-extraction-ai/app/services/generator.py:55"
+    },
+    {
+      "from": "generator",
+      "to": "continuation",
+      "kind": "dependency",
+      "label": "lập kế hoạch nối tiếp",
+      "src": "source/recruit_system/services/cv-extraction-ai/app/services/generator.py:123"
+    },
+    {
+      "from": "generator",
+      "to": "json_parse",
+      "kind": "dependency",
+      "label": "phân tích JSON trung gian",
+      "src": "source/recruit_system/services/cv-extraction-ai/app/services/generator.py:139"
+    },
+    {
+      "from": "pipeline",
+      "to": "PostprocessStats",
+      "kind": "dependency",
+      "label": "ghi nhận thống kê",
+      "src": "source/recruit_system/services/cv-extraction-ai/app/postprocess/pipeline.py:49"
+    },
+    {
+      "from": "enrich",
+      "to": "KnowledgeBase",
+      "kind": "dependency",
+      "label": "đọc tri thức",
+      "src": "source/recruit_system/services/cv-extraction-ai/app/kg/enrich.py:96"
+    },
+    {
+      "from": "enrich",
+      "to": "CandidateSkillFinder",
+      "kind": "dependency",
+      "label": "quét kỹ năng",
+      "src": "source/recruit_system/services/cv-extraction-ai/app/kg/enrich.py:69"
+    },
+    {
+      "from": "normalize",
+      "to": "KnowledgeBase",
+      "kind": "dependency",
+      "label": "tra cứu trường học",
+      "src": "source/recruit_system/services/cv-extraction-ai/app/kb/normalize.py:63"
+    },
+    {
+      "from": "normalize",
+      "to": "SkillLinker",
+      "kind": "dependency",
+      "label": "chuẩn hóa kỹ năng",
+      "src": "source/recruit_system/services/cv-extraction-ai/app/kb/normalize.py:62"
+    },
+    {
+      "from": "KnowledgeBase",
+      "to": "SkillLinker",
+      "kind": "composition",
+      "fromMult": "1",
+      "toMult": "1",
+      "label": "sở hữu linker",
+      "src": "source/recruit_system/services/cv-extraction-ai/app/kb/store.py:22"
+    },
+    {
+      "from": "SkillLinker",
+      "to": "Link",
+      "kind": "dependency",
+      "label": "tạo liên kết",
+      "src": "source/recruit_system/services/cv-extraction-ai/app/kb/linker.py:229"
+    }
+  ],
+  "notes": [
+    "Dịch vụ cv-extraction-ai được hiện thực bằng Python FastAPI trên kiến trúc microservices (cổng 8001), phục vụ API trích xuất hồ sơ ứng viên từ văn bản CV.",
+    "Mô hình hóa Python sang UML Class Diagram tuân thủ nghiêm ngặt quy tắc tên đúng như source: các module chỉ chứa hàm mang tên module thực tế với stereotype «module» (riêng router FastAPI routes mang stereotype «boundary»), các lớp thực thể Pydantic / dataclass mang stereotype «entity», và các lớp hướng đối tượng thực thụ mang stereotype «control».",
+    "Phân tầng kiến trúc MVC: View (routes), Controller (generator, ModelState, LoopGuard, continuation, json_parse, pipeline, enrich, normalize, SkillLinker, CandidateSkillFinder), Model (CVRequest, CVResponse, GenerationResult, PostprocessStats, KnowledgeBase, Link)."
+  ],
+  "open_questions": [
+    "[cần xác nhận] Cấu hình suy luận mặc định dùng llama.cpp (GGUF 4-bit) nạp 99 lớp GPU để đạt tốc độ tối đa; khi triển khai production không có GPU hoặc môi trường container tối giản, việc fallback sang Hugging Face Transformers có đáp ứng được SLA thời gian xử lý không?",
+    "[cần xác nhận] Các trường làm giàu tri thức do cv-extraction-ai trả về khi bật include=kg (như implied_skills, skills_normalized, school_normalized) đã được recruitment-service khai thác triệt để trong đối sánh hồ sơ ứng viên hay chưa, hay hiện tại mới chỉ lưu trữ dạng EAV trong bảng cv_data?"
+  ]
+}

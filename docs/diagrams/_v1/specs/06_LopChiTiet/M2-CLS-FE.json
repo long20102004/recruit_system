@@ -1,0 +1,785 @@
+{
+  "id": "M2-CLS-FE",
+  "type": "class",
+  "name": "Biểu đồ lớp chi tiết - Tải lên CV PDF, kiểm tra và xác nhận các trường hồ sơ (Frontend)",
+  "elements": [
+    {
+      "key": "View",
+      "kind": "package",
+      "name": "View",
+      "notes": "Page và component React (TypeScript) của frontend Vite, cổng 5173.",
+      "src": "source/recruit_system/frontend/src/pages/candidate/CandidateCvPage.tsx:1"
+    },
+    {
+      "key": "Controller",
+      "kind": "package",
+      "name": "Controller",
+      "notes": "React Context Provider và custom hook giữ trạng thái toàn cục của SPA.",
+      "src": "source/recruit_system/frontend/src/context/ToastContext.tsx:1"
+    },
+    {
+      "key": "Model",
+      "kind": "package",
+      "name": "Model",
+      "notes": "API client gọi qua API Gateway (nginx :8080) và các DTO trao đổi với recruitment-service.",
+      "src": "source/recruit_system/frontend/src/api/client.ts:1"
+    },
+    {
+      "key": "CandidateCvPage",
+      "kind": "class",
+      "stereotype": "boundary",
+      "parent": "View",
+      "attributes": [
+        {
+          "name": "step",
+          "type": "number",
+          "visibility": "-"
+        },
+        {
+          "name": "fileName",
+          "type": "string",
+          "visibility": "-"
+        },
+        {
+          "name": "fields",
+          "type": "string[]",
+          "visibility": "-"
+        },
+        {
+          "name": "values",
+          "type": "Record<string, string[]>",
+          "visibility": "-"
+        },
+        {
+          "name": "busy",
+          "type": "boolean",
+          "visibility": "-"
+        },
+        {
+          "name": "loaded",
+          "type": "boolean",
+          "visibility": "-"
+        },
+        {
+          "name": "LONG_FIELDS",
+          "type": "Set<string>",
+          "visibility": "-"
+        },
+        {
+          "name": "HEADER_FIELDS",
+          "type": "string[]",
+          "visibility": "-"
+        }
+      ],
+      "operations": [
+        {
+          "name": "CandidateCvPage",
+          "params": [],
+          "returns": "JSX.Element",
+          "visibility": "+"
+        },
+        {
+          "name": "applyForm",
+          "params": [
+            {
+              "name": "form",
+              "type": "CvFormDto"
+            },
+            {
+              "name": "nextStep",
+              "type": "number | undefined"
+            }
+          ],
+          "returns": "void",
+          "visibility": "-"
+        },
+        {
+          "name": "onUpload",
+          "params": [
+            {
+              "name": "file",
+              "type": "File"
+            }
+          ],
+          "returns": "Promise<void>",
+          "visibility": "-"
+        },
+        {
+          "name": "onConfirm",
+          "params": [],
+          "returns": "Promise<void>",
+          "visibility": "-"
+        },
+        {
+          "name": "setField",
+          "params": [
+            {
+              "name": "field",
+              "type": "string"
+            },
+            {
+              "name": "lines",
+              "type": "string[]"
+            }
+          ],
+          "returns": "void",
+          "visibility": "-"
+        },
+        {
+          "name": "cleanLines",
+          "params": [
+            {
+              "name": "lines",
+              "type": "string[] | undefined"
+            }
+          ],
+          "returns": "string[]",
+          "visibility": "+"
+        },
+        {
+          "name": "valuesFrom",
+          "params": [
+            {
+              "name": "form",
+              "type": "CvFormDto"
+            }
+          ],
+          "returns": "Record<string, string[]>",
+          "visibility": "+"
+        }
+      ],
+      "src": "source/recruit_system/frontend/src/pages/candidate/CandidateCvPage.tsx:94"
+    },
+    {
+      "key": "UploadZone",
+      "kind": "class",
+      "stereotype": "boundary",
+      "parent": "View",
+      "attributes": [
+        {
+          "name": "title",
+          "type": "ReactNode",
+          "visibility": "+"
+        },
+        {
+          "name": "hint",
+          "type": "ReactNode",
+          "visibility": "+"
+        },
+        {
+          "name": "accept",
+          "type": "string",
+          "visibility": "+"
+        },
+        {
+          "name": "onFile",
+          "type": "(file: File) => void",
+          "visibility": "+"
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "visibility": "+"
+        },
+        {
+          "name": "inputRef",
+          "type": "RefObject<HTMLInputElement>",
+          "visibility": "-"
+        }
+      ],
+      "operations": [
+        {
+          "name": "UploadZone",
+          "params": [
+            {
+              "name": "props",
+              "type": "UploadZoneProps"
+            }
+          ],
+          "returns": "JSX.Element",
+          "visibility": "+"
+        },
+        {
+          "name": "handleFiles",
+          "params": [
+            {
+              "name": "files",
+              "type": "FileList | null"
+            }
+          ],
+          "returns": "void",
+          "visibility": "-"
+        },
+        {
+          "name": "onDragOver",
+          "params": [
+            {
+              "name": "e",
+              "type": "DragEvent"
+            }
+          ],
+          "returns": "void",
+          "visibility": "-"
+        },
+        {
+          "name": "onDragLeave",
+          "params": [
+            {
+              "name": "e",
+              "type": "DragEvent"
+            }
+          ],
+          "returns": "void",
+          "visibility": "-"
+        },
+        {
+          "name": "onDrop",
+          "params": [
+            {
+              "name": "e",
+              "type": "DragEvent"
+            }
+          ],
+          "returns": "void",
+          "visibility": "-"
+        }
+      ],
+      "src": "source/recruit_system/frontend/src/components/common/UploadZone.tsx:12"
+    },
+    {
+      "key": "FieldLines",
+      "kind": "class",
+      "stereotype": "boundary",
+      "parent": "View",
+      "attributes": [
+        {
+          "name": "lines",
+          "type": "string[]",
+          "visibility": "+"
+        },
+        {
+          "name": "long",
+          "type": "boolean",
+          "visibility": "+"
+        },
+        {
+          "name": "onChange",
+          "type": "(lines: string[]) => void",
+          "visibility": "+"
+        }
+      ],
+      "operations": [
+        {
+          "name": "FieldLines",
+          "params": [
+            {
+              "name": "props",
+              "type": "{ lines: string[]; long: boolean; onChange: (lines: string[]) => void }"
+            }
+          ],
+          "returns": "JSX.Element",
+          "visibility": "+"
+        },
+        {
+          "name": "update",
+          "params": [
+            {
+              "name": "index",
+              "type": "number"
+            },
+            {
+              "name": "text",
+              "type": "string"
+            }
+          ],
+          "returns": "void",
+          "visibility": "-"
+        }
+      ],
+      "src": "source/recruit_system/frontend/src/pages/candidate/CandidateCvPage.tsx:40"
+    },
+    {
+      "key": "LineView",
+      "kind": "class",
+      "stereotype": "boundary",
+      "parent": "View",
+      "attributes": [
+        {
+          "name": "lines",
+          "type": "string[]",
+          "visibility": "+"
+        }
+      ],
+      "operations": [
+        {
+          "name": "LineView",
+          "params": [
+            {
+              "name": "props",
+              "type": "{ lines: string[] }"
+            }
+          ],
+          "returns": "JSX.Element",
+          "visibility": "+"
+        }
+      ],
+      "src": "source/recruit_system/frontend/src/pages/candidate/CandidateCvPage.tsx:80"
+    },
+    {
+      "key": "Toast",
+      "kind": "class",
+      "stereotype": "boundary",
+      "parent": "View",
+      "attributes": [
+        {
+          "name": "message",
+          "type": "string",
+          "visibility": "+"
+        }
+      ],
+      "operations": [
+        {
+          "name": "Toast",
+          "params": [
+            {
+              "name": "props",
+              "type": "{ message: string }"
+            }
+          ],
+          "returns": "JSX.Element",
+          "visibility": "+"
+        }
+      ],
+      "src": "source/recruit_system/frontend/src/components/common/Toast.tsx:5"
+    },
+    {
+      "key": "RequireAuth",
+      "kind": "class",
+      "stereotype": "boundary",
+      "parent": "View",
+      "attributes": [
+        {
+          "name": "roles",
+          "type": "RoleDto[]",
+          "visibility": "+"
+        },
+        {
+          "name": "children",
+          "type": "React.ReactNode",
+          "visibility": "+"
+        }
+      ],
+      "operations": [
+        {
+          "name": "RequireAuth",
+          "params": [
+            {
+              "name": "props",
+              "type": "{ roles?: RoleDto[]; children: React.ReactNode }"
+            }
+          ],
+          "returns": "React.ReactNode",
+          "visibility": "+"
+        }
+      ],
+      "src": "source/recruit_system/frontend/src/App.tsx:22"
+    },
+    {
+      "key": "ToastContext",
+      "kind": "class",
+      "stereotype": "control",
+      "parent": "Controller",
+      "attributes": [
+        {
+          "name": "message",
+          "type": "string | null",
+          "visibility": "-"
+        },
+        {
+          "name": "ToastContext",
+          "type": "Context<ToastContextValue | null>",
+          "visibility": "-"
+        }
+      ],
+      "operations": [
+        {
+          "name": "ToastProvider",
+          "params": [
+            {
+              "name": "children",
+              "type": "ReactNode"
+            }
+          ],
+          "returns": "JSX.Element",
+          "visibility": "+"
+        },
+        {
+          "name": "toast",
+          "params": [
+            {
+              "name": "msg",
+              "type": "string"
+            }
+          ],
+          "returns": "void",
+          "visibility": "+"
+        },
+        {
+          "name": "useToast",
+          "params": [],
+          "returns": "ToastContextValue",
+          "visibility": "+"
+        }
+      ],
+      "src": "source/recruit_system/frontend/src/context/ToastContext.tsx:17"
+    },
+    {
+      "key": "AuthContext",
+      "kind": "class",
+      "stereotype": "control",
+      "parent": "Controller",
+      "attributes": [
+        {
+          "name": "user",
+          "type": "UserDto | null",
+          "visibility": "-"
+        },
+        {
+          "name": "loading",
+          "type": "boolean",
+          "visibility": "-"
+        },
+        {
+          "name": "AuthContext",
+          "type": "Context<AuthState | null>",
+          "visibility": "-"
+        }
+      ],
+      "operations": [
+        {
+          "name": "AuthProvider",
+          "params": [
+            {
+              "name": "children",
+              "type": "ReactNode"
+            }
+          ],
+          "returns": "JSX.Element",
+          "visibility": "+"
+        },
+        {
+          "name": "useAuth",
+          "params": [],
+          "returns": "AuthState",
+          "visibility": "+"
+        }
+      ],
+      "src": "source/recruit_system/frontend/src/context/AuthContext.tsx:44"
+    },
+    {
+      "key": "ApiClient",
+      "kind": "class",
+      "stereotype": "client",
+      "parent": "Model",
+      "attributes": [
+        {
+          "name": "API_BASE",
+          "type": "string",
+          "visibility": "-"
+        },
+        {
+          "name": "TOKEN_KEY",
+          "type": "string",
+          "visibility": "-"
+        }
+      ],
+      "operations": [
+        {
+          "name": "api",
+          "params": [
+            {
+              "name": "path",
+              "type": "string"
+            },
+            {
+              "name": "options",
+              "type": "RequestInit"
+            }
+          ],
+          "returns": "Promise<T>",
+          "visibility": "+"
+        },
+        {
+          "name": "getToken",
+          "params": [],
+          "returns": "string | null",
+          "visibility": "+"
+        },
+        {
+          "name": "setToken",
+          "params": [
+            {
+              "name": "token",
+              "type": "string | null"
+            }
+          ],
+          "returns": "void",
+          "visibility": "+"
+        },
+        {
+          "name": "parseError",
+          "params": [
+            {
+              "name": "res",
+              "type": "Response"
+            }
+          ],
+          "returns": "Promise<string>",
+          "visibility": "-"
+        }
+      ],
+      "src": "source/recruit_system/frontend/src/api/client.ts:32",
+      "name": "client"
+    },
+    {
+      "key": "cvsApi",
+      "kind": "class",
+      "stereotype": "client",
+      "parent": "Model",
+      "attributes": [],
+      "operations": [
+        {
+          "name": "mine",
+          "params": [],
+          "returns": "Promise<CvFormDto>",
+          "visibility": "+"
+        },
+        {
+          "name": "upload",
+          "params": [
+            {
+              "name": "file",
+              "type": "File"
+            }
+          ],
+          "returns": "Promise<CvFormDto>",
+          "visibility": "+"
+        },
+        {
+          "name": "confirm",
+          "params": [
+            {
+              "name": "fields",
+              "type": "CvFieldDto[]"
+            }
+          ],
+          "returns": "Promise<CvFormDto>",
+          "visibility": "+"
+        }
+      ],
+      "src": "source/recruit_system/frontend/src/api/client.ts:99"
+    },
+    {
+      "key": "ApiError",
+      "kind": "class",
+      "stereotype": "entity",
+      "parent": "Model",
+      "attributes": [
+        {
+          "name": "status",
+          "type": "number",
+          "visibility": "+"
+        }
+      ],
+      "operations": [
+        {
+          "name": "constructor",
+          "params": [
+            {
+              "name": "status",
+              "type": "number"
+            },
+            {
+              "name": "message",
+              "type": "string"
+            }
+          ],
+          "returns": "ApiError",
+          "visibility": "+"
+        }
+      ],
+      "src": "source/recruit_system/frontend/src/api/client.ts:14"
+    },
+    {
+      "key": "CvFormDto",
+      "kind": "class",
+      "stereotype": "entity",
+      "parent": "Model",
+      "attributes": [
+        {
+          "name": "fileName",
+          "type": "string | null",
+          "visibility": "+"
+        },
+        {
+          "name": "parsingStatus",
+          "type": "string | null",
+          "visibility": "+"
+        },
+        {
+          "name": "analyzed",
+          "type": "boolean",
+          "visibility": "+"
+        },
+        {
+          "name": "fields",
+          "type": "CvFieldDto[]",
+          "visibility": "+"
+        }
+      ],
+      "operations": [],
+      "src": "source/recruit_system/frontend/src/api/client.ts:225"
+    },
+    {
+      "key": "CvFieldDto",
+      "kind": "class",
+      "stereotype": "entity",
+      "parent": "Model",
+      "attributes": [
+        {
+          "name": "field",
+          "type": "string",
+          "visibility": "+"
+        },
+        {
+          "name": "values",
+          "type": "string[]",
+          "visibility": "+"
+        }
+      ],
+      "operations": [],
+      "src": "source/recruit_system/frontend/src/api/client.ts:220"
+    }
+  ],
+  "relations": [
+    {
+      "from": "RequireAuth",
+      "to": "AuthContext",
+      "kind": "dependency",
+      "label": "«use» useAuth()",
+      "src": "source/recruit_system/frontend/src/App.tsx:29"
+    },
+    {
+      "from": "RequireAuth",
+      "to": "CandidateCvPage",
+      "kind": "association",
+      "fromMult": "1",
+      "toMult": "1",
+      "label": "render children khi role hợp lệ",
+      "src": "source/recruit_system/frontend/src/App.tsx:67"
+    },
+    {
+      "from": "CandidateCvPage",
+      "to": "UploadZone",
+      "kind": "association",
+      "fromMult": "1",
+      "toMult": "1",
+      "label": "callback onFile(file)",
+      "src": "source/recruit_system/frontend/src/pages/candidate/CandidateCvPage.tsx:246"
+    },
+    {
+      "from": "CandidateCvPage",
+      "to": "FieldLines",
+      "kind": "association",
+      "fromMult": "1",
+      "toMult": "0..*",
+      "label": "mỗi trường hồ sơ",
+      "src": "source/recruit_system/frontend/src/pages/candidate/CandidateCvPage.tsx:271"
+    },
+    {
+      "from": "CandidateCvPage",
+      "to": "LineView",
+      "kind": "association",
+      "fromMult": "1",
+      "toMult": "0..*",
+      "label": "xem hồ sơ ở Bước 3",
+      "src": "source/recruit_system/frontend/src/pages/candidate/CandidateCvPage.tsx:210"
+    },
+    {
+      "from": "CandidateCvPage",
+      "to": "ToastContext",
+      "kind": "dependency",
+      "label": "«use» useToast()",
+      "src": "source/recruit_system/frontend/src/pages/candidate/CandidateCvPage.tsx:95"
+    },
+    {
+      "from": "CandidateCvPage",
+      "to": "cvsApi",
+      "kind": "dependency",
+      "label": "«gọi» mine() / upload() / confirm()",
+      "src": "source/recruit_system/frontend/src/pages/candidate/CandidateCvPage.tsx:129"
+    },
+    {
+      "from": "CandidateCvPage",
+      "to": "CvFormDto",
+      "kind": "dependency",
+      "label": "«use» nhận DTO",
+      "src": "source/recruit_system/frontend/src/pages/candidate/CandidateCvPage.tsx:103"
+    },
+    {
+      "from": "ToastContext",
+      "to": "Toast",
+      "kind": "composition",
+      "fromMult": "1",
+      "toMult": "0..1",
+      "label": "render khi message ≠ null",
+      "src": "source/recruit_system/frontend/src/context/ToastContext.tsx:30"
+    },
+    {
+      "from": "AuthContext",
+      "to": "ApiClient",
+      "kind": "dependency",
+      "label": "«use» getToken() / setToken()",
+      "src": "source/recruit_system/frontend/src/context/AuthContext.tsx:49"
+    },
+    {
+      "from": "cvsApi",
+      "to": "ApiClient",
+      "kind": "dependency",
+      "label": "«gọi» api<T>()",
+      "src": "source/recruit_system/frontend/src/api/client.ts:100"
+    },
+    {
+      "from": "cvsApi",
+      "to": "CvFormDto",
+      "kind": "dependency",
+      "label": "«trả về»",
+      "src": "source/recruit_system/frontend/src/api/client.ts:100"
+    },
+    {
+      "from": "cvsApi",
+      "to": "CvFieldDto",
+      "kind": "dependency",
+      "label": "«use» tham số confirm()",
+      "src": "source/recruit_system/frontend/src/api/client.ts:106"
+    },
+    {
+      "from": "ApiClient",
+      "to": "ApiError",
+      "kind": "dependency",
+      "label": "«create» khi !res.ok",
+      "src": "source/recruit_system/frontend/src/api/client.ts:45"
+    }
+  ],
+  "notes": [
+    "Phạm vi Frontend của module M2, chỉ gồm các lớp THỰC SỰ được gọi trong luồng M2-ACT (N00-N25): trang /candidate/cv, component tải lên, toast, route guard, api client và 2 DTO của CV.",
+    "React component là hàm, được mô hình hóa thành class stereotype boundary: props/state là attributes, hàm xử lý nội bộ là operations. Component function được ghi là operation cùng tên với lớp (visibility +).",
+    "AuthContext chỉ tham gia luồng M2 qua bước kiểm tra quyền ở route guard RequireAuth (useAuth); các phương thức login/register/chooseRole/logout thuộc module M1 nên không đưa vào.",
+    "ApiError là lớp dữ liệu lỗi dùng chung của tầng client; không có operations nghiệp vụ ngoài constructor.",
+    "Luồng gọi chính: UploadZone → onUpload (kiểm tra .pdf) → cvsApi.upload → ApiClient.api (POST /api/cvs) → applyForm (step=2) → FieldLines chỉnh sửa → onConfirm → cvsApi.confirm (PUT /api/cvs) → applyForm (step=3) → LineView; mọi lỗi hiển thị qua ToastContext.toast."
+  ],
+  "open_questions": [
+    "[cần xác nhận] AuthContext được đưa vào biểu đồ với duy nhất useAuth() (vì luồng M2 chỉ đọc user/loading qua RequireAuth); các phương thức login/register/chooseRole/logout có cần thể hiện đầy đủ cho đồng bộ với M1-CLS-FE không?",
+    "[cần xác nhận] types/index.ts còn nhiều interface cũ (ExtractedCv, Job, MatchResult, InterviewQuestion...) chỉ phục vụ data/mockData.ts, không được dùng trong luồng M2 thật; đã loại khỏi biểu đồ — có cần giữ lại làm tài liệu tham chiếu không?"
+  ]
+}

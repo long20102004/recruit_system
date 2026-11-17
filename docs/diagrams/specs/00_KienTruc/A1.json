@@ -1,0 +1,263 @@
+{
+  "id": "A1",
+  "type": "component",
+  "name": "Biểu đồ kiến trúc hệ thống theo chiều dọc",
+  "elements": [
+    {
+      "key": "UserBrowser",
+      "kind": "actor",
+      "name": "Người dùng (Trình duyệt web)",
+      "notes": "Ứng viên, nhà tuyển dụng và quản trị viên truy cập ứng dụng qua trình duyệt web",
+      "src": "source/recruit_system/frontend/src/App.tsx:22"
+    },
+    {
+      "key": "FrontendClient",
+      "kind": "component",
+      "name": "Frontend React",
+      "notes": "React 19, Vite, TypeScript (cổng 5173); SPA quản lý giao diện, trạng thái xác thực và gọi API qua proxy /api",
+      "src": "source/recruit_system/frontend/package.json:13"
+    },
+    {
+      "key": "ApiGateway",
+      "kind": "component",
+      "name": "API Gateway (nginx)",
+      "notes": "Nginx 1.28-alpine (cổng 8080); định tuyến /api/* tới các microservice tương ứng; chặn tuyệt đối truy cập bên ngoài vào /internal/*",
+      "src": "source/recruit_system/infra/gateway/nginx.conf:2"
+    },
+    {
+      "key": "IdentityService",
+      "kind": "component",
+      "name": "identity-service",
+      "notes": "Spring Boot 4.1, Java 17 (cổng 8081); quản lý tài khoản, đăng ký, đăng nhập, JWT token, chọn vai trò và API nội bộ /internal/users",
+      "src": "source/recruit_system/backend/identity-service/src/main/resources/application.yml:2"
+    },
+    {
+      "key": "RecruitmentService",
+      "kind": "component",
+      "name": "recruitment-service",
+      "notes": "Spring Boot 4.1, Java 17 (cổng 8082); quản lý hồ sơ CV, tin tuyển dụng, ứng tuyển, dashboard; điều phối gọi AI trích xuất CV và đối sánh JD-CV",
+      "src": "source/recruit_system/backend/recruitment-service/src/main/resources/application.yml:2"
+    },
+    {
+      "key": "InterviewService",
+      "kind": "component",
+      "name": "interview-service",
+      "notes": "Spring Boot 4.1, Java 17 (cổng 8083); quản lý ngân hàng câu hỏi, tiêu chí rubric, phiên phỏng vấn, câu trả lời và điều phối AI chấm điểm",
+      "src": "source/recruit_system/backend/interview-service/src/main/resources/application.yml:2"
+    },
+    {
+      "key": "IdentityDb",
+      "kind": "database",
+      "name": "identity-db (hirelens_identity)",
+      "notes": "MySQL 8.4 (cổng container 3306, host 3307); cơ sở dữ liệu riêng của identity-service, lưu bảng users",
+      "src": "source/recruit_system/docker-compose.yml:25"
+    },
+    {
+      "key": "RecruitmentDb",
+      "kind": "database",
+      "name": "recruitment-db (hirelens_recruitment)",
+      "notes": "MySQL 8.4 (cổng container 3306, host 3308); cơ sở dữ liệu riêng của recruitment-service, lưu companies, candidate_profiles, recruiter_profiles, skills, jobs, job_skills, job_applications, matching_results, setting, cv_data",
+      "src": "source/recruit_system/docker-compose.yml:43"
+    },
+    {
+      "key": "InterviewDb",
+      "kind": "database",
+      "name": "interview-db (hirelens_interview)",
+      "notes": "MySQL 8.4 (cổng container 3306, host 3309); cơ sở dữ liệu riêng của interview-service, lưu interview_questions, evaluation_rubrics, model_versions, interview_sessions, interview_session_questions, interview_responses, evaluation_results",
+      "src": "source/recruit_system/docker-compose.yml:61"
+    },
+    {
+      "key": "CvExtractionAi",
+      "kind": "component",
+      "name": "cv-extraction-ai",
+      "notes": "FastAPI, Python 3.11 (cổng container 8000, host 8001); mô hình Qwen3 GGUF v4 qua llama.cpp CPU kết hợp Knowledge Graph để trích xuất thông tin CV",
+      "src": "source/recruit_system/docker-compose.yml:236"
+    },
+    {
+      "key": "CvMatchingAi",
+      "kind": "component",
+      "name": "cv-matching-ai",
+      "notes": "FastAPI, Python 3.11 (cổng container 8000, host 8002); Sentence Transformers (paraphrase-multilingual-MiniLM-L12-v2) kết hợp Hybrid Retrieval đối sánh ứng viên với tin tuyển dụng",
+      "src": "source/recruit_system/docker-compose.yml:249"
+    },
+    {
+      "key": "InterviewAi",
+      "kind": "component",
+      "name": "interview-ai",
+      "notes": "FastAPI, Python 3.11 (cổng container/host 8000); BERTScore (bert-base-multilingual-cased) kết hợp barem rubric coverage và Ridge regression calibration để chấm câu trả lời phỏng vấn",
+      "src": "source/recruit_system/docker-compose.yml:206"
+    },
+    {
+      "key": "UploadStorage",
+      "kind": "node",
+      "name": "Storage: recruitment_uploads",
+      "notes": "Docker volume lưu tệp PDF CV tải lên (/app/uploads, ánh xạ vào data/runtime/uploads)",
+      "src": "source/recruit_system/docker-compose.yml:140"
+    },
+    {
+      "key": "ModelStorageExtraction",
+      "kind": "node",
+      "name": "Storage: models/cv-extraction",
+      "notes": "Thư mục host gắn ngoài chứa tệp trọng số mô hình GGUF model-v4-q4_k_m.gguf (/app/merged_model:ro)",
+      "src": "source/recruit_system/docker-compose.yml:240"
+    },
+    {
+      "key": "ModelCacheMatching",
+      "kind": "node",
+      "name": "Storage: matching_model_cache",
+      "notes": "Docker volume lưu cache mô hình Sentence Transformers từ HuggingFace (/root/.cache/huggingface)",
+      "src": "source/recruit_system/docker-compose.yml:253"
+    },
+    {
+      "key": "ModelCacheInterview",
+      "kind": "node",
+      "name": "Storage: interview_model_cache & output",
+      "notes": "Docker volume lưu cache mô hình BERT (/root/.cache/huggingface) và thư mục lưu artifact calibration / finetune (/app/output)",
+      "src": "source/recruit_system/docker-compose.yml:219"
+    }
+  ],
+  "relations": [
+    {
+      "from": "UserBrowser",
+      "to": "FrontendClient",
+      "kind": "dependency",
+      "label": "HTTP/HTTPS (port 5173)",
+      "src": "source/recruit_system/frontend/vite.config.ts:7"
+    },
+    {
+      "from": "FrontendClient",
+      "to": "ApiGateway",
+      "kind": "dependency",
+      "label": "HTTP/REST /api/* (port 8080)",
+      "src": "source/recruit_system/frontend/vite.config.ts:9"
+    },
+    {
+      "from": "ApiGateway",
+      "to": "IdentityService",
+      "kind": "dependency",
+      "label": "HTTP/REST /api/auth (proxy_pass :8081)",
+      "src": "source/recruit_system/infra/gateway/nginx.conf:15"
+    },
+    {
+      "from": "ApiGateway",
+      "to": "InterviewService",
+      "kind": "dependency",
+      "label": "HTTP/REST /api/interviews (proxy_pass :8083)",
+      "src": "source/recruit_system/infra/gateway/nginx.conf:19"
+    },
+    {
+      "from": "ApiGateway",
+      "to": "RecruitmentService",
+      "kind": "dependency",
+      "label": "HTTP/REST /api/(jobs|cvs|applications|matching|dashboard) (proxy_pass :8082)",
+      "src": "source/recruit_system/infra/gateway/nginx.conf:23"
+    },
+    {
+      "from": "IdentityService",
+      "to": "IdentityDb",
+      "kind": "dependency",
+      "label": "JDBC (hirelens_identity :3306)",
+      "src": "source/recruit_system/backend/identity-service/src/main/resources/application.yml:7"
+    },
+    {
+      "from": "RecruitmentService",
+      "to": "RecruitmentDb",
+      "kind": "dependency",
+      "label": "JDBC (hirelens_recruitment :3306)",
+      "src": "source/recruit_system/backend/recruitment-service/src/main/resources/application.yml:7"
+    },
+    {
+      "from": "InterviewService",
+      "to": "InterviewDb",
+      "kind": "dependency",
+      "label": "JDBC (hirelens_interview :3306)",
+      "src": "source/recruit_system/backend/interview-service/src/main/resources/application.yml:7"
+    },
+    {
+      "from": "RecruitmentService",
+      "to": "IdentityService",
+      "kind": "dependency",
+      "label": "HTTP /internal/users/{id} (X-Service-Token)",
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/client/IdentityClient.java:12"
+    },
+    {
+      "from": "InterviewService",
+      "to": "IdentityService",
+      "kind": "dependency",
+      "label": "HTTP /internal/users/{id} (X-Service-Token)",
+      "src": "source/recruit_system/backend/common/src/main/java/recruit/demo/security/RemotePrincipalLookup.java:19"
+    },
+    {
+      "from": "InterviewService",
+      "to": "RecruitmentService",
+      "kind": "dependency",
+      "label": "HTTP /internal/interview-context (X-Service-Token)",
+      "src": "source/recruit_system/backend/interview-service/src/main/java/recruit/demo/service/InterviewService.java:48"
+    },
+    {
+      "from": "RecruitmentService",
+      "to": "InterviewService",
+      "kind": "dependency",
+      "label": "HTTP /internal/interviews/question-count (X-Service-Token)",
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/service/DashboardService.java:31"
+    },
+    {
+      "from": "RecruitmentService",
+      "to": "CvExtractionAi",
+      "kind": "dependency",
+      "label": "HTTP JSON POST /api/v1/extract-cv (:8001)",
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/service/cv/CvExtractionModule.java:24"
+    },
+    {
+      "from": "RecruitmentService",
+      "to": "CvMatchingAi",
+      "kind": "dependency",
+      "label": "HTTP JSON POST /match/no-llm (:8002)",
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/service/matching/CvMatchingModule.java:18"
+    },
+    {
+      "from": "InterviewService",
+      "to": "InterviewAi",
+      "kind": "dependency",
+      "label": "HTTP JSON POST /v1/interview/evaluate (:8000)",
+      "src": "source/recruit_system/backend/interview-service/src/main/java/recruit/demo/service/AiScoringClient.java:86"
+    },
+    {
+      "from": "RecruitmentService",
+      "to": "UploadStorage",
+      "kind": "dependency",
+      "label": "File I/O (/app/uploads)",
+      "src": "source/recruit_system/docker-compose.yml:140"
+    },
+    {
+      "from": "CvExtractionAi",
+      "to": "ModelStorageExtraction",
+      "kind": "dependency",
+      "label": "File I/O model-v4-q4_k_m.gguf (/app/merged_model)",
+      "src": "source/recruit_system/docker-compose.yml:240"
+    },
+    {
+      "from": "CvMatchingAi",
+      "to": "ModelCacheMatching",
+      "kind": "dependency",
+      "label": "Model cache I/O (/root/.cache/huggingface)",
+      "src": "source/recruit_system/docker-compose.yml:253"
+    },
+    {
+      "from": "InterviewAi",
+      "to": "ModelCacheInterview",
+      "kind": "dependency",
+      "label": "Model cache & output I/O (/app/output, /root/.cache)",
+      "src": "source/recruit_system/docker-compose.yml:219"
+    }
+  ],
+  "notes": [
+    "Hệ thống triển khai theo kiến trúc Microservices độc lập: 1 Frontend React SPA, 1 API Gateway Nginx, 3 Backend Spring Boot Services, 3 CSDL MySQL riêng biệt, 3 AI FastAPI Services chuyên biệt và các Volume lưu trữ tệp/mô hình.",
+    "API Gateway lắng nghe cổng 8080 định tuyến các request công khai /api/* từ Frontend tới từng service nội bộ và chặn triệt để mọi truy cập trực tiếp từ bên ngoài vào các route nội bộ /internal/*.",
+    "Mỗi service Spring Boot sở hữu một CSDL MySQL độc lập (Database-per-Service), không có shared database, không có cross-database foreign key constraint. Quan hệ giữa các bảng thuộc các service khác nhau là quan hệ logic bằng ID.",
+    "Giao tiếp giữa các service (Service-to-Service) hoàn toàn thông qua giao thức mạng HTTP REST tại prefix /internal/* và được bảo vệ nghiêm ngặt bằng shared secret header X-Service-Token qua InternalAccessFilter.",
+    "Giao tiếp giữa Backend và AI Services được thực hiện qua giao thức HTTP JSON đồng bộ với các endpoint định sẵn (/api/v1/extract-cv, /match/no-llm, /v1/interview/evaluate).",
+    "Thư viện backend/common là thư viện mã nguồn dùng chung (shared library) chứa DTO, JWT authentication provider, InternalAccessFilter, ServiceHttpClient; không sở hữu cơ sở dữ liệu và không triển khai thành tiến trình runtime riêng."
+  ],
+  "open_questions": []
+}

@@ -1,0 +1,1416 @@
+{
+  "id": "M4-CLS-BE",
+  "type": "class",
+  "name": "Biểu đồ lớp chi tiết - Ôn tập và chấm phỏng vấn (Backend)",
+  "elements": [
+    {
+      "key": "View",
+      "kind": "package",
+      "name": "View",
+      "src": "source/recruit_system/backend/interview-service/src/main/java/recruit/demo/dto/InterviewDtos.java:11"
+    },
+    {
+      "key": "Controller",
+      "kind": "package",
+      "name": "Controller",
+      "src": "source/recruit_system/backend/interview-service/src/main/java/recruit/demo/controller/InterviewController.java:1"
+    },
+    {
+      "key": "Model",
+      "kind": "package",
+      "name": "Model",
+      "src": "source/recruit_system/backend/interview-service/src/main/java/recruit/demo/service/InterviewService.java:1"
+    },
+    {
+      "key": "CreateSessionRequest",
+      "kind": "class",
+      "name": "CreateSessionRequest",
+      "parent": "View",
+      "stereotype": "dto",
+      "attributes": [
+        {
+          "name": "jobId",
+          "type": "Integer",
+          "visibility": "-",
+          "src": "source/recruit_system/backend/interview-service/src/main/java/recruit/demo/dto/InterviewDtos.java:27"
+        },
+        {
+          "name": "applicationId",
+          "type": "Integer",
+          "visibility": "-",
+          "src": "source/recruit_system/backend/interview-service/src/main/java/recruit/demo/dto/InterviewDtos.java:27"
+        },
+        {
+          "name": "questionIds",
+          "type": "List<Integer>",
+          "visibility": "-",
+          "src": "source/recruit_system/backend/interview-service/src/main/java/recruit/demo/dto/InterviewDtos.java:27"
+        },
+        {
+          "name": "questionCount",
+          "type": "Integer",
+          "visibility": "-",
+          "src": "source/recruit_system/backend/interview-service/src/main/java/recruit/demo/dto/InterviewDtos.java:27"
+        }
+      ],
+      "operations": [
+        {
+          "name": "jobId",
+          "params": [],
+          "returns": "Integer",
+          "visibility": "+",
+          "src": "source/recruit_system/backend/interview-service/src/main/java/recruit/demo/dto/InterviewDtos.java:27"
+        },
+        {
+          "name": "questionCount",
+          "params": [],
+          "returns": "Integer",
+          "visibility": "+",
+          "src": "source/recruit_system/backend/interview-service/src/main/java/recruit/demo/dto/InterviewDtos.java:27"
+        }
+      ],
+      "src": "source/recruit_system/backend/interview-service/src/main/java/recruit/demo/dto/InterviewDtos.java:27"
+    },
+    {
+      "key": "SessionResponse",
+      "kind": "class",
+      "name": "SessionResponse",
+      "parent": "View",
+      "stereotype": "dto",
+      "attributes": [
+        {
+          "name": "id",
+          "type": "Integer",
+          "visibility": "-",
+          "src": "source/recruit_system/backend/interview-service/src/main/java/recruit/demo/dto/InterviewDtos.java:40"
+        },
+        {
+          "name": "status",
+          "type": "SessionStatus",
+          "visibility": "-",
+          "src": "source/recruit_system/backend/interview-service/src/main/java/recruit/demo/dto/InterviewDtos.java:41"
+        },
+        {
+          "name": "currentIndex",
+          "type": "int",
+          "visibility": "-",
+          "src": "source/recruit_system/backend/interview-service/src/main/java/recruit/demo/dto/InterviewDtos.java:42"
+        },
+        {
+          "name": "jobId",
+          "type": "Integer",
+          "visibility": "-",
+          "src": "source/recruit_system/backend/interview-service/src/main/java/recruit/demo/dto/InterviewDtos.java:43"
+        },
+        {
+          "name": "jobTitle",
+          "type": "String",
+          "visibility": "-",
+          "src": "source/recruit_system/backend/interview-service/src/main/java/recruit/demo/dto/InterviewDtos.java:44"
+        },
+        {
+          "name": "createdAt",
+          "type": "LocalDateTime",
+          "visibility": "-",
+          "src": "source/recruit_system/backend/interview-service/src/main/java/recruit/demo/dto/InterviewDtos.java:46"
+        }
+      ],
+      "operations": [
+        {
+          "name": "id",
+          "params": [],
+          "returns": "Integer",
+          "visibility": "+",
+          "src": "source/recruit_system/backend/interview-service/src/main/java/recruit/demo/dto/InterviewDtos.java:40"
+        },
+        {
+          "name": "status",
+          "params": [],
+          "returns": "SessionStatus",
+          "visibility": "+",
+          "src": "source/recruit_system/backend/interview-service/src/main/java/recruit/demo/dto/InterviewDtos.java:41"
+        },
+        {
+          "name": "currentIndex",
+          "params": [],
+          "returns": "int",
+          "visibility": "+",
+          "src": "source/recruit_system/backend/interview-service/src/main/java/recruit/demo/dto/InterviewDtos.java:42"
+        }
+      ],
+      "src": "source/recruit_system/backend/interview-service/src/main/java/recruit/demo/dto/InterviewDtos.java:39"
+    },
+    {
+      "key": "SubmitResponseRequest",
+      "kind": "class",
+      "name": "SubmitResponseRequest",
+      "parent": "View",
+      "stereotype": "dto",
+      "attributes": [
+        {
+          "name": "questionId",
+          "type": "Integer",
+          "visibility": "-",
+          "src": "source/recruit_system/backend/interview-service/src/main/java/recruit/demo/dto/InterviewDtos.java:54"
+        },
+        {
+          "name": "answerText",
+          "type": "String",
+          "visibility": "-",
+          "src": "source/recruit_system/backend/interview-service/src/main/java/recruit/demo/dto/InterviewDtos.java:55"
+        }
+      ],
+      "operations": [
+        {
+          "name": "questionId",
+          "params": [],
+          "returns": "Integer",
+          "visibility": "+",
+          "src": "source/recruit_system/backend/interview-service/src/main/java/recruit/demo/dto/InterviewDtos.java:54"
+        },
+        {
+          "name": "answerText",
+          "params": [],
+          "returns": "String",
+          "visibility": "+",
+          "src": "source/recruit_system/backend/interview-service/src/main/java/recruit/demo/dto/InterviewDtos.java:55"
+        }
+      ],
+      "src": "source/recruit_system/backend/interview-service/src/main/java/recruit/demo/dto/InterviewDtos.java:53"
+    },
+    {
+      "key": "EvaluationResponse",
+      "kind": "class",
+      "name": "EvaluationResponse",
+      "parent": "View",
+      "stereotype": "dto",
+      "attributes": [
+        {
+          "name": "responseId",
+          "type": "Integer",
+          "visibility": "-",
+          "src": "source/recruit_system/backend/interview-service/src/main/java/recruit/demo/dto/InterviewDtos.java:60"
+        },
+        {
+          "name": "questionId",
+          "type": "Integer",
+          "visibility": "-",
+          "src": "source/recruit_system/backend/interview-service/src/main/java/recruit/demo/dto/InterviewDtos.java:61"
+        },
+        {
+          "name": "predictedScore",
+          "type": "BigDecimal",
+          "visibility": "-",
+          "src": "source/recruit_system/backend/interview-service/src/main/java/recruit/demo/dto/InterviewDtos.java:62"
+        },
+        {
+          "name": "scoreScale",
+          "type": "String",
+          "visibility": "-",
+          "src": "source/recruit_system/backend/interview-service/src/main/java/recruit/demo/dto/InterviewDtos.java:63"
+        },
+        {
+          "name": "coveredPoints",
+          "type": "List<String>",
+          "visibility": "-",
+          "src": "source/recruit_system/backend/interview-service/src/main/java/recruit/demo/dto/InterviewDtos.java:64"
+        },
+        {
+          "name": "missingPoints",
+          "type": "List<String>",
+          "visibility": "-",
+          "src": "source/recruit_system/backend/interview-service/src/main/java/recruit/demo/dto/InterviewDtos.java:65"
+        },
+        {
+          "name": "comment",
+          "type": "String",
+          "visibility": "-",
+          "src": "source/recruit_system/backend/interview-service/src/main/java/recruit/demo/dto/InterviewDtos.java:66"
+        },
+        {
+          "name": "bertscoreF1",
+          "type": "BigDecimal",
+          "visibility": "-",
+          "src": "source/recruit_system/backend/interview-service/src/main/java/recruit/demo/dto/InterviewDtos.java:72"
+        },
+        {
+          "name": "coverageScore",
+          "type": "BigDecimal",
+          "visibility": "-",
+          "src": "source/recruit_system/backend/interview-service/src/main/java/recruit/demo/dto/InterviewDtos.java:73"
+        }
+      ],
+      "operations": [
+        {
+          "name": "predictedScore",
+          "params": [],
+          "returns": "BigDecimal",
+          "visibility": "+",
+          "src": "source/recruit_system/backend/interview-service/src/main/java/recruit/demo/dto/InterviewDtos.java:62"
+        },
+        {
+          "name": "comment",
+          "params": [],
+          "returns": "String",
+          "visibility": "+",
+          "src": "source/recruit_system/backend/interview-service/src/main/java/recruit/demo/dto/InterviewDtos.java:66"
+        }
+      ],
+      "src": "source/recruit_system/backend/interview-service/src/main/java/recruit/demo/dto/InterviewDtos.java:59"
+    },
+    {
+      "key": "InterviewController",
+      "kind": "class",
+      "name": "InterviewController",
+      "parent": "Controller",
+      "stereotype": "control",
+      "attributes": [
+        {
+          "name": "interviewService",
+          "type": "InterviewService",
+          "visibility": "-",
+          "src": "source/recruit_system/backend/interview-service/src/main/java/recruit/demo/controller/InterviewController.java:16"
+        }
+      ],
+      "operations": [
+        {
+          "name": "createSession",
+          "params": [
+            {
+              "name": "request",
+              "type": "CreateSessionRequest"
+            }
+          ],
+          "returns": "SessionResponse",
+          "visibility": "+",
+          "src": "source/recruit_system/backend/interview-service/src/main/java/recruit/demo/controller/InterviewController.java:24"
+        },
+        {
+          "name": "getSession",
+          "params": [
+            {
+              "name": "id",
+              "type": "Integer"
+            }
+          ],
+          "returns": "SessionResponse",
+          "visibility": "+",
+          "src": "source/recruit_system/backend/interview-service/src/main/java/recruit/demo/controller/InterviewController.java:35"
+        },
+        {
+          "name": "submitResponse",
+          "params": [
+            {
+              "name": "id",
+              "type": "Integer"
+            },
+            {
+              "name": "request",
+              "type": "SubmitResponseRequest"
+            }
+          ],
+          "returns": "EvaluationResponse",
+          "visibility": "+",
+          "src": "source/recruit_system/backend/interview-service/src/main/java/recruit/demo/controller/InterviewController.java:40"
+        }
+      ],
+      "src": "source/recruit_system/backend/interview-service/src/main/java/recruit/demo/controller/InterviewController.java:14"
+    },
+    {
+      "key": "InterviewService",
+      "kind": "class",
+      "name": "InterviewService",
+      "parent": "Model",
+      "stereotype": "service",
+      "attributes": [
+        {
+          "name": "sessionRepository",
+          "type": "InterviewSessionRepository",
+          "visibility": "-",
+          "src": "source/recruit_system/backend/interview-service/src/main/java/recruit/demo/service/InterviewService.java:27"
+        },
+        {
+          "name": "sessionQuestionRepository",
+          "type": "InterviewSessionQuestionRepository",
+          "visibility": "-",
+          "src": "source/recruit_system/backend/interview-service/src/main/java/recruit/demo/service/InterviewService.java:28"
+        },
+        {
+          "name": "evaluationResultRepository",
+          "type": "EvaluationResultRepository",
+          "visibility": "-",
+          "src": "source/recruit_system/backend/interview-service/src/main/java/recruit/demo/service/InterviewService.java:30"
+        },
+        {
+          "name": "rubricRepository",
+          "type": "EvaluationRubricRepository",
+          "visibility": "-",
+          "src": "source/recruit_system/backend/interview-service/src/main/java/recruit/demo/service/InterviewService.java:26"
+        },
+        {
+          "name": "aiScoringClient",
+          "type": "AiScoringClient",
+          "visibility": "-",
+          "src": "source/recruit_system/backend/interview-service/src/main/java/recruit/demo/service/InterviewService.java:31"
+        },
+        {
+          "name": "questionSelection",
+          "type": "QuestionSelectionService",
+          "visibility": "-",
+          "src": "source/recruit_system/backend/interview-service/src/main/java/recruit/demo/service/InterviewService.java:32"
+        },
+        {
+          "name": "serviceHttp",
+          "type": "ServiceHttpClient",
+          "visibility": "-",
+          "src": "source/recruit_system/backend/interview-service/src/main/java/recruit/demo/service/InterviewService.java:33"
+        }
+      ],
+      "operations": [
+        {
+          "name": "createSession",
+          "params": [
+            {
+              "name": "request",
+              "type": "CreateSessionRequest"
+            }
+          ],
+          "returns": "SessionResponse",
+          "visibility": "+",
+          "src": "source/recruit_system/backend/interview-service/src/main/java/recruit/demo/service/InterviewService.java:45"
+        },
+        {
+          "name": "getSession",
+          "params": [
+            {
+              "name": "id",
+              "type": "Integer"
+            }
+          ],
+          "returns": "SessionResponse",
+          "visibility": "+",
+          "src": "source/recruit_system/backend/interview-service/src/main/java/recruit/demo/service/InterviewService.java:98"
+        },
+        {
+          "name": "submitAndEvaluate",
+          "params": [
+            {
+              "name": "sessionId",
+              "type": "Integer"
+            },
+            {
+              "name": "request",
+              "type": "SubmitResponseRequest"
+            }
+          ],
+          "returns": "EvaluationResponse",
+          "visibility": "+",
+          "src": "source/recruit_system/backend/interview-service/src/main/java/recruit/demo/service/InterviewService.java:106"
+        },
+        {
+          "name": "evaluate",
+          "params": [
+            {
+              "name": "response",
+              "type": "InterviewResponse"
+            },
+            {
+              "name": "question",
+              "type": "InterviewQuestion"
+            },
+            {
+              "name": "sessionQuestion",
+              "type": "InterviewSessionQuestion"
+            }
+          ],
+          "returns": "EvaluationResult",
+          "visibility": "-",
+          "src": "source/recruit_system/backend/interview-service/src/main/java/recruit/demo/service/InterviewService.java:159"
+        },
+        {
+          "name": "saveAiEvaluation",
+          "params": [
+            {
+              "name": "response",
+              "type": "InterviewResponse"
+            },
+            {
+              "name": "ai",
+              "type": "EvaluateResult"
+            },
+            {
+              "name": "maxScore",
+              "type": "BigDecimal"
+            }
+          ],
+          "returns": "EvaluationResult",
+          "visibility": "-",
+          "src": "source/recruit_system/backend/interview-service/src/main/java/recruit/demo/service/InterviewService.java:179"
+        }
+      ],
+      "src": "source/recruit_system/backend/interview-service/src/main/java/recruit/demo/service/InterviewService.java:23"
+    },
+    {
+      "key": "QuestionSelectionService",
+      "kind": "class",
+      "name": "QuestionSelectionService",
+      "parent": "Model",
+      "stereotype": "service",
+      "attributes": [
+        {
+          "name": "graph",
+          "type": "SkillGraph",
+          "visibility": "-",
+          "src": "source/recruit_system/backend/interview-service/src/main/java/recruit/demo/service/QuestionSelectionService.java:9"
+        }
+      ],
+      "operations": [
+        {
+          "name": "select",
+          "params": [
+            {
+              "name": "pool",
+              "type": "List<InterviewQuestion>"
+            },
+            {
+              "name": "context",
+              "type": "InterviewContext"
+            },
+            {
+              "name": "recent",
+              "type": "Set<Integer>"
+            },
+            {
+              "name": "count",
+              "type": "int"
+            }
+          ],
+          "returns": "List<InterviewQuestion>",
+          "visibility": "+",
+          "src": "source/recruit_system/backend/interview-service/src/main/java/recruit/demo/service/QuestionSelectionService.java:26"
+        },
+        {
+          "name": "graphScore",
+          "params": [
+            {
+              "name": "required",
+              "type": "Set<String>"
+            },
+            {
+              "name": "candidate",
+              "type": "Set<String>"
+            },
+            {
+              "name": "skill",
+              "type": "String"
+            }
+          ],
+          "returns": "int",
+          "visibility": "-",
+          "src": "source/recruit_system/backend/interview-service/src/main/java/recruit/demo/service/QuestionSelectionService.java:51"
+        }
+      ],
+      "src": "source/recruit_system/backend/interview-service/src/main/java/recruit/demo/service/QuestionSelectionService.java:8"
+    },
+    {
+      "key": "AiScoringClient",
+      "kind": "class",
+      "name": "AiScoringClient",
+      "parent": "Model",
+      "stereotype": "client",
+      "attributes": [
+        {
+          "name": "appProperties",
+          "type": "AppProperties",
+          "visibility": "-",
+          "src": "source/recruit_system/backend/interview-service/src/main/java/recruit/demo/service/AiScoringClient.java:28"
+        },
+        {
+          "name": "objectMapper",
+          "type": "ObjectMapper",
+          "visibility": "-",
+          "src": "source/recruit_system/backend/interview-service/src/main/java/recruit/demo/service/AiScoringClient.java:29"
+        }
+      ],
+      "operations": [
+        {
+          "name": "isEnabled",
+          "params": [],
+          "returns": "boolean",
+          "visibility": "+",
+          "src": "source/recruit_system/backend/interview-service/src/main/java/recruit/demo/service/AiScoringClient.java:31"
+        },
+        {
+          "name": "evaluate",
+          "params": [
+            {
+              "name": "answer",
+              "type": "String"
+            },
+            {
+              "name": "questionText",
+              "type": "String"
+            },
+            {
+              "name": "referenceAnswer",
+              "type": "String"
+            },
+            {
+              "name": "criteria",
+              "type": "List<CriterionIn>"
+            },
+            {
+              "name": "questionIdLabel",
+              "type": "String"
+            }
+          ],
+          "returns": "EvaluateResult",
+          "visibility": "+",
+          "src": "source/recruit_system/backend/interview-service/src/main/java/recruit/demo/service/AiScoringClient.java:38"
+        },
+        {
+          "name": "normalizeCriteria",
+          "params": [
+            {
+              "name": "criteria",
+              "type": "List<CriterionIn>"
+            }
+          ],
+          "returns": "List<Map<String, Object>>",
+          "visibility": "-",
+          "src": "source/recruit_system/backend/interview-service/src/main/java/recruit/demo/service/AiScoringClient.java:120"
+        }
+      ],
+      "src": "source/recruit_system/backend/interview-service/src/main/java/recruit/demo/service/AiScoringClient.java:26"
+    },
+    {
+      "key": "ServiceHttpClient",
+      "kind": "class",
+      "name": "ServiceHttpClient",
+      "parent": "Model",
+      "stereotype": "client",
+      "attributes": [
+        {
+          "name": "mapper",
+          "type": "ObjectMapper",
+          "visibility": "-",
+          "src": "source/recruit_system/backend/common/src/main/java/recruit/demo/client/ServiceHttpClient.java:14"
+        },
+        {
+          "name": "token",
+          "type": "String",
+          "visibility": "-",
+          "src": "source/recruit_system/backend/common/src/main/java/recruit/demo/client/ServiceHttpClient.java:15"
+        },
+        {
+          "name": "client",
+          "type": "HttpClient",
+          "visibility": "-",
+          "src": "source/recruit_system/backend/common/src/main/java/recruit/demo/client/ServiceHttpClient.java:16"
+        }
+      ],
+      "operations": [
+        {
+          "name": "get",
+          "params": [
+            {
+              "name": "url",
+              "type": "String"
+            },
+            {
+              "name": "type",
+              "type": "Class<T>"
+            }
+          ],
+          "returns": "T",
+          "visibility": "+",
+          "src": "source/recruit_system/backend/common/src/main/java/recruit/demo/client/ServiceHttpClient.java:20"
+        },
+        {
+          "name": "exchange",
+          "params": [
+            {
+              "name": "method",
+              "type": "String"
+            },
+            {
+              "name": "url",
+              "type": "String"
+            },
+            {
+              "name": "body",
+              "type": "Object"
+            },
+            {
+              "name": "type",
+              "type": "Class<T>"
+            }
+          ],
+          "returns": "T",
+          "visibility": "-",
+          "src": "source/recruit_system/backend/common/src/main/java/recruit/demo/client/ServiceHttpClient.java:22"
+        }
+      ],
+      "src": "source/recruit_system/backend/common/src/main/java/recruit/demo/client/ServiceHttpClient.java:13"
+    },
+    {
+      "key": "InterviewSessionRepository",
+      "kind": "interface",
+      "name": "InterviewSessionRepository",
+      "parent": "Model",
+      "stereotype": "repository",
+      "attributes": [],
+      "operations": [
+        {
+          "name": "findForUpdate",
+          "params": [
+            {
+              "name": "id",
+              "type": "Integer"
+            }
+          ],
+          "returns": "Optional<InterviewSession>",
+          "visibility": "+",
+          "src": "source/recruit_system/backend/interview-service/src/main/java/recruit/demo/repository/InterviewSessionRepository.java:13"
+        },
+        {
+          "name": "findByCandidateUserIdOrderByCreatedAtDesc",
+          "params": [
+            {
+              "name": "userId",
+              "type": "Integer"
+            }
+          ],
+          "returns": "List<InterviewSession>",
+          "visibility": "+",
+          "src": "source/recruit_system/backend/interview-service/src/main/java/recruit/demo/repository/InterviewSessionRepository.java:10"
+        },
+        {
+          "name": "findById",
+          "params": [
+            {
+              "name": "id",
+              "type": "Integer"
+            }
+          ],
+          "returns": "Optional<InterviewSession>",
+          "visibility": "+",
+          "src": "source/recruit_system/backend/interview-service/src/main/java/recruit/demo/repository/InterviewSessionRepository.java:8"
+        },
+        {
+          "name": "save",
+          "params": [
+            {
+              "name": "entity",
+              "type": "InterviewSession"
+            }
+          ],
+          "returns": "InterviewSession",
+          "visibility": "+",
+          "src": "source/recruit_system/backend/interview-service/src/main/java/recruit/demo/repository/InterviewSessionRepository.java:8"
+        }
+      ],
+      "src": "source/recruit_system/backend/interview-service/src/main/java/recruit/demo/repository/InterviewSessionRepository.java:8"
+    },
+    {
+      "key": "InterviewSessionQuestionRepository",
+      "kind": "interface",
+      "name": "InterviewSessionQuestionRepository",
+      "parent": "Model",
+      "stereotype": "repository",
+      "attributes": [],
+      "operations": [
+        {
+          "name": "findBySessionIdOrdered",
+          "params": [
+            {
+              "name": "sessionId",
+              "type": "Integer"
+            }
+          ],
+          "returns": "List<InterviewSessionQuestion>",
+          "visibility": "+",
+          "src": "source/recruit_system/backend/interview-service/src/main/java/recruit/demo/repository/InterviewSessionQuestionRepository.java:19"
+        },
+        {
+          "name": "recentQuestionIds",
+          "params": [
+            {
+              "name": "userId",
+              "type": "Integer"
+            },
+            {
+              "name": "page",
+              "type": "Pageable"
+            }
+          ],
+          "returns": "List<Integer>",
+          "visibility": "+",
+          "src": "source/recruit_system/backend/interview-service/src/main/java/recruit/demo/repository/InterviewSessionQuestionRepository.java:22"
+        },
+        {
+          "name": "findBySessionIdAndQuestionId",
+          "params": [
+            {
+              "name": "sessionId",
+              "type": "Integer"
+            },
+            {
+              "name": "questionId",
+              "type": "Integer"
+            }
+          ],
+          "returns": "Optional<InterviewSessionQuestion>",
+          "visibility": "+",
+          "src": "source/recruit_system/backend/interview-service/src/main/java/recruit/demo/repository/InterviewSessionQuestionRepository.java:24"
+        },
+        {
+          "name": "save",
+          "params": [
+            {
+              "name": "entity",
+              "type": "InterviewSessionQuestion"
+            }
+          ],
+          "returns": "InterviewSessionQuestion",
+          "visibility": "+",
+          "src": "source/recruit_system/backend/interview-service/src/main/java/recruit/demo/repository/InterviewSessionQuestionRepository.java:11"
+        }
+      ],
+      "src": "source/recruit_system/backend/interview-service/src/main/java/recruit/demo/repository/InterviewSessionQuestionRepository.java:11"
+    },
+    {
+      "key": "EvaluationResultRepository",
+      "kind": "interface",
+      "name": "EvaluationResultRepository",
+      "parent": "Model",
+      "stereotype": "repository",
+      "attributes": [],
+      "operations": [
+        {
+          "name": "findByResponseId",
+          "params": [
+            {
+              "name": "responseId",
+              "type": "Integer"
+            }
+          ],
+          "returns": "Optional<EvaluationResult>",
+          "visibility": "+",
+          "src": "source/recruit_system/backend/interview-service/src/main/java/recruit/demo/repository/EvaluationResultRepository.java:9"
+        },
+        {
+          "name": "save",
+          "params": [
+            {
+              "name": "entity",
+              "type": "EvaluationResult"
+            }
+          ],
+          "returns": "EvaluationResult",
+          "visibility": "+",
+          "src": "source/recruit_system/backend/interview-service/src/main/java/recruit/demo/repository/EvaluationResultRepository.java:8"
+        }
+      ],
+      "src": "source/recruit_system/backend/interview-service/src/main/java/recruit/demo/repository/EvaluationResultRepository.java:8"
+    },
+    {
+      "key": "EvaluationRubricRepository",
+      "kind": "interface",
+      "name": "EvaluationRubricRepository",
+      "parent": "Model",
+      "stereotype": "repository",
+      "attributes": [],
+      "operations": [
+        {
+          "name": "findByQuestionId",
+          "params": [
+            {
+              "name": "questionId",
+              "type": "Integer"
+            }
+          ],
+          "returns": "List<EvaluationRubric>",
+          "visibility": "+",
+          "src": "source/recruit_system/backend/interview-service/src/main/java/recruit/demo/repository/EvaluationRubricRepository.java:9"
+        }
+      ],
+      "src": "source/recruit_system/backend/interview-service/src/main/java/recruit/demo/repository/EvaluationRubricRepository.java:8"
+    },
+    {
+      "key": "InterviewSession",
+      "kind": "class",
+      "name": "InterviewSession",
+      "parent": "Model",
+      "stereotype": "entity",
+      "attributes": [
+        {
+          "name": "id",
+          "type": "Integer",
+          "visibility": "-",
+          "src": "source/recruit_system/backend/interview-service/src/main/java/recruit/demo/entity/InterviewSession.java:20"
+        },
+        {
+          "name": "candidateId",
+          "type": "Integer",
+          "visibility": "-",
+          "src": "source/recruit_system/backend/interview-service/src/main/java/recruit/demo/entity/InterviewSession.java:23"
+        },
+        {
+          "name": "candidateUserId",
+          "type": "Integer",
+          "visibility": "-",
+          "src": "source/recruit_system/backend/interview-service/src/main/java/recruit/demo/entity/InterviewSession.java:25"
+        },
+        {
+          "name": "jobId",
+          "type": "Integer",
+          "visibility": "-",
+          "src": "source/recruit_system/backend/interview-service/src/main/java/recruit/demo/entity/InterviewSession.java:29"
+        },
+        {
+          "name": "title",
+          "type": "String",
+          "visibility": "-",
+          "src": "source/recruit_system/backend/interview-service/src/main/java/recruit/demo/entity/InterviewSession.java:35"
+        },
+        {
+          "name": "status",
+          "type": "SessionStatus",
+          "visibility": "-",
+          "src": "source/recruit_system/backend/interview-service/src/main/java/recruit/demo/entity/InterviewSession.java:40"
+        },
+        {
+          "name": "startedAt",
+          "type": "LocalDateTime",
+          "visibility": "-",
+          "src": "source/recruit_system/backend/interview-service/src/main/java/recruit/demo/entity/InterviewSession.java:43"
+        },
+        {
+          "name": "completedAt",
+          "type": "LocalDateTime",
+          "visibility": "-",
+          "src": "source/recruit_system/backend/interview-service/src/main/java/recruit/demo/entity/InterviewSession.java:46"
+        },
+        {
+          "name": "createdAt",
+          "type": "LocalDateTime",
+          "visibility": "-",
+          "src": "source/recruit_system/backend/interview-service/src/main/java/recruit/demo/entity/InterviewSession.java:50"
+        }
+      ],
+      "operations": [
+        {
+          "name": "getId",
+          "params": [],
+          "returns": "Integer",
+          "visibility": "+",
+          "src": "source/recruit_system/backend/interview-service/src/main/java/recruit/demo/entity/InterviewSession.java:11"
+        },
+        {
+          "name": "getStatus",
+          "params": [],
+          "returns": "SessionStatus",
+          "visibility": "+",
+          "src": "source/recruit_system/backend/interview-service/src/main/java/recruit/demo/entity/InterviewSession.java:11"
+        },
+        {
+          "name": "setStatus",
+          "params": [
+            {
+              "name": "status",
+              "type": "SessionStatus"
+            }
+          ],
+          "returns": "void",
+          "visibility": "+",
+          "src": "source/recruit_system/backend/interview-service/src/main/java/recruit/demo/entity/InterviewSession.java:12"
+        }
+      ],
+      "src": "source/recruit_system/backend/interview-service/src/main/java/recruit/demo/entity/InterviewSession.java:16"
+    },
+    {
+      "key": "InterviewSessionQuestion",
+      "kind": "class",
+      "name": "InterviewSessionQuestion",
+      "parent": "Model",
+      "stereotype": "entity",
+      "attributes": [
+        {
+          "name": "id",
+          "type": "Integer",
+          "visibility": "-",
+          "src": "source/recruit_system/backend/interview-service/src/main/java/recruit/demo/entity/InterviewSessionQuestion.java:19"
+        },
+        {
+          "name": "session",
+          "type": "InterviewSession",
+          "visibility": "-",
+          "src": "source/recruit_system/backend/interview-service/src/main/java/recruit/demo/entity/InterviewSessionQuestion.java:23"
+        },
+        {
+          "name": "question",
+          "type": "InterviewQuestion",
+          "visibility": "-",
+          "src": "source/recruit_system/backend/interview-service/src/main/java/recruit/demo/entity/InterviewSessionQuestion.java:27"
+        },
+        {
+          "name": "questionOrder",
+          "type": "int",
+          "visibility": "-",
+          "src": "source/recruit_system/backend/interview-service/src/main/java/recruit/demo/entity/InterviewSessionQuestion.java:30"
+        },
+        {
+          "name": "maxScore",
+          "type": "BigDecimal",
+          "visibility": "-",
+          "src": "source/recruit_system/backend/interview-service/src/main/java/recruit/demo/entity/InterviewSessionQuestion.java:34"
+        }
+      ],
+      "operations": [
+        {
+          "name": "getId",
+          "params": [],
+          "returns": "Integer",
+          "visibility": "+",
+          "src": "source/recruit_system/backend/interview-service/src/main/java/recruit/demo/entity/InterviewSessionQuestion.java:10"
+        },
+        {
+          "name": "getSession",
+          "params": [],
+          "returns": "InterviewSession",
+          "visibility": "+",
+          "src": "source/recruit_system/backend/interview-service/src/main/java/recruit/demo/entity/InterviewSessionQuestion.java:10"
+        },
+        {
+          "name": "getQuestion",
+          "params": [],
+          "returns": "InterviewQuestion",
+          "visibility": "+",
+          "src": "source/recruit_system/backend/interview-service/src/main/java/recruit/demo/entity/InterviewSessionQuestion.java:10"
+        }
+      ],
+      "src": "source/recruit_system/backend/interview-service/src/main/java/recruit/demo/entity/InterviewSessionQuestion.java:15"
+    },
+    {
+      "key": "InterviewResponse",
+      "kind": "class",
+      "name": "InterviewResponse",
+      "parent": "Model",
+      "stereotype": "entity",
+      "attributes": [
+        {
+          "name": "id",
+          "type": "Integer",
+          "visibility": "-",
+          "src": "source/recruit_system/backend/interview-service/src/main/java/recruit/demo/entity/InterviewResponse.java:20"
+        },
+        {
+          "name": "sessionQuestion",
+          "type": "InterviewSessionQuestion",
+          "visibility": "-",
+          "src": "source/recruit_system/backend/interview-service/src/main/java/recruit/demo/entity/InterviewResponse.java:24"
+        },
+        {
+          "name": "answerText",
+          "type": "String",
+          "visibility": "-",
+          "src": "source/recruit_system/backend/interview-service/src/main/java/recruit/demo/entity/InterviewResponse.java:27"
+        },
+        {
+          "name": "submittedAt",
+          "type": "LocalDateTime",
+          "visibility": "-",
+          "src": "source/recruit_system/backend/interview-service/src/main/java/recruit/demo/entity/InterviewResponse.java:31"
+        },
+        {
+          "name": "status",
+          "type": "String",
+          "visibility": "-",
+          "src": "source/recruit_system/backend/interview-service/src/main/java/recruit/demo/entity/InterviewResponse.java:38"
+        }
+      ],
+      "operations": [
+        {
+          "name": "getId",
+          "params": [],
+          "returns": "Integer",
+          "visibility": "+",
+          "src": "source/recruit_system/backend/interview-service/src/main/java/recruit/demo/entity/InterviewResponse.java:11"
+        },
+        {
+          "name": "getAnswerText",
+          "params": [],
+          "returns": "String",
+          "visibility": "+",
+          "src": "source/recruit_system/backend/interview-service/src/main/java/recruit/demo/entity/InterviewResponse.java:11"
+        },
+        {
+          "name": "setAnswerText",
+          "params": [
+            {
+              "name": "answerText",
+              "type": "String"
+            }
+          ],
+          "returns": "void",
+          "visibility": "+",
+          "src": "source/recruit_system/backend/interview-service/src/main/java/recruit/demo/entity/InterviewResponse.java:12"
+        }
+      ],
+      "src": "source/recruit_system/backend/interview-service/src/main/java/recruit/demo/entity/InterviewResponse.java:16"
+    },
+    {
+      "key": "EvaluationResult",
+      "kind": "class",
+      "name": "EvaluationResult",
+      "parent": "Model",
+      "stereotype": "entity",
+      "attributes": [
+        {
+          "name": "id",
+          "type": "Integer",
+          "visibility": "-",
+          "src": "source/recruit_system/backend/interview-service/src/main/java/recruit/demo/entity/EvaluationResult.java:24"
+        },
+        {
+          "name": "response",
+          "type": "InterviewResponse",
+          "visibility": "-",
+          "src": "source/recruit_system/backend/interview-service/src/main/java/recruit/demo/entity/EvaluationResult.java:28"
+        },
+        {
+          "name": "evaluationMethod",
+          "type": "String",
+          "visibility": "-",
+          "src": "source/recruit_system/backend/interview-service/src/main/java/recruit/demo/entity/EvaluationResult.java:32"
+        },
+        {
+          "name": "bertscorePrecision",
+          "type": "BigDecimal",
+          "visibility": "-",
+          "src": "source/recruit_system/backend/interview-service/src/main/java/recruit/demo/entity/EvaluationResult.java:35"
+        },
+        {
+          "name": "bertscoreRecall",
+          "type": "BigDecimal",
+          "visibility": "-",
+          "src": "source/recruit_system/backend/interview-service/src/main/java/recruit/demo/entity/EvaluationResult.java:38"
+        },
+        {
+          "name": "bertscoreF1",
+          "type": "BigDecimal",
+          "visibility": "-",
+          "src": "source/recruit_system/backend/interview-service/src/main/java/recruit/demo/entity/EvaluationResult.java:41"
+        },
+        {
+          "name": "predictedScore",
+          "type": "BigDecimal",
+          "visibility": "-",
+          "src": "source/recruit_system/backend/interview-service/src/main/java/recruit/demo/entity/EvaluationResult.java:44"
+        },
+        {
+          "name": "feedback",
+          "type": "String",
+          "visibility": "-",
+          "src": "source/recruit_system/backend/interview-service/src/main/java/recruit/demo/entity/EvaluationResult.java:56"
+        },
+        {
+          "name": "strengths",
+          "type": "List<String>",
+          "visibility": "-",
+          "src": "source/recruit_system/backend/interview-service/src/main/java/recruit/demo/entity/EvaluationResult.java:60"
+        },
+        {
+          "name": "missingPoints",
+          "type": "List<String>",
+          "visibility": "-",
+          "src": "source/recruit_system/backend/interview-service/src/main/java/recruit/demo/entity/EvaluationResult.java:64"
+        },
+        {
+          "name": "coverageScore",
+          "type": "BigDecimal",
+          "visibility": "-",
+          "src": "source/recruit_system/backend/interview-service/src/main/java/recruit/demo/entity/EvaluationResult.java:75"
+        },
+        {
+          "name": "evaluatedAt",
+          "type": "LocalDateTime",
+          "visibility": "-",
+          "src": "source/recruit_system/backend/interview-service/src/main/java/recruit/demo/entity/EvaluationResult.java:82"
+        }
+      ],
+      "operations": [
+        {
+          "name": "getId",
+          "params": [],
+          "returns": "Integer",
+          "visibility": "+",
+          "src": "source/recruit_system/backend/interview-service/src/main/java/recruit/demo/entity/EvaluationResult.java:15"
+        },
+        {
+          "name": "getPredictedScore",
+          "params": [],
+          "returns": "BigDecimal",
+          "visibility": "+",
+          "src": "source/recruit_system/backend/interview-service/src/main/java/recruit/demo/entity/EvaluationResult.java:15"
+        },
+        {
+          "name": "setPredictedScore",
+          "params": [
+            {
+              "name": "predictedScore",
+              "type": "BigDecimal"
+            }
+          ],
+          "returns": "void",
+          "visibility": "+",
+          "src": "source/recruit_system/backend/interview-service/src/main/java/recruit/demo/entity/EvaluationResult.java:16"
+        }
+      ],
+      "src": "source/recruit_system/backend/interview-service/src/main/java/recruit/demo/entity/EvaluationResult.java:20"
+    },
+    {
+      "key": "EvaluationRubric",
+      "kind": "class",
+      "name": "EvaluationRubric",
+      "parent": "Model",
+      "stereotype": "entity",
+      "attributes": [
+        {
+          "name": "id",
+          "type": "Integer",
+          "visibility": "-",
+          "src": "source/recruit_system/backend/interview-service/src/main/java/recruit/demo/entity/EvaluationRubric.java:24"
+        },
+        {
+          "name": "criterionName",
+          "type": "String",
+          "visibility": "-",
+          "src": "source/recruit_system/backend/interview-service/src/main/java/recruit/demo/entity/EvaluationRubric.java:31"
+        },
+        {
+          "name": "criterionDescription",
+          "type": "String",
+          "visibility": "-",
+          "src": "source/recruit_system/backend/interview-service/src/main/java/recruit/demo/entity/EvaluationRubric.java:34"
+        },
+        {
+          "name": "weight",
+          "type": "BigDecimal",
+          "visibility": "-",
+          "src": "source/recruit_system/backend/interview-service/src/main/java/recruit/demo/entity/EvaluationRubric.java:41"
+        },
+        {
+          "name": "expectedKeywords",
+          "type": "List<String>",
+          "visibility": "-",
+          "src": "source/recruit_system/backend/interview-service/src/main/java/recruit/demo/entity/EvaluationRubric.java:45"
+        },
+        {
+          "name": "referenceAnswers",
+          "type": "List<String>",
+          "visibility": "-",
+          "src": "source/recruit_system/backend/interview-service/src/main/java/recruit/demo/entity/EvaluationRubric.java:49"
+        },
+        {
+          "name": "misconceptions",
+          "type": "List<String>",
+          "visibility": "-",
+          "src": "source/recruit_system/backend/interview-service/src/main/java/recruit/demo/entity/EvaluationRubric.java:52"
+        }
+      ],
+      "operations": [
+        {
+          "name": "getId",
+          "params": [],
+          "returns": "Integer",
+          "visibility": "+",
+          "src": "source/recruit_system/backend/interview-service/src/main/java/recruit/demo/entity/EvaluationRubric.java:15"
+        },
+        {
+          "name": "getCriterionName",
+          "params": [],
+          "returns": "String",
+          "visibility": "+",
+          "src": "source/recruit_system/backend/interview-service/src/main/java/recruit/demo/entity/EvaluationRubric.java:15"
+        },
+        {
+          "name": "getWeight",
+          "params": [],
+          "returns": "BigDecimal",
+          "visibility": "+",
+          "src": "source/recruit_system/backend/interview-service/src/main/java/recruit/demo/entity/EvaluationRubric.java:15"
+        }
+      ],
+      "src": "source/recruit_system/backend/interview-service/src/main/java/recruit/demo/entity/EvaluationRubric.java:20"
+    }
+  ],
+  "relations": [
+    {
+      "from": "InterviewController",
+      "to": "CreateSessionRequest",
+      "kind": "dependency",
+      "label": "uses",
+      "src": "source/recruit_system/backend/interview-service/src/main/java/recruit/demo/controller/InterviewController.java:24"
+    },
+    {
+      "from": "InterviewController",
+      "to": "SessionResponse",
+      "kind": "dependency",
+      "label": "returns",
+      "src": "source/recruit_system/backend/interview-service/src/main/java/recruit/demo/controller/InterviewController.java:24"
+    },
+    {
+      "from": "InterviewController",
+      "to": "SubmitResponseRequest",
+      "kind": "dependency",
+      "label": "uses",
+      "src": "source/recruit_system/backend/interview-service/src/main/java/recruit/demo/controller/InterviewController.java:41"
+    },
+    {
+      "from": "InterviewController",
+      "to": "EvaluationResponse",
+      "kind": "dependency",
+      "label": "returns",
+      "src": "source/recruit_system/backend/interview-service/src/main/java/recruit/demo/controller/InterviewController.java:42"
+    },
+    {
+      "from": "InterviewController",
+      "to": "InterviewService",
+      "kind": "association",
+      "fromMult": "1",
+      "toMult": "1",
+      "label": "interviewService",
+      "src": "source/recruit_system/backend/interview-service/src/main/java/recruit/demo/controller/InterviewController.java:16"
+    },
+    {
+      "from": "InterviewService",
+      "to": "QuestionSelectionService",
+      "kind": "association",
+      "fromMult": "1",
+      "toMult": "1",
+      "label": "questionSelection",
+      "src": "source/recruit_system/backend/interview-service/src/main/java/recruit/demo/service/InterviewService.java:32"
+    },
+    {
+      "from": "InterviewService",
+      "to": "AiScoringClient",
+      "kind": "association",
+      "fromMult": "1",
+      "toMult": "1",
+      "label": "aiScoringClient",
+      "src": "source/recruit_system/backend/interview-service/src/main/java/recruit/demo/service/InterviewService.java:31"
+    },
+    {
+      "from": "InterviewService",
+      "to": "ServiceHttpClient",
+      "kind": "association",
+      "fromMult": "1",
+      "toMult": "1",
+      "label": "serviceHttp",
+      "src": "source/recruit_system/backend/interview-service/src/main/java/recruit/demo/service/InterviewService.java:33"
+    },
+    {
+      "from": "InterviewService",
+      "to": "InterviewSessionRepository",
+      "kind": "association",
+      "fromMult": "1",
+      "toMult": "1",
+      "label": "sessionRepository",
+      "src": "source/recruit_system/backend/interview-service/src/main/java/recruit/demo/service/InterviewService.java:27"
+    },
+    {
+      "from": "InterviewService",
+      "to": "InterviewSessionQuestionRepository",
+      "kind": "association",
+      "fromMult": "1",
+      "toMult": "1",
+      "label": "sessionQuestionRepository",
+      "src": "source/recruit_system/backend/interview-service/src/main/java/recruit/demo/service/InterviewService.java:28"
+    },
+    {
+      "from": "InterviewService",
+      "to": "EvaluationResultRepository",
+      "kind": "association",
+      "fromMult": "1",
+      "toMult": "1",
+      "label": "evaluationResultRepository",
+      "src": "source/recruit_system/backend/interview-service/src/main/java/recruit/demo/service/InterviewService.java:30"
+    },
+    {
+      "from": "InterviewService",
+      "to": "EvaluationRubricRepository",
+      "kind": "association",
+      "fromMult": "1",
+      "toMult": "1",
+      "label": "rubricRepository",
+      "src": "source/recruit_system/backend/interview-service/src/main/java/recruit/demo/service/InterviewService.java:26"
+    },
+    {
+      "from": "InterviewSessionRepository",
+      "to": "InterviewSession",
+      "kind": "dependency",
+      "label": "manages",
+      "src": "source/recruit_system/backend/interview-service/src/main/java/recruit/demo/repository/InterviewSessionRepository.java:8"
+    },
+    {
+      "from": "InterviewSessionQuestionRepository",
+      "to": "InterviewSessionQuestion",
+      "kind": "dependency",
+      "label": "manages",
+      "src": "source/recruit_system/backend/interview-service/src/main/java/recruit/demo/repository/InterviewSessionQuestionRepository.java:11"
+    },
+    {
+      "from": "EvaluationResultRepository",
+      "to": "EvaluationResult",
+      "kind": "dependency",
+      "label": "manages",
+      "src": "source/recruit_system/backend/interview-service/src/main/java/recruit/demo/repository/EvaluationResultRepository.java:8"
+    },
+    {
+      "from": "EvaluationRubricRepository",
+      "to": "EvaluationRubric",
+      "kind": "dependency",
+      "label": "manages",
+      "src": "source/recruit_system/backend/interview-service/src/main/java/recruit/demo/repository/EvaluationRubricRepository.java:8"
+    },
+    {
+      "from": "InterviewSession",
+      "to": "InterviewSessionQuestion",
+      "kind": "composition",
+      "fromMult": "1",
+      "toMult": "1..*",
+      "label": "questions",
+      "src": "source/recruit_system/backend/interview-service/src/main/java/recruit/demo/entity/InterviewSessionQuestion.java:23"
+    },
+    {
+      "from": "InterviewSessionQuestion",
+      "to": "InterviewResponse",
+      "kind": "association",
+      "fromMult": "1",
+      "toMult": "0..1",
+      "label": "response",
+      "src": "source/recruit_system/backend/interview-service/src/main/java/recruit/demo/entity/InterviewResponse.java:24"
+    },
+    {
+      "from": "InterviewResponse",
+      "to": "EvaluationResult",
+      "kind": "association",
+      "fromMult": "1",
+      "toMult": "0..1",
+      "label": "evaluation",
+      "src": "source/recruit_system/backend/interview-service/src/main/java/recruit/demo/entity/EvaluationResult.java:28"
+    }
+  ],
+  "notes": [
+    "Biểu đồ lớp chi tiết Backend module M4 gồm 18 lớp cốt lõi được tổ chức theo mô hình MVC 3 tầng: View (DTO trao đổi mạng), Controller (REST endpoint) và Model (Service nghiệp vụ, Client tích hợp HTTP, Repository truy cập dữ liệu và Entity JPA).",
+    "Luồng tạo phiên phỏng vấn: InterviewController tiếp nhận CreateSessionRequest, ủy quyền cho InterviewService gọi ServiceHttpClient lấy ngữ cảnh JD/CV từ recruitment-service (/internal/interview-context), chạy thuật toán QuestionSelectionService chọn 6 câu hỏi, rồi lưu InterviewSession và InterviewSessionQuestion vào CSDL.",
+    "Luồng nộp câu trả lời và chấm điểm: InterviewController nhận SubmitResponseRequest, InterviewService sử dụng khóa bi quan (PESSIMISTIC_WRITE) qua sessionRepository.findForUpdate() để ngăn chặn ghi đồng thời, lưu InterviewResponse, truy xuất EvaluationRubric qua rubricRepository, gọi AiScoringClient tới interview-ai (/v1/interview/evaluate) để lấy điểm BERTScore/Rubric coverage, lưu EvaluationResult và trả về EvaluationResponse.",
+    "Bảo mật và tích hợp microservice: Giao tiếp giữa interview-service và recruitment-service được thực hiện qua ServiceHttpClient với token bí mật X-Service-Token; giao tiếp với AI service qua HTTP JSON không sử dụng cơ chế fallback giả lập điểm số khi AI lỗi."
+  ],
+  "open_questions": [
+    "Cơ chế xác thực nội bộ: Khi interview-service gọi recruitment-service qua /internal/interview-context, hệ thống sử dụng X-Service-Token chung của microservices và truyền userId qua tham số URL thay vì chuyển tiếp JWT của người dùng (Token Relay). Cần xác nhận xem có cần bổ sung xác thực ngữ cảnh người dùng kép hay không.",
+    "Giới hạn cấp độ câu hỏi: Ngân hàng câu hỏi v2 trong CSDL hiện chỉ hỗ trợ các cấp độ Intern, Junior và Middle. Đối với các tin tuyển dụng cấp độ Senior hoặc Lead, QuestionSelectionService hiện đang ánh xạ về cấp độ Middle. Cần xác nhận lộ trình bổ sung các câu hỏi chuyên biệt cho Senior/Lead."
+  ]
+}

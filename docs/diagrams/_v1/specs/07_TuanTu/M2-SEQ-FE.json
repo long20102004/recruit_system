@@ -1,0 +1,423 @@
+{
+  "id": "M2-SEQ-FE",
+  "type": "sequence",
+  "name": "Biểu đồ tuần tự - Tải lên CV PDF, kiểm tra và xác nhận các trường hồ sơ (Frontend)",
+  "lifelines": [
+    {
+      "key": "user",
+      "name": "Người dùng",
+      "kind": "actor",
+      "src": "source/recruit_system/frontend/src/App.tsx:64"
+    },
+    {
+      "key": "uploadZone",
+      "name": ":UploadZone",
+      "kind": "object",
+      "class": "UploadZone",
+      "src": "source/recruit_system/frontend/src/components/common/UploadZone.tsx:12"
+    },
+    {
+      "key": "page",
+      "name": ":CandidateCvPage",
+      "kind": "object",
+      "class": "CandidateCvPage",
+      "src": "source/recruit_system/frontend/src/pages/candidate/CandidateCvPage.tsx:94"
+    },
+    {
+      "key": "toastContext",
+      "name": ":ToastContext",
+      "kind": "object",
+      "class": "ToastContext",
+      "src": "source/recruit_system/frontend/src/context/ToastContext.tsx:17"
+    },
+    {
+      "key": "cvsApi",
+      "name": ":cvsApi",
+      "kind": "object",
+      "class": "cvsApi",
+      "src": "source/recruit_system/frontend/src/api/client.ts:99"
+    },
+    {
+      "key": "server",
+      "name": ":CvController",
+      "kind": "object",
+      "class": "CvController",
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/controller/CvController.java:13"
+    }
+  ],
+  "messages": [
+    {
+      "seq": 1,
+      "from": "user",
+      "to": "page",
+      "operation": "CandidateCvPage",
+      "params": [],
+      "kind": "sync",
+      "src": "source/recruit_system/frontend/src/pages/candidate/CandidateCvPage.tsx:94"
+    },
+    {
+      "seq": 2,
+      "from": "page",
+      "to": "cvsApi",
+      "operation": "mine",
+      "params": [],
+      "kind": "sync",
+      "src": "source/recruit_system/frontend/src/pages/candidate/CandidateCvPage.tsx:115"
+    },
+    {
+      "seq": 3,
+      "from": "cvsApi",
+      "to": "server",
+      "operation": "GET /api/cvs",
+      "params": [],
+      "kind": "sync",
+      "src": "source/recruit_system/frontend/src/api/client.ts:100"
+    },
+    {
+      "seq": 4,
+      "from": "server",
+      "to": "cvsApi",
+      "operation": "GET /api/cvs",
+      "params": [
+        "CvFormDto"
+      ],
+      "kind": "return",
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/controller/CvController.java:19"
+    },
+    {
+      "seq": 5,
+      "from": "cvsApi",
+      "to": "page",
+      "operation": "mine",
+      "params": [
+        "CvFormDto"
+      ],
+      "kind": "return",
+      "src": "source/recruit_system/frontend/src/api/client.ts:100"
+    },
+    {
+      "seq": 6,
+      "from": "page",
+      "to": "page",
+      "operation": "applyForm",
+      "params": [
+        "form: CvFormDto"
+      ],
+      "kind": "self",
+      "src": "source/recruit_system/frontend/src/pages/candidate/CandidateCvPage.tsx:117"
+    },
+    {
+      "seq": 7,
+      "from": "user",
+      "to": "uploadZone",
+      "operation": "handleFiles",
+      "params": [
+        "files: FileList | null"
+      ],
+      "kind": "sync",
+      "src": "source/recruit_system/frontend/src/components/common/UploadZone.tsx:38"
+    },
+    {
+      "seq": 8,
+      "from": "uploadZone",
+      "to": "page",
+      "operation": "onUpload",
+      "params": [
+        "file: File"
+      ],
+      "kind": "sync",
+      "src": "source/recruit_system/frontend/src/components/common/UploadZone.tsx:23"
+    },
+    {
+      "seq": 9,
+      "from": "page",
+      "to": "toastContext",
+      "operation": "toast",
+      "params": [
+        "msg: Chỉ nhận file PDF"
+      ],
+      "kind": "sync",
+      "fragment": {
+        "id": "F1",
+        "kind": "alt",
+        "guard": "không phải .pdf"
+      },
+      "src": "source/recruit_system/frontend/src/pages/candidate/CandidateCvPage.tsx:124"
+    },
+    {
+      "seq": 10,
+      "from": "page",
+      "to": "cvsApi",
+      "operation": "upload",
+      "params": [
+        "file: File"
+      ],
+      "kind": "sync",
+      "fragment": {
+        "id": "F1",
+        "kind": "alt",
+        "guard": "hợp lệ .pdf"
+      },
+      "src": "source/recruit_system/frontend/src/pages/candidate/CandidateCvPage.tsx:129"
+    },
+    {
+      "seq": 11,
+      "from": "cvsApi",
+      "to": "server",
+      "operation": "POST /api/cvs",
+      "params": [
+        "file: File (FormData)"
+      ],
+      "kind": "sync",
+      "fragment": {
+        "id": "F1",
+        "kind": "alt",
+        "guard": "hợp lệ .pdf"
+      },
+      "src": "source/recruit_system/frontend/src/api/client.ts:104"
+    },
+    {
+      "seq": 12,
+      "from": "server",
+      "to": "cvsApi",
+      "operation": "POST /api/cvs",
+      "params": [
+        "CvFormDto"
+      ],
+      "kind": "return",
+      "fragment": {
+        "id": "F1",
+        "kind": "alt",
+        "guard": "hợp lệ .pdf"
+      },
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/controller/CvController.java:24"
+    },
+    {
+      "seq": 13,
+      "from": "cvsApi",
+      "to": "page",
+      "operation": "upload",
+      "params": [
+        "CvFormDto"
+      ],
+      "kind": "return",
+      "fragment": {
+        "id": "F1",
+        "kind": "alt",
+        "guard": "hợp lệ .pdf"
+      },
+      "src": "source/recruit_system/frontend/src/api/client.ts:101"
+    },
+    {
+      "seq": 14,
+      "from": "page",
+      "to": "page",
+      "operation": "applyForm",
+      "params": [
+        "form: CvFormDto",
+        "nextStep: 2"
+      ],
+      "kind": "self",
+      "fragment": {
+        "id": "F1",
+        "kind": "alt",
+        "guard": "hợp lệ .pdf"
+      },
+      "src": "source/recruit_system/frontend/src/pages/candidate/CandidateCvPage.tsx:130"
+    },
+    {
+      "seq": 15,
+      "from": "page",
+      "to": "toastContext",
+      "operation": "toast",
+      "params": [
+        "msg: Đã tải CV và điền các mục hồ sơ. Hãy kiểm tra trước khi xác nhận."
+      ],
+      "kind": "sync",
+      "fragment": {
+        "id": "F1",
+        "kind": "alt",
+        "guard": "hợp lệ .pdf"
+      },
+      "src": "source/recruit_system/frontend/src/pages/candidate/CandidateCvPage.tsx:131"
+    },
+    {
+      "seq": 16,
+      "from": "page",
+      "to": "toastContext",
+      "operation": "toast",
+      "params": [
+        "msg: e.message"
+      ],
+      "kind": "sync",
+      "fragment": {
+        "id": "F1",
+        "kind": "alt",
+        "guard": "lỗi từ server (ApiError)"
+      },
+      "src": "source/recruit_system/frontend/src/pages/candidate/CandidateCvPage.tsx:133"
+    },
+    {
+      "seq": 17,
+      "from": "user",
+      "to": "page",
+      "operation": "setField",
+      "params": [
+        "field: string",
+        "lines: string[]"
+      ],
+      "kind": "sync",
+      "src": "source/recruit_system/frontend/src/pages/candidate/CandidateCvPage.tsx:274"
+    },
+    {
+      "seq": 18,
+      "from": "user",
+      "to": "page",
+      "operation": "onConfirm",
+      "params": [],
+      "kind": "sync",
+      "src": "source/recruit_system/frontend/src/pages/candidate/CandidateCvPage.tsx:281"
+    },
+    {
+      "seq": 19,
+      "from": "page",
+      "to": "toastContext",
+      "operation": "toast",
+      "params": [
+        "msg: Hãy tải CV trước"
+      ],
+      "kind": "sync",
+      "fragment": {
+        "id": "F2",
+        "kind": "alt",
+        "guard": "chưa tải CV"
+      },
+      "src": "source/recruit_system/frontend/src/pages/candidate/CandidateCvPage.tsx:141"
+    },
+    {
+      "seq": 20,
+      "from": "page",
+      "to": "cvsApi",
+      "operation": "confirm",
+      "params": [
+        "fields: CvFieldDto[]"
+      ],
+      "kind": "sync",
+      "fragment": {
+        "id": "F2",
+        "kind": "alt",
+        "guard": "đã có fileName"
+      },
+      "src": "source/recruit_system/frontend/src/pages/candidate/CandidateCvPage.tsx:146"
+    },
+    {
+      "seq": 21,
+      "from": "cvsApi",
+      "to": "server",
+      "operation": "PUT /api/cvs",
+      "params": [
+        "fields: CvFieldDto[]"
+      ],
+      "kind": "sync",
+      "fragment": {
+        "id": "F2",
+        "kind": "alt",
+        "guard": "đã có fileName"
+      },
+      "src": "source/recruit_system/frontend/src/api/client.ts:108"
+    },
+    {
+      "seq": 22,
+      "from": "server",
+      "to": "cvsApi",
+      "operation": "PUT /api/cvs",
+      "params": [
+        "CvFormDto"
+      ],
+      "kind": "return",
+      "fragment": {
+        "id": "F2",
+        "kind": "alt",
+        "guard": "đã có fileName"
+      },
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/controller/CvController.java:29"
+    },
+    {
+      "seq": 23,
+      "from": "cvsApi",
+      "to": "page",
+      "operation": "confirm",
+      "params": [
+        "CvFormDto"
+      ],
+      "kind": "return",
+      "fragment": {
+        "id": "F2",
+        "kind": "alt",
+        "guard": "đã có fileName"
+      },
+      "src": "source/recruit_system/frontend/src/api/client.ts:106"
+    },
+    {
+      "seq": 24,
+      "from": "page",
+      "to": "page",
+      "operation": "applyForm",
+      "params": [
+        "form: CvFormDto",
+        "nextStep: 3"
+      ],
+      "kind": "self",
+      "fragment": {
+        "id": "F2",
+        "kind": "alt",
+        "guard": "đã có fileName"
+      },
+      "src": "source/recruit_system/frontend/src/pages/candidate/CandidateCvPage.tsx:149"
+    },
+    {
+      "seq": 25,
+      "from": "page",
+      "to": "toastContext",
+      "operation": "toast",
+      "params": [
+        "msg: Đã xác nhận hồ sơ"
+      ],
+      "kind": "sync",
+      "fragment": {
+        "id": "F2",
+        "kind": "alt",
+        "guard": "đã có fileName"
+      },
+      "src": "source/recruit_system/frontend/src/pages/candidate/CandidateCvPage.tsx:150"
+    },
+    {
+      "seq": 26,
+      "from": "page",
+      "to": "toastContext",
+      "operation": "toast",
+      "params": [
+        "msg: e.message"
+      ],
+      "kind": "sync",
+      "fragment": {
+        "id": "F2",
+        "kind": "alt",
+        "guard": "lỗi từ server (ApiError)"
+      },
+      "src": "source/recruit_system/frontend/src/pages/candidate/CandidateCvPage.tsx:152"
+    }
+  ],
+  "notes": [
+    "Phạm vi chỉ bên Frontend React của module M2. Lifeline :CvController là lifeline ĐẠI DIỆN server (recruitment-service nhận request qua API Gateway nginx :8080, route /api/cvs — infra/gateway/nginx.conf); mọi xử lý bên trong server (CvService, CvExtractionModule, AiJsonClient, identity-service) thuộc M2-SEQ-BE / M2-SEQ-AI, không vẽ ở đây.",
+    "Mọi lifeline object đều là lớp có trong M2-CLS-FE.json: UploadZone, CandidateCvPage, ToastContext, cvsApi; lifeline :CvController là đại diện bên ngoài (ngoại lệ theo quy ước).",
+    "Mọi message gọi về FE đều khớp operation trong M2-CLS-FE: handleFiles (UploadZone), CandidateCvPage/applyForm/setField/onUpload/onConfirm (CandidateCvPage), toast (ToastContext), mine/upload/confirm (cvsApi); 3 message sang server là request HTTP thật GET/POST/PUT /api/cvs (CvController.java:17-30).",
+    "Chuỗi seq 2-6 (tải hồ sơ hiện có bằng cvsApi.mine khi mount trang) là luồng có thật trong source (CandidateCvPage.tsx:114-120) nhưng không có bước tương ứng trong M2-ACT (ACT bắt đầu tại N01 tải tệp) — xem notes .md mục 'Điểm lệch so với M2-ACT'.",
+    "Hiệu ứng toast: ToastContext.toast chỉ đặt state message và tự render :Toast (ToastContext.tsx:30); không vẽ lifeline :Toast riêng để gọn biểu đồ. Quan hệ ToastContext → Toast (composition) đã có trong M2-CLS-FE.",
+    "Hai combined fragment alt: F1 = rẽ nhánh kiểm tra định dạng .pdf và xử lý lỗi khi tải lên; F2 = rẽ nhánh kiểm tra điều kiện đã tải CV và xử lý lỗi khi xác nhận. Các nhánh lỗi [lỗi từ server (ApiError)] gộp mọi lỗi 4xx/5xx trả về từ recruitment-service (bao gồm lỗi quyền 401/403, PDF quá 10 trang 400, thiếu text layer 422, lỗi AI 502/503) — chi tiết mã lỗi xem M2-ACT và M2-SEQ-BE."
+  ],
+  "open_questions": [
+    "[cần xác nhận] Giữa :cvsApi và :CvController thực tế còn tầng ApiClient.api() (client.ts:32) thực hiện fetch và tạo ApiError khi !res.ok; đã lược bỏ lifeline :ApiClient để giảm số message — có cần vẽ thêm lifeline này cho đầy đủ không?",
+    "[cần xác nhận] Luồng tải hồ sơ hiện có (seq 2-6, GET /api/cvs khi mount) không có trong M2-ACT; có nên bổ sung bước tương ứng vào M2-ACT để khớp 1-1, hay giữ hai biểu đồ ở mức chi tiết khác nhau?"
+  ]
+}

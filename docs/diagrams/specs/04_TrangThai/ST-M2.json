@@ -1,0 +1,41 @@
+{
+  "id": "ST-M2",
+  "type": "state",
+  "name": "Biểu đồ trạng thái - Tải lên và xác nhận CV",
+  "states": [
+    {"key":"initial","name":"Bắt đầu","kind":"initial","src":"source/recruit_system/frontend/src/pages/candidate/CandidateCvPage.tsx:94"},
+    {"key":"loading","name":"Hiện giao diện đang tải hồ sơ","kind":"state","src":"source/recruit_system/frontend/src/pages/candidate/CandidateCvPage.tsx:114"},
+    {"key":"screenProfile","name":"Hiện giao diện Hồ sơ của bạn","kind":"state","src":"source/recruit_system/frontend/src/pages/candidate/CandidateCvPage.tsx:173"},
+    {"key":"screenReview","name":"Hiện giao diện Hồ sơ & phân tích CV","kind":"state","src":"source/recruit_system/frontend/src/pages/candidate/CandidateCvPage.tsx:228"},
+    {"key":"toastUploadOk","name":"Hiện thông báo tải CV và điền các mục hồ sơ thành công","kind":"state","src":"source/recruit_system/frontend/src/pages/candidate/CandidateCvPage.tsx:129"},
+    {"key":"toastPdfError","name":"Hiện thông báo Chỉ nhận file PDF","kind":"state","src":"source/recruit_system/frontend/src/pages/candidate/CandidateCvPage.tsx:123"},
+    {"key":"toastUploadError","name":"Hiện thông báo lỗi tải CV","kind":"state","src":"source/recruit_system/frontend/src/pages/candidate/CandidateCvPage.tsx:132"},
+    {"key":"toastConfirmOk","name":"Hiện thông báo Đã xác nhận hồ sơ","kind":"state","src":"source/recruit_system/frontend/src/pages/candidate/CandidateCvPage.tsx:149"},
+    {"key":"toastNoFile","name":"Hiện thông báo Hãy tải CV trước","kind":"state","src":"source/recruit_system/frontend/src/pages/candidate/CandidateCvPage.tsx:139"},
+    {"key":"toastConfirmError","name":"Hiện thông báo xác nhận thất bại","kind":"state","src":"source/recruit_system/frontend/src/pages/candidate/CandidateCvPage.tsx:151"},
+    {"key":"final","name":"Kết thúc","kind":"final","src":"source/recruit_system/frontend/src/pages/candidate/CandidateCvPage.tsx:217"}
+  ],
+  "transitions": [
+    {"from":"initial","to":"loading","label":"[Truy cập Hồ sơ / CV] / Tải hồ sơ","src":"source/recruit_system/frontend/src/pages/candidate/CandidateCvPage.tsx:114"},
+    {"from":"loading","to":"screenProfile","label":"[Tải hồ sơ thành công và analyzed] / Hiện Hồ sơ của bạn","src":"source/recruit_system/frontend/src/pages/candidate/CandidateCvPage.tsx:110"},
+    {"from":"loading","to":"screenReview","label":"[Tải xong; hồ sơ chưa analyzed hoặc lấy hồ sơ lỗi] / Hiện Hồ sơ & phân tích CV","src":"source/recruit_system/frontend/src/pages/candidate/CandidateCvPage.tsx:110"},
+    {"from":"screenProfile","to":"screenReview","label":"[Click Cập nhật hồ sơ] / Chuyển step = 2","src":"source/recruit_system/frontend/src/pages/candidate/CandidateCvPage.tsx:213"},
+    {"from":"screenReview","to":"screenReview","label":"[Click Tải file khác] / Chuyển step = 1 và xóa tên tệp hiển thị","src":"source/recruit_system/frontend/src/pages/candidate/CandidateCvPage.tsx:249"},
+    {"from":"screenReview","to":"toastPdfError","label":"[Chọn tệp không có đuôi .pdf] / Hiện thông báo Chỉ nhận file PDF","src":"source/recruit_system/frontend/src/pages/candidate/CandidateCvPage.tsx:122"},
+    {"from":"toastPdfError","to":"screenReview","label":"[Click OK] / Đóng thông báo","src":"source/recruit_system/frontend/src/pages/candidate/CandidateCvPage.tsx:124"},
+    {"from":"screenReview","to":"toastUploadOk","label":"[Tệp PDF hợp lệ và tải lên thành công] / Điền dữ liệu, chuyển step = 2","src":"source/recruit_system/frontend/src/pages/candidate/CandidateCvPage.tsx:129"},
+    {"from":"toastUploadOk","to":"screenReview","label":"[Click OK] / Tiếp tục kiểm tra thông tin","src":"source/recruit_system/frontend/src/pages/candidate/CandidateCvPage.tsx:131"},
+    {"from":"screenReview","to":"toastUploadError","label":"[Tải lên hoặc xử lý CV thất bại] / Hiện nội dung lỗi","src":"source/recruit_system/frontend/src/pages/candidate/CandidateCvPage.tsx:132"},
+    {"from":"toastUploadError","to":"screenReview","label":"[Click OK] / Giữ nguyên giao diện kiểm tra","src":"source/recruit_system/frontend/src/pages/candidate/CandidateCvPage.tsx:133"},
+    {"from":"screenReview","to":"toastNoFile","label":"[Click Xác nhận hồ sơ khi chưa có tệp] / Hiện nhắc tải CV","src":"source/recruit_system/frontend/src/pages/candidate/CandidateCvPage.tsx:139"},
+    {"from":"toastNoFile","to":"screenReview","label":"[Click OK] / Quay lại giao diện kiểm tra","src":"source/recruit_system/frontend/src/pages/candidate/CandidateCvPage.tsx:141"},
+    {"from":"screenReview","to":"toastConfirmOk","label":"[Đã có tệp và xác nhận thành công] / Lưu hồ sơ, chuyển step = 3","src":"source/recruit_system/frontend/src/pages/candidate/CandidateCvPage.tsx:146"},
+    {"from":"toastConfirmOk","to":"screenProfile","label":"[Click OK] / Hiện Hồ sơ của bạn","src":"source/recruit_system/frontend/src/pages/candidate/CandidateCvPage.tsx:149"},
+    {"from":"screenReview","to":"toastConfirmError","label":"[Xác nhận hồ sơ thất bại] / Hiện nội dung lỗi","src":"source/recruit_system/frontend/src/pages/candidate/CandidateCvPage.tsx:151"},
+    {"from":"toastConfirmError","to":"screenReview","label":"[Click OK] / Giữ giao diện kiểm tra","src":"source/recruit_system/frontend/src/pages/candidate/CandidateCvPage.tsx:152"},
+    {"from":"screenProfile","to":"final","label":"[Tiếp tục ngoài chức năng CV] / Kết thúc","src":"source/recruit_system/frontend/src/pages/candidate/CandidateCvPage.tsx:217"}
+  ],
+  "open_questions": [
+    "[cần xác nhận] Đích điều hướng cụ thể khi phiên hết hạn hoặc truy cập sai vai trò và API trả 401/403; không suy đoán từ toast của trang CV."
+  ]
+}

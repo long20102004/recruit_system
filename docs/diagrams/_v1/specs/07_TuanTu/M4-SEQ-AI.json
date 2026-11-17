@@ -1,0 +1,291 @@
+{
+  "id": "M4-SEQ-AI",
+  "type": "sequence",
+  "name": "Biểu đồ tuần tự - Ôn tập và chấm phỏng vấn (AI)",
+  "lifelines": [
+    {
+      "key": "backend",
+      "name": ":Backend",
+      "kind": "object",
+      "class": "Backend",
+      "src": "source/recruit_system/backend/interview-service/src/main/java/recruit/demo/service/AiScoringClient.java:85"
+    },
+    {
+      "key": "api",
+      "name": ":api",
+      "kind": "object",
+      "class": "api",
+      "src": "source/recruit_system/AI/src/api.py:35"
+    },
+    {
+      "key": "scoring",
+      "name": ":scoring",
+      "kind": "object",
+      "class": "scoring",
+      "src": "source/recruit_system/AI/src/scoring.py:17"
+    },
+    {
+      "key": "features",
+      "name": ":features",
+      "kind": "object",
+      "class": "features",
+      "src": "source/recruit_system/AI/src/features.py:31"
+    },
+    {
+      "key": "semantic",
+      "name": ":semantic",
+      "kind": "object",
+      "class": "semantic",
+      "src": "source/recruit_system/AI/src/semantic.py:20"
+    },
+    {
+      "key": "rubric",
+      "name": ":rubric",
+      "kind": "object",
+      "class": "rubric",
+      "src": "source/recruit_system/AI/src/rubric.py:28"
+    },
+    {
+      "key": "evidence",
+      "name": ":evidence",
+      "kind": "object",
+      "class": "evidence",
+      "src": "source/recruit_system/AI/src/evidence.py:14"
+    }
+  ],
+  "messages": [
+    {
+      "seq": 1,
+      "from": "backend",
+      "to": "api",
+      "operation": "POST /v1/interview/evaluate",
+      "params": [
+        "answer",
+        "reference_answer",
+        "criteria",
+        "mode"
+      ],
+      "kind": "sync",
+      "src": "source/recruit_system/backend/interview-service/src/main/java/recruit/demo/service/AiScoringClient.java:85"
+    },
+    {
+      "seq": 2,
+      "from": "api",
+      "to": "api",
+      "operation": "_normalize_criteria",
+      "params": [
+        "req.criteria"
+      ],
+      "kind": "self",
+      "src": "source/recruit_system/AI/src/api.py:98"
+    },
+    {
+      "seq": 3,
+      "from": "api",
+      "to": "scoring",
+      "operation": "evaluate_question",
+      "params": [
+        "answer",
+        "question",
+        "mode",
+        "device",
+        "include_debug"
+      ],
+      "kind": "sync",
+      "src": "source/recruit_system/AI/src/api.py:222"
+    },
+    {
+      "seq": 4,
+      "from": "scoring",
+      "to": "scoring",
+      "operation": "load_calibration",
+      "params": [
+        "mode"
+      ],
+      "kind": "self",
+      "fragment": {
+        "id": "calibration_error",
+        "kind": "alt",
+        "guard": "calibration có sẵn"
+      },
+      "src": "source/recruit_system/AI/src/scoring.py:81"
+    },
+    {
+      "seq": 5,
+      "from": "scoring",
+      "to": "scoring",
+      "operation": "load_calibration",
+      "params": [
+        "mode"
+      ],
+      "kind": "self",
+      "fragment": {
+        "id": "calibration_error",
+        "kind": "alt",
+        "guard": "thiếu calibration: FileNotFoundError"
+      },
+      "src": "source/recruit_system/AI/src/scoring.py:17"
+    },
+    {
+      "seq": 6,
+      "from": "api",
+      "to": "backend",
+      "operation": "HTTP 503 Service Unavailable",
+      "params": [
+        "calibration missing"
+      ],
+      "kind": "return",
+      "fragment": {
+        "id": "calibration_error",
+        "kind": "alt",
+        "guard": "thiếu calibration: FileNotFoundError"
+      },
+      "src": "source/recruit_system/AI/src/api.py:238"
+    },
+    {
+      "seq": 7,
+      "from": "scoring",
+      "to": "features",
+      "operation": "bertscore_prf",
+      "params": [
+        "[answer]",
+        "[reference_answer]",
+        "model_type",
+        "device"
+      ],
+      "kind": "sync",
+      "src": "source/recruit_system/AI/src/scoring.py:88"
+    },
+    {
+      "seq": 8,
+      "from": "features",
+      "to": "semantic",
+      "operation": "score_pairs",
+      "params": [
+        "answers",
+        "references",
+        "model_type",
+        "batch_size",
+        "device"
+      ],
+      "kind": "sync",
+      "src": "source/recruit_system/AI/src/features.py:39"
+    },
+    {
+      "seq": 9,
+      "from": "semantic",
+      "to": "features",
+      "operation": "score_pairs",
+      "params": "precision, recall, F1 arrays",
+      "kind": "return",
+      "src": "source/recruit_system/AI/src/semantic.py:20"
+    },
+    {
+      "seq": 10,
+      "from": "scoring",
+      "to": "rubric",
+      "operation": "evaluate_rubric",
+      "params": [
+        "answer",
+        "question.criteria",
+        "mode",
+        "model_type",
+        "device"
+      ],
+      "kind": "sync",
+      "src": "source/recruit_system/AI/src/scoring.py:92"
+    },
+    {
+      "seq": 11,
+      "from": "rubric",
+      "to": "evidence",
+      "operation": "evidence_units",
+      "params": [
+        "answer"
+      ],
+      "kind": "sync",
+      "fragment": {
+        "id": "rubric_iter",
+        "kind": "loop",
+        "guard": "với mode bertscore, phân tích mệnh đề câu trả lời"
+      },
+      "src": "source/recruit_system/AI/src/rubric.py:35"
+    },
+    {
+      "seq": 12,
+      "from": "evidence",
+      "to": "rubric",
+      "operation": "evidence_units",
+      "params": "các mệnh đề (tối đa 24)",
+      "kind": "return",
+      "src": "source/recruit_system/AI/src/evidence.py:14"
+    },
+    {
+      "seq": 13,
+      "from": "rubric",
+      "to": "scoring",
+      "operation": "evaluate_rubric",
+      "params": "coverage_score, criterion_results, covered_labels, missing_labels",
+      "kind": "return",
+      "src": "source/recruit_system/AI/src/rubric.py:71"
+    },
+    {
+      "seq": 14,
+      "from": "scoring",
+      "to": "scoring",
+      "operation": "predict_score",
+      "params": [
+        "feat",
+        "calib"
+      ],
+      "kind": "self",
+      "src": "source/recruit_system/AI/src/scoring.py:94"
+    },
+    {
+      "seq": 15,
+      "from": "scoring",
+      "to": "scoring",
+      "operation": "combine_model_and_rubric",
+      "params": [
+        "calibrated",
+        "rubric"
+      ],
+      "kind": "self",
+      "src": "source/recruit_system/AI/src/scoring.py:95"
+    },
+    {
+      "seq": 16,
+      "from": "scoring",
+      "to": "scoring",
+      "operation": "build_comment",
+      "params": [
+        "covered",
+        "missing",
+        "score"
+      ],
+      "kind": "self",
+      "src": "source/recruit_system/AI/src/scoring.py:105"
+    },
+    {
+      "seq": 17,
+      "from": "scoring",
+      "to": "api",
+      "operation": "evaluate_question",
+      "params": "dict kết quả chấm",
+      "kind": "return",
+      "src": "source/recruit_system/AI/src/scoring.py:127"
+    },
+    {
+      "seq": 18,
+      "from": "api",
+      "to": "backend",
+      "operation": "EvaluateResponse",
+      "params": "predicted_score, coverage_score, criterion_results, comment",
+      "kind": "return",
+      "src": "source/recruit_system/AI/src/api.py:250"
+    }
+  ],
+  "open_questions": [
+    "Backend được yêu cầu làm lifeline đầu nhưng không phải lớp/module AI trong M4-CLS-AI.json; biểu diễn như lifeline bên gọi bên ngoài theo yêu cầu."
+  ]
+}

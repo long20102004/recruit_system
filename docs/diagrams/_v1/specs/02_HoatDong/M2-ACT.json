@@ -1,0 +1,409 @@
+{
+  "id": "M2-ACT",
+  "type": "activity",
+  "name": "Biểu đồ hoạt động - Tải lên CV PDF, kiểm tra và xác nhận các trường hồ sơ",
+  "partitions": [
+    {
+      "key": "user",
+      "name": "Người dùng",
+      "src": "source/recruit_system/frontend/src/pages/candidate/CandidateCvPage.tsx:94"
+    },
+    {
+      "key": "frontend",
+      "name": "Frontend",
+      "src": "source/recruit_system/frontend/src/pages/candidate/CandidateCvPage.tsx:122"
+    },
+    {
+      "key": "recruitment",
+      "name": "recruitment-service",
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/service/CvService.java:32"
+    },
+    {
+      "key": "ai",
+      "name": "cv-extraction-ai",
+      "src": "source/recruit_system/services/cv-extraction-ai/app/api/routes.py:64"
+    }
+  ],
+  "nodes": [
+    {
+      "key": "N00",
+      "kind": "initial",
+      "name": "Bắt đầu",
+      "partition": "user",
+      "src": "source/recruit_system/frontend/src/pages/candidate/CandidateCvPage.tsx:94"
+    },
+    {
+      "key": "N01",
+      "kind": "action",
+      "name": "Chọn hoặc kéo thả tệp CV PDF vào UploadZone",
+      "partition": "user",
+      "src": "source/recruit_system/frontend/src/components/common/UploadZone.tsx:38"
+    },
+    {
+      "key": "N02",
+      "kind": "decision",
+      "name": "Tệp có định dạng .pdf?",
+      "partition": "frontend",
+      "src": "source/recruit_system/frontend/src/pages/candidate/CandidateCvPage.tsx:123"
+    },
+    {
+      "key": "N03",
+      "kind": "action",
+      "name": "Hiển thị thông báo chỉ nhận file PDF",
+      "partition": "frontend",
+      "src": "source/recruit_system/frontend/src/pages/candidate/CandidateCvPage.tsx:124"
+    },
+    {
+      "key": "N04",
+      "kind": "action",
+      "name": "Gửi yêu cầu tải lên CV (POST /api/cvs)",
+      "partition": "frontend",
+      "src": "source/recruit_system/frontend/src/pages/candidate/CandidateCvPage.tsx:129"
+    },
+    {
+      "key": "N05",
+      "kind": "action",
+      "name": "Kiểm tra quyền CANDIDATE và dữ liệu tệp",
+      "partition": "recruitment",
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/service/CvService.java:54"
+    },
+    {
+      "key": "N06",
+      "kind": "decision",
+      "name": "Quyền và tệp hợp lệ?",
+      "partition": "recruitment",
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/service/CvService.java:55"
+    },
+    {
+      "key": "N07",
+      "kind": "action",
+      "name": "Trích xuất văn bản và kiểm tra số trang PDF",
+      "partition": "recruitment",
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/service/cv/CvExtractionModule.java:20"
+    },
+    {
+      "key": "N08",
+      "kind": "decision",
+      "name": "PDF hợp lệ và có lớp văn bản?",
+      "partition": "recruitment",
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/service/cv/CvExtractionModule.java:21"
+    },
+    {
+      "key": "N09",
+      "kind": "action",
+      "name": "Gửi yêu cầu trích xuất hồ sơ (POST /api/v1/extract-cv?include=kg)",
+      "partition": "recruitment",
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/service/cv/CvExtractionModule.java:24"
+    },
+    {
+      "key": "N10",
+      "kind": "action",
+      "name": "Trích xuất JSON bằng LLM và làm giàu qua Knowledge Graph",
+      "partition": "ai",
+      "src": "source/recruit_system/services/cv-extraction-ai/app/api/routes.py:100"
+    },
+    {
+      "key": "N11",
+      "kind": "decision",
+      "name": "AI phản hồi dữ liệu trích xuất hợp lệ?",
+      "partition": "recruitment",
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/service/cv/CvExtractionModule.java:26"
+    },
+    {
+      "key": "N12",
+      "kind": "action",
+      "name": "Lưu tệp vào đĩa và ghi dữ liệu trích xuất vào CSDL",
+      "partition": "recruitment",
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/service/CvService.java:69"
+    },
+    {
+      "key": "N13",
+      "kind": "action",
+      "name": "Chuyển sang Bước 2 và hiển thị các trường hồ sơ",
+      "partition": "frontend",
+      "src": "source/recruit_system/frontend/src/pages/candidate/CandidateCvPage.tsx:130"
+    },
+    {
+      "key": "N14",
+      "kind": "action",
+      "name": "Kiểm tra và chỉnh sửa nội dung các trường thông tin",
+      "partition": "user",
+      "src": "source/recruit_system/frontend/src/pages/candidate/CandidateCvPage.tsx:274"
+    },
+    {
+      "key": "N15",
+      "kind": "action",
+      "name": "Nhấn nút Xác nhận hồ sơ",
+      "partition": "user",
+      "src": "source/recruit_system/frontend/src/pages/candidate/CandidateCvPage.tsx:281"
+    },
+    {
+      "key": "N16",
+      "kind": "decision",
+      "name": "Đã có tệp CV được tải lên?",
+      "partition": "frontend",
+      "src": "source/recruit_system/frontend/src/pages/candidate/CandidateCvPage.tsx:140"
+    },
+    {
+      "key": "N17",
+      "kind": "action",
+      "name": "Hiển thị thông báo hãy tải CV trước",
+      "partition": "frontend",
+      "src": "source/recruit_system/frontend/src/pages/candidate/CandidateCvPage.tsx:141"
+    },
+    {
+      "key": "N18",
+      "kind": "action",
+      "name": "Gửi yêu cầu xác nhận hồ sơ (PUT /api/cvs)",
+      "partition": "frontend",
+      "src": "source/recruit_system/frontend/src/pages/candidate/CandidateCvPage.tsx:146"
+    },
+    {
+      "key": "N19",
+      "kind": "action",
+      "name": "Kiểm tra quyền ứng viên và các trường cho phép",
+      "partition": "recruitment",
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/service/CvService.java:87"
+    },
+    {
+      "key": "N20",
+      "kind": "decision",
+      "name": "Dữ liệu xác nhận hợp lệ?",
+      "partition": "recruitment",
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/service/CvService.java:92"
+    },
+    {
+      "key": "N21",
+      "kind": "action",
+      "name": "Lưu hồ sơ vào cv_data và đồng bộ sang identity-service",
+      "partition": "recruitment",
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/service/CvService.java:104"
+    },
+    {
+      "key": "N22",
+      "kind": "action",
+      "name": "Chuyển sang Bước 3 và hiển thị giao diện Hồ sơ của bạn",
+      "partition": "frontend",
+      "src": "source/recruit_system/frontend/src/pages/candidate/CandidateCvPage.tsx:149"
+    },
+    {
+      "key": "N23",
+      "kind": "merge",
+      "name": "Gộp luồng thông báo lỗi",
+      "partition": "frontend",
+      "src": "source/recruit_system/frontend/src/pages/candidate/CandidateCvPage.tsx:133"
+    },
+    {
+      "key": "N24",
+      "kind": "action",
+      "name": "Hiển thị thông báo lỗi qua toast",
+      "partition": "frontend",
+      "src": "source/recruit_system/frontend/src/pages/candidate/CandidateCvPage.tsx:133"
+    },
+    {
+      "key": "N25",
+      "kind": "final",
+      "name": "Kết thúc",
+      "partition": "user",
+      "src": "source/recruit_system/frontend/src/pages/candidate/CandidateCvPage.tsx:217"
+    }
+  ],
+  "flows": [
+    {
+      "from": "N00",
+      "to": "N01",
+      "guard": "",
+      "src": "source/recruit_system/frontend/src/pages/candidate/CandidateCvPage.tsx:94"
+    },
+    {
+      "from": "N01",
+      "to": "N02",
+      "guard": "",
+      "src": "source/recruit_system/frontend/src/components/common/UploadZone.tsx:38"
+    },
+    {
+      "from": "N02",
+      "to": "N04",
+      "guard": "[hợp lệ .pdf]",
+      "src": "source/recruit_system/frontend/src/pages/candidate/CandidateCvPage.tsx:123"
+    },
+    {
+      "from": "N02",
+      "to": "N03",
+      "guard": "[không phải .pdf]",
+      "src": "source/recruit_system/frontend/src/pages/candidate/CandidateCvPage.tsx:123"
+    },
+    {
+      "from": "N03",
+      "to": "N23",
+      "guard": "",
+      "src": "source/recruit_system/frontend/src/pages/candidate/CandidateCvPage.tsx:124"
+    },
+    {
+      "from": "N04",
+      "to": "N05",
+      "guard": "",
+      "src": "source/recruit_system/frontend/src/pages/candidate/CandidateCvPage.tsx:129"
+    },
+    {
+      "from": "N05",
+      "to": "N06",
+      "guard": "",
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/service/CvService.java:54"
+    },
+    {
+      "from": "N06",
+      "to": "N07",
+      "guard": "[hợp lệ]",
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/service/CvService.java:55"
+    },
+    {
+      "from": "N06",
+      "to": "N23",
+      "guard": "[400/401/403]",
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/service/CvService.java:56"
+    },
+    {
+      "from": "N07",
+      "to": "N08",
+      "guard": "",
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/service/cv/CvExtractionModule.java:20"
+    },
+    {
+      "from": "N08",
+      "to": "N09",
+      "guard": "[<= 10 trang và >= 50 ký tự]",
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/service/cv/CvExtractionModule.java:21"
+    },
+    {
+      "from": "N08",
+      "to": "N23",
+      "guard": "[> 10 trang hoặc thiếu text layer (400/422)]",
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/service/cv/CvExtractionModule.java:23"
+    },
+    {
+      "from": "N09",
+      "to": "N10",
+      "guard": "",
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/service/cv/CvExtractionModule.java:24"
+    },
+    {
+      "from": "N10",
+      "to": "N11",
+      "guard": "",
+      "src": "source/recruit_system/services/cv-extraction-ai/app/api/routes.py:100"
+    },
+    {
+      "from": "N11",
+      "to": "N12",
+      "guard": "[thành công]",
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/service/cv/CvExtractionModule.java:26"
+    },
+    {
+      "from": "N11",
+      "to": "N23",
+      "guard": "[502/503/timeout hoặc kết quả rỗng]",
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/client/AiJsonClient.java:22"
+    },
+    {
+      "from": "N12",
+      "to": "N13",
+      "guard": "",
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/service/CvService.java:69"
+    },
+    {
+      "from": "N13",
+      "to": "N14",
+      "guard": "",
+      "src": "source/recruit_system/frontend/src/pages/candidate/CandidateCvPage.tsx:130"
+    },
+    {
+      "from": "N14",
+      "to": "N15",
+      "guard": "",
+      "src": "source/recruit_system/frontend/src/pages/candidate/CandidateCvPage.tsx:274"
+    },
+    {
+      "from": "N15",
+      "to": "N16",
+      "guard": "",
+      "src": "source/recruit_system/frontend/src/pages/candidate/CandidateCvPage.tsx:281"
+    },
+    {
+      "from": "N16",
+      "to": "N18",
+      "guard": "[đã có fileName]",
+      "src": "source/recruit_system/frontend/src/pages/candidate/CandidateCvPage.tsx:140"
+    },
+    {
+      "from": "N16",
+      "to": "N17",
+      "guard": "[chưa tải CV]",
+      "src": "source/recruit_system/frontend/src/pages/candidate/CandidateCvPage.tsx:140"
+    },
+    {
+      "from": "N17",
+      "to": "N23",
+      "guard": "",
+      "src": "source/recruit_system/frontend/src/pages/candidate/CandidateCvPage.tsx:141"
+    },
+    {
+      "from": "N18",
+      "to": "N19",
+      "guard": "",
+      "src": "source/recruit_system/frontend/src/pages/candidate/CandidateCvPage.tsx:146"
+    },
+    {
+      "from": "N19",
+      "to": "N20",
+      "guard": "",
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/service/CvService.java:87"
+    },
+    {
+      "from": "N20",
+      "to": "N21",
+      "guard": "[hợp lệ]",
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/service/CvService.java:92"
+    },
+    {
+      "from": "N20",
+      "to": "N23",
+      "guard": "[trường không nằm trong CV_FIELD (400)]",
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/service/CvService.java:101"
+    },
+    {
+      "from": "N21",
+      "to": "N22",
+      "guard": "",
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/service/CvService.java:108"
+    },
+    {
+      "from": "N22",
+      "to": "N25",
+      "guard": "",
+      "src": "source/recruit_system/frontend/src/pages/candidate/CandidateCvPage.tsx:149"
+    },
+    {
+      "from": "N23",
+      "to": "N24",
+      "guard": "",
+      "src": "source/recruit_system/frontend/src/pages/candidate/CandidateCvPage.tsx:133"
+    },
+    {
+      "from": "N24",
+      "to": "N25",
+      "guard": "",
+      "src": "source/recruit_system/frontend/src/pages/candidate/CandidateCvPage.tsx:133"
+    }
+  ],
+  "notes": [
+    "Hệ thống lưu trữ hồ sơ CV theo mô hình phân rã EAV đa dòng trong bảng cv_data (candidate_id, field, value) thay vì lưu cột cố định; cấu hình các trường được kiểm soát linh hoạt qua SettingService (CV_FIELD mặc định gồm 9 trường).",
+    "Trích xuất văn bản PDF được thực hiện phía backend bằng PdfTextExtractor (kết hợp PDFBox và giải thuật Recursive XY-cut) nhằm giữ đúng thứ tự đọc và bố cục cột. Tệp vượt quá 10 trang bị từ chối 400 Bad Request; tệp không đủ 50 ký tự văn bản bị từ chối 422 Unprocessable Entity do yêu cầu OCR.",
+    "cv-extraction-ai thực hiện pipeline gồm: sinh JSON qua mô hình LLM Qwen GGUF, chuẩn hóa và kiểm chứng căn cứ (postprocess/grounding), làm giàu thực thể qua Knowledge Graph (enrich) để phát hiện kỹ năng suy ra (implied_skills) và chuẩn hóa tên trường học.",
+    "Đồng bộ liên dịch vụ (Service-to-Service): Khi xác nhận hồ sơ, recruitment-service gọi identity-service qua IdentityClient (PATCH /internal/users/{id} với header X-Service-Token) để cập nhật họ tên và số điện thoại, đồng thời cập nhật trường summary trong candidate_profiles.",
+    "Toàn bộ luồng tải lên, trích xuất và xác nhận chạy tuần tự theo các bước tương tác của người dùng (Step 1 -> Step 2 -> Step 3); không có nhánh xử lý song song (không dùng fork/join)."
+  ],
+  "open_questions": [
+    "[cần xác nhận] Hệ thống hiện tại từ chối trực tiếp các CV dạng ảnh quét (scanned PDF) thiếu text layer với mã 422; có dự định tích hợp module OCR tự động chuyển đổi trong tương lai hay duy trì ràng buộc chỉ nhận PDF có text layer?"
+  ]
+}

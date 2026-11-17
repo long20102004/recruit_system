@@ -1,0 +1,540 @@
+{
+  "id": "ACT-M1",
+  "type": "activity",
+  "name": "Biểu đồ hoạt động - Đăng ký, đăng nhập và chọn vai trò (M1)",
+  "partitions": [
+    {
+      "key": "RegisterPage",
+      "name": "RegisterPage.tsx",
+      "src": "source/recruit_system/frontend/src/pages/RegisterPage.tsx:17"
+    },
+    {
+      "key": "LoginPage",
+      "name": "LoginPage.tsx",
+      "src": "source/recruit_system/frontend/src/pages/LoginPage.tsx:17"
+    },
+    {
+      "key": "ChooseRolePage",
+      "name": "ChooseRolePage.tsx",
+      "src": "source/recruit_system/frontend/src/pages/ChooseRolePage.tsx:17"
+    },
+    {
+      "key": "client",
+      "name": "client",
+      "src": "source/recruit_system/frontend/src/api/client.ts:32"
+    },
+    {
+      "key": "AuthController",
+      "name": "AuthController",
+      "src": "source/recruit_system/backend/identity-service/src/main/java/recruit/demo/controller/AuthController.java:12"
+    },
+    {
+      "key": "AuthService",
+      "name": "AuthService",
+      "src": "source/recruit_system/backend/identity-service/src/main/java/recruit/demo/service/AuthService.java:20"
+    }
+  ],
+  "nodes": [
+    {
+      "key": "n_start",
+      "kind": "initial",
+      "name": "Bắt đầu",
+      "partition": "RegisterPage",
+      "src": "source/recruit_system/frontend/src/App.tsx:52"
+    },
+    {
+      "key": "act_reg_show",
+      "kind": "action",
+      "name": "Hiện giao diện",
+      "partition": "RegisterPage",
+      "src": "source/recruit_system/frontend/src/pages/RegisterPage.tsx:43"
+    },
+    {
+      "key": "dec_has_account",
+      "kind": "decision",
+      "name": "Đã có tài khoản?",
+      "partition": "RegisterPage",
+      "src": "source/recruit_system/frontend/src/pages/RegisterPage.tsx:77-78"
+    },
+    {
+      "key": "act_reg_form",
+      "kind": "action",
+      "name": "Lấy từ form: email, password",
+      "partition": "RegisterPage",
+      "src": "source/recruit_system/frontend/src/pages/RegisterPage.tsx:54-72"
+    },
+    {
+      "key": "act_reg_call",
+      "kind": "action",
+      "name": "Gọi hàm register()",
+      "partition": "RegisterPage",
+      "src": "source/recruit_system/frontend/src/pages/RegisterPage.tsx:29-32"
+    },
+    {
+      "key": "act_client_reg",
+      "kind": "action",
+      "name": "fetch()",
+      "partition": "client",
+      "src": "source/recruit_system/frontend/src/api/client.ts:43"
+    },
+    {
+      "key": "act_ctrl_reg",
+      "kind": "action",
+      "name": "register()",
+      "partition": "AuthController",
+      "src": "source/recruit_system/backend/identity-service/src/main/java/recruit/demo/controller/AuthController.java:21-24"
+    },
+    {
+      "key": "act_svc_reg",
+      "kind": "action",
+      "name": "Gọi hàm register()",
+      "partition": "AuthService",
+      "src": "source/recruit_system/backend/identity-service/src/main/java/recruit/demo/service/AuthService.java:28-46"
+    },
+    {
+      "key": "dec_reg_result",
+      "kind": "decision",
+      "name": "Kết quả đăng ký",
+      "partition": "RegisterPage",
+      "src": "source/recruit_system/frontend/src/pages/RegisterPage.tsx:32-36"
+    },
+    {
+      "key": "act_reg_err",
+      "kind": "action",
+      "name": "Thông báo lỗi đăng ký",
+      "partition": "RegisterPage",
+      "src": "source/recruit_system/frontend/src/pages/RegisterPage.tsx:35-37"
+    },
+    {
+      "key": "act_reg_save",
+      "kind": "action",
+      "name": "Lưu vào state/session: token, user",
+      "partition": "RegisterPage",
+      "src": "source/recruit_system/frontend/src/context/AuthContext.tsx:68-73"
+    },
+    {
+      "key": "act_reg_toast",
+      "kind": "action",
+      "name": "Thông báo tạo tài khoản thành công",
+      "partition": "RegisterPage",
+      "src": "source/recruit_system/frontend/src/pages/RegisterPage.tsx:33"
+    },
+    {
+      "key": "act_login_show",
+      "kind": "action",
+      "name": "Hiện giao diện",
+      "partition": "LoginPage",
+      "src": "source/recruit_system/frontend/src/pages/LoginPage.tsx:43"
+    },
+    {
+      "key": "act_login_form",
+      "kind": "action",
+      "name": "Lấy từ form: email, password",
+      "partition": "LoginPage",
+      "src": "source/recruit_system/frontend/src/pages/LoginPage.tsx:54-71"
+    },
+    {
+      "key": "act_login_call",
+      "kind": "action",
+      "name": "Gọi hàm login()",
+      "partition": "LoginPage",
+      "src": "source/recruit_system/frontend/src/pages/LoginPage.tsx:29-32"
+    },
+    {
+      "key": "act_client_login",
+      "kind": "action",
+      "name": "fetch()",
+      "partition": "client",
+      "src": "source/recruit_system/frontend/src/api/client.ts:43"
+    },
+    {
+      "key": "act_ctrl_login",
+      "kind": "action",
+      "name": "login()",
+      "partition": "AuthController",
+      "src": "source/recruit_system/backend/identity-service/src/main/java/recruit/demo/controller/AuthController.java:16-19"
+    },
+    {
+      "key": "act_svc_login",
+      "kind": "action",
+      "name": "Gọi hàm login()",
+      "partition": "AuthService",
+      "src": "source/recruit_system/backend/identity-service/src/main/java/recruit/demo/service/AuthService.java:68-75"
+    },
+    {
+      "key": "dec_login_result",
+      "kind": "decision",
+      "name": "Kết quả đăng nhập",
+      "partition": "LoginPage",
+      "src": "source/recruit_system/frontend/src/pages/LoginPage.tsx:32-36"
+    },
+    {
+      "key": "act_login_err",
+      "kind": "action",
+      "name": "Thông báo sai thông tin đăng nhập",
+      "partition": "LoginPage",
+      "src": "source/recruit_system/frontend/src/pages/LoginPage.tsx:35-37"
+    },
+    {
+      "key": "act_login_save",
+      "kind": "action",
+      "name": "Lưu vào state/session: token, user",
+      "partition": "LoginPage",
+      "src": "source/recruit_system/frontend/src/context/AuthContext.tsx:61-66"
+    },
+    {
+      "key": "act_login_toast",
+      "kind": "action",
+      "name": "Thông báo đăng nhập thành công",
+      "partition": "LoginPage",
+      "src": "source/recruit_system/frontend/src/pages/LoginPage.tsx:33"
+    },
+    {
+      "key": "dec_role_chosen",
+      "kind": "decision",
+      "name": "Đã chọn vai trò?",
+      "partition": "LoginPage",
+      "src": "source/recruit_system/frontend/src/utils/account.ts:3-6"
+    },
+    {
+      "key": "merge_choose_role",
+      "kind": "merge",
+      "name": "",
+      "partition": "ChooseRolePage",
+      "src": "source/recruit_system/frontend/src/pages/ChooseRolePage.tsx:17"
+    },
+    {
+      "key": "act_role_show",
+      "kind": "action",
+      "name": "Hiện giao diện",
+      "partition": "ChooseRolePage",
+      "src": "source/recruit_system/frontend/src/pages/ChooseRolePage.tsx:42-52"
+    },
+    {
+      "key": "act_role_form",
+      "kind": "action",
+      "name": "Lấy từ form: role",
+      "partition": "ChooseRolePage",
+      "src": "source/recruit_system/frontend/src/pages/ChooseRolePage.tsx:53-66"
+    },
+    {
+      "key": "act_role_call",
+      "kind": "action",
+      "name": "Gọi hàm chooseRole()",
+      "partition": "ChooseRolePage",
+      "src": "source/recruit_system/frontend/src/pages/ChooseRolePage.tsx:28-31"
+    },
+    {
+      "key": "act_client_role",
+      "kind": "action",
+      "name": "fetch()",
+      "partition": "client",
+      "src": "source/recruit_system/frontend/src/api/client.ts:43"
+    },
+    {
+      "key": "act_ctrl_role",
+      "kind": "action",
+      "name": "chooseRole()",
+      "partition": "AuthController",
+      "src": "source/recruit_system/backend/identity-service/src/main/java/recruit/demo/controller/AuthController.java:31-34"
+    },
+    {
+      "key": "act_svc_role",
+      "kind": "action",
+      "name": "Gọi hàm chooseRole()",
+      "partition": "AuthService",
+      "src": "source/recruit_system/backend/identity-service/src/main/java/recruit/demo/service/AuthService.java:48-66"
+    },
+    {
+      "key": "dec_role_result",
+      "kind": "decision",
+      "name": "Kết quả chọn vai trò",
+      "partition": "ChooseRolePage",
+      "src": "source/recruit_system/frontend/src/pages/ChooseRolePage.tsx:31-35"
+    },
+    {
+      "key": "act_role_err",
+      "kind": "action",
+      "name": "Thông báo lỗi chọn vai trò",
+      "partition": "ChooseRolePage",
+      "src": "source/recruit_system/frontend/src/pages/ChooseRolePage.tsx:34-36"
+    },
+    {
+      "key": "act_role_save",
+      "kind": "action",
+      "name": "Lưu vào state/session: token mới, user",
+      "partition": "ChooseRolePage",
+      "src": "source/recruit_system/frontend/src/context/AuthContext.tsx:75-80"
+    },
+    {
+      "key": "act_role_toast",
+      "kind": "action",
+      "name": "Thông báo lưu vai trò thành công",
+      "partition": "ChooseRolePage",
+      "src": "source/recruit_system/frontend/src/pages/ChooseRolePage.tsx:32"
+    },
+    {
+      "key": "merge_final",
+      "kind": "merge",
+      "name": "",
+      "partition": "ChooseRolePage",
+      "src": "source/recruit_system/frontend/src/utils/account.ts:5-6"
+    },
+    {
+      "key": "n_final",
+      "kind": "final",
+      "name": "Kết thúc",
+      "partition": "ChooseRolePage",
+      "src": "source/recruit_system/frontend/src/utils/account.ts:5-6"
+    }
+  ],
+  "flows": [
+    {
+      "from": "n_start",
+      "to": "act_reg_show",
+      "guard": "",
+      "src": "source/recruit_system/frontend/src/App.tsx:52"
+    },
+    {
+      "from": "act_reg_show",
+      "to": "dec_has_account",
+      "guard": "",
+      "src": "source/recruit_system/frontend/src/pages/RegisterPage.tsx:77-78"
+    },
+    {
+      "from": "dec_has_account",
+      "to": "act_reg_form",
+      "guard": "[Chưa có tài khoản]",
+      "src": "source/recruit_system/frontend/src/pages/RegisterPage.tsx:54-72"
+    },
+    {
+      "from": "dec_has_account",
+      "to": "act_login_show",
+      "guard": "[Đã có tài khoản]",
+      "src": "source/recruit_system/frontend/src/pages/RegisterPage.tsx:78"
+    },
+    {
+      "from": "act_reg_form",
+      "to": "act_reg_call",
+      "guard": "",
+      "src": "source/recruit_system/frontend/src/pages/RegisterPage.tsx:29-32"
+    },
+    {
+      "from": "act_reg_call",
+      "to": "act_client_reg",
+      "guard": "",
+      "src": "source/recruit_system/frontend/src/api/client.ts:57-61"
+    },
+    {
+      "from": "act_client_reg",
+      "to": "act_ctrl_reg",
+      "guard": "",
+      "src": "source/recruit_system/backend/identity-service/src/main/java/recruit/demo/controller/AuthController.java:21-24"
+    },
+    {
+      "from": "act_ctrl_reg",
+      "to": "act_svc_reg",
+      "guard": "",
+      "src": "source/recruit_system/backend/identity-service/src/main/java/recruit/demo/service/AuthService.java:28-46"
+    },
+    {
+      "from": "act_svc_reg",
+      "to": "dec_reg_result",
+      "guard": "",
+      "src": "source/recruit_system/frontend/src/pages/RegisterPage.tsx:32-36"
+    },
+    {
+      "from": "dec_reg_result",
+      "to": "act_reg_err",
+      "guard": "[Thất bại]",
+      "src": "source/recruit_system/frontend/src/pages/RegisterPage.tsx:35-37"
+    },
+    {
+      "from": "dec_reg_result",
+      "to": "act_reg_save",
+      "guard": "[Thành công]",
+      "src": "source/recruit_system/frontend/src/context/AuthContext.tsx:68-73"
+    },
+    {
+      "from": "act_reg_err",
+      "to": "act_reg_form",
+      "guard": "[Click OK]",
+      "src": "source/recruit_system/frontend/src/pages/RegisterPage.tsx:36"
+    },
+    {
+      "from": "act_reg_save",
+      "to": "act_reg_toast",
+      "guard": "",
+      "src": "source/recruit_system/frontend/src/pages/RegisterPage.tsx:33"
+    },
+    {
+      "from": "act_reg_toast",
+      "to": "merge_choose_role",
+      "guard": "",
+      "src": "source/recruit_system/frontend/src/utils/account.ts:3-4"
+    },
+    {
+      "from": "act_login_show",
+      "to": "act_login_form",
+      "guard": "",
+      "src": "source/recruit_system/frontend/src/pages/LoginPage.tsx:54-71"
+    },
+    {
+      "from": "act_login_form",
+      "to": "act_login_call",
+      "guard": "",
+      "src": "source/recruit_system/frontend/src/pages/LoginPage.tsx:29-32"
+    },
+    {
+      "from": "act_login_call",
+      "to": "act_client_login",
+      "guard": "",
+      "src": "source/recruit_system/frontend/src/api/client.ts:52-56"
+    },
+    {
+      "from": "act_client_login",
+      "to": "act_ctrl_login",
+      "guard": "",
+      "src": "source/recruit_system/backend/identity-service/src/main/java/recruit/demo/controller/AuthController.java:16-19"
+    },
+    {
+      "from": "act_ctrl_login",
+      "to": "act_svc_login",
+      "guard": "",
+      "src": "source/recruit_system/backend/identity-service/src/main/java/recruit/demo/service/AuthService.java:68-75"
+    },
+    {
+      "from": "act_svc_login",
+      "to": "dec_login_result",
+      "guard": "",
+      "src": "source/recruit_system/frontend/src/pages/LoginPage.tsx:32-36"
+    },
+    {
+      "from": "dec_login_result",
+      "to": "act_login_err",
+      "guard": "[Thất bại]",
+      "src": "source/recruit_system/frontend/src/pages/LoginPage.tsx:35-37"
+    },
+    {
+      "from": "dec_login_result",
+      "to": "act_login_save",
+      "guard": "[Thành công]",
+      "src": "source/recruit_system/frontend/src/context/AuthContext.tsx:61-66"
+    },
+    {
+      "from": "act_login_err",
+      "to": "act_login_form",
+      "guard": "[Click OK]",
+      "src": "source/recruit_system/frontend/src/pages/LoginPage.tsx:36"
+    },
+    {
+      "from": "act_login_save",
+      "to": "act_login_toast",
+      "guard": "",
+      "src": "source/recruit_system/frontend/src/pages/LoginPage.tsx:33"
+    },
+    {
+      "from": "act_login_toast",
+      "to": "dec_role_chosen",
+      "guard": "",
+      "src": "source/recruit_system/frontend/src/utils/account.ts:3-6"
+    },
+    {
+      "from": "dec_role_chosen",
+      "to": "merge_choose_role",
+      "guard": "[Chưa chọn vai trò]",
+      "src": "source/recruit_system/frontend/src/utils/account.ts:4"
+    },
+    {
+      "from": "dec_role_chosen",
+      "to": "merge_final",
+      "guard": "[Đã chọn vai trò]",
+      "src": "source/recruit_system/frontend/src/utils/account.ts:5-6"
+    },
+    {
+      "from": "merge_choose_role",
+      "to": "act_role_show",
+      "guard": "",
+      "src": "source/recruit_system/frontend/src/pages/ChooseRolePage.tsx:42-52"
+    },
+    {
+      "from": "act_role_show",
+      "to": "act_role_form",
+      "guard": "",
+      "src": "source/recruit_system/frontend/src/pages/ChooseRolePage.tsx:53-66"
+    },
+    {
+      "from": "act_role_form",
+      "to": "act_role_call",
+      "guard": "",
+      "src": "source/recruit_system/frontend/src/pages/ChooseRolePage.tsx:28-31"
+    },
+    {
+      "from": "act_role_call",
+      "to": "act_client_role",
+      "guard": "",
+      "src": "source/recruit_system/frontend/src/api/client.ts:63-67"
+    },
+    {
+      "from": "act_client_role",
+      "to": "act_ctrl_role",
+      "guard": "",
+      "src": "source/recruit_system/backend/identity-service/src/main/java/recruit/demo/controller/AuthController.java:31-34"
+    },
+    {
+      "from": "act_ctrl_role",
+      "to": "act_svc_role",
+      "guard": "",
+      "src": "source/recruit_system/backend/identity-service/src/main/java/recruit/demo/service/AuthService.java:48-66"
+    },
+    {
+      "from": "act_svc_role",
+      "to": "dec_role_result",
+      "guard": "",
+      "src": "source/recruit_system/frontend/src/pages/ChooseRolePage.tsx:31-35"
+    },
+    {
+      "from": "dec_role_result",
+      "to": "act_role_err",
+      "guard": "[Thất bại]",
+      "src": "source/recruit_system/frontend/src/pages/ChooseRolePage.tsx:34-36"
+    },
+    {
+      "from": "dec_role_result",
+      "to": "act_role_save",
+      "guard": "[Thành công]",
+      "src": "source/recruit_system/frontend/src/context/AuthContext.tsx:75-80"
+    },
+    {
+      "from": "act_role_err",
+      "to": "act_role_form",
+      "guard": "[Click OK]",
+      "src": "source/recruit_system/frontend/src/pages/ChooseRolePage.tsx:35"
+    },
+    {
+      "from": "act_role_save",
+      "to": "act_role_toast",
+      "guard": "",
+      "src": "source/recruit_system/frontend/src/pages/ChooseRolePage.tsx:32"
+    },
+    {
+      "from": "act_role_toast",
+      "to": "merge_final",
+      "guard": "",
+      "src": "source/recruit_system/frontend/src/utils/account.ts:5-6"
+    },
+    {
+      "from": "merge_final",
+      "to": "n_final",
+      "guard": "",
+      "src": "source/recruit_system/frontend/src/utils/account.ts:5-6"
+    }
+  ],
+  "notes": [
+    "Mỗi lớp giao diện trong CLS-M1 (RegisterPage.tsx, LoginPage.tsx, ChooseRolePage.tsx) tương ứng một làn (partition); thêm làn client (HTTPClient client.ts), làn AuthController (RestController) và làn AuthService (Service/Repository).",
+    "Mỗi lời gọi nghiệp vụ ở trang giao diện truyền sang client (fetch()) rồi tới AuthController và AuthService thực thi, sau đó trả kết quả ngược lại trang giao diện (flow hai chiều).",
+    "Các hành động được chuẩn hóa theo mẫu báo cáo PTIT: Hiện giao diện, Lấy từ form, Gọi hàm, Lưu vào state/session, Thông báo.",
+    "Tổng số phần tử trên biểu đồ gồm 36 node (1 initial, 1 final, 27 action, 5 decision, 2 merge), đảm bảo giới hạn <= 40 node."
+  ],
+  "open_questions": []
+}

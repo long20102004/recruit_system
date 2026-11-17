@@ -1,0 +1,984 @@
+{
+  "id": "M2-CLS-BE",
+  "type": "class",
+  "name": "Biểu đồ lớp chi tiết - Tải lên CV PDF, kiểm tra và xác nhận các trường hồ sơ (Backend)",
+  "elements": [
+    {
+      "key": "View",
+      "name": "View",
+      "kind": "package",
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/dto/CvDtos.java:13"
+    },
+    {
+      "key": "Controller",
+      "name": "Controller",
+      "kind": "package",
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/controller/CvController.java:13"
+    },
+    {
+      "key": "Model",
+      "name": "Model",
+      "kind": "package",
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/service/CvService.java:32"
+    },
+    {
+      "key": "CvController",
+      "name": "CvController",
+      "kind": "class",
+      "stereotype": "control",
+      "parent": "Controller",
+      "attributes": [
+        {
+          "name": "cvService",
+          "type": "CvService",
+          "visibility": "-"
+        }
+      ],
+      "operations": [
+        {
+          "name": "upload",
+          "params": [
+            {
+              "name": "file",
+              "type": "MultipartFile"
+            }
+          ],
+          "returns": "CvDtos.CvFormResponse",
+          "visibility": "+"
+        },
+        {
+          "name": "confirm",
+          "params": [
+            {
+              "name": "request",
+              "type": "CvDtos.ConfirmCvRequest"
+            }
+          ],
+          "returns": "CvDtos.CvFormResponse",
+          "visibility": "+"
+        }
+      ],
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/controller/CvController.java:13"
+    },
+    {
+      "key": "CvService",
+      "name": "CvService",
+      "kind": "class",
+      "stereotype": "service",
+      "parent": "Model",
+      "attributes": [
+        {
+          "name": "identityClient",
+          "type": "recruit.demo.client.IdentityClient",
+          "visibility": "-"
+        },
+        {
+          "name": "cvDataRepository",
+          "type": "CvDataRepository",
+          "visibility": "-"
+        },
+        {
+          "name": "candidateProfileRepository",
+          "type": "CandidateProfileRepository",
+          "visibility": "-"
+        },
+        {
+          "name": "settingService",
+          "type": "SettingService",
+          "visibility": "-"
+        },
+        {
+          "name": "extractionModule",
+          "type": "recruit.demo.service.cv.CvExtractionModule",
+          "visibility": "-"
+        },
+        {
+          "name": "profileMapper",
+          "type": "recruit.demo.service.cv.CvProfileMapper",
+          "visibility": "-"
+        },
+        {
+          "name": "appProperties",
+          "type": "AppProperties",
+          "visibility": "-"
+        }
+      ],
+      "operations": [
+        {
+          "name": "upload",
+          "params": [
+            {
+              "name": "file",
+              "type": "MultipartFile"
+            }
+          ],
+          "returns": "CvDtos.CvFormResponse",
+          "visibility": "+"
+        },
+        {
+          "name": "confirm",
+          "params": [
+            {
+              "name": "request",
+              "type": "CvDtos.ConfirmCvRequest"
+            }
+          ],
+          "returns": "CvDtos.CvFormResponse",
+          "visibility": "+"
+        },
+        {
+          "name": "requireCandidate",
+          "params": [],
+          "returns": "CandidateProfile",
+          "visibility": "-"
+        },
+        {
+          "name": "syncProfile",
+          "params": [
+            {
+              "name": "candidate",
+              "type": "CandidateProfile"
+            },
+            {
+              "name": "field",
+              "type": "String"
+            },
+            {
+              "name": "lines",
+              "type": "List<String>"
+            }
+          ],
+          "returns": "void",
+          "visibility": "-"
+        },
+        {
+          "name": "toForm",
+          "params": [
+            {
+              "name": "candidateId",
+              "type": "Integer"
+            }
+          ],
+          "returns": "CvDtos.CvFormResponse",
+          "visibility": "-"
+        },
+        {
+          "name": "linesOf",
+          "params": [
+            {
+              "name": "raw",
+              "type": "List<String>"
+            }
+          ],
+          "returns": "List<String>",
+          "visibility": "-"
+        },
+        {
+          "name": "replaceLines",
+          "params": [
+            {
+              "name": "candidateId",
+              "type": "Integer"
+            },
+            {
+              "name": "field",
+              "type": "String"
+            },
+            {
+              "name": "lines",
+              "type": "List<String>"
+            }
+          ],
+          "returns": "void",
+          "visibility": "-"
+        },
+        {
+          "name": "lines",
+          "params": [
+            {
+              "name": "candidateId",
+              "type": "Integer"
+            },
+            {
+              "name": "field",
+              "type": "String"
+            }
+          ],
+          "returns": "List<String>",
+          "visibility": "-"
+        },
+        {
+          "name": "put",
+          "params": [
+            {
+              "name": "candidateId",
+              "type": "Integer"
+            },
+            {
+              "name": "field",
+              "type": "String"
+            },
+            {
+              "name": "stored",
+              "type": "String"
+            }
+          ],
+          "returns": "void",
+          "visibility": "-"
+        },
+        {
+          "name": "value",
+          "params": [
+            {
+              "name": "candidateId",
+              "type": "Integer"
+            },
+            {
+              "name": "field",
+              "type": "String"
+            }
+          ],
+          "returns": "String",
+          "visibility": "-"
+        }
+      ],
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/service/CvService.java:32"
+    },
+    {
+      "key": "CvExtractionModule",
+      "name": "CvExtractionModule",
+      "kind": "class",
+      "stereotype": "service",
+      "parent": "Model",
+      "attributes": [
+        {
+          "name": "http",
+          "type": "AiJsonClient",
+          "visibility": "-"
+        },
+        {
+          "name": "url",
+          "type": "String",
+          "visibility": "-"
+        }
+      ],
+      "operations": [
+        {
+          "name": "extract",
+          "params": [
+            {
+              "name": "pdf",
+              "type": "byte[]"
+            }
+          ],
+          "returns": "JsonNode",
+          "visibility": "+"
+        }
+      ],
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/service/cv/CvExtractionModule.java:12"
+    },
+    {
+      "key": "PdfTextExtractor",
+      "name": "PdfTextExtractor",
+      "kind": "class",
+      "stereotype": "control",
+      "parent": "Model",
+      "attributes": [
+        {
+          "name": "MAX_PAGES",
+          "type": "int",
+          "visibility": "+"
+        },
+        {
+          "name": "MIN_TEXT_CHARS",
+          "type": "int",
+          "visibility": "+"
+        }
+      ],
+      "operations": [
+        {
+          "name": "extract",
+          "params": [
+            {
+              "name": "pdfBytes",
+              "type": "byte[]"
+            }
+          ],
+          "returns": "ExtractionResult",
+          "visibility": "+"
+        }
+      ],
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/extraction/pdf/PdfTextExtractor.java:24"
+    },
+    {
+      "key": "CvProfileMapper",
+      "name": "CvProfileMapper",
+      "kind": "class",
+      "stereotype": "control",
+      "parent": "Model",
+      "attributes": [],
+      "operations": [
+        {
+          "name": "fields",
+          "params": [
+            {
+              "name": "profile",
+              "type": "JsonNode"
+            }
+          ],
+          "returns": "Map<String, List<String>>",
+          "visibility": "+"
+        },
+        {
+          "name": "join",
+          "params": [
+            {
+              "name": "node",
+              "type": "JsonNode"
+            },
+            {
+              "name": "a",
+              "type": "String"
+            },
+            {
+              "name": "b",
+              "type": "String"
+            }
+          ],
+          "returns": "String",
+          "visibility": "-"
+        },
+        {
+          "name": "scalar",
+          "params": [
+            {
+              "name": "node",
+              "type": "JsonNode"
+            }
+          ],
+          "returns": "List<String>",
+          "visibility": "-"
+        },
+        {
+          "name": "text",
+          "params": [
+            {
+              "name": "node",
+              "type": "JsonNode"
+            }
+          ],
+          "returns": "String",
+          "visibility": "+"
+        },
+        {
+          "name": "strings",
+          "params": [
+            {
+              "name": "array",
+              "type": "JsonNode"
+            }
+          ],
+          "returns": "List<String>",
+          "visibility": "+"
+        }
+      ],
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/service/cv/CvProfileMapper.java:6"
+    },
+    {
+      "key": "AiJsonClient",
+      "name": "AiJsonClient",
+      "kind": "class",
+      "stereotype": "client",
+      "parent": "Model",
+      "attributes": [
+        {
+          "name": "mapper",
+          "type": "ObjectMapper",
+          "visibility": "-"
+        },
+        {
+          "name": "client",
+          "type": "HttpClient",
+          "visibility": "-"
+        }
+      ],
+      "operations": [
+        {
+          "name": "post",
+          "params": [
+            {
+              "name": "url",
+              "type": "String"
+            },
+            {
+              "name": "body",
+              "type": "Object"
+            }
+          ],
+          "returns": "JsonNode",
+          "visibility": "+"
+        }
+      ],
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/client/AiJsonClient.java:11"
+    },
+    {
+      "key": "IdentityClient",
+      "name": "IdentityClient",
+      "kind": "class",
+      "stereotype": "client",
+      "parent": "Model",
+      "attributes": [
+        {
+          "name": "http",
+          "type": "ServiceHttpClient",
+          "visibility": "-"
+        },
+        {
+          "name": "url",
+          "type": "String",
+          "visibility": "-"
+        }
+      ],
+      "operations": [
+        {
+          "name": "update",
+          "params": [
+            {
+              "name": "id",
+              "type": "Integer"
+            },
+            {
+              "name": "name",
+              "type": "String"
+            },
+            {
+              "name": "phone",
+              "type": "String"
+            }
+          ],
+          "returns": "void",
+          "visibility": "+"
+        }
+      ],
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/client/IdentityClient.java:6"
+    },
+    {
+      "key": "SettingService",
+      "name": "SettingService",
+      "kind": "class",
+      "stereotype": "service",
+      "parent": "Model",
+      "attributes": [
+        {
+          "name": "CV_FIELD",
+          "type": "String",
+          "visibility": "+"
+        },
+        {
+          "name": "DEFAULT_CV_FIELDS",
+          "type": "String",
+          "visibility": "+"
+        },
+        {
+          "name": "IMPLIED_SKILL_FIELD",
+          "type": "String",
+          "visibility": "+"
+        },
+        {
+          "name": "settingRepository",
+          "type": "SettingRepository",
+          "visibility": "-"
+        }
+      ],
+      "operations": [
+        {
+          "name": "cvFields",
+          "params": [],
+          "returns": "List<String>",
+          "visibility": "+"
+        },
+        {
+          "name": "splitCsv",
+          "params": [
+            {
+              "name": "raw",
+              "type": "String"
+            }
+          ],
+          "returns": "List<String>",
+          "visibility": "-"
+        }
+      ],
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/service/SettingService.java:15"
+    },
+    {
+      "key": "CvDataRepository",
+      "name": "CvDataRepository",
+      "kind": "interface",
+      "stereotype": "repository",
+      "parent": "Model",
+      "attributes": [],
+      "operations": [
+        {
+          "name": "findByCandidateIdAndFieldOrderByIdAsc",
+          "params": [
+            {
+              "name": "candidateId",
+              "type": "Integer"
+            },
+            {
+              "name": "field",
+              "type": "String"
+            }
+          ],
+          "returns": "List<CvData>",
+          "visibility": "+"
+        }
+      ],
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/repository/CvDataRepository.java:8"
+    },
+    {
+      "key": "CandidateProfileRepository",
+      "name": "CandidateProfileRepository",
+      "kind": "interface",
+      "stereotype": "repository",
+      "parent": "Model",
+      "attributes": [],
+      "operations": [
+        {
+          "name": "findByUserId",
+          "params": [
+            {
+              "name": "userId",
+              "type": "Integer"
+            }
+          ],
+          "returns": "Optional<CandidateProfile>",
+          "visibility": "+"
+        }
+      ],
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/repository/CandidateProfileRepository.java:8"
+    },
+    {
+      "key": "SettingRepository",
+      "name": "SettingRepository",
+      "kind": "interface",
+      "stereotype": "repository",
+      "parent": "Model",
+      "attributes": [],
+      "operations": [
+        {
+          "name": "findByName",
+          "params": [
+            {
+              "name": "name",
+              "type": "String"
+            }
+          ],
+          "returns": "List<Setting>",
+          "visibility": "+"
+        }
+      ],
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/repository/SettingRepository.java:8"
+    },
+    {
+      "key": "CvData",
+      "name": "CvData",
+      "kind": "class",
+      "stereotype": "entity",
+      "parent": "Model",
+      "attributes": [
+        {
+          "name": "id",
+          "type": "Integer",
+          "visibility": "-"
+        },
+        {
+          "name": "candidateId",
+          "type": "Integer",
+          "visibility": "-"
+        },
+        {
+          "name": "field",
+          "type": "String",
+          "visibility": "-"
+        },
+        {
+          "name": "value",
+          "type": "String",
+          "visibility": "-"
+        }
+      ],
+      "operations": [],
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/entity/CvData.java:13"
+    },
+    {
+      "key": "CandidateProfile",
+      "name": "CandidateProfile",
+      "kind": "class",
+      "stereotype": "entity",
+      "parent": "Model",
+      "attributes": [
+        {
+          "name": "id",
+          "type": "Integer",
+          "visibility": "-"
+        },
+        {
+          "name": "userId",
+          "type": "Integer",
+          "visibility": "-"
+        },
+        {
+          "name": "summary",
+          "type": "String",
+          "visibility": "-"
+        }
+      ],
+      "operations": [],
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/entity/CandidateProfile.java:19"
+    },
+    {
+      "key": "Setting",
+      "name": "Setting",
+      "kind": "class",
+      "stereotype": "entity",
+      "parent": "Model",
+      "attributes": [
+        {
+          "name": "id",
+          "type": "Integer",
+          "visibility": "-"
+        },
+        {
+          "name": "name",
+          "type": "String",
+          "visibility": "-"
+        },
+        {
+          "name": "value",
+          "type": "String",
+          "visibility": "-"
+        }
+      ],
+      "operations": [],
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/entity/Setting.java:13"
+    },
+    {
+      "key": "CvDtos.FieldValue",
+      "name": "CvDtos.FieldValue",
+      "kind": "class",
+      "stereotype": "dto",
+      "parent": "View",
+      "attributes": [
+        {
+          "name": "field",
+          "type": "String",
+          "visibility": "-"
+        },
+        {
+          "name": "values",
+          "type": "List<String>",
+          "visibility": "-"
+        }
+      ],
+      "operations": [],
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/dto/CvDtos.java:10"
+    },
+    {
+      "key": "CvDtos.CvFormResponse",
+      "name": "CvDtos.CvFormResponse",
+      "kind": "class",
+      "stereotype": "dto",
+      "parent": "View",
+      "attributes": [
+        {
+          "name": "fileName",
+          "type": "String",
+          "visibility": "-"
+        },
+        {
+          "name": "parsingStatus",
+          "type": "String",
+          "visibility": "-"
+        },
+        {
+          "name": "analyzed",
+          "type": "boolean",
+          "visibility": "-"
+        },
+        {
+          "name": "fields",
+          "type": "List<FieldValue>",
+          "visibility": "-"
+        }
+      ],
+      "operations": [],
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/dto/CvDtos.java:13"
+    },
+    {
+      "key": "CvDtos.ConfirmCvRequest",
+      "name": "CvDtos.ConfirmCvRequest",
+      "kind": "class",
+      "stereotype": "dto",
+      "parent": "View",
+      "attributes": [
+        {
+          "name": "fields",
+          "type": "List<FieldValue>",
+          "visibility": "-"
+        }
+      ],
+      "operations": [],
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/dto/CvDtos.java:21"
+    },
+    {
+      "key": "ServiceHttpClient",
+      "name": "ServiceHttpClient",
+      "kind": "class",
+      "stereotype": "client",
+      "parent": "Model",
+      "attributes": [
+        {
+          "name": "mapper",
+          "type": "ObjectMapper",
+          "visibility": "-"
+        },
+        {
+          "name": "token",
+          "type": "String",
+          "visibility": "-"
+        },
+        {
+          "name": "client",
+          "type": "HttpClient",
+          "visibility": "-"
+        }
+      ],
+      "operations": [
+        {
+          "name": "patch",
+          "params": [
+            {
+              "name": "url",
+              "type": "String"
+            },
+            {
+              "name": "body",
+              "type": "Object"
+            },
+            {
+              "name": "type",
+              "type": "Class<T>"
+            }
+          ],
+          "returns": "T",
+          "visibility": "+"
+        },
+        {
+          "name": "exchange",
+          "params": [
+            {
+              "name": "method",
+              "type": "String"
+            },
+            {
+              "name": "url",
+              "type": "String"
+            },
+            {
+              "name": "body",
+              "type": "Object"
+            },
+            {
+              "name": "type",
+              "type": "Class<T>"
+            }
+          ],
+          "returns": "T",
+          "visibility": "-"
+        }
+      ],
+      "src": "source/recruit_system/backend/common/src/main/java/recruit/demo/client/ServiceHttpClient.java:13"
+    }
+  ],
+  "relations": [
+    {
+      "from": "CvController",
+      "to": "CvService",
+      "kind": "association",
+      "label": "",
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/controller/CvController.java:15",
+      "fromMult": "1",
+      "toMult": "1"
+    },
+    {
+      "from": "CvController",
+      "to": "CvDtos.CvFormResponse",
+      "kind": "dependency",
+      "label": "",
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/controller/CvController.java:23"
+    },
+    {
+      "from": "CvController",
+      "to": "CvDtos.ConfirmCvRequest",
+      "kind": "dependency",
+      "label": "",
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/controller/CvController.java:28"
+    },
+    {
+      "from": "CvService",
+      "to": "CvExtractionModule",
+      "kind": "association",
+      "label": "",
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/service/CvService.java:42",
+      "fromMult": "1",
+      "toMult": "1"
+    },
+    {
+      "from": "CvService",
+      "to": "CvProfileMapper",
+      "kind": "association",
+      "label": "",
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/service/CvService.java:43",
+      "fromMult": "1",
+      "toMult": "1"
+    },
+    {
+      "from": "CvService",
+      "to": "SettingService",
+      "kind": "association",
+      "label": "",
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/service/CvService.java:41",
+      "fromMult": "1",
+      "toMult": "1"
+    },
+    {
+      "from": "CvService",
+      "to": "CvDataRepository",
+      "kind": "association",
+      "label": "",
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/service/CvService.java:39",
+      "fromMult": "1",
+      "toMult": "1"
+    },
+    {
+      "from": "CvService",
+      "to": "CandidateProfileRepository",
+      "kind": "association",
+      "label": "",
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/service/CvService.java:40",
+      "fromMult": "1",
+      "toMult": "1"
+    },
+    {
+      "from": "CvService",
+      "to": "IdentityClient",
+      "kind": "association",
+      "label": "",
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/service/CvService.java:33",
+      "fromMult": "1",
+      "toMult": "1"
+    },
+    {
+      "from": "CvService",
+      "to": "CvDtos.FieldValue",
+      "kind": "dependency",
+      "label": "",
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/service/CvService.java:95"
+    },
+    {
+      "from": "CvService",
+      "to": "CvDtos.CvFormResponse",
+      "kind": "dependency",
+      "label": "",
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/service/CvService.java:131"
+    },
+    {
+      "from": "CvService",
+      "to": "CvDtos.ConfirmCvRequest",
+      "kind": "dependency",
+      "label": "",
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/service/CvService.java:86"
+    },
+    {
+      "from": "CvExtractionModule",
+      "to": "PdfTextExtractor",
+      "kind": "dependency",
+      "label": "",
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/service/cv/CvExtractionModule.java:20"
+    },
+    {
+      "from": "CvExtractionModule",
+      "to": "AiJsonClient",
+      "kind": "association",
+      "label": "",
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/service/cv/CvExtractionModule.java:13",
+      "fromMult": "1",
+      "toMult": "1"
+    },
+    {
+      "from": "IdentityClient",
+      "to": "ServiceHttpClient",
+      "kind": "association",
+      "label": "",
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/client/IdentityClient.java:7",
+      "fromMult": "1",
+      "toMult": "1"
+    },
+    {
+      "from": "SettingService",
+      "to": "SettingRepository",
+      "kind": "association",
+      "label": "",
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/service/SettingService.java:22",
+      "fromMult": "1",
+      "toMult": "1"
+    },
+    {
+      "from": "CvDataRepository",
+      "to": "CvData",
+      "kind": "dependency",
+      "label": "",
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/repository/CvDataRepository.java:8"
+    },
+    {
+      "from": "CandidateProfileRepository",
+      "to": "CandidateProfile",
+      "kind": "dependency",
+      "label": "",
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/repository/CandidateProfileRepository.java:8"
+    },
+    {
+      "from": "SettingRepository",
+      "to": "Setting",
+      "kind": "dependency",
+      "label": "",
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/repository/SettingRepository.java:8"
+    },
+    {
+      "from": "CvDtos.CvFormResponse",
+      "to": "CvDtos.FieldValue",
+      "kind": "dependency",
+      "label": "",
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/dto/CvDtos.java:17"
+    },
+    {
+      "from": "CvDtos.ConfirmCvRequest",
+      "to": "CvDtos.FieldValue",
+      "kind": "dependency",
+      "label": "",
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/dto/CvDtos.java:21"
+    }
+  ],
+  "notes": [
+    "View chứa các record DTO của HTTP, không có giao diện server-rendered. Các record được biểu diễn bằng class stereotype dto.",
+    "Chỉ chọn các thành viên tham gia upload/confirm; các phương thức repository kế thừa JpaRepository như save, deleteAll, flush được gọi nhưng không khai báo lại để tránh gán chữ ký sai cho interface con.",
+    "ServiceHttpClient.patch và exchange có tham số kiểu <T>; PdfTextExtractor.extract khai báo throws IOException. Thuộc tính hằng và phương thức static giữ đúng visibility; renderer cần bổ sung ký hiệu static nếu hỗ trợ.",
+    "CandidateProfile và CvData liên hệ logic qua candidateId, không có tham chiếu đối tượng JPA nên không vẽ association.",
+    "SecurityUtils, UserPrincipal, AppProperties, ApiException và kiểu trung gian không được vẽ do giới hạn 18 lớp; luồng có sử dụng chúng."
+  ],
+  "open_questions": [
+    "[cần xác nhận] Có dự định bổ sung OCR cho PDF thiếu text layer hay tiếp tục trả 422?"
+  ]
+}

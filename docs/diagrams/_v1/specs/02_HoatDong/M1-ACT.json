@@ -1,0 +1,458 @@
+{
+  "id": "M1-ACT",
+  "type": "activity",
+  "name": "Biểu đồ hoạt động - Đăng ký, đăng nhập và chọn vai trò lần đầu (M1)",
+  "partitions": [
+    {
+      "key": "nd",
+      "name": "Người dùng"
+    },
+    {
+      "key": "fe",
+      "name": "Frontend"
+    },
+    {
+      "key": "idn",
+      "name": "identity-service"
+    },
+    {
+      "key": "rc",
+      "name": "recruitment-service"
+    }
+  ],
+  "nodes": [
+    {
+      "key": "n0",
+      "kind": "initial",
+      "name": "Bắt đầu",
+      "partition": "nd",
+      "src": "source/recruit_system/frontend/src/App.tsx:49-53"
+    },
+    {
+      "key": "d0",
+      "kind": "decision",
+      "name": "Đã có tài khoản?",
+      "partition": "nd",
+      "src": "source/recruit_system/frontend/src/pages/RegisterPage.tsx:77-78"
+    },
+    {
+      "key": "a1",
+      "kind": "action",
+      "name": "Nhập email và mật khẩu đăng ký",
+      "partition": "nd",
+      "src": "source/recruit_system/frontend/src/pages/RegisterPage.tsx:54-72"
+    },
+    {
+      "key": "a2",
+      "kind": "action",
+      "name": "Gửi yêu cầu POST /api/auth/register",
+      "partition": "fe",
+      "src": "source/recruit_system/frontend/src/api/client.ts:57-61"
+    },
+    {
+      "key": "d1",
+      "kind": "decision",
+      "name": "Yêu cầu đăng ký hợp lệ?",
+      "partition": "idn",
+      "src": "source/recruit_system/backend/identity-service/src/main/java/recruit/demo/service/AuthService.java:29-31"
+    },
+    {
+      "key": "a3",
+      "kind": "action",
+      "name": "Hiện lỗi tạo tài khoản",
+      "partition": "fe",
+      "src": "source/recruit_system/frontend/src/pages/RegisterPage.tsx:35-37"
+    },
+    {
+      "key": "a4",
+      "kind": "action",
+      "name": "Tạo User (role CANDIDATE, roleChosen=false)",
+      "partition": "idn",
+      "src": "source/recruit_system/backend/identity-service/src/main/java/recruit/demo/service/AuthService.java:33-42"
+    },
+    {
+      "key": "a5",
+      "kind": "action",
+      "name": "Sinh JWT bằng JwtService.generateToken",
+      "partition": "idn",
+      "src": "source/recruit_system/backend/common/src/main/java/recruit/demo/security/JwtService.java:25-36"
+    },
+    {
+      "key": "a6",
+      "kind": "action",
+      "name": "Lưu token vào localStorage và setUser",
+      "partition": "fe",
+      "src": "source/recruit_system/frontend/src/context/AuthContext.tsx:68-72"
+    },
+    {
+      "key": "a7",
+      "kind": "action",
+      "name": "Hiện thông báo thành công và điều hướng theo accountPath",
+      "partition": "fe",
+      "src": "source/recruit_system/frontend/src/pages/RegisterPage.tsx:33-34"
+    },
+    {
+      "key": "d2",
+      "kind": "decision",
+      "name": "roleChosen=false?",
+      "partition": "fe",
+      "src": "source/recruit_system/frontend/src/utils/account.ts:3-4"
+    },
+    {
+      "key": "a8",
+      "kind": "action",
+      "name": "Hiển thị trang chọn vai trò",
+      "partition": "fe",
+      "src": "source/recruit_system/frontend/src/pages/ChooseRolePage.tsx:41-52"
+    },
+    {
+      "key": "c1",
+      "kind": "action",
+      "name": "Chọn vai trò CANDIDATE hoặc RECRUITER",
+      "partition": "nd",
+      "src": "source/recruit_system/frontend/src/pages/ChooseRolePage.tsx:53-66"
+    },
+    {
+      "key": "c2",
+      "kind": "action",
+      "name": "Gửi yêu cầu POST /api/auth/role",
+      "partition": "fe",
+      "src": "source/recruit_system/frontend/src/api/client.ts:63-67"
+    },
+    {
+      "key": "d3",
+      "kind": "decision",
+      "name": "Vai trò hợp lệ và chưa được chọn?",
+      "partition": "idn",
+      "src": "source/recruit_system/backend/identity-service/src/main/java/recruit/demo/service/AuthService.java:50-58"
+    },
+    {
+      "key": "c3",
+      "kind": "action",
+      "name": "Hiện lỗi lưu vai trò",
+      "partition": "fe",
+      "src": "source/recruit_system/frontend/src/pages/ChooseRolePage.tsx:34-36"
+    },
+    {
+      "key": "c4",
+      "kind": "action",
+      "name": "Cập nhật role và roleChosen=true",
+      "partition": "idn",
+      "src": "source/recruit_system/backend/identity-service/src/main/java/recruit/demo/service/AuthService.java:60-62"
+    },
+    {
+      "key": "b1",
+      "kind": "action",
+      "name": "Nhập email và mật khẩu đăng nhập",
+      "partition": "nd",
+      "src": "source/recruit_system/frontend/src/pages/LoginPage.tsx:54-71"
+    },
+    {
+      "key": "b2",
+      "kind": "action",
+      "name": "Gửi yêu cầu POST /api/auth/login",
+      "partition": "fe",
+      "src": "source/recruit_system/frontend/src/api/client.ts:52-56"
+    },
+    {
+      "key": "d4",
+      "kind": "decision",
+      "name": "Thông tin đăng nhập đúng?",
+      "partition": "idn",
+      "src": "source/recruit_system/backend/identity-service/src/main/java/recruit/demo/service/AuthService.java:69-72"
+    },
+    {
+      "key": "b3",
+      "kind": "action",
+      "name": "Hiện lỗi đăng nhập thất bại",
+      "partition": "fe",
+      "src": "source/recruit_system/frontend/src/pages/LoginPage.tsx:35-37"
+    },
+    {
+      "key": "a9",
+      "kind": "action",
+      "name": "Tải trang chủ theo vai trò",
+      "partition": "fe",
+      "src": "source/recruit_system/frontend/src/App.tsx:55-62"
+    },
+    {
+      "key": "f1",
+      "kind": "action",
+      "name": "Xác thực JWT bằng JwtAuthenticationFilter",
+      "partition": "rc",
+      "src": "source/recruit_system/backend/common/src/main/java/recruit/demo/security/JwtAuthenticationFilter.java:28-51"
+    },
+    {
+      "key": "d5",
+      "kind": "decision",
+      "name": "Token hợp lệ?",
+      "partition": "rc",
+      "src": "source/recruit_system/backend/common/src/main/java/recruit/demo/security/JwtAuthenticationFilter.java:35"
+    },
+    {
+      "key": "e1",
+      "kind": "action",
+      "name": "Trả lỗi 401 Unauthorized",
+      "partition": "rc",
+      "src": "source/recruit_system/backend/common/src/main/java/recruit/demo/config/SecurityConfig.java:40"
+    },
+    {
+      "key": "p1",
+      "kind": "action",
+      "name": "Tra cứu user qua GET /internal/users/{id}",
+      "partition": "rc",
+      "src": "source/recruit_system/backend/common/src/main/java/recruit/demo/security/RemotePrincipalLookup.java:17-25"
+    },
+    {
+      "key": "d6",
+      "kind": "decision",
+      "name": "Vai trò người dùng?",
+      "partition": "rc",
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/service/ProfileProvisioningService.java:16-19"
+    },
+    {
+      "key": "p2",
+      "kind": "action",
+      "name": "Tạo candidate_profiles nếu chưa có",
+      "partition": "rc",
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/service/ProfileProvisioningService.java:16-17"
+    },
+    {
+      "key": "p3",
+      "kind": "action",
+      "name": "Tạo company và recruiter_profiles nếu chưa có",
+      "partition": "rc",
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/service/ProfileProvisioningService.java:18-25"
+    },
+    {
+      "key": "nF",
+      "kind": "final",
+      "name": "Kết thúc",
+      "partition": "nd",
+      "src": "source/recruit_system/frontend/src/utils/account.ts:5-6"
+    }
+  ],
+  "flows": [
+    {
+      "from": "n0",
+      "to": "d0",
+      "guard": "",
+      "src": "source/recruit_system/frontend/src/App.tsx:49-53"
+    },
+    {
+      "from": "d0",
+      "to": "a1",
+      "guard": "[chưa có tài khoản]",
+      "src": "source/recruit_system/frontend/src/pages/LoginPage.tsx:77"
+    },
+    {
+      "from": "d0",
+      "to": "b1",
+      "guard": "[đã có tài khoản]",
+      "src": "source/recruit_system/frontend/src/pages/RegisterPage.tsx:78"
+    },
+    {
+      "from": "a1",
+      "to": "a2",
+      "guard": "",
+      "src": "source/recruit_system/frontend/src/pages/RegisterPage.tsx:29-32"
+    },
+    {
+      "from": "a2",
+      "to": "d1",
+      "guard": "",
+      "src": "source/recruit_system/backend/identity-service/src/main/java/recruit/demo/controller/AuthController.java:21-23"
+    },
+    {
+      "from": "d1",
+      "to": "a3",
+      "guard": "[email đã tồn tại (409) hoặc dữ liệu không hợp lệ (400)]",
+      "src": "source/recruit_system/backend/identity-service/src/main/java/recruit/demo/service/AuthService.java:29-31"
+    },
+    {
+      "from": "d1",
+      "to": "a4",
+      "guard": "[hợp lệ]",
+      "src": "source/recruit_system/backend/identity-service/src/main/java/recruit/demo/service/AuthService.java:33-42"
+    },
+    {
+      "from": "a3",
+      "to": "a1",
+      "guard": "",
+      "src": "source/recruit_system/frontend/src/pages/RegisterPage.tsx:35-37"
+    },
+    {
+      "from": "a4",
+      "to": "a5",
+      "guard": "",
+      "src": "source/recruit_system/backend/identity-service/src/main/java/recruit/demo/service/AuthService.java:44"
+    },
+    {
+      "from": "b1",
+      "to": "b2",
+      "guard": "",
+      "src": "source/recruit_system/frontend/src/pages/LoginPage.tsx:29-32"
+    },
+    {
+      "from": "b2",
+      "to": "d4",
+      "guard": "",
+      "src": "source/recruit_system/backend/identity-service/src/main/java/recruit/demo/controller/AuthController.java:16-19"
+    },
+    {
+      "from": "d4",
+      "to": "b3",
+      "guard": "[sai email hoặc mật khẩu (401)]",
+      "src": "source/recruit_system/backend/identity-service/src/main/java/recruit/demo/service/AuthService.java:71-72"
+    },
+    {
+      "from": "d4",
+      "to": "a5",
+      "guard": "[đúng]",
+      "src": "source/recruit_system/backend/identity-service/src/main/java/recruit/demo/service/AuthService.java:69-73"
+    },
+    {
+      "from": "b3",
+      "to": "b1",
+      "guard": "",
+      "src": "source/recruit_system/frontend/src/pages/LoginPage.tsx:35-37"
+    },
+    {
+      "from": "a5",
+      "to": "a6",
+      "guard": "",
+      "src": "source/recruit_system/frontend/src/context/AuthContext.tsx:61-73"
+    },
+    {
+      "from": "a6",
+      "to": "a7",
+      "guard": "",
+      "src": "source/recruit_system/frontend/src/pages/RegisterPage.tsx:33-34"
+    },
+    {
+      "from": "a7",
+      "to": "d2",
+      "guard": "",
+      "src": "source/recruit_system/frontend/src/utils/account.ts:3-6"
+    },
+    {
+      "from": "d2",
+      "to": "a8",
+      "guard": "[roleChosen=false]",
+      "src": "source/recruit_system/frontend/src/utils/account.ts:4"
+    },
+    {
+      "from": "d2",
+      "to": "a9",
+      "guard": "[roleChosen=true]",
+      "src": "source/recruit_system/frontend/src/utils/account.ts:5-6"
+    },
+    {
+      "from": "a8",
+      "to": "c1",
+      "guard": "",
+      "src": "source/recruit_system/frontend/src/pages/ChooseRolePage.tsx:53-66"
+    },
+    {
+      "from": "c1",
+      "to": "c2",
+      "guard": "",
+      "src": "source/recruit_system/frontend/src/pages/ChooseRolePage.tsx:28-31"
+    },
+    {
+      "from": "c2",
+      "to": "d3",
+      "guard": "",
+      "src": "source/recruit_system/backend/identity-service/src/main/java/recruit/demo/controller/AuthController.java:31-34"
+    },
+    {
+      "from": "d3",
+      "to": "c3",
+      "guard": "[role không phải CANDIDATE/RECRUITER (400) hoặc roleChosen=true (409)]",
+      "src": "source/recruit_system/backend/identity-service/src/main/java/recruit/demo/service/AuthService.java:50-58"
+    },
+    {
+      "from": "d3",
+      "to": "c4",
+      "guard": "[hợp lệ]",
+      "src": "source/recruit_system/backend/identity-service/src/main/java/recruit/demo/service/AuthService.java:60-62"
+    },
+    {
+      "from": "c3",
+      "to": "c1",
+      "guard": "",
+      "src": "source/recruit_system/frontend/src/pages/ChooseRolePage.tsx:34-36"
+    },
+    {
+      "from": "c4",
+      "to": "a5",
+      "guard": "",
+      "src": "source/recruit_system/backend/identity-service/src/main/java/recruit/demo/service/AuthService.java:64"
+    },
+    {
+      "from": "a9",
+      "to": "f1",
+      "guard": "",
+      "src": "source/recruit_system/frontend/src/api/client.ts:40-43"
+    },
+    {
+      "from": "f1",
+      "to": "d5",
+      "guard": "",
+      "src": "source/recruit_system/backend/common/src/main/java/recruit/demo/security/JwtAuthenticationFilter.java:35"
+    },
+    {
+      "from": "d5",
+      "to": "e1",
+      "guard": "[token không hợp lệ]",
+      "src": "source/recruit_system/backend/common/src/main/java/recruit/demo/security/JwtAuthenticationFilter.java:41-47"
+    },
+    {
+      "from": "d5",
+      "to": "p1",
+      "guard": "[token hợp lệ]",
+      "src": "source/recruit_system/backend/common/src/main/java/recruit/demo/security/JwtAuthenticationFilter.java:35-39"
+    },
+    {
+      "from": "p1",
+      "to": "d6",
+      "guard": "",
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/security/ProfileProvisioningFilter.java:19-21"
+    },
+    {
+      "from": "d6",
+      "to": "p2",
+      "guard": "[CANDIDATE]",
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/service/ProfileProvisioningService.java:16-17"
+    },
+    {
+      "from": "d6",
+      "to": "p3",
+      "guard": "[RECRUITER]",
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/service/ProfileProvisioningService.java:18-25"
+    },
+    {
+      "from": "p2",
+      "to": "nF",
+      "guard": "",
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/security/ProfileProvisioningFilter.java:21"
+    },
+    {
+      "from": "p3",
+      "to": "nF",
+      "guard": "",
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/security/ProfileProvisioningFilter.java:21"
+    }
+  ],
+  "notes": [
+    "Đăng ký mặc định gán role CANDIDATE và roleChosen=false (AuthService.register, AuthService.java:38-39); vai trò thật chỉ được chọn đúng một lần qua POST /api/auth/role.",
+    "recruitment-service tự tạo hồ sơ ở request đầu tiên: ProfileProvisioningFilter được thêm sau JwtAuthenticationFilter (SecurityConfig.java:53-54) và gọi ProfileProvisioningService.ensureProfile.",
+    "p1 gọi API nội bộ GET /internal/users/{id} của identity-service bằng SERVICE_TOKEN (RemotePrincipalLookup); đường /internal/* bị nginx gateway chặn từ bên ngoài (infra/gateway/nginx.conf:14).",
+    "Các lời gọi /api/auth/* đi qua nginx gateway tới identity-service:8081 (infra/gateway/nginx.conf:15-18); các lời gọi trang chủ đi tới recruitment-service:8082 (infra/gateway/nginx.conf:23-26).",
+    "Vai trò ADMIN chỉ tồn tại qua seed V2__seed.sql, không có luồng người dùng nào cấp ADMIN trong source; AuthService.chooseRole từ chối role khác CANDIDATE/RECRUITER (AuthService.java:50-52).",
+    "Không vẽ fork/join vì không có xử lý song song thực sự trong code (mọi bước chạy tuần tự)."
+  ],
+  "open_questions": [
+    "[cần xác nhận] Luồng khôi phục phiên khi mở lại ứng dụng (AuthProvider gọi GET /api/auth/me nếu còn token, AuthContext.tsx:48-59) chưa vẽ do giới hạn 30 node - có cần thêm không?"
+  ]
+}

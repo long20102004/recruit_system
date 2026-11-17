@@ -1,0 +1,449 @@
+{
+  "id": "CO-M3",
+  "type": "communication",
+  "name": "Biểu đồ giao tiếp pha phân tích - Đối sánh CV với việc làm, xem chi tiết việc, ứng tuyển",
+  "elements": [
+    {
+      "key": "Candidate",
+      "kind": "actor",
+      "name": "Ứng viên",
+      "src": "source/recruit_system/frontend/src/App.tsx:58"
+    },
+    {
+      "key": "CandidateHomeView",
+      "kind": "object",
+      "name": ":CandidateHomeView",
+      "class": "CandidateHomeView",
+      "stereotype": "boundary",
+      "src": "source/recruit_system/frontend/src/pages/candidate/CandidateHomePage.tsx:36"
+    },
+    {
+      "key": "CandidateMatchingView",
+      "kind": "object",
+      "name": ":CandidateMatchingView",
+      "class": "CandidateMatchingView",
+      "stereotype": "boundary",
+      "src": "source/recruit_system/frontend/src/pages/candidate/CandidateMatchingPage.tsx:21"
+    },
+    {
+      "key": "CandidateJobDetailView",
+      "kind": "object",
+      "name": ":CandidateJobDetailView",
+      "class": "CandidateJobDetailView",
+      "stereotype": "boundary",
+      "src": "source/recruit_system/frontend/src/pages/candidate/CandidateJobDetailPage.tsx:44"
+    },
+    {
+      "key": "Job",
+      "kind": "object",
+      "name": ":Job",
+      "class": "Job",
+      "stereotype": "entity",
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/entity/Job.java:18"
+    },
+    {
+      "key": "CvData",
+      "kind": "object",
+      "name": ":CvData",
+      "class": "CvData",
+      "stereotype": "entity",
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/entity/CvData.java:13"
+    },
+    {
+      "key": "MatchingResult",
+      "kind": "object",
+      "name": ":MatchingResult",
+      "class": "MatchingResult",
+      "stereotype": "entity",
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/entity/MatchingResult.java:19"
+    },
+    {
+      "key": "JobApplication",
+      "kind": "object",
+      "name": ":JobApplication",
+      "class": "JobApplication",
+      "stereotype": "entity",
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/entity/JobApplication.java:17"
+    }
+  ],
+  "links": [
+    {
+      "from": "Candidate",
+      "to": "CandidateHomeView",
+      "src": "source/recruit_system/frontend/src/pages/candidate/CandidateHomePage.tsx:36"
+    },
+    {
+      "from": "CandidateHomeView",
+      "to": "Job",
+      "src": "source/recruit_system/frontend/src/pages/candidate/CandidateHomePage.tsx:48"
+    },
+    {
+      "from": "CandidateHomeView",
+      "to": "CvData",
+      "src": "source/recruit_system/frontend/src/pages/candidate/CandidateHomePage.tsx:50"
+    },
+    {
+      "from": "CandidateHomeView",
+      "to": "MatchingResult",
+      "src": "source/recruit_system/frontend/src/pages/candidate/CandidateHomePage.tsx:58"
+    },
+    {
+      "from": "CandidateHomeView",
+      "to": "CandidateMatchingView",
+      "src": "source/recruit_system/frontend/src/pages/candidate/CandidateHomePage.tsx:141"
+    },
+    {
+      "from": "Candidate",
+      "to": "CandidateMatchingView",
+      "src": "source/recruit_system/frontend/src/pages/candidate/CandidateMatchingPage.tsx:21"
+    },
+    {
+      "from": "CandidateMatchingView",
+      "to": "CvData",
+      "src": "source/recruit_system/frontend/src/pages/candidate/CandidateMatchingPage.tsx:31"
+    },
+    {
+      "from": "CandidateMatchingView",
+      "to": "Job",
+      "src": "source/recruit_system/frontend/src/pages/candidate/CandidateMatchingPage.tsx:40"
+    },
+    {
+      "from": "CandidateMatchingView",
+      "to": "MatchingResult",
+      "src": "source/recruit_system/frontend/src/pages/candidate/CandidateMatchingPage.tsx:44"
+    },
+    {
+      "from": "CandidateMatchingView",
+      "to": "CandidateJobDetailView",
+      "src": "source/recruit_system/frontend/src/pages/candidate/CandidateMatchingPage.tsx:158"
+    },
+    {
+      "from": "Candidate",
+      "to": "CandidateJobDetailView",
+      "src": "source/recruit_system/frontend/src/pages/candidate/CandidateJobDetailPage.tsx:44"
+    },
+    {
+      "from": "CandidateJobDetailView",
+      "to": "Job",
+      "src": "source/recruit_system/frontend/src/pages/candidate/CandidateJobDetailPage.tsx:57"
+    },
+    {
+      "from": "CandidateJobDetailView",
+      "to": "CandidateHomeView",
+      "src": "source/recruit_system/frontend/src/pages/candidate/CandidateJobDetailPage.tsx:67"
+    },
+    {
+      "from": "CandidateHomeView",
+      "to": "JobApplication",
+      "src": "source/recruit_system/frontend/src/pages/candidate/CandidateHomePage.tsx:93"
+    }
+  ],
+  "messages": [
+    {
+      "seq": 1,
+      "from": "Candidate",
+      "to": "CandidateHomeView",
+      "label": "open",
+      "src": "source/recruit_system/frontend/src/pages/candidate/CandidateHomePage.tsx:36"
+    },
+    {
+      "seq": 2,
+      "from": "CandidateHomeView",
+      "to": "Job",
+      "label": "call",
+      "src": "source/recruit_system/frontend/src/pages/candidate/CandidateHomePage.tsx:48"
+    },
+    {
+      "seq": 3,
+      "from": "Job",
+      "to": "Job",
+      "label": "list()",
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/service/JobService.java:33"
+    },
+    {
+      "seq": 4,
+      "from": "Job",
+      "to": "CandidateHomeView",
+      "label": "return",
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/service/JobService.java:33"
+    },
+    {
+      "seq": 5,
+      "from": "CandidateHomeView",
+      "to": "CvData",
+      "label": "call",
+      "src": "source/recruit_system/frontend/src/pages/candidate/CandidateHomePage.tsx:50"
+    },
+    {
+      "seq": 6,
+      "from": "CvData",
+      "to": "CvData",
+      "label": "mine()",
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/service/CvService.java:47"
+    },
+    {
+      "seq": 7,
+      "from": "CvData",
+      "to": "CandidateHomeView",
+      "label": "return",
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/service/CvService.java:47"
+    },
+    {
+      "seq": 8,
+      "from": "CandidateHomeView",
+      "to": "MatchingResult",
+      "label": "call",
+      "src": "source/recruit_system/frontend/src/pages/candidate/CandidateHomePage.tsx:58"
+    },
+    {
+      "seq": 9,
+      "from": "MatchingResult",
+      "to": "MatchingResult",
+      "label": "myMatches()",
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/service/MatchingService.java:35"
+    },
+    {
+      "seq": 10,
+      "from": "MatchingResult",
+      "to": "CandidateHomeView",
+      "label": "return",
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/service/MatchingService.java:35"
+    },
+    {
+      "seq": 11,
+      "from": "CandidateHomeView",
+      "to": "Candidate",
+      "label": "show",
+      "src": "source/recruit_system/frontend/src/pages/candidate/CandidateHomePage.tsx:78"
+    },
+    {
+      "seq": 12,
+      "from": "Candidate",
+      "to": "CandidateHomeView",
+      "label": "subViewMatching",
+      "src": "source/recruit_system/frontend/src/pages/candidate/CandidateHomePage.tsx:141"
+    },
+    {
+      "seq": 13,
+      "from": "CandidateHomeView",
+      "to": "CandidateMatchingView",
+      "label": "call",
+      "src": "source/recruit_system/frontend/src/pages/candidate/CandidateHomePage.tsx:141"
+    },
+    {
+      "seq": 14,
+      "from": "CandidateMatchingView",
+      "to": "CvData",
+      "label": "call",
+      "src": "source/recruit_system/frontend/src/pages/candidate/CandidateMatchingPage.tsx:31"
+    },
+    {
+      "seq": 15,
+      "from": "CvData",
+      "to": "CvData",
+      "label": "mine()",
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/service/CvService.java:47"
+    },
+    {
+      "seq": 16,
+      "from": "CvData",
+      "to": "CandidateMatchingView",
+      "label": "return",
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/service/CvService.java:47"
+    },
+    {
+      "seq": 17,
+      "from": "CandidateMatchingView",
+      "to": "Job",
+      "label": "call",
+      "src": "source/recruit_system/frontend/src/pages/candidate/CandidateMatchingPage.tsx:40"
+    },
+    {
+      "seq": 18,
+      "from": "Job",
+      "to": "Job",
+      "label": "list()",
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/service/JobService.java:33"
+    },
+    {
+      "seq": 19,
+      "from": "Job",
+      "to": "CandidateMatchingView",
+      "label": "return",
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/service/JobService.java:33"
+    },
+    {
+      "seq": 20,
+      "from": "CandidateMatchingView",
+      "to": "MatchingResult",
+      "label": "call",
+      "src": "source/recruit_system/frontend/src/pages/candidate/CandidateMatchingPage.tsx:44"
+    },
+    {
+      "seq": 21,
+      "from": "MatchingResult",
+      "to": "MatchingResult",
+      "label": "myMatches()",
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/service/MatchingService.java:35"
+    },
+    {
+      "seq": 22,
+      "from": "MatchingResult",
+      "to": "CandidateMatchingView",
+      "label": "return",
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/service/MatchingService.java:35"
+    },
+    {
+      "seq": 23,
+      "from": "CandidateMatchingView",
+      "to": "MatchingResult",
+      "label": "call",
+      "src": "source/recruit_system/frontend/src/pages/candidate/CandidateMatchingPage.tsx:50"
+    },
+    {
+      "seq": 24,
+      "from": "MatchingResult",
+      "to": "MatchingResult",
+      "label": "refreshMine()",
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/service/MatchingService.java:48"
+    },
+    {
+      "seq": 25,
+      "from": "MatchingResult",
+      "to": "CandidateMatchingView",
+      "label": "return",
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/service/MatchingService.java:48"
+    },
+    {
+      "seq": 26,
+      "from": "CandidateMatchingView",
+      "to": "Candidate",
+      "label": "show",
+      "src": "source/recruit_system/frontend/src/pages/candidate/CandidateMatchingPage.tsx:81"
+    },
+    {
+      "seq": 27,
+      "from": "Candidate",
+      "to": "CandidateMatchingView",
+      "label": "outsubJobDetail",
+      "src": "source/recruit_system/frontend/src/pages/candidate/CandidateMatchingPage.tsx:158"
+    },
+    {
+      "seq": 28,
+      "from": "CandidateMatchingView",
+      "to": "CandidateJobDetailView",
+      "label": "call",
+      "src": "source/recruit_system/frontend/src/pages/candidate/CandidateMatchingPage.tsx:158"
+    },
+    {
+      "seq": 29,
+      "from": "CandidateJobDetailView",
+      "to": "Job",
+      "label": "call",
+      "src": "source/recruit_system/frontend/src/pages/candidate/CandidateJobDetailPage.tsx:57"
+    },
+    {
+      "seq": 30,
+      "from": "Job",
+      "to": "Job",
+      "label": "getById()",
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/service/JobService.java:44"
+    },
+    {
+      "seq": 31,
+      "from": "Job",
+      "to": "CandidateJobDetailView",
+      "label": "return",
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/service/JobService.java:44"
+    },
+    {
+      "seq": 32,
+      "from": "CandidateJobDetailView",
+      "to": "Candidate",
+      "label": "show",
+      "src": "source/recruit_system/frontend/src/pages/candidate/CandidateJobDetailPage.tsx:70"
+    },
+    {
+      "seq": 33,
+      "from": "Candidate",
+      "to": "CandidateJobDetailView",
+      "label": "subBack",
+      "src": "source/recruit_system/frontend/src/pages/candidate/CandidateJobDetailPage.tsx:77"
+    },
+    {
+      "seq": 34,
+      "from": "CandidateJobDetailView",
+      "to": "CandidateHomeView",
+      "label": "call",
+      "src": "source/recruit_system/frontend/src/pages/candidate/CandidateJobDetailPage.tsx:67"
+    },
+    {
+      "seq": 35,
+      "from": "CandidateHomeView",
+      "to": "Candidate",
+      "label": "show",
+      "src": "source/recruit_system/frontend/src/pages/candidate/CandidateHomePage.tsx:36"
+    },
+    {
+      "seq": 36,
+      "from": "Candidate",
+      "to": "CandidateHomeView",
+      "label": "subSelectJob",
+      "src": "source/recruit_system/frontend/src/pages/candidate/CandidateHomePage.tsx:168"
+    },
+    {
+      "seq": 37,
+      "from": "CandidateHomeView",
+      "to": "Candidate",
+      "label": "show",
+      "src": "source/recruit_system/frontend/src/pages/candidate/CandidateHomePage.tsx:178"
+    },
+    {
+      "seq": 38,
+      "from": "Candidate",
+      "to": "CandidateHomeView",
+      "label": "subApply",
+      "src": "source/recruit_system/frontend/src/pages/candidate/CandidateHomePage.tsx:212"
+    },
+    {
+      "seq": 39,
+      "from": "CandidateHomeView",
+      "to": "JobApplication",
+      "label": "call",
+      "src": "source/recruit_system/frontend/src/pages/candidate/CandidateHomePage.tsx:93"
+    },
+    {
+      "seq": 40,
+      "from": "JobApplication",
+      "to": "JobApplication",
+      "label": "apply()",
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/service/ApplicationService.java:26"
+    },
+    {
+      "seq": 41,
+      "from": "JobApplication",
+      "to": "CandidateHomeView",
+      "label": "return",
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/service/ApplicationService.java:26"
+    },
+    {
+      "seq": 42,
+      "from": "CandidateHomeView",
+      "to": "Candidate",
+      "label": "show",
+      "src": "source/recruit_system/frontend/src/pages/candidate/CandidateHomePage.tsx:94"
+    }
+  ],
+  "notes": [
+    "Các đối tượng lớp biên (:CandidateHomeView, :CandidateMatchingView, :CandidateJobDetailView) mang stereotype boundary; các đối tượng thực thể (:Job, :CvData, :MatchingResult, :JobApplication) mang stereotype entity.",
+    "Tất cả các hàm nghiệp vụ (list, mine, myMatches, refreshMine, getById, apply) đều được lấy chính xác từ mô hình phân tích AN-M3 và biểu diễn bằng self-message trên các lớp thực thể chủ thể.",
+    "Các thông điệp khớp 1-1 với Kịch bản chuẩn V2 trong file ghi chú CO-M3.md.",
+    "Thao tác ứng tuyển diễn ra tại CandidateHomeView sau khi ứng viên điều hướng quay về từ trang chi tiết việc làm, phù hợp với cấu trúc giao diện thực tế."
+  ],
+  "open_questions": [
+    "[cần xác nhận] Vị trí nút ứng tuyển: Trang chi tiết việc làm (CandidateJobDetailPage.tsx) trong mã nguồn hiện chỉ có nút 'Ôn tập phỏng vấn' dẫn sang M4 mà không có nút 'Ứng tuyển' trực tiếp (ứng viên phải quay lại trang chủ để nộp đơn). Trong các pha thiết kế tiếp theo (lớp chi tiết, tuần tự) có cần bổ sung nút ứng tuyển ngay trên trang chi tiết việc làm hay giữ nguyên hiện trạng mã nguồn?",
+    "[cần xác nhận] Xử lý ngoại lệ xác thực 401/403: Khi phiên đăng nhập hết hạn hoặc người dùng sai vai trò khi gọi API đối sánh/ứng tuyển, giao diện hiện chỉ hiển thị toast thông báo lỗi mà chưa điều hướng tự động về trang đăng nhập /login.",
+    "[cần xác nhận] Ràng buộc CV khi ứng tuyển: Backend ApplicationService.apply không kiểm tra CV đã phân tích (analyzed = true), trong khi trang chủ ứng viên chỉ hiển thị điểm đối sánh khi cờ analyzed = true. Có cần bổ sung tiền điều kiện bắt buộc có CV đã phân tích khi ứng tuyển trong tài liệu thiết kế không?",
+    "[cần xác nhận] Thao tác chọn việc làm trên trang chủ: Sau khi điều hướng từ CandidateJobDetailView về CandidateHomeView, ứng viên thực hiện chọn lại việc làm (subSelectJob) trước khi nhấn ứng tuyển (subApply); đây là thao tác cập nhật trạng thái trên lớp biên, không phát sinh lời gọi hàm nghiệp vụ xuống lớp thực thể."
+  ]
+}

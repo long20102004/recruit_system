@@ -1,0 +1,1253 @@
+{
+  "id": "E1",
+  "type": "class",
+  "name": "Biểu đồ thiết kế thực thể - Các module M1–M4",
+  "elements": [
+    {
+      "key": "identity-service",
+      "kind": "package",
+      "src": "source/recruit_system/backend/identity-service/src/main/java/recruit/demo/entity/User.java:1"
+    },
+    {
+      "key": "User",
+      "kind": "class",
+      "parent": "identity-service",
+      "attributes": [
+        {
+          "name": "id",
+          "type": "Integer",
+          "visibility": "-",
+          "src": "source/recruit_system/backend/identity-service/src/main/java/recruit/demo/entity/User.java:21"
+        },
+        {
+          "name": "fullName",
+          "type": "String",
+          "visibility": "-",
+          "src": "source/recruit_system/backend/identity-service/src/main/java/recruit/demo/entity/User.java:24"
+        },
+        {
+          "name": "email",
+          "type": "String",
+          "visibility": "-",
+          "src": "source/recruit_system/backend/identity-service/src/main/java/recruit/demo/entity/User.java:27"
+        },
+        {
+          "name": "passwordHash",
+          "type": "String",
+          "visibility": "-",
+          "src": "source/recruit_system/backend/identity-service/src/main/java/recruit/demo/entity/User.java:30"
+        },
+        {
+          "name": "phone",
+          "type": "String",
+          "visibility": "-",
+          "src": "source/recruit_system/backend/identity-service/src/main/java/recruit/demo/entity/User.java:32"
+        },
+        {
+          "name": "role",
+          "type": "Role",
+          "visibility": "-",
+          "src": "source/recruit_system/backend/identity-service/src/main/java/recruit/demo/entity/User.java:37"
+        },
+        {
+          "name": "roleChosen",
+          "type": "Boolean",
+          "visibility": "-",
+          "src": "source/recruit_system/backend/identity-service/src/main/java/recruit/demo/entity/User.java:41"
+        },
+        {
+          "name": "status",
+          "type": "UserStatus",
+          "visibility": "-",
+          "src": "source/recruit_system/backend/identity-service/src/main/java/recruit/demo/entity/User.java:46"
+        },
+        {
+          "name": "createdAt",
+          "type": "DateTime",
+          "visibility": "-",
+          "src": "source/recruit_system/backend/identity-service/src/main/java/recruit/demo/entity/User.java:50"
+        },
+        {
+          "name": "updatedAt",
+          "type": "DateTime",
+          "visibility": "-",
+          "src": "source/recruit_system/backend/identity-service/src/main/java/recruit/demo/entity/User.java:54"
+        }
+      ],
+      "src": "source/recruit_system/backend/identity-service/src/main/java/recruit/demo/entity/User.java:17"
+    },
+    {
+      "key": "Role",
+      "kind": "enumeration",
+      "parent": "identity-service",
+      "literals": [
+        "CANDIDATE",
+        "RECRUITER",
+        "ADMIN"
+      ],
+      "src": "source/recruit_system/backend/common/src/main/java/recruit/demo/entity/Role.java:3"
+    },
+    {
+      "key": "UserStatus",
+      "kind": "enumeration",
+      "parent": "identity-service",
+      "literals": [
+        "ACTIVE",
+        "INACTIVE",
+        "BANNED"
+      ],
+      "src": "source/recruit_system/backend/common/src/main/java/recruit/demo/entity/UserStatus.java:3"
+    },
+    {
+      "key": "recruitment-service",
+      "kind": "package",
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/entity/CandidateProfile.java:1"
+    },
+    {
+      "key": "CandidateProfile",
+      "kind": "class",
+      "parent": "recruitment-service",
+      "attributes": [
+        {
+          "name": "id",
+          "type": "Integer",
+          "visibility": "-",
+          "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/entity/CandidateProfile.java:23"
+        },
+        {
+          "name": "dateOfBirth",
+          "type": "Date",
+          "visibility": "-",
+          "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/entity/CandidateProfile.java:29"
+        },
+        {
+          "name": "address",
+          "type": "String",
+          "visibility": "-",
+          "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/entity/CandidateProfile.java:31"
+        },
+        {
+          "name": "headline",
+          "type": "String",
+          "visibility": "-",
+          "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/entity/CandidateProfile.java:32"
+        },
+        {
+          "name": "summary",
+          "type": "String",
+          "visibility": "-",
+          "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/entity/CandidateProfile.java:35"
+        },
+        {
+          "name": "yearsOfExperience",
+          "type": "Decimal",
+          "visibility": "-",
+          "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/entity/CandidateProfile.java:38"
+        },
+        {
+          "name": "educationLevel",
+          "type": "String",
+          "visibility": "-",
+          "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/entity/CandidateProfile.java:41"
+        },
+        {
+          "name": "createdAt",
+          "type": "DateTime",
+          "visibility": "-",
+          "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/entity/CandidateProfile.java:45"
+        },
+        {
+          "name": "updatedAt",
+          "type": "DateTime",
+          "visibility": "-",
+          "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/entity/CandidateProfile.java:49"
+        }
+      ],
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/entity/CandidateProfile.java:19"
+    },
+    {
+      "key": "Company",
+      "kind": "class",
+      "parent": "recruitment-service",
+      "attributes": [
+        {
+          "name": "id",
+          "type": "Integer",
+          "visibility": "-",
+          "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/entity/Company.java:20"
+        },
+        {
+          "name": "name",
+          "type": "String",
+          "visibility": "-",
+          "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/entity/Company.java:23"
+        },
+        {
+          "name": "description",
+          "type": "String",
+          "visibility": "-",
+          "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/entity/Company.java:26"
+        },
+        {
+          "name": "website",
+          "type": "String",
+          "visibility": "-",
+          "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/entity/Company.java:28"
+        },
+        {
+          "name": "address",
+          "type": "String",
+          "visibility": "-",
+          "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/entity/Company.java:29"
+        },
+        {
+          "name": "createdAt",
+          "type": "DateTime",
+          "visibility": "-",
+          "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/entity/Company.java:33"
+        }
+      ],
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/entity/Company.java:16"
+    },
+    {
+      "key": "CvData",
+      "kind": "class",
+      "parent": "recruitment-service",
+      "attributes": [
+        {
+          "name": "id",
+          "type": "Integer",
+          "visibility": "-",
+          "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/entity/CvData.java:17"
+        },
+        {
+          "name": "field",
+          "type": "String",
+          "visibility": "-",
+          "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/entity/CvData.java:23"
+        },
+        {
+          "name": "value",
+          "type": "String",
+          "visibility": "-",
+          "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/entity/CvData.java:26"
+        }
+      ],
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/entity/CvData.java:13"
+    },
+    {
+      "key": "Job",
+      "kind": "class",
+      "parent": "recruitment-service",
+      "attributes": [
+        {
+          "name": "id",
+          "type": "Integer",
+          "visibility": "-",
+          "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/entity/Job.java:22"
+        },
+        {
+          "name": "title",
+          "type": "String",
+          "visibility": "-",
+          "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/entity/Job.java:32"
+        },
+        {
+          "name": "description",
+          "type": "String",
+          "visibility": "-",
+          "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/entity/Job.java:35"
+        },
+        {
+          "name": "requirements",
+          "type": "String",
+          "visibility": "-",
+          "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/entity/Job.java:38"
+        },
+        {
+          "name": "responsibilities",
+          "type": "String",
+          "visibility": "-",
+          "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/entity/Job.java:41"
+        },
+        {
+          "name": "employmentType",
+          "type": "String",
+          "visibility": "-",
+          "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/entity/Job.java:44"
+        },
+        {
+          "name": "workLocation",
+          "type": "String",
+          "visibility": "-",
+          "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/entity/Job.java:47"
+        },
+        {
+          "name": "salaryMin",
+          "type": "Decimal",
+          "visibility": "-",
+          "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/entity/Job.java:50"
+        },
+        {
+          "name": "salaryMax",
+          "type": "Decimal",
+          "visibility": "-",
+          "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/entity/Job.java:53"
+        },
+        {
+          "name": "currency",
+          "type": "String",
+          "visibility": "-",
+          "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/entity/Job.java:57"
+        },
+        {
+          "name": "experienceRequired",
+          "type": "Decimal",
+          "visibility": "-",
+          "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/entity/Job.java:60"
+        },
+        {
+          "name": "status",
+          "type": "JobStatus",
+          "visibility": "-",
+          "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/entity/Job.java:65"
+        },
+        {
+          "name": "postedAt",
+          "type": "DateTime",
+          "visibility": "-",
+          "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/entity/Job.java:68"
+        },
+        {
+          "name": "deadline",
+          "type": "DateTime",
+          "visibility": "-",
+          "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/entity/Job.java:70"
+        },
+        {
+          "name": "createdAt",
+          "type": "DateTime",
+          "visibility": "-",
+          "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/entity/Job.java:74"
+        },
+        {
+          "name": "updatedAt",
+          "type": "DateTime",
+          "visibility": "-",
+          "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/entity/Job.java:78"
+        }
+      ],
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/entity/Job.java:18"
+    },
+    {
+      "key": "JobApplication",
+      "kind": "class",
+      "parent": "recruitment-service",
+      "attributes": [
+        {
+          "name": "id",
+          "type": "Integer",
+          "visibility": "-",
+          "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/entity/JobApplication.java:21"
+        },
+        {
+          "name": "status",
+          "type": "ApplicationStatus",
+          "visibility": "-",
+          "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/entity/JobApplication.java:37"
+        },
+        {
+          "name": "coverLetter",
+          "type": "String",
+          "visibility": "-",
+          "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/entity/JobApplication.java:40"
+        },
+        {
+          "name": "appliedAt",
+          "type": "DateTime",
+          "visibility": "-",
+          "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/entity/JobApplication.java:44"
+        },
+        {
+          "name": "updatedAt",
+          "type": "DateTime",
+          "visibility": "-",
+          "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/entity/JobApplication.java:48"
+        }
+      ],
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/entity/JobApplication.java:17"
+    },
+    {
+      "key": "JobSkill",
+      "kind": "class",
+      "parent": "recruitment-service",
+      "attributes": [
+        {
+          "name": "id",
+          "type": "Integer",
+          "visibility": "-",
+          "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/entity/JobSkill.java:19"
+        },
+        {
+          "name": "required",
+          "type": "Boolean",
+          "visibility": "-",
+          "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/entity/JobSkill.java:31"
+        },
+        {
+          "name": "minimumYears",
+          "type": "Decimal",
+          "visibility": "-",
+          "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/entity/JobSkill.java:34"
+        }
+      ],
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/entity/JobSkill.java:15"
+    },
+    {
+      "key": "MatchingResult",
+      "kind": "class",
+      "parent": "recruitment-service",
+      "attributes": [
+        {
+          "name": "id",
+          "type": "Integer",
+          "visibility": "-",
+          "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/entity/MatchingResult.java:23"
+        },
+        {
+          "name": "semanticScore",
+          "type": "Decimal",
+          "visibility": "-",
+          "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/entity/MatchingResult.java:37"
+        },
+        {
+          "name": "skillsScore",
+          "type": "Decimal",
+          "visibility": "-",
+          "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/entity/MatchingResult.java:40"
+        },
+        {
+          "name": "experienceScore",
+          "type": "Decimal",
+          "visibility": "-",
+          "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/entity/MatchingResult.java:43"
+        },
+        {
+          "name": "overallScore",
+          "type": "Decimal",
+          "visibility": "-",
+          "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/entity/MatchingResult.java:46"
+        },
+        {
+          "name": "matchedSkills",
+          "type": "List<String>",
+          "visibility": "-",
+          "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/entity/MatchingResult.java:50"
+        },
+        {
+          "name": "missingSkills",
+          "type": "List<String>",
+          "visibility": "-",
+          "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/entity/MatchingResult.java:54"
+        },
+        {
+          "name": "explanation",
+          "type": "String",
+          "visibility": "-",
+          "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/entity/MatchingResult.java:57"
+        },
+        {
+          "name": "modelName",
+          "type": "String",
+          "visibility": "-",
+          "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/entity/MatchingResult.java:60"
+        },
+        {
+          "name": "modelVersion",
+          "type": "String",
+          "visibility": "-",
+          "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/entity/MatchingResult.java:63"
+        },
+        {
+          "name": "createdAt",
+          "type": "DateTime",
+          "visibility": "-",
+          "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/entity/MatchingResult.java:67"
+        }
+      ],
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/entity/MatchingResult.java:19"
+    },
+    {
+      "key": "RecruiterProfile",
+      "kind": "class",
+      "parent": "recruitment-service",
+      "attributes": [
+        {
+          "name": "id",
+          "type": "Integer",
+          "visibility": "-",
+          "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/entity/RecruiterProfile.java:20"
+        },
+        {
+          "name": "position",
+          "type": "String",
+          "visibility": "-",
+          "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/entity/RecruiterProfile.java:29"
+        },
+        {
+          "name": "createdAt",
+          "type": "DateTime",
+          "visibility": "-",
+          "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/entity/RecruiterProfile.java:33"
+        }
+      ],
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/entity/RecruiterProfile.java:16"
+    },
+    {
+      "key": "Setting",
+      "kind": "class",
+      "parent": "recruitment-service",
+      "attributes": [
+        {
+          "name": "id",
+          "type": "Integer",
+          "visibility": "-",
+          "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/entity/Setting.java:17"
+        },
+        {
+          "name": "name",
+          "type": "String",
+          "visibility": "-",
+          "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/entity/Setting.java:20"
+        },
+        {
+          "name": "value",
+          "type": "String",
+          "visibility": "-",
+          "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/entity/Setting.java:23"
+        }
+      ],
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/entity/Setting.java:13"
+    },
+    {
+      "key": "Skill",
+      "kind": "class",
+      "parent": "recruitment-service",
+      "attributes": [
+        {
+          "name": "id",
+          "type": "Integer",
+          "visibility": "-",
+          "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/entity/Skill.java:17"
+        },
+        {
+          "name": "name",
+          "type": "String",
+          "visibility": "-",
+          "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/entity/Skill.java:20"
+        },
+        {
+          "name": "category",
+          "type": "String",
+          "visibility": "-",
+          "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/entity/Skill.java:22"
+        }
+      ],
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/entity/Skill.java:13"
+    },
+    {
+      "key": "ApplicationStatus",
+      "kind": "enumeration",
+      "parent": "recruitment-service",
+      "literals": [
+        "SUBMITTED",
+        "REVIEWING",
+        "INTERVIEW",
+        "REJECTED",
+        "HIRED"
+      ],
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/entity/ApplicationStatus.java:3"
+    },
+    {
+      "key": "JobStatus",
+      "kind": "enumeration",
+      "parent": "recruitment-service",
+      "literals": [
+        "DRAFT",
+        "PUBLISHED",
+        "CLOSED"
+      ],
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/entity/JobStatus.java:3"
+    },
+    {
+      "key": "interview-service",
+      "kind": "package",
+      "src": "source/recruit_system/backend/interview-service/src/main/java/recruit/demo/entity/EvaluationResult.java:1"
+    },
+    {
+      "key": "EvaluationResult",
+      "kind": "class",
+      "parent": "interview-service",
+      "attributes": [
+        {
+          "name": "id",
+          "type": "Integer",
+          "visibility": "-",
+          "src": "source/recruit_system/backend/interview-service/src/main/java/recruit/demo/entity/EvaluationResult.java:24"
+        },
+        {
+          "name": "evaluationMethod",
+          "type": "String",
+          "visibility": "-",
+          "src": "source/recruit_system/backend/interview-service/src/main/java/recruit/demo/entity/EvaluationResult.java:32"
+        },
+        {
+          "name": "bertscorePrecision",
+          "type": "Decimal",
+          "visibility": "-",
+          "src": "source/recruit_system/backend/interview-service/src/main/java/recruit/demo/entity/EvaluationResult.java:35"
+        },
+        {
+          "name": "bertscoreRecall",
+          "type": "Decimal",
+          "visibility": "-",
+          "src": "source/recruit_system/backend/interview-service/src/main/java/recruit/demo/entity/EvaluationResult.java:38"
+        },
+        {
+          "name": "bertscoreF1",
+          "type": "Decimal",
+          "visibility": "-",
+          "src": "source/recruit_system/backend/interview-service/src/main/java/recruit/demo/entity/EvaluationResult.java:41"
+        },
+        {
+          "name": "predictedScore",
+          "type": "Decimal",
+          "visibility": "-",
+          "src": "source/recruit_system/backend/interview-service/src/main/java/recruit/demo/entity/EvaluationResult.java:44"
+        },
+        {
+          "name": "humanScore",
+          "type": "Decimal",
+          "visibility": "-",
+          "src": "source/recruit_system/backend/interview-service/src/main/java/recruit/demo/entity/EvaluationResult.java:47"
+        },
+        {
+          "name": "correctnessScore",
+          "type": "Decimal",
+          "visibility": "-",
+          "src": "source/recruit_system/backend/interview-service/src/main/java/recruit/demo/entity/EvaluationResult.java:50"
+        },
+        {
+          "name": "completenessScore",
+          "type": "Decimal",
+          "visibility": "-",
+          "src": "source/recruit_system/backend/interview-service/src/main/java/recruit/demo/entity/EvaluationResult.java:53"
+        },
+        {
+          "name": "feedback",
+          "type": "String",
+          "visibility": "-",
+          "src": "source/recruit_system/backend/interview-service/src/main/java/recruit/demo/entity/EvaluationResult.java:56"
+        },
+        {
+          "name": "strengths",
+          "type": "List<String>",
+          "visibility": "-",
+          "src": "source/recruit_system/backend/interview-service/src/main/java/recruit/demo/entity/EvaluationResult.java:60"
+        },
+        {
+          "name": "missingPoints",
+          "type": "List<String>",
+          "visibility": "-",
+          "src": "source/recruit_system/backend/interview-service/src/main/java/recruit/demo/entity/EvaluationResult.java:64"
+        },
+        {
+          "name": "scoringMode",
+          "type": "String",
+          "visibility": "-",
+          "src": "source/recruit_system/backend/interview-service/src/main/java/recruit/demo/entity/EvaluationResult.java:71"
+        },
+        {
+          "name": "scoringModelVersion",
+          "type": "String",
+          "visibility": "-",
+          "src": "source/recruit_system/backend/interview-service/src/main/java/recruit/demo/entity/EvaluationResult.java:73"
+        },
+        {
+          "name": "coverageScore",
+          "type": "Decimal",
+          "visibility": "-",
+          "src": "source/recruit_system/backend/interview-service/src/main/java/recruit/demo/entity/EvaluationResult.java:75"
+        },
+        {
+          "name": "criterionResults",
+          "type": "List<Map<String, Object>>",
+          "visibility": "-",
+          "src": "source/recruit_system/backend/interview-service/src/main/java/recruit/demo/entity/EvaluationResult.java:78"
+        },
+        {
+          "name": "evaluatedAt",
+          "type": "DateTime",
+          "visibility": "-",
+          "src": "source/recruit_system/backend/interview-service/src/main/java/recruit/demo/entity/EvaluationResult.java:82"
+        }
+      ],
+      "src": "source/recruit_system/backend/interview-service/src/main/java/recruit/demo/entity/EvaluationResult.java:20"
+    },
+    {
+      "key": "EvaluationRubric",
+      "kind": "class",
+      "parent": "interview-service",
+      "attributes": [
+        {
+          "name": "id",
+          "type": "Integer",
+          "visibility": "-",
+          "src": "source/recruit_system/backend/interview-service/src/main/java/recruit/demo/entity/EvaluationRubric.java:24"
+        },
+        {
+          "name": "criterionName",
+          "type": "String",
+          "visibility": "-",
+          "src": "source/recruit_system/backend/interview-service/src/main/java/recruit/demo/entity/EvaluationRubric.java:31"
+        },
+        {
+          "name": "criterionDescription",
+          "type": "String",
+          "visibility": "-",
+          "src": "source/recruit_system/backend/interview-service/src/main/java/recruit/demo/entity/EvaluationRubric.java:34"
+        },
+        {
+          "name": "maxScore",
+          "type": "Decimal",
+          "visibility": "-",
+          "src": "source/recruit_system/backend/interview-service/src/main/java/recruit/demo/entity/EvaluationRubric.java:37"
+        },
+        {
+          "name": "weight",
+          "type": "Decimal",
+          "visibility": "-",
+          "src": "source/recruit_system/backend/interview-service/src/main/java/recruit/demo/entity/EvaluationRubric.java:41"
+        },
+        {
+          "name": "expectedKeywords",
+          "type": "List<String>",
+          "visibility": "-",
+          "src": "source/recruit_system/backend/interview-service/src/main/java/recruit/demo/entity/EvaluationRubric.java:45"
+        },
+        {
+          "name": "referenceAnswers",
+          "type": "List<String>",
+          "visibility": "-",
+          "src": "source/recruit_system/backend/interview-service/src/main/java/recruit/demo/entity/EvaluationRubric.java:49"
+        },
+        {
+          "name": "misconceptions",
+          "type": "List<String>",
+          "visibility": "-",
+          "src": "source/recruit_system/backend/interview-service/src/main/java/recruit/demo/entity/EvaluationRubric.java:52"
+        },
+        {
+          "name": "createdAt",
+          "type": "DateTime",
+          "visibility": "-",
+          "src": "source/recruit_system/backend/interview-service/src/main/java/recruit/demo/entity/EvaluationRubric.java:56"
+        }
+      ],
+      "src": "source/recruit_system/backend/interview-service/src/main/java/recruit/demo/entity/EvaluationRubric.java:20"
+    },
+    {
+      "key": "InterviewQuestion",
+      "kind": "class",
+      "parent": "interview-service",
+      "attributes": [
+        {
+          "name": "id",
+          "type": "Integer",
+          "visibility": "-",
+          "src": "source/recruit_system/backend/interview-service/src/main/java/recruit/demo/entity/InterviewQuestion.java:21"
+        },
+        {
+          "name": "title",
+          "type": "String",
+          "visibility": "-",
+          "src": "source/recruit_system/backend/interview-service/src/main/java/recruit/demo/entity/InterviewQuestion.java:26"
+        },
+        {
+          "name": "externalKey",
+          "type": "String",
+          "visibility": "-",
+          "src": "source/recruit_system/backend/interview-service/src/main/java/recruit/demo/entity/InterviewQuestion.java:28"
+        },
+        {
+          "name": "skill",
+          "type": "String",
+          "visibility": "-",
+          "src": "source/recruit_system/backend/interview-service/src/main/java/recruit/demo/entity/InterviewQuestion.java:29"
+        },
+        {
+          "name": "seniority",
+          "type": "String",
+          "visibility": "-",
+          "src": "source/recruit_system/backend/interview-service/src/main/java/recruit/demo/entity/InterviewQuestion.java:31"
+        },
+        {
+          "name": "source",
+          "type": "String",
+          "visibility": "-",
+          "src": "source/recruit_system/backend/interview-service/src/main/java/recruit/demo/entity/InterviewQuestion.java:33"
+        },
+        {
+          "name": "questionText",
+          "type": "String",
+          "visibility": "-",
+          "src": "source/recruit_system/backend/interview-service/src/main/java/recruit/demo/entity/InterviewQuestion.java:36"
+        },
+        {
+          "name": "topic",
+          "type": "String",
+          "visibility": "-",
+          "src": "source/recruit_system/backend/interview-service/src/main/java/recruit/demo/entity/InterviewQuestion.java:38"
+        },
+        {
+          "name": "difficulty",
+          "type": "String",
+          "visibility": "-",
+          "src": "source/recruit_system/backend/interview-service/src/main/java/recruit/demo/entity/InterviewQuestion.java:39"
+        },
+        {
+          "name": "questionType",
+          "type": "String",
+          "visibility": "-",
+          "src": "source/recruit_system/backend/interview-service/src/main/java/recruit/demo/entity/InterviewQuestion.java:43"
+        },
+        {
+          "name": "referenceAnswer",
+          "type": "String",
+          "visibility": "-",
+          "src": "source/recruit_system/backend/interview-service/src/main/java/recruit/demo/entity/InterviewQuestion.java:46"
+        },
+        {
+          "name": "maxScore",
+          "type": "Decimal",
+          "visibility": "-",
+          "src": "source/recruit_system/backend/interview-service/src/main/java/recruit/demo/entity/InterviewQuestion.java:50"
+        },
+        {
+          "name": "active",
+          "type": "Boolean",
+          "visibility": "-",
+          "src": "source/recruit_system/backend/interview-service/src/main/java/recruit/demo/entity/InterviewQuestion.java:54"
+        },
+        {
+          "name": "createdAt",
+          "type": "DateTime",
+          "visibility": "-",
+          "src": "source/recruit_system/backend/interview-service/src/main/java/recruit/demo/entity/InterviewQuestion.java:58"
+        }
+      ],
+      "src": "source/recruit_system/backend/interview-service/src/main/java/recruit/demo/entity/InterviewQuestion.java:17"
+    },
+    {
+      "key": "InterviewResponse",
+      "kind": "class",
+      "parent": "interview-service",
+      "attributes": [
+        {
+          "name": "id",
+          "type": "Integer",
+          "visibility": "-",
+          "src": "source/recruit_system/backend/interview-service/src/main/java/recruit/demo/entity/InterviewResponse.java:20"
+        },
+        {
+          "name": "answerText",
+          "type": "String",
+          "visibility": "-",
+          "src": "source/recruit_system/backend/interview-service/src/main/java/recruit/demo/entity/InterviewResponse.java:27"
+        },
+        {
+          "name": "submittedAt",
+          "type": "DateTime",
+          "visibility": "-",
+          "src": "source/recruit_system/backend/interview-service/src/main/java/recruit/demo/entity/InterviewResponse.java:31"
+        },
+        {
+          "name": "responseDurationSeconds",
+          "type": "Integer",
+          "visibility": "-",
+          "src": "source/recruit_system/backend/interview-service/src/main/java/recruit/demo/entity/InterviewResponse.java:34"
+        },
+        {
+          "name": "status",
+          "type": "String",
+          "visibility": "-",
+          "src": "source/recruit_system/backend/interview-service/src/main/java/recruit/demo/entity/InterviewResponse.java:38"
+        }
+      ],
+      "src": "source/recruit_system/backend/interview-service/src/main/java/recruit/demo/entity/InterviewResponse.java:16"
+    },
+    {
+      "key": "InterviewSession",
+      "kind": "class",
+      "parent": "interview-service",
+      "attributes": [
+        {
+          "name": "id",
+          "type": "Integer",
+          "visibility": "-",
+          "src": "source/recruit_system/backend/interview-service/src/main/java/recruit/demo/entity/InterviewSession.java:20"
+        },
+        {
+          "name": "jobTitle",
+          "type": "String",
+          "visibility": "-",
+          "src": "source/recruit_system/backend/interview-service/src/main/java/recruit/demo/entity/InterviewSession.java:31"
+        },
+        {
+          "name": "title",
+          "type": "String",
+          "visibility": "-",
+          "src": "source/recruit_system/backend/interview-service/src/main/java/recruit/demo/entity/InterviewSession.java:35"
+        },
+        {
+          "name": "status",
+          "type": "SessionStatus",
+          "visibility": "-",
+          "src": "source/recruit_system/backend/interview-service/src/main/java/recruit/demo/entity/InterviewSession.java:40"
+        },
+        {
+          "name": "startedAt",
+          "type": "DateTime",
+          "visibility": "-",
+          "src": "source/recruit_system/backend/interview-service/src/main/java/recruit/demo/entity/InterviewSession.java:43"
+        },
+        {
+          "name": "completedAt",
+          "type": "DateTime",
+          "visibility": "-",
+          "src": "source/recruit_system/backend/interview-service/src/main/java/recruit/demo/entity/InterviewSession.java:46"
+        },
+        {
+          "name": "createdAt",
+          "type": "DateTime",
+          "visibility": "-",
+          "src": "source/recruit_system/backend/interview-service/src/main/java/recruit/demo/entity/InterviewSession.java:50"
+        }
+      ],
+      "src": "source/recruit_system/backend/interview-service/src/main/java/recruit/demo/entity/InterviewSession.java:16"
+    },
+    {
+      "key": "InterviewSessionQuestion",
+      "kind": "class",
+      "parent": "interview-service",
+      "attributes": [
+        {
+          "name": "id",
+          "type": "Integer",
+          "visibility": "-",
+          "src": "source/recruit_system/backend/interview-service/src/main/java/recruit/demo/entity/InterviewSessionQuestion.java:19"
+        },
+        {
+          "name": "questionOrder",
+          "type": "Integer",
+          "visibility": "-",
+          "src": "source/recruit_system/backend/interview-service/src/main/java/recruit/demo/entity/InterviewSessionQuestion.java:30"
+        },
+        {
+          "name": "maxScore",
+          "type": "Decimal",
+          "visibility": "-",
+          "src": "source/recruit_system/backend/interview-service/src/main/java/recruit/demo/entity/InterviewSessionQuestion.java:34"
+        },
+        {
+          "name": "timeLimitSeconds",
+          "type": "Integer",
+          "visibility": "-",
+          "src": "source/recruit_system/backend/interview-service/src/main/java/recruit/demo/entity/InterviewSessionQuestion.java:37"
+        }
+      ],
+      "src": "source/recruit_system/backend/interview-service/src/main/java/recruit/demo/entity/InterviewSessionQuestion.java:15"
+    },
+    {
+      "key": "ModelVersion",
+      "kind": "class",
+      "parent": "interview-service",
+      "attributes": [
+        {
+          "name": "id",
+          "type": "Integer",
+          "visibility": "-",
+          "src": "source/recruit_system/backend/interview-service/src/main/java/recruit/demo/entity/ModelVersion.java:22"
+        },
+        {
+          "name": "moduleName",
+          "type": "String",
+          "visibility": "-",
+          "src": "source/recruit_system/backend/interview-service/src/main/java/recruit/demo/entity/ModelVersion.java:25"
+        },
+        {
+          "name": "modelName",
+          "type": "String",
+          "visibility": "-",
+          "src": "source/recruit_system/backend/interview-service/src/main/java/recruit/demo/entity/ModelVersion.java:28"
+        },
+        {
+          "name": "version",
+          "type": "String",
+          "visibility": "-",
+          "src": "source/recruit_system/backend/interview-service/src/main/java/recruit/demo/entity/ModelVersion.java:31"
+        },
+        {
+          "name": "modelPath",
+          "type": "String",
+          "visibility": "-",
+          "src": "source/recruit_system/backend/interview-service/src/main/java/recruit/demo/entity/ModelVersion.java:34"
+        },
+        {
+          "name": "metrics",
+          "type": "Map<String, Object>",
+          "visibility": "-",
+          "src": "source/recruit_system/backend/interview-service/src/main/java/recruit/demo/entity/ModelVersion.java:38"
+        },
+        {
+          "name": "active",
+          "type": "Boolean",
+          "visibility": "-",
+          "src": "source/recruit_system/backend/interview-service/src/main/java/recruit/demo/entity/ModelVersion.java:42"
+        },
+        {
+          "name": "createdAt",
+          "type": "DateTime",
+          "visibility": "-",
+          "src": "source/recruit_system/backend/interview-service/src/main/java/recruit/demo/entity/ModelVersion.java:46"
+        }
+      ],
+      "src": "source/recruit_system/backend/interview-service/src/main/java/recruit/demo/entity/ModelVersion.java:18"
+    },
+    {
+      "key": "SessionStatus",
+      "kind": "enumeration",
+      "parent": "interview-service",
+      "literals": [
+        "CREATED",
+        "IN_PROGRESS",
+        "COMPLETED"
+      ],
+      "src": "source/recruit_system/backend/interview-service/src/main/java/recruit/demo/entity/SessionStatus.java:3"
+    }
+  ],
+  "relations": [
+    {
+      "from": "CandidateProfile",
+      "to": "User",
+      "kind": "association",
+      "fromMult": "0..1",
+      "toMult": "1",
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/entity/CandidateProfile.java:26",
+      "label": "logical (khác service)"
+    },
+    {
+      "from": "RecruiterProfile",
+      "to": "User",
+      "kind": "association",
+      "fromMult": "0..*",
+      "toMult": "1",
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/entity/RecruiterProfile.java:23",
+      "label": "logical (khác service)"
+    },
+    {
+      "from": "RecruiterProfile",
+      "to": "Company",
+      "kind": "association",
+      "fromMult": "0..*",
+      "toMult": "1",
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/entity/RecruiterProfile.java:27"
+    },
+    {
+      "from": "CvData",
+      "to": "CandidateProfile",
+      "kind": "association",
+      "fromMult": "0..*",
+      "toMult": "1",
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/entity/CvData.java:20"
+    },
+    {
+      "from": "Job",
+      "to": "Company",
+      "kind": "association",
+      "fromMult": "0..*",
+      "toMult": "1",
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/entity/Job.java:26"
+    },
+    {
+      "from": "Job",
+      "to": "User",
+      "kind": "association",
+      "fromMult": "0..*",
+      "toMult": "1",
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/entity/Job.java:29",
+      "label": "logical (khác service)"
+    },
+    {
+      "from": "JobSkill",
+      "to": "Job",
+      "kind": "association",
+      "fromMult": "0..*",
+      "toMult": "1",
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/entity/JobSkill.java:23"
+    },
+    {
+      "from": "JobSkill",
+      "to": "Skill",
+      "kind": "association",
+      "fromMult": "0..*",
+      "toMult": "1",
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/entity/JobSkill.java:27"
+    },
+    {
+      "from": "JobApplication",
+      "to": "CandidateProfile",
+      "kind": "association",
+      "fromMult": "0..*",
+      "toMult": "1",
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/entity/JobApplication.java:25"
+    },
+    {
+      "from": "JobApplication",
+      "to": "Job",
+      "kind": "association",
+      "fromMult": "0..*",
+      "toMult": "1",
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/entity/JobApplication.java:29"
+    },
+    {
+      "from": "MatchingResult",
+      "to": "CandidateProfile",
+      "kind": "association",
+      "fromMult": "0..*",
+      "toMult": "1",
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/entity/MatchingResult.java:27"
+    },
+    {
+      "from": "MatchingResult",
+      "to": "Job",
+      "kind": "association",
+      "fromMult": "0..*",
+      "toMult": "1",
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/entity/MatchingResult.java:34"
+    },
+    {
+      "from": "InterviewQuestion",
+      "to": "User",
+      "kind": "association",
+      "fromMult": "0..*",
+      "toMult": "0..1",
+      "src": "source/recruit_system/backend/interview-service/src/main/java/recruit/demo/entity/InterviewQuestion.java:24",
+      "label": "logical (khác service)"
+    },
+    {
+      "from": "EvaluationRubric",
+      "to": "InterviewQuestion",
+      "kind": "association",
+      "fromMult": "0..*",
+      "toMult": "1",
+      "src": "source/recruit_system/backend/interview-service/src/main/java/recruit/demo/entity/EvaluationRubric.java:28"
+    },
+    {
+      "from": "InterviewSession",
+      "to": "CandidateProfile",
+      "kind": "association",
+      "fromMult": "0..*",
+      "toMult": "1",
+      "src": "source/recruit_system/backend/interview-service/src/main/java/recruit/demo/entity/InterviewSession.java:23",
+      "label": "logical (khác service)"
+    },
+    {
+      "from": "InterviewSession",
+      "to": "User",
+      "kind": "association",
+      "fromMult": "0..*",
+      "toMult": "1",
+      "src": "source/recruit_system/backend/interview-service/src/main/java/recruit/demo/entity/InterviewSession.java:25",
+      "label": "logical (khác service) — candidateUserId"
+    },
+    {
+      "from": "InterviewSession",
+      "to": "User",
+      "kind": "association",
+      "fromMult": "0..*",
+      "toMult": "0..1",
+      "src": "source/recruit_system/backend/interview-service/src/main/java/recruit/demo/entity/InterviewSession.java:27",
+      "label": "logical (khác service) — recruiterUserId"
+    },
+    {
+      "from": "InterviewSession",
+      "to": "Job",
+      "kind": "association",
+      "fromMult": "0..*",
+      "toMult": "0..1",
+      "src": "source/recruit_system/backend/interview-service/src/main/java/recruit/demo/entity/InterviewSession.java:29",
+      "label": "logical (khác service)"
+    },
+    {
+      "from": "InterviewSession",
+      "to": "JobApplication",
+      "kind": "association",
+      "fromMult": "0..*",
+      "toMult": "0..1",
+      "src": "source/recruit_system/backend/interview-service/src/main/java/recruit/demo/entity/InterviewSession.java:33",
+      "label": "logical (khác service)"
+    },
+    {
+      "from": "InterviewSessionQuestion",
+      "to": "InterviewSession",
+      "kind": "association",
+      "fromMult": "0..*",
+      "toMult": "1",
+      "src": "source/recruit_system/backend/interview-service/src/main/java/recruit/demo/entity/InterviewSessionQuestion.java:23"
+    },
+    {
+      "from": "InterviewSessionQuestion",
+      "to": "InterviewQuestion",
+      "kind": "association",
+      "fromMult": "0..*",
+      "toMult": "1",
+      "src": "source/recruit_system/backend/interview-service/src/main/java/recruit/demo/entity/InterviewSessionQuestion.java:27"
+    },
+    {
+      "from": "InterviewResponse",
+      "to": "InterviewSessionQuestion",
+      "kind": "association",
+      "fromMult": "0..1",
+      "toMult": "1",
+      "src": "source/recruit_system/backend/interview-service/src/main/java/recruit/demo/entity/InterviewResponse.java:24"
+    },
+    {
+      "from": "EvaluationResult",
+      "to": "InterviewResponse",
+      "kind": "association",
+      "fromMult": "0..1",
+      "toMult": "1",
+      "src": "source/recruit_system/backend/interview-service/src/main/java/recruit/demo/entity/EvaluationResult.java:28"
+    },
+    {
+      "from": "EvaluationResult",
+      "to": "ModelVersion",
+      "kind": "association",
+      "fromMult": "0..*",
+      "toMult": "0..1",
+      "src": "source/recruit_system/backend/interview-service/src/main/java/recruit/demo/entity/EvaluationResult.java:68"
+    }
+  ],
+  "notes": [
+    "Các enum Role và UserStatus trong common được đặt trong package identity-service vì User sử dụng chúng; nguồn vẫn là common.",
+    "Các association logical giữa service không hàm ý ràng buộc FK trong CSDL.",
+    "Kiểu collection JSON giữ nguyên cấu trúc source, không chuyển thành String.",
+    "Không có composition: các quan hệ entity không khai báo cascade hoặc orphanRemoval."
+  ],
+  "open_questions": [
+    "[cần xác nhận] JobApplication.cvId và MatchingResult.cvId không còn entity CV hoặc bảng cv_documents hiện hành; ý nghĩa và đích tham chiếu hiện tại là gì? Hai trường không được vẽ như thuộc tính hay association.",
+    "[cần xác nhận] Các thuộc tính JSON dùng List/Map theo source; renderer có hỗ trợ kiểu collection và Map hay cần quy ước hiển thị khác?",
+    "[cần xác nhận] Biểu đồ gồm hơn ~20 phần tử chính theo phạm vi E1 được giao; có cần tách hình khi trình bày không?"
+  ]
+}

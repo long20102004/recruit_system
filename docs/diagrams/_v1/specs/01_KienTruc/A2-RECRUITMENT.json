@@ -1,0 +1,206 @@
+{
+  "id": "A2-RECRUITMENT",
+  "type": "package",
+  "name": "Biểu đồ kiến trúc chiều ngang MVC - recruitment-service",
+  "elements": [
+    {
+      "key": "View",
+      "kind": "package",
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/dto/CvDtos.java:1",
+      "notes": "Ánh xạ DTO, không phải giao diện render server."
+    },
+    {
+      "key": "Controller",
+      "kind": "package",
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/controller/CvController.java:1"
+    },
+    {
+      "key": "Model",
+      "kind": "package",
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/service/CvService.java:1"
+    },
+    {
+      "key": "service",
+      "kind": "package",
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/service/CvService.java:1",
+      "parent": "Model"
+    },
+    {
+      "key": "repository",
+      "kind": "package",
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/repository/CvDataRepository.java:1",
+      "parent": "Model"
+    },
+    {
+      "key": "entity",
+      "kind": "package",
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/entity/CvData.java:1",
+      "parent": "Model"
+    },
+    {
+      "key": "client",
+      "kind": "package",
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/client/AiJsonClient.java:1",
+      "parent": "Model"
+    },
+    {
+      "key": "ApplicationDtos",
+      "kind": "class",
+      "parent": "View",
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/dto/ApplicationDtos.java:7"
+    },
+    {
+      "key": "CvDtos",
+      "kind": "class",
+      "parent": "View",
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/dto/CvDtos.java:5"
+    },
+    {
+      "key": "JobDtos",
+      "kind": "class",
+      "parent": "View",
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/dto/JobDtos.java:10"
+    },
+    {
+      "key": "MatchingDtos",
+      "kind": "class",
+      "parent": "View",
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/dto/MatchingDtos.java:7"
+    },
+    {
+      "key": "ApplicationsController",
+      "kind": "class",
+      "parent": "Controller",
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/controller/ApplicationsController.java:13"
+    },
+    {
+      "key": "CvController",
+      "kind": "class",
+      "parent": "Controller",
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/controller/CvController.java:13"
+    },
+    {
+      "key": "JobsController",
+      "kind": "class",
+      "parent": "Controller",
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/controller/JobsController.java:14"
+    },
+    {
+      "key": "MatchingController",
+      "kind": "class",
+      "parent": "Controller",
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/controller/MatchingController.java:13"
+    },
+    {
+      "key": "ApplicationService",
+      "kind": "class",
+      "parent": "service",
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/service/ApplicationService.java:18"
+    },
+    {
+      "key": "CvService",
+      "kind": "class",
+      "parent": "service",
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/service/CvService.java:32"
+    },
+    {
+      "key": "JobService",
+      "kind": "class",
+      "parent": "service",
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/service/JobService.java:25"
+    },
+    {
+      "key": "MatchingService",
+      "kind": "class",
+      "parent": "service",
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/service/MatchingService.java:20"
+    },
+    {
+      "key": "CvDataRepository",
+      "kind": "interface",
+      "parent": "repository",
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/repository/CvDataRepository.java:8"
+    },
+    {
+      "key": "JobApplicationRepository",
+      "kind": "interface",
+      "parent": "repository",
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/repository/JobApplicationRepository.java:11"
+    },
+    {
+      "key": "CvData",
+      "kind": "class",
+      "parent": "entity",
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/entity/CvData.java:13"
+    },
+    {
+      "key": "JobApplication",
+      "kind": "class",
+      "parent": "entity",
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/entity/JobApplication.java:17"
+    },
+    {
+      "key": "AiJsonClient",
+      "kind": "class",
+      "parent": "client",
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/client/AiJsonClient.java:11"
+    }
+  ],
+  "relations": [
+    {
+      "from": "Controller",
+      "to": "View",
+      "kind": "dependency",
+      "label": "DTO",
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/controller/CvController.java:7"
+    },
+    {
+      "from": "Controller",
+      "to": "Model",
+      "kind": "dependency",
+      "label": "gọi service",
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/controller/CvController.java:8"
+    },
+    {
+      "from": "Model",
+      "to": "View",
+      "kind": "dependency",
+      "label": "dùng DTO",
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/service/CvService.java:9"
+    },
+    {
+      "from": "View",
+      "to": "Model",
+      "kind": "dependency",
+      "label": "dùng enum",
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/dto/JobDtos.java:4"
+    },
+    {
+      "from": "service",
+      "to": "repository",
+      "kind": "dependency",
+      "label": "repository",
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/service/CvService.java:15"
+    },
+    {
+      "from": "repository",
+      "to": "entity",
+      "kind": "dependency",
+      "label": "entity",
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/repository/CvDataRepository.java:4"
+    },
+    {
+      "from": "service",
+      "to": "client",
+      "kind": "dependency",
+      "label": "AI client",
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/service/cv/CvExtractionModule.java:5"
+    }
+  ],
+  "notes": [
+    "View, Controller và Model là nhóm kiến trúc logic, không phải tên package Java; các gói con service/repository/entity/client phản ánh package trong mã.",
+    "Phụ thuộc có hướng theo mã; Model và View còn phụ thuộc lẫn nhau. Các lớp được chọn chỉ đại diện cho luồng chính.",
+    "Lược bỏ: DashboardDtos, DashboardController, InternalRecruitmentController, DashboardService, ProfileProvisioningService, SettingService, CvExtractionModule, CvProfileMapper, CvMatchingModule, CandidateProfileRepository, CompanyRepository, JobRepository, JobSkillRepository, MatchingResultRepository, RecruiterProfileRepository, SettingRepository, SkillRepository, ApplicationStatus, CandidateProfile, Company, Job, JobSkill, JobStatus, MatchingResult, ParsingStatus, RecruiterProfile, Setting, Skill, IdentityClient, ServiceDtos, ErrorResponse, HealthController, UserPrincipal, SecurityUtils, PrincipalLookup, RemotePrincipalLookup, JwtService, JwtAuthenticationFilter, InternalAccessFilter, AuthenticatedRequestHook, ApiException, GlobalExceptionHandler, SecurityConfig, FilterRegistrationConfig, AppProperties, ProfileProvisioningFilter."
+  ],
+  "open_questions": []
+}

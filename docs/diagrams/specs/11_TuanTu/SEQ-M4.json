@@ -1,0 +1,681 @@
+{
+  "id": "SEQ-M4",
+  "type": "sequence",
+  "name": "Biểu đồ tuần tự - Ôn tập và chấm phỏng vấn",
+  "lifelines": [
+    {
+      "key": "Candidate",
+      "name": "Ứng viên",
+      "kind": "actor",
+      "src": "source/recruit_system/frontend/src/pages/candidate/CandidateInterviewPage.tsx:31"
+    },
+    {
+      "key": "CandidateInterviewPage",
+      "name": ":CandidateInterviewPage",
+      "kind": "object",
+      "class": "CandidateInterviewPage",
+      "stereotype": "boundary",
+      "src": "source/recruit_system/frontend/src/pages/candidate/CandidateInterviewPage.tsx:9"
+    },
+    {
+      "key": "ApiClient",
+      "name": ":client",
+      "kind": "object",
+      "class": "client",
+      "stereotype": "control",
+      "src": "source/recruit_system/frontend/src/api/client.ts:32"
+    },
+    {
+      "key": "InterviewController",
+      "name": ":InterviewController",
+      "kind": "object",
+      "class": "InterviewController",
+      "stereotype": "control",
+      "src": "source/recruit_system/backend/interview-service/src/main/java/recruit/demo/controller/InterviewController.java:14"
+    },
+    {
+      "key": "InterviewService",
+      "name": ":InterviewService",
+      "kind": "object",
+      "class": "InterviewService",
+      "stereotype": "control",
+      "src": "source/recruit_system/backend/interview-service/src/main/java/recruit/demo/service/InterviewService.java:23"
+    },
+    {
+      "key": "InterviewSessionRepository",
+      "name": ":InterviewSessionRepository",
+      "kind": "object",
+      "class": "InterviewSessionRepository",
+      "stereotype": "control",
+      "src": "source/recruit_system/backend/interview-service/src/main/java/recruit/demo/repository/InterviewSessionRepository.java:8"
+    },
+    {
+      "key": "AiScoringClient",
+      "name": ":AiScoringClient",
+      "kind": "object",
+      "class": "AiScoringClient",
+      "stereotype": "control",
+      "src": "source/recruit_system/backend/interview-service/src/main/java/recruit/demo/service/AiScoringClient.java:26"
+    },
+    {
+      "key": "FastApiApp",
+      "name": ":api",
+      "kind": "object",
+      "class": "api",
+      "stereotype": "control",
+      "src": "source/recruit_system/AI/src/api.py:35"
+    },
+    {
+      "key": "InterviewSession",
+      "name": ":InterviewSession",
+      "kind": "object",
+      "class": "InterviewSession",
+      "stereotype": "entity",
+      "src": "source/recruit_system/backend/interview-service/src/main/java/recruit/demo/entity/InterviewSession.java:16"
+    },
+    {
+      "key": "EvaluationResult",
+      "name": ":EvaluationResult",
+      "kind": "object",
+      "class": "EvaluationResult",
+      "stereotype": "entity",
+      "src": "source/recruit_system/backend/interview-service/src/main/java/recruit/demo/entity/EvaluationResult.java:20"
+    }
+  ],
+  "messages": [
+    {
+      "seq": 1,
+      "from": "Candidate",
+      "to": "CandidateInterviewPage",
+      "label": "chọn bắt đầu phiên 6 câu",
+      "kind": "sync",
+      "src": "source/recruit_system/frontend/src/pages/candidate/CandidateInterviewPage.tsx:65"
+    },
+    {
+      "seq": 2,
+      "from": "CandidateInterviewPage",
+      "to": "ApiClient",
+      "label": "call",
+      "kind": "sync",
+      "src": "source/recruit_system/frontend/src/pages/candidate/CandidateInterviewPage.tsx:34"
+    },
+    {
+      "seq": 3,
+      "from": "ApiClient",
+      "to": "ApiClient",
+      "label": "api<T>()",
+      "kind": "sync",
+      "src": "source/recruit_system/frontend/src/api/client.ts:47"
+    },
+    {
+      "seq": 4,
+      "from": "ApiClient",
+      "to": "InterviewController",
+      "label": "call",
+      "kind": "sync",
+      "src": "source/recruit_system/frontend/src/api/client.ts:130"
+    },
+    {
+      "seq": 5,
+      "from": "InterviewController",
+      "to": "InterviewController",
+      "label": "createSession()",
+      "kind": "sync",
+      "src": "source/recruit_system/backend/interview-service/src/main/java/recruit/demo/controller/InterviewController.java:24"
+    },
+    {
+      "seq": 6,
+      "from": "InterviewController",
+      "to": "InterviewService",
+      "label": "call",
+      "kind": "sync",
+      "src": "source/recruit_system/backend/interview-service/src/main/java/recruit/demo/controller/InterviewController.java:25"
+    },
+    {
+      "seq": 7,
+      "from": "InterviewService",
+      "to": "InterviewService",
+      "label": "createSession()",
+      "kind": "sync",
+      "src": "source/recruit_system/backend/interview-service/src/main/java/recruit/demo/service/InterviewService.java:45"
+    },
+    {
+      "seq": 8,
+      "from": "InterviewService",
+      "to": "InterviewSession",
+      "label": "call",
+      "kind": "sync",
+      "src": "source/recruit_system/backend/interview-service/src/main/java/recruit/demo/service/InterviewService.java:73"
+    },
+    {
+      "seq": 9,
+      "from": "InterviewSession",
+      "to": "InterviewSession",
+      "label": "InterviewSession(), setter()",
+      "kind": "sync",
+      "src": "source/recruit_system/backend/interview-service/src/main/java/recruit/demo/entity/InterviewSession.java:16"
+    },
+    {
+      "seq": 10,
+      "from": "InterviewSession",
+      "to": "InterviewService",
+      "label": "return",
+      "kind": "return",
+      "src": "source/recruit_system/backend/interview-service/src/main/java/recruit/demo/service/InterviewService.java:82"
+    },
+    {
+      "seq": 11,
+      "from": "InterviewService",
+      "to": "InterviewSessionRepository",
+      "label": "call",
+      "kind": "sync",
+      "src": "source/recruit_system/backend/interview-service/src/main/java/recruit/demo/service/InterviewService.java:83"
+    },
+    {
+      "seq": 12,
+      "from": "InterviewSessionRepository",
+      "to": "InterviewSessionRepository",
+      "label": "save()",
+      "kind": "sync",
+      "src": "source/recruit_system/backend/interview-service/src/main/java/recruit/demo/repository/InterviewSessionRepository.java:8"
+    },
+    {
+      "seq": 13,
+      "from": "InterviewSessionRepository",
+      "to": "InterviewService",
+      "label": "return",
+      "kind": "return",
+      "src": "source/recruit_system/backend/interview-service/src/main/java/recruit/demo/service/InterviewService.java:83"
+    },
+    {
+      "seq": 14,
+      "from": "InterviewService",
+      "to": "InterviewController",
+      "label": "return",
+      "kind": "return",
+      "src": "source/recruit_system/backend/interview-service/src/main/java/recruit/demo/service/InterviewService.java:94"
+    },
+    {
+      "seq": 15,
+      "from": "InterviewController",
+      "to": "ApiClient",
+      "label": "return",
+      "kind": "return",
+      "src": "source/recruit_system/backend/interview-service/src/main/java/recruit/demo/controller/InterviewController.java:25"
+    },
+    {
+      "seq": 16,
+      "from": "ApiClient",
+      "to": "CandidateInterviewPage",
+      "label": "return",
+      "kind": "return",
+      "src": "source/recruit_system/frontend/src/api/client.ts:130"
+    },
+    {
+      "seq": 17,
+      "from": "CandidateInterviewPage",
+      "to": "Candidate",
+      "label": "show",
+      "kind": "return",
+      "src": "source/recruit_system/frontend/src/pages/candidate/CandidateInterviewPage.tsx:71"
+    },
+    {
+      "seq": 18,
+      "from": "Candidate",
+      "to": "CandidateInterviewPage",
+      "label": "gửi & nhận đánh giá (rỗng)",
+      "kind": "sync",
+      "fragment": {
+        "id": "validateAnswer",
+        "kind": "alt",
+        "guard": "câu trả lời rỗng"
+      },
+      "src": "source/recruit_system/frontend/src/pages/candidate/CandidateInterviewPage.tsx:77"
+    },
+    {
+      "seq": 19,
+      "from": "CandidateInterviewPage",
+      "to": "CandidateInterviewPage",
+      "label": "validateAnswer()",
+      "kind": "sync",
+      "fragment": {
+        "id": "validateAnswer",
+        "kind": "alt",
+        "guard": "câu trả lời rỗng"
+      },
+      "src": "source/recruit_system/frontend/src/pages/candidate/CandidateInterviewPage.tsx:41"
+    },
+    {
+      "seq": 20,
+      "from": "CandidateInterviewPage",
+      "to": "Candidate",
+      "label": "show",
+      "kind": "return",
+      "fragment": {
+        "id": "validateAnswer",
+        "kind": "alt",
+        "guard": "câu trả lời rỗng"
+      },
+      "src": "source/recruit_system/frontend/src/pages/candidate/CandidateInterviewPage.tsx:41"
+    },
+    {
+      "seq": 21,
+      "from": "Candidate",
+      "to": "CandidateInterviewPage",
+      "label": "nhập câu trả lời và gửi",
+      "kind": "sync",
+      "fragment": {
+        "id": "validateAnswer",
+        "kind": "alt",
+        "guard": "câu trả lời hợp lệ"
+      },
+      "src": "source/recruit_system/frontend/src/pages/candidate/CandidateInterviewPage.tsx:77"
+    },
+    {
+      "seq": 22,
+      "from": "CandidateInterviewPage",
+      "to": "ApiClient",
+      "label": "call",
+      "kind": "sync",
+      "fragment": {
+        "id": "validateAnswer",
+        "kind": "alt",
+        "guard": "câu trả lời hợp lệ"
+      },
+      "src": "source/recruit_system/frontend/src/pages/candidate/CandidateInterviewPage.tsx:44"
+    },
+    {
+      "seq": 23,
+      "from": "ApiClient",
+      "to": "ApiClient",
+      "label": "api<T>()",
+      "kind": "sync",
+      "fragment": {
+        "id": "validateAnswer",
+        "kind": "alt",
+        "guard": "câu trả lời hợp lệ"
+      },
+      "src": "source/recruit_system/frontend/src/api/client.ts:47"
+    },
+    {
+      "seq": 24,
+      "from": "ApiClient",
+      "to": "InterviewController",
+      "label": "call",
+      "kind": "sync",
+      "fragment": {
+        "id": "validateAnswer",
+        "kind": "alt",
+        "guard": "câu trả lời hợp lệ"
+      },
+      "src": "source/recruit_system/frontend/src/api/client.ts:135"
+    },
+    {
+      "seq": 25,
+      "from": "InterviewController",
+      "to": "InterviewController",
+      "label": "submitResponse()",
+      "kind": "sync",
+      "fragment": {
+        "id": "validateAnswer",
+        "kind": "alt",
+        "guard": "câu trả lời hợp lệ"
+      },
+      "src": "source/recruit_system/backend/interview-service/src/main/java/recruit/demo/controller/InterviewController.java:40"
+    },
+    {
+      "seq": 26,
+      "from": "InterviewController",
+      "to": "InterviewService",
+      "label": "call",
+      "kind": "sync",
+      "fragment": {
+        "id": "validateAnswer",
+        "kind": "alt",
+        "guard": "câu trả lời hợp lệ"
+      },
+      "src": "source/recruit_system/backend/interview-service/src/main/java/recruit/demo/controller/InterviewController.java:42"
+    },
+    {
+      "seq": 27,
+      "from": "InterviewService",
+      "to": "InterviewService",
+      "label": "submitAndEvaluate()",
+      "kind": "sync",
+      "fragment": {
+        "id": "validateAnswer",
+        "kind": "alt",
+        "guard": "câu trả lời hợp lệ"
+      },
+      "src": "source/recruit_system/backend/interview-service/src/main/java/recruit/demo/service/InterviewService.java:106"
+    },
+    {
+      "seq": 28,
+      "from": "InterviewService",
+      "to": "AiScoringClient",
+      "label": "call",
+      "kind": "sync",
+      "fragment": {
+        "id": "validateAnswer",
+        "kind": "alt",
+        "guard": "câu trả lời hợp lệ"
+      },
+      "src": "source/recruit_system/backend/interview-service/src/main/java/recruit/demo/service/InterviewService.java:169"
+    },
+    {
+      "seq": 29,
+      "from": "AiScoringClient",
+      "to": "AiScoringClient",
+      "label": "evaluate()",
+      "kind": "sync",
+      "fragment": {
+        "id": "validateAnswer",
+        "kind": "alt",
+        "guard": "câu trả lời hợp lệ"
+      },
+      "src": "source/recruit_system/backend/interview-service/src/main/java/recruit/demo/service/AiScoringClient.java:38"
+    },
+    {
+      "seq": 30,
+      "from": "AiScoringClient",
+      "to": "FastApiApp",
+      "label": "call",
+      "kind": "sync",
+      "fragment": {
+        "id": "validateAnswer",
+        "kind": "alt",
+        "guard": "câu trả lời hợp lệ"
+      },
+      "src": "source/recruit_system/backend/interview-service/src/main/java/recruit/demo/service/AiScoringClient.java:94"
+    },
+    {
+      "seq": 31,
+      "from": "FastApiApp",
+      "to": "FastApiApp",
+      "label": "evaluate()",
+      "kind": "sync",
+      "fragment": {
+        "id": "validateAnswer",
+        "kind": "alt",
+        "guard": "câu trả lời hợp lệ"
+      },
+      "src": "source/recruit_system/AI/src/api.py:206"
+    },
+    {
+      "seq": 32,
+      "from": "FastApiApp",
+      "to": "AiScoringClient",
+      "label": "return",
+      "kind": "return",
+      "fragment": {
+        "id": "validateAnswer",
+        "kind": "alt",
+        "guard": "câu trả lời hợp lệ"
+      },
+      "src": "source/recruit_system/AI/src/api.py:250"
+    },
+    {
+      "seq": 33,
+      "from": "AiScoringClient",
+      "to": "InterviewService",
+      "label": "return",
+      "kind": "return",
+      "fragment": {
+        "id": "validateAnswer",
+        "kind": "alt",
+        "guard": "câu trả lời hợp lệ"
+      },
+      "src": "source/recruit_system/backend/interview-service/src/main/java/recruit/demo/service/AiScoringClient.java:106"
+    },
+    {
+      "seq": 34,
+      "from": "InterviewService",
+      "to": "EvaluationResult",
+      "label": "call",
+      "kind": "sync",
+      "fragment": {
+        "id": "validateAnswer",
+        "kind": "alt",
+        "guard": "câu trả lời hợp lệ"
+      },
+      "src": "source/recruit_system/backend/interview-service/src/main/java/recruit/demo/service/InterviewService.java:190"
+    },
+    {
+      "seq": 35,
+      "from": "EvaluationResult",
+      "to": "EvaluationResult",
+      "label": "EvaluationResult(), setter()",
+      "kind": "sync",
+      "fragment": {
+        "id": "validateAnswer",
+        "kind": "alt",
+        "guard": "câu trả lời hợp lệ"
+      },
+      "src": "source/recruit_system/backend/interview-service/src/main/java/recruit/demo/entity/EvaluationResult.java:20"
+    },
+    {
+      "seq": 36,
+      "from": "EvaluationResult",
+      "to": "InterviewService",
+      "label": "return",
+      "kind": "return",
+      "fragment": {
+        "id": "validateAnswer",
+        "kind": "alt",
+        "guard": "câu trả lời hợp lệ"
+      },
+      "src": "source/recruit_system/backend/interview-service/src/main/java/recruit/demo/service/InterviewService.java:204"
+    },
+    {
+      "seq": 37,
+      "from": "InterviewService",
+      "to": "InterviewSessionRepository",
+      "label": "call",
+      "kind": "sync",
+      "fragment": {
+        "id": "validateAnswer",
+        "kind": "alt",
+        "guard": "câu trả lời hợp lệ"
+      },
+      "src": "source/recruit_system/backend/interview-service/src/main/java/recruit/demo/service/InterviewService.java:127"
+    },
+    {
+      "seq": 38,
+      "from": "InterviewSessionRepository",
+      "to": "InterviewSessionRepository",
+      "label": "save()",
+      "kind": "sync",
+      "fragment": {
+        "id": "validateAnswer",
+        "kind": "alt",
+        "guard": "câu trả lời hợp lệ"
+      },
+      "src": "source/recruit_system/backend/interview-service/src/main/java/recruit/demo/repository/InterviewSessionRepository.java:8"
+    },
+    {
+      "seq": 39,
+      "from": "InterviewSessionRepository",
+      "to": "InterviewService",
+      "label": "return",
+      "kind": "return",
+      "fragment": {
+        "id": "validateAnswer",
+        "kind": "alt",
+        "guard": "câu trả lời hợp lệ"
+      },
+      "src": "source/recruit_system/backend/interview-service/src/main/java/recruit/demo/service/InterviewService.java:127"
+    },
+    {
+      "seq": 40,
+      "from": "InterviewService",
+      "to": "InterviewController",
+      "label": "return",
+      "kind": "return",
+      "fragment": {
+        "id": "validateAnswer",
+        "kind": "alt",
+        "guard": "câu trả lời hợp lệ"
+      },
+      "src": "source/recruit_system/backend/interview-service/src/main/java/recruit/demo/service/InterviewService.java:128"
+    },
+    {
+      "seq": 41,
+      "from": "InterviewController",
+      "to": "ApiClient",
+      "label": "return",
+      "kind": "return",
+      "fragment": {
+        "id": "validateAnswer",
+        "kind": "alt",
+        "guard": "câu trả lời hợp lệ"
+      },
+      "src": "source/recruit_system/backend/interview-service/src/main/java/recruit/demo/controller/InterviewController.java:42"
+    },
+    {
+      "seq": 42,
+      "from": "ApiClient",
+      "to": "CandidateInterviewPage",
+      "label": "return",
+      "kind": "return",
+      "fragment": {
+        "id": "validateAnswer",
+        "kind": "alt",
+        "guard": "câu trả lời hợp lệ"
+      },
+      "src": "source/recruit_system/frontend/src/api/client.ts:135"
+    },
+    {
+      "seq": 43,
+      "from": "CandidateInterviewPage",
+      "to": "Candidate",
+      "label": "show",
+      "kind": "return",
+      "fragment": {
+        "id": "validateAnswer",
+        "kind": "alt",
+        "guard": "câu trả lời hợp lệ"
+      },
+      "src": "source/recruit_system/frontend/src/pages/candidate/CandidateInterviewPage.tsx:81"
+    },
+    {
+      "seq": 44,
+      "from": "Candidate",
+      "to": "CandidateInterviewPage",
+      "label": "chọn xem tổng kết phiên",
+      "kind": "sync",
+      "src": "source/recruit_system/frontend/src/pages/candidate/CandidateInterviewPage.tsx:78"
+    },
+    {
+      "seq": 45,
+      "from": "CandidateInterviewPage",
+      "to": "ApiClient",
+      "label": "call",
+      "kind": "sync",
+      "src": "source/recruit_system/frontend/src/pages/candidate/CandidateInterviewPage.tsx:45"
+    },
+    {
+      "seq": 46,
+      "from": "ApiClient",
+      "to": "ApiClient",
+      "label": "api<T>()",
+      "kind": "sync",
+      "src": "source/recruit_system/frontend/src/api/client.ts:47"
+    },
+    {
+      "seq": 47,
+      "from": "ApiClient",
+      "to": "InterviewController",
+      "label": "call",
+      "kind": "sync",
+      "src": "source/recruit_system/frontend/src/api/client.ts:139"
+    },
+    {
+      "seq": 48,
+      "from": "InterviewController",
+      "to": "InterviewController",
+      "label": "summary()",
+      "kind": "sync",
+      "src": "source/recruit_system/backend/interview-service/src/main/java/recruit/demo/controller/InterviewController.java:32"
+    },
+    {
+      "seq": 49,
+      "from": "InterviewController",
+      "to": "InterviewService",
+      "label": "call",
+      "kind": "sync",
+      "src": "source/recruit_system/backend/interview-service/src/main/java/recruit/demo/controller/InterviewController.java:32"
+    },
+    {
+      "seq": 50,
+      "from": "InterviewService",
+      "to": "InterviewService",
+      "label": "summary()",
+      "kind": "sync",
+      "src": "source/recruit_system/backend/interview-service/src/main/java/recruit/demo/service/InterviewService.java:139"
+    },
+    {
+      "seq": 51,
+      "from": "InterviewService",
+      "to": "InterviewSessionRepository",
+      "label": "call",
+      "kind": "sync",
+      "src": "source/recruit_system/backend/interview-service/src/main/java/recruit/demo/service/InterviewService.java:140"
+    },
+    {
+      "seq": 52,
+      "from": "InterviewSessionRepository",
+      "to": "InterviewSessionRepository",
+      "label": "findById()",
+      "kind": "sync",
+      "src": "source/recruit_system/backend/interview-service/src/main/java/recruit/demo/repository/InterviewSessionRepository.java:8"
+    },
+    {
+      "seq": 53,
+      "from": "InterviewSessionRepository",
+      "to": "InterviewService",
+      "label": "return",
+      "kind": "return",
+      "src": "source/recruit_system/backend/interview-service/src/main/java/recruit/demo/service/InterviewService.java:140"
+    },
+    {
+      "seq": 54,
+      "from": "InterviewService",
+      "to": "InterviewController",
+      "label": "return",
+      "kind": "return",
+      "src": "source/recruit_system/backend/interview-service/src/main/java/recruit/demo/service/InterviewService.java:155"
+    },
+    {
+      "seq": 55,
+      "from": "InterviewController",
+      "to": "ApiClient",
+      "label": "return",
+      "kind": "return",
+      "src": "source/recruit_system/backend/interview-service/src/main/java/recruit/demo/controller/InterviewController.java:32"
+    },
+    {
+      "seq": 56,
+      "from": "ApiClient",
+      "to": "CandidateInterviewPage",
+      "label": "return",
+      "kind": "return",
+      "src": "source/recruit_system/frontend/src/api/client.ts:139"
+    },
+    {
+      "seq": 57,
+      "from": "CandidateInterviewPage",
+      "to": "Candidate",
+      "label": "show",
+      "kind": "return",
+      "src": "source/recruit_system/frontend/src/pages/candidate/CandidateInterviewPage.tsx:82"
+    }
+  ],
+  "notes": [
+    "Biểu đồ tuần tự chi tiết chức năng M4: Ôn tập và chấm phỏng vấn (tích hợp Frontend, Microservices Backend interview-service và AI Service FastAPI)",
+    "Thứ tự gọi và nhãn thông điệp tuân thủ nghiêm ngặt chuẩn mẫu PTIT (skill §11) và ánh xạ 1-1 với Kịch bản chuẩn V3 trong SEQ-M4.md",
+    "Gồm 10 lifeline (1 actor, 1 boundary, 6 control, 2 entity) và 57 message (có fragment alt cho ngoại lệ câu trả lời trống)"
+  ],
+  "open_questions": [
+    "Thứ tự câu hỏi được chọn và nội dung đánh giá thực tế (điểm số, độ phủ, nhận xét) phụ thuộc vào mô hình ngôn ngữ và trạng thái dữ liệu lúc chạy, không giả định giá trị cố định."
+  ]
+}

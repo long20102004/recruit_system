@@ -1,0 +1,40 @@
+{
+  "id": "ST-M4",
+  "type": "state",
+  "name": "Biểu đồ trạng thái - Ôn tập và chấm phỏng vấn",
+  "states": [
+    {"key":"initial","name":"Bắt đầu","kind":"initial","src":"source/recruit_system/frontend/src/pages/candidate/CandidateJobDetailPage.tsx:65"},
+    {"key":"job_detail","name":"Hiện giao diện Chi tiết công việc","kind":"state","src":"source/recruit_system/frontend/src/pages/candidate/CandidateJobDetailPage.tsx:65"},
+    {"key":"interview","name":"Hiện giao diện Luyện phỏng vấn","kind":"state","src":"source/recruit_system/frontend/src/pages/candidate/CandidateInterviewPage.tsx:61"},
+    {"key":"start_result","name":"Rẽ nhánh kết quả tạo phiên","kind":"choice","src":"source/recruit_system/frontend/src/pages/candidate/CandidateInterviewPage.tsx:31"},
+    {"key":"question","name":"Hiện giao diện câu hỏi và ô trả lời","kind":"state","src":"source/recruit_system/frontend/src/pages/candidate/CandidateInterviewPage.tsx:71"},
+    {"key":"answer_check","name":"Rẽ nhánh kiểm tra câu trả lời","kind":"choice","src":"source/recruit_system/frontend/src/pages/candidate/CandidateInterviewPage.tsx:40"},
+    {"key":"evaluation_result","name":"Rẽ nhánh kết quả gửi và chấm câu trả lời","kind":"choice","src":"source/recruit_system/frontend/src/pages/candidate/CandidateInterviewPage.tsx:43"},
+    {"key":"evaluation","name":"Hiện giao diện Kết quả đánh giá","kind":"state","src":"source/recruit_system/frontend/src/pages/candidate/CandidateInterviewPage.tsx:81"},
+    {"key":"summary","name":"Hiện giao diện Tổng kết phiên","kind":"state","src":"source/recruit_system/frontend/src/pages/candidate/CandidateInterviewPage.tsx:82"},
+    {"key":"question_notice","name":"Hiện thông báo lỗi câu trả lời hoặc đánh giá","kind":"state","src":"source/recruit_system/frontend/src/pages/candidate/CandidateInterviewPage.tsx:41"},
+    {"key":"session_notice","name":"Hiện thông báo lỗi phiên","kind":"state","src":"source/recruit_system/frontend/src/pages/candidate/CandidateInterviewPage.tsx:28"},
+    {"key":"final","name":"Kết thúc","kind":"final","src":"source/recruit_system/frontend/src/pages/candidate/CandidateInterviewPage.tsx:88"}
+  ],
+  "transitions": [
+    {"from":"initial","to":"job_detail","label":"[Ứng viên mở chi tiết tin tuyển dụng] / Hiện chi tiết công việc","src":"source/recruit_system/frontend/src/pages/candidate/CandidateJobDetailPage.tsx:65"},
+    {"from":"job_detail","to":"interview","label":"[Click Ôn tập phỏng vấn] / Mở /candidate/interview?jobId=…","src":"source/recruit_system/frontend/src/pages/candidate/CandidateJobDetailPage.tsx:153"},
+    {"from":"interview","to":"start_result","label":"[Click Bắt đầu phiên 6 câu hoặc Tạo phiên mới] / Tạo phiên","src":"source/recruit_system/frontend/src/pages/candidate/CandidateInterviewPage.tsx:31"},
+    {"from":"start_result","to":"question","label":"[Tạo phiên thành công] / Hiện câu hỏi hiện tại","src":"source/recruit_system/frontend/src/pages/candidate/CandidateInterviewPage.tsx:34"},
+    {"from":"start_result","to":"session_notice","label":"[Tạo phiên thất bại] / Hiện thông báo lỗi","src":"source/recruit_system/frontend/src/pages/candidate/CandidateInterviewPage.tsx:37"},
+    {"from":"session_notice","to":"interview","label":"[Thông báo lỗi đã hiện] / Ở lại giao diện Luyện phỏng vấn","src":"source/recruit_system/frontend/src/pages/candidate/CandidateInterviewPage.tsx:37"},
+    {"from":"interview","to":"question","label":"[Click một phiên gần đây và tải phiên, tổng kết thành công] / Hiện câu hiện tại","src":"source/recruit_system/frontend/src/pages/candidate/CandidateInterviewPage.tsx:23"},
+    {"from":"interview","to":"session_notice","label":"[Tải danh sách hoặc phiên gần đây thất bại] / Hiện thông báo lỗi","src":"source/recruit_system/frontend/src/pages/candidate/CandidateInterviewPage.tsx:21"},
+    {"from":"question","to":"answer_check","label":"[Click Gửi & nhận đánh giá] / Kiểm tra câu trả lời","src":"source/recruit_system/frontend/src/pages/candidate/CandidateInterviewPage.tsx:40"},
+    {"from":"answer_check","to":"question_notice","label":"[Câu trả lời rỗng hoặc chỉ có khoảng trắng] / Hiện Hãy nhập câu trả lời","src":"source/recruit_system/frontend/src/pages/candidate/CandidateInterviewPage.tsx:41"},
+    {"from":"question_notice","to":"question","label":"[Click OK] / Quay lại ô trả lời câu hiện tại","src":"source/recruit_system/frontend/src/pages/candidate/CandidateInterviewPage.tsx:41"},
+    {"from":"answer_check","to":"evaluation_result","label":"[Câu trả lời hợp lệ] / Gửi câu trả lời để chấm","src":"source/recruit_system/frontend/src/pages/candidate/CandidateInterviewPage.tsx:44"},
+    {"from":"evaluation_result","to":"evaluation","label":"[Gửi và tải kết quả thành công] / Hiện kết quả đánh giá, tổng kết nếu có","src":"source/recruit_system/frontend/src/pages/candidate/CandidateInterviewPage.tsx:45"},
+    {"from":"evaluation_result","to":"question_notice","label":"[Gửi hoặc tải lại dữ liệu thất bại] / Hiện thông báo lỗi","src":"source/recruit_system/frontend/src/pages/candidate/CandidateInterviewPage.tsx:47"},
+    {"from":"evaluation","to":"question","label":"[Click Câu tiếp theo và phiên còn câu] / Hiện câu tiếp theo, xóa câu trả lời cũ","src":"source/recruit_system/frontend/src/pages/candidate/CandidateInterviewPage.tsx:50"},
+    {"from":"evaluation","to":"summary","label":"[Click Xem tổng kết khi phiên đã hoàn thành] / Hiện tổng kết phiên","src":"source/recruit_system/frontend/src/pages/candidate/CandidateInterviewPage.tsx:78"},
+    {"from":"summary","to":"final","label":"[Kết thúc xem tổng kết] / Kết thúc luồng","src":"source/recruit_system/frontend/src/pages/candidate/CandidateInterviewPage.tsx:82"},
+    {"from":"question","to":"final","label":"[Đóng luồng ôn tập] / Kết thúc","src":"source/recruit_system/frontend/src/pages/candidate/CandidateInterviewPage.tsx:88"}
+  ],
+  "open_questions": ["Không có dữ liệu phiên/kết quả AI thực chạy để xác nhận số điểm, nhận xét và thứ tự câu; các giá trị phụ thuộc kết quả thực tế (KB-M4)."]
+}

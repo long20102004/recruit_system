@@ -1,0 +1,316 @@
+{
+  "id": "M1-SEQ-BE",
+  "type": "sequence",
+  "name": "Biểu đồ tuần tự - Đăng ký, đăng nhập, chọn vai trò (Backend)",
+  "lifelines": [
+    {
+      "key": "client",
+      "name": ":client (Frontend)",
+      "kind": "object",
+      "class": "client (Frontend)",
+      "src": "source/recruit_system/frontend/src/api/client.ts:52-67"
+    },
+    {
+      "key": "controller",
+      "name": ":AuthController",
+      "kind": "object",
+      "class": "AuthController",
+      "src": "source/recruit_system/backend/identity-service/src/main/java/recruit/demo/controller/AuthController.java:12-34"
+    },
+    {
+      "key": "service",
+      "name": ":AuthService",
+      "kind": "object",
+      "class": "AuthService",
+      "src": "source/recruit_system/backend/identity-service/src/main/java/recruit/demo/service/AuthService.java:20-25"
+    },
+    {
+      "key": "repo",
+      "name": ":UserRepository",
+      "kind": "object",
+      "class": "UserRepository",
+      "src": "source/recruit_system/backend/identity-service/src/main/java/recruit/demo/repository/UserRepository.java:8-10"
+    },
+    {
+      "key": "jwt",
+      "name": ":JwtService",
+      "kind": "object",
+      "class": "JwtService",
+      "src": "source/recruit_system/backend/common/src/main/java/recruit/demo/security/JwtService.java:14-35"
+    }
+  ],
+  "messages": [
+    {
+      "seq": 1,
+      "from": "client",
+      "to": "controller",
+      "operation": "POST /api/auth/register",
+      "params": [
+        "request"
+      ],
+      "kind": "sync",
+      "src": "source/recruit_system/backend/identity-service/src/main/java/recruit/demo/controller/AuthController.java:21-23"
+    },
+    {
+      "seq": 2,
+      "from": "controller",
+      "to": "service",
+      "operation": "register",
+      "params": [
+        "request"
+      ],
+      "kind": "sync",
+      "src": "source/recruit_system/backend/identity-service/src/main/java/recruit/demo/controller/AuthController.java:21-23"
+    },
+    {
+      "seq": 3,
+      "from": "service",
+      "to": "repo",
+      "operation": "existsByEmailIgnoreCase",
+      "params": [
+        "request.email()"
+      ],
+      "kind": "sync",
+      "fragment": {
+        "id": "register",
+        "kind": "alt",
+        "guard": "email đã tồn tại (409)"
+      },
+      "src": "source/recruit_system/backend/identity-service/src/main/java/recruit/demo/service/AuthService.java:28-31"
+    },
+    {
+      "seq": 4,
+      "from": "repo",
+      "to": "service",
+      "operation": "existsByEmailIgnoreCase",
+      "params": [
+        "true"
+      ],
+      "kind": "return",
+      "fragment": {
+        "id": "register",
+        "kind": "alt",
+        "guard": "email đã tồn tại (409)"
+      },
+      "src": "source/recruit_system/backend/identity-service/src/main/java/recruit/demo/service/AuthService.java:29-30"
+    },
+    {
+      "seq": 5,
+      "from": "service",
+      "to": "controller",
+      "operation": "register",
+      "params": [
+        "409 Conflict"
+      ],
+      "kind": "return",
+      "fragment": {
+        "id": "register",
+        "kind": "alt",
+        "guard": "email đã tồn tại (409)"
+      },
+      "src": "source/recruit_system/backend/identity-service/src/main/java/recruit/demo/service/AuthService.java:29-31"
+    },
+    {
+      "seq": 6,
+      "from": "service",
+      "to": "repo",
+      "operation": "existsByEmailIgnoreCase",
+      "params": [
+        "request.email()"
+      ],
+      "kind": "sync",
+      "fragment": {
+        "id": "register",
+        "kind": "alt",
+        "guard": "email chưa tồn tại"
+      },
+      "src": "source/recruit_system/backend/identity-service/src/main/java/recruit/demo/service/AuthService.java:28-31"
+    },
+    {
+      "seq": 7,
+      "from": "repo",
+      "to": "service",
+      "operation": "existsByEmailIgnoreCase",
+      "params": [
+        "false"
+      ],
+      "kind": "return",
+      "fragment": {
+        "id": "register",
+        "kind": "alt",
+        "guard": "email chưa tồn tại"
+      },
+      "src": "source/recruit_system/backend/identity-service/src/main/java/recruit/demo/service/AuthService.java:29-33"
+    },
+    {
+      "seq": 8,
+      "from": "service",
+      "to": "jwt",
+      "operation": "generateToken",
+      "params": [
+        "user.getId()",
+        "user.getEmail()",
+        "user.getRole()"
+      ],
+      "kind": "sync",
+      "src": "source/recruit_system/backend/identity-service/src/main/java/recruit/demo/service/AuthService.java:44"
+    },
+    {
+      "seq": 9,
+      "from": "jwt",
+      "to": "service",
+      "operation": "generateToken",
+      "params": [
+        "token"
+      ],
+      "kind": "return",
+      "src": "source/recruit_system/backend/common/src/main/java/recruit/demo/security/JwtService.java:25-35"
+    },
+    {
+      "seq": 10,
+      "from": "service",
+      "to": "controller",
+      "operation": "register",
+      "params": [
+        "AuthDtos.AuthResponse"
+      ],
+      "kind": "return",
+      "src": "source/recruit_system/backend/identity-service/src/main/java/recruit/demo/service/AuthService.java:45-46"
+    },
+    {
+      "seq": 11,
+      "from": "controller",
+      "to": "client",
+      "operation": "POST /api/auth/register",
+      "params": [
+        "AuthDtos.AuthResponse"
+      ],
+      "kind": "return",
+      "src": "source/recruit_system/backend/identity-service/src/main/java/recruit/demo/controller/AuthController.java:21-23"
+    },
+    {
+      "seq": 12,
+      "from": "client",
+      "to": "controller",
+      "operation": "POST /api/auth/role",
+      "params": [
+        "request"
+      ],
+      "kind": "sync",
+      "src": "source/recruit_system/backend/identity-service/src/main/java/recruit/demo/controller/AuthController.java:31-33"
+    },
+    {
+      "seq": 13,
+      "from": "controller",
+      "to": "service",
+      "operation": "chooseRole",
+      "params": [
+        "request"
+      ],
+      "kind": "sync",
+      "src": "source/recruit_system/backend/identity-service/src/main/java/recruit/demo/controller/AuthController.java:31-33"
+    },
+    {
+      "seq": 14,
+      "from": "service",
+      "to": "jwt",
+      "operation": "generateToken",
+      "params": [
+        "user.getId()",
+        "user.getEmail()",
+        "user.getRole()"
+      ],
+      "kind": "sync",
+      "fragment": {
+        "id": "role",
+        "kind": "alt",
+        "guard": "role hợp lệ và chưa chọn; sau kiểm tra/cập nhật/lưu User"
+      },
+      "src": "source/recruit_system/backend/identity-service/src/main/java/recruit/demo/service/AuthService.java:60-65"
+    },
+    {
+      "seq": 15,
+      "from": "jwt",
+      "to": "service",
+      "operation": "generateToken",
+      "params": [
+        "token"
+      ],
+      "kind": "return",
+      "fragment": {
+        "id": "role",
+        "kind": "alt",
+        "guard": "role hợp lệ và chưa chọn; sau kiểm tra/cập nhật/lưu User"
+      },
+      "src": "source/recruit_system/backend/common/src/main/java/recruit/demo/security/JwtService.java:25-35"
+    },
+    {
+      "seq": 16,
+      "from": "service",
+      "to": "controller",
+      "operation": "chooseRole",
+      "params": [
+        "AuthDtos.AuthResponse"
+      ],
+      "kind": "return",
+      "fragment": {
+        "id": "role",
+        "kind": "alt",
+        "guard": "role hợp lệ và chưa chọn"
+      },
+      "src": "source/recruit_system/backend/identity-service/src/main/java/recruit/demo/service/AuthService.java:64-66"
+    },
+    {
+      "seq": 17,
+      "from": "controller",
+      "to": "client",
+      "operation": "POST /api/auth/role",
+      "params": [
+        "AuthDtos.AuthResponse"
+      ],
+      "kind": "return",
+      "fragment": {
+        "id": "role",
+        "kind": "alt",
+        "guard": "role hợp lệ và chưa chọn"
+      },
+      "src": "source/recruit_system/backend/identity-service/src/main/java/recruit/demo/controller/AuthController.java:31-33"
+    },
+    {
+      "seq": 18,
+      "from": "service",
+      "to": "controller",
+      "operation": "chooseRole",
+      "params": [
+        "400 Bad Request hoặc 409 Conflict"
+      ],
+      "kind": "return",
+      "fragment": {
+        "id": "role",
+        "kind": "alt",
+        "guard": "role không được phép hoặc đã chọn"
+      },
+      "src": "source/recruit_system/backend/identity-service/src/main/java/recruit/demo/service/AuthService.java:49-58"
+    },
+    {
+      "seq": 19,
+      "from": "controller",
+      "to": "client",
+      "operation": "POST /api/auth/role",
+      "params": [
+        "400 Bad Request hoặc 409 Conflict"
+      ],
+      "kind": "return",
+      "fragment": {
+        "id": "role",
+        "kind": "alt",
+        "guard": "role không được phép hoặc đã chọn"
+      },
+      "src": "source/recruit_system/backend/identity-service/src/main/java/recruit/demo/controller/AuthController.java:31-33"
+    }
+  ],
+  "open_questions": [
+    "M1-CLS-BE.json không liệt kê các operation thật sự được AuthService dùng là UserRepository.save, UserRepository.findById, PasswordEncoder.encode, AuthenticationManager.authenticate, SecurityUtils.currentUser và User mutation/builders. Vì ràng buộc sequence yêu cầu operation phải có trong lớp đích của biểu đồ lớp, các tương tác này không được biểu diễn riêng; cần bổ sung vào CLS ở lần cập nhật được phép.",
+    "Lifeline đại diện Frontend được yêu cầu là :client (Frontend), nhưng không phải class trong M1-CLS-BE; được giữ theo ngoại lệ lifeline đầu bài đã cho."
+  ]
+}

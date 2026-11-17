@@ -1,0 +1,1231 @@
+{
+  "id": "PKG",
+  "type": "package",
+  "name": "Biểu đồ gói - Các chức năng M1–M4",
+  "elements": [
+    {
+      "key": "View",
+      "kind": "package",
+      "parent": null,
+      "src": "source/recruit_system/frontend/src/App.tsx:1"
+    },
+    {
+      "key": "Candidate",
+      "kind": "package",
+      "parent": "View",
+      "src": "source/recruit_system/frontend/src/pages/candidate/CandidateHomePage.tsx:1"
+    },
+    {
+      "key": "Auth",
+      "kind": "package",
+      "parent": "View",
+      "src": "source/recruit_system/frontend/src/pages/LoginPage.tsx:1"
+    },
+    {
+      "key": "Client",
+      "kind": "package",
+      "parent": null,
+      "src": "source/recruit_system/frontend/src/api/client.ts:32"
+    },
+    {
+      "key": "Controller",
+      "kind": "package",
+      "parent": null,
+      "src": "source/recruit_system/backend/identity-service/src/main/java/recruit/demo/controller/AuthController.java:12"
+    },
+    {
+      "key": "Controller/identity",
+      "kind": "package",
+      "parent": "Controller",
+      "src": "source/recruit_system/backend/identity-service/src/main/java/recruit/demo/controller/AuthController.java:12"
+    },
+    {
+      "key": "Controller/recruitment",
+      "kind": "package",
+      "parent": "Controller",
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/controller/JobsController.java:14"
+    },
+    {
+      "key": "Controller/interview",
+      "kind": "package",
+      "parent": "Controller",
+      "src": "source/recruit_system/backend/interview-service/src/main/java/recruit/demo/controller/InterviewController.java:14"
+    },
+    {
+      "key": "Service",
+      "kind": "package",
+      "parent": null,
+      "src": "source/recruit_system/backend/identity-service/src/main/java/recruit/demo/service/AuthService.java:20"
+    },
+    {
+      "key": "Repository",
+      "kind": "package",
+      "parent": null,
+      "src": "source/recruit_system/backend/identity-service/src/main/java/recruit/demo/repository/UserRepository.java:8"
+    },
+    {
+      "key": "Service/identity",
+      "kind": "package",
+      "parent": "Service",
+      "src": "source/recruit_system/backend/identity-service/src/main/java/recruit/demo/service/AuthService.java:20"
+    },
+    {
+      "key": "Service/recruitment",
+      "kind": "package",
+      "parent": "Service",
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/service/CvService.java:32"
+    },
+    {
+      "key": "Service/interview",
+      "kind": "package",
+      "parent": "Service",
+      "src": "source/recruit_system/backend/interview-service/src/main/java/recruit/demo/service/InterviewService.java:23"
+    },
+    {
+      "key": "Repository/identity",
+      "kind": "package",
+      "parent": "Repository",
+      "src": "source/recruit_system/backend/identity-service/src/main/java/recruit/demo/service/AuthService.java:20"
+    },
+    {
+      "key": "Repository/recruitment",
+      "kind": "package",
+      "parent": "Repository",
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/service/CvService.java:32"
+    },
+    {
+      "key": "Repository/interview",
+      "kind": "package",
+      "parent": "Repository",
+      "src": "source/recruit_system/backend/interview-service/src/main/java/recruit/demo/service/InterviewService.java:23"
+    },
+    {
+      "key": "Entity",
+      "kind": "package",
+      "parent": null,
+      "src": "source/recruit_system/backend/identity-service/src/main/java/recruit/demo/entity/User.java:17"
+    },
+    {
+      "key": "Entity/identity",
+      "kind": "package",
+      "parent": "Entity",
+      "src": "source/recruit_system/backend/identity-service/src/main/java/recruit/demo/entity/User.java:17"
+    },
+    {
+      "key": "Entity/recruitment",
+      "kind": "package",
+      "parent": "Entity",
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/entity/CandidateProfile.java:19"
+    },
+    {
+      "key": "Entity/interview",
+      "kind": "package",
+      "parent": "Entity",
+      "src": "source/recruit_system/backend/interview-service/src/main/java/recruit/demo/entity/InterviewSession.java:16"
+    },
+    {
+      "key": "AI",
+      "kind": "package",
+      "parent": null,
+      "src": "source/recruit_system/AI/src/api.py:35"
+    },
+    {
+      "key": "RegisterPage",
+      "name": "RegisterPage.tsx",
+      "kind": "class",
+      "parent": "Auth",
+      "src": "source/recruit_system/frontend/src/pages/RegisterPage.tsx:17"
+    },
+    {
+      "key": "LoginPage",
+      "name": "LoginPage.tsx",
+      "kind": "class",
+      "parent": "Auth",
+      "src": "source/recruit_system/frontend/src/pages/LoginPage.tsx:17"
+    },
+    {
+      "key": "ChooseRolePage",
+      "name": "ChooseRolePage.tsx",
+      "kind": "class",
+      "parent": "Auth",
+      "src": "source/recruit_system/frontend/src/pages/ChooseRolePage.tsx:17"
+    },
+    {
+      "key": "AuthProvider",
+      "name": "AuthProvider",
+      "kind": "class",
+      "parent": "Auth",
+      "src": "source/recruit_system/frontend/src/context/AuthContext.tsx:44"
+    },
+    {
+      "key": "authApi",
+      "name": "authApi",
+      "kind": "class",
+      "parent": "Client",
+      "src": "source/recruit_system/frontend/src/api/client.ts:51"
+    },
+    {
+      "key": "client.ts",
+      "name": "client.ts",
+      "kind": "class",
+      "parent": "Client",
+      "src": "source/recruit_system/frontend/src/api/client.ts:32"
+    },
+    {
+      "key": "AuthController",
+      "name": "AuthController",
+      "kind": "class",
+      "parent": "Controller/identity",
+      "src": "source/recruit_system/backend/identity-service/src/main/java/recruit/demo/controller/AuthController.java:12"
+    },
+    {
+      "key": "AuthService",
+      "name": "AuthService",
+      "kind": "class",
+      "parent": "Service/identity",
+      "src": "source/recruit_system/backend/identity-service/src/main/java/recruit/demo/service/AuthService.java:20"
+    },
+    {
+      "key": "ProfileProvisioningFilter",
+      "name": "ProfileProvisioningFilter",
+      "kind": "class",
+      "parent": "Service/recruitment",
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/security/ProfileProvisioningFilter.java:14"
+    },
+    {
+      "key": "ProfileProvisioningService",
+      "name": "ProfileProvisioningService",
+      "kind": "class",
+      "parent": "Service/recruitment",
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/service/ProfileProvisioningService.java:10"
+    },
+    {
+      "key": "User",
+      "name": "User",
+      "kind": "class",
+      "parent": "Entity/identity",
+      "src": "source/recruit_system/backend/identity-service/src/main/java/recruit/demo/entity/User.java:17"
+    },
+    {
+      "key": "CandidateProfile",
+      "name": "CandidateProfile",
+      "kind": "class",
+      "parent": "Entity/recruitment",
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/entity/CandidateProfile.java:19"
+    },
+    {
+      "key": "RecruiterProfile",
+      "name": "RecruiterProfile",
+      "kind": "class",
+      "parent": "Entity/recruitment",
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/entity/RecruiterProfile.java:16"
+    },
+    {
+      "key": "Company",
+      "name": "Company",
+      "kind": "class",
+      "parent": "Entity/recruitment",
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/entity/Company.java:16"
+    },
+    {
+      "key": "CandidateHomePage.tsx",
+      "name": "CandidateHomePage.tsx",
+      "kind": "class",
+      "parent": "Candidate",
+      "src": "source/recruit_system/frontend/src/pages/candidate/CandidateHomePage.tsx:36"
+    },
+    {
+      "key": "CandidateMatchingPage.tsx",
+      "name": "CandidateMatchingPage.tsx",
+      "kind": "class",
+      "parent": "Candidate",
+      "src": "source/recruit_system/frontend/src/pages/candidate/CandidateMatchingPage.tsx:21"
+    },
+    {
+      "key": "CandidateJobDetailPage.tsx",
+      "name": "CandidateJobDetailPage.tsx",
+      "kind": "class",
+      "parent": "Candidate",
+      "src": "source/recruit_system/frontend/src/pages/candidate/CandidateJobDetailPage.tsx:44"
+    },
+    {
+      "key": "client",
+      "name": "client",
+      "kind": "class",
+      "parent": "Client",
+      "src": "source/recruit_system/frontend/src/api/client.ts:32"
+    },
+    {
+      "key": "JobsController",
+      "name": "JobsController",
+      "kind": "class",
+      "parent": "Controller/recruitment",
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/controller/JobsController.java:14"
+    },
+    {
+      "key": "CvController",
+      "name": "CvController",
+      "kind": "class",
+      "parent": "Controller/recruitment",
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/controller/CvController.java:13"
+    },
+    {
+      "key": "MatchingController",
+      "name": "MatchingController",
+      "kind": "class",
+      "parent": "Controller/recruitment",
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/controller/MatchingController.java:13"
+    },
+    {
+      "key": "ApplicationsController",
+      "name": "ApplicationsController",
+      "kind": "class",
+      "parent": "Controller/recruitment",
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/controller/ApplicationsController.java:13"
+    },
+    {
+      "key": "JobService",
+      "name": "JobService",
+      "kind": "class",
+      "parent": "Service/recruitment",
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/service/JobService.java:25"
+    },
+    {
+      "key": "CvService",
+      "name": "CvService",
+      "kind": "class",
+      "parent": "Service/recruitment",
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/service/CvService.java:32"
+    },
+    {
+      "key": "MatchingService",
+      "name": "MatchingService",
+      "kind": "class",
+      "parent": "Service/recruitment",
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/service/MatchingService.java:20"
+    },
+    {
+      "key": "ApplicationService",
+      "name": "ApplicationService",
+      "kind": "class",
+      "parent": "Service/recruitment",
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/service/ApplicationService.java:18"
+    },
+    {
+      "key": "CvData",
+      "name": "CvData",
+      "kind": "class",
+      "parent": "Entity/recruitment",
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/entity/CvData.java:13"
+    },
+    {
+      "key": "Job",
+      "name": "Job",
+      "kind": "class",
+      "parent": "Entity/recruitment",
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/entity/Job.java:18"
+    },
+    {
+      "key": "JobApplication",
+      "name": "JobApplication",
+      "kind": "class",
+      "parent": "Entity/recruitment",
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/entity/JobApplication.java:17"
+    },
+    {
+      "key": "MatchingResult",
+      "name": "MatchingResult",
+      "kind": "class",
+      "parent": "Entity/recruitment",
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/entity/MatchingResult.java:19"
+    },
+    {
+      "key": "CvMatchingModule",
+      "name": "CvMatchingModule",
+      "kind": "class",
+      "parent": "Service/recruitment",
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/service/matching/CvMatchingModule.java:11"
+    },
+    {
+      "key": "AiJsonClient",
+      "name": "AiJsonClient",
+      "kind": "class",
+      "parent": "Service/recruitment",
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/client/AiJsonClient.java:11"
+    },
+    {
+      "key": "main",
+      "name": "main",
+      "kind": "class",
+      "parent": "AI",
+      "src": "source/recruit_system/services/cv-matching-ai/app/main.py:18"
+    },
+    {
+      "key": "CandidateCvPage",
+      "name": "CandidateCvPage",
+      "kind": "class",
+      "parent": "Candidate",
+      "src": "source/recruit_system/frontend/src/pages/candidate/CandidateCvPage.tsx:94"
+    },
+    {
+      "key": "ApiClient",
+      "name": "ApiClient",
+      "kind": "class",
+      "parent": "Client",
+      "src": "source/recruit_system/frontend/src/api/client.ts:32"
+    },
+    {
+      "key": "cvsApi",
+      "name": "cvsApi",
+      "kind": "class",
+      "parent": "Client",
+      "src": "source/recruit_system/frontend/src/api/client.ts:99"
+    },
+    {
+      "key": "CvExtractionModule",
+      "name": "CvExtractionModule",
+      "kind": "class",
+      "parent": "Service/recruitment",
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/service/cv/CvExtractionModule.java:12"
+    },
+    {
+      "key": "PdfTextExtractor",
+      "name": "PdfTextExtractor",
+      "kind": "class",
+      "parent": "Service/recruitment",
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/extraction/pdf/PdfTextExtractor.java:24"
+    },
+    {
+      "key": "CvProfileMapper",
+      "name": "CvProfileMapper",
+      "kind": "class",
+      "parent": "Service/recruitment",
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/service/cv/CvProfileMapper.java:6"
+    },
+    {
+      "key": "SettingService",
+      "name": "SettingService",
+      "kind": "class",
+      "parent": "Service/recruitment",
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/service/SettingService.java:15"
+    },
+    {
+      "key": "IdentityClient",
+      "name": "IdentityClient",
+      "kind": "class",
+      "parent": "Service/recruitment",
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/client/IdentityClient.java:6"
+    },
+    {
+      "key": "routes",
+      "name": "routes",
+      "kind": "class",
+      "parent": "AI",
+      "src": "source/recruit_system/services/cv-extraction-ai/app/api/routes.py:20"
+    },
+    {
+      "key": "generator",
+      "name": "generator",
+      "kind": "class",
+      "parent": "AI",
+      "src": "source/recruit_system/services/cv-extraction-ai/app/services/generator.py:29"
+    },
+    {
+      "key": "CandidateJobDetailPage",
+      "name": "CandidateJobDetailPage",
+      "kind": "class",
+      "parent": "Candidate",
+      "src": "source/recruit_system/frontend/src/pages/candidate/CandidateJobDetailPage.tsx:44"
+    },
+    {
+      "key": "CandidateInterviewPage",
+      "name": "CandidateInterviewPage",
+      "kind": "class",
+      "parent": "Candidate",
+      "src": "source/recruit_system/frontend/src/pages/candidate/CandidateInterviewPage.tsx:9"
+    },
+    {
+      "key": "interviewsApi",
+      "name": "interviewsApi",
+      "kind": "class",
+      "parent": "Client",
+      "src": "source/recruit_system/frontend/src/api/client.ts:125"
+    },
+    {
+      "key": "InterviewController",
+      "name": "InterviewController",
+      "kind": "class",
+      "parent": "Controller/interview",
+      "src": "source/recruit_system/backend/interview-service/src/main/java/recruit/demo/controller/InterviewController.java:14"
+    },
+    {
+      "key": "InterviewService",
+      "name": "InterviewService",
+      "kind": "class",
+      "parent": "Service/interview",
+      "src": "source/recruit_system/backend/interview-service/src/main/java/recruit/demo/service/InterviewService.java:23"
+    },
+    {
+      "key": "QuestionSelectionService",
+      "name": "QuestionSelectionService",
+      "kind": "class",
+      "parent": "Service/interview",
+      "src": "source/recruit_system/backend/interview-service/src/main/java/recruit/demo/service/QuestionSelectionService.java:8"
+    },
+    {
+      "key": "AiScoringClient",
+      "name": "AiScoringClient",
+      "kind": "class",
+      "parent": "Service/interview",
+      "src": "source/recruit_system/backend/interview-service/src/main/java/recruit/demo/service/AiScoringClient.java:26"
+    },
+    {
+      "key": "ServiceHttpClient",
+      "name": "ServiceHttpClient",
+      "kind": "class",
+      "parent": "Service/recruitment",
+      "src": "source/recruit_system/backend/common/src/main/java/recruit/demo/client/ServiceHttpClient.java:13"
+    },
+    {
+      "key": "InterviewSession",
+      "name": "InterviewSession",
+      "kind": "class",
+      "parent": "Entity/interview",
+      "src": "source/recruit_system/backend/interview-service/src/main/java/recruit/demo/entity/InterviewSession.java:16"
+    },
+    {
+      "key": "InterviewSessionQuestion",
+      "name": "InterviewSessionQuestion",
+      "kind": "class",
+      "parent": "Entity/interview",
+      "src": "source/recruit_system/backend/interview-service/src/main/java/recruit/demo/entity/InterviewSessionQuestion.java:15"
+    },
+    {
+      "key": "InterviewQuestion",
+      "name": "InterviewQuestion",
+      "kind": "class",
+      "parent": "Entity/interview",
+      "src": "source/recruit_system/backend/interview-service/src/main/java/recruit/demo/entity/InterviewQuestion.java:17"
+    },
+    {
+      "key": "InterviewResponse",
+      "name": "InterviewResponse",
+      "kind": "class",
+      "parent": "Entity/interview",
+      "src": "source/recruit_system/backend/interview-service/src/main/java/recruit/demo/entity/InterviewResponse.java:16"
+    },
+    {
+      "key": "EvaluationResult",
+      "name": "EvaluationResult",
+      "kind": "class",
+      "parent": "Entity/interview",
+      "src": "source/recruit_system/backend/interview-service/src/main/java/recruit/demo/entity/EvaluationResult.java:20"
+    },
+    {
+      "key": "EvaluationRubric",
+      "name": "EvaluationRubric",
+      "kind": "class",
+      "parent": "Entity/interview",
+      "src": "source/recruit_system/backend/interview-service/src/main/java/recruit/demo/entity/EvaluationRubric.java:20"
+    },
+    {
+      "key": "FastApiApp",
+      "name": "api",
+      "kind": "class",
+      "parent": "AI",
+      "src": "source/recruit_system/AI/src/api.py:35"
+    },
+    {
+      "key": "ScoringModule",
+      "name": "scoring",
+      "kind": "class",
+      "parent": "AI",
+      "src": "source/recruit_system/AI/src/scoring.py:17"
+    },
+    {
+      "key": "Skill",
+      "name": "Skill",
+      "kind": "class",
+      "parent": "Entity/recruitment",
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/entity/Skill.java:13"
+    },
+    {
+      "key": "JobSkill",
+      "name": "JobSkill",
+      "kind": "class",
+      "parent": "Entity/recruitment",
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/entity/JobSkill.java:15"
+    },
+    {
+      "key": "ModelVersion",
+      "name": "ModelVersion",
+      "kind": "class",
+      "parent": "Entity/interview",
+      "src": "source/recruit_system/backend/interview-service/src/main/java/recruit/demo/entity/ModelVersion.java:18"
+    },
+    {
+      "key": "repo_UserRepository",
+      "kind": "class",
+      "name": "UserRepository",
+      "parent": "Repository/identity",
+      "src": "source/recruit_system/backend/identity-service/src/main/java/recruit/demo/repository/UserRepository.java:8"
+    },
+    {
+      "key": "repo_CandidateProfileRepository",
+      "kind": "class",
+      "name": "CandidateProfileRepository",
+      "parent": "Repository/recruitment",
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/repository/CandidateProfileRepository.java:8"
+    },
+    {
+      "key": "repo_RecruiterProfileRepository",
+      "kind": "class",
+      "name": "RecruiterProfileRepository",
+      "parent": "Repository/recruitment",
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/repository/RecruiterProfileRepository.java:11"
+    },
+    {
+      "key": "repo_CompanyRepository",
+      "kind": "class",
+      "name": "CompanyRepository",
+      "parent": "Repository/recruitment",
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/repository/CompanyRepository.java:8"
+    },
+    {
+      "key": "repo_CvDataRepository",
+      "kind": "class",
+      "name": "CvDataRepository",
+      "parent": "Repository/recruitment",
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/repository/CvDataRepository.java:8"
+    },
+    {
+      "key": "repo_JobRepository",
+      "kind": "class",
+      "name": "JobRepository",
+      "parent": "Repository/recruitment",
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/repository/JobRepository.java:11"
+    },
+    {
+      "key": "repo_MatchingResultRepository",
+      "kind": "class",
+      "name": "MatchingResultRepository",
+      "parent": "Repository/recruitment",
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/repository/MatchingResultRepository.java:11"
+    },
+    {
+      "key": "repo_JobApplicationRepository",
+      "kind": "class",
+      "name": "JobApplicationRepository",
+      "parent": "Repository/recruitment",
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/repository/JobApplicationRepository.java:11"
+    },
+    {
+      "key": "repo_InterviewSessionRepository",
+      "kind": "class",
+      "name": "InterviewSessionRepository",
+      "parent": "Repository/interview",
+      "src": "source/recruit_system/backend/interview-service/src/main/java/recruit/demo/repository/InterviewSessionRepository.java:8"
+    },
+    {
+      "key": "repo_InterviewSessionQuestionRepository",
+      "kind": "class",
+      "name": "InterviewSessionQuestionRepository",
+      "parent": "Repository/interview",
+      "src": "source/recruit_system/backend/interview-service/src/main/java/recruit/demo/repository/InterviewSessionQuestionRepository.java:11"
+    },
+    {
+      "key": "repo_InterviewResponseRepository",
+      "kind": "class",
+      "name": "InterviewResponseRepository",
+      "parent": "Repository/interview",
+      "src": "source/recruit_system/backend/interview-service/src/main/java/recruit/demo/repository/InterviewResponseRepository.java:8"
+    },
+    {
+      "key": "repo_EvaluationResultRepository",
+      "kind": "class",
+      "name": "EvaluationResultRepository",
+      "parent": "Repository/interview",
+      "src": "source/recruit_system/backend/interview-service/src/main/java/recruit/demo/repository/EvaluationResultRepository.java:8"
+    },
+    {
+      "key": "repo_EvaluationRubricRepository",
+      "kind": "class",
+      "name": "EvaluationRubricRepository",
+      "parent": "Repository/interview",
+      "src": "source/recruit_system/backend/interview-service/src/main/java/recruit/demo/repository/EvaluationRubricRepository.java:8"
+    },
+    {
+      "key": "repo_InterviewQuestionRepository",
+      "kind": "class",
+      "name": "InterviewQuestionRepository",
+      "parent": "Repository/interview",
+      "src": "source/recruit_system/backend/interview-service/src/main/java/recruit/demo/repository/InterviewQuestionRepository.java:8"
+    }
+  ],
+  "relations": [
+    {
+      "from": "RegisterPage",
+      "to": "AuthProvider",
+      "kind": "dependency",
+      "label": "",
+      "src": "source/recruit_system/frontend/src/pages/RegisterPage.tsx:18"
+    },
+    {
+      "from": "LoginPage",
+      "to": "AuthProvider",
+      "kind": "dependency",
+      "label": "",
+      "src": "source/recruit_system/frontend/src/pages/LoginPage.tsx:18"
+    },
+    {
+      "from": "ChooseRolePage",
+      "to": "AuthProvider",
+      "kind": "dependency",
+      "label": "",
+      "src": "source/recruit_system/frontend/src/pages/ChooseRolePage.tsx:18"
+    },
+    {
+      "from": "AuthProvider",
+      "to": "authApi",
+      "kind": "dependency",
+      "label": "",
+      "src": "source/recruit_system/frontend/src/context/AuthContext.tsx:54"
+    },
+    {
+      "from": "authApi",
+      "to": "client.ts",
+      "kind": "dependency",
+      "label": "",
+      "src": "source/recruit_system/frontend/src/api/client.ts:53"
+    },
+    {
+      "from": "authApi",
+      "to": "AuthController",
+      "kind": "dependency",
+      "label": "",
+      "src": "source/recruit_system/frontend/src/api/client.ts:52"
+    },
+    {
+      "from": "authApi",
+      "to": "AuthController",
+      "kind": "dependency",
+      "label": "",
+      "src": "source/recruit_system/frontend/src/api/client.ts:57"
+    },
+    {
+      "from": "authApi",
+      "to": "AuthController",
+      "kind": "dependency",
+      "label": "",
+      "src": "source/recruit_system/frontend/src/api/client.ts:62"
+    },
+    {
+      "from": "authApi",
+      "to": "AuthController",
+      "kind": "dependency",
+      "label": "",
+      "src": "source/recruit_system/frontend/src/api/client.ts:63"
+    },
+    {
+      "from": "AuthController",
+      "to": "AuthService",
+      "kind": "association",
+      "src": "source/recruit_system/backend/identity-service/src/main/java/recruit/demo/controller/AuthController.java:14"
+    },
+    {
+      "from": "ProfileProvisioningFilter",
+      "to": "ProfileProvisioningService",
+      "kind": "association",
+      "label": "",
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/security/ProfileProvisioningFilter.java:20"
+    },
+    {
+      "from": "CandidateProfile",
+      "to": "User",
+      "kind": "association",
+      "fromMult": "1",
+      "toMult": "1",
+      "label": "",
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/entity/CandidateProfile.java:26"
+    },
+    {
+      "from": "RecruiterProfile",
+      "to": "User",
+      "kind": "association",
+      "fromMult": "n",
+      "toMult": "1",
+      "label": "",
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/entity/RecruiterProfile.java:23"
+    },
+    {
+      "from": "Company",
+      "to": "RecruiterProfile",
+      "kind": "aggregation",
+      "fromMult": "1",
+      "toMult": "n",
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/entity/RecruiterProfile.java:27"
+    },
+    {
+      "from": "CandidateHomePage.tsx",
+      "to": "client",
+      "kind": "dependency",
+      "label": "",
+      "src": "source/recruit_system/frontend/src/pages/candidate/CandidateHomePage.tsx:48"
+    },
+    {
+      "from": "CandidateMatchingPage.tsx",
+      "to": "client",
+      "kind": "dependency",
+      "label": "",
+      "src": "source/recruit_system/frontend/src/pages/candidate/CandidateMatchingPage.tsx:31"
+    },
+    {
+      "from": "CandidateJobDetailPage.tsx",
+      "to": "client",
+      "kind": "dependency",
+      "label": "",
+      "src": "source/recruit_system/frontend/src/pages/candidate/CandidateJobDetailPage.tsx:56"
+    },
+    {
+      "from": "client",
+      "to": "JobsController",
+      "kind": "dependency",
+      "label": "",
+      "src": "source/recruit_system/frontend/src/api/client.ts:76"
+    },
+    {
+      "from": "client",
+      "to": "JobsController",
+      "kind": "dependency",
+      "label": "",
+      "src": "source/recruit_system/frontend/src/api/client.ts:79"
+    },
+    {
+      "from": "client",
+      "to": "CvController",
+      "kind": "dependency",
+      "label": "",
+      "src": "source/recruit_system/frontend/src/api/client.ts:100"
+    },
+    {
+      "from": "client",
+      "to": "MatchingController",
+      "kind": "dependency",
+      "label": "",
+      "src": "source/recruit_system/frontend/src/api/client.ts:114"
+    },
+    {
+      "from": "client",
+      "to": "MatchingController",
+      "kind": "dependency",
+      "label": "",
+      "src": "source/recruit_system/frontend/src/api/client.ts:116"
+    },
+    {
+      "from": "client",
+      "to": "ApplicationsController",
+      "kind": "dependency",
+      "label": "",
+      "src": "source/recruit_system/frontend/src/api/client.ts:91"
+    },
+    {
+      "from": "JobsController",
+      "to": "JobService",
+      "kind": "dependency",
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/controller/JobsController.java:26"
+    },
+    {
+      "from": "CvController",
+      "to": "CvService",
+      "kind": "dependency",
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/controller/CvController.java:19"
+    },
+    {
+      "from": "MatchingController",
+      "to": "MatchingService",
+      "kind": "dependency",
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/controller/MatchingController.java:19"
+    },
+    {
+      "from": "ApplicationsController",
+      "to": "ApplicationService",
+      "kind": "dependency",
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/controller/ApplicationsController.java:20"
+    },
+    {
+      "from": "CandidateProfile",
+      "to": "CvData",
+      "kind": "aggregation",
+      "fromMult": "1",
+      "toMult": "n",
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/entity/CvData.java:20"
+    },
+    {
+      "from": "CandidateProfile",
+      "to": "JobApplication",
+      "kind": "aggregation",
+      "fromMult": "1",
+      "toMult": "n",
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/entity/JobApplication.java:25"
+    },
+    {
+      "from": "Job",
+      "to": "JobApplication",
+      "kind": "aggregation",
+      "fromMult": "1",
+      "toMult": "n",
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/entity/JobApplication.java:29"
+    },
+    {
+      "from": "CandidateProfile",
+      "to": "MatchingResult",
+      "kind": "aggregation",
+      "fromMult": "1",
+      "toMult": "n",
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/entity/MatchingResult.java:27"
+    },
+    {
+      "from": "Job",
+      "to": "MatchingResult",
+      "kind": "aggregation",
+      "fromMult": "1",
+      "toMult": "n",
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/entity/MatchingResult.java:34"
+    },
+    {
+      "from": "MatchingService",
+      "to": "CvMatchingModule",
+      "kind": "dependency",
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/service/MatchingService.java:125"
+    },
+    {
+      "from": "CvMatchingModule",
+      "to": "AiJsonClient",
+      "kind": "dependency",
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/service/matching/CvMatchingModule.java:18"
+    },
+    {
+      "from": "AiJsonClient",
+      "to": "main",
+      "kind": "dependency",
+      "label": "",
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/service/matching/CvMatchingModule.java:18"
+    },
+    {
+      "from": "CandidateCvPage",
+      "to": "cvsApi",
+      "kind": "dependency",
+      "label": "",
+      "src": "source/recruit_system/frontend/src/pages/candidate/CandidateCvPage.tsx:115"
+    },
+    {
+      "from": "CandidateCvPage",
+      "to": "ApiClient",
+      "kind": "dependency",
+      "label": "",
+      "src": "source/recruit_system/frontend/src/pages/candidate/CandidateCvPage.tsx:18"
+    },
+    {
+      "from": "cvsApi",
+      "to": "ApiClient",
+      "kind": "dependency",
+      "label": "",
+      "src": "source/recruit_system/frontend/src/api/client.ts:100"
+    },
+    {
+      "from": "cvsApi",
+      "to": "CvController",
+      "kind": "dependency",
+      "label": "",
+      "src": "source/recruit_system/frontend/src/api/client.ts:100"
+    },
+    {
+      "from": "CvController",
+      "to": "CvService",
+      "kind": "association",
+      "fromMult": "1",
+      "toMult": "1",
+      "label": "",
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/controller/CvController.java:15"
+    },
+    {
+      "from": "CvService",
+      "to": "CvExtractionModule",
+      "kind": "association",
+      "fromMult": "1",
+      "toMult": "1",
+      "label": "",
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/service/CvService.java:42"
+    },
+    {
+      "from": "CvService",
+      "to": "CvProfileMapper",
+      "kind": "association",
+      "fromMult": "1",
+      "toMult": "1",
+      "label": "",
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/service/CvService.java:43"
+    },
+    {
+      "from": "CvService",
+      "to": "SettingService",
+      "kind": "association",
+      "fromMult": "1",
+      "toMult": "1",
+      "label": "",
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/service/CvService.java:41"
+    },
+    {
+      "from": "CvService",
+      "to": "IdentityClient",
+      "kind": "association",
+      "fromMult": "1",
+      "toMult": "1",
+      "label": "",
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/service/CvService.java:33"
+    },
+    {
+      "from": "CvExtractionModule",
+      "to": "PdfTextExtractor",
+      "kind": "dependency",
+      "label": "",
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/service/cv/CvExtractionModule.java:20"
+    },
+    {
+      "from": "CvExtractionModule",
+      "to": "AiJsonClient",
+      "kind": "association",
+      "fromMult": "1",
+      "toMult": "1",
+      "label": "",
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/service/cv/CvExtractionModule.java:13"
+    },
+    {
+      "from": "AiJsonClient",
+      "to": "routes",
+      "kind": "dependency",
+      "label": "",
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/client/AiJsonClient.java:21"
+    },
+    {
+      "from": "routes",
+      "to": "generator",
+      "kind": "dependency",
+      "label": "",
+      "src": "source/recruit_system/services/cv-extraction-ai/app/api/routes.py:100"
+    },
+    {
+      "from": "CandidateJobDetailPage",
+      "to": "CandidateInterviewPage",
+      "kind": "dependency",
+      "label": "",
+      "src": "source/recruit_system/frontend/src/pages/candidate/CandidateJobDetailPage.tsx:156"
+    },
+    {
+      "from": "CandidateInterviewPage",
+      "to": "interviewsApi",
+      "kind": "dependency",
+      "label": "",
+      "src": "source/recruit_system/frontend/src/pages/candidate/CandidateInterviewPage.tsx:21"
+    },
+    {
+      "from": "interviewsApi",
+      "to": "ApiClient",
+      "kind": "dependency",
+      "label": "",
+      "src": "source/recruit_system/frontend/src/api/client.ts:130"
+    },
+    {
+      "from": "interviewsApi",
+      "to": "InterviewController",
+      "kind": "dependency",
+      "label": "",
+      "src": "source/recruit_system/frontend/src/api/client.ts:125"
+    },
+    {
+      "from": "InterviewController",
+      "to": "InterviewService",
+      "kind": "dependency",
+      "label": "",
+      "src": "source/recruit_system/backend/interview-service/src/main/java/recruit/demo/controller/InterviewController.java:16"
+    },
+    {
+      "from": "InterviewService",
+      "to": "QuestionSelectionService",
+      "kind": "dependency",
+      "label": "",
+      "src": "source/recruit_system/backend/interview-service/src/main/java/recruit/demo/service/InterviewService.java:32"
+    },
+    {
+      "from": "InterviewService",
+      "to": "AiScoringClient",
+      "kind": "dependency",
+      "label": "",
+      "src": "source/recruit_system/backend/interview-service/src/main/java/recruit/demo/service/InterviewService.java:31"
+    },
+    {
+      "from": "InterviewService",
+      "to": "ServiceHttpClient",
+      "kind": "dependency",
+      "label": "",
+      "src": "source/recruit_system/backend/interview-service/src/main/java/recruit/demo/service/InterviewService.java:33"
+    },
+    {
+      "from": "AiScoringClient",
+      "to": "FastApiApp",
+      "kind": "dependency",
+      "label": "",
+      "src": "source/recruit_system/backend/interview-service/src/main/java/recruit/demo/service/AiScoringClient.java:38"
+    },
+    {
+      "from": "FastApiApp",
+      "to": "ScoringModule",
+      "kind": "dependency",
+      "label": "",
+      "src": "source/recruit_system/AI/src/api.py:222"
+    },
+    {
+      "from": "InterviewSession",
+      "to": "InterviewSessionQuestion",
+      "kind": "aggregation",
+      "fromMult": "1",
+      "toMult": "n",
+      "src": "source/recruit_system/backend/interview-service/src/main/java/recruit/demo/entity/InterviewSessionQuestion.java:23"
+    },
+    {
+      "from": "InterviewQuestion",
+      "to": "InterviewSessionQuestion",
+      "kind": "aggregation",
+      "fromMult": "1",
+      "toMult": "n",
+      "src": "source/recruit_system/backend/interview-service/src/main/java/recruit/demo/entity/InterviewSessionQuestion.java:27"
+    },
+    {
+      "from": "InterviewQuestion",
+      "to": "EvaluationRubric",
+      "kind": "aggregation",
+      "fromMult": "1",
+      "toMult": "n",
+      "src": "source/recruit_system/backend/interview-service/src/main/java/recruit/demo/entity/EvaluationRubric.java:28"
+    },
+    {
+      "from": "InterviewSessionQuestion",
+      "to": "InterviewResponse",
+      "kind": "aggregation",
+      "fromMult": "1",
+      "toMult": "1",
+      "src": "source/recruit_system/backend/interview-service/src/main/java/recruit/demo/entity/InterviewResponse.java:24"
+    },
+    {
+      "from": "InterviewResponse",
+      "to": "EvaluationResult",
+      "kind": "aggregation",
+      "fromMult": "1",
+      "toMult": "1",
+      "src": "source/recruit_system/backend/interview-service/src/main/java/recruit/demo/entity/EvaluationResult.java:28"
+    },
+    {
+      "from": "Company",
+      "to": "Job",
+      "kind": "aggregation",
+      "fromMult": "1",
+      "toMult": "n",
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/entity/Job.java:26"
+    },
+    {
+      "from": "Job",
+      "to": "User",
+      "kind": "association",
+      "fromMult": "n",
+      "toMult": "1",
+      "label": "",
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/entity/Job.java:29"
+    },
+    {
+      "from": "Job",
+      "to": "JobSkill",
+      "kind": "aggregation",
+      "fromMult": "1",
+      "toMult": "n",
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/entity/JobSkill.java:23"
+    },
+    {
+      "from": "Skill",
+      "to": "JobSkill",
+      "kind": "aggregation",
+      "fromMult": "1",
+      "toMult": "n",
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/entity/JobSkill.java:27"
+    },
+    {
+      "from": "InterviewQuestion",
+      "to": "User",
+      "kind": "association",
+      "fromMult": "n",
+      "toMult": "1",
+      "label": "",
+      "src": "source/recruit_system/backend/interview-service/src/main/java/recruit/demo/entity/InterviewQuestion.java:24"
+    },
+    {
+      "from": "InterviewSession",
+      "to": "CandidateProfile",
+      "kind": "association",
+      "fromMult": "n",
+      "toMult": "1",
+      "label": "",
+      "src": "source/recruit_system/backend/interview-service/src/main/java/recruit/demo/entity/InterviewSession.java:23"
+    },
+    {
+      "from": "InterviewSession",
+      "to": "User",
+      "kind": "association",
+      "fromMult": "n",
+      "toMult": "1",
+      "label": "",
+      "src": "source/recruit_system/backend/interview-service/src/main/java/recruit/demo/entity/InterviewSession.java:25"
+    },
+    {
+      "from": "InterviewSession",
+      "to": "User",
+      "kind": "association",
+      "fromMult": "n",
+      "toMult": "1",
+      "label": "",
+      "src": "source/recruit_system/backend/interview-service/src/main/java/recruit/demo/entity/InterviewSession.java:27"
+    },
+    {
+      "from": "InterviewSession",
+      "to": "Job",
+      "kind": "association",
+      "fromMult": "n",
+      "toMult": "1",
+      "label": "",
+      "src": "source/recruit_system/backend/interview-service/src/main/java/recruit/demo/entity/InterviewSession.java:29"
+    },
+    {
+      "from": "InterviewSession",
+      "to": "JobApplication",
+      "kind": "association",
+      "fromMult": "n",
+      "toMult": "1",
+      "label": "",
+      "src": "source/recruit_system/backend/interview-service/src/main/java/recruit/demo/entity/InterviewSession.java:33"
+    },
+    {
+      "from": "ModelVersion",
+      "to": "EvaluationResult",
+      "kind": "aggregation",
+      "fromMult": "1",
+      "toMult": "n",
+      "src": "source/recruit_system/backend/interview-service/src/main/java/recruit/demo/entity/EvaluationResult.java:68"
+    }
+  ],
+  "notes": [
+    "Các lớp frontend được nhóm theo trang Candidate và nhóm Auth/chung. Recruiter không có trang thuộc M1–M4 trong các CLS nguồn.",
+    "Các service/repository và entity được nhóm theo microservice; Client dùng chung.",
+    "Theo mẫu PTIT, biểu đồ gói không ghi nhãn trên đường nối; chi tiết lời gọi HTTP/hàm xem biểu đồ lớp chi tiết CLS-M1..M4."
+  ],
+  "open_questions": [
+    "Các package Java AI (AI/src) và hai dịch vụ cv-extraction-ai, cv-matching-ai được gom chung vào gói AI theo yêu cầu; chưa phân package con theo từng module FastAPI."
+  ]
+}

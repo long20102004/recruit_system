@@ -1,0 +1,248 @@
+{
+  "id": "ST-M1",
+  "type": "state",
+  "name": "Biểu đồ trạng thái - Đăng ký, đăng nhập và chọn vai trò (M1)",
+  "states": [
+    {
+      "key": "initial",
+      "name": "Bắt đầu",
+      "kind": "initial",
+      "src": "source/recruit_system/frontend/src/App.tsx:49-53"
+    },
+    {
+      "key": "choiceEntry",
+      "name": "Rẽ nhánh kiểm tra tài khoản",
+      "kind": "choice",
+      "src": "source/recruit_system/frontend/src/App.tsx:51-52"
+    },
+    {
+      "key": "screenRegister",
+      "name": "Hiện giao diện Trang đăng ký",
+      "kind": "state",
+      "src": "source/recruit_system/frontend/src/pages/RegisterPage.tsx:42-85"
+    },
+    {
+      "key": "choiceRegister",
+      "name": "Rẽ nhánh kết quả đăng ký",
+      "kind": "choice",
+      "src": "source/recruit_system/frontend/src/pages/RegisterPage.tsx:29-40"
+    },
+    {
+      "key": "toastRegisterError",
+      "name": "Hiện thông báo lỗi đăng ký",
+      "kind": "state",
+      "src": "source/recruit_system/frontend/src/pages/RegisterPage.tsx:36"
+    },
+    {
+      "key": "screenLogin",
+      "name": "Hiện giao diện Trang đăng nhập",
+      "kind": "state",
+      "src": "source/recruit_system/frontend/src/pages/LoginPage.tsx:42-84"
+    },
+    {
+      "key": "choiceLogin",
+      "name": "Rẽ nhánh kết quả đăng nhập",
+      "kind": "choice",
+      "src": "source/recruit_system/frontend/src/pages/LoginPage.tsx:29-40"
+    },
+    {
+      "key": "toastLoginError",
+      "name": "Hiện thông báo lỗi đăng nhập",
+      "kind": "state",
+      "src": "source/recruit_system/frontend/src/pages/LoginPage.tsx:36"
+    },
+    {
+      "key": "screenChooseRole",
+      "name": "Hiện giao diện Trang chọn vai trò",
+      "kind": "state",
+      "src": "source/recruit_system/frontend/src/pages/ChooseRolePage.tsx:41-73"
+    },
+    {
+      "key": "choiceRole",
+      "name": "Rẽ nhánh kết quả chọn vai trò",
+      "kind": "choice",
+      "src": "source/recruit_system/frontend/src/pages/ChooseRolePage.tsx:28-39"
+    },
+    {
+      "key": "toastRoleError",
+      "name": "Hiện thông báo lỗi chọn vai trò",
+      "kind": "state",
+      "src": "source/recruit_system/frontend/src/pages/ChooseRolePage.tsx:35"
+    },
+    {
+      "key": "screenCandidateHome",
+      "name": "Hiện giao diện Trang chủ ứng viên",
+      "kind": "state",
+      "src": "source/recruit_system/frontend/src/pages/candidate/CandidateHomePage.tsx:66-100"
+    },
+    {
+      "key": "screenRecruiterHome",
+      "name": "Hiện giao diện Trang chủ nhà tuyển dụng",
+      "kind": "state",
+      "src": "source/recruit_system/frontend/src/pages/recruiter/RecruiterHomePage.tsx:28-138"
+    },
+    {
+      "key": "final",
+      "name": "Kết thúc",
+      "kind": "final",
+      "src": "source/recruit_system/frontend/src/App.tsx:56-103"
+    }
+  ],
+  "transitions": [
+    {
+      "from": "initial",
+      "to": "choiceEntry",
+      "label": "[Khách truy cập hệ thống] / Bắt đầu phiên làm việc",
+      "src": "source/recruit_system/frontend/src/App.tsx:49-53"
+    },
+    {
+      "from": "choiceEntry",
+      "to": "screenRegister",
+      "label": "[Chưa có tài khoản, mở /register] / Hiện giao diện đăng ký",
+      "src": "source/recruit_system/frontend/src/pages/RegisterPage.tsx:42-53"
+    },
+    {
+      "from": "choiceEntry",
+      "to": "screenLogin",
+      "label": "[Đã có tài khoản, mở /login] / Hiện giao diện đăng nhập",
+      "src": "source/recruit_system/frontend/src/pages/LoginPage.tsx:42-53"
+    },
+    {
+      "from": "screenRegister",
+      "to": "screenLogin",
+      "label": "[Click Đã có tài khoản? Đăng nhập] / Chuyển sang /login",
+      "src": "source/recruit_system/frontend/src/pages/RegisterPage.tsx:78"
+    },
+    {
+      "from": "screenLogin",
+      "to": "screenRegister",
+      "label": "[Click Chưa có tài khoản? Đăng ký] / Chuyển sang /register",
+      "src": "source/recruit_system/frontend/src/pages/LoginPage.tsx:77"
+    },
+    {
+      "from": "screenRegister",
+      "to": "choiceRegister",
+      "label": "[Nhập email, mật khẩu và click Tạo tài khoản] / Gửi yêu cầu POST /api/auth/register",
+      "src": "source/recruit_system/frontend/src/pages/RegisterPage.tsx:29-40"
+    },
+    {
+      "from": "choiceRegister",
+      "to": "toastRegisterError",
+      "label": "[Email đã tồn tại hoặc dữ liệu không hợp lệ] / Hiện thông báo lỗi đăng ký",
+      "src": "source/recruit_system/frontend/src/pages/RegisterPage.tsx:35-37"
+    },
+    {
+      "from": "choiceRegister",
+      "to": "screenChooseRole",
+      "label": "[Đăng ký thành công] / Cấp JWT, thông báo thành công và chuyển sang /choose-role",
+      "src": "source/recruit_system/frontend/src/pages/RegisterPage.tsx:32-34"
+    },
+    {
+      "from": "toastRegisterError",
+      "to": "screenRegister",
+      "label": "[Click OK] / Giữ nguyên giao diện đăng ký để nhập lại",
+      "src": "source/recruit_system/frontend/src/pages/RegisterPage.tsx:37-38"
+    },
+    {
+      "from": "screenLogin",
+      "to": "choiceLogin",
+      "label": "[Nhập email, mật khẩu và click Đăng nhập] / Gửi yêu cầu POST /api/auth/login",
+      "src": "source/recruit_system/frontend/src/pages/LoginPage.tsx:29-40"
+    },
+    {
+      "from": "choiceLogin",
+      "to": "toastLoginError",
+      "label": "[Sai email, mật khẩu hoặc tài khoản bị khóa] / Hiện thông báo lỗi đăng nhập",
+      "src": "source/recruit_system/frontend/src/pages/LoginPage.tsx:35-37"
+    },
+    {
+      "from": "choiceLogin",
+      "to": "screenChooseRole",
+      "label": "[Đăng nhập thành công và roleChosen = false] / Cấp JWT, chuyển sang /choose-role",
+      "src": "source/recruit_system/frontend/src/pages/LoginPage.tsx:32-34"
+    },
+    {
+      "from": "choiceLogin",
+      "to": "screenCandidateHome",
+      "label": "[Đăng nhập thành công, roleChosen = true và role = CANDIDATE] / Cấp JWT, chuyển sang /candidate",
+      "src": "source/recruit_system/frontend/src/utils/account.ts:6"
+    },
+    {
+      "from": "choiceLogin",
+      "to": "screenRecruiterHome",
+      "label": "[Đăng nhập thành công, roleChosen = true và role = RECRUITER] / Cấp JWT, chuyển sang /recruiter",
+      "src": "source/recruit_system/frontend/src/utils/account.ts:5"
+    },
+    {
+      "from": "toastLoginError",
+      "to": "screenLogin",
+      "label": "[Click OK] / Giữ nguyên giao diện đăng nhập để nhập lại",
+      "src": "source/recruit_system/frontend/src/pages/LoginPage.tsx:37-38"
+    },
+    {
+      "from": "screenChooseRole",
+      "to": "choiceRole",
+      "label": "[Chọn vai trò và click Tiếp tục] / Gửi yêu cầu POST /api/auth/role",
+      "src": "source/recruit_system/frontend/src/pages/ChooseRolePage.tsx:28-39"
+    },
+    {
+      "from": "choiceRole",
+      "to": "toastRoleError",
+      "label": "[Vai trò không hợp lệ hoặc vai trò đã được lưu] / Hiện thông báo lỗi chọn vai trò",
+      "src": "source/recruit_system/frontend/src/pages/ChooseRolePage.tsx:35-36"
+    },
+    {
+      "from": "choiceRole",
+      "to": "screenCandidateHome",
+      "label": "[Lưu vai trò thành công và chọn Ứng viên] / Cập nhật JWT, tạo hồ sơ ứng viên và chuyển sang /candidate",
+      "src": "source/recruit_system/frontend/src/pages/ChooseRolePage.tsx:31-34"
+    },
+    {
+      "from": "choiceRole",
+      "to": "screenRecruiterHome",
+      "label": "[Lưu vai trò thành công và chọn Nhà tuyển dụng] / Cập nhật JWT, tạo công ty và hồ sơ NTD, chuyển sang /recruiter",
+      "src": "source/recruit_system/frontend/src/pages/ChooseRolePage.tsx:31-34"
+    },
+    {
+      "from": "toastRoleError",
+      "to": "screenChooseRole",
+      "label": "[Click OK] / Giữ nguyên giao diện chọn vai trò để chọn lại",
+      "src": "source/recruit_system/frontend/src/pages/ChooseRolePage.tsx:37-38"
+    },
+    {
+      "from": "screenCandidateHome",
+      "to": "screenLogin",
+      "label": "[Click Đăng xuất] / Xóa JWT, quay lại trang đăng nhập",
+      "src": "source/recruit_system/frontend/src/components/common/SiteHeader.tsx:30-35"
+    },
+    {
+      "from": "screenRecruiterHome",
+      "to": "screenLogin",
+      "label": "[Click Đăng xuất] / Xóa JWT, quay lại trang đăng nhập",
+      "src": "source/recruit_system/frontend/src/components/common/SiteHeader.tsx:30-35"
+    },
+    {
+      "from": "screenCandidateHome",
+      "to": "final",
+      "label": "[Chuyển sang chức năng nghiệp vụ khác] / Kết thúc luồng M1",
+      "src": "source/recruit_system/frontend/src/pages/candidate/CandidateHomePage.tsx:66-70"
+    },
+    {
+      "from": "screenRecruiterHome",
+      "to": "final",
+      "label": "[Chuyển sang chức năng nghiệp vụ khác] / Kết thúc luồng M1",
+      "src": "source/recruit_system/frontend/src/pages/recruiter/RecruiterHomePage.tsx:28-35"
+    }
+  ],
+  "notes": [
+    "Biểu đồ trạng thái chức năng M1 mô tả chu trình chuyển đổi giao diện trong quá trình đăng ký tài khoản mới, đăng nhập xác thực và lựa chọn vai trò người dùng lần đầu theo mẫu báo cáo PTIT.",
+    "Mỗi giao diện chính (RegisterPage, LoginPage, ChooseRolePage, CandidateHomePage, RecruiterHomePage) và các hộp thoại thông báo lỗi (toast) được mô hình hóa thành một trạng thái cụ thể.",
+    "Các điểm rẽ nhánh (choice) biểu diễn kết quả kiểm tra điều kiện nghiệp vụ và phản hồi từ dịch vụ identity-service và recruitment-service.",
+    "Nút quay lại hoặc đóng thông báo tuân thủ quy chuẩn [Click OK] để trở về giao diện trước đó tiếp tục thao tác.",
+    "Việc tự động khởi tạo hồ sơ ứng viên (candidate_profiles) hoặc hồ sơ nhà tuyển dụng (companies + recruiter_profiles) được thực hiện ngầm bởi ProfileProvisioningService tại recruitment-service khi người dùng lần đầu điều hướng tới trang chủ theo vai trò."
+  ],
+  "open_questions": [
+    "[cần xác nhận] Vai trò ADMIN có trong enum Role nhưng chỉ được cấp qua seed CSDL (V2__seed.sql); hệ thống không có giao diện đăng ký hoặc chọn vai trò ADMIN.",
+    "[cần xác nhận] Luồng khôi phục phiên tự động qua hook useEffect (GET /api/auth/me) diễn ra ngầm khi mở ứng dụng; nếu token hết hạn (24h) hoặc không hợp lệ, hệ thống tự động xóa token và chuyển hướng về trang công khai / hoặc /login."
+  ]
+}

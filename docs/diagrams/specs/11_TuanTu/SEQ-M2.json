@@ -1,0 +1,474 @@
+{
+  "id": "SEQ-M2",
+  "type": "sequence",
+  "name": "Biểu đồ tuần tự M2 - Tải và xác nhận CV",
+  "lifelines": [
+    {
+      "key": "actor",
+      "name": "Ứng viên",
+      "kind": "actor",
+      "src": "source/recruit_system/frontend/src/pages/candidate/CandidateCvPage.tsx:94"
+    },
+    {
+      "key": "page",
+      "name": ":CandidateCvPage.tsx",
+      "kind": "object",
+      "class": "CandidateCvPage",
+      "stereotype": "boundary",
+      "src": "source/recruit_system/frontend/src/pages/candidate/CandidateCvPage.tsx:94"
+    },
+    {
+      "key": "client",
+      "name": ":client",
+      "kind": "object",
+      "class": "ApiClient",
+      "stereotype": "control",
+      "src": "source/recruit_system/frontend/src/api/client.ts:32"
+    },
+    {
+      "key": "controller",
+      "name": ":CvController",
+      "kind": "object",
+      "class": "CvController",
+      "stereotype": "control",
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/controller/CvController.java:13"
+    },
+    {
+      "key": "service",
+      "name": ":CvService",
+      "kind": "object",
+      "class": "CvService",
+      "stereotype": "control",
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/service/CvService.java:32"
+    },
+    {
+      "key": "extraction",
+      "name": ":CvExtractionModule",
+      "kind": "object",
+      "class": "CvExtractionModule",
+      "stereotype": "control",
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/service/cv/CvExtractionModule.java:12"
+    },
+    {
+      "key": "aiRoutes",
+      "name": ":routes",
+      "kind": "object",
+      "class": "routes",
+      "stereotype": "control",
+      "src": "source/recruit_system/services/cv-extraction-ai/app/api/routes.py:20"
+    },
+    {
+      "key": "repo",
+      "name": ":CvDataRepository",
+      "kind": "object",
+      "class": "CvDataRepository",
+      "stereotype": "control",
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/repository/CvDataRepository.java:8"
+    },
+    {
+      "key": "entity",
+      "name": ":CvData",
+      "kind": "object",
+      "class": "CvData",
+      "stereotype": "entity",
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/entity/CvData.java:13"
+    }
+  ],
+  "messages": [
+    {
+      "seq": 1,
+      "from": "actor",
+      "to": "page",
+      "label": "Chọn CV PDF và tải lên",
+      "kind": "sync",
+      "src": "source/recruit_system/frontend/src/pages/candidate/CandidateCvPage.tsx:246"
+    },
+    {
+      "seq": 2,
+      "from": "page",
+      "to": "client",
+      "label": "call",
+      "kind": "sync",
+      "src": "source/recruit_system/frontend/src/pages/candidate/CandidateCvPage.tsx:129"
+    },
+    {
+      "seq": 3,
+      "from": "client",
+      "to": "client",
+      "label": "fetch()",
+      "kind": "sync",
+      "src": "source/recruit_system/frontend/src/api/client.ts:43"
+    },
+    {
+      "seq": 4,
+      "from": "client",
+      "to": "controller",
+      "label": "call",
+      "kind": "sync",
+      "src": "source/recruit_system/frontend/src/api/client.ts:104"
+    },
+    {
+      "seq": 5,
+      "from": "controller",
+      "to": "controller",
+      "label": "upload()",
+      "kind": "sync",
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/controller/CvController.java:23"
+    },
+    {
+      "seq": 6,
+      "from": "controller",
+      "to": "service",
+      "label": "call",
+      "kind": "sync",
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/controller/CvController.java:24"
+    },
+    {
+      "seq": 7,
+      "from": "service",
+      "to": "service",
+      "label": "upload()",
+      "kind": "sync",
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/service/CvService.java:53"
+    },
+    {
+      "seq": 8,
+      "from": "service",
+      "to": "extraction",
+      "label": "call",
+      "kind": "sync",
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/service/CvService.java:65"
+    },
+    {
+      "seq": 9,
+      "from": "extraction",
+      "to": "extraction",
+      "label": "extract()",
+      "kind": "sync",
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/service/cv/CvExtractionModule.java:18"
+    },
+    {
+      "seq": 10,
+      "from": "extraction",
+      "to": "aiRoutes",
+      "label": "call",
+      "kind": "sync",
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/service/cv/CvExtractionModule.java:24"
+    },
+    {
+      "seq": 11,
+      "from": "aiRoutes",
+      "to": "aiRoutes",
+      "label": "extract_cv()",
+      "kind": "sync",
+      "src": "source/recruit_system/services/cv-extraction-ai/app/api/routes.py:64"
+    },
+    {
+      "seq": 12,
+      "from": "aiRoutes",
+      "to": "extraction",
+      "label": "return",
+      "kind": "return",
+      "src": "source/recruit_system/services/cv-extraction-ai/app/api/routes.py:102"
+    },
+    {
+      "seq": 13,
+      "from": "extraction",
+      "to": "service",
+      "label": "return",
+      "kind": "return",
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/service/cv/CvExtractionModule.java:28"
+    },
+    {
+      "seq": 14,
+      "from": "service",
+      "to": "repo",
+      "label": "call",
+      "kind": "sync",
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/service/CvService.java:159"
+    },
+    {
+      "seq": 15,
+      "from": "repo",
+      "to": "repo",
+      "label": "findByCandidateIdAndFieldOrderByIdAsc()",
+      "kind": "sync",
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/repository/CvDataRepository.java:11"
+    },
+    {
+      "seq": 16,
+      "from": "repo",
+      "to": "service",
+      "label": "return",
+      "kind": "return",
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/service/CvService.java:159"
+    },
+    {
+      "seq": 17,
+      "from": "service",
+      "to": "entity",
+      "label": "call",
+      "kind": "sync",
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/service/CvService.java:165"
+    },
+    {
+      "seq": 18,
+      "from": "entity",
+      "to": "entity",
+      "label": "CvData(), setter()",
+      "kind": "sync",
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/entity/CvData.java:13"
+    },
+    {
+      "seq": 19,
+      "from": "entity",
+      "to": "service",
+      "label": "return",
+      "kind": "return",
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/service/CvService.java:169"
+    },
+    {
+      "seq": 20,
+      "from": "service",
+      "to": "repo",
+      "label": "call",
+      "kind": "sync",
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/service/CvService.java:165"
+    },
+    {
+      "seq": 21,
+      "from": "repo",
+      "to": "repo",
+      "label": "save()",
+      "kind": "sync",
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/repository/CvDataRepository.java:8"
+    },
+    {
+      "seq": 22,
+      "from": "repo",
+      "to": "service",
+      "label": "return",
+      "kind": "return",
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/service/CvService.java:170"
+    },
+    {
+      "seq": 23,
+      "from": "service",
+      "to": "controller",
+      "label": "return",
+      "kind": "return",
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/service/CvService.java:79"
+    },
+    {
+      "seq": 24,
+      "from": "controller",
+      "to": "client",
+      "label": "return",
+      "kind": "return",
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/controller/CvController.java:24"
+    },
+    {
+      "seq": 25,
+      "from": "client",
+      "to": "page",
+      "label": "return",
+      "kind": "return",
+      "src": "source/recruit_system/frontend/src/api/client.ts:48"
+    },
+    {
+      "seq": 26,
+      "from": "page",
+      "to": "page",
+      "label": "applyForm()",
+      "kind": "sync",
+      "src": "source/recruit_system/frontend/src/pages/candidate/CandidateCvPage.tsx:130"
+    },
+    {
+      "seq": 27,
+      "from": "page",
+      "to": "actor",
+      "label": "show",
+      "kind": "return",
+      "src": "source/recruit_system/frontend/src/pages/candidate/CandidateCvPage.tsx:131"
+    },
+    {
+      "seq": 28,
+      "from": "actor",
+      "to": "page",
+      "label": "Rà soát và nhấn Xác nhận hồ sơ",
+      "kind": "sync",
+      "src": "source/recruit_system/frontend/src/pages/candidate/CandidateCvPage.tsx:281"
+    },
+    {
+      "seq": 29,
+      "from": "page",
+      "to": "client",
+      "label": "call",
+      "kind": "sync",
+      "src": "source/recruit_system/frontend/src/pages/candidate/CandidateCvPage.tsx:146"
+    },
+    {
+      "seq": 30,
+      "from": "client",
+      "to": "client",
+      "label": "fetch()",
+      "kind": "sync",
+      "src": "source/recruit_system/frontend/src/api/client.ts:43"
+    },
+    {
+      "seq": 31,
+      "from": "client",
+      "to": "controller",
+      "label": "call",
+      "kind": "sync",
+      "src": "source/recruit_system/frontend/src/api/client.ts:108"
+    },
+    {
+      "seq": 32,
+      "from": "controller",
+      "to": "controller",
+      "label": "confirm()",
+      "kind": "sync",
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/controller/CvController.java:28"
+    },
+    {
+      "seq": 33,
+      "from": "controller",
+      "to": "service",
+      "label": "call",
+      "kind": "sync",
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/controller/CvController.java:29"
+    },
+    {
+      "seq": 34,
+      "from": "service",
+      "to": "service",
+      "label": "confirm()",
+      "kind": "sync",
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/service/CvService.java:86"
+    },
+    {
+      "seq": 35,
+      "from": "service",
+      "to": "repo",
+      "label": "call",
+      "kind": "sync",
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/service/CvService.java:104"
+    },
+    {
+      "seq": 36,
+      "from": "repo",
+      "to": "repo",
+      "label": "findByCandidateIdAndFieldOrderByIdAsc()",
+      "kind": "sync",
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/repository/CvDataRepository.java:11"
+    },
+    {
+      "seq": 37,
+      "from": "repo",
+      "to": "service",
+      "label": "return",
+      "kind": "return",
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/service/CvService.java:159"
+    },
+    {
+      "seq": 38,
+      "from": "service",
+      "to": "entity",
+      "label": "call",
+      "kind": "sync",
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/service/CvService.java:165"
+    },
+    {
+      "seq": 39,
+      "from": "entity",
+      "to": "entity",
+      "label": "CvData(), setter()",
+      "kind": "sync",
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/entity/CvData.java:13"
+    },
+    {
+      "seq": 40,
+      "from": "entity",
+      "to": "service",
+      "label": "return",
+      "kind": "return",
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/service/CvService.java:169"
+    },
+    {
+      "seq": 41,
+      "from": "service",
+      "to": "repo",
+      "label": "call",
+      "kind": "sync",
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/service/CvService.java:165"
+    },
+    {
+      "seq": 42,
+      "from": "repo",
+      "to": "repo",
+      "label": "save()",
+      "kind": "sync",
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/repository/CvDataRepository.java:8"
+    },
+    {
+      "seq": 43,
+      "from": "repo",
+      "to": "service",
+      "label": "return",
+      "kind": "return",
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/service/CvService.java:170"
+    },
+    {
+      "seq": 44,
+      "from": "service",
+      "to": "controller",
+      "label": "return",
+      "kind": "return",
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/service/CvService.java:108"
+    },
+    {
+      "seq": 45,
+      "from": "controller",
+      "to": "client",
+      "label": "return",
+      "kind": "return",
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/controller/CvController.java:29"
+    },
+    {
+      "seq": 46,
+      "from": "client",
+      "to": "page",
+      "label": "return",
+      "kind": "return",
+      "src": "source/recruit_system/frontend/src/api/client.ts:48"
+    },
+    {
+      "seq": 47,
+      "from": "page",
+      "to": "page",
+      "label": "applyForm()",
+      "kind": "sync",
+      "src": "source/recruit_system/frontend/src/pages/candidate/CandidateCvPage.tsx:149"
+    },
+    {
+      "seq": 48,
+      "from": "page",
+      "to": "actor",
+      "label": "show",
+      "kind": "return",
+      "src": "source/recruit_system/frontend/src/pages/candidate/CandidateCvPage.tsx:150"
+    }
+  ],
+  "notes": [
+    "Biểu đồ thể hiện trọn vẹn hai giai đoạn chính của chức năng M2: tải lên CV PDF kèm trích xuất thông tin qua dịch vụ AI, và ứng viên rà soát xác nhận hồ sơ vào CSDL.",
+    "Mọi lifeline object đều là lớp có trong CLS-M2.json, gồm CandidateCvPage (boundary), client, CvController, CvService, CvExtractionModule, routes, CvDataRepository (control) và CvData (entity).",
+    "Thực thể CvData được khởi tạo bằng Lombok builder và setter; các phương thức findByCandidateIdAndFieldOrderByIdAsc() và save() là phương thức Spring Data JPA thao tác trực tiếp trên bảng cv_data.",
+    "Dịch vụ trích xuất AI (routes trong cv-extraction-ai FastAPI) nhận yêu cầu trích xuất qua HTTP POST /api/v1/extract-cv?include=kg từ CvExtractionModule.",
+    "Đồng bộ Họ tên và Điện thoại sang identity-service (IdentityClient) và lấy hồ sơ CandidateProfile được tóm lược trong CvService.confirm() để tập trung vào luồng lưu trữ thực thể CV chính."
+  ],
+  "open_questions": [
+    "[cần xác nhận] Đích điều hướng cụ thể khi phiên đăng nhập hết hạn hoặc người dùng không có vai trò CANDIDATE và API trả về 401/403 (trên FE RequireAuth chặn sang /login hoặc /choose-role).",
+    "[cần xác nhận] Cơ chế xử lý file PDF scan/ảnh không có text layer: hiện tại PdfTextExtractor kiểm tra độ dài text < 50 ký tự và trả HTTP 422, chưa tích hợp OCR."
+  ]
+}

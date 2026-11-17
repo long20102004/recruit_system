@@ -1,0 +1,560 @@
+{
+  "id": "ACT-M4",
+  "type": "activity",
+  "name": "Biểu đồ hoạt động - Ôn tập và chấm phỏng vấn",
+  "partitions": [
+    {
+      "key": "job",
+      "name": "CandidateJobDetailPage.tsx",
+      "src": "source/recruit_system/frontend/src/pages/candidate/CandidateJobDetailPage.tsx:44"
+    },
+    {
+      "key": "page",
+      "name": "CandidateInterviewPage.tsx",
+      "src": "source/recruit_system/frontend/src/pages/candidate/CandidateInterviewPage.tsx:9"
+    },
+    {
+      "key": "client",
+      "name": "client",
+      "src": "source/recruit_system/frontend/src/api/client.ts:32"
+    },
+    {
+      "key": "controller",
+      "name": "InterviewController",
+      "src": "source/recruit_system/backend/interview-service/src/main/java/recruit/demo/controller/InterviewController.java:14"
+    },
+    {
+      "key": "service",
+      "name": "InterviewService",
+      "src": "source/recruit_system/backend/interview-service/src/main/java/recruit/demo/service/InterviewService.java:23"
+    },
+    {
+      "key": "ctx",
+      "name": "ServiceHttpClient",
+      "src": "source/recruit_system/backend/common/src/main/java/recruit/demo/client/ServiceHttpClient.java:20"
+    },
+    {
+      "key": "select",
+      "name": "QuestionSelectionService",
+      "src": "source/recruit_system/backend/interview-service/src/main/java/recruit/demo/service/QuestionSelectionService.java:26"
+    },
+    {
+      "key": "sessionrepo",
+      "name": "InterviewSessionRepository",
+      "src": "source/recruit_system/backend/interview-service/src/main/java/recruit/demo/repository/InterviewSessionRepository.java:8"
+    },
+    {
+      "key": "rubric",
+      "name": "EvaluationRubricRepository",
+      "src": "source/recruit_system/backend/interview-service/src/main/java/recruit/demo/repository/EvaluationRubricRepository.java:9"
+    },
+    {
+      "key": "aiclient",
+      "name": "AiScoringClient",
+      "src": "source/recruit_system/backend/interview-service/src/main/java/recruit/demo/service/AiScoringClient.java:38"
+    },
+    {
+      "key": "ai",
+      "name": "interview-ai",
+      "src": "source/recruit_system/AI/src/api.py:205"
+    }
+  ],
+  "nodes": [
+    {
+      "key": "start",
+      "kind": "initial",
+      "name": "Bắt đầu",
+      "partition": "job",
+      "src": "source/recruit_system/frontend/src/pages/candidate/CandidateJobDetailPage.tsx:44"
+    },
+    {
+      "key": "jobview",
+      "kind": "action",
+      "name": "Hiện giao diện",
+      "partition": "job",
+      "src": "source/recruit_system/frontend/src/pages/candidate/CandidateJobDetailPage.tsx:65"
+    },
+    {
+      "key": "view",
+      "kind": "action",
+      "name": "Hiện giao diện",
+      "partition": "page",
+      "src": "source/recruit_system/frontend/src/pages/candidate/CandidateInterviewPage.tsx:64"
+    },
+    {
+      "key": "jobid",
+      "kind": "action",
+      "name": "Lấy từ state: jobId",
+      "partition": "page",
+      "src": "source/recruit_system/frontend/src/pages/candidate/CandidateInterviewPage.tsx:34"
+    },
+    {
+      "key": "create",
+      "kind": "action",
+      "name": "Gọi hàm createSession()",
+      "partition": "page",
+      "src": "source/recruit_system/frontend/src/pages/candidate/CandidateInterviewPage.tsx:34"
+    },
+    {
+      "key": "fetchcreate",
+      "kind": "action",
+      "name": "api<T>() / fetch()",
+      "partition": "client",
+      "src": "source/recruit_system/frontend/src/api/client.ts:43"
+    },
+    {
+      "key": "ctlcreate",
+      "kind": "action",
+      "name": "createSession()",
+      "partition": "controller",
+      "src": "source/recruit_system/backend/interview-service/src/main/java/recruit/demo/controller/InterviewController.java:24"
+    },
+    {
+      "key": "svcreate",
+      "kind": "action",
+      "name": "Gọi hàm createSession()",
+      "partition": "service",
+      "src": "source/recruit_system/backend/interview-service/src/main/java/recruit/demo/service/InterviewService.java:45"
+    },
+    {
+      "key": "context",
+      "kind": "action",
+      "name": "Gọi hàm get<T>()",
+      "partition": "ctx",
+      "src": "source/recruit_system/backend/interview-service/src/main/java/recruit/demo/service/InterviewService.java:51"
+    },
+    {
+      "key": "selection",
+      "kind": "action",
+      "name": "Gọi hàm select()",
+      "partition": "select",
+      "src": "source/recruit_system/backend/interview-service/src/main/java/recruit/demo/service/InterviewService.java:68"
+    },
+    {
+      "key": "save",
+      "kind": "action",
+      "name": "Gọi hàm save()",
+      "partition": "sessionrepo",
+      "src": "source/recruit_system/backend/interview-service/src/main/java/recruit/demo/service/InterviewService.java:83"
+    },
+    {
+      "key": "createback",
+      "kind": "action",
+      "name": "Gọi hàm createSession()",
+      "partition": "service",
+      "src": "source/recruit_system/backend/interview-service/src/main/java/recruit/demo/service/InterviewService.java:94"
+    },
+    {
+      "key": "ctlcreateback",
+      "kind": "action",
+      "name": "createSession()",
+      "partition": "controller",
+      "src": "source/recruit_system/backend/interview-service/src/main/java/recruit/demo/controller/InterviewController.java:25"
+    },
+    {
+      "key": "fetchcreateback",
+      "kind": "action",
+      "name": "api<T>() / fetch()",
+      "partition": "client",
+      "src": "source/recruit_system/frontend/src/api/client.ts:47"
+    },
+    {
+      "key": "createdec",
+      "kind": "decision",
+      "name": "Tạo phiên?",
+      "partition": "page",
+      "src": "source/recruit_system/frontend/src/pages/candidate/CandidateInterviewPage.tsx:37"
+    },
+    {
+      "key": "state",
+      "kind": "action",
+      "name": "Lưu vào state: session, idx",
+      "partition": "page",
+      "src": "source/recruit_system/frontend/src/pages/candidate/CandidateInterviewPage.tsx:35"
+    },
+    {
+      "key": "question",
+      "kind": "action",
+      "name": "Hiện giao diện",
+      "partition": "page",
+      "src": "source/recruit_system/frontend/src/pages/candidate/CandidateInterviewPage.tsx:71"
+    },
+    {
+      "key": "answer",
+      "kind": "action",
+      "name": "Lấy từ form: answer",
+      "partition": "page",
+      "src": "source/recruit_system/frontend/src/pages/candidate/CandidateInterviewPage.tsx:75"
+    },
+    {
+      "key": "valid",
+      "kind": "decision",
+      "name": "Câu trả lời hợp lệ?",
+      "partition": "page",
+      "src": "source/recruit_system/frontend/src/pages/candidate/CandidateInterviewPage.tsx:41"
+    },
+    {
+      "key": "empty",
+      "kind": "action",
+      "name": "Thông báo Hãy nhập câu trả lời",
+      "partition": "page",
+      "src": "source/recruit_system/frontend/src/pages/candidate/CandidateInterviewPage.tsx:41"
+    },
+    {
+      "key": "submit",
+      "kind": "action",
+      "name": "Gọi hàm submit()",
+      "partition": "page",
+      "src": "source/recruit_system/frontend/src/pages/candidate/CandidateInterviewPage.tsx:44"
+    },
+    {
+      "key": "fetchsubmit",
+      "kind": "action",
+      "name": "api<T>() / fetch()",
+      "partition": "client",
+      "src": "source/recruit_system/frontend/src/api/client.ts:43"
+    },
+    {
+      "key": "ctlsubmit",
+      "kind": "action",
+      "name": "submitResponse()",
+      "partition": "controller",
+      "src": "source/recruit_system/backend/interview-service/src/main/java/recruit/demo/controller/InterviewController.java:40"
+    },
+    {
+      "key": "svsubmit",
+      "kind": "action",
+      "name": "Gọi hàm submitAndEvaluate()",
+      "partition": "service",
+      "src": "source/recruit_system/backend/interview-service/src/main/java/recruit/demo/service/InterviewService.java:106"
+    },
+    {
+      "key": "lock",
+      "kind": "action",
+      "name": "Gọi hàm findForUpdate()",
+      "partition": "sessionrepo",
+      "src": "source/recruit_system/backend/interview-service/src/main/java/recruit/demo/service/InterviewService.java:108"
+    },
+    {
+      "key": "evaluate",
+      "kind": "action",
+      "name": "Gọi hàm evaluate()",
+      "partition": "service",
+      "src": "source/recruit_system/backend/interview-service/src/main/java/recruit/demo/service/InterviewService.java:123"
+    },
+    {
+      "key": "rubrics",
+      "kind": "action",
+      "name": "Gọi hàm findByQuestionId()",
+      "partition": "rubric",
+      "src": "source/recruit_system/backend/interview-service/src/main/java/recruit/demo/service/InterviewService.java:165"
+    },
+    {
+      "key": "aicall",
+      "kind": "action",
+      "name": "Gọi hàm evaluate()",
+      "partition": "aiclient",
+      "src": "source/recruit_system/backend/interview-service/src/main/java/recruit/demo/service/InterviewService.java:169"
+    },
+    {
+      "key": "aihandle",
+      "kind": "action",
+      "name": "evaluate()",
+      "partition": "ai",
+      "src": "source/recruit_system/AI/src/api.py:206"
+    },
+    {
+      "key": "score",
+      "kind": "action",
+      "name": "Gọi hàm evaluate_question()",
+      "partition": "ai",
+      "src": "source/recruit_system/AI/src/api.py:222"
+    },
+    {
+      "key": "aireturn",
+      "kind": "action",
+      "name": "evaluate()",
+      "partition": "aiclient",
+      "src": "source/recruit_system/backend/interview-service/src/main/java/recruit/demo/service/AiScoringClient.java:93"
+    },
+    {
+      "key": "svreturn",
+      "kind": "action",
+      "name": "Gọi hàm submitAndEvaluate()",
+      "partition": "service",
+      "src": "source/recruit_system/backend/interview-service/src/main/java/recruit/demo/service/InterviewService.java:128"
+    },
+    {
+      "key": "ctlreturn",
+      "kind": "action",
+      "name": "submitResponse()",
+      "partition": "controller",
+      "src": "source/recruit_system/backend/interview-service/src/main/java/recruit/demo/controller/InterviewController.java:42"
+    },
+    {
+      "key": "fetchreturn",
+      "kind": "action",
+      "name": "api<T>() / fetch()",
+      "partition": "client",
+      "src": "source/recruit_system/frontend/src/api/client.ts:47"
+    },
+    {
+      "key": "submitdec",
+      "kind": "decision",
+      "name": "Chấm thành công?",
+      "partition": "page",
+      "src": "source/recruit_system/frontend/src/pages/candidate/CandidateInterviewPage.tsx:47"
+    },
+    {
+      "key": "evalstate",
+      "kind": "action",
+      "name": "Lưu vào state: evaluation",
+      "partition": "page",
+      "src": "source/recruit_system/frontend/src/pages/candidate/CandidateInterviewPage.tsx:44"
+    },
+    {
+      "key": "result",
+      "kind": "action",
+      "name": "Hiện giao diện",
+      "partition": "page",
+      "src": "source/recruit_system/frontend/src/pages/candidate/CandidateInterviewPage.tsx:81"
+    },
+    {
+      "key": "error",
+      "kind": "action",
+      "name": "Thông báo lỗi",
+      "partition": "page",
+      "src": "source/recruit_system/frontend/src/pages/candidate/CandidateInterviewPage.tsx:47"
+    },
+    {
+      "key": "end",
+      "kind": "final",
+      "name": "Kết thúc",
+      "partition": "page",
+      "src": "source/recruit_system/frontend/src/pages/candidate/CandidateInterviewPage.tsx:82"
+    }
+  ],
+  "flows": [
+    {
+      "from": "start",
+      "to": "jobview",
+      "src": "source/recruit_system/frontend/src/pages/candidate/CandidateJobDetailPage.tsx:65"
+    },
+    {
+      "from": "jobview",
+      "to": "view",
+      "src": "source/recruit_system/frontend/src/pages/candidate/CandidateJobDetailPage.tsx:154"
+    },
+    {
+      "from": "view",
+      "to": "jobid",
+      "src": "source/recruit_system/frontend/src/pages/candidate/CandidateInterviewPage.tsx:31"
+    },
+    {
+      "from": "jobid",
+      "to": "create",
+      "src": "source/recruit_system/frontend/src/pages/candidate/CandidateInterviewPage.tsx:34"
+    },
+    {
+      "from": "create",
+      "to": "fetchcreate",
+      "src": "source/recruit_system/frontend/src/api/client.ts:135"
+    },
+    {
+      "from": "fetchcreate",
+      "to": "ctlcreate",
+      "src": "source/recruit_system/backend/interview-service/src/main/java/recruit/demo/controller/InterviewController.java:23"
+    },
+    {
+      "from": "ctlcreate",
+      "to": "svcreate",
+      "src": "source/recruit_system/backend/interview-service/src/main/java/recruit/demo/controller/InterviewController.java:25"
+    },
+    {
+      "from": "svcreate",
+      "to": "context",
+      "src": "source/recruit_system/backend/interview-service/src/main/java/recruit/demo/service/InterviewService.java:51"
+    },
+    {
+      "from": "context",
+      "to": "selection",
+      "src": "source/recruit_system/backend/interview-service/src/main/java/recruit/demo/service/InterviewService.java:68"
+    },
+    {
+      "from": "selection",
+      "to": "save",
+      "src": "source/recruit_system/backend/interview-service/src/main/java/recruit/demo/service/InterviewService.java:83"
+    },
+    {
+      "from": "save",
+      "to": "createback",
+      "src": "source/recruit_system/backend/interview-service/src/main/java/recruit/demo/service/InterviewService.java:94"
+    },
+    {
+      "from": "createback",
+      "to": "ctlcreateback",
+      "src": "source/recruit_system/backend/interview-service/src/main/java/recruit/demo/controller/InterviewController.java:25"
+    },
+    {
+      "from": "ctlcreateback",
+      "to": "fetchcreateback",
+      "src": "source/recruit_system/frontend/src/api/client.ts:47"
+    },
+    {
+      "from": "fetchcreateback",
+      "to": "createdec",
+      "src": "source/recruit_system/frontend/src/pages/candidate/CandidateInterviewPage.tsx:37"
+    },
+    {
+      "from": "state",
+      "to": "question",
+      "src": "source/recruit_system/frontend/src/pages/candidate/CandidateInterviewPage.tsx:71"
+    },
+    {
+      "from": "question",
+      "to": "answer",
+      "src": "source/recruit_system/frontend/src/pages/candidate/CandidateInterviewPage.tsx:75"
+    },
+    {
+      "from": "answer",
+      "to": "valid",
+      "src": "source/recruit_system/frontend/src/pages/candidate/CandidateInterviewPage.tsx:41"
+    },
+    {
+      "from": "empty",
+      "to": "answer",
+      "src": "source/recruit_system/frontend/src/pages/candidate/CandidateInterviewPage.tsx:75"
+    },
+    {
+      "from": "submit",
+      "to": "fetchsubmit",
+      "src": "source/recruit_system/frontend/src/api/client.ts:140"
+    },
+    {
+      "from": "fetchsubmit",
+      "to": "ctlsubmit",
+      "src": "source/recruit_system/backend/interview-service/src/main/java/recruit/demo/controller/InterviewController.java:39"
+    },
+    {
+      "from": "ctlsubmit",
+      "to": "svsubmit",
+      "src": "source/recruit_system/backend/interview-service/src/main/java/recruit/demo/controller/InterviewController.java:42"
+    },
+    {
+      "from": "svsubmit",
+      "to": "lock",
+      "src": "source/recruit_system/backend/interview-service/src/main/java/recruit/demo/service/InterviewService.java:108"
+    },
+    {
+      "from": "lock",
+      "to": "evaluate",
+      "src": "source/recruit_system/backend/interview-service/src/main/java/recruit/demo/service/InterviewService.java:123"
+    },
+    {
+      "from": "evaluate",
+      "to": "rubrics",
+      "src": "source/recruit_system/backend/interview-service/src/main/java/recruit/demo/service/InterviewService.java:165"
+    },
+    {
+      "from": "rubrics",
+      "to": "aicall",
+      "src": "source/recruit_system/backend/interview-service/src/main/java/recruit/demo/service/InterviewService.java:169"
+    },
+    {
+      "from": "aicall",
+      "to": "aihandle",
+      "src": "source/recruit_system/AI/src/api.py:205"
+    },
+    {
+      "from": "aihandle",
+      "to": "score",
+      "src": "source/recruit_system/AI/src/api.py:222"
+    },
+    {
+      "from": "score",
+      "to": "aireturn",
+      "src": "source/recruit_system/backend/interview-service/src/main/java/recruit/demo/service/AiScoringClient.java:93"
+    },
+    {
+      "from": "aireturn",
+      "to": "svreturn",
+      "src": "source/recruit_system/backend/interview-service/src/main/java/recruit/demo/service/InterviewService.java:128"
+    },
+    {
+      "from": "svreturn",
+      "to": "ctlreturn",
+      "src": "source/recruit_system/backend/interview-service/src/main/java/recruit/demo/controller/InterviewController.java:42"
+    },
+    {
+      "from": "ctlreturn",
+      "to": "fetchreturn",
+      "src": "source/recruit_system/frontend/src/api/client.ts:47"
+    },
+    {
+      "from": "fetchreturn",
+      "to": "submitdec",
+      "src": "source/recruit_system/frontend/src/pages/candidate/CandidateInterviewPage.tsx:47"
+    },
+    {
+      "from": "evalstate",
+      "to": "result",
+      "src": "source/recruit_system/frontend/src/pages/candidate/CandidateInterviewPage.tsx:81"
+    },
+    {
+      "from": "result",
+      "to": "end",
+      "src": "source/recruit_system/frontend/src/pages/candidate/CandidateInterviewPage.tsx:82"
+    },
+    {
+      "from": "error",
+      "to": "view",
+      "src": "source/recruit_system/frontend/src/pages/candidate/CandidateInterviewPage.tsx:47"
+    },
+    {
+      "from": "createdec",
+      "to": "state",
+      "src": "source/recruit_system/frontend/src/pages/candidate/CandidateInterviewPage.tsx:35",
+      "guard": "[Thành công]"
+    },
+    {
+      "from": "createdec",
+      "to": "error",
+      "src": "source/recruit_system/frontend/src/pages/candidate/CandidateInterviewPage.tsx:37",
+      "guard": "[Thất bại]"
+    },
+    {
+      "from": "valid",
+      "to": "empty",
+      "src": "source/recruit_system/frontend/src/pages/candidate/CandidateInterviewPage.tsx:41",
+      "guard": "[Không hợp lệ]"
+    },
+    {
+      "from": "valid",
+      "to": "submit",
+      "src": "source/recruit_system/frontend/src/pages/candidate/CandidateInterviewPage.tsx:44",
+      "guard": "[Hợp lệ]"
+    },
+    {
+      "from": "submitdec",
+      "to": "evalstate",
+      "src": "source/recruit_system/frontend/src/pages/candidate/CandidateInterviewPage.tsx:44",
+      "guard": "[Thành công]"
+    },
+    {
+      "from": "submitdec",
+      "to": "error",
+      "src": "source/recruit_system/frontend/src/pages/candidate/CandidateInterviewPage.tsx:47",
+      "guard": "[Thất bại]"
+    }
+  ],
+  "notes": [
+    "Luồng rút gọn một câu; các action lặp tên thể hiện trở về qua tầng tương ứng.",
+    "Hai lời gọi get<T>() và select() được tuần tự hóa ở mức tóm tắt; các bước repository trung gian và trả về từ hàm được lược bỏ.",
+    "Nút Hiện giao diện kết quả không khẳng định summary đã được tải lại."
+  ],
+  "open_questions": [
+    "CLS-M4 không có jobsApi.get() và controller/service tương ứng dù trang chi tiết gọi API; luồng tải tin được lược bỏ để tuân thủ chỉ dùng hàm trong CLS-M4.",
+    "Giới hạn 40 node: biểu đồ chỉ khai triển tạo phiên và chấm một câu; chưa khai triển mine(), getSession(), summary(), next(), các repository khác và vòng lặp các câu.",
+    "Luồng refresh getSession(), summary(), mine() sau khi chấm bị lược bỏ; không được hiểu là kết quả chấm đồng nghĩa tải lại tổng kết thành công."
+  ]
+}

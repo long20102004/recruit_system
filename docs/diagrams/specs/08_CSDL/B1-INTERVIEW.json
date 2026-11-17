@@ -1,0 +1,806 @@
+{
+  "id": "B1-INTERVIEW",
+  "type": "erd",
+  "name": "Thiết kế CSDL - interview-service",
+  "entities": [
+    {
+      "name": "interview_questions",
+      "columns": [
+        {
+          "name": "id",
+          "type": "INT",
+          "pk": true,
+          "fk": false,
+          "nullable": false,
+          "unique": false,
+          "src": "source/recruit_system/backend/interview-service/src/main/resources/db/migration/V1__schema.sql:2"
+        },
+        {
+          "name": "created_by",
+          "type": "INT",
+          "pk": false,
+          "fk": false,
+          "nullable": true,
+          "unique": false,
+          "src": "source/recruit_system/backend/interview-service/src/main/resources/db/migration/V1__schema.sql:3"
+        },
+        {
+          "name": "title",
+          "type": "VARCHAR(255)",
+          "pk": false,
+          "fk": false,
+          "nullable": true,
+          "unique": false,
+          "src": "source/recruit_system/backend/interview-service/src/main/resources/db/migration/V1__schema.sql:4"
+        },
+        {
+          "name": "question_text",
+          "type": "TEXT",
+          "pk": false,
+          "fk": false,
+          "nullable": false,
+          "unique": false,
+          "src": "source/recruit_system/backend/interview-service/src/main/resources/db/migration/V1__schema.sql:5"
+        },
+        {
+          "name": "topic",
+          "type": "VARCHAR(120)",
+          "pk": false,
+          "fk": false,
+          "nullable": true,
+          "unique": false,
+          "src": "source/recruit_system/backend/interview-service/src/main/resources/db/migration/V1__schema.sql:6"
+        },
+        {
+          "name": "difficulty",
+          "type": "VARCHAR(40)",
+          "pk": false,
+          "fk": false,
+          "nullable": true,
+          "unique": false,
+          "src": "source/recruit_system/backend/interview-service/src/main/resources/db/migration/V1__schema.sql:7"
+        },
+        {
+          "name": "question_type",
+          "type": "VARCHAR(40)",
+          "pk": false,
+          "fk": false,
+          "nullable": false,
+          "unique": false,
+          "src": "source/recruit_system/backend/interview-service/src/main/resources/db/migration/V1__schema.sql:8",
+          "default": "TEXT"
+        },
+        {
+          "name": "reference_answer",
+          "type": "TEXT",
+          "pk": false,
+          "fk": false,
+          "nullable": true,
+          "unique": false,
+          "src": "source/recruit_system/backend/interview-service/src/main/resources/db/migration/V1__schema.sql:9"
+        },
+        {
+          "name": "max_score",
+          "type": "DECIMAL(6,2)",
+          "pk": false,
+          "fk": false,
+          "nullable": false,
+          "unique": false,
+          "src": "source/recruit_system/backend/interview-service/src/main/resources/db/migration/V1__schema.sql:10",
+          "default": "10.00"
+        },
+        {
+          "name": "is_active",
+          "type": "TINYINT(1)",
+          "pk": false,
+          "fk": false,
+          "nullable": false,
+          "unique": false,
+          "src": "source/recruit_system/backend/interview-service/src/main/resources/db/migration/V1__schema.sql:11",
+          "default": "1"
+        },
+        {
+          "name": "created_at",
+          "type": "DATETIME",
+          "pk": false,
+          "fk": false,
+          "nullable": false,
+          "unique": false,
+          "src": "source/recruit_system/backend/interview-service/src/main/resources/db/migration/V1__schema.sql:12",
+          "default": "CURRENT_TIMESTAMP"
+        },
+        {
+          "name": "external_key",
+          "type": "VARCHAR(80)",
+          "pk": false,
+          "fk": false,
+          "nullable": true,
+          "unique": true,
+          "src": "source/recruit_system/backend/interview-service/src/main/resources/db/migration/V4__interview_bank_and_assessment.sql:2"
+        },
+        {
+          "name": "skill",
+          "type": "VARCHAR(120)",
+          "pk": false,
+          "fk": false,
+          "nullable": true,
+          "unique": false,
+          "src": "source/recruit_system/backend/interview-service/src/main/resources/db/migration/V4__interview_bank_and_assessment.sql:3"
+        },
+        {
+          "name": "seniority",
+          "type": "VARCHAR(32)",
+          "pk": false,
+          "fk": false,
+          "nullable": false,
+          "unique": false,
+          "src": "source/recruit_system/backend/interview-service/src/main/resources/db/migration/V4__interview_bank_and_assessment.sql:3",
+          "default": "Junior"
+        },
+        {
+          "name": "source",
+          "type": "VARCHAR(80)",
+          "pk": false,
+          "fk": false,
+          "nullable": false,
+          "unique": false,
+          "src": "source/recruit_system/backend/interview-service/src/main/resources/db/migration/V4__interview_bank_and_assessment.sql:4",
+          "default": "legacy"
+        }
+      ],
+      "src": "source/recruit_system/backend/interview-service/src/main/resources/db/migration/V1__schema.sql:1"
+    },
+    {
+      "name": "evaluation_rubrics",
+      "columns": [
+        {
+          "name": "id",
+          "type": "INT",
+          "pk": true,
+          "fk": false,
+          "nullable": false,
+          "unique": false,
+          "src": "source/recruit_system/backend/interview-service/src/main/resources/db/migration/V1__schema.sql:16"
+        },
+        {
+          "name": "question_id",
+          "type": "INT",
+          "pk": false,
+          "fk": true,
+          "nullable": false,
+          "unique": false,
+          "src": "source/recruit_system/backend/interview-service/src/main/resources/db/migration/V1__schema.sql:17"
+        },
+        {
+          "name": "criterion_name",
+          "type": "VARCHAR(255)",
+          "pk": false,
+          "fk": false,
+          "nullable": false,
+          "unique": false,
+          "src": "source/recruit_system/backend/interview-service/src/main/resources/db/migration/V1__schema.sql:18"
+        },
+        {
+          "name": "criterion_description",
+          "type": "TEXT",
+          "pk": false,
+          "fk": false,
+          "nullable": true,
+          "unique": false,
+          "src": "source/recruit_system/backend/interview-service/src/main/resources/db/migration/V1__schema.sql:19"
+        },
+        {
+          "name": "max_score",
+          "type": "DECIMAL(6,2)",
+          "pk": false,
+          "fk": false,
+          "nullable": true,
+          "unique": false,
+          "src": "source/recruit_system/backend/interview-service/src/main/resources/db/migration/V1__schema.sql:20"
+        },
+        {
+          "name": "weight",
+          "type": "DECIMAL(6,4)",
+          "pk": false,
+          "fk": false,
+          "nullable": false,
+          "unique": false,
+          "src": "source/recruit_system/backend/interview-service/src/main/resources/db/migration/V1__schema.sql:21",
+          "default": "1.0000"
+        },
+        {
+          "name": "expected_keywords",
+          "type": "JSON",
+          "pk": false,
+          "fk": false,
+          "nullable": true,
+          "unique": false,
+          "src": "source/recruit_system/backend/interview-service/src/main/resources/db/migration/V1__schema.sql:22"
+        },
+        {
+          "name": "created_at",
+          "type": "DATETIME",
+          "pk": false,
+          "fk": false,
+          "nullable": false,
+          "unique": false,
+          "src": "source/recruit_system/backend/interview-service/src/main/resources/db/migration/V1__schema.sql:23",
+          "default": "CURRENT_TIMESTAMP"
+        },
+        {
+          "name": "reference_answers",
+          "type": "JSON",
+          "pk": false,
+          "fk": false,
+          "nullable": true,
+          "unique": false,
+          "src": "source/recruit_system/backend/interview-service/src/main/resources/db/migration/V4__interview_bank_and_assessment.sql:5"
+        },
+        {
+          "name": "misconceptions",
+          "type": "JSON",
+          "pk": false,
+          "fk": false,
+          "nullable": true,
+          "unique": false,
+          "src": "source/recruit_system/backend/interview-service/src/main/resources/db/migration/V4__interview_bank_and_assessment.sql:5"
+        }
+      ],
+      "src": "source/recruit_system/backend/interview-service/src/main/resources/db/migration/V1__schema.sql:15"
+    },
+    {
+      "name": "interview_sessions",
+      "columns": [
+        {
+          "name": "candidate_user_id",
+          "type": "INT",
+          "pk": false,
+          "fk": false,
+          "nullable": false,
+          "unique": false,
+          "src": "source/recruit_system/backend/interview-service/src/main/resources/db/migration/V1__schema.sql:28"
+        },
+        {
+          "name": "job_title",
+          "type": "VARCHAR(255)",
+          "pk": false,
+          "fk": false,
+          "nullable": true,
+          "unique": false,
+          "src": "source/recruit_system/backend/interview-service/src/main/resources/db/migration/V1__schema.sql:29"
+        },
+        {
+          "name": "id",
+          "type": "INT",
+          "pk": true,
+          "fk": false,
+          "nullable": false,
+          "unique": false,
+          "src": "source/recruit_system/backend/interview-service/src/main/resources/db/migration/V1__schema.sql:30"
+        },
+        {
+          "name": "candidate_id",
+          "type": "INT",
+          "pk": false,
+          "fk": false,
+          "nullable": false,
+          "unique": false,
+          "src": "source/recruit_system/backend/interview-service/src/main/resources/db/migration/V1__schema.sql:31"
+        },
+        {
+          "name": "job_id",
+          "type": "INT",
+          "pk": false,
+          "fk": false,
+          "nullable": true,
+          "unique": false,
+          "src": "source/recruit_system/backend/interview-service/src/main/resources/db/migration/V1__schema.sql:32"
+        },
+        {
+          "name": "application_id",
+          "type": "INT",
+          "pk": false,
+          "fk": false,
+          "nullable": true,
+          "unique": false,
+          "src": "source/recruit_system/backend/interview-service/src/main/resources/db/migration/V1__schema.sql:33"
+        },
+        {
+          "name": "title",
+          "type": "VARCHAR(255)",
+          "pk": false,
+          "fk": false,
+          "nullable": true,
+          "unique": false,
+          "src": "source/recruit_system/backend/interview-service/src/main/resources/db/migration/V1__schema.sql:34"
+        },
+        {
+          "name": "status",
+          "type": "VARCHAR(32)",
+          "pk": false,
+          "fk": false,
+          "nullable": false,
+          "unique": false,
+          "src": "source/recruit_system/backend/interview-service/src/main/resources/db/migration/V1__schema.sql:35",
+          "default": "CREATED"
+        },
+        {
+          "name": "started_at",
+          "type": "DATETIME",
+          "pk": false,
+          "fk": false,
+          "nullable": true,
+          "unique": false,
+          "src": "source/recruit_system/backend/interview-service/src/main/resources/db/migration/V1__schema.sql:36"
+        },
+        {
+          "name": "completed_at",
+          "type": "DATETIME",
+          "pk": false,
+          "fk": false,
+          "nullable": true,
+          "unique": false,
+          "src": "source/recruit_system/backend/interview-service/src/main/resources/db/migration/V1__schema.sql:37"
+        },
+        {
+          "name": "created_at",
+          "type": "DATETIME",
+          "pk": false,
+          "fk": false,
+          "nullable": false,
+          "unique": false,
+          "src": "source/recruit_system/backend/interview-service/src/main/resources/db/migration/V1__schema.sql:38",
+          "default": "CURRENT_TIMESTAMP"
+        },
+        {
+          "name": "recruiter_user_id",
+          "type": "INT",
+          "pk": false,
+          "fk": false,
+          "nullable": true,
+          "unique": false,
+          "src": "source/recruit_system/backend/interview-service/src/main/resources/db/migration/V4__interview_bank_and_assessment.sql:9"
+        }
+      ],
+      "src": "source/recruit_system/backend/interview-service/src/main/resources/db/migration/V1__schema.sql:27"
+    },
+    {
+      "name": "interview_session_questions",
+      "columns": [
+        {
+          "name": "id",
+          "type": "INT",
+          "pk": true,
+          "fk": false,
+          "nullable": false,
+          "unique": false,
+          "src": "source/recruit_system/backend/interview-service/src/main/resources/db/migration/V1__schema.sql:44"
+        },
+        {
+          "name": "session_id",
+          "type": "INT",
+          "pk": false,
+          "fk": true,
+          "nullable": false,
+          "unique": false,
+          "src": "source/recruit_system/backend/interview-service/src/main/resources/db/migration/V1__schema.sql:45"
+        },
+        {
+          "name": "question_id",
+          "type": "INT",
+          "pk": false,
+          "fk": true,
+          "nullable": false,
+          "unique": false,
+          "src": "source/recruit_system/backend/interview-service/src/main/resources/db/migration/V1__schema.sql:46"
+        },
+        {
+          "name": "question_order",
+          "type": "INT",
+          "pk": false,
+          "fk": false,
+          "nullable": false,
+          "unique": false,
+          "src": "source/recruit_system/backend/interview-service/src/main/resources/db/migration/V1__schema.sql:47"
+        },
+        {
+          "name": "max_score",
+          "type": "DECIMAL(6,2)",
+          "pk": false,
+          "fk": false,
+          "nullable": false,
+          "unique": false,
+          "src": "source/recruit_system/backend/interview-service/src/main/resources/db/migration/V1__schema.sql:48",
+          "default": "10.00"
+        },
+        {
+          "name": "time_limit_seconds",
+          "type": "INT",
+          "pk": false,
+          "fk": false,
+          "nullable": true,
+          "unique": false,
+          "src": "source/recruit_system/backend/interview-service/src/main/resources/db/migration/V1__schema.sql:49"
+        }
+      ],
+      "src": "source/recruit_system/backend/interview-service/src/main/resources/db/migration/V1__schema.sql:43"
+    },
+    {
+      "name": "interview_responses",
+      "columns": [
+        {
+          "name": "id",
+          "type": "INT",
+          "pk": true,
+          "fk": false,
+          "nullable": false,
+          "unique": false,
+          "src": "source/recruit_system/backend/interview-service/src/main/resources/db/migration/V1__schema.sql:56"
+        },
+        {
+          "name": "session_question_id",
+          "type": "INT",
+          "pk": false,
+          "fk": true,
+          "nullable": false,
+          "unique": true,
+          "src": "source/recruit_system/backend/interview-service/src/main/resources/db/migration/V1__schema.sql:57"
+        },
+        {
+          "name": "answer_text",
+          "type": "TEXT",
+          "pk": false,
+          "fk": false,
+          "nullable": false,
+          "unique": false,
+          "src": "source/recruit_system/backend/interview-service/src/main/resources/db/migration/V1__schema.sql:58"
+        },
+        {
+          "name": "submitted_at",
+          "type": "DATETIME",
+          "pk": false,
+          "fk": false,
+          "nullable": false,
+          "unique": false,
+          "src": "source/recruit_system/backend/interview-service/src/main/resources/db/migration/V1__schema.sql:59",
+          "default": "CURRENT_TIMESTAMP"
+        },
+        {
+          "name": "response_duration_seconds",
+          "type": "INT",
+          "pk": false,
+          "fk": false,
+          "nullable": true,
+          "unique": false,
+          "src": "source/recruit_system/backend/interview-service/src/main/resources/db/migration/V1__schema.sql:60"
+        },
+        {
+          "name": "status",
+          "type": "VARCHAR(32)",
+          "pk": false,
+          "fk": false,
+          "nullable": false,
+          "unique": false,
+          "src": "source/recruit_system/backend/interview-service/src/main/resources/db/migration/V1__schema.sql:61",
+          "default": "SUBMITTED"
+        }
+      ],
+      "src": "source/recruit_system/backend/interview-service/src/main/resources/db/migration/V1__schema.sql:55"
+    },
+    {
+      "name": "model_versions",
+      "columns": [
+        {
+          "name": "id",
+          "type": "INT",
+          "pk": true,
+          "fk": false,
+          "nullable": false,
+          "unique": false,
+          "src": "source/recruit_system/backend/interview-service/src/main/resources/db/migration/V1__schema.sql:67"
+        },
+        {
+          "name": "module_name",
+          "type": "VARCHAR(80)",
+          "pk": false,
+          "fk": false,
+          "nullable": false,
+          "unique": false,
+          "src": "source/recruit_system/backend/interview-service/src/main/resources/db/migration/V1__schema.sql:68"
+        },
+        {
+          "name": "model_name",
+          "type": "VARCHAR(120)",
+          "pk": false,
+          "fk": false,
+          "nullable": false,
+          "unique": false,
+          "src": "source/recruit_system/backend/interview-service/src/main/resources/db/migration/V1__schema.sql:69"
+        },
+        {
+          "name": "version",
+          "type": "VARCHAR(80)",
+          "pk": false,
+          "fk": false,
+          "nullable": false,
+          "unique": false,
+          "src": "source/recruit_system/backend/interview-service/src/main/resources/db/migration/V1__schema.sql:70"
+        },
+        {
+          "name": "model_path",
+          "type": "VARCHAR(500)",
+          "pk": false,
+          "fk": false,
+          "nullable": true,
+          "unique": false,
+          "src": "source/recruit_system/backend/interview-service/src/main/resources/db/migration/V1__schema.sql:71"
+        },
+        {
+          "name": "metrics",
+          "type": "JSON",
+          "pk": false,
+          "fk": false,
+          "nullable": true,
+          "unique": false,
+          "src": "source/recruit_system/backend/interview-service/src/main/resources/db/migration/V1__schema.sql:72"
+        },
+        {
+          "name": "is_active",
+          "type": "TINYINT(1)",
+          "pk": false,
+          "fk": false,
+          "nullable": false,
+          "unique": false,
+          "src": "source/recruit_system/backend/interview-service/src/main/resources/db/migration/V1__schema.sql:73",
+          "default": "0"
+        },
+        {
+          "name": "created_at",
+          "type": "DATETIME",
+          "pk": false,
+          "fk": false,
+          "nullable": false,
+          "unique": false,
+          "src": "source/recruit_system/backend/interview-service/src/main/resources/db/migration/V1__schema.sql:74",
+          "default": "CURRENT_TIMESTAMP"
+        }
+      ],
+      "src": "source/recruit_system/backend/interview-service/src/main/resources/db/migration/V1__schema.sql:66"
+    },
+    {
+      "name": "evaluation_results",
+      "columns": [
+        {
+          "name": "id",
+          "type": "INT",
+          "pk": true,
+          "fk": false,
+          "nullable": false,
+          "unique": false,
+          "src": "source/recruit_system/backend/interview-service/src/main/resources/db/migration/V1__schema.sql:79"
+        },
+        {
+          "name": "response_id",
+          "type": "INT",
+          "pk": false,
+          "fk": true,
+          "nullable": false,
+          "unique": true,
+          "src": "source/recruit_system/backend/interview-service/src/main/resources/db/migration/V1__schema.sql:80"
+        },
+        {
+          "name": "evaluation_method",
+          "type": "VARCHAR(40)",
+          "pk": false,
+          "fk": false,
+          "nullable": false,
+          "unique": false,
+          "src": "source/recruit_system/backend/interview-service/src/main/resources/db/migration/V1__schema.sql:81",
+          "default": "RULE_BASED"
+        },
+        {
+          "name": "bertscore_precision",
+          "type": "DECIMAL(6,4)",
+          "pk": false,
+          "fk": false,
+          "nullable": true,
+          "unique": false,
+          "src": "source/recruit_system/backend/interview-service/src/main/resources/db/migration/V1__schema.sql:82"
+        },
+        {
+          "name": "bertscore_recall",
+          "type": "DECIMAL(6,4)",
+          "pk": false,
+          "fk": false,
+          "nullable": true,
+          "unique": false,
+          "src": "source/recruit_system/backend/interview-service/src/main/resources/db/migration/V1__schema.sql:83"
+        },
+        {
+          "name": "bertscore_f1",
+          "type": "DECIMAL(6,4)",
+          "pk": false,
+          "fk": false,
+          "nullable": true,
+          "unique": false,
+          "src": "source/recruit_system/backend/interview-service/src/main/resources/db/migration/V1__schema.sql:84"
+        },
+        {
+          "name": "predicted_score",
+          "type": "DECIMAL(6,2)",
+          "pk": false,
+          "fk": false,
+          "nullable": false,
+          "unique": false,
+          "src": "source/recruit_system/backend/interview-service/src/main/resources/db/migration/V1__schema.sql:85"
+        },
+        {
+          "name": "human_score",
+          "type": "DECIMAL(6,2)",
+          "pk": false,
+          "fk": false,
+          "nullable": true,
+          "unique": false,
+          "src": "source/recruit_system/backend/interview-service/src/main/resources/db/migration/V1__schema.sql:86"
+        },
+        {
+          "name": "correctness_score",
+          "type": "DECIMAL(6,2)",
+          "pk": false,
+          "fk": false,
+          "nullable": true,
+          "unique": false,
+          "src": "source/recruit_system/backend/interview-service/src/main/resources/db/migration/V1__schema.sql:87"
+        },
+        {
+          "name": "completeness_score",
+          "type": "DECIMAL(6,2)",
+          "pk": false,
+          "fk": false,
+          "nullable": true,
+          "unique": false,
+          "src": "source/recruit_system/backend/interview-service/src/main/resources/db/migration/V1__schema.sql:88"
+        },
+        {
+          "name": "feedback",
+          "type": "TEXT",
+          "pk": false,
+          "fk": false,
+          "nullable": true,
+          "unique": false,
+          "src": "source/recruit_system/backend/interview-service/src/main/resources/db/migration/V1__schema.sql:89"
+        },
+        {
+          "name": "strengths",
+          "type": "JSON",
+          "pk": false,
+          "fk": false,
+          "nullable": true,
+          "unique": false,
+          "src": "source/recruit_system/backend/interview-service/src/main/resources/db/migration/V1__schema.sql:90"
+        },
+        {
+          "name": "missing_points",
+          "type": "JSON",
+          "pk": false,
+          "fk": false,
+          "nullable": true,
+          "unique": false,
+          "src": "source/recruit_system/backend/interview-service/src/main/resources/db/migration/V1__schema.sql:91"
+        },
+        {
+          "name": "model_version_id",
+          "type": "INT",
+          "pk": false,
+          "fk": true,
+          "nullable": true,
+          "unique": false,
+          "src": "source/recruit_system/backend/interview-service/src/main/resources/db/migration/V1__schema.sql:92"
+        },
+        {
+          "name": "evaluated_at",
+          "type": "DATETIME",
+          "pk": false,
+          "fk": false,
+          "nullable": false,
+          "unique": false,
+          "src": "source/recruit_system/backend/interview-service/src/main/resources/db/migration/V1__schema.sql:93",
+          "default": "CURRENT_TIMESTAMP"
+        },
+        {
+          "name": "scoring_mode",
+          "type": "VARCHAR(32)",
+          "pk": false,
+          "fk": false,
+          "nullable": true,
+          "unique": false,
+          "src": "source/recruit_system/backend/interview-service/src/main/resources/db/migration/V4__interview_bank_and_assessment.sql:6"
+        },
+        {
+          "name": "scoring_model_version",
+          "type": "VARCHAR(255)",
+          "pk": false,
+          "fk": false,
+          "nullable": true,
+          "unique": false,
+          "src": "source/recruit_system/backend/interview-service/src/main/resources/db/migration/V4__interview_bank_and_assessment.sql:7"
+        },
+        {
+          "name": "criterion_results",
+          "type": "JSON",
+          "pk": false,
+          "fk": false,
+          "nullable": true,
+          "unique": false,
+          "src": "source/recruit_system/backend/interview-service/src/main/resources/db/migration/V4__interview_bank_and_assessment.sql:7"
+        },
+        {
+          "name": "coverage_score",
+          "type": "DECIMAL(6,4)",
+          "pk": false,
+          "fk": false,
+          "nullable": true,
+          "unique": false,
+          "src": "source/recruit_system/backend/interview-service/src/main/resources/db/migration/V4__interview_bank_and_assessment.sql:8"
+        }
+      ],
+      "src": "source/recruit_system/backend/interview-service/src/main/resources/db/migration/V1__schema.sql:78"
+    }
+  ],
+  "relations": [
+    {
+      "from": "evaluation_rubrics",
+      "to": "interview_questions",
+      "kind": "relationship",
+      "logical": false,
+      "label": "question_id → id",
+      "src": "source/recruit_system/backend/interview-service/src/main/resources/db/migration/V1__schema.sql:24"
+    },
+    {
+      "from": "interview_session_questions",
+      "to": "interview_sessions",
+      "kind": "relationship",
+      "logical": false,
+      "label": "session_id → id",
+      "src": "source/recruit_system/backend/interview-service/src/main/resources/db/migration/V1__schema.sql:51"
+    },
+    {
+      "from": "interview_session_questions",
+      "to": "interview_questions",
+      "kind": "relationship",
+      "logical": false,
+      "label": "question_id → id",
+      "src": "source/recruit_system/backend/interview-service/src/main/resources/db/migration/V1__schema.sql:52"
+    },
+    {
+      "from": "interview_responses",
+      "to": "interview_session_questions",
+      "kind": "relationship",
+      "logical": false,
+      "label": "session_question_id → id",
+      "src": "source/recruit_system/backend/interview-service/src/main/resources/db/migration/V1__schema.sql:63"
+    },
+    {
+      "from": "evaluation_results",
+      "to": "interview_responses",
+      "kind": "relationship",
+      "logical": false,
+      "label": "response_id → id",
+      "src": "source/recruit_system/backend/interview-service/src/main/resources/db/migration/V1__schema.sql:95"
+    },
+    {
+      "from": "evaluation_results",
+      "to": "model_versions",
+      "kind": "relationship",
+      "logical": false,
+      "label": "model_version_id → id",
+      "src": "source/recruit_system/backend/interview-service/src/main/resources/db/migration/V1__schema.sql:96"
+    }
+  ],
+  "notes": [
+    "CSDL interview-service: hirelens_interview.",
+    "Các cột *_id không có FK nhưng trỏ bảng cùng CSDL được thể hiện bằng logical relation (không có trường hợp này).",
+    "Tham chiếu chéo service: interview_questions.created_by và interview_sessions.candidate_user_id, candidate_id, job_id, application_id, recruiter_user_id; không vẽ relation."
+  ],
+  "open_questions": []
+}

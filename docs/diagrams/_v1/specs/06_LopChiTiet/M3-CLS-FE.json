@@ -1,0 +1,1168 @@
+{
+  "id": "M3-CLS-FE",
+  "type": "class",
+  "name": "Biểu đồ lớp chi tiết - Đối sánh, xem chi tiết việc, ứng tuyển (Frontend)",
+  "elements": [
+    {
+      "key": "pkgView",
+      "kind": "package",
+      "name": "View",
+      "notes": "Trang và component hiển thị của module M3 (React function component + TSX)",
+      "src": "source/recruit_system/frontend/src/pages/candidate/CandidateHomePage.tsx:36"
+    },
+    {
+      "key": "pkgController",
+      "kind": "package",
+      "name": "Controller",
+      "notes": "Context/Provider điều phối trạng thái dùng chung: xác thực và thông báo",
+      "src": "source/recruit_system/frontend/src/context/AuthContext.tsx:30"
+    },
+    {
+      "key": "pkgModel",
+      "kind": "package",
+      "name": "Model",
+      "notes": "Tầng dữ liệu phía client: gọi API và kiểu dữ liệu",
+      "src": "source/recruit_system/frontend/src/api/client.ts:1"
+    },
+    {
+      "key": "pkgModelApi",
+      "kind": "package",
+      "parent": "pkgModel",
+      "name": "api",
+      "notes": "Module gọi HTTP tới API Gateway và các nhóm endpoint theo nghiệp vụ",
+      "src": "source/recruit_system/frontend/src/api/client.ts:32"
+    },
+    {
+      "key": "pkgModelEntity",
+      "kind": "package",
+      "parent": "pkgModel",
+      "name": "entity",
+      "notes": "DTO nhận từ backend và mô hình hiển thị của giao diện",
+      "src": "source/recruit_system/frontend/src/types/index.ts:21"
+    },
+    {
+      "key": "CandidateHomePage",
+      "kind": "class",
+      "parent": "pkgView",
+      "stereotype": "boundary",
+      "attributes": [
+        {
+          "name": "keyword",
+          "type": "string",
+          "visibility": "-"
+        },
+        {
+          "name": "city",
+          "type": "string",
+          "visibility": "-"
+        },
+        {
+          "name": "mode",
+          "type": "\"near\" | \"match\"",
+          "visibility": "-"
+        },
+        {
+          "name": "jobs",
+          "type": "JobDto[]",
+          "visibility": "-"
+        },
+        {
+          "name": "matches",
+          "type": "MatchDto[]",
+          "visibility": "-"
+        },
+        {
+          "name": "cvReady",
+          "type": "boolean",
+          "visibility": "-"
+        },
+        {
+          "name": "selectedId",
+          "type": "string | null",
+          "visibility": "-"
+        }
+      ],
+      "operations": [
+        {
+          "name": "apply",
+          "params": [
+            {
+              "name": "jobId",
+              "type": "string"
+            }
+          ],
+          "returns": "Promise<void>",
+          "visibility": "+"
+        }
+      ],
+      "src": "source/recruit_system/frontend/src/pages/candidate/CandidateHomePage.tsx:36"
+    },
+    {
+      "key": "CandidateMatchingPage",
+      "kind": "class",
+      "parent": "pkgView",
+      "stereotype": "boundary",
+      "attributes": [
+        {
+          "name": "matches",
+          "type": "MatchDto[]",
+          "visibility": "-"
+        },
+        {
+          "name": "jobs",
+          "type": "JobDto[]",
+          "visibility": "-"
+        },
+        {
+          "name": "ready",
+          "type": "boolean",
+          "visibility": "-"
+        },
+        {
+          "name": "loading",
+          "type": "boolean",
+          "visibility": "-"
+        },
+        {
+          "name": "busy",
+          "type": "boolean",
+          "visibility": "-"
+        },
+        {
+          "name": "scoreError",
+          "type": "string | null",
+          "visibility": "-"
+        }
+      ],
+      "operations": [
+        {
+          "name": "load",
+          "params": [],
+          "returns": "Promise<\"empty\" | \"scored\" | \"stored\" | \"listed\">",
+          "visibility": "-"
+        },
+        {
+          "name": "rematch",
+          "params": [],
+          "returns": "Promise<void>",
+          "visibility": "+"
+        }
+      ],
+      "src": "source/recruit_system/frontend/src/pages/candidate/CandidateMatchingPage.tsx:21"
+    },
+    {
+      "key": "CandidateJobDetailPage",
+      "kind": "class",
+      "parent": "pkgView",
+      "stereotype": "boundary",
+      "attributes": [
+        {
+          "name": "job",
+          "type": "Job | null",
+          "visibility": "-"
+        },
+        {
+          "name": "loading",
+          "type": "boolean",
+          "visibility": "-"
+        }
+      ],
+      "operations": [],
+      "src": "source/recruit_system/frontend/src/pages/candidate/CandidateJobDetailPage.tsx:44"
+    },
+    {
+      "key": "JobCard",
+      "kind": "class",
+      "parent": "pkgView",
+      "stereotype": "boundary",
+      "attributes": [
+        {
+          "name": "job",
+          "type": "Job",
+          "visibility": "+"
+        },
+        {
+          "name": "match",
+          "type": "MatchResult",
+          "visibility": "+"
+        },
+        {
+          "name": "showMatch",
+          "type": "boolean",
+          "visibility": "+"
+        },
+        {
+          "name": "active",
+          "type": "boolean",
+          "visibility": "+"
+        },
+        {
+          "name": "delayMs",
+          "type": "number",
+          "visibility": "+"
+        },
+        {
+          "name": "onClick",
+          "type": "() => void",
+          "visibility": "+"
+        },
+        {
+          "name": "onApply",
+          "type": "(jobId: string) => void",
+          "visibility": "+"
+        }
+      ],
+      "operations": [],
+      "src": "source/recruit_system/frontend/src/components/common/JobCard.tsx:17"
+    },
+    {
+      "key": "MatchItem",
+      "kind": "class",
+      "parent": "pkgView",
+      "stereotype": "boundary",
+      "attributes": [
+        {
+          "name": "job",
+          "type": "Job",
+          "visibility": "+"
+        },
+        {
+          "name": "match",
+          "type": "MatchResult",
+          "visibility": "+"
+        },
+        {
+          "name": "actionHref",
+          "type": "string",
+          "visibility": "+"
+        },
+        {
+          "name": "actionLabel",
+          "type": "string",
+          "visibility": "+"
+        }
+      ],
+      "operations": [],
+      "src": "source/recruit_system/frontend/src/components/common/MatchItem.tsx:31"
+    },
+    {
+      "key": "AuthProvider",
+      "kind": "class",
+      "parent": "pkgController",
+      "stereotype": "control",
+      "attributes": [
+        {
+          "name": "user",
+          "type": "UserDto | null",
+          "visibility": "-"
+        },
+        {
+          "name": "loading",
+          "type": "boolean",
+          "visibility": "-"
+        }
+      ],
+      "operations": [
+        {
+          "name": "login",
+          "params": [
+            {
+              "name": "email",
+              "type": "string"
+            },
+            {
+              "name": "password",
+              "type": "string"
+            }
+          ],
+          "returns": "Promise<UserDto>",
+          "visibility": "+"
+        },
+        {
+          "name": "register",
+          "params": [
+            {
+              "name": "input",
+              "type": "{ email: string; password: string }"
+            }
+          ],
+          "returns": "Promise<UserDto>",
+          "visibility": "+"
+        },
+        {
+          "name": "chooseRole",
+          "params": [
+            {
+              "name": "role",
+              "type": "\"CANDIDATE\" | \"RECRUITER\""
+            }
+          ],
+          "returns": "Promise<UserDto>",
+          "visibility": "+"
+        },
+        {
+          "name": "logout",
+          "params": [],
+          "returns": "void",
+          "visibility": "+"
+        }
+      ],
+      "src": "source/recruit_system/frontend/src/context/AuthContext.tsx:44"
+    },
+    {
+      "key": "ToastProvider",
+      "kind": "class",
+      "parent": "pkgController",
+      "stereotype": "control",
+      "attributes": [
+        {
+          "name": "message",
+          "type": "string | null",
+          "visibility": "-"
+        }
+      ],
+      "operations": [
+        {
+          "name": "toast",
+          "params": [
+            {
+              "name": "msg",
+              "type": "string"
+            }
+          ],
+          "returns": "void",
+          "visibility": "+"
+        }
+      ],
+      "src": "source/recruit_system/frontend/src/context/ToastContext.tsx:17"
+    },
+    {
+      "key": "api",
+      "kind": "class",
+      "parent": "pkgModelApi",
+      "stereotype": "client",
+      "attributes": [
+        {
+          "name": "API_BASE",
+          "type": "string",
+          "visibility": "-"
+        },
+        {
+          "name": "TOKEN_KEY",
+          "type": "string",
+          "visibility": "-"
+        }
+      ],
+      "operations": [
+        {
+          "name": "api",
+          "params": [
+            {
+              "name": "path",
+              "type": "string"
+            },
+            {
+              "name": "options",
+              "type": "RequestInit"
+            }
+          ],
+          "returns": "Promise<T>",
+          "visibility": "+"
+        },
+        {
+          "name": "getToken",
+          "params": [],
+          "returns": "string | null",
+          "visibility": "+"
+        },
+        {
+          "name": "setToken",
+          "params": [
+            {
+              "name": "token",
+              "type": "string | null"
+            }
+          ],
+          "returns": "void",
+          "visibility": "+"
+        }
+      ],
+      "src": "source/recruit_system/frontend/src/api/client.ts:32",
+      "name": "client"
+    },
+    {
+      "key": "jobsApi",
+      "kind": "class",
+      "parent": "pkgModelApi",
+      "stereotype": "client",
+      "attributes": [],
+      "operations": [
+        {
+          "name": "list",
+          "params": [
+            {
+              "name": "params",
+              "type": "{ keyword?: string; city?: string }"
+            }
+          ],
+          "returns": "Promise<JobDto[]>",
+          "visibility": "+"
+        },
+        {
+          "name": "mine",
+          "params": [],
+          "returns": "Promise<JobDto[]>",
+          "visibility": "+"
+        },
+        {
+          "name": "get",
+          "params": [
+            {
+              "name": "id",
+              "type": "number"
+            }
+          ],
+          "returns": "Promise<JobDto>",
+          "visibility": "+"
+        }
+      ],
+      "src": "source/recruit_system/frontend/src/api/client.ts:70"
+    },
+    {
+      "key": "applicationsApi",
+      "kind": "class",
+      "parent": "pkgModelApi",
+      "stereotype": "client",
+      "attributes": [],
+      "operations": [
+        {
+          "name": "apply",
+          "params": [
+            {
+              "name": "jobId",
+              "type": "number"
+            },
+            {
+              "name": "body",
+              "type": "{ cvDocumentId?: number; coverLetter?: string }"
+            }
+          ],
+          "returns": "Promise<ApplicationDto>",
+          "visibility": "+"
+        }
+      ],
+      "src": "source/recruit_system/frontend/src/api/client.ts:89"
+    },
+    {
+      "key": "cvsApi",
+      "kind": "class",
+      "parent": "pkgModelApi",
+      "stereotype": "client",
+      "attributes": [],
+      "operations": [
+        {
+          "name": "mine",
+          "params": [],
+          "returns": "Promise<CvFormDto>",
+          "visibility": "+"
+        }
+      ],
+      "src": "source/recruit_system/frontend/src/api/client.ts:99"
+    },
+    {
+      "key": "matchingApi",
+      "kind": "class",
+      "parent": "pkgModelApi",
+      "stereotype": "client",
+      "attributes": [],
+      "operations": [
+        {
+          "name": "mine",
+          "params": [],
+          "returns": "Promise<MatchDto[]>",
+          "visibility": "+"
+        },
+        {
+          "name": "refreshMine",
+          "params": [],
+          "returns": "Promise<MatchDto[]>",
+          "visibility": "+"
+        }
+      ],
+      "src": "source/recruit_system/frontend/src/api/client.ts:113"
+    },
+    {
+      "key": "mappers",
+      "kind": "class",
+      "parent": "pkgModelApi",
+      "stereotype": "control",
+      "attributes": [],
+      "operations": [
+        {
+          "name": "mapJob",
+          "params": [
+            {
+              "name": "dto",
+              "type": "JobDto"
+            }
+          ],
+          "returns": "Job",
+          "visibility": "+"
+        },
+        {
+          "name": "mapMatch",
+          "params": [
+            {
+              "name": "dto",
+              "type": "MatchDto"
+            }
+          ],
+          "returns": "MatchResult",
+          "visibility": "+"
+        }
+      ],
+      "src": "source/recruit_system/frontend/src/utils/mappers.ts:31"
+    },
+    {
+      "key": "JobDto",
+      "kind": "interface",
+      "parent": "pkgModelEntity",
+      "stereotype": "entity",
+      "attributes": [
+        {
+          "name": "id",
+          "type": "number",
+          "visibility": "+"
+        },
+        {
+          "name": "title",
+          "type": "string",
+          "visibility": "+"
+        },
+        {
+          "name": "company",
+          "type": "string",
+          "visibility": "+"
+        },
+        {
+          "name": "companyId",
+          "type": "number",
+          "visibility": "+"
+        },
+        {
+          "name": "location",
+          "type": "string | null",
+          "visibility": "+"
+        },
+        {
+          "name": "city",
+          "type": "string | null",
+          "visibility": "+"
+        },
+        {
+          "name": "workType",
+          "type": "string | null",
+          "visibility": "+"
+        },
+        {
+          "name": "level",
+          "type": "string | null",
+          "visibility": "+"
+        },
+        {
+          "name": "salaryText",
+          "type": "string | null",
+          "visibility": "+"
+        },
+        {
+          "name": "minYears",
+          "type": "number | null",
+          "visibility": "+"
+        },
+        {
+          "name": "status",
+          "type": "string",
+          "visibility": "+"
+        },
+        {
+          "name": "hot",
+          "type": "boolean",
+          "visibility": "+"
+        },
+        {
+          "name": "description",
+          "type": "string | null",
+          "visibility": "+"
+        },
+        {
+          "name": "requirements",
+          "type": "string | null",
+          "visibility": "+"
+        },
+        {
+          "name": "responsibilities",
+          "type": "string | null",
+          "visibility": "+"
+        },
+        {
+          "name": "postedAt",
+          "type": "string | null",
+          "visibility": "+"
+        },
+        {
+          "name": "requiredSkills",
+          "type": "string[]",
+          "visibility": "+"
+        },
+        {
+          "name": "preferredSkills",
+          "type": "string[]",
+          "visibility": "+"
+        }
+      ],
+      "operations": [],
+      "src": "source/recruit_system/frontend/src/api/client.ts:171"
+    },
+    {
+      "key": "MatchDto",
+      "kind": "interface",
+      "parent": "pkgModelEntity",
+      "stereotype": "entity",
+      "attributes": [
+        {
+          "name": "id",
+          "type": "number",
+          "visibility": "+"
+        },
+        {
+          "name": "jobId",
+          "type": "number",
+          "visibility": "+"
+        },
+        {
+          "name": "jobTitle",
+          "type": "string",
+          "visibility": "+"
+        },
+        {
+          "name": "companyName",
+          "type": "string",
+          "visibility": "+"
+        },
+        {
+          "name": "candidateId",
+          "type": "number",
+          "visibility": "+"
+        },
+        {
+          "name": "candidateName",
+          "type": "string",
+          "visibility": "+"
+        },
+        {
+          "name": "overallScore",
+          "type": "number",
+          "visibility": "+"
+        },
+        {
+          "name": "semanticSimilarity",
+          "type": "number | null",
+          "visibility": "+"
+        },
+        {
+          "name": "tfidfSimilarity",
+          "type": "number | null",
+          "visibility": "+"
+        },
+        {
+          "name": "skillOverlap",
+          "type": "number | null",
+          "visibility": "+"
+        },
+        {
+          "name": "matchedSkills",
+          "type": "string[]",
+          "visibility": "+"
+        },
+        {
+          "name": "missingSkills",
+          "type": "string[]",
+          "visibility": "+"
+        },
+        {
+          "name": "reasons",
+          "type": "string[]",
+          "visibility": "+"
+        },
+        {
+          "name": "modelVersion",
+          "type": "string | null",
+          "visibility": "+"
+        },
+        {
+          "name": "rankPosition",
+          "type": "number | null",
+          "visibility": "+"
+        },
+        {
+          "name": "createdAt",
+          "type": "string",
+          "visibility": "+"
+        }
+      ],
+      "operations": [],
+      "src": "source/recruit_system/frontend/src/api/client.ts:232"
+    },
+    {
+      "key": "CvFormDto",
+      "kind": "interface",
+      "parent": "pkgModelEntity",
+      "stereotype": "entity",
+      "attributes": [
+        {
+          "name": "fileName",
+          "type": "string | null",
+          "visibility": "+"
+        },
+        {
+          "name": "parsingStatus",
+          "type": "string | null",
+          "visibility": "+"
+        },
+        {
+          "name": "analyzed",
+          "type": "boolean",
+          "visibility": "+"
+        },
+        {
+          "name": "fields",
+          "type": "CvFieldDto[]",
+          "visibility": "+"
+        }
+      ],
+      "operations": [],
+      "src": "source/recruit_system/frontend/src/api/client.ts:225"
+    },
+    {
+      "key": "Job",
+      "kind": "interface",
+      "parent": "pkgModelEntity",
+      "stereotype": "entity",
+      "attributes": [
+        {
+          "name": "id",
+          "type": "string",
+          "visibility": "+"
+        },
+        {
+          "name": "title",
+          "type": "string",
+          "visibility": "+"
+        },
+        {
+          "name": "company",
+          "type": "string",
+          "visibility": "+"
+        },
+        {
+          "name": "location",
+          "type": "string",
+          "visibility": "+"
+        },
+        {
+          "name": "city",
+          "type": "string",
+          "visibility": "+"
+        },
+        {
+          "name": "workType",
+          "type": "string",
+          "visibility": "+"
+        },
+        {
+          "name": "level",
+          "type": "string",
+          "visibility": "+"
+        },
+        {
+          "name": "salary",
+          "type": "string",
+          "visibility": "+"
+        },
+        {
+          "name": "postedAgo",
+          "type": "string",
+          "visibility": "+"
+        },
+        {
+          "name": "distanceKm",
+          "type": "number | null",
+          "visibility": "+"
+        },
+        {
+          "name": "hot",
+          "type": "boolean",
+          "visibility": "+"
+        },
+        {
+          "name": "nearYou",
+          "type": "boolean",
+          "visibility": "+"
+        },
+        {
+          "name": "logo",
+          "type": "string",
+          "visibility": "+"
+        },
+        {
+          "name": "logoColor",
+          "type": "string",
+          "visibility": "+"
+        },
+        {
+          "name": "requiredSkills",
+          "type": "string[]",
+          "visibility": "+"
+        },
+        {
+          "name": "preferredSkills",
+          "type": "string[]",
+          "visibility": "+"
+        },
+        {
+          "name": "minYears",
+          "type": "number",
+          "visibility": "+"
+        },
+        {
+          "name": "description",
+          "type": "string",
+          "visibility": "+"
+        },
+        {
+          "name": "requirements",
+          "type": "string",
+          "visibility": "+"
+        },
+        {
+          "name": "responsibilities",
+          "type": "string",
+          "visibility": "+"
+        }
+      ],
+      "operations": [],
+      "src": "source/recruit_system/frontend/src/types/index.ts:21"
+    },
+    {
+      "key": "MatchResult",
+      "kind": "interface",
+      "parent": "pkgModelEntity",
+      "stereotype": "entity",
+      "attributes": [
+        {
+          "name": "jobId",
+          "type": "string",
+          "visibility": "+"
+        },
+        {
+          "name": "rank",
+          "type": "number",
+          "visibility": "+"
+        },
+        {
+          "name": "score",
+          "type": "number",
+          "visibility": "+"
+        },
+        {
+          "name": "semanticSimilarity",
+          "type": "number",
+          "visibility": "+"
+        },
+        {
+          "name": "tfidfSimilarity",
+          "type": "number",
+          "visibility": "+"
+        },
+        {
+          "name": "skillOverlap",
+          "type": "number",
+          "visibility": "+"
+        },
+        {
+          "name": "matchedSkills",
+          "type": "string[]",
+          "visibility": "+"
+        },
+        {
+          "name": "missingSkills",
+          "type": "string[]",
+          "visibility": "+"
+        },
+        {
+          "name": "reasons",
+          "type": "string[]",
+          "visibility": "+"
+        },
+        {
+          "name": "modelVersion",
+          "type": "string",
+          "visibility": "+"
+        }
+      ],
+      "operations": [],
+      "src": "source/recruit_system/frontend/src/types/index.ts:44"
+    }
+  ],
+  "relations": [
+    {
+      "from": "CandidateHomePage",
+      "to": "AuthProvider",
+      "kind": "dependency",
+      "label": "useAuth()",
+      "src": "source/recruit_system/frontend/src/pages/candidate/CandidateHomePage.tsx:37"
+    },
+    {
+      "from": "CandidateHomePage",
+      "to": "ToastProvider",
+      "kind": "dependency",
+      "label": "useToast()",
+      "src": "source/recruit_system/frontend/src/pages/candidate/CandidateHomePage.tsx:38"
+    },
+    {
+      "from": "CandidateHomePage",
+      "to": "jobsApi",
+      "kind": "dependency",
+      "label": "list()",
+      "src": "source/recruit_system/frontend/src/pages/candidate/CandidateHomePage.tsx:48"
+    },
+    {
+      "from": "CandidateHomePage",
+      "to": "cvsApi",
+      "kind": "dependency",
+      "label": "mine()",
+      "src": "source/recruit_system/frontend/src/pages/candidate/CandidateHomePage.tsx:49"
+    },
+    {
+      "from": "CandidateHomePage",
+      "to": "matchingApi",
+      "kind": "dependency",
+      "label": "mine()",
+      "src": "source/recruit_system/frontend/src/pages/candidate/CandidateHomePage.tsx:58"
+    },
+    {
+      "from": "CandidateHomePage",
+      "to": "applicationsApi",
+      "kind": "dependency",
+      "label": "apply()",
+      "src": "source/recruit_system/frontend/src/pages/candidate/CandidateHomePage.tsx:93"
+    },
+    {
+      "from": "CandidateHomePage",
+      "to": "mappers",
+      "kind": "dependency",
+      "label": "mapJob(), mapMatch()",
+      "src": "source/recruit_system/frontend/src/pages/candidate/CandidateHomePage.tsx:66"
+    },
+    {
+      "from": "CandidateMatchingPage",
+      "to": "ToastProvider",
+      "kind": "dependency",
+      "label": "useToast()",
+      "src": "source/recruit_system/frontend/src/pages/candidate/CandidateMatchingPage.tsx:22"
+    },
+    {
+      "from": "CandidateMatchingPage",
+      "to": "cvsApi",
+      "kind": "dependency",
+      "label": "mine()",
+      "src": "source/recruit_system/frontend/src/pages/candidate/CandidateMatchingPage.tsx:31"
+    },
+    {
+      "from": "CandidateMatchingPage",
+      "to": "jobsApi",
+      "kind": "dependency",
+      "label": "list()",
+      "src": "source/recruit_system/frontend/src/pages/candidate/CandidateMatchingPage.tsx:40"
+    },
+    {
+      "from": "CandidateMatchingPage",
+      "to": "matchingApi",
+      "kind": "dependency",
+      "label": "mine(), refreshMine()",
+      "src": "source/recruit_system/frontend/src/pages/candidate/CandidateMatchingPage.tsx:44"
+    },
+    {
+      "from": "CandidateMatchingPage",
+      "to": "mappers",
+      "kind": "dependency",
+      "label": "mapJob(), mapMatch()",
+      "src": "source/recruit_system/frontend/src/pages/candidate/CandidateMatchingPage.tsx:127"
+    },
+    {
+      "from": "CandidateJobDetailPage",
+      "to": "ToastProvider",
+      "kind": "dependency",
+      "label": "useToast()",
+      "src": "source/recruit_system/frontend/src/pages/candidate/CandidateJobDetailPage.tsx:46"
+    },
+    {
+      "from": "CandidateJobDetailPage",
+      "to": "jobsApi",
+      "kind": "dependency",
+      "label": "get()",
+      "src": "source/recruit_system/frontend/src/pages/candidate/CandidateJobDetailPage.tsx:56"
+    },
+    {
+      "from": "CandidateJobDetailPage",
+      "to": "mappers",
+      "kind": "dependency",
+      "label": "mapJob()",
+      "src": "source/recruit_system/frontend/src/pages/candidate/CandidateJobDetailPage.tsx:58"
+    },
+    {
+      "from": "CandidateHomePage",
+      "to": "JobCard",
+      "kind": "composition",
+      "fromMult": "1",
+      "toMult": "0..*",
+      "label": "render danh sách việc",
+      "src": "source/recruit_system/frontend/src/pages/candidate/CandidateHomePage.tsx:161"
+    },
+    {
+      "from": "CandidateMatchingPage",
+      "to": "MatchItem",
+      "kind": "composition",
+      "fromMult": "1",
+      "toMult": "0..*",
+      "label": "render danh sách xếp hạng",
+      "src": "source/recruit_system/frontend/src/pages/candidate/CandidateMatchingPage.tsx:154"
+    },
+    {
+      "from": "JobCard",
+      "to": "Job",
+      "kind": "association",
+      "fromMult": "1",
+      "toMult": "1",
+      "label": "job",
+      "src": "source/recruit_system/frontend/src/components/common/JobCard.tsx:8"
+    },
+    {
+      "from": "JobCard",
+      "to": "MatchResult",
+      "kind": "association",
+      "fromMult": "1",
+      "toMult": "0..1",
+      "label": "match",
+      "src": "source/recruit_system/frontend/src/components/common/JobCard.tsx:9"
+    },
+    {
+      "from": "MatchItem",
+      "to": "Job",
+      "kind": "association",
+      "fromMult": "1",
+      "toMult": "1",
+      "label": "job",
+      "src": "source/recruit_system/frontend/src/components/common/MatchItem.tsx:10"
+    },
+    {
+      "from": "MatchItem",
+      "to": "MatchResult",
+      "kind": "association",
+      "fromMult": "1",
+      "toMult": "1",
+      "label": "match",
+      "src": "source/recruit_system/frontend/src/components/common/MatchItem.tsx:11"
+    },
+    {
+      "from": "jobsApi",
+      "to": "api",
+      "kind": "dependency",
+      "label": "api<JobDto>()",
+      "src": "source/recruit_system/frontend/src/api/client.ts:76"
+    },
+    {
+      "from": "applicationsApi",
+      "to": "api",
+      "kind": "dependency",
+      "label": "api<ApplicationDto>()",
+      "src": "source/recruit_system/frontend/src/api/client.ts:91"
+    },
+    {
+      "from": "cvsApi",
+      "to": "api",
+      "kind": "dependency",
+      "label": "api<CvFormDto>()",
+      "src": "source/recruit_system/frontend/src/api/client.ts:100"
+    },
+    {
+      "from": "matchingApi",
+      "to": "api",
+      "kind": "dependency",
+      "label": "api<MatchDto[]>()",
+      "src": "source/recruit_system/frontend/src/api/client.ts:114"
+    },
+    {
+      "from": "jobsApi",
+      "to": "JobDto",
+      "kind": "dependency",
+      "label": "kiểu trả về",
+      "src": "source/recruit_system/frontend/src/api/client.ts:76"
+    },
+    {
+      "from": "matchingApi",
+      "to": "MatchDto",
+      "kind": "dependency",
+      "label": "kiểu trả về",
+      "src": "source/recruit_system/frontend/src/api/client.ts:114"
+    },
+    {
+      "from": "cvsApi",
+      "to": "CvFormDto",
+      "kind": "dependency",
+      "label": "kiểu trả về",
+      "src": "source/recruit_system/frontend/src/api/client.ts:100"
+    },
+    {
+      "from": "mappers",
+      "to": "JobDto",
+      "kind": "dependency",
+      "label": "tham số dto",
+      "src": "source/recruit_system/frontend/src/utils/mappers.ts:1"
+    },
+    {
+      "from": "mappers",
+      "to": "MatchDto",
+      "kind": "dependency",
+      "label": "tham số dto",
+      "src": "source/recruit_system/frontend/src/utils/mappers.ts:1"
+    },
+    {
+      "from": "mappers",
+      "to": "Job",
+      "kind": "dependency",
+      "label": "mapJob() trả về",
+      "src": "source/recruit_system/frontend/src/utils/mappers.ts:31"
+    },
+    {
+      "from": "mappers",
+      "to": "MatchResult",
+      "kind": "dependency",
+      "label": "mapMatch() trả về",
+      "src": "source/recruit_system/frontend/src/utils/mappers.ts:57"
+    }
+  ],
+  "notes": [
+    "Trang chi tiết việc chỉ đọc dữ liệu và điều hướng sang ôn phỏng vấn; nút Ứng tuyển nằm ở CandidateHomePage (CandidateHomePage.tsx:212).",
+    "CandidateMatchingPage.load() chạy ngay trong useEffect khi mở trang, đồng thời là handler của nút 'Cập nhật theo CV'.",
+    "CandidateJobDetailPage không có handler đặt tên: lời gọi jobsApi.get(id) nằm trong callback của useEffect (dòng 50-61).",
+    "Các component trang là hàm React; giá trị trả về là JSX.Element (TypeScript suy luận), nên không khai báo thành operation.",
+    "useAuth()/useToast() là hook export từ context; trong biểu đồ quy về lớp provider tương ứng (AuthProvider, ToastProvider).",
+    "ApiError (client.ts:14) không đưa vào vì module M3 chỉ bắt Error.message chung, không dùng thuộc tính status."
+  ],
+  "open_questions": [
+    "[cần xác nhận] Có bổ sung nút ứng tuyển ngay tại trang chi tiết việc hay giữ thao tác ứng tuyển tại trang chủ?",
+    "[cần xác nhận] applicationsApi.apply() trả về ApplicationDto nhưng CandidateHomePage bỏ qua kết quả (chỉ hiện toast); có cần hiển thị trạng thái đơn ngay sau khi nộp không?",
+    "[cần xác nhận] Job.nearYou/distanceKm không được mapJob() gán (luôn false/null) nên bộ lọc 'gần bạn' không hoạt động; có dự kiến lấy vị trí thật từ API không?"
+  ]
+}

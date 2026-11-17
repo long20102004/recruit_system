@@ -1,0 +1,304 @@
+{
+  "id": "AN-M1",
+  "type": "class",
+  "name": "Biểu đồ lớp pha phân tích - Đăng ký, đăng nhập và chọn vai trò",
+  "elements": [
+    {
+      "key": "RegisterView",
+      "kind": "class",
+      "src": "source/recruit_system/frontend/src/pages/RegisterPage.tsx:17",
+      "attributes": [
+        {
+          "name": "inEmail",
+          "src": "source/recruit_system/frontend/src/pages/RegisterPage.tsx:55"
+        },
+        {
+          "name": "inPassword",
+          "src": "source/recruit_system/frontend/src/pages/RegisterPage.tsx:64"
+        },
+        {
+          "name": "outMessage",
+          "src": "source/recruit_system/frontend/src/pages/RegisterPage.tsx:33"
+        },
+        {
+          "name": "subRegister",
+          "src": "source/recruit_system/frontend/src/pages/RegisterPage.tsx:74"
+        },
+        {
+          "name": "subToLogin",
+          "src": "source/recruit_system/frontend/src/pages/RegisterPage.tsx:78"
+        },
+        {
+          "name": "subBack",
+          "src": "source/recruit_system/frontend/src/pages/RegisterPage.tsx:80"
+        }
+      ]
+    },
+    {
+      "key": "LoginView",
+      "kind": "class",
+      "src": "source/recruit_system/frontend/src/pages/LoginPage.tsx:17",
+      "attributes": [
+        {
+          "name": "inEmail",
+          "src": "source/recruit_system/frontend/src/pages/LoginPage.tsx:55"
+        },
+        {
+          "name": "inPassword",
+          "src": "source/recruit_system/frontend/src/pages/LoginPage.tsx:64"
+        },
+        {
+          "name": "outMessage",
+          "src": "source/recruit_system/frontend/src/pages/LoginPage.tsx:33"
+        },
+        {
+          "name": "subLogin",
+          "src": "source/recruit_system/frontend/src/pages/LoginPage.tsx:73"
+        },
+        {
+          "name": "subToRegister",
+          "src": "source/recruit_system/frontend/src/pages/LoginPage.tsx:77"
+        },
+        {
+          "name": "subBack",
+          "src": "source/recruit_system/frontend/src/pages/LoginPage.tsx:79"
+        }
+      ]
+    },
+    {
+      "key": "ChooseRoleView",
+      "kind": "class",
+      "src": "source/recruit_system/frontend/src/pages/ChooseRolePage.tsx:17",
+      "attributes": [
+        {
+          "name": "inRole",
+          "src": "source/recruit_system/frontend/src/pages/ChooseRolePage.tsx:21"
+        },
+        {
+          "name": "outsubRoleOptions",
+          "src": "source/recruit_system/frontend/src/pages/ChooseRolePage.tsx:54"
+        },
+        {
+          "name": "outMessage",
+          "src": "source/recruit_system/frontend/src/pages/ChooseRolePage.tsx:32"
+        },
+        {
+          "name": "subConfirmRole",
+          "src": "source/recruit_system/frontend/src/pages/ChooseRolePage.tsx:67"
+        }
+      ]
+    },
+    {
+      "key": "User",
+      "kind": "class",
+      "src": "source/recruit_system/backend/identity-service/src/main/java/recruit/demo/entity/User.java:17",
+      "attributes": [
+        {
+          "name": "fullName",
+          "src": "source/recruit_system/backend/identity-service/src/main/java/recruit/demo/entity/User.java:24"
+        },
+        {
+          "name": "email",
+          "src": "source/recruit_system/backend/identity-service/src/main/java/recruit/demo/entity/User.java:27"
+        },
+        {
+          "name": "passwordHash",
+          "src": "source/recruit_system/backend/identity-service/src/main/java/recruit/demo/entity/User.java:30"
+        },
+        {
+          "name": "phone",
+          "src": "source/recruit_system/backend/identity-service/src/main/java/recruit/demo/entity/User.java:32"
+        },
+        {
+          "name": "role",
+          "src": "source/recruit_system/backend/identity-service/src/main/java/recruit/demo/entity/User.java:37"
+        },
+        {
+          "name": "roleChosen",
+          "src": "source/recruit_system/backend/identity-service/src/main/java/recruit/demo/entity/User.java:41"
+        },
+        {
+          "name": "status",
+          "src": "source/recruit_system/backend/identity-service/src/main/java/recruit/demo/entity/User.java:46"
+        }
+      ],
+      "operations": [
+        {
+          "name": "register",
+          "visibility": "+",
+          "src": "source/recruit_system/backend/identity-service/src/main/java/recruit/demo/service/AuthService.java:28"
+        },
+        {
+          "name": "login",
+          "visibility": "+",
+          "src": "source/recruit_system/backend/identity-service/src/main/java/recruit/demo/service/AuthService.java:68"
+        },
+        {
+          "name": "chooseRole",
+          "visibility": "+",
+          "src": "source/recruit_system/backend/identity-service/src/main/java/recruit/demo/service/AuthService.java:49"
+        },
+        {
+          "name": "me",
+          "visibility": "+",
+          "src": "source/recruit_system/backend/identity-service/src/main/java/recruit/demo/service/AuthService.java:77"
+        }
+      ]
+    },
+    {
+      "key": "CandidateProfile",
+      "kind": "class",
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/entity/CandidateProfile.java:19",
+      "attributes": [
+        {
+          "name": "dateOfBirth",
+          "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/entity/CandidateProfile.java:29"
+        },
+        {
+          "name": "address",
+          "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/entity/CandidateProfile.java:31"
+        },
+        {
+          "name": "headline",
+          "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/entity/CandidateProfile.java:32"
+        },
+        {
+          "name": "summary",
+          "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/entity/CandidateProfile.java:35"
+        },
+        {
+          "name": "yearsOfExperience",
+          "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/entity/CandidateProfile.java:38"
+        },
+        {
+          "name": "educationLevel",
+          "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/entity/CandidateProfile.java:41"
+        }
+      ]
+    },
+    {
+      "key": "RecruiterProfile",
+      "kind": "class",
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/entity/RecruiterProfile.java:16",
+      "attributes": [
+        {
+          "name": "position",
+          "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/entity/RecruiterProfile.java:29"
+        }
+      ]
+    },
+    {
+      "key": "Company",
+      "kind": "class",
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/entity/Company.java:16",
+      "attributes": [
+        {
+          "name": "name",
+          "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/entity/Company.java:23"
+        },
+        {
+          "name": "description",
+          "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/entity/Company.java:26"
+        },
+        {
+          "name": "website",
+          "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/entity/Company.java:28"
+        },
+        {
+          "name": "address",
+          "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/entity/Company.java:29"
+        }
+      ]
+    }
+  ],
+  "relations": [
+    {
+      "from": "RegisterView",
+      "to": "LoginView",
+      "kind": "association",
+      "label": "Đã có tài khoản",
+      "src": "source/recruit_system/frontend/src/pages/RegisterPage.tsx:78"
+    },
+    {
+      "from": "LoginView",
+      "to": "RegisterView",
+      "kind": "association",
+      "label": "Chưa có tài khoản",
+      "src": "source/recruit_system/frontend/src/pages/LoginPage.tsx:77"
+    },
+    {
+      "from": "RegisterView",
+      "to": "ChooseRoleView",
+      "kind": "association",
+      "label": "Đăng ký thành công",
+      "src": "source/recruit_system/frontend/src/pages/RegisterPage.tsx:34"
+    },
+    {
+      "from": "LoginView",
+      "to": "ChooseRoleView",
+      "kind": "association",
+      "label": "Chưa chọn vai trò",
+      "src": "source/recruit_system/frontend/src/pages/LoginPage.tsx:34"
+    },
+    {
+      "from": "RegisterView",
+      "to": "User",
+      "kind": "association",
+      "label": "register",
+      "src": "source/recruit_system/frontend/src/pages/RegisterPage.tsx:32"
+    },
+    {
+      "from": "LoginView",
+      "to": "User",
+      "kind": "association",
+      "label": "login, me",
+      "src": "source/recruit_system/frontend/src/pages/LoginPage.tsx:32"
+    },
+    {
+      "from": "ChooseRoleView",
+      "to": "User",
+      "kind": "association",
+      "label": "chooseRole",
+      "src": "source/recruit_system/frontend/src/pages/ChooseRolePage.tsx:31"
+    },
+    {
+      "from": "CandidateProfile",
+      "to": "User",
+      "kind": "association",
+      "fromMult": "1",
+      "toMult": "1",
+      "label": "",
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/entity/CandidateProfile.java:26"
+    },
+    {
+      "from": "RecruiterProfile",
+      "to": "User",
+      "kind": "association",
+      "fromMult": "n",
+      "toMult": "1",
+      "label": "",
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/entity/RecruiterProfile.java:23"
+    },
+    {
+      "from": "RecruiterProfile",
+      "to": "Company",
+      "kind": "association",
+      "fromMult": "n",
+      "toMult": "1",
+      "label": "",
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/entity/RecruiterProfile.java:27"
+    }
+  ],
+  "notes": [
+    "Ba lớp biên RegisterView, LoginView và ChooseRoleView tương ứng với 3 trang xác thực và phân quyền ban đầu của hệ thống.",
+    "Các hàm register, login, chooseRole, me thực tế thuộc AuthService (identity-service), được phân công cho lớp chủ thể User trong mô hình pha phân tích; không phải phương thức khai báo trên entity User.",
+    "Các thực thể CandidateProfile, RecruiterProfile, Company được giữ từ biểu đồ trích thực thể TT nhằm thể hiện kết quả phân vai trò và khởi tạo hồ sơ người dùng trong CSDL recruitment-service qua ProfileProvisioningService.",
+    "Quan hệ giữa CandidateProfile / RecruiterProfile với User là tham chiếu logic qua userId giữa các service, không có khóa ngoại CSDL trực tiếp.",
+    "Sau khi chọn vai trò hoặc đăng nhập tài khoản đã có vai trò, hệ thống điều hướng sang /candidate hoặc /recruiter thuộc các chức năng tiếp theo, không bổ sung thêm lớp biên ngoài phạm vi M1.",
+    "Các đường nối giữa hai package service khác nhau là liên kết logical (khác service): chỉ lưu id, không có khóa ngoại/tham chiếu đối tượng."
+  ],
+  "open_questions": [
+    "[cần xác nhận] Sau khi chọn vai trò hoặc đăng nhập thành công, điều hướng sang /candidate hoặc /recruiter dẫn tới các chức năng tiếp theo (M3 đối sánh/ứng tuyển); các lớp biên của trang chủ vai trò không được đưa vào M1 nhằm bảo đảm đúng phạm vi chức năng.",
+    "[cần xác nhận] Cơ chế tạo hồ sơ tự động qua ProfileProvisioningService trong recruitment-service là xử lý ngầm định của bộ lọc khi có request đầu tiên đến recruitment-service, không được gọi trực tiếp từ giao diện ChooseRolePage."
+  ]
+}

@@ -1,0 +1,227 @@
+{
+  "id": "M3-SEQ-FE",
+  "type": "sequence",
+  "name": "Biểu đồ tuần tự chi tiết - Đối sánh, xem chi tiết việc, ứng tuyển (Frontend)",
+  "lifelines": [
+    {
+      "key": "u",
+      "name": "Người dùng",
+      "kind": "actor",
+      "class": "Người dùng",
+      "src": "source/recruit_system/frontend/src/pages/candidate/CandidateHomePage.tsx:212"
+    },
+    {
+      "key": "home",
+      "name": ":CandidateHomePage",
+      "kind": "object",
+      "class": "CandidateHomePage",
+      "src": "source/recruit_system/frontend/src/pages/candidate/CandidateHomePage.tsx:36"
+    },
+    {
+      "key": "toast",
+      "name": ":ToastProvider",
+      "kind": "object",
+      "class": "ToastProvider",
+      "src": "source/recruit_system/frontend/src/context/ToastContext.tsx:17"
+    },
+    {
+      "key": "applications",
+      "name": ":applicationsApi",
+      "kind": "object",
+      "class": "applicationsApi",
+      "src": "source/recruit_system/frontend/src/api/client.ts:89"
+    },
+    {
+      "key": "api",
+      "name": ":client",
+      "kind": "object",
+      "class": "client",
+      "src": "source/recruit_system/frontend/src/api/client.ts:32"
+    },
+    {
+      "key": "server",
+      "name": ":ApplicationsController",
+      "kind": "object",
+      "class": "ApplicationsController",
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/controller/ApplicationsController.java:13"
+    }
+  ],
+  "messages": [
+    {
+      "seq": 1,
+      "from": "u",
+      "to": "home",
+      "operation": "apply",
+      "params": [
+        "jobId"
+      ],
+      "kind": "sync",
+      "src": "source/recruit_system/frontend/src/pages/candidate/CandidateHomePage.tsx:212"
+    },
+    {
+      "seq": 2,
+      "from": "home",
+      "to": "applications",
+      "operation": "apply",
+      "params": [
+        "jobId"
+      ],
+      "kind": "sync",
+      "src": "source/recruit_system/frontend/src/pages/candidate/CandidateHomePage.tsx:93"
+    },
+    {
+      "seq": 3,
+      "from": "applications",
+      "to": "api",
+      "operation": "api",
+      "params": [
+        "path",
+        "options"
+      ],
+      "kind": "sync",
+      "src": "source/recruit_system/frontend/src/api/client.ts:91"
+    },
+    {
+      "seq": 4,
+      "from": "api",
+      "to": "server",
+      "operation": "POST /api/applications/jobs/{jobId}",
+      "params": [
+        "jobId",
+        "{}"
+      ],
+      "kind": "sync",
+      "src": "source/recruit_system/frontend/src/api/client.ts:91"
+    },
+    {
+      "seq": 5,
+      "from": "server",
+      "to": "api",
+      "operation": "POST /api/applications/jobs/{jobId}",
+      "params": "200 ApplicationResponse",
+      "kind": "return",
+      "fragment": {
+        "id": "altApply",
+        "kind": "alt",
+        "guard": "đơn được lưu thành công"
+      },
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/controller/ApplicationsController.java:20"
+    },
+    {
+      "seq": 6,
+      "from": "api",
+      "to": "applications",
+      "operation": "api",
+      "params": "ApplicationDto",
+      "kind": "return",
+      "fragment": {
+        "id": "altApply",
+        "kind": "alt",
+        "guard": "đơn được lưu thành công"
+      },
+      "src": "source/recruit_system/frontend/src/api/client.ts:48"
+    },
+    {
+      "seq": 7,
+      "from": "applications",
+      "to": "home",
+      "operation": "apply",
+      "params": "ApplicationDto",
+      "kind": "return",
+      "fragment": {
+        "id": "altApply",
+        "kind": "alt",
+        "guard": "đơn được lưu thành công"
+      },
+      "src": "source/recruit_system/frontend/src/pages/candidate/CandidateHomePage.tsx:93"
+    },
+    {
+      "seq": 8,
+      "from": "home",
+      "to": "toast",
+      "operation": "toast",
+      "params": [
+        "\"Đã nộp hồ sơ ứng tuyển\""
+      ],
+      "kind": "sync",
+      "fragment": {
+        "id": "altApply",
+        "kind": "alt",
+        "guard": "đơn được lưu thành công"
+      },
+      "src": "source/recruit_system/frontend/src/pages/candidate/CandidateHomePage.tsx:94"
+    },
+    {
+      "seq": 9,
+      "from": "server",
+      "to": "api",
+      "operation": "POST /api/applications/jobs/{jobId}",
+      "params": "400/401/403/404/409 ErrorResponse",
+      "kind": "return",
+      "fragment": {
+        "id": "altApply",
+        "kind": "alt",
+        "guard": "chưa đăng nhập, sai vai trò, tin không mở hoặc đã ứng tuyển"
+      },
+      "src": "source/recruit_system/backend/common/src/main/java/recruit/demo/exception/GlobalExceptionHandler.java:20"
+    },
+    {
+      "seq": 10,
+      "from": "api",
+      "to": "applications",
+      "operation": "api",
+      "params": "throw ApiError(status, message)",
+      "kind": "return",
+      "fragment": {
+        "id": "altApply",
+        "kind": "alt",
+        "guard": "chưa đăng nhập, sai vai trò, tin không mở hoặc đã ứng tuyển"
+      },
+      "src": "source/recruit_system/frontend/src/api/client.ts:45"
+    },
+    {
+      "seq": 11,
+      "from": "applications",
+      "to": "home",
+      "operation": "apply",
+      "params": "throw ApiError",
+      "kind": "return",
+      "fragment": {
+        "id": "altApply",
+        "kind": "alt",
+        "guard": "chưa đăng nhập, sai vai trò, tin không mở hoặc đã ứng tuyển"
+      },
+      "src": "source/recruit_system/frontend/src/pages/candidate/CandidateHomePage.tsx:95"
+    },
+    {
+      "seq": 12,
+      "from": "home",
+      "to": "toast",
+      "operation": "toast",
+      "params": [
+        "e.message"
+      ],
+      "kind": "sync",
+      "fragment": {
+        "id": "altApply",
+        "kind": "alt",
+        "guard": "chưa đăng nhập, sai vai trò, tin không mở hoặc đã ứng tuyển"
+      },
+      "src": "source/recruit_system/frontend/src/pages/candidate/CandidateHomePage.tsx:96"
+    }
+  ],
+  "notes": [
+    "Lát cắt được vẽ là bước ứng tuyển ở trang chủ (M3-ACT N19–N24). Đây là luồng duy nhất trong M3 mà mọi lời gọi HTTP của frontend đi tới cùng một controller (ApplicationsController), nên đáp ứng ràng buộc một lifeline đại diện server.",
+    "Toàn bộ lifeline object (trừ :ApplicationsController là bên ngoài) khớp lớp trong M3-CLS-FE.json; operation của từng message khớp operations của lớp đích: CandidateHomePage.apply, applicationsApi.apply, client.api, ToastProvider.toast.",
+    "Lifeline ':client' là lớp client.ts ứng với element key 'api' (name 'client') trong M3-CLS-FE.json; method api(path, options) là điểm duy nhất phát request HTTP và ánh xạ lỗi sang ApiError.",
+    "api() gắn header Authorization từ getToken() (client.ts:40-41) trước khi fetch (client.ts:43); bước này không vẽ thành message để giữ biểu đồ gọn, xem ghi chú.",
+    "Lối vào thực tế còn có nút 'Ứng tuyển' trên JobCard (JobCard.tsx:64-67 gọi onApply(job.id)); M3-CLS-FE.json không khai báo operation cho JobCard nên không thể vẽ message hợp lệ — xem open_questions.",
+    "Response 200 ApplicationResponse bị CandidateHomePage bỏ qua (chỉ hiện toast), nên biểu đồ không có bước cập nhật danh sách/đơn sau khi nộp.",
+    "Title giữ tên module theo quy ước chung; phạm vi thực vẽ là luồng ứng tuyển, không ngụ ý đã vẽ luồng đối sánh và xem chi tiết việc."
+  ],
+  "open_questions": [
+    "[cần xác nhận] M3-CLS-FE.json không khai báo operation nào cho JobCard (onApply/onClick, JobCard.tsx:14 và :66), nên lối vào 'Ứng tuyển' trên thẻ việc không vẽ được message; có bổ sung JobCard.onApply vào biểu đồ lớp không?",
+    "[cần xác nhận] Luồng đối sánh (M3-ACT N02–N14) và xem chi tiết việc (N15–N18) gọi ba controller khác nhau (CvsController, JobsController, MatchingController), vượt ràng buộc một lifeline server và giới hạn 8 lifeline; có cần thêm một biểu đồ M3-SEQ-FE-2 riêng cho luồng đối sánh không?",
+    "[cần xác nhận] applicationsApi.apply() trả về ApplicationDto nhưng CandidateHomePage bỏ qua kết quả (chỉ toast); có cần hiển thị trạng thái đơn ngay sau khi nộp để biểu đồ có bước cập nhật giao diện không?"
+  ]
+}

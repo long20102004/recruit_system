@@ -1,0 +1,847 @@
+{
+  "id": "B1-RECRUITMENT",
+  "type": "erd",
+  "name": "Thiết kế CSDL - recruitment-service",
+  "database": "hirelens_recruitment",
+  "entities": [
+    {
+      "name": "candidate_profiles",
+      "columns": [
+        {
+          "name": "id",
+          "type": "INT",
+          "pk": true,
+          "fk": false,
+          "nullable": false,
+          "unique": false,
+          "src": "source/recruit_system/backend/recruitment-service/src/main/resources/db/migration/V1__schema.sql:2"
+        },
+        {
+          "name": "user_id",
+          "type": "INT",
+          "pk": false,
+          "fk": false,
+          "nullable": false,
+          "unique": true,
+          "src": "source/recruit_system/backend/recruitment-service/src/main/resources/db/migration/V1__schema.sql:3"
+        },
+        {
+          "name": "date_of_birth",
+          "type": "DATE",
+          "pk": false,
+          "fk": false,
+          "nullable": true,
+          "unique": false,
+          "src": "source/recruit_system/backend/recruitment-service/src/main/resources/db/migration/V1__schema.sql:4"
+        },
+        {
+          "name": "address",
+          "type": "VARCHAR(500)",
+          "pk": false,
+          "fk": false,
+          "nullable": true,
+          "unique": false,
+          "src": "source/recruit_system/backend/recruitment-service/src/main/resources/db/migration/V1__schema.sql:5"
+        },
+        {
+          "name": "headline",
+          "type": "VARCHAR(255)",
+          "pk": false,
+          "fk": false,
+          "nullable": true,
+          "unique": false,
+          "src": "source/recruit_system/backend/recruitment-service/src/main/resources/db/migration/V1__schema.sql:6"
+        },
+        {
+          "name": "summary",
+          "type": "TEXT",
+          "pk": false,
+          "fk": false,
+          "nullable": true,
+          "unique": false,
+          "src": "source/recruit_system/backend/recruitment-service/src/main/resources/db/migration/V1__schema.sql:7"
+        },
+        {
+          "name": "years_of_experience",
+          "type": "DECIMAL(4,1)",
+          "pk": false,
+          "fk": false,
+          "nullable": true,
+          "unique": false,
+          "src": "source/recruit_system/backend/recruitment-service/src/main/resources/db/migration/V1__schema.sql:8"
+        },
+        {
+          "name": "education_level",
+          "type": "VARCHAR(120)",
+          "pk": false,
+          "fk": false,
+          "nullable": true,
+          "unique": false,
+          "src": "source/recruit_system/backend/recruitment-service/src/main/resources/db/migration/V1__schema.sql:9"
+        },
+        {
+          "name": "created_at",
+          "type": "DATETIME",
+          "pk": false,
+          "fk": false,
+          "nullable": false,
+          "unique": false,
+          "default": "CURRENT_TIMESTAMP",
+          "src": "source/recruit_system/backend/recruitment-service/src/main/resources/db/migration/V1__schema.sql:10"
+        },
+        {
+          "name": "updated_at",
+          "type": "DATETIME",
+          "pk": false,
+          "fk": false,
+          "nullable": true,
+          "unique": false,
+          "default": "CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP",
+          "src": "source/recruit_system/backend/recruitment-service/src/main/resources/db/migration/V1__schema.sql:11"
+        }
+      ],
+      "src": "source/recruit_system/backend/recruitment-service/src/main/resources/db/migration/V1__schema.sql:1"
+    },
+    {
+      "name": "companies",
+      "columns": [
+        {
+          "name": "id",
+          "type": "INT",
+          "pk": true,
+          "fk": false,
+          "nullable": false,
+          "unique": false,
+          "src": "source/recruit_system/backend/recruitment-service/src/main/resources/db/migration/V1__schema.sql:104"
+        },
+        {
+          "name": "name",
+          "type": "VARCHAR(255)",
+          "pk": false,
+          "fk": false,
+          "nullable": false,
+          "unique": true,
+          "src": "source/recruit_system/backend/recruitment-service/src/main/resources/db/migration/V1__schema.sql:105"
+        },
+        {
+          "name": "description",
+          "type": "TEXT",
+          "pk": false,
+          "fk": false,
+          "nullable": true,
+          "unique": false,
+          "src": "source/recruit_system/backend/recruitment-service/src/main/resources/db/migration/V1__schema.sql:106"
+        },
+        {
+          "name": "website",
+          "type": "VARCHAR(500)",
+          "pk": false,
+          "fk": false,
+          "nullable": true,
+          "unique": false,
+          "src": "source/recruit_system/backend/recruitment-service/src/main/resources/db/migration/V1__schema.sql:107"
+        },
+        {
+          "name": "address",
+          "type": "VARCHAR(500)",
+          "pk": false,
+          "fk": false,
+          "nullable": true,
+          "unique": false,
+          "src": "source/recruit_system/backend/recruitment-service/src/main/resources/db/migration/V1__schema.sql:108"
+        },
+        {
+          "name": "created_at",
+          "type": "DATETIME",
+          "pk": false,
+          "fk": false,
+          "nullable": false,
+          "unique": false,
+          "default": "CURRENT_TIMESTAMP",
+          "src": "source/recruit_system/backend/recruitment-service/src/main/resources/db/migration/V1__schema.sql:109"
+        }
+      ],
+      "src": "source/recruit_system/backend/recruitment-service/src/main/resources/db/migration/V1__schema.sql:103"
+    },
+    {
+      "name": "recruiter_profiles",
+      "columns": [
+        {
+          "name": "id",
+          "type": "INT",
+          "pk": true,
+          "fk": false,
+          "nullable": false,
+          "unique": false,
+          "src": "source/recruit_system/backend/recruitment-service/src/main/resources/db/migration/V1__schema.sql:114"
+        },
+        {
+          "name": "user_id",
+          "type": "INT",
+          "pk": false,
+          "fk": false,
+          "nullable": false,
+          "unique": false,
+          "src": "source/recruit_system/backend/recruitment-service/src/main/resources/db/migration/V1__schema.sql:115"
+        },
+        {
+          "name": "company_id",
+          "type": "INT",
+          "pk": false,
+          "fk": false,
+          "nullable": false,
+          "unique": false,
+          "src": "source/recruit_system/backend/recruitment-service/src/main/resources/db/migration/V1__schema.sql:116"
+        },
+        {
+          "name": "position",
+          "type": "VARCHAR(255)",
+          "pk": false,
+          "fk": false,
+          "nullable": true,
+          "unique": false,
+          "src": "source/recruit_system/backend/recruitment-service/src/main/resources/db/migration/V1__schema.sql:117"
+        },
+        {
+          "name": "created_at",
+          "type": "DATETIME",
+          "pk": false,
+          "fk": false,
+          "nullable": false,
+          "unique": false,
+          "default": "CURRENT_TIMESTAMP",
+          "src": "source/recruit_system/backend/recruitment-service/src/main/resources/db/migration/V1__schema.sql:118"
+        }
+      ],
+      "src": "source/recruit_system/backend/recruitment-service/src/main/resources/db/migration/V1__schema.sql:113"
+    },
+    {
+      "name": "skills",
+      "columns": [
+        {
+          "name": "id",
+          "type": "INT",
+          "pk": true,
+          "fk": false,
+          "nullable": false,
+          "unique": false,
+          "src": "source/recruit_system/backend/recruitment-service/src/main/resources/db/migration/V1__schema.sql:73"
+        },
+        {
+          "name": "name",
+          "type": "VARCHAR(120)",
+          "pk": false,
+          "fk": false,
+          "nullable": false,
+          "unique": true,
+          "src": "source/recruit_system/backend/recruitment-service/src/main/resources/db/migration/V1__schema.sql:74"
+        },
+        {
+          "name": "category",
+          "type": "VARCHAR(80)",
+          "pk": false,
+          "fk": false,
+          "nullable": true,
+          "unique": false,
+          "src": "source/recruit_system/backend/recruitment-service/src/main/resources/db/migration/V1__schema.sql:75"
+        }
+      ],
+      "src": "source/recruit_system/backend/recruitment-service/src/main/resources/db/migration/V1__schema.sql:72"
+    },
+    {
+      "name": "jobs",
+      "columns": [
+        {
+          "name": "id",
+          "type": "INT",
+          "pk": true,
+          "fk": false,
+          "nullable": false,
+          "unique": false,
+          "src": "source/recruit_system/backend/recruitment-service/src/main/resources/db/migration/V1__schema.sql:124"
+        },
+        {
+          "name": "company_id",
+          "type": "INT",
+          "pk": false,
+          "fk": false,
+          "nullable": false,
+          "unique": false,
+          "src": "source/recruit_system/backend/recruitment-service/src/main/resources/db/migration/V1__schema.sql:125"
+        },
+        {
+          "name": "created_by",
+          "type": "INT",
+          "pk": false,
+          "fk": false,
+          "nullable": false,
+          "unique": false,
+          "src": "source/recruit_system/backend/recruitment-service/src/main/resources/db/migration/V1__schema.sql:126"
+        },
+        {
+          "name": "title",
+          "type": "VARCHAR(255)",
+          "pk": false,
+          "fk": false,
+          "nullable": false,
+          "unique": false,
+          "src": "source/recruit_system/backend/recruitment-service/src/main/resources/db/migration/V1__schema.sql:127"
+        },
+        {
+          "name": "description",
+          "type": "TEXT",
+          "pk": false,
+          "fk": false,
+          "nullable": true,
+          "unique": false,
+          "src": "source/recruit_system/backend/recruitment-service/src/main/resources/db/migration/V1__schema.sql:128"
+        },
+        {
+          "name": "requirements",
+          "type": "TEXT",
+          "pk": false,
+          "fk": false,
+          "nullable": true,
+          "unique": false,
+          "src": "source/recruit_system/backend/recruitment-service/src/main/resources/db/migration/V1__schema.sql:129"
+        },
+        {
+          "name": "responsibilities",
+          "type": "TEXT",
+          "pk": false,
+          "fk": false,
+          "nullable": true,
+          "unique": false,
+          "src": "source/recruit_system/backend/recruitment-service/src/main/resources/db/migration/V1__schema.sql:130"
+        },
+        {
+          "name": "employment_type",
+          "type": "VARCHAR(80)",
+          "pk": false,
+          "fk": false,
+          "nullable": true,
+          "unique": false,
+          "src": "source/recruit_system/backend/recruitment-service/src/main/resources/db/migration/V1__schema.sql:131"
+        },
+        {
+          "name": "work_location",
+          "type": "VARCHAR(255)",
+          "pk": false,
+          "fk": false,
+          "nullable": true,
+          "unique": false,
+          "src": "source/recruit_system/backend/recruitment-service/src/main/resources/db/migration/V1__schema.sql:132"
+        },
+        {
+          "name": "salary_min",
+          "type": "DECIMAL(14,2)",
+          "pk": false,
+          "fk": false,
+          "nullable": true,
+          "unique": false,
+          "src": "source/recruit_system/backend/recruitment-service/src/main/resources/db/migration/V1__schema.sql:133"
+        },
+        {
+          "name": "salary_max",
+          "type": "DECIMAL(14,2)",
+          "pk": false,
+          "fk": false,
+          "nullable": true,
+          "unique": false,
+          "src": "source/recruit_system/backend/recruitment-service/src/main/resources/db/migration/V1__schema.sql:134"
+        },
+        {
+          "name": "currency",
+          "type": "VARCHAR(16)",
+          "pk": false,
+          "fk": false,
+          "nullable": false,
+          "unique": false,
+          "default": "VND",
+          "src": "source/recruit_system/backend/recruitment-service/src/main/resources/db/migration/V1__schema.sql:135"
+        },
+        {
+          "name": "experience_required",
+          "type": "DECIMAL(4,1)",
+          "pk": false,
+          "fk": false,
+          "nullable": true,
+          "unique": false,
+          "src": "source/recruit_system/backend/recruitment-service/src/main/resources/db/migration/V1__schema.sql:136"
+        },
+        {
+          "name": "status",
+          "type": "VARCHAR(32)",
+          "pk": false,
+          "fk": false,
+          "nullable": false,
+          "unique": false,
+          "default": "DRAFT",
+          "src": "source/recruit_system/backend/recruitment-service/src/main/resources/db/migration/V1__schema.sql:137"
+        },
+        {
+          "name": "posted_at",
+          "type": "DATETIME",
+          "pk": false,
+          "fk": false,
+          "nullable": true,
+          "unique": false,
+          "src": "source/recruit_system/backend/recruitment-service/src/main/resources/db/migration/V1__schema.sql:138"
+        },
+        {
+          "name": "deadline",
+          "type": "DATETIME",
+          "pk": false,
+          "fk": false,
+          "nullable": true,
+          "unique": false,
+          "src": "source/recruit_system/backend/recruitment-service/src/main/resources/db/migration/V1__schema.sql:139"
+        },
+        {
+          "name": "created_at",
+          "type": "DATETIME",
+          "pk": false,
+          "fk": false,
+          "nullable": false,
+          "unique": false,
+          "default": "CURRENT_TIMESTAMP",
+          "src": "source/recruit_system/backend/recruitment-service/src/main/resources/db/migration/V1__schema.sql:140"
+        },
+        {
+          "name": "updated_at",
+          "type": "DATETIME",
+          "pk": false,
+          "fk": false,
+          "nullable": true,
+          "unique": false,
+          "default": "CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP",
+          "src": "source/recruit_system/backend/recruitment-service/src/main/resources/db/migration/V1__schema.sql:141"
+        }
+      ],
+      "src": "source/recruit_system/backend/recruitment-service/src/main/resources/db/migration/V1__schema.sql:123"
+    },
+    {
+      "name": "job_skills",
+      "columns": [
+        {
+          "name": "id",
+          "type": "INT",
+          "pk": true,
+          "fk": false,
+          "nullable": false,
+          "unique": false,
+          "src": "source/recruit_system/backend/recruitment-service/src/main/resources/db/migration/V1__schema.sql:150"
+        },
+        {
+          "name": "job_id",
+          "type": "INT",
+          "pk": false,
+          "fk": false,
+          "nullable": false,
+          "unique": false,
+          "src": "source/recruit_system/backend/recruitment-service/src/main/resources/db/migration/V1__schema.sql:151"
+        },
+        {
+          "name": "skill_id",
+          "type": "INT",
+          "pk": false,
+          "fk": false,
+          "nullable": false,
+          "unique": false,
+          "src": "source/recruit_system/backend/recruitment-service/src/main/resources/db/migration/V1__schema.sql:152"
+        },
+        {
+          "name": "is_required",
+          "type": "TINYINT(1)",
+          "pk": false,
+          "fk": false,
+          "nullable": false,
+          "unique": false,
+          "default": "1",
+          "src": "source/recruit_system/backend/recruitment-service/src/main/resources/db/migration/V1__schema.sql:153"
+        },
+        {
+          "name": "minimum_years",
+          "type": "DECIMAL(4,1)",
+          "pk": false,
+          "fk": false,
+          "nullable": true,
+          "unique": false,
+          "src": "source/recruit_system/backend/recruitment-service/src/main/resources/db/migration/V1__schema.sql:154"
+        }
+      ],
+      "src": "source/recruit_system/backend/recruitment-service/src/main/resources/db/migration/V1__schema.sql:149"
+    },
+    {
+      "name": "job_applications",
+      "columns": [
+        {
+          "name": "id",
+          "type": "INT",
+          "pk": true,
+          "fk": false,
+          "nullable": false,
+          "unique": false,
+          "src": "source/recruit_system/backend/recruitment-service/src/main/resources/db/migration/V1__schema.sql:161"
+        },
+        {
+          "name": "candidate_id",
+          "type": "INT",
+          "pk": false,
+          "fk": false,
+          "nullable": false,
+          "unique": false,
+          "src": "source/recruit_system/backend/recruitment-service/src/main/resources/db/migration/V1__schema.sql:162"
+        },
+        {
+          "name": "job_id",
+          "type": "INT",
+          "pk": false,
+          "fk": false,
+          "nullable": false,
+          "unique": false,
+          "src": "source/recruit_system/backend/recruitment-service/src/main/resources/db/migration/V1__schema.sql:163"
+        },
+        {
+          "name": "cv_id",
+          "type": "INT",
+          "pk": false,
+          "fk": false,
+          "nullable": true,
+          "unique": false,
+          "src": "source/recruit_system/backend/recruitment-service/src/main/resources/db/migration/V1__schema.sql:164"
+        },
+        {
+          "name": "status",
+          "type": "VARCHAR(32)",
+          "pk": false,
+          "fk": false,
+          "nullable": false,
+          "unique": false,
+          "default": "SUBMITTED",
+          "src": "source/recruit_system/backend/recruitment-service/src/main/resources/db/migration/V1__schema.sql:165"
+        },
+        {
+          "name": "cover_letter",
+          "type": "TEXT",
+          "pk": false,
+          "fk": false,
+          "nullable": true,
+          "unique": false,
+          "src": "source/recruit_system/backend/recruitment-service/src/main/resources/db/migration/V1__schema.sql:166"
+        },
+        {
+          "name": "applied_at",
+          "type": "DATETIME",
+          "pk": false,
+          "fk": false,
+          "nullable": false,
+          "unique": false,
+          "default": "CURRENT_TIMESTAMP",
+          "src": "source/recruit_system/backend/recruitment-service/src/main/resources/db/migration/V1__schema.sql:167"
+        },
+        {
+          "name": "updated_at",
+          "type": "DATETIME",
+          "pk": false,
+          "fk": false,
+          "nullable": true,
+          "unique": false,
+          "default": "CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP",
+          "src": "source/recruit_system/backend/recruitment-service/src/main/resources/db/migration/V1__schema.sql:168"
+        }
+      ],
+      "src": "source/recruit_system/backend/recruitment-service/src/main/resources/db/migration/V1__schema.sql:160"
+    },
+    {
+      "name": "matching_results",
+      "columns": [
+        {
+          "name": "id",
+          "type": "INT",
+          "pk": true,
+          "fk": false,
+          "nullable": false,
+          "unique": false,
+          "src": "source/recruit_system/backend/recruitment-service/src/main/resources/db/migration/V1__schema.sql:179"
+        },
+        {
+          "name": "candidate_id",
+          "type": "INT",
+          "pk": false,
+          "fk": false,
+          "nullable": false,
+          "unique": false,
+          "src": "source/recruit_system/backend/recruitment-service/src/main/resources/db/migration/V1__schema.sql:180"
+        },
+        {
+          "name": "cv_id",
+          "type": "INT",
+          "pk": false,
+          "fk": false,
+          "nullable": true,
+          "unique": false,
+          "src": "source/recruit_system/backend/recruitment-service/src/main/resources/db/migration/V1__schema.sql:181"
+        },
+        {
+          "name": "job_id",
+          "type": "INT",
+          "pk": false,
+          "fk": false,
+          "nullable": false,
+          "unique": false,
+          "src": "source/recruit_system/backend/recruitment-service/src/main/resources/db/migration/V1__schema.sql:182"
+        },
+        {
+          "name": "semantic_score",
+          "type": "DECIMAL(6,4)",
+          "pk": false,
+          "fk": false,
+          "nullable": true,
+          "unique": false,
+          "src": "source/recruit_system/backend/recruitment-service/src/main/resources/db/migration/V1__schema.sql:183"
+        },
+        {
+          "name": "skills_score",
+          "type": "DECIMAL(6,4)",
+          "pk": false,
+          "fk": false,
+          "nullable": true,
+          "unique": false,
+          "src": "source/recruit_system/backend/recruitment-service/src/main/resources/db/migration/V1__schema.sql:184"
+        },
+        {
+          "name": "experience_score",
+          "type": "DECIMAL(6,4)",
+          "pk": false,
+          "fk": false,
+          "nullable": true,
+          "unique": false,
+          "src": "source/recruit_system/backend/recruitment-service/src/main/resources/db/migration/V1__schema.sql:185"
+        },
+        {
+          "name": "overall_score",
+          "type": "DECIMAL(6,4)",
+          "pk": false,
+          "fk": false,
+          "nullable": false,
+          "unique": false,
+          "src": "source/recruit_system/backend/recruitment-service/src/main/resources/db/migration/V1__schema.sql:186"
+        },
+        {
+          "name": "matched_skills",
+          "type": "JSON",
+          "pk": false,
+          "fk": false,
+          "nullable": true,
+          "unique": false,
+          "src": "source/recruit_system/backend/recruitment-service/src/main/resources/db/migration/V1__schema.sql:187"
+        },
+        {
+          "name": "missing_skills",
+          "type": "JSON",
+          "pk": false,
+          "fk": false,
+          "nullable": true,
+          "unique": false,
+          "src": "source/recruit_system/backend/recruitment-service/src/main/resources/db/migration/V1__schema.sql:188"
+        },
+        {
+          "name": "explanation",
+          "type": "TEXT",
+          "pk": false,
+          "fk": false,
+          "nullable": true,
+          "unique": false,
+          "src": "source/recruit_system/backend/recruitment-service/src/main/resources/db/migration/V1__schema.sql:189"
+        },
+        {
+          "name": "model_name",
+          "type": "VARCHAR(120)",
+          "pk": false,
+          "fk": false,
+          "nullable": true,
+          "unique": false,
+          "src": "source/recruit_system/backend/recruitment-service/src/main/resources/db/migration/V1__schema.sql:190"
+        },
+        {
+          "name": "model_version",
+          "type": "VARCHAR(120)",
+          "pk": false,
+          "fk": false,
+          "nullable": true,
+          "unique": false,
+          "src": "source/recruit_system/backend/recruitment-service/src/main/resources/db/migration/V1__schema.sql:191"
+        },
+        {
+          "name": "created_at",
+          "type": "DATETIME",
+          "pk": false,
+          "fk": false,
+          "nullable": false,
+          "unique": false,
+          "default": "CURRENT_TIMESTAMP",
+          "src": "source/recruit_system/backend/recruitment-service/src/main/resources/db/migration/V1__schema.sql:192"
+        }
+      ],
+      "src": "source/recruit_system/backend/recruitment-service/src/main/resources/db/migration/V1__schema.sql:178"
+    },
+    {
+      "name": "setting",
+      "columns": [
+        {
+          "name": "id",
+          "type": "INT",
+          "pk": true,
+          "fk": false,
+          "nullable": false,
+          "unique": false,
+          "src": "source/recruit_system/backend/recruitment-service/src/main/resources/db/migration/V4__cv_data.sql:5"
+        },
+        {
+          "name": "name",
+          "type": "VARCHAR(255)",
+          "pk": false,
+          "fk": false,
+          "nullable": false,
+          "unique": false,
+          "src": "source/recruit_system/backend/recruitment-service/src/main/resources/db/migration/V4__cv_data.sql:6"
+        },
+        {
+          "name": "value",
+          "type": "TEXT",
+          "pk": false,
+          "fk": false,
+          "nullable": true,
+          "unique": false,
+          "src": "source/recruit_system/backend/recruitment-service/src/main/resources/db/migration/V4__cv_data.sql:7"
+        }
+      ],
+      "src": "source/recruit_system/backend/recruitment-service/src/main/resources/db/migration/V4__cv_data.sql:4"
+    },
+    {
+      "name": "cv_data",
+      "columns": [
+        {
+          "name": "id",
+          "type": "INT",
+          "pk": true,
+          "fk": false,
+          "nullable": false,
+          "unique": false,
+          "src": "source/recruit_system/backend/recruitment-service/src/main/resources/db/migration/V4__cv_data.sql:11"
+        },
+        {
+          "name": "candidate_id",
+          "type": "INT",
+          "pk": false,
+          "fk": false,
+          "nullable": false,
+          "unique": false,
+          "src": "source/recruit_system/backend/recruitment-service/src/main/resources/db/migration/V4__cv_data.sql:12"
+        },
+        {
+          "name": "field",
+          "type": "VARCHAR(255)",
+          "pk": false,
+          "fk": false,
+          "nullable": false,
+          "unique": false,
+          "src": "source/recruit_system/backend/recruitment-service/src/main/resources/db/migration/V4__cv_data.sql:13"
+        },
+        {
+          "name": "value",
+          "type": "TEXT",
+          "pk": false,
+          "fk": false,
+          "nullable": true,
+          "unique": false,
+          "src": "source/recruit_system/backend/recruitment-service/src/main/resources/db/migration/V4__cv_data.sql:14"
+        }
+      ],
+      "src": "source/recruit_system/backend/recruitment-service/src/main/resources/db/migration/V4__cv_data.sql:10"
+    }
+  ],
+  "relations": [
+    {
+      "from": "recruiter_profiles",
+      "to": "companies",
+      "kind": "relationship",
+      "logical": true,
+      "label": "company_id → id",
+      "src": "source/recruit_system/backend/recruitment-service/src/main/resources/db/migration/V1__schema.sql:116"
+    },
+    {
+      "from": "jobs",
+      "to": "companies",
+      "kind": "relationship",
+      "logical": true,
+      "label": "company_id → id",
+      "src": "source/recruit_system/backend/recruitment-service/src/main/resources/db/migration/V1__schema.sql:125"
+    },
+    {
+      "from": "job_skills",
+      "to": "jobs",
+      "kind": "relationship",
+      "logical": true,
+      "label": "job_id → id",
+      "src": "source/recruit_system/backend/recruitment-service/src/main/resources/db/migration/V1__schema.sql:151"
+    },
+    {
+      "from": "job_skills",
+      "to": "skills",
+      "kind": "relationship",
+      "logical": true,
+      "label": "skill_id → id",
+      "src": "source/recruit_system/backend/recruitment-service/src/main/resources/db/migration/V1__schema.sql:152"
+    },
+    {
+      "from": "job_applications",
+      "to": "candidate_profiles",
+      "kind": "relationship",
+      "logical": true,
+      "label": "candidate_id → id",
+      "src": "source/recruit_system/backend/recruitment-service/src/main/resources/db/migration/V1__schema.sql:162"
+    },
+    {
+      "from": "job_applications",
+      "to": "jobs",
+      "kind": "relationship",
+      "logical": true,
+      "label": "job_id → id",
+      "src": "source/recruit_system/backend/recruitment-service/src/main/resources/db/migration/V1__schema.sql:163"
+    },
+    {
+      "from": "matching_results",
+      "to": "candidate_profiles",
+      "kind": "relationship",
+      "logical": true,
+      "label": "candidate_id → id",
+      "src": "source/recruit_system/backend/recruitment-service/src/main/resources/db/migration/V1__schema.sql:180"
+    },
+    {
+      "from": "matching_results",
+      "to": "jobs",
+      "kind": "relationship",
+      "logical": true,
+      "label": "job_id → id",
+      "src": "source/recruit_system/backend/recruitment-service/src/main/resources/db/migration/V1__schema.sql:182"
+    },
+    {
+      "from": "cv_data",
+      "to": "candidate_profiles",
+      "kind": "relationship",
+      "logical": true,
+      "label": "candidate_id → id",
+      "src": "source/recruit_system/backend/recruitment-service/src/main/resources/db/migration/V4__cv_data.sql:12"
+    }
+  ],
+  "notes": [
+    "CSDL hirelens_recruitment gồm 10 bảng sau khi áp dụng migration Flyway V1 → V5: candidate_profiles, companies, recruiter_profiles, skills, jobs, job_skills, job_applications, matching_results, setting, cv_data.",
+    "Sáu bảng CV ban đầu (cv_documents, cv_educations, cv_experiences, cv_projects, cv_skills, cv_certificates) đã bị DROP ở V4__cv_data.sql:118-123 và thay thế bằng hai bảng linh hoạt setting và cv_data.",
+    "Toàn bộ FOREIGN KEY vật lý trong CSDL hirelens_recruitment đã bị DROP tại migration V4__cv_data.sql (dòng 115-116, 125-132). Do đó toàn bộ 9 quan hệ giữa các bảng trong cùng CSDL được thể hiện là quan hệ logic (logical: true, kiểm tra ở tầng ứng dụng/mã nguồn), hoàn toàn khớp với ghi chú tại docs/schema.dbml:3 ('Cơ sở dữ liệu không còn khóa ngoại. Các Ref bên dưới là quan hệ kiểm tra trong mã').",
+    "Tham chiếu chéo service (không vẽ relation, chỉ ghi note): candidate_profiles.user_id, recruiter_profiles.user_id, jobs.created_by tham chiếu sang users.id thuộc CSDL hirelens_identity (identity-service). CSDL interview-service (hirelens_interview) cũng tham chiếu candidate_id, job_id, application_id từ recruitment-service nhưng không có FK vật lý liên service.",
+    "Cột cv_id trong job_applications và matching_results: trước đây ở V1 có FK trỏ tới cv_documents.id; tại V4 bảng cv_documents và FK đã bị DROP. Cột này hiện là cột số lưu giá trị lịch sử, không còn bảng đích trên CSDL nên không vẽ relation."
+  ],
+  "open_questions": []
+}

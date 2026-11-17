@@ -1,0 +1,173 @@
+{
+  "id": "UC-M1",
+  "type": "usecase",
+  "name": "Biểu đồ Use Case chi tiết - Đăng ký, đăng nhập, chọn vai trò (M1)",
+  "elements": [
+    {
+      "key": "UserActor",
+      "kind": "actor",
+      "name": "Người dùng",
+      "notes": "Người dùng truy cập ứng dụng web HireLens qua trình duyệt, thực hiện đăng ký tài khoản mới hoặc đăng nhập vào hệ thống",
+      "src": "source/recruit_system/frontend/src/App.tsx:22-37"
+    },
+    {
+      "key": "CandidateActor",
+      "kind": "actor",
+      "name": "Ứng viên",
+      "notes": "Người dùng mang vai trò CANDIDATE sau khi chọn vai trò hoặc đăng nhập thành công",
+      "src": "source/recruit_system/backend/common/src/main/java/recruit/demo/entity/Role.java:4"
+    },
+    {
+      "key": "RecruiterActor",
+      "kind": "actor",
+      "name": "Nhà tuyển dụng",
+      "notes": "Người dùng mang vai trò RECRUITER sau khi chọn vai trò hoặc đăng nhập thành công",
+      "src": "source/recruit_system/backend/common/src/main/java/recruit/demo/entity/Role.java:5"
+    },
+    {
+      "key": "SystemBoundary",
+      "kind": "system",
+      "name": "Hệ thống tuyển dụng thông minh HireLens - Phân hệ Xác thực và Quản lý tài khoản (Module 1)",
+      "notes": "Phạm vi các chức năng xác thực tài khoản, phân quyền vai trò và điều hướng ban đầu trong Module 1",
+      "src": "source/recruit_system/frontend/src/App.tsx:46-54"
+    },
+    {
+      "key": "UC_M1",
+      "kind": "usecase",
+      "name": "Đăng ký, đăng nhập, chọn vai trò",
+      "parent": "SystemBoundary",
+      "extensionPoints": [
+        "Chưa có tài khoản",
+        "Chưa chọn vai trò",
+        "Vai trò Ứng viên",
+        "Vai trò Nhà tuyển dụng"
+      ],
+      "notes": "Use case chính của Module 1, quản lý toàn bộ chu trình truy cập, xác thực danh tính và điều hướng phân quyền ban đầu của người dùng",
+      "src": "source/recruit_system/backend/identity-service/src/main/java/recruit/demo/controller/AuthController.java:16-34"
+    },
+    {
+      "key": "UC_Login",
+      "kind": "usecase",
+      "name": "Đăng nhập",
+      "parent": "SystemBoundary",
+      "notes": "Cho phép người dùng nhập email và mật khẩu để xác thực danh tính và nhận JWT Bearer token qua POST /api/auth/login",
+      "src": "source/recruit_system/frontend/src/pages/LoginPage.tsx:17-85"
+    },
+    {
+      "key": "UC_Register",
+      "kind": "usecase",
+      "name": "Đăng ký tài khoản",
+      "parent": "SystemBoundary",
+      "notes": "Cho phép người dùng chưa có tài khoản đăng ký tài khoản mới bằng email và mật khẩu qua POST /api/auth/register",
+      "src": "source/recruit_system/frontend/src/pages/RegisterPage.tsx:17-86"
+    },
+    {
+      "key": "UC_ChooseRole",
+      "kind": "usecase",
+      "name": "Chọn vai trò",
+      "parent": "SystemBoundary",
+      "notes": "Cho phép người dùng chọn vai trò lần đầu (Ứng viên hoặc Nhà tuyển dụng) qua POST /api/auth/role khi roleChosen=false",
+      "src": "source/recruit_system/frontend/src/pages/ChooseRolePage.tsx:17-74"
+    },
+    {
+      "key": "UC_CandidateHome",
+      "kind": "usecase",
+      "name": "Xem trang chủ ứng viên",
+      "parent": "SystemBoundary",
+      "notes": "Hiển thị trang chủ dành cho ứng viên (/candidate), tự động kích hoạt tạo candidate_profiles qua ProfileProvisioningService ở request đầu tiên",
+      "src": "source/recruit_system/frontend/src/pages/candidate/CandidateHomePage.tsx:36-258"
+    },
+    {
+      "key": "UC_RecruiterHome",
+      "kind": "usecase",
+      "name": "Xem trang chủ nhà tuyển dụng",
+      "parent": "SystemBoundary",
+      "notes": "Hiển thị trang chủ dành cho nhà tuyển dụng (/recruiter), tự động kích hoạt tạo company và recruiter_profiles qua ProfileProvisioningService ở request đầu tiên",
+      "src": "source/recruit_system/frontend/src/pages/recruiter/RecruiterHomePage.tsx:28-138"
+    }
+  ],
+  "relations": [
+    {
+      "from": "CandidateActor",
+      "to": "UserActor",
+      "kind": "generalization",
+      "label": "",
+      "src": "source/recruit_system/backend/common/src/main/java/recruit/demo/entity/Role.java:4"
+    },
+    {
+      "from": "RecruiterActor",
+      "to": "UserActor",
+      "kind": "generalization",
+      "label": "",
+      "src": "source/recruit_system/backend/common/src/main/java/recruit/demo/entity/Role.java:5"
+    },
+    {
+      "from": "UserActor",
+      "to": "UC_M1",
+      "kind": "association",
+      "label": "",
+      "src": "source/recruit_system/frontend/src/App.tsx:49-53"
+    },
+    {
+      "from": "CandidateActor",
+      "to": "UC_CandidateHome",
+      "kind": "association",
+      "label": "",
+      "src": "source/recruit_system/frontend/src/App.tsx:55-62"
+    },
+    {
+      "from": "RecruiterActor",
+      "to": "UC_RecruiterHome",
+      "kind": "association",
+      "label": "",
+      "src": "source/recruit_system/frontend/src/App.tsx:97-103"
+    },
+    {
+      "from": "UC_M1",
+      "to": "UC_Login",
+      "kind": "include",
+      "label": "<<include>>",
+      "src": "source/recruit_system/frontend/src/pages/LoginPage.tsx:29-35"
+    },
+    {
+      "from": "UC_Register",
+      "to": "UC_M1",
+      "kind": "extend",
+      "extensionPoint": "Chưa có tài khoản",
+      "label": "<<extend>>",
+      "src": "source/recruit_system/frontend/src/pages/RegisterPage.tsx:29-35"
+    },
+    {
+      "from": "UC_ChooseRole",
+      "to": "UC_M1",
+      "kind": "extend",
+      "extensionPoint": "Chưa chọn vai trò",
+      "label": "<<extend>>",
+      "src": "source/recruit_system/frontend/src/pages/ChooseRolePage.tsx:28-34"
+    },
+    {
+      "from": "UC_CandidateHome",
+      "to": "UC_M1",
+      "kind": "extend",
+      "extensionPoint": "Vai trò Ứng viên",
+      "label": "<<extend>>",
+      "src": "source/recruit_system/frontend/src/utils/account.ts:6"
+    },
+    {
+      "from": "UC_RecruiterHome",
+      "to": "UC_M1",
+      "kind": "extend",
+      "extensionPoint": "Vai trò Nhà tuyển dụng",
+      "label": "<<extend>>",
+      "src": "source/recruit_system/frontend/src/utils/account.ts:5"
+    }
+  ],
+  "notes": [
+    "Module 1 bao gồm toàn bộ luồng đăng ký tài khoản mới, đăng nhập xác thực và lựa chọn vai trò lần đầu cho người dùng.",
+    "Mỗi giao diện chính trong frontend (LoginPage.tsx, RegisterPage.tsx, ChooseRolePage.tsx, CandidateHomePage.tsx, RecruiterHomePage.tsx) tương ứng với 1 use case chi tiết.",
+    "Bước đăng nhập (UC_Login) là bước bắt buộc (<<include>>) để người dùng xác thực danh tính vào hệ thống.",
+    "Các bước đăng ký tài khoản (khi chưa có tài khoản), chọn vai trò (khi chưa chọn vai trò lần đầu, roleChosen=false), và xem trang chủ theo vai trò (Ứng viên hoặc Nhà tuyển dụng) là các bước mở rộng (<<extend>>) gắn với các extension points tương ứng trên use case chính UC_M1.",
+    "Vai trò ADMIN chỉ được khởi tạo từ seed CSDL (V2__seed.sql), không có luồng đăng ký hay chọn vai trò ADMIN từ giao diện người dùng (chốt theo quyết định 2026-11-17)."
+  ],
+  "open_questions": []
+}

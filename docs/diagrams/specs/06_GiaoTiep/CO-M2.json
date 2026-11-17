@@ -1,0 +1,90 @@
+{
+  "id": "CO-M2",
+  "type": "communication",
+  "name": "Biểu đồ giao tiếp - Tải và xác nhận CV",
+  "elements": [
+    {
+      "key": "Candidate",
+      "kind": "actor",
+      "name": "Ứng viên",
+      "src": "source/recruit_system/frontend/src/components/common/SiteHeader.tsx:48"
+    },
+    {
+      "key": "CandidateCvProfileView",
+      "kind": "object",
+      "name": ":CandidateCvProfileView",
+      "class": "CandidateCvProfileView",
+      "stereotype": "boundary",
+      "src": "source/recruit_system/frontend/src/pages/candidate/CandidateCvPage.tsx:173"
+    },
+    {
+      "key": "CandidateCvReviewView",
+      "kind": "object",
+      "name": ":CandidateCvReviewView",
+      "class": "CandidateCvReviewView",
+      "stereotype": "boundary",
+      "src": "source/recruit_system/frontend/src/pages/candidate/CandidateCvPage.tsx:228"
+    },
+    {
+      "key": "User",
+      "kind": "object",
+      "name": ":User",
+      "class": "User",
+      "stereotype": "entity",
+      "src": "source/recruit_system/backend/identity-service/src/main/java/recruit/demo/entity/User.java:17"
+    },
+    {
+      "key": "CandidateProfile",
+      "kind": "object",
+      "name": ":CandidateProfile",
+      "class": "CandidateProfile",
+      "stereotype": "entity",
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/entity/CandidateProfile.java:19"
+    },
+    {
+      "key": "CvData",
+      "kind": "object",
+      "name": ":CvData",
+      "class": "CvData",
+      "stereotype": "entity",
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/entity/CvData.java:13"
+    }
+  ],
+  "links": [
+    {"from": "Candidate", "to": "CandidateCvProfileView", "src": "source/recruit_system/frontend/src/components/common/SiteHeader.tsx:48"},
+    {"from": "Candidate", "to": "CandidateCvReviewView", "src": "source/recruit_system/frontend/src/pages/candidate/CandidateCvPage.tsx:228"},
+    {"from": "CandidateCvProfileView", "to": "CandidateCvReviewView", "src": "source/recruit_system/frontend/src/pages/candidate/CandidateCvPage.tsx:214"},
+    {"from": "CandidateCvProfileView", "to": "CvData", "src": "source/recruit_system/frontend/src/pages/candidate/CandidateCvPage.tsx:114"},
+    {"from": "CandidateCvReviewView", "to": "CvData", "src": "source/recruit_system/frontend/src/pages/candidate/CandidateCvPage.tsx:122"},
+    {"from": "CandidateCvReviewView", "to": "CandidateProfile", "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/service/CvService.java:103"},
+    {"from": "CandidateCvReviewView", "to": "User", "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/service/CvService.java:103"}
+  ],
+  "messages": [
+    {"seq": 1, "from": "Candidate", "to": "CandidateCvProfileView", "label": "click Hồ sơ/CV", "src": "source/recruit_system/frontend/src/components/common/SiteHeader.tsx:48"},
+    {"seq": 2, "from": "CandidateCvProfileView", "to": "CvData", "label": "call", "src": "source/recruit_system/frontend/src/pages/candidate/CandidateCvPage.tsx:114"},
+    {"seq": 3, "from": "CvData", "to": "CvData", "label": "mine()", "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/service/CvService.java:47"},
+    {"seq": 4, "from": "CvData", "to": "CandidateCvProfileView", "label": "return", "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/service/CvService.java:49"},
+    {"seq": 5, "from": "CandidateCvProfileView", "to": "Candidate", "label": "show hồ sơ", "src": "source/recruit_system/frontend/src/pages/candidate/CandidateCvPage.tsx:173"},
+    {"seq": 6, "from": "Candidate", "to": "CandidateCvProfileView", "label": "click Cập nhật hồ sơ", "src": "source/recruit_system/frontend/src/pages/candidate/CandidateCvPage.tsx:214"},
+    {"seq": 7, "from": "CandidateCvProfileView", "to": "CandidateCvReviewView", "label": "show kiểm tra CV", "src": "source/recruit_system/frontend/src/pages/candidate/CandidateCvPage.tsx:228"},
+    {"seq": 8, "from": "Candidate", "to": "CandidateCvReviewView", "label": "chọn CV PDF", "src": "source/recruit_system/frontend/src/components/common/UploadZone.tsx:21"},
+    {"seq": 9, "from": "CandidateCvReviewView", "to": "CvData", "label": "call", "src": "source/recruit_system/frontend/src/pages/candidate/CandidateCvPage.tsx:122"},
+    {"seq": 10, "from": "CvData", "to": "CvData", "label": "upload()", "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/service/CvService.java:53"},
+    {"seq": 11, "from": "CvData", "to": "CandidateCvReviewView", "label": "return", "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/service/CvService.java:79"},
+    {"seq": 12, "from": "CandidateCvReviewView", "to": "Candidate", "label": "show kết quả trích xuất", "src": "source/recruit_system/frontend/src/pages/candidate/CandidateCvPage.tsx:247"},
+    {"seq": 13, "from": "Candidate", "to": "CandidateCvReviewView", "label": "click Xác nhận hồ sơ", "src": "source/recruit_system/frontend/src/pages/candidate/CandidateCvPage.tsx:281"},
+    {"seq": 14, "from": "CandidateCvReviewView", "to": "CvData", "label": "call", "src": "source/recruit_system/frontend/src/pages/candidate/CandidateCvPage.tsx:139"},
+    {"seq": 15, "from": "CvData", "to": "CvData", "label": "confirm()", "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/service/CvService.java:86"},
+    {"seq": 16, "from": "CvData", "to": "CandidateCvReviewView", "label": "return", "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/service/CvService.java:86"},
+    {"seq": 17, "from": "CandidateCvReviewView", "to": "CandidateCvProfileView", "label": "show hồ sơ", "src": "source/recruit_system/frontend/src/pages/candidate/CandidateCvPage.tsx:146"},
+    {"seq": 18, "from": "CandidateCvProfileView", "to": "Candidate", "label": "show xác nhận thành công", "src": "source/recruit_system/frontend/src/pages/candidate/CandidateCvPage.tsx:146"}
+  ],
+  "notes": [
+    "Các hàm mine(), upload(), confirm() được mô hình phân tích đặt trên lớp chủ thể CvData; trong source chúng thuộc CvService.",
+    "CandidateCvProfileView và CandidateCvReviewView là hai chế độ của cùng CandidateCvPage.tsx, không phải hai route riêng.",
+    "CandidateProfile và User được giữ làm lớp thực thể trong AN-M2; việc đồng bộ theo từng trường khi confirm() không được thể hiện thành lời gọi trực tiếp giữa các object trong V2."
+  ],
+  "open_questions": [
+    "[cần xác nhận] Đích điều hướng cụ thể khi phiên hết hạn hoặc truy cập sai vai trò và API trả 401/403; kế thừa từ AN-M2 và KB-M2."
+  ]
+}

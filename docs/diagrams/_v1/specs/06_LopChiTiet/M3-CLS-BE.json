@@ -1,0 +1,819 @@
+{
+  "id": "M3-CLS-BE",
+  "type": "class",
+  "name": "Biểu đồ lớp chi tiết - Đối sánh, xem chi tiết việc, ứng tuyển (Backend)",
+  "elements": [
+    {
+      "key": "View",
+      "name": "View",
+      "kind": "package",
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/controller/CvController.java:17"
+    },
+    {
+      "key": "Controller",
+      "name": "Controller",
+      "kind": "package",
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/controller/MatchingController.java:10"
+    },
+    {
+      "key": "Model",
+      "name": "Model",
+      "kind": "package",
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/service/MatchingService.java:18"
+    },
+    {
+      "key": "CvController",
+      "kind": "class",
+      "stereotype": "boundary",
+      "parent": "Controller",
+      "attributes": [
+        {
+          "name": "cvService",
+          "type": "CvService",
+          "visibility": "-"
+        }
+      ],
+      "operations": [
+        {
+          "name": "mine",
+          "params": [],
+          "returns": "CvDtos.CvFormResponse",
+          "visibility": "+"
+        }
+      ],
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/controller/CvController.java:13"
+    },
+    {
+      "key": "MatchingController",
+      "kind": "class",
+      "stereotype": "boundary",
+      "parent": "Controller",
+      "attributes": [
+        {
+          "name": "matchingService",
+          "type": "MatchingService",
+          "visibility": "-"
+        }
+      ],
+      "operations": [
+        {
+          "name": "myMatches",
+          "params": [],
+          "returns": "List<MatchingDtos.MatchResponse>",
+          "visibility": "+"
+        },
+        {
+          "name": "refreshMine",
+          "params": [],
+          "returns": "List<MatchingDtos.MatchResponse>",
+          "visibility": "+"
+        }
+      ],
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/controller/MatchingController.java:13"
+    },
+    {
+      "key": "JobsController",
+      "kind": "class",
+      "stereotype": "boundary",
+      "parent": "Controller",
+      "attributes": [
+        {
+          "name": "jobService",
+          "type": "JobService",
+          "visibility": "-"
+        }
+      ],
+      "operations": [
+        {
+          "name": "list",
+          "params": [
+            {
+              "name": "keyword",
+              "type": "String"
+            },
+            {
+              "name": "city",
+              "type": "String"
+            },
+            {
+              "name": "location",
+              "type": "String"
+            },
+            {
+              "name": "status",
+              "type": "String"
+            }
+          ],
+          "returns": "List<JobDtos.JobResponse>",
+          "visibility": "+"
+        },
+        {
+          "name": "get",
+          "params": [
+            {
+              "name": "id",
+              "type": "Integer"
+            }
+          ],
+          "returns": "JobDtos.JobResponse",
+          "visibility": "+"
+        }
+      ],
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/controller/JobsController.java:14"
+    },
+    {
+      "key": "ApplicationsController",
+      "kind": "class",
+      "stereotype": "boundary",
+      "parent": "Controller",
+      "attributes": [
+        {
+          "name": "applicationService",
+          "type": "ApplicationService",
+          "visibility": "-"
+        }
+      ],
+      "operations": [
+        {
+          "name": "apply",
+          "params": [
+            {
+              "name": "jobId",
+              "type": "Integer"
+            },
+            {
+              "name": "request",
+              "type": "ApplicationDtos.ApplyRequest"
+            }
+          ],
+          "returns": "ApplicationDtos.ApplicationResponse",
+          "visibility": "+"
+        }
+      ],
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/controller/ApplicationsController.java:13"
+    },
+    {
+      "key": "CvService",
+      "kind": "class",
+      "stereotype": "service",
+      "parent": "Model",
+      "attributes": [
+        {
+          "name": "cvDataRepository",
+          "type": "CvDataRepository",
+          "visibility": "-"
+        }
+      ],
+      "operations": [
+        {
+          "name": "mine",
+          "params": [],
+          "returns": "CvDtos.CvFormResponse",
+          "visibility": "+"
+        },
+        {
+          "name": "toForm",
+          "params": [
+            {
+              "name": "candidateId",
+              "type": "Integer"
+            }
+          ],
+          "returns": "CvDtos.CvFormResponse",
+          "visibility": "-"
+        }
+      ],
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/service/CvService.java:32"
+    },
+    {
+      "key": "MatchingService",
+      "kind": "class",
+      "stereotype": "service",
+      "parent": "Model",
+      "attributes": [
+        {
+          "name": "matchingResultRepository",
+          "type": "MatchingResultRepository",
+          "visibility": "-"
+        },
+        {
+          "name": "jobRepository",
+          "type": "JobRepository",
+          "visibility": "-"
+        },
+        {
+          "name": "jobSkillRepository",
+          "type": "JobSkillRepository",
+          "visibility": "-"
+        },
+        {
+          "name": "cvDataRepository",
+          "type": "CvDataRepository",
+          "visibility": "-"
+        },
+        {
+          "name": "matchingModule",
+          "type": "recruit.demo.service.matching.CvMatchingModule",
+          "visibility": "-"
+        }
+      ],
+      "operations": [
+        {
+          "name": "myMatches",
+          "params": [],
+          "returns": "List<MatchingDtos.MatchResponse>",
+          "visibility": "+"
+        },
+        {
+          "name": "refreshMine",
+          "params": [],
+          "returns": "List<MatchingDtos.MatchResponse>",
+          "visibility": "+"
+        },
+        {
+          "name": "runMatching",
+          "params": [
+            {
+              "name": "request",
+              "type": "MatchingDtos.RunMatchingRequest"
+            }
+          ],
+          "returns": "MatchingDtos.MatchResponse",
+          "visibility": "+"
+        }
+      ],
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/service/MatchingService.java:20"
+    },
+    {
+      "key": "JobService",
+      "kind": "class",
+      "stereotype": "service",
+      "parent": "Model",
+      "attributes": [
+        {
+          "name": "jobRepository",
+          "type": "JobRepository",
+          "visibility": "-"
+        },
+        {
+          "name": "jobSkillRepository",
+          "type": "JobSkillRepository",
+          "visibility": "-"
+        }
+      ],
+      "operations": [
+        {
+          "name": "list",
+          "params": [
+            {
+              "name": "keyword",
+              "type": "String"
+            },
+            {
+              "name": "city",
+              "type": "String"
+            },
+            {
+              "name": "status",
+              "type": "String"
+            }
+          ],
+          "returns": "List<JobDtos.JobResponse>",
+          "visibility": "+"
+        },
+        {
+          "name": "getById",
+          "params": [
+            {
+              "name": "id",
+              "type": "Integer"
+            }
+          ],
+          "returns": "JobDtos.JobResponse",
+          "visibility": "+"
+        }
+      ],
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/service/JobService.java:25"
+    },
+    {
+      "key": "ApplicationService",
+      "kind": "class",
+      "stereotype": "service",
+      "parent": "Model",
+      "attributes": [
+        {
+          "name": "applicationRepository",
+          "type": "JobApplicationRepository",
+          "visibility": "-"
+        },
+        {
+          "name": "jobRepository",
+          "type": "JobRepository",
+          "visibility": "-"
+        }
+      ],
+      "operations": [
+        {
+          "name": "apply",
+          "params": [
+            {
+              "name": "jobId",
+              "type": "Integer"
+            },
+            {
+              "name": "request",
+              "type": "ApplicationDtos.ApplyRequest"
+            }
+          ],
+          "returns": "ApplicationDtos.ApplicationResponse",
+          "visibility": "+"
+        }
+      ],
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/service/ApplicationService.java:18"
+    },
+    {
+      "key": "CvMatchingModule",
+      "kind": "class",
+      "stereotype": "service",
+      "parent": "Model",
+      "attributes": [
+        {
+          "name": "http",
+          "type": "AiJsonClient",
+          "visibility": "-"
+        },
+        {
+          "name": "url",
+          "type": "String",
+          "visibility": "-"
+        }
+      ],
+      "operations": [
+        {
+          "name": "match",
+          "params": [
+            {
+              "name": "candidate",
+              "type": "Map<String,Object>"
+            },
+            {
+              "name": "jd",
+              "type": "Map<String,Object>"
+            }
+          ],
+          "returns": "JsonNode",
+          "visibility": "+"
+        }
+      ],
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/service/matching/CvMatchingModule.java:11"
+    },
+    {
+      "key": "AiJsonClient",
+      "kind": "class",
+      "stereotype": "client",
+      "parent": "Model",
+      "attributes": [
+        {
+          "name": "mapper",
+          "type": "ObjectMapper",
+          "visibility": "-"
+        },
+        {
+          "name": "client",
+          "type": "HttpClient",
+          "visibility": "-"
+        }
+      ],
+      "operations": [
+        {
+          "name": "post",
+          "params": [
+            {
+              "name": "url",
+              "type": "String"
+            },
+            {
+              "name": "body",
+              "type": "Object"
+            }
+          ],
+          "returns": "JsonNode",
+          "visibility": "+"
+        }
+      ],
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/client/AiJsonClient.java:11"
+    },
+    {
+      "key": "JobRepository",
+      "kind": "interface",
+      "stereotype": "repository",
+      "parent": "Model",
+      "attributes": [],
+      "operations": [
+        {
+          "name": "search",
+          "params": [
+            {
+              "name": "keyword",
+              "type": "String"
+            },
+            {
+              "name": "city",
+              "type": "String"
+            },
+            {
+              "name": "status",
+              "type": "JobStatus"
+            }
+          ],
+          "returns": "List<Job>",
+          "visibility": "+"
+        }
+      ],
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/repository/JobRepository.java:11"
+    },
+    {
+      "key": "JobSkillRepository",
+      "kind": "interface",
+      "stereotype": "repository",
+      "parent": "Model",
+      "attributes": [],
+      "operations": [
+        {
+          "name": "findByJobId",
+          "params": [
+            {
+              "name": "jobId",
+              "type": "Integer"
+            }
+          ],
+          "returns": "List<JobSkill>",
+          "visibility": "+"
+        }
+      ],
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/repository/JobSkillRepository.java:10"
+    },
+    {
+      "key": "MatchingResultRepository",
+      "kind": "interface",
+      "stereotype": "repository",
+      "parent": "Model",
+      "attributes": [],
+      "operations": [
+        {
+          "name": "findByCandidateId",
+          "params": [
+            {
+              "name": "candidateId",
+              "type": "Integer"
+            }
+          ],
+          "returns": "List<MatchingResult>",
+          "visibility": "+"
+        },
+        {
+          "name": "findFirstByJobIdAndCandidateIdAndModelNameAndModelVersionOrderByCreatedAtDesc",
+          "params": [
+            {
+              "name": "jobId",
+              "type": "Integer"
+            },
+            {
+              "name": "candidateId",
+              "type": "Integer"
+            },
+            {
+              "name": "modelName",
+              "type": "String"
+            },
+            {
+              "name": "modelVersion",
+              "type": "String"
+            }
+          ],
+          "returns": "Optional<MatchingResult>",
+          "visibility": "+"
+        }
+      ],
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/repository/MatchingResultRepository.java:11"
+    },
+    {
+      "key": "JobApplicationRepository",
+      "kind": "interface",
+      "stereotype": "repository",
+      "parent": "Model",
+      "attributes": [],
+      "operations": [
+        {
+          "name": "findByJobIdAndCandidateId",
+          "params": [
+            {
+              "name": "jobId",
+              "type": "Integer"
+            },
+            {
+              "name": "candidateId",
+              "type": "Integer"
+            }
+          ],
+          "returns": "Optional<JobApplication>",
+          "visibility": "+"
+        }
+      ],
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/repository/JobApplicationRepository.java:11"
+    },
+    {
+      "key": "CvDataRepository",
+      "kind": "interface",
+      "stereotype": "repository",
+      "parent": "Model",
+      "attributes": [],
+      "operations": [
+        {
+          "name": "findByCandidateIdAndFieldOrderByIdAsc",
+          "params": [
+            {
+              "name": "candidateId",
+              "type": "Integer"
+            },
+            {
+              "name": "field",
+              "type": "String"
+            }
+          ],
+          "returns": "List<CvData>",
+          "visibility": "+"
+        }
+      ],
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/repository/CvDataRepository.java:8"
+    },
+    {
+      "key": "Job",
+      "kind": "class",
+      "stereotype": "entity",
+      "parent": "Model",
+      "attributes": [
+        {
+          "name": "id",
+          "type": "Integer",
+          "visibility": "-"
+        },
+        {
+          "name": "title",
+          "type": "String",
+          "visibility": "-"
+        },
+        {
+          "name": "description",
+          "type": "String",
+          "visibility": "-"
+        },
+        {
+          "name": "requirements",
+          "type": "String",
+          "visibility": "-"
+        },
+        {
+          "name": "status",
+          "type": "JobStatus",
+          "visibility": "-"
+        },
+        {
+          "name": "experienceRequired",
+          "type": "BigDecimal",
+          "visibility": "-"
+        }
+      ],
+      "operations": [],
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/entity/Job.java:18"
+    },
+    {
+      "key": "JobApplication",
+      "kind": "class",
+      "stereotype": "entity",
+      "parent": "Model",
+      "attributes": [
+        {
+          "name": "id",
+          "type": "Integer",
+          "visibility": "-"
+        },
+        {
+          "name": "job",
+          "type": "Job",
+          "visibility": "-"
+        },
+        {
+          "name": "status",
+          "type": "ApplicationStatus",
+          "visibility": "-"
+        },
+        {
+          "name": "coverLetter",
+          "type": "String",
+          "visibility": "-"
+        }
+      ],
+      "operations": [],
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/entity/JobApplication.java:17"
+    },
+    {
+      "key": "MatchingResult",
+      "kind": "class",
+      "stereotype": "entity",
+      "parent": "Model",
+      "attributes": [
+        {
+          "name": "id",
+          "type": "Integer",
+          "visibility": "-"
+        },
+        {
+          "name": "job",
+          "type": "Job",
+          "visibility": "-"
+        },
+        {
+          "name": "overallScore",
+          "type": "BigDecimal",
+          "visibility": "-"
+        },
+        {
+          "name": "skillsScore",
+          "type": "BigDecimal",
+          "visibility": "-"
+        },
+        {
+          "name": "experienceScore",
+          "type": "BigDecimal",
+          "visibility": "-"
+        },
+        {
+          "name": "semanticScore",
+          "type": "BigDecimal",
+          "visibility": "-"
+        },
+        {
+          "name": "explanation",
+          "type": "String",
+          "visibility": "-"
+        }
+      ],
+      "operations": [],
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/entity/MatchingResult.java:19"
+    }
+  ],
+  "relations": [
+    {
+      "from": "CvController",
+      "to": "CvService",
+      "kind": "dependency",
+      "label": "",
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/controller/CvController.java:19"
+    },
+    {
+      "from": "MatchingController",
+      "to": "MatchingService",
+      "kind": "dependency",
+      "label": "",
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/controller/MatchingController.java:19"
+    },
+    {
+      "from": "JobsController",
+      "to": "JobService",
+      "kind": "dependency",
+      "label": "",
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/controller/JobsController.java:26"
+    },
+    {
+      "from": "ApplicationsController",
+      "to": "ApplicationService",
+      "kind": "dependency",
+      "label": "",
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/controller/ApplicationsController.java:20"
+    },
+    {
+      "from": "CvService",
+      "to": "CvDataRepository",
+      "kind": "dependency",
+      "label": "",
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/service/CvService.java:208"
+    },
+    {
+      "from": "MatchingService",
+      "to": "MatchingResultRepository",
+      "kind": "dependency",
+      "label": "",
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/service/MatchingService.java:135"
+    },
+    {
+      "from": "MatchingService",
+      "to": "JobRepository",
+      "kind": "dependency",
+      "label": "",
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/service/MatchingService.java:56"
+    },
+    {
+      "from": "MatchingService",
+      "to": "JobSkillRepository",
+      "kind": "dependency",
+      "label": "",
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/service/MatchingService.java:104"
+    },
+    {
+      "from": "MatchingService",
+      "to": "CvDataRepository",
+      "kind": "dependency",
+      "label": "",
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/service/MatchingService.java:196"
+    },
+    {
+      "from": "MatchingService",
+      "to": "CvMatchingModule",
+      "kind": "dependency",
+      "label": "",
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/service/MatchingService.java:125"
+    },
+    {
+      "from": "JobService",
+      "to": "JobRepository",
+      "kind": "dependency",
+      "label": "",
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/service/JobService.java:38"
+    },
+    {
+      "from": "JobService",
+      "to": "JobSkillRepository",
+      "kind": "dependency",
+      "label": "",
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/service/JobService.java:117"
+    },
+    {
+      "from": "ApplicationService",
+      "to": "JobRepository",
+      "kind": "dependency",
+      "label": "",
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/service/ApplicationService.java:29"
+    },
+    {
+      "from": "ApplicationService",
+      "to": "JobApplicationRepository",
+      "kind": "dependency",
+      "label": "",
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/service/ApplicationService.java:34"
+    },
+    {
+      "from": "CvMatchingModule",
+      "to": "AiJsonClient",
+      "kind": "dependency",
+      "label": "",
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/service/matching/CvMatchingModule.java:18"
+    },
+    {
+      "from": "JobRepository",
+      "to": "Job",
+      "kind": "dependency",
+      "label": "",
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/repository/JobRepository.java:11"
+    },
+    {
+      "from": "JobApplicationRepository",
+      "to": "JobApplication",
+      "kind": "dependency",
+      "label": "",
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/repository/JobApplicationRepository.java:11"
+    },
+    {
+      "from": "MatchingResultRepository",
+      "to": "MatchingResult",
+      "kind": "dependency",
+      "label": "",
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/repository/MatchingResultRepository.java:11"
+    },
+    {
+      "from": "JobApplication",
+      "to": "Job",
+      "kind": "association",
+      "fromMult": "0..*",
+      "toMult": "1",
+      "label": "job",
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/entity/JobApplication.java:27"
+    },
+    {
+      "from": "MatchingResult",
+      "to": "Job",
+      "kind": "association",
+      "fromMult": "0..*",
+      "toMult": "1",
+      "label": "job",
+      "src": "source/recruit_system/backend/recruitment-service/src/main/java/recruit/demo/entity/MatchingResult.java:32"
+    }
+  ],
+  "notes": [
+    "Backend không render View; package View để trống, DTO response được liệt kê theo chữ ký và giải thích trong notes.",
+    "Chỉ biểu diễn một lát cắt các phụ thuộc thực thi để giữ tối đa 18 lớp/interface. Phương thức JpaRepository kế thừa không khai báo lại."
+  ],
+  "open_questions": [
+    "[cần xác nhận] Có dự định bổ sung nút ứng tuyển tại trang chi tiết việc hay giữ thao tác ứng tuyển tại trang chủ?"
+  ]
+}
