@@ -1,0 +1,378 @@
+{
+  "query": "SELECT ?item ?itemLabel WHERE { VALUES ?item { wd:Q123370638 wd:Q1330336 wd:Q1336920 wd:Q1378470 wd:Q176165 wd:Q181156 wd:Q188267 wd:Q188522 wd:Q188860 wd:Q189004 wd:Q190637 wd:Q190686 wd:Q235557 wd:Q2696153 wd:Q271680 wd:Q317623 wd:Q322563 wd:Q37045 wd:Q38723 wd:Q3918 wd:Q4671277 wd:Q483639 wd:Q494823 wd:Q635346 wd:Q65938634 wd:Q66747126 wd:Q681263 wd:Q7397 wd:Q8366 wd:Q845739 wd:Q846636 wd:Q9135 wd:Q9143 } SERVICE wikibase:label { bd:serviceParam wikibase:language \"en\". } }",
+  "results": {
+    "head": {
+      "vars": [
+        "item",
+        "itemLabel"
+      ]
+    },
+    "results": {
+      "bindings": [
+        {
+          "item": {
+            "type": "uri",
+            "value": "http://www.wikidata.org/entity/Q123370638"
+          },
+          "itemLabel": {
+            "type": "literal",
+            "value": "branch of computer science",
+            "xml:lang": "en"
+          }
+        },
+        {
+          "item": {
+            "type": "uri",
+            "value": "http://www.wikidata.org/entity/Q1330336"
+          },
+          "itemLabel": {
+            "type": "literal",
+            "value": "web framework",
+            "xml:lang": "en"
+          }
+        },
+        {
+          "item": {
+            "type": "uri",
+            "value": "http://www.wikidata.org/entity/Q1336920"
+          },
+          "itemLabel": {
+            "type": "literal",
+            "value": "community college",
+            "xml:lang": "en"
+          }
+        },
+        {
+          "item": {
+            "type": "uri",
+            "value": "http://www.wikidata.org/entity/Q1378470"
+          },
+          "itemLabel": {
+            "type": "literal",
+            "value": "software development methodology",
+            "xml:lang": "en"
+          }
+        },
+        {
+          "item": {
+            "type": "uri",
+            "value": "http://www.wikidata.org/entity/Q176165"
+          },
+          "itemLabel": {
+            "type": "literal",
+            "value": "database management system",
+            "xml:lang": "en"
+          }
+        },
+        {
+          "item": {
+            "type": "uri",
+            "value": "http://www.wikidata.org/entity/Q181156"
+          },
+          "itemLabel": {
+            "type": "literal",
+            "value": "software design pattern",
+            "xml:lang": "en"
+          }
+        },
+        {
+          "item": {
+            "type": "uri",
+            "value": "http://www.wikidata.org/entity/Q188267"
+          },
+          "itemLabel": {
+            "type": "literal",
+            "value": "programming paradigm",
+            "xml:lang": "en"
+          }
+        },
+        {
+          "item": {
+            "type": "uri",
+            "value": "http://www.wikidata.org/entity/Q188522"
+          },
+          "itemLabel": {
+            "type": "literal",
+            "value": "software testing",
+            "xml:lang": "en"
+          }
+        },
+        {
+          "item": {
+            "type": "uri",
+            "value": "http://www.wikidata.org/entity/Q188860"
+          },
+          "itemLabel": {
+            "type": "literal",
+            "value": "software library",
+            "xml:lang": "en"
+          }
+        },
+        {
+          "item": {
+            "type": "uri",
+            "value": "http://www.wikidata.org/entity/Q189004"
+          },
+          "itemLabel": {
+            "type": "literal",
+            "value": "college",
+            "xml:lang": "en"
+          }
+        },
+        {
+          "item": {
+            "type": "uri",
+            "value": "http://www.wikidata.org/entity/Q190637"
+          },
+          "itemLabel": {
+            "type": "literal",
+            "value": "web design",
+            "xml:lang": "en"
+          }
+        },
+        {
+          "item": {
+            "type": "uri",
+            "value": "http://www.wikidata.org/entity/Q190686"
+          },
+          "itemLabel": {
+            "type": "literal",
+            "value": "subroutine",
+            "xml:lang": "en"
+          }
+        },
+        {
+          "item": {
+            "type": "uri",
+            "value": "http://www.wikidata.org/entity/Q235557"
+          },
+          "itemLabel": {
+            "type": "literal",
+            "value": "file format",
+            "xml:lang": "en"
+          }
+        },
+        {
+          "item": {
+            "type": "uri",
+            "value": "http://www.wikidata.org/entity/Q2696153"
+          },
+          "itemLabel": {
+            "type": "literal",
+            "value": "vocational school",
+            "xml:lang": "en"
+          }
+        },
+        {
+          "item": {
+            "type": "uri",
+            "value": "http://www.wikidata.org/entity/Q271680"
+          },
+          "itemLabel": {
+            "type": "literal",
+            "value": "software framework",
+            "xml:lang": "en"
+          }
+        },
+        {
+          "item": {
+            "type": "uri",
+            "value": "http://www.wikidata.org/entity/Q317623"
+          },
+          "itemLabel": {
+            "type": "literal",
+            "value": "technical standard",
+            "xml:lang": "en"
+          }
+        },
+        {
+          "item": {
+            "type": "uri",
+            "value": "http://www.wikidata.org/entity/Q322563"
+          },
+          "itemLabel": {
+            "type": "literal",
+            "value": "vocational school",
+            "xml:lang": "en"
+          }
+        },
+        {
+          "item": {
+            "type": "uri",
+            "value": "http://www.wikidata.org/entity/Q37045"
+          },
+          "itemLabel": {
+            "type": "literal",
+            "value": "markup language",
+            "xml:lang": "en"
+          }
+        },
+        {
+          "item": {
+            "type": "uri",
+            "value": "http://www.wikidata.org/entity/Q38723"
+          },
+          "itemLabel": {
+            "type": "literal",
+            "value": "higher education institution",
+            "xml:lang": "en"
+          }
+        },
+        {
+          "item": {
+            "type": "uri",
+            "value": "http://www.wikidata.org/entity/Q3918"
+          },
+          "itemLabel": {
+            "type": "literal",
+            "value": "university",
+            "xml:lang": "en"
+          }
+        },
+        {
+          "item": {
+            "type": "uri",
+            "value": "http://www.wikidata.org/entity/Q4671277"
+          },
+          "itemLabel": {
+            "type": "literal",
+            "value": "academic institution",
+            "xml:lang": "en"
+          }
+        },
+        {
+          "item": {
+            "type": "uri",
+            "value": "http://www.wikidata.org/entity/Q483639"
+          },
+          "itemLabel": {
+            "type": "literal",
+            "value": "cloud computing",
+            "xml:lang": "en"
+          }
+        },
+        {
+          "item": {
+            "type": "uri",
+            "value": "http://www.wikidata.org/entity/Q494823"
+          },
+          "itemLabel": {
+            "type": "literal",
+            "value": "data format",
+            "xml:lang": "en"
+          }
+        },
+        {
+          "item": {
+            "type": "uri",
+            "value": "http://www.wikidata.org/entity/Q635346"
+          },
+          "itemLabel": {
+            "type": "literal",
+            "value": "architectural pattern",
+            "xml:lang": "en"
+          }
+        },
+        {
+          "item": {
+            "type": "uri",
+            "value": "http://www.wikidata.org/entity/Q65938634"
+          },
+          "itemLabel": {
+            "type": "literal",
+            "value": "quality control method",
+            "xml:lang": "en"
+          }
+        },
+        {
+          "item": {
+            "type": "uri",
+            "value": "http://www.wikidata.org/entity/Q66747126"
+          },
+          "itemLabel": {
+            "type": "literal",
+            "value": "computer science term",
+            "xml:lang": "en"
+          }
+        },
+        {
+          "item": {
+            "type": "uri",
+            "value": "http://www.wikidata.org/entity/Q681263"
+          },
+          "itemLabel": {
+            "type": "literal",
+            "value": "open standard",
+            "xml:lang": "en"
+          }
+        },
+        {
+          "item": {
+            "type": "uri",
+            "value": "http://www.wikidata.org/entity/Q7397"
+          },
+          "itemLabel": {
+            "type": "literal",
+            "value": "software",
+            "xml:lang": "en"
+          }
+        },
+        {
+          "item": {
+            "type": "uri",
+            "value": "http://www.wikidata.org/entity/Q8366"
+          },
+          "itemLabel": {
+            "type": "literal",
+            "value": "algorithm",
+            "xml:lang": "en"
+          }
+        },
+        {
+          "item": {
+            "type": "uri",
+            "value": "http://www.wikidata.org/entity/Q845739"
+          },
+          "itemLabel": {
+            "type": "literal",
+            "value": "query language",
+            "xml:lang": "en"
+          }
+        },
+        {
+          "item": {
+            "type": "uri",
+            "value": "http://www.wikidata.org/entity/Q846636"
+          },
+          "itemLabel": {
+            "type": "literal",
+            "value": "software architecture",
+            "xml:lang": "en"
+          }
+        },
+        {
+          "item": {
+            "type": "uri",
+            "value": "http://www.wikidata.org/entity/Q9135"
+          },
+          "itemLabel": {
+            "type": "literal",
+            "value": "operating system",
+            "xml:lang": "en"
+          }
+        },
+        {
+          "item": {
+            "type": "uri",
+            "value": "http://www.wikidata.org/entity/Q9143"
+          },
+          "itemLabel": {
+            "type": "literal",
+            "value": "programming language",
+            "xml:lang": "en"
+          }
+        }
+      ]
+    }
+  }
+}

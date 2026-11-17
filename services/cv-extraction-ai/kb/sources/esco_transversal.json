@@ -1,0 +1,5909 @@
+{
+  "kind": "skill",
+  "records": [
+    {
+      "_links": {
+        "isInScheme": [
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/skills-hierarchy"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/skills"
+          }
+        ]
+      },
+      "className": "Skill",
+      "preferredLabel": {
+        "en": "transversal skills and competences"
+      },
+      "uri": "http://data.europa.eu/esco/skill/04a13491-b58c-4d33-8b59-8fad0d55fe9e"
+    },
+    {
+      "_links": {
+        "broaderConcept": [
+          {
+            "uri": "http://data.europa.eu/esco/skill/04a13491-b58c-4d33-8b59-8fad0d55fe9e"
+          }
+        ],
+        "isInScheme": [
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/skills"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/skills-hierarchy"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/skill-transversal-groups"
+          }
+        ]
+      },
+      "alternativeLabel": {
+        "en": [
+          "cognitive skills and competences",
+          "use of reason and logic"
+        ]
+      },
+      "className": "Skill",
+      "preferredLabel": {
+        "en": "thinking skills and competences"
+      },
+      "uri": "http://data.europa.eu/esco/skill/8267ecb5-c976-4b6a-809b-4ceecb954967"
+    },
+    {
+      "_links": {
+        "broaderConcept": [
+          {
+            "uri": "http://data.europa.eu/esco/skill/04a13491-b58c-4d33-8b59-8fad0d55fe9e"
+          }
+        ],
+        "isInScheme": [
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/skill-transversal-groups"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/skills"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/skills-hierarchy"
+          }
+        ]
+      },
+      "alternativeLabel": {
+        "en": [
+          "social interactions",
+          "interpersonal abilities",
+          "interpersonal skills",
+          "social interaction",
+          "social skills"
+        ]
+      },
+      "className": "Skill",
+      "preferredLabel": {
+        "en": "social and communication skills and competences"
+      },
+      "uri": "http://data.europa.eu/esco/skill/552c4f35-a2d1-49c2-8fda-afe26695c44a"
+    },
+    {
+      "_links": {
+        "broaderConcept": [
+          {
+            "uri": "http://data.europa.eu/esco/skill/04a13491-b58c-4d33-8b59-8fad0d55fe9e"
+          }
+        ],
+        "isInScheme": [
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/skills"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/skill-transversal-groups"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/skills-hierarchy"
+          }
+        ]
+      },
+      "alternativeLabel": {
+        "en": [
+          "self-control",
+          "self-regulation",
+          "self-management",
+          "self-discipline",
+          "professional attitude"
+        ]
+      },
+      "className": "Skill",
+      "preferredLabel": {
+        "en": "self-management skills and competences"
+      },
+      "uri": "http://data.europa.eu/esco/skill/021a23e1-907e-4627-b05a-555f889cbb65"
+    },
+    {
+      "_links": {
+        "broaderConcept": [
+          {
+            "uri": "http://data.europa.eu/esco/skill/04a13491-b58c-4d33-8b59-8fad0d55fe9e"
+          }
+        ],
+        "isInScheme": [
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/skills-hierarchy"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/skills"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/skill-transversal-groups"
+          }
+        ]
+      },
+      "alternativeLabel": {
+        "en": [
+          "basic skills and competences"
+        ]
+      },
+      "className": "Skill",
+      "preferredLabel": {
+        "en": "core skills and competences"
+      },
+      "uri": "http://data.europa.eu/esco/skill/b94686e3-cce5-47a2-a8d8-402a0d0ed44e"
+    },
+    {
+      "_links": {
+        "broaderConcept": [
+          {
+            "uri": "http://data.europa.eu/esco/skill/04a13491-b58c-4d33-8b59-8fad0d55fe9e"
+          }
+        ],
+        "isInScheme": [
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/skills-hierarchy"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/skills"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/skill-transversal-groups"
+          }
+        ]
+      },
+      "alternativeLabel": {
+        "en": [
+          "active citizenship"
+        ]
+      },
+      "className": "Skill",
+      "preferredLabel": {
+        "en": "life skills and competences"
+      },
+      "uri": "http://data.europa.eu/esco/skill/4ef78abc-e983-4cc7-84a1-52532a0159dc"
+    },
+    {
+      "_links": {
+        "broaderConcept": [
+          {
+            "uri": "http://data.europa.eu/esco/skill/04a13491-b58c-4d33-8b59-8fad0d55fe9e"
+          }
+        ],
+        "isInScheme": [
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/skills"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/skills-hierarchy"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/skill-transversal-groups"
+          }
+        ]
+      },
+      "alternativeLabel": {
+        "en": [
+          "manual dexterity",
+          "psychomotor abilities",
+          "physical fitness",
+          "physical flexibility and coordination"
+        ]
+      },
+      "className": "Skill",
+      "preferredLabel": {
+        "en": "physical and manual skills and competences"
+      },
+      "uri": "http://data.europa.eu/esco/skill/12022223-8c30-418a-8f83-658396c9fec2"
+    },
+    {
+      "_links": {
+        "broaderConcept": [
+          {
+            "uri": "http://data.europa.eu/esco/skill/8267ecb5-c976-4b6a-809b-4ceecb954967"
+          }
+        ],
+        "isInScheme": [
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/skill-transversal-groups"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/skills-hierarchy"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/skills"
+          }
+        ]
+      },
+      "alternativeLabel": {
+        "en": [
+          "organisational skills",
+          "planning abilities",
+          "planning activities",
+          "planning skills",
+          "work planning"
+        ]
+      },
+      "className": "Skill",
+      "preferredLabel": {
+        "en": "planning and organising"
+      },
+      "uri": "http://data.europa.eu/esco/skill/66fdc34c-2326-4baa-b8ff-7a1d1015fe3a"
+    },
+    {
+      "_links": {
+        "broaderConcept": [
+          {
+            "uri": "http://data.europa.eu/esco/skill/8267ecb5-c976-4b6a-809b-4ceecb954967"
+          }
+        ],
+        "isInScheme": [
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/skills-hierarchy"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/skills"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/skill-transversal-groups"
+          }
+        ]
+      },
+      "alternativeLabel": {
+        "en": [
+          "processing qualitative information",
+          "processing quantitative information",
+          "analysing and interpreting information",
+          "processing of information"
+        ]
+      },
+      "className": "Skill",
+      "preferredLabel": {
+        "en": "processing information, ideas and concepts"
+      },
+      "uri": "http://data.europa.eu/esco/skill/fff1d675-c36a-4c12-9cd4-407f21ccd06a"
+    },
+    {
+      "_links": {
+        "broaderConcept": [
+          {
+            "uri": "http://data.europa.eu/esco/skill/8267ecb5-c976-4b6a-809b-4ceecb954967"
+          }
+        ],
+        "isInScheme": [
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/skill-transversal-groups"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/skills-hierarchy"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/skills"
+          }
+        ]
+      },
+      "alternativeLabel": {
+        "en": [
+          "problem solving skills",
+          "addressing problems and issues"
+        ]
+      },
+      "className": "Skill",
+      "preferredLabel": {
+        "en": "dealing with problems"
+      },
+      "uri": "http://data.europa.eu/esco/skill/13d301d0-98cb-414f-a8f9-a3f059228133"
+    },
+    {
+      "_links": {
+        "broaderConcept": [
+          {
+            "uri": "http://data.europa.eu/esco/skill/8267ecb5-c976-4b6a-809b-4ceecb954967"
+          }
+        ],
+        "isInScheme": [
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/skills"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/skill-transversal-groups"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/skills-hierarchy"
+          }
+        ]
+      },
+      "alternativeLabel": {
+        "en": [
+          "creating new information, concepts, ideas, products, processes",
+          "carrying out activities in innovative and creative ways"
+        ]
+      },
+      "className": "Skill",
+      "preferredLabel": {
+        "en": "thinking creatively and innovatively"
+      },
+      "uri": "http://data.europa.eu/esco/skill/e84d080a-ff6d-41a7-b7b9-133e97c7bf00"
+    },
+    {
+      "_links": {
+        "broaderConcept": [
+          {
+            "uri": "http://data.europa.eu/esco/skill/552c4f35-a2d1-49c2-8fda-afe26695c44a"
+          }
+        ],
+        "isInScheme": [
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/skills"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/skill-transversal-groups"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/skills-hierarchy"
+          }
+        ]
+      },
+      "alternativeLabel": {
+        "en": [
+          "conversational skills",
+          "verbal skils",
+          "using language, symbols and text effectively",
+          "communication",
+          "argumentation skills",
+          "communication skills",
+          "writing skills"
+        ]
+      },
+      "className": "Skill",
+      "preferredLabel": {
+        "en": "communicating"
+      },
+      "uri": "http://data.europa.eu/esco/skill/6f142deb-03a9-4cd7-94ce-e0f023ae2169"
+    },
+    {
+      "_links": {
+        "broaderConcept": [
+          {
+            "uri": "http://data.europa.eu/esco/skill/552c4f35-a2d1-49c2-8fda-afe26695c44a"
+          }
+        ],
+        "isInScheme": [
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/skill-transversal-groups"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/skills-hierarchy"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/skills"
+          }
+        ]
+      },
+      "alternativeLabel": {
+        "en": [
+          "demonstrating leadership"
+        ]
+      },
+      "className": "Skill",
+      "preferredLabel": {
+        "en": "leading others"
+      },
+      "uri": "http://data.europa.eu/esco/skill/fe5eabaa-63f6-4c44-b405-fc3ded8d56cb"
+    },
+    {
+      "_links": {
+        "broaderConcept": [
+          {
+            "uri": "http://data.europa.eu/esco/skill/552c4f35-a2d1-49c2-8fda-afe26695c44a"
+          }
+        ],
+        "isInScheme": [
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/skill-transversal-groups"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/skills"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/skills-hierarchy"
+          }
+        ]
+      },
+      "alternativeLabel": {
+        "en": [
+          "providing support to others",
+          "support others",
+          "helpfulness"
+        ]
+      },
+      "className": "Skill",
+      "preferredLabel": {
+        "en": "supporting others"
+      },
+      "uri": "http://data.europa.eu/esco/skill/82463bb1-85d1-4e99-a4ce-08508fc3b2a3"
+    },
+    {
+      "_links": {
+        "broaderConcept": [
+          {
+            "uri": "http://data.europa.eu/esco/skill/552c4f35-a2d1-49c2-8fda-afe26695c44a"
+          }
+        ],
+        "isInScheme": [
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/skills"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/skills-hierarchy"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/skill-transversal-groups"
+          }
+        ]
+      },
+      "alternativeLabel": {
+        "en": [
+          "scruples",
+          "values",
+          "value orientation",
+          "morals",
+          "handling of values",
+          "ethics",
+          "beliefs"
+        ]
+      },
+      "className": "Skill",
+      "preferredLabel": {
+        "en": "following ethical code of conduct"
+      },
+      "uri": "http://data.europa.eu/esco/skill/925af2b5-2f4d-4cce-92cc-79e1ff887c7d"
+    },
+    {
+      "_links": {
+        "broaderConcept": [
+          {
+            "uri": "http://data.europa.eu/esco/skill/552c4f35-a2d1-49c2-8fda-afe26695c44a"
+          }
+        ],
+        "isInScheme": [
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/skills-hierarchy"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/skill-transversal-groups"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/skills"
+          }
+        ]
+      },
+      "alternativeLabel": {
+        "en": [
+          "working with others",
+          "acting with others to achieve aims"
+        ]
+      },
+      "className": "Skill",
+      "preferredLabel": {
+        "en": "collaborating in teams and networks"
+      },
+      "uri": "http://data.europa.eu/esco/skill/036afa6e-cdde-4b38-a53a-8e7910a840e1"
+    },
+    {
+      "_links": {
+        "broaderConcept": [
+          {
+            "uri": "http://data.europa.eu/esco/skill/021a23e1-907e-4627-b05a-555f889cbb65"
+          }
+        ],
+        "isInScheme": [
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/skills"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/skills-hierarchy"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/skill-transversal-groups"
+          }
+        ]
+      },
+      "alternativeLabel": {
+        "en": [
+          "recognising opportunities",
+          "be proactive",
+          "identify opportunities",
+          "proactive personality",
+          "recognise opportunities"
+        ]
+      },
+      "className": "Skill",
+      "preferredLabel": {
+        "en": "taking a proactive approach"
+      },
+      "uri": "http://data.europa.eu/esco/skill/91860993-1a8b-4473-91f3-600aa1924bd0"
+    },
+    {
+      "_links": {
+        "broaderConcept": [
+          {
+            "uri": "http://data.europa.eu/esco/skill/021a23e1-907e-4627-b05a-555f889cbb65"
+          }
+        ],
+        "isInScheme": [
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/skills"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/skill-transversal-groups"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/skills-hierarchy"
+          }
+        ]
+      },
+      "alternativeLabel": {
+        "en": [
+          "efficiency",
+          "efficient working style",
+          "responding to the requirements of tasks and responsibilities",
+          "time-efficient work"
+        ]
+      },
+      "className": "Skill",
+      "preferredLabel": {
+        "en": "working efficiently"
+      },
+      "uri": "http://data.europa.eu/esco/skill/14c41899-0224-4cbc-bd8c-e946ada2da87"
+    },
+    {
+      "_links": {
+        "broaderConcept": [
+          {
+            "uri": "http://data.europa.eu/esco/skill/021a23e1-907e-4627-b05a-555f889cbb65"
+          }
+        ],
+        "isInScheme": [
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/skills-hierarchy"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/skills"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/skill-transversal-groups"
+          }
+        ]
+      },
+      "alternativeLabel": {
+        "en": [
+          "demonstrating resilience",
+          "managing negative factors in life and work"
+        ]
+      },
+      "className": "Skill",
+      "preferredLabel": {
+        "en": "maintaining a positive attitude"
+      },
+      "uri": "http://data.europa.eu/esco/skill/2b2c3254-7f6c-47e2-84f1-aece946fbfae"
+    },
+    {
+      "_links": {
+        "broaderConcept": [
+          {
+            "uri": "http://data.europa.eu/esco/skill/021a23e1-907e-4627-b05a-555f889cbb65"
+          }
+        ],
+        "isInScheme": [
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/skills"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/skill-transversal-groups"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/skills-hierarchy"
+          }
+        ]
+      },
+      "alternativeLabel": {
+        "en": [
+          "demonstrating self-management and self-reflection"
+        ]
+      },
+      "className": "Skill",
+      "preferredLabel": {
+        "en": "demonstrating willingness to learn"
+      },
+      "uri": "http://data.europa.eu/esco/skill/f5c9eef3-0495-4747-9519-d71a58d252bd"
+    },
+    {
+      "_links": {
+        "broaderConcept": [
+          {
+            "uri": "http://data.europa.eu/esco/skill/b94686e3-cce5-47a2-a8d8-402a0d0ed44e"
+          }
+        ],
+        "isInScheme": [
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/skill-transversal-groups"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/skills"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/skills-hierarchy"
+          }
+        ]
+      },
+      "alternativeLabel": {
+        "en": [
+          "language proficiency",
+          "talent for languages",
+          "language skills",
+          "multilinguism"
+        ]
+      },
+      "className": "Skill",
+      "preferredLabel": {
+        "en": "mastering languages"
+      },
+      "uri": "http://data.europa.eu/esco/skill/9adca63b-9c75-4804-8dab-d62872540a10"
+    },
+    {
+      "_links": {
+        "broaderConcept": [
+          {
+            "uri": "http://data.europa.eu/esco/skill/b94686e3-cce5-47a2-a8d8-402a0d0ed44e"
+          }
+        ],
+        "isInScheme": [
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/skills-hierarchy"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/skill-transversal-groups"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/skills"
+          }
+        ]
+      },
+      "alternativeLabel": {
+        "en": [
+          "digital competencies",
+          "digital and technology-based competences",
+          "working with computers",
+          "computer literacy"
+        ]
+      },
+      "className": "Skill",
+      "preferredLabel": {
+        "en": "working with digital devices and applications"
+      },
+      "uri": "http://data.europa.eu/esco/skill/3399045f-8078-4066-8b46-475b49b260ab"
+    },
+    {
+      "_links": {
+        "broaderConcept": [
+          {
+            "uri": "http://data.europa.eu/esco/skill/b94686e3-cce5-47a2-a8d8-402a0d0ed44e"
+          }
+        ],
+        "isInScheme": [
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/skills-hierarchy"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/skill-transversal-groups"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/skills"
+          }
+        ]
+      },
+      "alternativeLabel": {
+        "en": [
+          "numeracy and mathematics",
+          "ability to understand and work with numbers",
+          "carrying out measurements"
+        ]
+      },
+      "className": "Skill",
+      "preferredLabel": {
+        "en": "working with numbers and measures"
+      },
+      "uri": "http://data.europa.eu/esco/skill/edc72cfe-78a8-4531-b00f-92992a0bb8cb"
+    },
+    {
+      "_links": {
+        "broaderConcept": [
+          {
+            "uri": "http://data.europa.eu/esco/skill/4ef78abc-e983-4cc7-84a1-52532a0159dc"
+          }
+        ],
+        "isInScheme": [
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/skills-hierarchy"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/skill-transversal-groups"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/skills"
+          }
+        ]
+      },
+      "alternativeLabel": {
+        "en": [
+          "maintaining safety, health and welfare"
+        ]
+      },
+      "className": "Skill",
+      "preferredLabel": {
+        "en": "applying health-related skills and competences"
+      },
+      "uri": "http://data.europa.eu/esco/skill/3d54fec5-d9cb-45a0-bf8d-ffaf3790a5bb"
+    },
+    {
+      "_links": {
+        "broaderConcept": [
+          {
+            "uri": "http://data.europa.eu/esco/skill/4ef78abc-e983-4cc7-84a1-52532a0159dc"
+          }
+        ],
+        "isInScheme": [
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/skills-hierarchy"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/skill-transversal-groups"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/skills"
+          }
+        ]
+      },
+      "alternativeLabel": {
+        "en": [
+          "adopting environmentally-friendly practices"
+        ]
+      },
+      "className": "Skill",
+      "preferredLabel": {
+        "en": "applying environmental skills and competences"
+      },
+      "uri": "http://data.europa.eu/esco/skill/80cf002a-6586-4db7-9c9a-88325a9a5e1b"
+    },
+    {
+      "_links": {
+        "broaderConcept": [
+          {
+            "uri": "http://data.europa.eu/esco/skill/4ef78abc-e983-4cc7-84a1-52532a0159dc"
+          }
+        ],
+        "isInScheme": [
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/skills"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/skill-transversal-groups"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/skills-hierarchy"
+          }
+        ]
+      },
+      "alternativeLabel": {
+        "en": [
+          "appreciating and expressing cultural, artistic or musical concepts"
+        ]
+      },
+      "className": "Skill",
+      "preferredLabel": {
+        "en": "applying cultural skills and competences"
+      },
+      "uri": "http://data.europa.eu/esco/skill/6115ff80-3d84-4e87-8e2b-6ede7ee004b4"
+    },
+    {
+      "_links": {
+        "broaderConcept": [
+          {
+            "uri": "http://data.europa.eu/esco/skill/4ef78abc-e983-4cc7-84a1-52532a0159dc"
+          }
+        ],
+        "isInScheme": [
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/skill-transversal-groups"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/skills-hierarchy"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/skills"
+          }
+        ]
+      },
+      "alternativeLabel": {
+        "en": [
+          "financial and entrepreneurial literacy"
+        ]
+      },
+      "className": "Skill",
+      "preferredLabel": {
+        "en": "applying entrepreneurial and financial skills and competences"
+      },
+      "uri": "http://data.europa.eu/esco/skill/6c6957bf-cf1f-4483-9c7e-1655f251b01a"
+    },
+    {
+      "_links": {
+        "broaderConcept": [
+          {
+            "uri": "http://data.europa.eu/esco/skill/4ef78abc-e983-4cc7-84a1-52532a0159dc"
+          }
+        ],
+        "isInScheme": [
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/skill-transversal-groups"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/skills-hierarchy"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/skills"
+          }
+        ]
+      },
+      "alternativeLabel": {
+        "en": [
+          "seeking opportunities for self-empowerment and participatory involvement"
+        ]
+      },
+      "className": "Skill",
+      "preferredLabel": {
+        "en": "applying civic skills and competences"
+      },
+      "uri": "http://data.europa.eu/esco/skill/d6e97b91-b75d-45f5-8566-667798957b0f"
+    },
+    {
+      "_links": {
+        "broaderConcept": [
+          {
+            "uri": "http://data.europa.eu/esco/skill/4ef78abc-e983-4cc7-84a1-52532a0159dc"
+          }
+        ],
+        "isInScheme": [
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/skills-hierarchy"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/skill-transversal-groups"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/skills"
+          }
+        ]
+      },
+      "alternativeLabel": {
+        "en": [
+          "general knoweldge",
+          "general education"
+        ]
+      },
+      "className": "Skill",
+      "preferredLabel": {
+        "en": "applying general knowledge"
+      },
+      "uri": "http://data.europa.eu/esco/skill/44ff6716-7d71-4a16-821b-61d10e9e290d"
+    },
+    {
+      "_links": {
+        "broaderConcept": [
+          {
+            "uri": "http://data.europa.eu/esco/skill/12022223-8c30-418a-8f83-658396c9fec2"
+          }
+        ],
+        "isInScheme": [
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/skills"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/skill-transversal-groups"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/skills-hierarchy"
+          }
+        ]
+      },
+      "alternativeLabel": {
+        "en": [
+          "lifting, moving and placing objects",
+          "performing physical tasks and activities"
+        ]
+      },
+      "className": "Skill",
+      "preferredLabel": {
+        "en": "manipulating and controlling objects and equipment"
+      },
+      "uri": "http://data.europa.eu/esco/skill/ccb6db6a-8538-431c-b740-5f241bdb71cf"
+    },
+    {
+      "_links": {
+        "broaderConcept": [
+          {
+            "uri": "http://data.europa.eu/esco/skill/12022223-8c30-418a-8f83-658396c9fec2"
+          }
+        ],
+        "isInScheme": [
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/skills"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/skills-hierarchy"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/skill-transversal-groups"
+          }
+        ]
+      },
+      "alternativeLabel": {
+        "en": [
+          "demonstrating physical strength",
+          "demonstrating physical fitness",
+          "demonstrating endurance"
+        ]
+      },
+      "className": "Skill",
+      "preferredLabel": {
+        "en": "responding to physical circumstances"
+      },
+      "uri": "http://data.europa.eu/esco/skill/e52389a2-1a05-45b0-8db3-4bda0f0c0b48"
+    },
+    {
+      "_links": {
+        "isInScheme": [
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/research"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/member-skills"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/skill-transversal-groups"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/skills"
+          }
+        ]
+      },
+      "alternativeLabel": {
+        "en": [
+          "complete planning",
+          "performance planning",
+          "planning performance",
+          "implement planning",
+          "undertake planning",
+          "plan activities"
+        ]
+      },
+      "className": "Skill",
+      "preferredLabel": {
+        "en": "plan"
+      },
+      "uri": "http://data.europa.eu/esco/skill/e49f4158-9d4c-425d-bf32-dfe89b19840a"
+    },
+    {
+      "_links": {
+        "isInScheme": [
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/member-skills"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/skills"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/skill-transversal-groups"
+          }
+        ]
+      },
+      "alternativeLabel": {
+        "en": [
+          "have organisational skills",
+          "demonstrate organizational skills",
+          "structure information",
+          "organise resources",
+          "record information",
+          "take in information"
+        ]
+      },
+      "className": "Skill",
+      "preferredLabel": {
+        "en": "organise information, objects and resources"
+      },
+      "uri": "http://data.europa.eu/esco/skill/6b305973-8993-475f-bd8a-daf037c61401"
+    },
+    {
+      "_links": {
+        "isInScheme": [
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/research"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/skill-transversal-groups"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/skills"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/member-skills"
+          }
+        ]
+      },
+      "alternativeLabel": {
+        "en": [
+          "apply structural analysis",
+          "analytical thinking",
+          "think logically",
+          "apply logical thinking",
+          "use logical reasoning",
+          "apply structured thinking",
+          "think in an analytical way",
+          "develop an analytical approach"
+        ]
+      },
+      "className": "Skill",
+      "preferredLabel": {
+        "en": "think analytically"
+      },
+      "uri": "http://data.europa.eu/esco/skill/4707da90-9cfc-46ca-8de0-38a0b7bfb137"
+    },
+    {
+      "_links": {
+        "isInScheme": [
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/skills"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/skill-transversal-groups"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/member-skills"
+          }
+        ]
+      },
+      "alternativeLabel": {
+        "en": [
+          "understand quickly",
+          "react quickly",
+          "show a good level of perception"
+        ]
+      },
+      "className": "Skill",
+      "preferredLabel": {
+        "en": "think quickly"
+      },
+      "uri": "http://data.europa.eu/esco/skill/20012caa-b63c-4cb9-b2b8-01a1cfdfc1d1"
+    },
+    {
+      "_links": {
+        "isInScheme": [
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/member-skills"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/skills"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/skill-transversal-groups"
+          }
+        ]
+      },
+      "alternativeLabel": {
+        "en": [
+          "apply conceptual thinking",
+          "understand complex processes",
+          "understand complexity",
+          "demonstrate holistic thinking",
+          "recognise connections",
+          "identify interrelationships",
+          "apply systemic thinking",
+          "identify key issues in complex situations"
+        ]
+      },
+      "className": "Skill",
+      "preferredLabel": {
+        "en": "think holistically"
+      },
+      "uri": "http://data.europa.eu/esco/skill/d56e2c2f-3e01-4b76-a7bb-ecb6d430172f"
+    },
+    {
+      "_links": {
+        "isInScheme": [
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/skills"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/member-skills"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/skill-transversal-groups"
+          }
+        ]
+      },
+      "alternativeLabel": {
+        "en": [
+          "remember information",
+          "memorise procedures",
+          "commit information to memory",
+          "memorising information",
+          "mnemonics principles",
+          "memorise info",
+          "learn information by heart",
+          "memorise facts"
+        ]
+      },
+      "className": "Skill",
+      "preferredLabel": {
+        "en": "memorise information"
+      },
+      "uri": "http://data.europa.eu/esco/skill/fa46a48d-9cb9-422d-afab-1047654dbcdd"
+    },
+    {
+      "_links": {
+        "isInScheme": [
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/skills"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/skill-transversal-groups"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/research"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/member-skills"
+          }
+        ]
+      },
+      "alternativeLabel": {
+        "en": [
+          "evaluate opinions",
+          "critically evaluate information and its sources",
+          "detect bias",
+          "evaluate truth",
+          "evaluating information",
+          "assess information",
+          "distinguish fact from opinion",
+          "verify information",
+          "assess facts",
+          "assess opinions",
+          "weigh information",
+          "review information",
+          "evaluate information and its sources",
+          "evaluate facts",
+          "check facts",
+          "evaluate important information",
+          "apply critical thinking",
+          "assess processes",
+          "consider alternative views"
+        ]
+      },
+      "className": "Skill",
+      "preferredLabel": {
+        "en": "think critically"
+      },
+      "uri": "http://data.europa.eu/esco/skill/7dd94ad3-13d6-43fe-8b94-51fcbf67ced9"
+    },
+    {
+      "_links": {
+        "isInScheme": [
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/skills"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/skill-transversal-groups"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/member-skills"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/research"
+          }
+        ]
+      },
+      "alternativeLabel": {
+        "en": [
+          "come up with strategy to solve problems",
+          "develop strategy to solve problems",
+          "manage problems",
+          "apply problem solving",
+          "act intuitevely",
+          "create solutions to problems",
+          "develop strategies to solve problems",
+          "demonstrate problem solving skills",
+          "resolve problems",
+          "create strategies to solve problems"
+        ]
+      },
+      "className": "Skill",
+      "preferredLabel": {
+        "en": "solve problems"
+      },
+      "uri": "http://data.europa.eu/esco/skill/adc6dc11-3376-467b-96c5-9b0a21edc869"
+    },
+    {
+      "_links": {
+        "isInScheme": [
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/skill-transversal-groups"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/skills"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/member-skills"
+          }
+        ]
+      },
+      "alternativeLabel": {
+        "en": [
+          "diagnose problems",
+          "detect problems",
+          "signal problems"
+        ]
+      },
+      "className": "Skill",
+      "preferredLabel": {
+        "en": "identify problems"
+      },
+      "uri": "http://data.europa.eu/esco/skill/a628d2d1-f40a-4c37-a357-2801726f2996"
+    },
+    {
+      "_links": {
+        "isInScheme": [
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/skills"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/skill-transversal-groups"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/member-skills"
+          }
+        ]
+      },
+      "alternativeLabel": {
+        "en": [
+          "anticipate needs",
+          "visualise completed project",
+          "seek out questions",
+          "visualise completed work",
+          "thinking creatively",
+          "innovate",
+          "use imagination",
+          "experiment",
+          "think in a creative way",
+          "work conceptually",
+          "design",
+          "show originality",
+          "innovative thinking",
+          "find new ideas",
+          "brainstorming"
+        ]
+      },
+      "className": "Skill",
+      "preferredLabel": {
+        "en": "think creatively"
+      },
+      "uri": "http://data.europa.eu/esco/skill/c624c6a3-b0ba-4a31-a296-0d433fe47e41"
+    },
+    {
+      "_links": {
+        "isInScheme": [
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/member-skills"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/skill-transversal-groups"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/skills"
+          }
+        ]
+      },
+      "alternativeLabel": {
+        "en": [
+          "demonstrate ability to improvise",
+          "show talent for improvisation"
+        ]
+      },
+      "className": "Skill",
+      "preferredLabel": {
+        "en": "improvise"
+      },
+      "uri": "http://data.europa.eu/esco/skill/b40584aa-7c63-4eed-9422-a9798fb95fdc"
+    },
+    {
+      "_links": {
+        "isInScheme": [
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/skill-transversal-groups"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/skills"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/member-skills"
+          }
+        ]
+      },
+      "alternativeLabel": {
+        "en": [
+          "think ahead",
+          "apply forward-thinking",
+          "invent",
+          "be innovative",
+          "shape the future",
+          "apply innovative thinking",
+          "show innovativeness",
+          "demonstrate pioneering spirit"
+        ]
+      },
+      "className": "Skill",
+      "preferredLabel": {
+        "en": "think innovatively"
+      },
+      "uri": "http://data.europa.eu/esco/skill/c2a0c52c-0b4b-4180-a918-92650ea3b458"
+    },
+    {
+      "_links": {
+        "isInScheme": [
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/skills"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/member-skills"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/skill-transversal-groups"
+          }
+        ]
+      },
+      "alternativeLabel": {
+        "en": [
+          "oversee a discussion",
+          "guide a discussion",
+          "moderate workshops",
+          "moderate conferences",
+          "lead discussions",
+          "carry out moderation",
+          "apply moderation techniques"
+        ]
+      },
+      "className": "Skill",
+      "preferredLabel": {
+        "en": "moderate a discussion"
+      },
+      "uri": "http://data.europa.eu/esco/skill/5b46f572-7ced-4efd-b270-a81a164d521c"
+    },
+    {
+      "_links": {
+        "isInScheme": [
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/member-skills"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/skill-transversal-groups"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/skills"
+          }
+        ]
+      },
+      "alternativeLabel": {
+        "en": [
+          "communicate facts",
+          "detail the facts",
+          "write minutes",
+          "report",
+          "give an account of the facts",
+          "reporting facts",
+          "report facts or ideas"
+        ]
+      },
+      "className": "Skill",
+      "preferredLabel": {
+        "en": "report facts"
+      },
+      "uri": "http://data.europa.eu/esco/skill/be6ab363-3de1-427f-a8ef-85d5b0250822"
+    },
+    {
+      "_links": {
+        "isInScheme": [
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/research"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/member-skills"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/skills"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/skill-transversal-groups"
+          }
+        ]
+      },
+      "alternativeLabel": {
+        "en": [
+          "negotiate",
+          "resolve conflict",
+          "influence decision-making processes",
+          "negotiating compromise",
+          "bargaining",
+          "seek agreement",
+          "defuse conflict",
+          "manage complaints",
+          "bargain"
+        ]
+      },
+      "className": "Skill",
+      "preferredLabel": {
+        "en": "negotiate compromises"
+      },
+      "uri": "http://data.europa.eu/esco/skill/7954861c-86d4-4529-afbb-2c23dab9ac74"
+    },
+    {
+      "_links": {
+        "isInScheme": [
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/member-skills"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/skill-transversal-groups"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/skills"
+          }
+        ]
+      },
+      "alternativeLabel": {
+        "en": [
+          "give a talk to an audience",
+          "address audiences",
+          "deliver a speech",
+          "lecture",
+          "give a lecture to an audience",
+          "present ideas",
+          "addressing an audience",
+          "speak to an audience"
+        ]
+      },
+      "className": "Skill",
+      "preferredLabel": {
+        "en": "address an audience"
+      },
+      "uri": "http://data.europa.eu/esco/skill/609a8ac1-9d29-4237-9886-596dbbe7ca8a"
+    },
+    {
+      "_links": {
+        "isInScheme": [
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/skills"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/skill-transversal-groups"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/member-skills"
+          }
+        ]
+      },
+      "alternativeLabel": {
+        "en": [
+          "enjoys selling",
+          "be able to close sales regularly and confidently",
+          "influence others",
+          "persuade others",
+          "present products",
+          "convince others",
+          "influence decisions",
+          "persuade"
+        ]
+      },
+      "className": "Skill",
+      "preferredLabel": {
+        "en": "promote ideas, products, services"
+      },
+      "uri": "http://data.europa.eu/esco/skill/df5e3d02-9f0f-44ee-91c2-85c62f161868"
+    },
+    {
+      "_links": {
+        "isInScheme": [
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/skills"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/member-skills"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/skill-transversal-groups"
+          }
+        ]
+      },
+      "alternativeLabel": {
+        "en": [
+          "mediate in conflicts",
+          "handle tense situation",
+          "handle tense situations",
+          "be able to create consensus",
+          "mediate in debates",
+          "demonstrate willingness to compromise",
+          "manage conflicts",
+          "act as mediator",
+          "mediate in collisions",
+          "mediate tense situations",
+          "be able to find compromises",
+          "mediate in tense debate"
+        ]
+      },
+      "className": "Skill",
+      "preferredLabel": {
+        "en": "resolve conflicts"
+      },
+      "uri": "http://data.europa.eu/esco/skill/96de2e86-e287-41f2-88ab-15a2343afc6f"
+    },
+    {
+      "_links": {
+        "isInScheme": [
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/member-skills"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/skill-transversal-groups"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/skills"
+          }
+        ]
+      },
+      "alternativeLabel": {
+        "en": [
+          "exert a goal-oriented leadership role towards colleagues",
+          "make use of leadership abilities for team coordination",
+          "exert a goal-oriented leadership role",
+          "supervise others",
+          "exert a leadership role towards colleagues",
+          "lead colleagues",
+          "lead",
+          "make use of goal-driven leadership abilities",
+          "leading others",
+          "manage people",
+          "guide others",
+          "show an exemplary leading role in an organisation",
+          "exert result-oriented leadership",
+          "give direction",
+          "make use of result-oriented leadership abilities",
+          "exert a result-oriented leadership role",
+          "direct others",
+          "exert a result-oriented leadership role towards colleagues",
+          "show leadership attitude",
+          "take on a leadership role"
+        ]
+      },
+      "className": "Skill",
+      "preferredLabel": {
+        "en": "lead others"
+      },
+      "uri": "http://data.europa.eu/esco/skill/75d8e5d9-bef3-418b-9011-01bff9f27207"
+    },
+    {
+      "_links": {
+        "isInScheme": [
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/skills"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/skill-transversal-groups"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/member-skills"
+          }
+        ]
+      },
+      "alternativeLabel": {
+        "en": [
+          "project team building",
+          "design team building",
+          "plan team building",
+          "build teams",
+          "arrange team building",
+          "organise a team"
+        ]
+      },
+      "className": "Skill",
+      "preferredLabel": {
+        "en": "build team spirit"
+      },
+      "uri": "http://data.europa.eu/esco/skill/b19e0820-a96f-4c0a-a724-3c056180c1b3"
+    },
+    {
+      "_links": {
+        "isInScheme": [
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/skill-transversal-groups"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/member-skills"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/skills"
+          }
+        ]
+      },
+      "alternativeLabel": {
+        "en": [
+          "delegate",
+          "delegate activities",
+          "delegate tasks",
+          "share duties",
+          "share tasks",
+          "distribute activities",
+          "delegate activities to others",
+          "distribute tasks"
+        ]
+      },
+      "className": "Skill",
+      "preferredLabel": {
+        "en": "delegate responsibilities"
+      },
+      "uri": "http://data.europa.eu/esco/skill/b00e948c-19be-4951-8cff-60f88f1046e9"
+    },
+    {
+      "_links": {
+        "isInScheme": [
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/skills"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/member-skills"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/skill-transversal-groups"
+          }
+        ]
+      },
+      "alternativeLabel": {
+        "en": [
+          "motivate staff and colleages",
+          "motivating others",
+          "stimulate action",
+          "empower others",
+          "inspire others",
+          "energise others",
+          "encourage others"
+        ]
+      },
+      "className": "Skill",
+      "preferredLabel": {
+        "en": "motivate others"
+      },
+      "uri": "http://data.europa.eu/esco/skill/e2d44a9b-f28c-489e-9861-b654b5ded507"
+    },
+    {
+      "_links": {
+        "isInScheme": [
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/member-skills"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/skills"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/skill-transversal-groups"
+          }
+        ]
+      },
+      "alternativeLabel": {
+        "en": [
+          "show concern for others",
+          "communicate an empathic response",
+          "showing empathy",
+          "demonstrate concern for others",
+          "be empathic",
+          "show good manners",
+          "demonstrate consideration",
+          "concern for others",
+          "treat people fairly",
+          "show courtesy",
+          "exhibit consideration",
+          "display consideration"
+        ]
+      },
+      "className": "Skill",
+      "preferredLabel": {
+        "en": "show empathy"
+      },
+      "uri": "http://data.europa.eu/esco/skill/77b636e8-fab3-41a8-8022-1e0a354059dc"
+    },
+    {
+      "_links": {
+        "isInScheme": [
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/skill-transversal-groups"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/member-skills"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/skills"
+          }
+        ]
+      },
+      "alternativeLabel": {
+        "en": [
+          "mentor others",
+          "counsel others",
+          "offer suggestions to others",
+          "advise customers",
+          "give advice",
+          "provide advisory services",
+          "counselling",
+          "mentor individuals",
+          "guide others",
+          "advise colleagues",
+          "make recommendations to others",
+          "give constructive feedback",
+          "giving advice to others"
+        ]
+      },
+      "className": "Skill",
+      "preferredLabel": {
+        "en": "advise others"
+      },
+      "uri": "http://data.europa.eu/esco/skill/045f71e6-0699-4169-8a54-9c6b96f3174d"
+    },
+    {
+      "_links": {
+        "isInScheme": [
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/skills"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/member-skills"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/skill-transversal-groups"
+          }
+        ]
+      },
+      "alternativeLabel": {
+        "en": [
+          "instruct colleagues",
+          "tutoring",
+          "train others",
+          "educate others",
+          "teach others",
+          "instructing others"
+        ]
+      },
+      "className": "Skill",
+      "preferredLabel": {
+        "en": "instruct others"
+      },
+      "uri": "http://data.europa.eu/esco/skill/699e7c26-6502-4e78-a823-3656ff5a5b8b"
+    },
+    {
+      "_links": {
+        "isInScheme": [
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/skills"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/member-skills"
+          }
+        ]
+      },
+      "alternativeLabel": {
+        "en": [
+          "assessing others",
+          "show understanding of others",
+          "empathise with others",
+          "assess others"
+        ]
+      },
+      "className": "Skill",
+      "preferredLabel": {
+        "en": "assess others feelings"
+      },
+      "uri": "http://data.europa.eu/esco/skill/a90fa5ff-5b4f-4152-8160-ad80a6d3d13e"
+    },
+    {
+      "_links": {
+        "isInScheme": [
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/skill-transversal-groups"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/member-skills"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/skills"
+          }
+        ]
+      },
+      "alternativeLabel": {
+        "en": [
+          "support company plan",
+          "show loyalty",
+          "back company plan",
+          "champion company plan",
+          "support company mission",
+          "support plans of the company",
+          "follow organisation's vision"
+        ]
+      },
+      "className": "Skill",
+      "preferredLabel": {
+        "en": "demonstrate loyalty"
+      },
+      "uri": "http://data.europa.eu/esco/skill/72d1fa5d-1b7f-48e7-84e3-6e779841ddf1"
+    },
+    {
+      "_links": {
+        "isInScheme": [
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/member-skills"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/skills"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/skill-transversal-groups"
+          }
+        ]
+      },
+      "alternativeLabel": {
+        "en": [
+          "be trustworthy",
+          "be honest",
+          "establish trust",
+          "show credibility"
+        ]
+      },
+      "className": "Skill",
+      "preferredLabel": {
+        "en": "demonstrate trustworthiness"
+      },
+      "uri": "http://data.europa.eu/esco/skill/bcf002ce-90f8-42e5-ac1b-5dba208639b0"
+    },
+    {
+      "_links": {
+        "isInScheme": [
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/member-skills"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/skill-transversal-groups"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/skills"
+          }
+        ]
+      },
+      "alternativeLabel": {
+        "en": [
+          "keep secret information",
+          "comply with confidentiality obligations",
+          "handle sensitive information",
+          "be discrete",
+          "protect privacy",
+          "ensure privacy",
+          "ensure absolute discretion"
+        ]
+      },
+      "className": "Skill",
+      "preferredLabel": {
+        "en": "respect confidentiality obligations"
+      },
+      "uri": "http://data.europa.eu/esco/skill/e37d64dc-0f05-4ee8-b065-bf76f70d8f5c"
+    },
+    {
+      "_links": {
+        "isInScheme": [
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/member-skills"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/skills"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/skill-transversal-groups"
+          }
+        ]
+      },
+      "alternativeLabel": {
+        "en": [
+          "follow directions and procedures",
+          "comply with legislative provisions",
+          "work in a thoughtful manner",
+          "adhere to legislation or policies"
+        ]
+      },
+      "className": "Skill",
+      "preferredLabel": {
+        "en": "comply with regulations"
+      },
+      "uri": "http://data.europa.eu/esco/skill/b618584f-6bdf-4d8f-89a7-f28c2c95afc2"
+    },
+    {
+      "_links": {
+        "isInScheme": [
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/skill-transversal-groups"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/member-skills"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/skills"
+          }
+        ]
+      },
+      "alternativeLabel": {
+        "en": [
+          "make contacts",
+          "liaise with others",
+          "maintain contact with others",
+          "show ability to network",
+          "create networks",
+          "building effective relationships",
+          "establish contacts",
+          "maintain networks"
+        ]
+      },
+      "className": "Skill",
+      "preferredLabel": {
+        "en": "build networks"
+      },
+      "uri": "http://data.europa.eu/esco/skill/bf983f2a-e941-4646-811d-cc81060cb53f"
+    },
+    {
+      "_links": {
+        "isInScheme": [
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/skills"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/research"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/member-skills"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/skill-transversal-groups"
+          }
+        ]
+      },
+      "alternativeLabel": {
+        "en": [
+          "working in teams",
+          "foster social networks",
+          "work in groups",
+          "support colleagues",
+          "cooperate",
+          "cooperate with colleagues",
+          "work in squads",
+          "team-working",
+          "handle team dynamics",
+          "collaborate on tasks"
+        ]
+      },
+      "className": "Skill",
+      "preferredLabel": {
+        "en": "work in teams"
+      },
+      "uri": "http://data.europa.eu/esco/skill/60c78287-22eb-4103-9c8c-28deaa460da0"
+    },
+    {
+      "_links": {
+        "isInScheme": [
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/skill-transversal-groups"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/member-skills"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/skills"
+          }
+        ]
+      },
+      "alternativeLabel": {
+        "en": [
+          "show intercultural competence",
+          "exhibit intercultural competence",
+          "consider different cultural backgrounds",
+          "display intercultural competence",
+          "demonstrate cross-cultural competence",
+          "show cultural competence",
+          "use culturally appropriate body language",
+          "respect different cultural backgrounds",
+          "adapt to cultural differences"
+        ]
+      },
+      "className": "Skill",
+      "preferredLabel": {
+        "en": "demonstrate intercultural competence"
+      },
+      "uri": "http://data.europa.eu/esco/skill/c10d5d87-36cf-42f5-8a12-e560fb5f4af8"
+    },
+    {
+      "_links": {
+        "isInScheme": [
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/member-skills"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/skills"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/skill-transversal-groups"
+          }
+        ]
+      },
+      "alternativeLabel": {
+        "en": [
+          "manage life goals",
+          "plan your career",
+          "manage career goals"
+        ]
+      },
+      "className": "Skill",
+      "preferredLabel": {
+        "en": "manage personal progression"
+      },
+      "uri": "http://data.europa.eu/esco/skill/468135b7-5757-48c3-9509-fde0e13ec5be"
+    },
+    {
+      "_links": {
+        "isInScheme": [
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/skills"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/member-skills"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/skill-transversal-groups"
+          }
+        ]
+      },
+      "alternativeLabel": {
+        "en": [
+          "make choices",
+          "make decision",
+          "take decisions",
+          "making decisions",
+          "decide",
+          "choose"
+        ]
+      },
+      "className": "Skill",
+      "preferredLabel": {
+        "en": "make decisions"
+      },
+      "uri": "http://data.europa.eu/esco/skill/d62d2b4c-a6f8-439e-8a1b-4f29ab5f2c47"
+    },
+    {
+      "_links": {
+        "isInScheme": [
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/member-skills"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/skills"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/skill-transversal-groups"
+          }
+        ]
+      },
+      "alternativeLabel": {
+        "en": [
+          "act responsibly",
+          "demonstrate responsibility",
+          "prove sense of responsibility",
+          "be responsible",
+          "be ready to take on responsibility",
+          "showing responsibility",
+          "be ready to take responsibilities",
+          "demonstrate a conscientious attitude",
+          "show responsible behaviour"
+        ]
+      },
+      "className": "Skill",
+      "preferredLabel": {
+        "en": "assume responsibility"
+      },
+      "uri": "http://data.europa.eu/esco/skill/199f7919-5114-41b6-b6a5-41e0e4896ec1"
+    },
+    {
+      "_links": {
+        "isInScheme": [
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/skill-transversal-groups"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/member-skills"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/skills"
+          }
+        ]
+      },
+      "alternativeLabel": {
+        "en": [
+          "give impetus",
+          "initiate action",
+          "demonstrate sense of initiative",
+          "take the initiative",
+          "show sense of initiative",
+          "be a driving force",
+          "show active initiative"
+        ]
+      },
+      "className": "Skill",
+      "preferredLabel": {
+        "en": "show initiative"
+      },
+      "uri": "http://data.europa.eu/esco/skill/001115fb-569f-4ee6-8381-c6807ef2527f"
+    },
+    {
+      "_links": {
+        "isInScheme": [
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/skill-transversal-groups"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/skills"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/member-skills"
+          }
+        ]
+      },
+      "alternativeLabel": {
+        "en": [
+          "demonstrate commitment",
+          "enjoy one's profession",
+          "show willingness to perform",
+          "have commitment",
+          "enjoy working",
+          "demonstrate motivation",
+          "show willingness to work",
+          "show motivation",
+          "demonstrate enthusiasm"
+        ]
+      },
+      "className": "Skill",
+      "preferredLabel": {
+        "en": "show commitment"
+      },
+      "uri": "http://data.europa.eu/esco/skill/1fce1197-3a5b-45b7-8797-575cd3b57a01"
+    },
+    {
+      "_links": {
+        "isInScheme": [
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/skill-transversal-groups"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/skills"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/member-skills"
+          }
+        ]
+      },
+      "alternativeLabel": {
+        "en": [
+          "strive for results",
+          "strive for success",
+          "have clear goals",
+          "exhibit enthusiasm",
+          "demonstrate a focussed approach",
+          "demonstrate positive disposition",
+          "make an effort",
+          "demonstrate positive thinking",
+          "persist",
+          "demonstrate positive attitude",
+          "show positive disposition",
+          "demonstrate enthusiasm"
+        ]
+      },
+      "className": "Skill",
+      "preferredLabel": {
+        "en": "show determination"
+      },
+      "uri": "http://data.europa.eu/esco/skill/19a64e91-bfe3-4c48-9225-3bb1229b12f0"
+    },
+    {
+      "_links": {
+        "isInScheme": [
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/member-skills"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/skills"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/skill-transversal-groups"
+          }
+        ]
+      },
+      "alternativeLabel": {
+        "en": [
+          "keep concentration for long periods",
+          "keep focused for extended periods",
+          "preserve concentration for long periods",
+          "stay concentrated for long periods",
+          "maintain concentration for extended periods",
+          "focus for prolonged periods",
+          "stay focused for extended periods of time",
+          "work in a focused manner",
+          "maintain focus for long periods of time"
+        ]
+      },
+      "className": "Skill",
+      "preferredLabel": {
+        "en": "maintain concentration for long periods"
+      },
+      "uri": "http://data.europa.eu/esco/skill/9cfd2219-553c-4d67-81e5-951e87c65135"
+    },
+    {
+      "_links": {
+        "isInScheme": [
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/skills"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/skill-transversal-groups"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/member-skills"
+          }
+        ]
+      },
+      "alternativeLabel": {
+        "en": [
+          "prioritise tasks",
+          "prioritise actions",
+          "coordinate actions",
+          "define milestones",
+          "managing time",
+          "plan deadlines",
+          "schedule",
+          "draw up time line",
+          "manage schedule",
+          "adhere to schedules",
+          "work out time line",
+          "set priorities",
+          "meet deadlines",
+          "plan time"
+        ]
+      },
+      "className": "Skill",
+      "preferredLabel": {
+        "en": "manage time"
+      },
+      "uri": "http://data.europa.eu/esco/skill/d9013e0e-e937-43d5-ab71-0e917ee882b8"
+    },
+    {
+      "_links": {
+        "isInScheme": [
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/member-skills"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/skill-transversal-groups"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/skills"
+          }
+        ]
+      },
+      "alternativeLabel": {
+        "en": [
+          "working efficiently",
+          "work in an economical way",
+          "labor efficiently",
+          "efficiently work",
+          "do your job efficiently"
+        ]
+      },
+      "className": "Skill",
+      "preferredLabel": {
+        "en": "work efficiently"
+      },
+      "uri": "http://data.europa.eu/esco/skill/7a93e22f-54d8-4bf0-9213-d711f6601b49"
+    },
+    {
+      "_links": {
+        "isInScheme": [
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/skill-transversal-groups"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/skills"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/member-skills"
+          }
+        ]
+      },
+      "alternativeLabel": {
+        "en": [
+          "sort out details",
+          "work in a proper manner",
+          "attend to precision",
+          "attend to accuracy",
+          "to work precisely",
+          "attending to details",
+          "work carefully",
+          "deal with details",
+          "manage details",
+          "work meticulously",
+          "attend to details"
+        ]
+      },
+      "className": "Skill",
+      "preferredLabel": {
+        "en": "attend to detail"
+      },
+      "uri": "http://data.europa.eu/esco/skill/83e6510b-ffeb-4aec-959c-4265fd0ff7b7"
+    },
+    {
+      "_links": {
+        "isInScheme": [
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/skill-transversal-groups"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/skills"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/member-skills"
+          }
+        ]
+      },
+      "alternativeLabel": {
+        "en": [
+          "monitor quality",
+          "work to agreed standards",
+          "attend to quality",
+          "managing quality",
+          "apply quality standards",
+          "oversee quality"
+        ]
+      },
+      "className": "Skill",
+      "preferredLabel": {
+        "en": "manage quality"
+      },
+      "uri": "http://data.europa.eu/esco/skill/35ebe444-9ece-4fbc-a55d-e99ea37267ae"
+    },
+    {
+      "_links": {
+        "isInScheme": [
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/member-skills"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/skills"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/skill-transversal-groups"
+          }
+        ]
+      },
+      "alternativeLabel": {
+        "en": [
+          "demonstrate reliability",
+          "meet targets",
+          "demonstrate steady effort",
+          "demonstrate conscientiousness",
+          "achieve goals",
+          "work to deadlines",
+          "show conscientiousness",
+          "meeting commitments",
+          "demonstrate commitment",
+          "demonstrate punctuality",
+          "show reliability",
+          "show commitment",
+          "keep promises",
+          "show responsibility",
+          "demonstrate loyalty",
+          "meet commitment"
+        ]
+      },
+      "className": "Skill",
+      "preferredLabel": {
+        "en": "meet commitments"
+      },
+      "uri": "http://data.europa.eu/esco/skill/113b4428-0a31-4199-8496-070af7854b91"
+    },
+    {
+      "_links": {
+        "isInScheme": [
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/skill-transversal-groups"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/member-skills"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/skills"
+          }
+        ]
+      },
+      "alternativeLabel": {
+        "en": [
+          "working independently",
+          "act independently",
+          "work without supervision",
+          "work autonomously",
+          "work in a self-reliant manner",
+          "work on your own",
+          "like to work independently",
+          "independently working",
+          "ability to work autonomously"
+        ]
+      },
+      "className": "Skill",
+      "preferredLabel": {
+        "en": "work independently"
+      },
+      "uri": "http://data.europa.eu/esco/skill/c29aa9d2-4da8-4bdd-831c-8d4a2fb51730"
+    },
+    {
+      "_links": {
+        "isInScheme": [
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/skill-transversal-groups"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/skills"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/member-skills"
+          }
+        ]
+      },
+      "alternativeLabel": {
+        "en": [
+          "show capacity to deal with stress",
+          "manage own emotions",
+          "recognise own potential",
+          "regulate moods",
+          "control impulses",
+          "foster hope",
+          "manage emotions",
+          "handle frustration",
+          "deal with frustration",
+          "recover from setbacks",
+          "manage disappointments",
+          "managing frustration",
+          "cope well with setbacks",
+          "cope with frustration"
+        ]
+      },
+      "className": "Skill",
+      "preferredLabel": {
+        "en": "manage frustration"
+      },
+      "uri": "http://data.europa.eu/esco/skill/1d1fedcb-4995-44ac-90f5-f31a157ce512"
+    },
+    {
+      "_links": {
+        "isInScheme": [
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/skill-transversal-groups"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/member-skills"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/skills"
+          }
+        ]
+      },
+      "alternativeLabel": {
+        "en": [
+          "keep a positive attitude",
+          "adopt a constructive approach",
+          "show sense of humour",
+          "maintain a positive attitude"
+        ]
+      },
+      "className": "Skill",
+      "preferredLabel": {
+        "en": "approach challenges positively"
+      },
+      "uri": "http://data.europa.eu/esco/skill/469748ce-051a-407e-9099-0c9415ac2705"
+    },
+    {
+      "_links": {
+        "broaderSkill": [
+          {
+            "uri": "http://data.europa.eu/esco/skill/7a147904-22b3-498a-b4d9-7bceeb86b45d"
+          }
+        ],
+        "isInScheme": [
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/skills"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/member-skills"
+          }
+        ]
+      },
+      "alternativeLabel": {
+        "en": [
+          "exercising self-control",
+          "self-control",
+          "apply self-control"
+        ]
+      },
+      "className": "Skill",
+      "preferredLabel": {
+        "en": "exercise self-control"
+      },
+      "uri": "http://data.europa.eu/esco/skill/5a927fa0-462e-4d54-ae12-97fd6ca45762"
+    },
+    {
+      "_links": {
+        "isInScheme": [
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/skill-transversal-groups"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/skills"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/member-skills"
+          }
+        ]
+      },
+      "alternativeLabel": {
+        "en": [
+          "demonstrate confidence",
+          "reveal confidence",
+          "display confidence",
+          "behave confidently",
+          "exhibit confidence",
+          "show of confidence",
+          "confidence showing",
+          "showing confidence"
+        ]
+      },
+      "className": "Skill",
+      "preferredLabel": {
+        "en": "show confidence"
+      },
+      "uri": "http://data.europa.eu/esco/skill/669b75d8-671c-4a1c-8e0b-6466c513c27d"
+    },
+    {
+      "_links": {
+        "isInScheme": [
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/member-skills"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/skills"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/research"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/skill-transversal-groups"
+          }
+        ]
+      },
+      "alternativeLabel": {
+        "en": [
+          "cope with pressures",
+          "handle pressure",
+          "accept challenges",
+          "show mental resilience",
+          "coping with pressure",
+          "stay cool under pressure",
+          "perform under pressure",
+          "work under pressure",
+          "manage pressure",
+          "deal with pressure"
+        ]
+      },
+      "className": "Skill",
+      "preferredLabel": {
+        "en": "cope with stress"
+      },
+      "uri": "http://data.europa.eu/esco/skill/7a147904-22b3-498a-b4d9-7bceeb86b45d"
+    },
+    {
+      "_links": {
+        "isInScheme": [
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/member-skills"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/skill-transversal-groups"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/skills"
+          }
+        ]
+      },
+      "alternativeLabel": {
+        "en": [
+          "manage uncertainty",
+          "deal with uncertainties",
+          "handle uncertainty",
+          "dealing with uncertainty",
+          "handle ambiguity"
+        ]
+      },
+      "className": "Skill",
+      "preferredLabel": {
+        "en": "cope with uncertainty"
+      },
+      "uri": "http://data.europa.eu/esco/skill/5cd1930c-278d-4929-b413-27352f5b3687"
+    },
+    {
+      "_links": {
+        "isInScheme": [
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/skills"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/member-skills"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/skill-transversal-groups"
+          }
+        ]
+      },
+      "alternativeLabel": {
+        "en": [
+          "demonstrate freedom from prejudice",
+          "take on new ideas and experiences",
+          "show acceptance of others",
+          "being open minded"
+        ]
+      },
+      "className": "Skill",
+      "preferredLabel": {
+        "en": "keep an open mind"
+      },
+      "uri": "http://data.europa.eu/esco/skill/fd89f784-88dc-4d35-abd7-86aa073cab12"
+    },
+    {
+      "_links": {
+        "isInScheme": [
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/member-skills"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/skill-transversal-groups"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/skills"
+          }
+        ]
+      },
+      "alternativeLabel": {
+        "en": [
+          "show willingness to learn",
+          "work towards own potential",
+          "direct own learning",
+          "exhibit willingness to learn",
+          "display willingness to learn",
+          "show self-knowledge"
+        ]
+      },
+      "className": "Skill",
+      "preferredLabel": {
+        "en": "demonstrate willingness to learn"
+      },
+      "uri": "http://data.europa.eu/esco/skill/9bf266a6-188b-4d17-a22f-2f266d76832b"
+    },
+    {
+      "_links": {
+        "isInScheme": [
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/skills"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/member-skills"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/skill-transversal-groups"
+          }
+        ]
+      },
+      "alternativeLabel": {
+        "en": [
+          "assimilate to change",
+          "adjust to change",
+          "be open to change",
+          "conform to change",
+          "adapting to change",
+          "openness to change",
+          "be flexible",
+          "demonstrate flexibility",
+          "adapt to changes",
+          "show willingness to change",
+          "revise plans to deal with changes"
+        ]
+      },
+      "className": "Skill",
+      "preferredLabel": {
+        "en": "adapt to change"
+      },
+      "uri": "http://data.europa.eu/esco/skill/49de9958-2aa4-4eef-a89d-fe5d5bcd28c4"
+    },
+    {
+      "_links": {
+        "isInScheme": [
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/member-skills"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/skill-transversal-groups"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/skills"
+          }
+        ]
+      },
+      "alternativeLabel": {
+        "en": [
+          "accept constructive criticism",
+          "welcome criticism",
+          "handle feedback",
+          "welcome feedback",
+          "accept critics",
+          "tolerate critics",
+          "accept feedback"
+        ]
+      },
+      "className": "Skill",
+      "preferredLabel": {
+        "en": "accept criticism and guidance"
+      },
+      "uri": "http://data.europa.eu/esco/skill/05aa7c09-46e7-433f-a81b-92841f4551e7"
+    },
+    {
+      "_links": {
+        "isInScheme": [
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/member-skills"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/skill-transversal-groups"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/skills"
+          }
+        ]
+      },
+      "alternativeLabel": {
+        "en": [
+          "assess the impact of your professional development",
+          "estimate the impact of your professional development",
+          "self-evaluate",
+          "be able to engage in self-reflection",
+          "monitor the impact of your professional development",
+          "perform self-evaluation",
+          "do self-assessment",
+          "self-assess",
+          "evaluate the impact of your professional development",
+          "reflect on practice",
+          "conduct self-assessment",
+          "gauge the impact of your professional development",
+          "evaluate professional development impact",
+          "perform self-assessment",
+          "examine the impact of your professional development"
+        ]
+      },
+      "className": "Skill",
+      "preferredLabel": {
+        "en": "exercise self-reflection"
+      },
+      "uri": "http://data.europa.eu/esco/skill/409a0245-0e6c-4aac-ba16-0920ecb76a8d"
+    },
+    {
+      "_links": {
+        "isInScheme": [
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/skills"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/skill-transversal-groups"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/member-skills"
+          }
+        ]
+      },
+      "alternativeLabel": {
+        "en": [
+          "demonstrating curiosity",
+          "exhibit curiosity",
+          "curiosity",
+          "display curiosity",
+          "show curiosity",
+          "show interest",
+          "demonstrate interest",
+          "be curious"
+        ]
+      },
+      "className": "Skill",
+      "preferredLabel": {
+        "en": "demonstrate curiosity"
+      },
+      "uri": "http://data.europa.eu/esco/skill/429062f1-a958-43ea-83dd-4e1af078c156"
+    },
+    {
+      "_links": {
+        "isInScheme": [
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/skill-language-groups"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/skills"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/member-skills"
+          }
+        ]
+      },
+      "alternativeLabel": {
+        "en": [
+          "Farsi",
+          "ability to comprehend spoken and written Persian and to speak and write in Persian",
+          "competent in Persian"
+        ]
+      },
+      "className": "Skill",
+      "preferredLabel": {
+        "en": "Persian"
+      },
+      "uri": "http://data.europa.eu/esco/skill/58cabf75-2520-4358-a210-2cbc628f4aa2"
+    },
+    {
+      "_links": {
+        "isInScheme": [
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/member-skills"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/skill-language-groups"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/skills"
+          }
+        ]
+      },
+      "alternativeLabel": {
+        "en": [
+          "competent in Bengali",
+          "Bangla",
+          "ability to comprehend spoken and written Bengali and to speak and write in Bengali"
+        ]
+      },
+      "className": "Skill",
+      "preferredLabel": {
+        "en": "Bengali"
+      },
+      "uri": "http://data.europa.eu/esco/skill/ede98e07-f07d-41bc-99b0-f88bf0dad438"
+    },
+    {
+      "_links": {
+        "isInScheme": [
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/skills"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/member-skills"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/skill-language-groups"
+          }
+        ]
+      },
+      "alternativeLabel": {
+        "en": [
+          "competent in Serbian",
+          "ability to comprehend spoken and written Serbian and to speak and write in Serbian"
+        ]
+      },
+      "className": "Skill",
+      "preferredLabel": {
+        "en": "Serbian"
+      },
+      "uri": "http://data.europa.eu/esco/skill/c5cb0cc1-c40b-4544-a21c-8472f0b5c14a"
+    },
+    {
+      "_links": {
+        "isInScheme": [
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/member-skills"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/skills"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/skill-language-groups"
+          }
+        ]
+      },
+      "alternativeLabel": {
+        "en": [
+          "competent in Luxembourgish",
+          "ability to comprehend spoken and written Luxembourgish and to speak and write in Luxembourgish"
+        ]
+      },
+      "className": "Skill",
+      "preferredLabel": {
+        "en": "Luxembourgish"
+      },
+      "uri": "http://data.europa.eu/esco/skill/7d16f1e4-1003-4f1f-9595-5cafb25a67df"
+    },
+    {
+      "_links": {
+        "isInScheme": [
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/skill-language-groups"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/member-skills"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/skills"
+          }
+        ]
+      },
+      "alternativeLabel": {
+        "en": [
+          "ability to comprehend spoken and written Arabic and to speak and write in Arabic",
+          "competent in Arabic"
+        ]
+      },
+      "className": "Skill",
+      "preferredLabel": {
+        "en": "Arabic"
+      },
+      "uri": "http://data.europa.eu/esco/skill/33859d93-987c-4caa-a0a9-6159ea7bbc2a"
+    },
+    {
+      "_links": {
+        "isInScheme": [
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/skills"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/skill-language-groups"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/member-skills"
+          }
+        ]
+      },
+      "alternativeLabel": {
+        "en": [
+          "Portuguese language"
+        ]
+      },
+      "className": "Skill",
+      "preferredLabel": {
+        "en": "Portuguese"
+      },
+      "uri": "http://data.europa.eu/esco/skill/584c13e8-fd06-4ca3-a45b-cca5b2f147a7"
+    },
+    {
+      "_links": {
+        "isInScheme": [
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/skills"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/skill-language-groups"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/member-skills"
+          }
+        ]
+      },
+      "alternativeLabel": {
+        "en": [
+          "competent in Montenegrin",
+          "ability to comprehend spoken and written Montenegrin and to speak and write in Montenegrin"
+        ]
+      },
+      "className": "Skill",
+      "preferredLabel": {
+        "en": "Montenegrin"
+      },
+      "uri": "http://data.europa.eu/esco/skill/2358a146-6e8f-43cb-872f-a12ac9c57d60"
+    },
+    {
+      "_links": {
+        "isInScheme": [
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/member-skills"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/skills"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/skill-language-groups"
+          }
+        ]
+      },
+      "alternativeLabel": {
+        "en": [
+          "competent in Occitan",
+          "Languedoc",
+          "Provençal",
+          "ability to comprehend spoken and written Occitan and to speak and write in Occitan"
+        ]
+      },
+      "className": "Skill",
+      "preferredLabel": {
+        "en": "Occitan"
+      },
+      "uri": "http://data.europa.eu/esco/skill/57cc6587-7efe-4ba5-982f-ac15ce1617ac"
+    },
+    {
+      "_links": {
+        "isInScheme": [
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/member-skills"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/skills"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/skill-language-groups"
+          }
+        ]
+      },
+      "alternativeLabel": {
+        "en": [
+          "competent in Limburgish",
+          "Limburgic",
+          "ability to comprehend spoken and written Limburgish and to speak and write in Limburgish Limburgian"
+        ]
+      },
+      "className": "Skill",
+      "preferredLabel": {
+        "en": "Limburgish"
+      },
+      "uri": "http://data.europa.eu/esco/skill/cf5b3ca0-a844-42b9-b9cd-bd15465b9cac"
+    },
+    {
+      "_links": {
+        "isInScheme": [
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/skill-language-groups"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/member-skills"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/skills"
+          }
+        ]
+      },
+      "alternativeLabel": {
+        "en": [
+          "competent in Slovak",
+          "ability to comprehend spoken and written Slovak and to speak and write in Slovak"
+        ]
+      },
+      "className": "Skill",
+      "preferredLabel": {
+        "en": "Slovak"
+      },
+      "uri": "http://data.europa.eu/esco/skill/246980fe-6222-4852-ade8-b372f7e0fd20"
+    },
+    {
+      "_links": {
+        "isInScheme": [
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/skills"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/skill-language-groups"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/member-skills"
+          }
+        ]
+      },
+      "alternativeLabel": {
+        "en": [
+          "competent in Latvian",
+          "ability to comprehend spoken and written Latvian and to speak and write in Latvian"
+        ]
+      },
+      "className": "Skill",
+      "preferredLabel": {
+        "en": "Latvian"
+      },
+      "uri": "http://data.europa.eu/esco/skill/5de39924-769c-4301-82a5-525358dffe50"
+    },
+    {
+      "_links": {
+        "isInScheme": [
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/skills"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/skill-language-groups"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/member-skills"
+          }
+        ]
+      },
+      "alternativeLabel": {
+        "en": [
+          "ability to comprehend spoken and written Kurdish and to speak and write in Kurdish",
+          "competent in Kurdish"
+        ]
+      },
+      "className": "Skill",
+      "preferredLabel": {
+        "en": "Kurdish"
+      },
+      "uri": "http://data.europa.eu/esco/skill/2874065e-6ca3-430c-912a-467da3c23704"
+    },
+    {
+      "_links": {
+        "isInScheme": [
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/member-skills"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/skill-language-groups"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/skills"
+          }
+        ]
+      },
+      "alternativeLabel": {
+        "en": [
+          "ability to comprehend spoken and written Macedonian and to speak and write in Macedonian",
+          "competent in Macedonian"
+        ]
+      },
+      "className": "Skill",
+      "preferredLabel": {
+        "en": "Macedonian"
+      },
+      "uri": "http://data.europa.eu/esco/skill/15f261e6-4379-437e-b137-b0c473ae3e74"
+    },
+    {
+      "_links": {
+        "isInScheme": [
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/skill-language-groups"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/member-skills"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/skills"
+          }
+        ]
+      },
+      "alternativeLabel": {
+        "en": [
+          "ability to comprehend spoken and written Walloon and to speak and write in Walloon",
+          "competent in Walloon"
+        ]
+      },
+      "className": "Skill",
+      "preferredLabel": {
+        "en": "Walloon"
+      },
+      "uri": "http://data.europa.eu/esco/skill/d54d7c00-87c4-4f78-af8d-e84577372974"
+    },
+    {
+      "_links": {
+        "isInScheme": [
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/skill-language-groups"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/member-skills"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/skills"
+          }
+        ]
+      },
+      "alternativeLabel": {
+        "en": [
+          "ability to comprehend spoken and written Hindi and to speak and write in Hindi",
+          "competent in Hindi"
+        ]
+      },
+      "className": "Skill",
+      "preferredLabel": {
+        "en": "Hindi"
+      },
+      "uri": "http://data.europa.eu/esco/skill/d93a7370-bf56-43f5-be54-e108f8ec3107"
+    },
+    {
+      "_links": {
+        "isInScheme": [
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/skill-language-groups"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/skills"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/member-skills"
+          }
+        ]
+      },
+      "alternativeLabel": {
+        "en": [
+          "competent in Catalan",
+          "ability to comprehend spoken and written Catalan and to speak and write in Catalan"
+        ]
+      },
+      "className": "Skill",
+      "preferredLabel": {
+        "en": "Catalan"
+      },
+      "uri": "http://data.europa.eu/esco/skill/8ee2b6f2-7017-4b9a-9de2-4dedf0711394"
+    },
+    {
+      "_links": {
+        "isInScheme": [
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/skill-language-groups"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/member-skills"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/skills"
+          }
+        ]
+      },
+      "alternativeLabel": {
+        "en": [
+          "ability to comprehend spoken and written Azerbaijani and to speak and write in Azerbaijani",
+          "Azerbaijani Turkish",
+          "competent in Azerbaijani",
+          "Azeri Turkish",
+          "Azeri"
+        ]
+      },
+      "className": "Skill",
+      "preferredLabel": {
+        "en": "Azerbaijani"
+      },
+      "uri": "http://data.europa.eu/esco/skill/5bfce8e7-6f22-4e67-9018-0e4161620f3a"
+    },
+    {
+      "_links": {
+        "isInScheme": [
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/skills"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/skill-language-groups"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/member-skills"
+          }
+        ]
+      },
+      "alternativeLabel": {
+        "en": [
+          "competent in Chinese",
+          "Standard Chinese",
+          "ability to comprehend spoken and written Chinese and to speak and write in Chinese",
+          "Cantonese"
+        ]
+      },
+      "className": "Skill",
+      "preferredLabel": {
+        "en": "Chinese"
+      },
+      "uri": "http://data.europa.eu/esco/skill/1fe42b38-cd42-4fc7-ae77-14e4c9e96295"
+    },
+    {
+      "_links": {
+        "isInScheme": [
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/skill-language-groups"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/skills"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/member-skills"
+          }
+        ]
+      },
+      "alternativeLabel": {
+        "en": [
+          "ability to comprehend spoken and written Marathi and to speak and write in Marathi",
+          "competent in Marathi"
+        ]
+      },
+      "className": "Skill",
+      "preferredLabel": {
+        "en": "Marathi"
+      },
+      "uri": "http://data.europa.eu/esco/skill/2080075c-0488-4fbf-a786-734dbbef31ce"
+    },
+    {
+      "_links": {
+        "isInScheme": [
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/skills"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/skill-language-groups"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/member-skills"
+          }
+        ]
+      },
+      "alternativeLabel": {
+        "en": [
+          "competent in Galician",
+          "ability to comprehend spoken and written Galician and to speak and write in Galician"
+        ]
+      },
+      "className": "Skill",
+      "preferredLabel": {
+        "en": "Galician"
+      },
+      "uri": "http://data.europa.eu/esco/skill/66212ff2-34b9-4812-be58-f53a0b751863"
+    },
+    {
+      "_links": {
+        "isInScheme": [
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/skill-language-groups"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/member-skills"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/skills"
+          }
+        ]
+      },
+      "alternativeLabel": {
+        "en": [
+          "competent in French",
+          "ability to comprehend spoken and written French and to speak and write in French"
+        ]
+      },
+      "className": "Skill",
+      "preferredLabel": {
+        "en": "French"
+      },
+      "uri": "http://data.europa.eu/esco/skill/e747e77e-0ea1-4001-8b07-1d11946b5f1b"
+    },
+    {
+      "_links": {
+        "isInScheme": [
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/member-skills"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/skill-language-groups"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/skills"
+          }
+        ]
+      },
+      "alternativeLabel": {
+        "en": [
+          "ability to comprehend spoken and written Norwegian and to speak and write in Norwegian",
+          "competent in Norwegian"
+        ]
+      },
+      "className": "Skill",
+      "preferredLabel": {
+        "en": "Norwegian"
+      },
+      "uri": "http://data.europa.eu/esco/skill/829f6eb5-0b26-4152-8eb3-82dd32b2b6f2"
+    },
+    {
+      "_links": {
+        "isInScheme": [
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/member-skills"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/skills"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/skill-language-groups"
+          }
+        ]
+      },
+      "alternativeLabel": {
+        "en": [
+          "competent in Armenian",
+          "ability to comprehend spoken and written Armenian and to speak and write in Armenian"
+        ]
+      },
+      "className": "Skill",
+      "preferredLabel": {
+        "en": "Armenian"
+      },
+      "uri": "http://data.europa.eu/esco/skill/fcbcdf4c-d079-4010-ab4b-8356fbfa5096"
+    },
+    {
+      "_links": {
+        "isInScheme": [
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/skill-language-groups"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/member-skills"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/skills"
+          }
+        ]
+      },
+      "alternativeLabel": {
+        "en": [
+          "competent in Romanian",
+          "ability to comprehend spoken and written Romanian and to speak and write in Romanian"
+        ]
+      },
+      "className": "Skill",
+      "preferredLabel": {
+        "en": "Romanian"
+      },
+      "uri": "http://data.europa.eu/esco/skill/4b9f1ae5-0ee6-4738-8999-9b8191fba808"
+    },
+    {
+      "_links": {
+        "isInScheme": [
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/skill-language-groups"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/skills"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/member-skills"
+          }
+        ]
+      },
+      "alternativeLabel": {
+        "en": [
+          "ability to comprehend spoken and written Albanian and to speak and write in Albanian",
+          "competent in Albanian"
+        ]
+      },
+      "className": "Skill",
+      "preferredLabel": {
+        "en": "Albanian"
+      },
+      "uri": "http://data.europa.eu/esco/skill/f1a08ec9-32d2-4e52-ba4a-66e049019be8"
+    },
+    {
+      "_links": {
+        "isInScheme": [
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/member-skills"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/skills"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/skill-language-groups"
+          }
+        ]
+      },
+      "alternativeLabel": {
+        "en": [
+          "Panjabi",
+          "competent in Punjabi",
+          "ability to comprehend spoken and written Punjabi and to speak and write in Punjabi"
+        ]
+      },
+      "className": "Skill",
+      "preferredLabel": {
+        "en": "Punjabi"
+      },
+      "uri": "http://data.europa.eu/esco/skill/e05b9e06-d298-4646-b762-acbd485a20e9"
+    },
+    {
+      "_links": {
+        "isInScheme": [
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/skills"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/member-skills"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/skill-language-groups"
+          }
+        ]
+      },
+      "alternativeLabel": {
+        "en": [
+          "ability to comprehend spoken and written Danish and to speak and write in Danish",
+          "competent in Danish"
+        ]
+      },
+      "className": "Skill",
+      "preferredLabel": {
+        "en": "Danish"
+      },
+      "uri": "http://data.europa.eu/esco/skill/273a28d6-1bd3-4d13-a906-3d75c1cfdfc1"
+    },
+    {
+      "_links": {
+        "isInScheme": [
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/skill-language-groups"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/member-skills"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/skills"
+          }
+        ]
+      },
+      "alternativeLabel": {
+        "en": [
+          "ability to comprehend spoken and written Slovenian and to speak and write in Slovenian",
+          "competent in Slovenian",
+          "Slovene"
+        ]
+      },
+      "className": "Skill",
+      "preferredLabel": {
+        "en": "Slovenian"
+      },
+      "uri": "http://data.europa.eu/esco/skill/9ace3aae-aeae-4ed6-b625-26bc58345554"
+    },
+    {
+      "_links": {
+        "isInScheme": [
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/skill-language-groups"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/member-skills"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/skills"
+          }
+        ]
+      },
+      "alternativeLabel": {
+        "en": [
+          "competent in Irish",
+          "Gaelic",
+          "Irish Gaelic",
+          "ability to comprehend spoken and written Irish and to speak and write in Irish"
+        ]
+      },
+      "className": "Skill",
+      "preferredLabel": {
+        "en": "Irish"
+      },
+      "uri": "http://data.europa.eu/esco/skill/8f4c0fe6-10c7-409e-92d6-245f46728209"
+    },
+    {
+      "_links": {
+        "isInScheme": [
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/skills"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/member-skills"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/skill-language-groups"
+          }
+        ]
+      },
+      "alternativeLabel": {
+        "en": [
+          "ability to comprehend spoken and written Tamil and to speak and write in Tamil",
+          "competent in Tamil"
+        ]
+      },
+      "className": "Skill",
+      "preferredLabel": {
+        "en": "Tamil"
+      },
+      "uri": "http://data.europa.eu/esco/skill/e9e9b625-f59f-4bda-952d-1f9831e6dfda"
+    },
+    {
+      "_links": {
+        "isInScheme": [
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/member-skills"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/skills"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/skill-language-groups"
+          }
+        ]
+      },
+      "alternativeLabel": {
+        "en": [
+          "competent in Lithuanian",
+          "ability to comprehend spoken and written Lithuanian and to speak and write in Lithuanian"
+        ]
+      },
+      "className": "Skill",
+      "preferredLabel": {
+        "en": "Lithuanian"
+      },
+      "uri": "http://data.europa.eu/esco/skill/b3950b87-a980-4cd4-a795-be8a9b63661d"
+    },
+    {
+      "_links": {
+        "isInScheme": [
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/member-skills"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/skill-language-groups"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/skills"
+          }
+        ]
+      },
+      "alternativeLabel": {
+        "en": [
+          "competent in Icelandic",
+          "ability to comprehend spoken and written Icelandic and to speak and write in Icelandic"
+        ]
+      },
+      "className": "Skill",
+      "preferredLabel": {
+        "en": "Icelandic"
+      },
+      "uri": "http://data.europa.eu/esco/skill/a18e3090-6afb-4afb-a055-1f83bbe498e3"
+    },
+    {
+      "_links": {
+        "isInScheme": [
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/member-skills"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/skills"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/skill-language-groups"
+          }
+        ]
+      },
+      "alternativeLabel": {
+        "en": [
+          "competent in Welsh",
+          "ability to comprehend spoken and written Welsh and to speak and write in Welsh"
+        ]
+      },
+      "className": "Skill",
+      "preferredLabel": {
+        "en": "Welsh"
+      },
+      "uri": "http://data.europa.eu/esco/skill/8dbd15c6-ecf0-468c-8ae1-f6eb360743dd"
+    },
+    {
+      "_links": {
+        "isInScheme": [
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/skills"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/member-skills"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/skill-language-groups"
+          }
+        ]
+      },
+      "alternativeLabel": {
+        "en": [
+          "competent in Telugu",
+          "ability to comprehend spoken and written Telugu and to speak and write in Telugu"
+        ]
+      },
+      "className": "Skill",
+      "preferredLabel": {
+        "en": "Telugu"
+      },
+      "uri": "http://data.europa.eu/esco/skill/64fe09ac-f419-4c04-8997-d1dde2e31bfc"
+    },
+    {
+      "_links": {
+        "isInScheme": [
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/member-skills"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/skills"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/skill-language-groups"
+          }
+        ]
+      },
+      "alternativeLabel": {
+        "en": [
+          "competent in English",
+          "ability to comprehend spoken and written English and to speak and write in English"
+        ]
+      },
+      "className": "Skill",
+      "preferredLabel": {
+        "en": "English"
+      },
+      "uri": "http://data.europa.eu/esco/skill/6d3edede-8951-4621-a835-e04323300fa0"
+    },
+    {
+      "_links": {
+        "isInScheme": [
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/skill-language-groups"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/member-skills"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/skills"
+          }
+        ]
+      },
+      "alternativeLabel": {
+        "en": [
+          "competent in Swedish",
+          "ability to comprehend spoken and written Swedish and to speak and write in Swedish"
+        ]
+      },
+      "className": "Skill",
+      "preferredLabel": {
+        "en": "Swedish"
+      },
+      "uri": "http://data.europa.eu/esco/skill/7ee51257-8947-4b69-9bdf-322baf0a6398"
+    },
+    {
+      "_links": {
+        "isInScheme": [
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/skills"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/skill-language-groups"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/member-skills"
+          }
+        ]
+      },
+      "alternativeLabel": {
+        "en": [
+          "competent in Gujarati",
+          "ability to comprehend spoken and written Gujarati and to speak and write in Gujarati"
+        ]
+      },
+      "className": "Skill",
+      "preferredLabel": {
+        "en": "Gujarati"
+      },
+      "uri": "http://data.europa.eu/esco/skill/9b0baaa7-fed3-41b7-b74e-9d459f11acfe"
+    },
+    {
+      "_links": {
+        "isInScheme": [
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/skills"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/skill-language-groups"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/member-skills"
+          }
+        ]
+      },
+      "alternativeLabel": {
+        "en": [
+          "competent in Sardinian",
+          "Sard",
+          "ability to comprehend spoken and written Sardinian and to speak and write in Sardinian",
+          "Sardu"
+        ]
+      },
+      "className": "Skill",
+      "preferredLabel": {
+        "en": "Sardinian"
+      },
+      "uri": "http://data.europa.eu/esco/skill/1627c1b9-31e1-4742-bf5c-cfec2ce33cfc"
+    },
+    {
+      "_links": {
+        "isInScheme": [
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/skill-language-groups"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/member-skills"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/skills"
+          }
+        ]
+      },
+      "alternativeLabel": {
+        "en": [
+          "ability to comprehend spoken and written Japanese and to speak and write in Japanese",
+          "competent in Japanese"
+        ]
+      },
+      "className": "Skill",
+      "preferredLabel": {
+        "en": "Japanese"
+      },
+      "uri": "http://data.europa.eu/esco/skill/39c675c4-af13-49db-bbed-cf762102f85e"
+    },
+    {
+      "_links": {
+        "isInScheme": [
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/member-skills"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/skill-language-groups"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/skills"
+          }
+        ]
+      },
+      "alternativeLabel": {
+        "en": [
+          "competent in Italian",
+          "ability to comprehend spoken and written Italian and to speak and write in Italian"
+        ]
+      },
+      "className": "Skill",
+      "preferredLabel": {
+        "en": "Italian"
+      },
+      "uri": "http://data.europa.eu/esco/skill/87219dfe-a21c-4160-8cc8-1eabf9b16b44"
+    },
+    {
+      "_links": {
+        "isInScheme": [
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/member-skills"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/skills"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/skill-language-groups"
+          }
+        ]
+      },
+      "alternativeLabel": {
+        "en": [
+          "competent in Urdu",
+          "ability to comprehend spoken and written Urdu and to speak and write in Urdu"
+        ]
+      },
+      "className": "Skill",
+      "preferredLabel": {
+        "en": "Urdu"
+      },
+      "uri": "http://data.europa.eu/esco/skill/bc546a09-1103-4184-b757-3508ef5f8490"
+    },
+    {
+      "_links": {
+        "isInScheme": [
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/skill-language-groups"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/skills"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/member-skills"
+          }
+        ]
+      },
+      "alternativeLabel": {
+        "en": [
+          "ability to comprehend spoken and written Hebrew and to speak and write in Hebrew",
+          "competent in Hebrew"
+        ]
+      },
+      "className": "Skill",
+      "preferredLabel": {
+        "en": "Hebrew"
+      },
+      "uri": "http://data.europa.eu/esco/skill/8a45f04a-cd28-4ac1-8e8b-ecfd21be0b18"
+    },
+    {
+      "_links": {
+        "isInScheme": [
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/member-skills"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/skill-language-groups"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/skills"
+          }
+        ]
+      },
+      "alternativeLabel": {
+        "en": [
+          "competent in Hungarian",
+          "ability to comprehend spoken and written Hungarian and to speak and write in Hungarian"
+        ]
+      },
+      "className": "Skill",
+      "preferredLabel": {
+        "en": "Hungarian"
+      },
+      "uri": "http://data.europa.eu/esco/skill/ddd3596a-43f3-402e-960a-5f79362a8609"
+    },
+    {
+      "_links": {
+        "isInScheme": [
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/skills"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/skill-language-groups"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/member-skills"
+          }
+        ]
+      },
+      "alternativeLabel": {
+        "en": [
+          "competent in Basque",
+          "ability to comprehend spoken and written Basque and to speak and write in Basque"
+        ]
+      },
+      "className": "Skill",
+      "preferredLabel": {
+        "en": "Basque"
+      },
+      "uri": "http://data.europa.eu/esco/skill/a28fa5f1-be5b-4608-8376-acea8c2f8cb1"
+    },
+    {
+      "_links": {
+        "isInScheme": [
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/skill-language-groups"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/member-skills"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/skills"
+          }
+        ]
+      },
+      "alternativeLabel": {
+        "en": [
+          "ability to comprehend spoken and written Bosnian and to speak and write in Bosnian",
+          "competent in Bosnian"
+        ]
+      },
+      "className": "Skill",
+      "preferredLabel": {
+        "en": "Bosnian"
+      },
+      "uri": "http://data.europa.eu/esco/skill/a9fdd2c9-4295-4407-ba3c-1547cbce40a2"
+    },
+    {
+      "_links": {
+        "isInScheme": [
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/skills"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/skill-language-groups"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/member-skills"
+          }
+        ]
+      },
+      "alternativeLabel": {
+        "en": [
+          "competent in Malay",
+          "ability to comprehend spoken and written Malay and to speak and write in Malay",
+          "Malaysian"
+        ]
+      },
+      "className": "Skill",
+      "preferredLabel": {
+        "en": "Malay"
+      },
+      "uri": "http://data.europa.eu/esco/skill/1f90c205-f869-4dcf-a374-c4fdeded9cbc"
+    },
+    {
+      "_links": {
+        "isInScheme": [
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/member-skills"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/skills"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/skill-language-groups"
+          }
+        ]
+      },
+      "alternativeLabel": {
+        "en": [
+          "competent in Czech",
+          "ability to comprehend spoken and written Czech and to speak and write in Czech"
+        ]
+      },
+      "className": "Skill",
+      "preferredLabel": {
+        "en": "Czech"
+      },
+      "uri": "http://data.europa.eu/esco/skill/da0795a7-6866-4afc-81ed-5e3aa398f058"
+    },
+    {
+      "_links": {
+        "isInScheme": [
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/member-skills"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/skill-language-groups"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/skills"
+          }
+        ]
+      },
+      "alternativeLabel": {
+        "en": [
+          "competent in Ukrainian",
+          "ability to comprehend spoken and written Ukrainian and to speak and write in Ukrainian"
+        ]
+      },
+      "className": "Skill",
+      "preferredLabel": {
+        "en": "Ukrainian"
+      },
+      "uri": "http://data.europa.eu/esco/skill/354b948c-7eef-4ebc-bfd6-f60d7d5acb62"
+    },
+    {
+      "_links": {
+        "isInScheme": [
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/skills"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/member-skills"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/skill-language-groups"
+          }
+        ]
+      },
+      "alternativeLabel": {
+        "en": [
+          "ability to comprehend spoken and written Georgian and to speak and write in Georgian",
+          "competent in Georgian"
+        ]
+      },
+      "className": "Skill",
+      "preferredLabel": {
+        "en": "Georgian"
+      },
+      "uri": "http://data.europa.eu/esco/skill/b2c1f90a-72ce-4499-ab9a-a9a5c9355d5b"
+    },
+    {
+      "_links": {
+        "isInScheme": [
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/skills"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/skill-language-groups"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/member-skills"
+          }
+        ]
+      },
+      "alternativeLabel": {
+        "en": [
+          "Romany",
+          "competent in Romani",
+          "ability to comprehend spoken and written Romani and to speak and write in Romani"
+        ]
+      },
+      "className": "Skill",
+      "preferredLabel": {
+        "en": "Romani"
+      },
+      "uri": "http://data.europa.eu/esco/skill/8ef3eccc-a847-430e-b828-cf178803b8c1"
+    },
+    {
+      "_links": {
+        "isInScheme": [
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/skill-language-groups"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/member-skills"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/skills"
+          }
+        ]
+      },
+      "alternativeLabel": {
+        "en": [
+          "ability to comprehend spoken and written Turkish and to speak and write in Turkish",
+          "competent in Turkish"
+        ]
+      },
+      "className": "Skill",
+      "preferredLabel": {
+        "en": "Turkish"
+      },
+      "uri": "http://data.europa.eu/esco/skill/aa66a033-8522-40e9-a5c0-ff2593e2669c"
+    },
+    {
+      "_links": {
+        "isInScheme": [
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/member-skills"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/skill-language-groups"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/skills"
+          }
+        ]
+      },
+      "alternativeLabel": {
+        "en": [
+          "ability to comprehend spoken and written Vietnamese and to speak and write in Vietnamese",
+          "competent in Vietnamese"
+        ]
+      },
+      "className": "Skill",
+      "preferredLabel": {
+        "en": "Vietnamese"
+      },
+      "uri": "http://data.europa.eu/esco/skill/bf60009d-8afb-4306-9b0d-cfe2f66ab08f"
+    },
+    {
+      "_links": {
+        "isInScheme": [
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/skill-language-groups"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/skills"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/member-skills"
+          }
+        ]
+      },
+      "alternativeLabel": {
+        "en": [
+          "competent in Kazakh",
+          "ability to comprehend spoken and written Kazakh and to speak and write in Kazakh"
+        ]
+      },
+      "className": "Skill",
+      "preferredLabel": {
+        "en": "Kazakh"
+      },
+      "uri": "http://data.europa.eu/esco/skill/f37dbb3c-dafc-4835-86d1-de9615626f9b"
+    },
+    {
+      "_links": {
+        "isInScheme": [
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/member-skills"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/skill-language-groups"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/skills"
+          }
+        ]
+      },
+      "alternativeLabel": {
+        "en": [
+          "competent in Maltese",
+          "ability to comprehend spoken and written Maltese and to speak and write in Maltese"
+        ]
+      },
+      "className": "Skill",
+      "preferredLabel": {
+        "en": "Maltese"
+      },
+      "uri": "http://data.europa.eu/esco/skill/cb50f9cd-3638-409b-8f93-befaf17d313e"
+    },
+    {
+      "_links": {
+        "isInScheme": [
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/skill-language-groups"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/member-skills"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/skills"
+          }
+        ]
+      },
+      "alternativeLabel": {
+        "en": [
+          "competent in Bulgarian",
+          "ability to comprehend spoken and written Bulgarian and to speak and write in Bulgarian"
+        ]
+      },
+      "className": "Skill",
+      "preferredLabel": {
+        "en": "Bulgarian"
+      },
+      "uri": "http://data.europa.eu/esco/skill/d5fd4958-4ca6-4d06-845f-713e2c459612"
+    },
+    {
+      "_links": {
+        "isInScheme": [
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/member-skills"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/skills"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/skill-language-groups"
+          }
+        ]
+      },
+      "alternativeLabel": {
+        "en": [
+          "ability to comprehend spoken and written Bihari and to speak and write in Bihari",
+          "competent in Bihari"
+        ]
+      },
+      "className": "Skill",
+      "preferredLabel": {
+        "en": "Bihari"
+      },
+      "uri": "http://data.europa.eu/esco/skill/15ea7b6b-1b93-4ed8-b58a-5c54777e0832"
+    },
+    {
+      "_links": {
+        "isInScheme": [
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/member-skills"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/skills"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/skill-language-groups"
+          }
+        ]
+      },
+      "alternativeLabel": {
+        "en": [
+          "competent in Korean",
+          "ability to comprehend spoken and written Korean and to speak and write in Korean"
+        ]
+      },
+      "className": "Skill",
+      "preferredLabel": {
+        "en": "Korean"
+      },
+      "uri": "http://data.europa.eu/esco/skill/f9bc2890-d1f2-4a83-bd7b-b150a7679c79"
+    },
+    {
+      "_links": {
+        "isInScheme": [
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/skill-language-groups"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/skills"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/member-skills"
+          }
+        ]
+      },
+      "alternativeLabel": {
+        "en": [
+          "ability to comprehend spoken and written Berber and to speak and write in Berber",
+          "competent in Berber",
+          "Tamazight"
+        ]
+      },
+      "className": "Skill",
+      "preferredLabel": {
+        "en": "Berber"
+      },
+      "uri": "http://data.europa.eu/esco/skill/6f34bd05-1297-4913-92ff-85a604242b2f"
+    },
+    {
+      "_links": {
+        "isInScheme": [
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/skills"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/skill-language-groups"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/member-skills"
+          }
+        ]
+      },
+      "alternativeLabel": {
+        "en": [
+          "competent in Russian",
+          "ability to comprehend spoken and written Russian and to speak and write in Russian"
+        ]
+      },
+      "className": "Skill",
+      "preferredLabel": {
+        "en": "Russian"
+      },
+      "uri": "http://data.europa.eu/esco/skill/6891bbce-20bf-4afc-bd5e-75bdf54c0165"
+    },
+    {
+      "_links": {
+        "isInScheme": [
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/skills"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/member-skills"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/skill-language-groups"
+          }
+        ]
+      },
+      "alternativeLabel": {
+        "en": [
+          "ability to comprehend spoken and written German and to speak and write in German",
+          "competent in German"
+        ]
+      },
+      "className": "Skill",
+      "preferredLabel": {
+        "en": "German"
+      },
+      "uri": "http://data.europa.eu/esco/skill/4812a4ea-dc55-4dc6-b9b0-4a59bba2c647"
+    },
+    {
+      "_links": {
+        "isInScheme": [
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/skill-language-groups"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/skills"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/member-skills"
+          }
+        ]
+      },
+      "alternativeLabel": {
+        "en": [
+          "ability to comprehend spoken and written Polish and to speak and write in Polish",
+          "competent in Polish"
+        ]
+      },
+      "className": "Skill",
+      "preferredLabel": {
+        "en": "Polish"
+      },
+      "uri": "http://data.europa.eu/esco/skill/f3e9b964-0c2d-46c4-a895-8b3583054d69"
+    },
+    {
+      "_links": {
+        "isInScheme": [
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/member-skills"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/skill-language-groups"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/skills"
+          }
+        ]
+      },
+      "alternativeLabel": {
+        "en": [
+          "ability to comprehend spoken and written Belarusian and to speak and write in Belarusian",
+          "competent in Belarusian"
+        ]
+      },
+      "className": "Skill",
+      "preferredLabel": {
+        "en": "Belarusian"
+      },
+      "uri": "http://data.europa.eu/esco/skill/6f55e44d-4494-4079-9b8d-01ac6912529e"
+    },
+    {
+      "_links": {
+        "isInScheme": [
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/member-skills"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/skills"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/skill-language-groups"
+          }
+        ]
+      },
+      "alternativeLabel": {
+        "en": [
+          "Castilian"
+        ]
+      },
+      "className": "Skill",
+      "preferredLabel": {
+        "en": "Spanish"
+      },
+      "uri": "http://data.europa.eu/esco/skill/14ee9f76-3524-43d5-8a1a-5ba8283f8bd7"
+    },
+    {
+      "_links": {
+        "isInScheme": [
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/skills"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/member-skills"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/skill-language-groups"
+          }
+        ]
+      },
+      "alternativeLabel": {
+        "en": [
+          "competent in Yiddish",
+          "ability to comprehend spoken and written Yiddish and to speak and write in Yiddish"
+        ]
+      },
+      "className": "Skill",
+      "preferredLabel": {
+        "en": "Yiddish"
+      },
+      "uri": "http://data.europa.eu/esco/skill/d59ef10f-ad20-4791-957d-b315196ecdc2"
+    },
+    {
+      "_links": {
+        "isInScheme": [
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/skills"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/skill-language-groups"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/member-skills"
+          }
+        ]
+      },
+      "alternativeLabel": {
+        "en": [
+          "competent in Javanese",
+          "ability to comprehend spoken and written Javanese and to speak and write in Javanese",
+          "cara jawa",
+          "basa jawa"
+        ]
+      },
+      "className": "Skill",
+      "preferredLabel": {
+        "en": "Javanese"
+      },
+      "uri": "http://data.europa.eu/esco/skill/7a86907d-1fd5-4e8f-b0f1-f366a14f6f6d"
+    },
+    {
+      "_links": {
+        "isInScheme": [
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/skill-language-groups"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/member-skills"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/skills"
+          }
+        ]
+      },
+      "alternativeLabel": {
+        "en": [
+          "competent in Estonian",
+          "ability to comprehend spoken and written Estonian and to speak and write in Estonian"
+        ]
+      },
+      "className": "Skill",
+      "preferredLabel": {
+        "en": "Estonian"
+      },
+      "uri": "http://data.europa.eu/esco/skill/1b7e6f56-bc73-4bcc-81ae-09252175d418"
+    },
+    {
+      "_links": {
+        "isInScheme": [
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/member-skills"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/skills"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/skill-language-groups"
+          }
+        ]
+      },
+      "alternativeLabel": {
+        "en": [
+          "from the Netherlands",
+          "from Holland"
+        ]
+      },
+      "className": "Skill",
+      "preferredLabel": {
+        "en": "Dutch"
+      },
+      "uri": "http://data.europa.eu/esco/skill/cad4f44b-28a8-4448-86e5-7389e5ebf3eb"
+    },
+    {
+      "_links": {
+        "isInScheme": [
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/skills"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/skill-language-groups"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/member-skills"
+          }
+        ]
+      },
+      "alternativeLabel": {
+        "en": [
+          "competent in Greek",
+          "ability to comprehend spoken and written Greek and to speak and write in Greek"
+        ]
+      },
+      "className": "Skill",
+      "preferredLabel": {
+        "en": "Greek"
+      },
+      "uri": "http://data.europa.eu/esco/skill/ea4ebfa1-e17a-4416-ac54-955f33e6ade7"
+    },
+    {
+      "_links": {
+        "isInScheme": [
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/member-skills"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/skills"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/skill-language-groups"
+          }
+        ]
+      },
+      "alternativeLabel": {
+        "en": [
+          "ability to comprehend spoken and written Croatian and to speak and write in Croatian",
+          "competent in Croatian"
+        ]
+      },
+      "className": "Skill",
+      "preferredLabel": {
+        "en": "Croatian"
+      },
+      "uri": "http://data.europa.eu/esco/skill/6bc58e91-1827-4dc7-a9cf-2311edcba0ec"
+    },
+    {
+      "_links": {
+        "isInScheme": [
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/skills"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/member-skills"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/skill-language-groups"
+          }
+        ]
+      },
+      "alternativeLabel": {
+        "en": [
+          "ability to comprehend spoken and written Finnish and to speak and write in Finnish",
+          "competent in Finnish"
+        ]
+      },
+      "className": "Skill",
+      "preferredLabel": {
+        "en": "Finnish"
+      },
+      "uri": "http://data.europa.eu/esco/skill/0e3493f4-0cad-4fbc-8e02-025f169b8114"
+    },
+    {
+      "_links": {
+        "isInScheme": [
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/skills"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/skill-transversal-groups"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/6c930acd-c104-4ece-acf7-f44fd7333036"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/member-skills"
+          }
+        ]
+      },
+      "alternativeLabel": {
+        "en": [
+          "communicate in digital environments",
+          "communicate online",
+          "use e-mail software and services",
+          "communicate on-line",
+          "interact through ICT"
+        ]
+      },
+      "className": "Skill",
+      "preferredLabel": {
+        "en": "use communication and collaboration software"
+      },
+      "uri": "http://data.europa.eu/esco/skill/b080a008-a35d-4bd0-92e9-edf3773bb2b7"
+    },
+    {
+      "_links": {
+        "isInScheme": [
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/skill-transversal-groups"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/member-skills"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/6c930acd-c104-4ece-acf7-f44fd7333036"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/skills"
+          }
+        ]
+      },
+      "alternativeLabel": {
+        "en": [
+          "produce digital content",
+          "edit digital content",
+          "create content in digital form"
+        ]
+      },
+      "className": "Skill",
+      "preferredLabel": {
+        "en": "create digital content"
+      },
+      "uri": "http://data.europa.eu/esco/skill/d822b4b2-26c7-4bd9-970d-229c6504f615"
+    },
+    {
+      "_links": {
+        "isInScheme": [
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/skills"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/member-skills"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/skill-transversal-groups"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/6c930acd-c104-4ece-acf7-f44fd7333036"
+          }
+        ]
+      },
+      "alternativeLabel": {
+        "en": [
+          "use smart ICT devices",
+          "carry out practical tasks with smart devices",
+          "use ICT peripherals",
+          "use hardware components",
+          "work with computer hardware and peripherals",
+          "use digital devices",
+          "use ICT hardware",
+          "use keyboard",
+          "use hardware",
+          "apply ICT peripherals",
+          "use mouse"
+        ]
+      },
+      "className": "Skill",
+      "preferredLabel": {
+        "en": "operate digital hardware"
+      },
+      "uri": "http://data.europa.eu/esco/skill/6b2f8802-0cbf-436e-a37f-ca55ede41bbc"
+    },
+    {
+      "_links": {
+        "isInScheme": [
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/skills"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/skill-transversal-groups"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/member-skills"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/6c930acd-c104-4ece-acf7-f44fd7333036"
+          }
+        ]
+      },
+      "alternativeLabel": {
+        "en": [
+          "protect digital devices",
+          "implement digital security measures",
+          "protect personal data",
+          "up-date online security measures",
+          "protect ICT devices",
+          "use anti-virus software",
+          "remove viruses and malware from a computer"
+        ]
+      },
+      "className": "Skill",
+      "preferredLabel": {
+        "en": "apply digital security measures"
+      },
+      "uri": "http://data.europa.eu/esco/skill/f4346299-e22a-4686-8e61-2c9b0cd51c7d"
+    },
+    {
+      "_links": {
+        "isInScheme": [
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/skill-transversal-groups"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/skills"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/member-skills"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/6c930acd-c104-4ece-acf7-f44fd7333036"
+          }
+        ]
+      },
+      "alternativeLabel": {
+        "en": [
+          "use basic coding skills",
+          "use query languages",
+          "use basic programming language skills"
+        ]
+      },
+      "className": "Skill",
+      "preferredLabel": {
+        "en": "apply basic programming skills"
+      },
+      "uri": "http://data.europa.eu/esco/skill/bf4d884f-c848-402a-b130-69c266b04164"
+    },
+    {
+      "_links": {
+        "isInScheme": [
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/skill-transversal-groups"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/6c930acd-c104-4ece-acf7-f44fd7333036"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/member-skills"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/skills"
+          }
+        ]
+      },
+      "alternativeLabel": {
+        "en": [
+          "search for information online",
+          "look for information on the Internet",
+          "use search engine"
+        ]
+      },
+      "className": "Skill",
+      "preferredLabel": {
+        "en": "conduct web searches"
+      },
+      "uri": "http://data.europa.eu/esco/skill/ba93b71b-c433-4a01-8246-ed2daa85a9a2"
+    },
+    {
+      "_links": {
+        "broaderSkill": [
+          {
+            "uri": "http://data.europa.eu/esco/skill/574257ea-7b64-4100-b7b6-e27c233fe143"
+          }
+        ],
+        "isInScheme": [
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/skill-transversal-groups"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/member-skills"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/digcomp"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/6c930acd-c104-4ece-acf7-f44fd7333036"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/skills"
+          }
+        ]
+      },
+      "alternativeLabel": {
+        "en": [
+          "protecting privacy and identity on the Internet"
+        ]
+      },
+      "className": "Skill",
+      "preferredLabel": {
+        "en": "manage digital identity"
+      },
+      "uri": "http://data.europa.eu/esco/skill/bc0b0b5d-f6be-405a-b224-b6902a4dbe97"
+    },
+    {
+      "_links": {
+        "isInScheme": [
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/skills"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/member-skills"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/skill-transversal-groups"
+          }
+        ]
+      },
+      "alternativeLabel": {
+        "en": [
+          "apply numeracy skills",
+          "apply mathematical reasoning",
+          "enjoy working with numbers",
+          "apply numerical reasoning",
+          "demonstrate an understanding of numbers"
+        ]
+      },
+      "className": "Skill",
+      "preferredLabel": {
+        "en": "interpret mathematical information"
+      },
+      "uri": "http://data.europa.eu/esco/skill/6fc6f757-6baa-49fe-9a82-6ba6a52f2e13"
+    },
+    {
+      "_links": {
+        "isInScheme": [
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/skills"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/member-skills"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/skill-transversal-groups"
+          }
+        ]
+      },
+      "alternativeLabel": {
+        "en": [
+          "estimate the probability of an outcome or fact",
+          "make estimations",
+          "work with probabilities"
+        ]
+      },
+      "className": "Skill",
+      "preferredLabel": {
+        "en": "calculate probabilities"
+      },
+      "uri": "http://data.europa.eu/esco/skill/1dabb413-18e8-48ed-a963-44978e67ad32"
+    },
+    {
+      "_links": {
+        "isInScheme": [
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/skills"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/skill-transversal-groups"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/member-skills"
+          }
+        ]
+      },
+      "alternativeLabel": {
+        "en": [
+          "work with shape and space",
+          "work with form and space",
+          "apply spatial reasoning",
+          "demonstrate spatial intelligence",
+          "manage shape and space",
+          "utilise spatial orientation",
+          "show three-dimensional imagination",
+          "display three-dimensional imagination",
+          "exhibit three-dimensional imagination",
+          "work with shapes and spaces"
+        ]
+      },
+      "className": "Skill",
+      "preferredLabel": {
+        "en": "process spatial information"
+      },
+      "uri": "http://data.europa.eu/esco/skill/5c526c52-4f0a-4647-8c51-c91568acebb1"
+    },
+    {
+      "_links": {
+        "isInScheme": [
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/skill-transversal-groups"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/member-skills"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/skills"
+          }
+        ]
+      },
+      "alternativeLabel": {
+        "en": [
+          "carry out work-related calculation",
+          "use numbers"
+        ]
+      },
+      "className": "Skill",
+      "preferredLabel": {
+        "en": "carry out calculations"
+      },
+      "uri": "http://data.europa.eu/esco/skill/19ba11f3-9c99-41fd-a7c9-f77e6a026186"
+    },
+    {
+      "_links": {
+        "isInScheme": [
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/skills"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/skill-transversal-groups"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/member-skills"
+          }
+        ]
+      },
+      "alternativeLabel": {
+        "en": [
+          "apply ergonomics",
+          "follow work-place safety regulations",
+          "manage health risk",
+          "meet health and safety requirements",
+          "work safely with hazardous material",
+          "know the effects of drugs and alcohol on individuals"
+        ]
+      },
+      "className": "Skill",
+      "preferredLabel": {
+        "en": "demonstrate awareness of health risks"
+      },
+      "uri": "http://data.europa.eu/esco/skill/c4180af3-befd-4bd8-9a65-6a496f9d9f15"
+    },
+    {
+      "_links": {
+        "isInScheme": [
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/skills"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/skill-transversal-groups"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/member-skills"
+          }
+        ]
+      },
+      "alternativeLabel": {
+        "en": [
+          "follow hygienic work practices",
+          "look after hygiene",
+          "identify hygiene risks",
+          "attend to cleanliness",
+          "conform to hygienic work practices",
+          "care for hygiene",
+          "attend to hygiene"
+        ]
+      },
+      "className": "Skill",
+      "preferredLabel": {
+        "en": "apply hygiene standards"
+      },
+      "uri": "http://data.europa.eu/esco/skill/d9449998-c1f5-478c-a103-2255398cf0b6"
+    },
+    {
+      "_links": {
+        "isInScheme": [
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/skill-transversal-groups"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/member-skills"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/skills"
+          }
+        ]
+      },
+      "alternativeLabel": {
+        "en": [
+          "find the right healthcare service",
+          "manage appropriate medications",
+          "apply preventive care measures to avoid physical or psychological harm"
+        ]
+      },
+      "className": "Skill",
+      "preferredLabel": {
+        "en": "make an informed use of the health-care system"
+      },
+      "uri": "http://data.europa.eu/esco/skill/88b0c49e-7c2e-4ccc-aca3-fbd4bbc2081c"
+    },
+    {
+      "_links": {
+        "isInScheme": [
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/member-skills"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/skills"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/skill-transversal-groups"
+          }
+        ]
+      },
+      "alternativeLabel": {
+        "en": [
+          "seek for appropriate care",
+          "utilise seeing aids",
+          "utilise hearing aids",
+          "utilise walking aids"
+        ]
+      },
+      "className": "Skill",
+      "preferredLabel": {
+        "en": "manage chronic health conditions"
+      },
+      "uri": "http://data.europa.eu/esco/skill/dcc99418-d896-4b3b-8596-658093a17a8f"
+    },
+    {
+      "_links": {
+        "isInScheme": [
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/skill-transversal-groups"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/member-skills"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/skills"
+          }
+        ]
+      },
+      "alternativeLabel": {
+        "en": [
+          "maintain work-life balance",
+          "safely use digital technologies",
+          "pursue mental wellbeing",
+          "balance working time and personal life",
+          "protect the psychological wellbeing"
+        ]
+      },
+      "className": "Skill",
+      "preferredLabel": {
+        "en": "maintain psychological well-being"
+      },
+      "uri": "http://data.europa.eu/esco/skill/4c772721-9280-49cb-9988-b6ea3d36b06d"
+    },
+    {
+      "_links": {
+        "isInScheme": [
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/skills"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/member-skills"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/skill-transversal-groups"
+          }
+        ]
+      },
+      "alternativeLabel": {
+        "en": [
+          "safeguard one's person health",
+          "react adequately in case of accidents",
+          "intervene promptly in case of need",
+          "provide first aid"
+        ]
+      },
+      "className": "Skill",
+      "preferredLabel": {
+        "en": "protect the health of others"
+      },
+      "uri": "http://data.europa.eu/esco/skill/4cde32b5-fc2f-4257-a8b9-5b15a67ee3e5"
+    },
+    {
+      "_links": {
+        "isInScheme": [
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/skills"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/skill-transversal-groups"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/member-skills"
+          }
+        ]
+      },
+      "alternativeLabel": {
+        "en": [
+          "apply preventive healthy behaviours",
+          "keep yourself in good conditions",
+          "care about your fitness",
+          "adopt an healthy lifestyle"
+        ]
+      },
+      "className": "Skill",
+      "preferredLabel": {
+        "en": "maintain physical fitness"
+      },
+      "uri": "http://data.europa.eu/esco/skill/a68bdf1e-b325-4880-b456-192c2891931a"
+    },
+    {
+      "_links": {
+        "isInScheme": [
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/skill-transversal-groups"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/skills"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/member-skills"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/green"
+          }
+        ]
+      },
+      "alternativeLabel": {
+        "en": [
+          "implement environmental choices in your own eating habit",
+          "take animal welfare into account when buying food products",
+          "take sustainability issues into account in consumption choices",
+          "concretely support biodiversity and animal welfare",
+          "adopt a sustainable eating habit",
+          "promoting organic and biological food consumption"
+        ]
+      },
+      "className": "Skill",
+      "preferredLabel": {
+        "en": "adopt ways to foster biodiversity and animal welfare"
+      },
+      "uri": "http://data.europa.eu/esco/skill/0171653e-c8e9-4c24-bb86-a4b6fe038f25"
+    },
+    {
+      "_links": {
+        "isInScheme": [
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/skills"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/skill-transversal-groups"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/member-skills"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/green"
+          }
+        ]
+      },
+      "alternativeLabel": {
+        "en": [
+          "avoid single-use items",
+          "reduce water or energy consumption",
+          "share physical resources",
+          "reuse products",
+          "avoid plastic",
+          "reuse materials",
+          "follow recycling collection schedules",
+          "minimise waste production in households",
+          "practice a minimalist lifestyle",
+          "reduce energy usage",
+          "follow environmentally-sustainable work practices"
+        ]
+      },
+      "className": "Skill",
+      "preferredLabel": {
+        "en": "adopt ways to reduce negative impact of consumption"
+      },
+      "uri": "http://data.europa.eu/esco/skill/4c3ab565-747c-4db3-8c47-79e8d6f98cf4"
+    },
+    {
+      "_links": {
+        "isInScheme": [
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/member-skills"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/skills"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/skill-transversal-groups"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/green"
+          }
+        ]
+      },
+      "alternativeLabel": {
+        "en": [
+          "use public transportation",
+          "reduce noise",
+          "handle your own waste",
+          "prevent pollution",
+          "prefer public to private transport"
+        ]
+      },
+      "className": "Skill",
+      "preferredLabel": {
+        "en": "adopt ways to reduce pollution"
+      },
+      "uri": "http://data.europa.eu/esco/skill/0d75a128-bd88-4c1b-b70d-8e963aeb490c"
+    },
+    {
+      "_links": {
+        "isInScheme": [
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/skill-transversal-groups"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/member-skills"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/skills"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/green"
+          }
+        ]
+      },
+      "alternativeLabel": {
+        "en": [
+          "inform about sustainability",
+          "advocate sustainability",
+          "promote sustainability",
+          "encourage others to respect the environment",
+          "promote environmental friendly behaviours"
+        ]
+      },
+      "className": "Skill",
+      "preferredLabel": {
+        "en": "engage others in environment friendly behaviours"
+      },
+      "uri": "http://data.europa.eu/esco/skill/7f321b88-3d16-4e30-8163-5494ca8ce978"
+    },
+    {
+      "_links": {
+        "isInScheme": [
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/skills"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/skill-transversal-groups"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/member-skills"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/green"
+          }
+        ]
+      },
+      "alternativeLabel": {
+        "en": [
+          "apply ethical and sustainable thinking",
+          "demonstrate sensitivity for environmental issues",
+          "consider the impact of your actions on the environment",
+          "adopt an ecological attitude",
+          "adopt an environmental friendly attitude"
+        ]
+      },
+      "className": "Skill",
+      "preferredLabel": {
+        "en": "evaluate environmental impact of personal behaviour"
+      },
+      "uri": "http://data.europa.eu/esco/skill/2aaad52d-599e-4e77-a681-bbc236825821"
+    },
+    {
+      "_links": {
+        "isInScheme": [
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/member-skills"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/skill-transversal-groups"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/skills"
+          }
+        ]
+      },
+      "alternativeLabel": {
+        "en": [
+          "appreciate cultural heritage",
+          "demonstrate cultural awareness",
+          "have a feeling for aesthetics",
+          "appreciate artistic expressions"
+        ]
+      },
+      "className": "Skill",
+      "preferredLabel": {
+        "en": "appreciate diverse cultural and artistic expression"
+      },
+      "uri": "http://data.europa.eu/esco/skill/98a999db-72d5-4657-a0b0-2f850afd4368"
+    },
+    {
+      "_links": {
+        "isInScheme": [
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/skills"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/member-skills"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/skill-transversal-groups"
+          }
+        ]
+      },
+      "alternativeLabel": {
+        "en": [
+          "demonstrate sense of rhythm",
+          "engage in artistic self-expression",
+          "paint",
+          "sing",
+          "draw",
+          "express ideas experiences and emotions creatively",
+          "dance",
+          "play instruments"
+        ]
+      },
+      "className": "Skill",
+      "preferredLabel": {
+        "en": "express yourself creatively"
+      },
+      "uri": "http://data.europa.eu/esco/skill/93350886-a21b-4e61-a1b1-319a325c0f90"
+    },
+    {
+      "_links": {
+        "isInScheme": [
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/member-skills"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/skill-transversal-groups"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/skills"
+          }
+        ]
+      },
+      "alternativeLabel": {
+        "en": [
+          "compare deals and offers when acquiring products or services",
+          "use investments and credit to achieve long term goals",
+          "use financial advices and guidance services with a critical mindset",
+          "undertake effective financial planning",
+          "manage personal budget for financial needs",
+          "exercise consumer rights",
+          "manage personal finances",
+          "select appropriate insurance products"
+        ]
+      },
+      "className": "Skill",
+      "preferredLabel": {
+        "en": "manage financial and material resources"
+      },
+      "uri": "http://data.europa.eu/esco/skill/1ddc021d-d818-4731-904f-842d7491f419"
+    },
+    {
+      "_links": {
+        "isInScheme": [
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/research"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/skill-transversal-groups"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/skills"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/member-skills"
+          }
+        ]
+      },
+      "alternativeLabel": {
+        "en": [
+          "demonstrate entrepreneurial spirit",
+          "show an entrepreneurial spirit",
+          "reveal entrepreneurial spirit",
+          "pursue opportunities",
+          "identify opportunities",
+          "showing an entrepreneurial spirit",
+          "showing entrepreneurial spirit",
+          "demonstrate willingness to take risks",
+          "demonstrate entrepreneurship",
+          "exhibit entrepreneurial spirit",
+          "display entrepreneurial spirit"
+        ]
+      },
+      "className": "Skill",
+      "preferredLabel": {
+        "en": "show entrepreneurial spirit"
+      },
+      "uri": "http://data.europa.eu/esco/skill/bdcf429c-5ccf-4c3d-bb61-4c987573a35e"
+    },
+    {
+      "_links": {
+        "isInScheme": [
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/skill-transversal-groups"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/skills"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/member-skills"
+          }
+        ]
+      },
+      "alternativeLabel": {
+        "en": [
+          "detect bias",
+          "check facts",
+          "assess information",
+          "understand the role of media in democratic societies",
+          "verify information",
+          "evaluate information",
+          "verify the source of information",
+          "weigh information"
+        ]
+      },
+      "className": "Skill",
+      "preferredLabel": {
+        "en": "critically evaluate information and its sources"
+      },
+      "uri": "http://data.europa.eu/esco/skill/db33c0f3-43ee-4ba3-ba47-9269ac837697"
+    },
+    {
+      "_links": {
+        "isInScheme": [
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/skills"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/member-skills"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/skill-transversal-groups"
+          }
+        ]
+      },
+      "alternativeLabel": {
+        "en": [
+          "exercise constitutional rights",
+          "participate in democratic decision-making",
+          "demonstrate interest in current events",
+          "exercise legal rights",
+          "be aware of legal rights"
+        ]
+      },
+      "className": "Skill",
+      "preferredLabel": {
+        "en": "exercise rights and responsibilities"
+      },
+      "uri": "http://data.europa.eu/esco/skill/f4bcdb75-df28-441d-a52b-9730904f36a1"
+    },
+    {
+      "_links": {
+        "isInScheme": [
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/skills"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/member-skills"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/skill-transversal-groups"
+          }
+        ]
+      },
+      "alternativeLabel": {
+        "en": [
+          "support gender equality",
+          "support democracy",
+          "fight discrimination",
+          "mainstream gender",
+          "demonstrate an understanding of European common values",
+          "support gender mainstreaming",
+          "promote a culture of piece and non violence",
+          "confront discriminations",
+          "implement equality policies"
+        ]
+      },
+      "className": "Skill",
+      "preferredLabel": {
+        "en": "promote the principles of democracy and rule of law"
+      },
+      "uri": "http://data.europa.eu/esco/skill/896a5e0c-7ac9-4e59-a9bf-17fdca6b1c37"
+    },
+    {
+      "_links": {
+        "isInScheme": [
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/member-skills"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/skill-transversal-groups"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/skills"
+          }
+        ]
+      },
+      "alternativeLabel": {
+        "en": [
+          "support cultural diversity",
+          "demonstrate knowledge of the multi-cultural dimension of European societies",
+          "take account of the diversity of cultural values and norms",
+          "take national cultural identity in consideration",
+          "show sensitivity towards different worldviews"
+        ]
+      },
+      "className": "Skill",
+      "preferredLabel": {
+        "en": "respect the diversity of cultural values and norms"
+      },
+      "uri": "http://data.europa.eu/esco/skill/5ca953f7-541d-4f67-bc55-7721348366cf"
+    },
+    {
+      "_links": {
+        "isInScheme": [
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/member-skills"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/skills"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/skill-transversal-groups"
+          }
+        ]
+      },
+      "alternativeLabel": {
+        "en": [
+          "do neighbouring activity",
+          "demonstrate active citisenship",
+          "perform community work",
+          "be involved in civic activities"
+        ]
+      },
+      "className": "Skill",
+      "preferredLabel": {
+        "en": "participate actively in civic life"
+      },
+      "uri": "http://data.europa.eu/esco/skill/7d9bace0-63d0-4848-ac87-350a98082c12"
+    },
+    {
+      "_links": {
+        "isInScheme": [
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/skill-transversal-groups"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/member-skills"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/skills"
+          }
+        ]
+      },
+      "alternativeLabel": {
+        "en": [
+          "demonstrate social knowledge",
+          "understand the role of social movements in society",
+          "demonstrate interest in politics",
+          "demonstrate knowledge of European history"
+        ]
+      },
+      "className": "Skill",
+      "preferredLabel": {
+        "en": "apply knowledge of social sciences and humanities"
+      },
+      "uri": "http://data.europa.eu/esco/skill/deb3c1bc-d48a-42e6-b0cc-cb238534ec28"
+    },
+    {
+      "_links": {
+        "isInScheme": [
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/member-skills"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/skill-transversal-groups"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/skills"
+          }
+        ]
+      },
+      "alternativeLabel": {
+        "en": [
+          "act according to ethical and religious values",
+          "apply philosophical school of thoughts",
+          "evaluate the moral and ethical consequences of actions",
+          "assess the consequences and impact of ideas",
+          "follow ethical values and religious believes"
+        ]
+      },
+      "className": "Skill",
+      "preferredLabel": {
+        "en": "apply knowledge of philosophy, ethics and religion"
+      },
+      "uri": "http://data.europa.eu/esco/skill/0b709c64-a57a-4976-86bd-34d2cf34fa4f"
+    },
+    {
+      "_links": {
+        "isInScheme": [
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/skills"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/skill-transversal-groups"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/member-skills"
+          }
+        ]
+      },
+      "alternativeLabel": {
+        "en": [
+          "carry out measurements",
+          "demonstrate scientific literacy",
+          "demonstrate technical abilities",
+          "take on new technology"
+        ]
+      },
+      "className": "Skill",
+      "preferredLabel": {
+        "en": "apply knowledge of science, technology and engineering"
+      },
+      "uri": "http://data.europa.eu/esco/skill/5c3ab99d-a3f1-4620-9602-d12d2151a03d"
+    },
+    {
+      "_links": {
+        "isInScheme": [
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/skills"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/skill-transversal-groups"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/member-skills"
+          }
+        ]
+      },
+      "alternativeLabel": {
+        "en": [
+          "demonstrate technical acumen",
+          "use hand tools",
+          "use precision instrumentation",
+          "carry out manual activities"
+        ]
+      },
+      "className": "Skill",
+      "preferredLabel": {
+        "en": "use equipment, tools or technology with precision"
+      },
+      "uri": "http://data.europa.eu/esco/skill/9c0f93f7-2592-4d4d-9673-fd640502345f"
+    },
+    {
+      "_links": {
+        "isInScheme": [
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/member-skills"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/skill-transversal-groups"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/skills"
+          }
+        ]
+      },
+      "alternativeLabel": {
+        "en": [
+          "climb",
+          "lift things",
+          "store goods",
+          "load and unload good and materials",
+          "move and lift objects",
+          "perform physical activities"
+        ]
+      },
+      "className": "Skill",
+      "preferredLabel": {
+        "en": "move objects"
+      },
+      "uri": "http://data.europa.eu/esco/skill/b6bdf202-524f-475d-b813-2aa9af005c37"
+    },
+    {
+      "_links": {
+        "isInScheme": [
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/skill-transversal-groups"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/skills"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/member-skills"
+          }
+        ]
+      },
+      "alternativeLabel": {
+        "en": [
+          "demonstrate physical resilience",
+          "tolerate unfavourable temperatures",
+          "work under adverse weather conditions"
+        ]
+      },
+      "className": "Skill",
+      "preferredLabel": {
+        "en": "adjust to physical demands"
+      },
+      "uri": "http://data.europa.eu/esco/skill/13b4a3d2-abdf-4442-8e52-d7464a58ecbc"
+    },
+    {
+      "_links": {
+        "isInScheme": [
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/member-skills"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/skills"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/skill-transversal-groups"
+          }
+        ]
+      },
+      "alternativeLabel": {
+        "en": [
+          "demonstrate agility",
+          "show responsivness",
+          "be reactive"
+        ]
+      },
+      "className": "Skill",
+      "preferredLabel": {
+        "en": "react to physical changes or hazards"
+      },
+      "uri": "http://data.europa.eu/esco/skill/ef7562b2-f176-4d7c-a0b2-27ae8cce0b7d"
+    }
+  ],
+  "roots": [
+    "http://data.europa.eu/esco/skill/04a13491-b58c-4d33-8b59-8fad0d55fe9e"
+  ],
+  "selectedVersion": "v1.2.1",
+  "snapshot_format": 3
+}

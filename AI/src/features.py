@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 from typing import Any
+import os
 
 import numpy as np
 
@@ -31,23 +32,12 @@ def bertscore_prf(
     answers: list[str],
     references: list[str],
     model_type: str = "bert-base-multilingual-cased",
-    batch_size: int = 8,
+    batch_size: int | None = None,
     device: str | None = None,
 ) -> tuple[np.ndarray, np.ndarray, np.ndarray]:
-    """BERTScore thật — lần đầu sẽ tải model (~700MB)."""
-    from bert_score import score as bert_score_fn
-
-    kwargs: dict[str, Any] = {
-        "model_type": model_type,
-        "lang": "en",  # multilingual checkpoint; lang hint ít ảnh hưởng với model_type cố định
-        "verbose": True,
-        "batch_size": batch_size,
-        "rescale_with_baseline": False,
-    }
-    if device:
-        kwargs["device"] = device
-    P, R, F1 = bert_score_fn(answers, references, **kwargs)
-    return P.numpy(), R.numpy(), F1.numpy()
+    """BERTScore thật, model được cache và giới hạn thread trên CPU."""
+    from .semantic import score_pairs
+    return score_pairs(answers, references, model_type, batch_size or int(os.getenv("HIRELENS_BATCH_SIZE", "4")), device)
 
 
 def build_feature_row(

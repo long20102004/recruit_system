@@ -1,0 +1,12 @@
+.venv/
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+output/*.csv
+output/*.json
+!output/.gitkeep
+
+output/module3-v2/
+output/bert_finetuned_*/
+
+/AI.zip

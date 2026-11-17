@@ -1,8 +1,10 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import type { HeaderMode, NavKey } from "../../types";
 import { Brand } from "./Brand";
 import { Button } from "./Button";
 import { classNames } from "../../utils/format";
+import { useAuth } from "../../context/AuthContext";
+import { accountPath } from "../../utils/account";
 
 export interface SiteHeaderProps {
   active: NavKey;
@@ -23,10 +25,7 @@ function navForMode(mode: HeaderMode): {
   if (mode === "public") {
     return {
       home: "/",
-      links: [
-        { to: "/", key: "jobs", label: "Việc làm" },
-        { to: "/login", key: "login", label: "Công cụ AI" },
-      ],
+      links: [{ to: "/", key: "jobs", label: "Việc làm" }],
     };
   }
   if (mode === "recruiter") {
@@ -36,7 +35,7 @@ function navForMode(mode: HeaderMode): {
         { to: "/recruiter", key: "home", label: "Tổng quan" },
         { to: "/recruiter/jobs", key: "jobs", label: "Đăng tuyển" },
         { to: "/recruiter/candidates", key: "candidates", label: "Ứng viên" },
-        { to: "/recruiter/matching", key: "matching", label: "Matching AI" },
+        { to: "/recruiter/matching", key: "matching", label: "Ghép hồ sơ" },
         { to: "/recruiter/interviews", key: "interviews", label: "Phỏng vấn" },
       ],
     };
@@ -55,9 +54,16 @@ function navForMode(mode: HeaderMode): {
 export function SiteHeader({
   active,
   mode,
-  userLocation = "Quận 1, TP. Hồ Chí Minh",
+  userLocation,
 }: SiteHeaderProps) {
   const { home, links } = navForMode(mode);
+  const { user, logout } = useAuth();
+  const navigate = useNavigate();
+
+  function onLogout() {
+    logout();
+    navigate("/login");
+  }
 
   return (
     <header className="site-header">
@@ -77,33 +83,45 @@ export function SiteHeader({
         <div className="header-actions">
           {mode === "public" ? (
             <>
-              <span className="loc-pill">Gần: {userLocation}</span>
-              <Button variant="ghost" size="sm" to="/login">
-                Đăng nhập
-              </Button>
-              <Button variant="primary" size="sm" to="/login">
-                Tạo tài khoản
-              </Button>
+              {userLocation ? (
+                <span className="loc-pill">{userLocation}</span>
+              ) : null}
+              {user ? (
+                <Button variant="primary" size="sm" to={accountPath(user)}>
+                  Trang của tôi
+                </Button>
+              ) : (
+                <>
+                  <Button variant="ghost" size="sm" to="/login">
+                    Đăng nhập
+                  </Button>
+                  <Button variant="primary" size="sm" to="/register">
+                    Tạo tài khoản
+                  </Button>
+                </>
+              )}
             </>
           ) : null}
           {mode === "recruiter" ? (
             <>
-              <Button variant="ghost" size="sm" to="/">
-                Về trang việc làm
+              <Button variant="ghost" size="sm" to="/jobs">
+                Việc làm công khai
               </Button>
-              <Button variant="primary" size="sm" to="/login">
-                Đổi vai trò
+              <Button variant="primary" size="sm" onClick={onLogout}>
+                Đăng xuất
               </Button>
             </>
           ) : null}
           {mode === "candidate" ? (
             <>
-              <span className="loc-pill">Gần: {userLocation}</span>
-              <Button variant="ghost" size="sm" to="/">
+              {userLocation ? (
+                <span className="loc-pill">{userLocation}</span>
+              ) : null}
+              <Button variant="ghost" size="sm" to="/candidate">
                 Trang chủ
               </Button>
-              <Button variant="primary" size="sm" to="/login">
-                Đổi vai trò
+              <Button variant="primary" size="sm" onClick={onLogout}>
+                Đăng xuất
               </Button>
             </>
           ) : null}

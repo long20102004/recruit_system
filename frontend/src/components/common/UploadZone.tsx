@@ -10,9 +10,9 @@ interface UploadZoneProps {
 }
 
 export function UploadZone({
-  title = "Kéo thả CV PDF/DOCX vào đây",
-  hint = "hoặc bấm để chọn file · tối đa 5MB (demo)",
-  accept = ".pdf,.doc,.docx",
+  title = "Kéo thả CV PDF vào đây",
+  hint = "Chỉ nhận file PDF · tối đa 5MB",
+  accept = ".pdf",
   onFile,
   className,
 }: UploadZoneProps) {

@@ -1,0 +1,1962 @@
+{
+  "meta": {
+    "version": "module3-bank-v2",
+    "role": "IT practice",
+    "provenance": "AI-generated synthetic questions and rubric-derived labels; not expert-validated",
+    "n_questions": 30,
+    "label_field": "target_score",
+    "review_required": true
+  },
+  "questions": [
+    {
+      "id": "m3-v2-001",
+      "skill": "Java",
+      "topic": "Java",
+      "seniority": "Intern",
+      "difficulty": "Easy",
+      "question_type": "KNOWLEDGE",
+      "question": "Phân biệt == và equals trong Java. Khi so sánh String nên dùng gì?",
+      "reference_answer": "Với object, == so sánh hai tham chiếu có trỏ cùng đối tượng hay không. equals có thể được override để so sánh giá trị logic; String.equals so sánh nội dung chuỗi. Dùng Objects.equals(a,b) để so sánh an toàn khi có null.",
+      "criteria": [
+        {
+          "key": "c1",
+          "label": "Với object, == so sánh hai tham chiếu có trỏ cùng đối tượng hay không.",
+          "weight": 0.4,
+          "hints": [
+            "tham chiếu",
+            "cùng đối tượng",
+            "reference"
+          ],
+          "reference_answers": [
+            "Với object, == so sánh hai tham chiếu có trỏ cùng đối tượng hay không.",
+            "Hai biến object dùng == để kiểm tra cùng địa chỉ tham chiếu."
+          ],
+          "misconceptions": [
+            "== luôn so sánh nội dung của mọi object."
+          ]
+        },
+        {
+          "key": "c2",
+          "label": "equals có thể được override để so sánh giá trị logic; String.equals so sánh nội dung chuỗi.",
+          "weight": 0.35,
+          "hints": [
+            "equals",
+            "nội dung",
+            "override"
+          ],
+          "reference_answers": [
+            "equals có thể được override để so sánh giá trị logic; String.equals so sánh nội dung chuỗi.",
+            "So nội dung hai chuỗi bằng String.equals thay vì so địa chỉ."
+          ],
+          "misconceptions": [
+            "String.equals chỉ so sánh địa chỉ bộ nhớ."
+          ]
+        },
+        {
+          "key": "c3",
+          "label": "Dùng Objects.equals(a,b) để so sánh an toàn khi có null.",
+          "weight": 0.25,
+          "hints": [
+            "Objects.equals",
+            "null",
+            "an toàn"
+          ],
+          "reference_answers": [
+            "Dùng Objects.equals(a,b) để so sánh an toàn khi có null.",
+            "Objects.equals xử lý được trường hợp một chuỗi là null."
+          ],
+          "misconceptions": [
+            "Gọi a.equals(b) luôn an toàn dù a là null."
+          ]
+        }
+      ],
+      "source": "synthetic-ai-v2",
+      "review_status": "needs_expert_review"
+    },
+    {
+      "id": "m3-v2-002",
+      "skill": "Java",
+      "topic": "Java",
+      "seniority": "Junior",
+      "difficulty": "Medium",
+      "question_type": "APPLICATION",
+      "question": "Khi dùng HashMap với key là object tự định nghĩa, cần chú ý equals và hashCode thế nào?",
+      "reference_answer": "Hai object equals nhau phải có cùng hashCode. HashMap dùng hashCode chọn bucket rồi equals để phân biệt key trong bucket. Tránh thay đổi các trường tham gia equals và hashCode sau khi key đã được đưa vào map.",
+      "criteria": [
+        {
+          "key": "c1",
+          "label": "Hai object equals nhau phải có cùng hashCode.",
+          "weight": 0.4,
+          "hints": [
+            "equals",
+            "hashCode",
+            "cùng"
+          ],
+          "reference_answers": [
+            "Hai object equals nhau phải có cùng hashCode.",
+            "Nếu equals trả true thì mã băm của hai key phải giống nhau."
+          ],
+          "misconceptions": [
+            "Hai object equals nhau được phép có hashCode khác nhau."
+          ]
+        },
+        {
+          "key": "c2",
+          "label": "HashMap dùng hashCode chọn bucket rồi equals để phân biệt key trong bucket.",
+          "weight": 0.35,
+          "hints": [
+            "bucket",
+            "va chạm",
+            "equals"
+          ],
+          "reference_answers": [
+            "HashMap dùng hashCode chọn bucket rồi equals để phân biệt key trong bucket.",
+            "Mã băm chọn nhóm lưu trữ, còn equals xác định đúng khóa khi va chạm."
+          ],
+          "misconceptions": [
+            "Chỉ cần hashCode giống nhau là HashMap coi hai key bằng nhau."
+          ]
+        },
+        {
+          "key": "c3",
+          "label": "Tránh thay đổi các trường tham gia equals và hashCode sau khi key đã được đưa vào map.",
+          "weight": 0.25,
+          "hints": [
+            "bất biến",
+            "thay đổi",
+            "tra cứu"
+          ],
+          "reference_answers": [
+            "Tránh thay đổi các trường tham gia equals và hashCode sau khi key đã được đưa vào map.",
+            "Nên dùng key bất biến để không làm mất khả năng tìm kiếm sau khi chèn."
+          ],
+          "misconceptions": [
+            "Thay đổi key trong map không bao giờ ảnh hưởng việc tra cứu."
+          ]
+        }
+      ],
+      "source": "synthetic-ai-v2",
+      "review_status": "needs_expert_review"
+    },
+    {
+      "id": "m3-v2-003",
+      "skill": "Java",
+      "topic": "Java",
+      "seniority": "Middle",
+      "difficulty": "Hard",
+      "question_type": "SCENARIO",
+      "question": "Một bộ đếm dùng chung giữa nhiều thread bị sai số. Bạn phân tích và sửa thế nào?",
+      "reference_answer": "Phép tăng count++ gồm nhiều thao tác nên có thể xảy ra race condition. Dùng AtomicInteger hoặc synchronized phù hợp để bảo vệ thao tác cập nhật. Đo tải và kiểm thử đồng thời; cân nhắc LongAdder khi tranh chấp cao.",
+      "criteria": [
+        {
+          "key": "c1",
+          "label": "Phép tăng count++ gồm nhiều thao tác nên có thể xảy ra race condition.",
+          "weight": 0.4,
+          "hints": [
+            "race condition",
+            "nguyên tử",
+            "nhiều thao tác"
+          ],
+          "reference_answers": [
+            "Phép tăng count++ gồm nhiều thao tác nên có thể xảy ra race condition.",
+            "Đọc, cộng rồi ghi không phải một thao tác nguyên tử khi nhiều luồng chạy."
+          ],
+          "misconceptions": [
+            "count++ luôn là thao tác nguyên tử trong Java."
+          ]
+        },
+        {
+          "key": "c2",
+          "label": "Dùng AtomicInteger hoặc synchronized phù hợp để bảo vệ thao tác cập nhật.",
+          "weight": 0.35,
+          "hints": [
+            "AtomicInteger",
+            "synchronized",
+            "khóa"
+          ],
+          "reference_answers": [
+            "Dùng AtomicInteger hoặc synchronized phù hợp để bảo vệ thao tác cập nhật.",
+            "Có thể dùng compare-and-set qua AtomicInteger hoặc khóa đồng bộ."
+          ],
+          "misconceptions": [
+            "Chỉ thêm volatile là đủ để count++ luôn chính xác."
+          ]
+        },
+        {
+          "key": "c3",
+          "label": "Đo tải và kiểm thử đồng thời; cân nhắc LongAdder khi tranh chấp cao.",
+          "weight": 0.25,
+          "hints": [
+            "kiểm thử",
+            "LongAdder",
+            "tranh chấp"
+          ],
+          "reference_answers": [
+            "Đo tải và kiểm thử đồng thời; cân nhắc LongAdder khi tranh chấp cao.",
+            "Cần stress test nhiều luồng và đo contention trước khi chọn cách tối ưu."
+          ],
+          "misconceptions": [
+            "Không cần kiểm thử đồng thời sau khi thêm khóa."
+          ]
+        }
+      ],
+      "source": "synthetic-ai-v2",
+      "review_status": "needs_expert_review"
+    },
+    {
+      "id": "m3-v2-004",
+      "skill": "Spring Boot",
+      "topic": "Spring Boot",
+      "seniority": "Intern",
+      "difficulty": "Easy",
+      "question_type": "KNOWLEDGE",
+      "question": "Spring Boot giúp khởi tạo ứng dụng Spring như thế nào?",
+      "reference_answer": "Spring Boot được xây trên Spring Framework, không thay thế cơ chế IoC của Spring. Auto-configuration cấu hình theo classpath và điều kiện, có thể bị cấu hình người dùng thay thế. Starter gom dependency; embedded server giúp đóng gói ứng dụng chạy độc lập.",
+      "criteria": [
+        {
+          "key": "c1",
+          "label": "Spring Boot được xây trên Spring Framework, không thay thế cơ chế IoC của Spring.",
+          "weight": 0.4,
+          "hints": [
+            "Spring Framework",
+            "IoC",
+            "bean"
+          ],
+          "reference_answers": [
+            "Spring Boot được xây trên Spring Framework, không thay thế cơ chế IoC của Spring.",
+            "Boot bổ sung tiện ích lên nền Spring và vẫn dùng container quản lý bean."
+          ],
+          "misconceptions": [
+            "Spring Boot là một ngôn ngữ lập trình độc lập."
+          ]
+        },
+        {
+          "key": "c2",
+          "label": "Auto-configuration cấu hình theo classpath và điều kiện, có thể bị cấu hình người dùng thay thế.",
+          "weight": 0.35,
+          "hints": [
+            "auto-configuration",
+            "điều kiện",
+            "classpath"
+          ],
+          "reference_answers": [
+            "Auto-configuration cấu hình theo classpath và điều kiện, có thể bị cấu hình người dùng thay thế.",
+            "Boot tự cấu hình có điều kiện dựa vào dependency và cấu hình hiện có."
+          ],
+          "misconceptions": [
+            "Auto-configuration luôn ghi đè mọi cấu hình người dùng."
+          ]
+        },
+        {
+          "key": "c3",
+          "label": "Starter gom dependency; embedded server giúp đóng gói ứng dụng chạy độc lập.",
+          "weight": 0.25,
+          "hints": [
+            "starter",
+            "embedded",
+            "Tomcat"
+          ],
+          "reference_answers": [
+            "Starter gom dependency; embedded server giúp đóng gói ứng dụng chạy độc lập.",
+            "Starter giảm việc khai báo thư viện và Tomcat nhúng giúp chạy bằng java -jar."
+          ],
+          "misconceptions": [
+            "Mọi ứng dụng Spring Boot bắt buộc phải triển khai lên Tomcat bên ngoài."
+          ]
+        }
+      ],
+      "source": "synthetic-ai-v2",
+      "review_status": "needs_expert_review"
+    },
+    {
+      "id": "m3-v2-005",
+      "skill": "Spring Boot",
+      "topic": "Spring Boot",
+      "seniority": "Junior",
+      "difficulty": "Medium",
+      "question_type": "APPLICATION",
+      "question": "Vì sao nên dùng constructor injection cho dependency bắt buộc?",
+      "reference_answer": "Dependency được khai báo rõ trong constructor và có thể giữ trong trường final. Có thể truyền mock trực tiếp khi unit test mà không cần dựng Spring context. Vòng phụ thuộc constructor cần được xử lý bằng cách xem lại thiết kế.",
+      "criteria": [
+        {
+          "key": "c1",
+          "label": "Dependency được khai báo rõ trong constructor và có thể giữ trong trường final.",
+          "weight": 0.4,
+          "hints": [
+            "constructor",
+            "final",
+            "bắt buộc"
+          ],
+          "reference_answers": [
+            "Dependency được khai báo rõ trong constructor và có thể giữ trong trường final.",
+            "Hàm khởi tạo thể hiện rõ thành phần bắt buộc, hỗ trợ tính bất biến."
+          ],
+          "misconceptions": [
+            "Constructor injection bắt buộc dependency phải được tạo bằng new trong service."
+          ]
+        },
+        {
+          "key": "c2",
+          "label": "Có thể truyền mock trực tiếp khi unit test mà không cần dựng Spring context.",
+          "weight": 0.35,
+          "hints": [
+            "mock",
+            "unit test",
+            "kiểm thử"
+          ],
+          "reference_answers": [
+            "Có thể truyền mock trực tiếp khi unit test mà không cần dựng Spring context.",
+            "Kiểm thử đơn vị chỉ cần khởi tạo service với dependency giả lập."
+          ],
+          "misconceptions": [
+            "Constructor injection khiến không thể dùng mock trong unit test."
+          ]
+        },
+        {
+          "key": "c3",
+          "label": "Vòng phụ thuộc constructor cần được xử lý bằng cách xem lại thiết kế.",
+          "weight": 0.25,
+          "hints": [
+            "vòng phụ thuộc",
+            "thiết kế",
+            "tách"
+          ],
+          "reference_answers": [
+            "Vòng phụ thuộc constructor cần được xử lý bằng cách xem lại thiết kế.",
+            "Nếu hai service đòi nhau ở hàm tạo thì nên tách trách nhiệm để bỏ vòng phụ thuộc."
+          ],
+          "misconceptions": [
+            "Vòng phụ thuộc constructor luôn được Spring tự giải quyết."
+          ]
+        }
+      ],
+      "source": "synthetic-ai-v2",
+      "review_status": "needs_expert_review"
+    },
+    {
+      "id": "m3-v2-006",
+      "skill": "Spring Boot",
+      "topic": "Spring Boot",
+      "seniority": "Middle",
+      "difficulty": "Hard",
+      "question_type": "SCENARIO",
+      "question": "Một phương thức @Transactional gọi nội bộ phương thức khác nhưng rollback không như mong đợi. Bạn kiểm tra gì?",
+      "reference_answer": "Proxy-based AOP không chặn self-invocation qua this nên annotation ở lời gọi nội bộ có thể không có hiệu lực. Kiểm tra loại exception và rollbackFor vì checked exception mặc định không gây rollback. Kiểm thử tích hợp trạng thái database và cân nhắc tách lời gọi sang bean khác.",
+      "criteria": [
+        {
+          "key": "c1",
+          "label": "Proxy-based AOP không chặn self-invocation qua this nên annotation ở lời gọi nội bộ có thể không có hiệu lực.",
+          "weight": 0.4,
+          "hints": [
+            "proxy",
+            "self-invocation",
+            "cùng đối tượng"
+          ],
+          "reference_answers": [
+            "Proxy-based AOP không chặn self-invocation qua this nên annotation ở lời gọi nội bộ có thể không có hiệu lực.",
+            "Gọi trong cùng đối tượng có thể bỏ qua proxy giao dịch của Spring."
+          ],
+          "misconceptions": [
+            "Mọi self-invocation đều đi qua proxy @Transactional."
+          ]
+        },
+        {
+          "key": "c2",
+          "label": "Kiểm tra loại exception và rollbackFor vì checked exception mặc định không gây rollback.",
+          "weight": 0.35,
+          "hints": [
+            "checked",
+            "rollbackFor",
+            "exception"
+          ],
+          "reference_answers": [
+            "Kiểm tra loại exception và rollbackFor vì checked exception mặc định không gây rollback.",
+            "Cần xem exception là checked hay runtime và quy tắc rollback đã cấu hình."
+          ],
+          "misconceptions": [
+            "Mọi checked exception đều tự động rollback theo mặc định."
+          ]
+        },
+        {
+          "key": "c3",
+          "label": "Kiểm thử tích hợp trạng thái database và cân nhắc tách lời gọi sang bean khác.",
+          "weight": 0.25,
+          "hints": [
+            "kiểm thử",
+            "database",
+            "bean khác"
+          ],
+          "reference_answers": [
+            "Kiểm thử tích hợp trạng thái database và cân nhắc tách lời gọi sang bean khác.",
+            "Xác minh dữ liệu sau lỗi và đưa ranh giới giao dịch qua một bean phù hợp."
+          ],
+          "misconceptions": [
+            "Chỉ xem log là đủ để khẳng định transaction đã rollback."
+          ]
+        }
+      ],
+      "source": "synthetic-ai-v2",
+      "review_status": "needs_expert_review"
+    },
+    {
+      "id": "m3-v2-007",
+      "skill": "SQL",
+      "topic": "SQL",
+      "seniority": "Intern",
+      "difficulty": "Easy",
+      "question_type": "KNOWLEDGE",
+      "question": "INNER JOIN và LEFT JOIN khác nhau thế nào?",
+      "reference_answer": "INNER JOIN chỉ giữ các cặp dòng thỏa điều kiện nối ở cả hai bảng. LEFT JOIN giữ mọi dòng bảng trái; cột phía phải là NULL khi không có dòng khớp. Điều kiện WHERE trên cột bảng phải có thể loại dòng NULL và thay đổi ý nghĩa LEFT JOIN.",
+      "criteria": [
+        {
+          "key": "c1",
+          "label": "INNER JOIN chỉ giữ các cặp dòng thỏa điều kiện nối ở cả hai bảng.",
+          "weight": 0.4,
+          "hints": [
+            "INNER JOIN",
+            "khớp",
+            "cả hai"
+          ],
+          "reference_answers": [
+            "INNER JOIN chỉ giữ các cặp dòng thỏa điều kiện nối ở cả hai bảng.",
+            "Nối trong chỉ trả các bản ghi có đối tác khớp."
+          ],
+          "misconceptions": [
+            "INNER JOIN luôn giữ toàn bộ dòng bảng trái."
+          ]
+        },
+        {
+          "key": "c2",
+          "label": "LEFT JOIN giữ mọi dòng bảng trái; cột phía phải là NULL khi không có dòng khớp.",
+          "weight": 0.35,
+          "hints": [
+            "LEFT JOIN",
+            "NULL",
+            "bảng trái"
+          ],
+          "reference_answers": [
+            "LEFT JOIN giữ mọi dòng bảng trái; cột phía phải là NULL khi không có dòng khớp.",
+            "Nối trái vẫn giữ bản ghi không tìm được đối tác và điền NULL ở bên phải."
+          ],
+          "misconceptions": [
+            "LEFT JOIN loại bỏ mọi dòng không có bản ghi phía phải."
+          ]
+        },
+        {
+          "key": "c3",
+          "label": "Điều kiện WHERE trên cột bảng phải có thể loại dòng NULL và thay đổi ý nghĩa LEFT JOIN.",
+          "weight": 0.25,
+          "hints": [
+            "WHERE",
+            "ON",
+            "điều kiện"
+          ],
+          "reference_answers": [
+            "Điều kiện WHERE trên cột bảng phải có thể loại dòng NULL và thay đổi ý nghĩa LEFT JOIN.",
+            "Đặt lọc bên phải trong WHERE cần cẩn thận vì có thể làm mất các dòng chưa khớp."
+          ],
+          "misconceptions": [
+            "Đặt điều kiện bên phải ở WHERE hay ON luôn cho cùng kết quả."
+          ]
+        }
+      ],
+      "source": "synthetic-ai-v2",
+      "review_status": "needs_expert_review"
+    },
+    {
+      "id": "m3-v2-008",
+      "skill": "SQL",
+      "topic": "SQL",
+      "seniority": "Junior",
+      "difficulty": "Medium",
+      "question_type": "APPLICATION",
+      "question": "Khi nào nên tạo index và làm sao kiểm tra index có hữu ích?",
+      "reference_answer": "Xem các cột thường lọc WHERE, nối JOIN hoặc sắp xếp để chọn index phù hợp. Index tốn dung lượng và làm tăng chi phí INSERT UPDATE DELETE. Dùng EXPLAIN và đo thời gian trước sau trên dữ liệu đại diện.",
+      "criteria": [
+        {
+          "key": "c1",
+          "label": "Xem các cột thường lọc WHERE, nối JOIN hoặc sắp xếp để chọn index phù hợp.",
+          "weight": 0.4,
+          "hints": [
+            "WHERE",
+            "JOIN",
+            "truy vấn"
+          ],
+          "reference_answers": [
+            "Xem các cột thường lọc WHERE, nối JOIN hoặc sắp xếp để chọn index phù hợp.",
+            "Tạo chỉ mục theo mẫu truy vấn thực tế, nhất là điều kiện tìm kiếm và liên kết."
+          ],
+          "misconceptions": [
+            "Nên tạo index cho mọi cột bất kể truy vấn."
+          ]
+        },
+        {
+          "key": "c2",
+          "label": "Index tốn dung lượng và làm tăng chi phí INSERT UPDATE DELETE.",
+          "weight": 0.35,
+          "hints": [
+            "dung lượng",
+            "ghi",
+            "UPDATE"
+          ],
+          "reference_answers": [
+            "Index tốn dung lượng và làm tăng chi phí INSERT UPDATE DELETE.",
+            "Chỉ mục tăng tốc đọc nhưng phải đánh đổi bộ nhớ và công cập nhật khi ghi."
+          ],
+          "misconceptions": [
+            "Index luôn tăng tốc cả đọc và ghi mà không tốn dung lượng."
+          ]
+        },
+        {
+          "key": "c3",
+          "label": "Dùng EXPLAIN và đo thời gian trước sau trên dữ liệu đại diện.",
+          "weight": 0.25,
+          "hints": [
+            "EXPLAIN",
+            "đo",
+            "plan"
+          ],
+          "reference_answers": [
+            "Dùng EXPLAIN và đo thời gian trước sau trên dữ liệu đại diện.",
+            "Kiểm tra execution plan và benchmark thay vì đoán index đã được dùng."
+          ],
+          "misconceptions": [
+            "Có index thì không cần xem execution plan hay đo lại."
+          ]
+        }
+      ],
+      "source": "synthetic-ai-v2",
+      "review_status": "needs_expert_review"
+    },
+    {
+      "id": "m3-v2-009",
+      "skill": "SQL",
+      "topic": "SQL",
+      "seniority": "Middle",
+      "difficulty": "Hard",
+      "question_type": "SCENARIO",
+      "question": "Hai yêu cầu đặt hàng đồng thời có thể bán vượt tồn kho. Bạn xử lý ở database thế nào?",
+      "reference_answer": "Cần giữ thao tác kiểm tra và trừ tồn kho trong cùng ranh giới transaction. Dùng UPDATE có điều kiện stock >= quantity và kiểm tra số dòng cập nhật hoặc khóa dòng phù hợp. Xử lý retry có giới hạn cho deadlock và kiểm tra tính idempotent khi gửi lại yêu cầu.",
+      "criteria": [
+        {
+          "key": "c1",
+          "label": "Cần giữ thao tác kiểm tra và trừ tồn kho trong cùng ranh giới transaction.",
+          "weight": 0.4,
+          "hints": [
+            "transaction",
+            "đồng thời",
+            "kiểm tra"
+          ],
+          "reference_answers": [
+            "Cần giữ thao tác kiểm tra và trừ tồn kho trong cùng ranh giới transaction.",
+            "Đọc lượng tồn rồi cập nhật riêng rẽ có thể tạo race condition nên cần giao dịch nhất quán."
+          ],
+          "misconceptions": [
+            "Chỉ kiểm tra tồn kho ở giao diện là đủ để tránh bán vượt."
+          ]
+        },
+        {
+          "key": "c2",
+          "label": "Dùng UPDATE có điều kiện stock >= quantity và kiểm tra số dòng cập nhật hoặc khóa dòng phù hợp.",
+          "weight": 0.35,
+          "hints": [
+            "UPDATE",
+            "điều kiện",
+            "khóa"
+          ],
+          "reference_answers": [
+            "Dùng UPDATE có điều kiện stock >= quantity và kiểm tra số dòng cập nhật hoặc khóa dòng phù hợp.",
+            "Có thể cập nhật nguyên tử kèm điều kiện số lượng thay vì đọc rồi ghi không bảo vệ."
+          ],
+          "misconceptions": [
+            "Luôn đọc stock bằng SELECT thường rồi UPDATE là an toàn với mọi mức cô lập."
+          ]
+        },
+        {
+          "key": "c3",
+          "label": "Xử lý retry có giới hạn cho deadlock và kiểm tra tính idempotent khi gửi lại yêu cầu.",
+          "weight": 0.25,
+          "hints": [
+            "deadlock",
+            "retry",
+            "idempotent"
+          ],
+          "reference_answers": [
+            "Xử lý retry có giới hạn cho deadlock và kiểm tra tính idempotent khi gửi lại yêu cầu.",
+            "Khi có bế tắc cần retry có kiểm soát và tránh trừ kho hai lần cho một yêu cầu."
+          ],
+          "misconceptions": [
+            "Retry vô hạn không cần idempotency là cách xử lý deadlock tốt nhất."
+          ]
+        }
+      ],
+      "source": "synthetic-ai-v2",
+      "review_status": "needs_expert_review"
+    },
+    {
+      "id": "m3-v2-010",
+      "skill": "REST API",
+      "topic": "REST API",
+      "seniority": "Intern",
+      "difficulty": "Easy",
+      "question_type": "KNOWLEDGE",
+      "question": "Phân biệt GET, POST, PUT và DELETE trong API HTTP.",
+      "reference_answer": "GET dùng đọc tài nguyên và không nên tạo tác dụng phụ thay đổi dữ liệu nghiệp vụ. POST thường tạo hoặc xử lý yêu cầu; PUT thường thay thế trạng thái tại URI xác định. PUT và DELETE có ngữ nghĩa idempotent; phản hồi HTTP có thể khác giữa các lần gọi.",
+      "criteria": [
+        {
+          "key": "c1",
+          "label": "GET dùng đọc tài nguyên và không nên tạo tác dụng phụ thay đổi dữ liệu nghiệp vụ.",
+          "weight": 0.4,
+          "hints": [
+            "GET",
+            "đọc",
+            "an toàn"
+          ],
+          "reference_answers": [
+            "GET dùng đọc tài nguyên và không nên tạo tác dụng phụ thay đổi dữ liệu nghiệp vụ.",
+            "Yêu cầu lấy dữ liệu cần giữ tính an toàn, không dùng GET để xóa bản ghi."
+          ],
+          "misconceptions": [
+            "GET nên được dùng để xóa hoặc tạo dữ liệu."
+          ]
+        },
+        {
+          "key": "c2",
+          "label": "POST thường tạo hoặc xử lý yêu cầu; PUT thường thay thế trạng thái tại URI xác định.",
+          "weight": 0.35,
+          "hints": [
+            "POST",
+            "PUT",
+            "tài nguyên"
+          ],
+          "reference_answers": [
+            "POST thường tạo hoặc xử lý yêu cầu; PUT thường thay thế trạng thái tại URI xác định.",
+            "POST gửi thao tác còn PUT ghi trạng thái của tài nguyên có địa chỉ đã biết."
+          ],
+          "misconceptions": [
+            "PUT chỉ được dùng để đọc dữ liệu."
+          ]
+        },
+        {
+          "key": "c3",
+          "label": "PUT và DELETE có ngữ nghĩa idempotent; phản hồi HTTP có thể khác giữa các lần gọi.",
+          "weight": 0.25,
+          "hints": [
+            "idempotent",
+            "DELETE",
+            "tác động"
+          ],
+          "reference_answers": [
+            "PUT và DELETE có ngữ nghĩa idempotent; phản hồi HTTP có thể khác giữa các lần gọi.",
+            "Gọi lặp PUT hoặc DELETE phải giữ cùng tác động cuối, không bắt buộc mã trả về giống nhau."
+          ],
+          "misconceptions": [
+            "Idempotent có nghĩa mọi lần gọi phải trả cùng mã HTTP."
+          ]
+        }
+      ],
+      "source": "synthetic-ai-v2",
+      "review_status": "needs_expert_review"
+    },
+    {
+      "id": "m3-v2-011",
+      "skill": "REST API",
+      "topic": "REST API",
+      "seniority": "Junior",
+      "difficulty": "Medium",
+      "question_type": "APPLICATION",
+      "question": "Bạn thiết kế API tạo đơn hàng với validation và phản hồi lỗi thế nào?",
+      "reference_answer": "Kiểm tra kiểu dữ liệu, số lượng và ràng buộc nghiệp vụ phía server. Dùng mã HTTP phù hợp và cấu trúc lỗi nhất quán có thông tin trường sai. Bảo vệ retry tạo đơn bằng idempotency key hoặc khóa nghiệp vụ duy nhất.",
+      "criteria": [
+        {
+          "key": "c1",
+          "label": "Kiểm tra kiểu dữ liệu, số lượng và ràng buộc nghiệp vụ phía server.",
+          "weight": 0.4,
+          "hints": [
+            "server",
+            "validation",
+            "nghiệp vụ"
+          ],
+          "reference_answers": [
+            "Kiểm tra kiểu dữ liệu, số lượng và ràng buộc nghiệp vụ phía server.",
+            "Không tin validation frontend; server cần xác minh đầu vào và điều kiện nghiệp vụ."
+          ],
+          "misconceptions": [
+            "Chỉ cần validation phía frontend vì người dùng không thể bỏ qua."
+          ]
+        },
+        {
+          "key": "c2",
+          "label": "Dùng mã HTTP phù hợp và cấu trúc lỗi nhất quán có thông tin trường sai.",
+          "weight": 0.35,
+          "hints": [
+            "HTTP",
+            "cấu trúc",
+            "lỗi"
+          ],
+          "reference_answers": [
+            "Dùng mã HTTP phù hợp và cấu trúc lỗi nhất quán có thông tin trường sai.",
+            "Phân biệt lỗi đầu vào với lỗi hệ thống, trả lỗi có cấu trúc để client xử lý."
+          ],
+          "misconceptions": [
+            "Mọi lỗi nghiệp vụ nên trả HTTP 200 mà không có thông tin lỗi."
+          ]
+        },
+        {
+          "key": "c3",
+          "label": "Bảo vệ retry tạo đơn bằng idempotency key hoặc khóa nghiệp vụ duy nhất.",
+          "weight": 0.25,
+          "hints": [
+            "idempotency",
+            "retry",
+            "duy nhất"
+          ],
+          "reference_answers": [
+            "Bảo vệ retry tạo đơn bằng idempotency key hoặc khóa nghiệp vụ duy nhất.",
+            "Một yêu cầu gửi lại không nên tạo hai đơn; có thể dùng mã chống trùng."
+          ],
+          "misconceptions": [
+            "Mỗi retry luôn phải tạo thêm một đơn hàng mới."
+          ]
+        }
+      ],
+      "source": "synthetic-ai-v2",
+      "review_status": "needs_expert_review"
+    },
+    {
+      "id": "m3-v2-012",
+      "skill": "REST API",
+      "topic": "REST API",
+      "seniority": "Middle",
+      "difficulty": "Hard",
+      "question_type": "SCENARIO",
+      "question": "Một API phụ thuộc dịch vụ ngoài thường timeout. Bạn làm gì để tránh lỗi dây chuyền?",
+      "reference_answer": "Đặt timeout kết nối và đọc hữu hạn cho lời gọi ra ngoài. Chỉ retry lỗi tạm thời có backoff và giới hạn; cân nhắc idempotency. Dùng circuit breaker hoặc bulkhead, theo dõi metric và báo lỗi phụ thuộc rõ ràng.",
+      "criteria": [
+        {
+          "key": "c1",
+          "label": "Đặt timeout kết nối và đọc hữu hạn cho lời gọi ra ngoài.",
+          "weight": 0.4,
+          "hints": [
+            "timeout",
+            "giới hạn",
+            "kết nối"
+          ],
+          "reference_answers": [
+            "Đặt timeout kết nối và đọc hữu hạn cho lời gọi ra ngoài.",
+            "Cần giới hạn thời gian chờ để luồng xử lý không bị giữ vô hạn."
+          ],
+          "misconceptions": [
+            "Không đặt timeout giúp hệ thống ổn định hơn."
+          ]
+        },
+        {
+          "key": "c2",
+          "label": "Chỉ retry lỗi tạm thời có backoff và giới hạn; cân nhắc idempotency.",
+          "weight": 0.35,
+          "hints": [
+            "retry",
+            "backoff",
+            "idempotency"
+          ],
+          "reference_answers": [
+            "Chỉ retry lỗi tạm thời có backoff và giới hạn; cân nhắc idempotency.",
+            "Thử lại có khoảng nghỉ tăng dần, tránh retry thao tác không an toàn."
+          ],
+          "misconceptions": [
+            "Retry mọi lỗi liên tục không giới hạn là cách tránh quá tải."
+          ]
+        },
+        {
+          "key": "c3",
+          "label": "Dùng circuit breaker hoặc bulkhead, theo dõi metric và báo lỗi phụ thuộc rõ ràng.",
+          "weight": 0.25,
+          "hints": [
+            "circuit breaker",
+            "bulkhead",
+            "metric"
+          ],
+          "reference_answers": [
+            "Dùng circuit breaker hoặc bulkhead, theo dõi metric và báo lỗi phụ thuộc rõ ràng.",
+            "Cô lập tài nguyên và ngắt tạm dịch vụ lỗi để bảo vệ phần còn lại."
+          ],
+          "misconceptions": [
+            "Một dịch vụ lỗi nên chiếm toàn bộ thread pool của hệ thống."
+          ]
+        }
+      ],
+      "source": "synthetic-ai-v2",
+      "review_status": "needs_expert_review"
+    },
+    {
+      "id": "m3-v2-013",
+      "skill": "Python",
+      "topic": "Python",
+      "seniority": "Intern",
+      "difficulty": "Easy",
+      "question_type": "KNOWLEDGE",
+      "question": "List và tuple trong Python khác nhau thế nào?",
+      "reference_answer": "List có thể thay đổi phần tử và kích thước sau khi tạo. Tuple không cho gán lại các phần tử của nó sau khi tạo. Tuple chỉ hashable nếu tất cả phần tử bên trong cũng hashable.",
+      "criteria": [
+        {
+          "key": "c1",
+          "label": "List có thể thay đổi phần tử và kích thước sau khi tạo.",
+          "weight": 0.4,
+          "hints": [
+            "list",
+            "mutable",
+            "thay đổi"
+          ],
+          "reference_answers": [
+            "List có thể thay đổi phần tử và kích thước sau khi tạo.",
+            "Danh sách là cấu trúc mutable cho phép thêm và sửa dữ liệu."
+          ],
+          "misconceptions": [
+            "List là immutable và không thể thêm phần tử."
+          ]
+        },
+        {
+          "key": "c2",
+          "label": "Tuple không cho gán lại các phần tử của nó sau khi tạo.",
+          "weight": 0.35,
+          "hints": [
+            "tuple",
+            "bất biến",
+            "gán lại"
+          ],
+          "reference_answers": [
+            "Tuple không cho gán lại các phần tử của nó sau khi tạo.",
+            "Bộ tuple giữ cấu trúc phần tử bất biến ở cấp container."
+          ],
+          "misconceptions": [
+            "Tuple cho phép gán lại từng phần tử bằng chỉ số."
+          ]
+        },
+        {
+          "key": "c3",
+          "label": "Tuple chỉ hashable nếu tất cả phần tử bên trong cũng hashable.",
+          "weight": 0.25,
+          "hints": [
+            "hashable",
+            "key",
+            "phần tử"
+          ],
+          "reference_answers": [
+            "Tuple chỉ hashable nếu tất cả phần tử bên trong cũng hashable.",
+            "Không phải tuple nào cũng làm key dictionary được; tuple chứa list không hash được."
+          ],
+          "misconceptions": [
+            "Mọi tuple đều hashable kể cả tuple chứa list."
+          ]
+        }
+      ],
+      "source": "synthetic-ai-v2",
+      "review_status": "needs_expert_review"
+    },
+    {
+      "id": "m3-v2-014",
+      "skill": "Python",
+      "topic": "Python",
+      "seniority": "Junior",
+      "difficulty": "Medium",
+      "question_type": "APPLICATION",
+      "question": "Vì sao đối số mặc định là list có thể gây lỗi? Bạn sửa thế nào?",
+      "reference_answer": "Giá trị mặc định được tạo khi định nghĩa hàm và có thể được dùng lại giữa các lời gọi. Sửa bằng mặc định None rồi tạo list mới bên trong khi chưa có giá trị. Viết test nhiều lần gọi để kiểm tra dữ liệu không rò từ lần trước.",
+      "criteria": [
+        {
+          "key": "c1",
+          "label": "Giá trị mặc định được tạo khi định nghĩa hàm và có thể được dùng lại giữa các lời gọi.",
+          "weight": 0.4,
+          "hints": [
+            "mặc định",
+            "dùng chung",
+            "định nghĩa"
+          ],
+          "reference_answers": [
+            "Giá trị mặc định được tạo khi định nghĩa hàm và có thể được dùng lại giữa các lời gọi.",
+            "List mặc định là một đối tượng dùng chung, không tự tạo mới mỗi lần gọi."
+          ],
+          "misconceptions": [
+            "Python luôn tạo list mặc định mới cho từng lời gọi."
+          ]
+        },
+        {
+          "key": "c2",
+          "label": "Sửa bằng mặc định None rồi tạo list mới bên trong khi chưa có giá trị.",
+          "weight": 0.35,
+          "hints": [
+            "None",
+            "list mới",
+            "bên trong"
+          ],
+          "reference_answers": [
+            "Sửa bằng mặc định None rồi tạo list mới bên trong khi chưa có giá trị.",
+            "Dùng sentinel như None và khởi tạo danh sách trong thân hàm."
+          ],
+          "misconceptions": [
+            "Thay list mặc định bằng một list rỗng khác trong chữ ký luôn giải quyết được lỗi."
+          ]
+        },
+        {
+          "key": "c3",
+          "label": "Viết test nhiều lần gọi để kiểm tra dữ liệu không rò từ lần trước.",
+          "weight": 0.25,
+          "hints": [
+            "test",
+            "nhiều lần",
+            "độc lập"
+          ],
+          "reference_answers": [
+            "Viết test nhiều lần gọi để kiểm tra dữ liệu không rò từ lần trước.",
+            "Kiểm thử hai lần gọi độc lập giúp phát hiện trạng thái bị chia sẻ ngoài ý muốn."
+          ],
+          "misconceptions": [
+            "Chỉ test một lần gọi là đủ để phát hiện mọi lỗi mặc định mutable."
+          ]
+        }
+      ],
+      "source": "synthetic-ai-v2",
+      "review_status": "needs_expert_review"
+    },
+    {
+      "id": "m3-v2-015",
+      "skill": "Python",
+      "topic": "Python",
+      "seniority": "Middle",
+      "difficulty": "Hard",
+      "question_type": "SCENARIO",
+      "question": "Một tác vụ Python xử lý CPU chậm: nên dùng thread hay process?",
+      "reference_answer": "Trong CPython có GIL truyền thống, thread Python không tự tăng tốc mã Python CPU-bound. Cân nhắc multiprocessing hoặc thư viện native giải phóng GIL cho phần CPU nặng. Profile trước và đo chi phí truyền dữ liệu, bộ nhớ để chọn phương án.",
+      "criteria": [
+        {
+          "key": "c1",
+          "label": "Trong CPython có GIL truyền thống, thread Python không tự tăng tốc mã Python CPU-bound.",
+          "weight": 0.4,
+          "hints": [
+            "GIL",
+            "CPU-bound",
+            "thread"
+          ],
+          "reference_answers": [
+            "Trong CPython có GIL truyền thống, thread Python không tự tăng tốc mã Python CPU-bound.",
+            "Nhiều luồng không bảo đảm song song CPU cho bytecode khi GIL còn bật."
+          ],
+          "misconceptions": [
+            "GIL giúp mọi thread Python luôn chạy CPU song song hoàn toàn."
+          ]
+        },
+        {
+          "key": "c2",
+          "label": "Cân nhắc multiprocessing hoặc thư viện native giải phóng GIL cho phần CPU nặng.",
+          "weight": 0.35,
+          "hints": [
+            "multiprocessing",
+            "native",
+            "tiến trình"
+          ],
+          "reference_answers": [
+            "Cân nhắc multiprocessing hoặc thư viện native giải phóng GIL cho phần CPU nặng.",
+            "Có thể chia việc sang nhiều tiến trình hoặc dùng phép toán native phù hợp."
+          ],
+          "misconceptions": [
+            "Multiprocessing luôn dùng chung mọi object mà không có chi phí trao đổi."
+          ]
+        },
+        {
+          "key": "c3",
+          "label": "Profile trước và đo chi phí truyền dữ liệu, bộ nhớ để chọn phương án.",
+          "weight": 0.25,
+          "hints": [
+            "profile",
+            "bộ nhớ",
+            "chi phí"
+          ],
+          "reference_answers": [
+            "Profile trước và đo chi phí truyền dữ liệu, bộ nhớ để chọn phương án.",
+            "Đo điểm nghẽn và overhead liên tiến trình thay vì chỉ tăng số worker."
+          ],
+          "misconceptions": [
+            "Tăng worker vô hạn luôn tăng hiệu năng tuyến tính."
+          ]
+        }
+      ],
+      "source": "synthetic-ai-v2",
+      "review_status": "needs_expert_review"
+    },
+    {
+      "id": "m3-v2-016",
+      "skill": "React",
+      "topic": "React",
+      "seniority": "Intern",
+      "difficulty": "Easy",
+      "question_type": "KNOWLEDGE",
+      "question": "Props và state khác nhau thế nào trong React?",
+      "reference_answer": "Props là dữ liệu truyền từ component cha và được xem là chỉ đọc trong component nhận. State là dữ liệu component quản lý và cập nhật qua setter hoặc reducer. Thay đổi props hoặc state có thể khiến React render lại giao diện.",
+      "criteria": [
+        {
+          "key": "c1",
+          "label": "Props là dữ liệu truyền từ component cha và được xem là chỉ đọc trong component nhận.",
+          "weight": 0.4,
+          "hints": [
+            "props",
+            "cha",
+            "chỉ đọc"
+          ],
+          "reference_answers": [
+            "Props là dữ liệu truyền từ component cha và được xem là chỉ đọc trong component nhận.",
+            "Component con nhận đầu vào từ cha và không tự sửa trực tiếp props."
+          ],
+          "misconceptions": [
+            "Component con nên sửa trực tiếp props để cập nhật cha."
+          ]
+        },
+        {
+          "key": "c2",
+          "label": "State là dữ liệu component quản lý và cập nhật qua setter hoặc reducer.",
+          "weight": 0.35,
+          "hints": [
+            "state",
+            "setter",
+            "reducer"
+          ],
+          "reference_answers": [
+            "State là dữ liệu component quản lý và cập nhật qua setter hoặc reducer.",
+            "Trạng thái nội bộ cần thay đổi bằng API cập nhật state của React."
+          ],
+          "misconceptions": [
+            "Nên sửa trực tiếp object state mà không gọi setter."
+          ]
+        },
+        {
+          "key": "c3",
+          "label": "Thay đổi props hoặc state có thể khiến React render lại giao diện.",
+          "weight": 0.25,
+          "hints": [
+            "render",
+            "giao diện",
+            "thay đổi"
+          ],
+          "reference_answers": [
+            "Thay đổi props hoặc state có thể khiến React render lại giao diện.",
+            "React dựng lại UI theo dữ liệu mới khi trạng thái hoặc đầu vào đổi."
+          ],
+          "misconceptions": [
+            "Thay đổi state không bao giờ làm component render lại."
+          ]
+        }
+      ],
+      "source": "synthetic-ai-v2",
+      "review_status": "needs_expert_review"
+    },
+    {
+      "id": "m3-v2-017",
+      "skill": "React",
+      "topic": "React",
+      "seniority": "Junior",
+      "difficulty": "Medium",
+      "question_type": "APPLICATION",
+      "question": "Khi fetch dữ liệu trong useEffect, bạn tránh race condition thế nào?",
+      "reference_answer": "Khai báo dependency đúng để effect phản ánh giá trị dùng trong lời gọi. Hủy request bằng AbortController hoặc bỏ qua response cũ sau cleanup. Hiển thị trạng thái loading và xử lý lỗi để UI không treo hoặc báo thành công giả.",
+      "criteria": [
+        {
+          "key": "c1",
+          "label": "Khai báo dependency đúng để effect phản ánh giá trị dùng trong lời gọi.",
+          "weight": 0.4,
+          "hints": [
+            "dependency",
+            "effect",
+            "phụ thuộc"
+          ],
+          "reference_answers": [
+            "Khai báo dependency đúng để effect phản ánh giá trị dùng trong lời gọi.",
+            "Danh sách phụ thuộc phải khớp dữ liệu mà effect sử dụng."
+          ],
+          "misconceptions": [
+            "Luôn để dependency rỗng dù effect dùng biến thay đổi."
+          ]
+        },
+        {
+          "key": "c2",
+          "label": "Hủy request bằng AbortController hoặc bỏ qua response cũ sau cleanup.",
+          "weight": 0.35,
+          "hints": [
+            "AbortController",
+            "cleanup",
+            "response cũ"
+          ],
+          "reference_answers": [
+            "Hủy request bằng AbortController hoặc bỏ qua response cũ sau cleanup.",
+            "Cần ngăn kết quả của yêu cầu cũ ghi đè kết quả mới khi component đổi."
+          ],
+          "misconceptions": [
+            "Response đến sau luôn phải ghi đè dữ liệu bất kể request nào mới."
+          ]
+        },
+        {
+          "key": "c3",
+          "label": "Hiển thị trạng thái loading và xử lý lỗi để UI không treo hoặc báo thành công giả.",
+          "weight": 0.25,
+          "hints": [
+            "loading",
+            "lỗi",
+            "UI"
+          ],
+          "reference_answers": [
+            "Hiển thị trạng thái loading và xử lý lỗi để UI không treo hoặc báo thành công giả.",
+            "UI cần phản ánh đang tải, thất bại và cho phép thử lại hợp lý."
+          ],
+          "misconceptions": [
+            "Có thể bỏ qua mọi lỗi fetch mà vẫn báo thành công."
+          ]
+        }
+      ],
+      "source": "synthetic-ai-v2",
+      "review_status": "needs_expert_review"
+    },
+    {
+      "id": "m3-v2-018",
+      "skill": "React",
+      "topic": "React",
+      "seniority": "Middle",
+      "difficulty": "Hard",
+      "question_type": "SCENARIO",
+      "question": "Danh sách lớn render chậm. Bạn phân tích và tối ưu React thế nào?",
+      "reference_answer": "Dùng React Profiler để xác định component render tốn thời gian. Dùng key ổn định và cân nhắc virtualization cho danh sách dài. Chỉ dùng memoization khi có lợi và kiểm tra dependency cùng tính đúng đắn.",
+      "criteria": [
+        {
+          "key": "c1",
+          "label": "Dùng React Profiler để xác định component render tốn thời gian.",
+          "weight": 0.4,
+          "hints": [
+            "Profiler",
+            "đo",
+            "render"
+          ],
+          "reference_answers": [
+            "Dùng React Profiler để xác định component render tốn thời gian.",
+            "Cần đo lại số lần render và phần chậm trước khi thêm tối ưu."
+          ],
+          "misconceptions": [
+            "Luôn thêm useMemo cho mọi biểu thức mà không cần đo."
+          ]
+        },
+        {
+          "key": "c2",
+          "label": "Dùng key ổn định và cân nhắc virtualization cho danh sách dài.",
+          "weight": 0.35,
+          "hints": [
+            "key",
+            "virtualization",
+            "danh sách"
+          ],
+          "reference_answers": [
+            "Dùng key ổn định và cân nhắc virtualization cho danh sách dài.",
+            "Chỉ render phần danh sách nhìn thấy và giữ định danh item ổn định."
+          ],
+          "misconceptions": [
+            "Dùng index làm key luôn đúng cả khi danh sách sắp xếp lại."
+          ]
+        },
+        {
+          "key": "c3",
+          "label": "Chỉ dùng memoization khi có lợi và kiểm tra dependency cùng tính đúng đắn.",
+          "weight": 0.25,
+          "hints": [
+            "memo",
+            "dependency",
+            "đúng"
+          ],
+          "reference_answers": [
+            "Chỉ dùng memoization khi có lợi và kiểm tra dependency cùng tính đúng đắn.",
+            "Memo cần giữ kết quả đúng và phải được chứng minh giảm chi phí thực tế."
+          ],
+          "misconceptions": [
+            "Memoization không có chi phí và không thể gây dữ liệu cũ."
+          ]
+        }
+      ],
+      "source": "synthetic-ai-v2",
+      "review_status": "needs_expert_review"
+    },
+    {
+      "id": "m3-v2-019",
+      "skill": "Docker",
+      "topic": "Docker",
+      "seniority": "Intern",
+      "difficulty": "Easy",
+      "question_type": "KNOWLEDGE",
+      "question": "Image, container và volume trong Docker khác nhau thế nào?",
+      "reference_answer": "Image là mẫu filesystem và cấu hình dùng tạo container. Container là instance chạy từ image và có lớp ghi riêng. Volume lưu dữ liệu cần tồn tại ngoài vòng đời container.",
+      "criteria": [
+        {
+          "key": "c1",
+          "label": "Image là mẫu filesystem và cấu hình dùng tạo container.",
+          "weight": 0.4,
+          "hints": [
+            "image",
+            "mẫu",
+            "container"
+          ],
+          "reference_answers": [
+            "Image là mẫu filesystem và cấu hình dùng tạo container.",
+            "Ảnh container là bản mẫu để khởi tạo tiến trình có môi trường xác định."
+          ],
+          "misconceptions": [
+            "Image là một tiến trình đang chạy trên máy."
+          ]
+        },
+        {
+          "key": "c2",
+          "label": "Container là instance chạy từ image và có lớp ghi riêng.",
+          "weight": 0.35,
+          "hints": [
+            "container",
+            "instance",
+            "lớp ghi"
+          ],
+          "reference_answers": [
+            "Container là instance chạy từ image và có lớp ghi riêng.",
+            "Container là thực thể được tạo từ image với vòng đời riêng."
+          ],
+          "misconceptions": [
+            "Xóa container luôn xóa toàn bộ dữ liệu của mọi volume."
+          ]
+        },
+        {
+          "key": "c3",
+          "label": "Volume lưu dữ liệu cần tồn tại ngoài vòng đời container.",
+          "weight": 0.25,
+          "hints": [
+            "volume",
+            "dữ liệu",
+            "vòng đời"
+          ],
+          "reference_answers": [
+            "Volume lưu dữ liệu cần tồn tại ngoài vòng đời container.",
+            "Database nên có vùng lưu bền vững độc lập với việc tạo lại container."
+          ],
+          "misconceptions": [
+            "Dữ liệu database chỉ nên lưu ở lớp ghi tạm của container."
+          ]
+        }
+      ],
+      "source": "synthetic-ai-v2",
+      "review_status": "needs_expert_review"
+    },
+    {
+      "id": "m3-v2-020",
+      "skill": "Docker",
+      "topic": "Docker",
+      "seniority": "Junior",
+      "difficulty": "Medium",
+      "question_type": "APPLICATION",
+      "question": "Ứng dụng trong container kết nối database khác container như thế nào?",
+      "reference_answer": "Dùng tên service và cổng bên trong trên cùng mạng Compose. Phân biệt published port của host với port mà container lắng nghe. Chờ readiness và xử lý kết nối lỗi vì thứ tự tạo container không bảo đảm dịch vụ đã sẵn sàng.",
+      "criteria": [
+        {
+          "key": "c1",
+          "label": "Dùng tên service và cổng bên trong trên cùng mạng Compose.",
+          "weight": 0.4,
+          "hints": [
+            "service",
+            "network",
+            "DNS"
+          ],
+          "reference_answers": [
+            "Dùng tên service và cổng bên trong trên cùng mạng Compose.",
+            "Các container cùng network tìm nhau bằng DNS service thay vì IP cố định."
+          ],
+          "misconceptions": [
+            "Container luôn dùng localhost để gọi database ở container khác."
+          ]
+        },
+        {
+          "key": "c2",
+          "label": "Phân biệt published port của host với port mà container lắng nghe.",
+          "weight": 0.35,
+          "hints": [
+            "host",
+            "port",
+            "nội bộ"
+          ],
+          "reference_answers": [
+            "Phân biệt published port của host với port mà container lắng nghe.",
+            "Cổng host phục vụ truy cập bên ngoài, còn nội bộ dùng cổng dịch vụ."
+          ],
+          "misconceptions": [
+            "Cổng host và cổng container bắt buộc luôn giống nhau."
+          ]
+        },
+        {
+          "key": "c3",
+          "label": "Chờ readiness và xử lý kết nối lỗi vì thứ tự tạo container không bảo đảm dịch vụ đã sẵn sàng.",
+          "weight": 0.25,
+          "hints": [
+            "healthcheck",
+            "readiness",
+            "retry"
+          ],
+          "reference_answers": [
+            "Chờ readiness và xử lý kết nối lỗi vì thứ tự tạo container không bảo đảm dịch vụ đã sẵn sàng.",
+            "Cần healthcheck và retry hữu hạn thay vì chỉ dựa vào depends_on dạng đơn giản."
+          ],
+          "misconceptions": [
+            "Container đã được tạo nghĩa là database đã sẵn sàng nhận truy vấn."
+          ]
+        }
+      ],
+      "source": "synthetic-ai-v2",
+      "review_status": "needs_expert_review"
+    },
+    {
+      "id": "m3-v2-021",
+      "skill": "Docker",
+      "topic": "Docker",
+      "seniority": "Middle",
+      "difficulty": "Hard",
+      "question_type": "SCENARIO",
+      "question": "Máy bị lag khi build và chạy nhiều model trong Docker. Bạn xử lý thế nào?",
+      "reference_answer": "Đo CPU RAM swap và I/O bằng công cụ hệ thống hoặc docker stats trước. Giới hạn song song lúc build, worker và thread suy luận để tránh chiếm hết tài nguyên. Tái sử dụng image và cache model, không build lại khi chỉ cần start container.",
+      "criteria": [
+        {
+          "key": "c1",
+          "label": "Đo CPU RAM swap và I/O bằng công cụ hệ thống hoặc docker stats trước.",
+          "weight": 0.4,
+          "hints": [
+            "CPU",
+            "RAM",
+            "swap"
+          ],
+          "reference_answers": [
+            "Đo CPU RAM swap và I/O bằng công cụ hệ thống hoặc docker stats trước.",
+            "Xác định nghẽn bộ nhớ hay tính toán bằng số đo thay vì quy hết cho Docker."
+          ],
+          "misconceptions": [
+            "Di chuyển sang ổ lớn hơn luôn làm giảm mức dùng RAM của model."
+          ]
+        },
+        {
+          "key": "c2",
+          "label": "Giới hạn song song lúc build, worker và thread suy luận để tránh chiếm hết tài nguyên.",
+          "weight": 0.35,
+          "hints": [
+            "song song",
+            "thread",
+            "giới hạn"
+          ],
+          "reference_answers": [
+            "Giới hạn song song lúc build, worker và thread suy luận để tránh chiếm hết tài nguyên.",
+            "Giảm số tác vụ đồng thời và đặt ngân sách tài nguyên cho dịch vụ nặng."
+          ],
+          "misconceptions": [
+            "Càng nhiều worker và thread luôn càng ít lag."
+          ]
+        },
+        {
+          "key": "c3",
+          "label": "Tái sử dụng image và cache model, không build lại khi chỉ cần start container.",
+          "weight": 0.25,
+          "hints": [
+            "cache",
+            "build",
+            "start"
+          ],
+          "reference_answers": [
+            "Tái sử dụng image và cache model, không build lại khi chỉ cần start container.",
+            "Tách bước build khỏi khởi động và lưu cache để tránh tải hoặc biên dịch lặp lại."
+          ],
+          "misconceptions": [
+            "Mỗi lần khởi động đều bắt buộc rebuild toàn bộ image."
+          ]
+        }
+      ],
+      "source": "synthetic-ai-v2",
+      "review_status": "needs_expert_review"
+    },
+    {
+      "id": "m3-v2-022",
+      "skill": "Git",
+      "topic": "Git",
+      "seniority": "Intern",
+      "difficulty": "Easy",
+      "question_type": "KNOWLEDGE",
+      "question": "Working tree, staging area và commit khác nhau thế nào?",
+      "reference_answer": "Working tree chứa các file đang được chỉnh sửa. Staging area chọn phiên bản thay đổi sẽ đưa vào commit tiếp theo. Commit lưu snapshot có lịch sử để có thể so sánh và truy vết.",
+      "criteria": [
+        {
+          "key": "c1",
+          "label": "Working tree chứa các file đang được chỉnh sửa.",
+          "weight": 0.4,
+          "hints": [
+            "working tree",
+            "file",
+            "chỉnh sửa"
+          ],
+          "reference_answers": [
+            "Working tree chứa các file đang được chỉnh sửa.",
+            "Cây làm việc là nội dung file hiện tại trên máy."
+          ],
+          "misconceptions": [
+            "Sửa file tự động tạo một commit mới."
+          ]
+        },
+        {
+          "key": "c2",
+          "label": "Staging area chọn phiên bản thay đổi sẽ đưa vào commit tiếp theo.",
+          "weight": 0.35,
+          "hints": [
+            "staging",
+            "git add",
+            "commit"
+          ],
+          "reference_answers": [
+            "Staging area chọn phiên bản thay đổi sẽ đưa vào commit tiếp theo.",
+            "git add chuẩn bị đúng phần thay đổi muốn ghi nhận."
+          ],
+          "misconceptions": [
+            "git add tự động đẩy code lên remote."
+          ]
+        },
+        {
+          "key": "c3",
+          "label": "Commit lưu snapshot có lịch sử để có thể so sánh và truy vết.",
+          "weight": 0.25,
+          "hints": [
+            "snapshot",
+            "lịch sử",
+            "commit"
+          ],
+          "reference_answers": [
+            "Commit lưu snapshot có lịch sử để có thể so sánh và truy vết.",
+            "Mỗi commit ghi trạng thái được chọn kèm thông tin lịch sử."
+          ],
+          "misconceptions": [
+            "Commit chỉ lưu trên RAM và mất khi tắt máy."
+          ]
+        }
+      ],
+      "source": "synthetic-ai-v2",
+      "review_status": "needs_expert_review"
+    },
+    {
+      "id": "m3-v2-023",
+      "skill": "Git",
+      "topic": "Git",
+      "seniority": "Junior",
+      "difficulty": "Medium",
+      "question_type": "APPLICATION",
+      "question": "Bạn xử lý merge conflict mà vẫn giữ thay đổi đúng của cả hai phía như thế nào?",
+      "reference_answer": "Đọc các phần xung đột và hiểu ý nghĩa thay đổi thay vì chọn một phía máy móc. Sửa nội dung, bỏ conflict markers rồi stage và hoàn thành merge. Chạy kiểm thử phần bị ảnh hưởng và kiểm tra diff trước khi chia sẻ.",
+      "criteria": [
+        {
+          "key": "c1",
+          "label": "Đọc các phần xung đột và hiểu ý nghĩa thay đổi thay vì chọn một phía máy móc.",
+          "weight": 0.4,
+          "hints": [
+            "xung đột",
+            "hai",
+            "ngữ cảnh"
+          ],
+          "reference_answers": [
+            "Đọc các phần xung đột và hiểu ý nghĩa thay đổi thay vì chọn một phía máy móc.",
+            "Cần so sánh ngữ cảnh và mục tiêu của hai phiên bản."
+          ],
+          "misconceptions": [
+            "Luôn chọn ours cho mọi conflict là cách đúng."
+          ]
+        },
+        {
+          "key": "c2",
+          "label": "Sửa nội dung, bỏ conflict markers rồi stage và hoàn thành merge.",
+          "weight": 0.35,
+          "hints": [
+            "markers",
+            "stage",
+            "merge"
+          ],
+          "reference_answers": [
+            "Sửa nội dung, bỏ conflict markers rồi stage và hoàn thành merge.",
+            "Sau khi hòa giải cần git add và kết thúc thao tác merge đúng trạng thái."
+          ],
+          "misconceptions": [
+            "Để nguyên conflict markers rồi commit vẫn là kết quả hợp lệ."
+          ]
+        },
+        {
+          "key": "c3",
+          "label": "Chạy kiểm thử phần bị ảnh hưởng và kiểm tra diff trước khi chia sẻ.",
+          "weight": 0.25,
+          "hints": [
+            "test",
+            "diff",
+            "kiểm tra"
+          ],
+          "reference_answers": [
+            "Chạy kiểm thử phần bị ảnh hưởng và kiểm tra diff trước khi chia sẻ.",
+            "Xác minh code sau gộp vẫn đúng bằng test và review thay đổi."
+          ],
+          "misconceptions": [
+            "Merge thành công nghĩa là không cần chạy test."
+          ]
+        }
+      ],
+      "source": "synthetic-ai-v2",
+      "review_status": "needs_expert_review"
+    },
+    {
+      "id": "m3-v2-024",
+      "skill": "Git",
+      "topic": "Git",
+      "seniority": "Middle",
+      "difficulty": "Hard",
+      "question_type": "SCENARIO",
+      "question": "Một commit lỗi đã được nhiều người pull. Bạn rollback thế nào?",
+      "reference_answer": "Ưu tiên git revert để tạo commit đảo thay đổi mà không viết lại lịch sử chung. Xác định phạm vi lỗi, dependency và kiểm thử bản hoàn tác. Trao đổi với nhóm và theo dõi triển khai sau khi hoàn tác.",
+      "criteria": [
+        {
+          "key": "c1",
+          "label": "Ưu tiên git revert để tạo commit đảo thay đổi mà không viết lại lịch sử chung.",
+          "weight": 0.4,
+          "hints": [
+            "revert",
+            "lịch sử",
+            "commit mới"
+          ],
+          "reference_answers": [
+            "Ưu tiên git revert để tạo commit đảo thay đổi mà không viết lại lịch sử chung.",
+            "Nhánh đã chia sẻ thường nên hoàn tác bằng một commit mới."
+          ],
+          "misconceptions": [
+            "Luôn reset hard và force push nhánh chung mà không trao đổi."
+          ]
+        },
+        {
+          "key": "c2",
+          "label": "Xác định phạm vi lỗi, dependency và kiểm thử bản hoàn tác.",
+          "weight": 0.35,
+          "hints": [
+            "phạm vi",
+            "kiểm thử",
+            "liên quan"
+          ],
+          "reference_answers": [
+            "Xác định phạm vi lỗi, dependency và kiểm thử bản hoàn tác.",
+            "Cần kiểm tra các commit liên quan và tác động khi đảo thay đổi."
+          ],
+          "misconceptions": [
+            "Revert không thể gây conflict hoặc ảnh hưởng commit khác."
+          ]
+        },
+        {
+          "key": "c3",
+          "label": "Trao đổi với nhóm và theo dõi triển khai sau khi hoàn tác.",
+          "weight": 0.25,
+          "hints": [
+            "nhóm",
+            "triển khai",
+            "theo dõi"
+          ],
+          "reference_answers": [
+            "Trao đổi với nhóm và theo dõi triển khai sau khi hoàn tác.",
+            "Cần thông báo thay đổi và xác minh hệ thống hoạt động sau rollback."
+          ],
+          "misconceptions": [
+            "Hoàn tác trên Git tự động bảo đảm mọi môi trường đã phục hồi."
+          ]
+        }
+      ],
+      "source": "synthetic-ai-v2",
+      "review_status": "needs_expert_review"
+    },
+    {
+      "id": "m3-v2-025",
+      "skill": "Security",
+      "topic": "Security",
+      "seniority": "Intern",
+      "difficulty": "Easy",
+      "question_type": "KNOWLEDGE",
+      "question": "Authentication và authorization khác nhau thế nào?",
+      "reference_answer": "Authentication xác minh danh tính người dùng hoặc dịch vụ. Authorization kiểm tra quyền thực hiện thao tác lên tài nguyên. Cần kiểm tra quyền phía server cho từng thao tác và phạm vi sở hữu.",
+      "criteria": [
+        {
+          "key": "c1",
+          "label": "Authentication xác minh danh tính người dùng hoặc dịch vụ.",
+          "weight": 0.4,
+          "hints": [
+            "authentication",
+            "danh tính",
+            "xác thực"
+          ],
+          "reference_answers": [
+            "Authentication xác minh danh tính người dùng hoặc dịch vụ.",
+            "Xác thực trả lời người gọi là ai."
+          ],
+          "misconceptions": [
+            "Authentication quyết định mọi quyền truy cập tài nguyên."
+          ]
+        },
+        {
+          "key": "c2",
+          "label": "Authorization kiểm tra quyền thực hiện thao tác lên tài nguyên.",
+          "weight": 0.35,
+          "hints": [
+            "authorization",
+            "quyền",
+            "tài nguyên"
+          ],
+          "reference_answers": [
+            "Authorization kiểm tra quyền thực hiện thao tác lên tài nguyên.",
+            "Phân quyền xác định người đã xác thực có được làm hành động đó không."
+          ],
+          "misconceptions": [
+            "Đăng nhập thành công đồng nghĩa được truy cập mọi tài nguyên."
+          ]
+        },
+        {
+          "key": "c3",
+          "label": "Cần kiểm tra quyền phía server cho từng thao tác và phạm vi sở hữu.",
+          "weight": 0.25,
+          "hints": [
+            "server",
+            "sở hữu",
+            "API"
+          ],
+          "reference_answers": [
+            "Cần kiểm tra quyền phía server cho từng thao tác và phạm vi sở hữu.",
+            "Ẩn nút ở frontend không thay thế kiểm tra quyền trên API."
+          ],
+          "misconceptions": [
+            "Chỉ ẩn nút frontend là đủ để bảo vệ dữ liệu."
+          ]
+        }
+      ],
+      "source": "synthetic-ai-v2",
+      "review_status": "needs_expert_review"
+    },
+    {
+      "id": "m3-v2-026",
+      "skill": "Security",
+      "topic": "Security",
+      "seniority": "Junior",
+      "difficulty": "Medium",
+      "question_type": "APPLICATION",
+      "question": "Bạn bảo vệ API xem hồ sơ ứng viên khỏi truy cập trái phép thế nào?",
+      "reference_answer": "Xác minh token hợp lệ và trạng thái tài khoản trước khi xử lý. Kiểm tra quyền sở hữu hoặc quan hệ tuyển dụng trên từng ID hồ sơ. Chỉ trả dữ liệu cần thiết và tránh ghi nội dung CV nhạy cảm vào log.",
+      "criteria": [
+        {
+          "key": "c1",
+          "label": "Xác minh token hợp lệ và trạng thái tài khoản trước khi xử lý.",
+          "weight": 0.4,
+          "hints": [
+            "token",
+            "chữ ký",
+            "hạn"
+          ],
+          "reference_answers": [
+            "Xác minh token hợp lệ và trạng thái tài khoản trước khi xử lý.",
+            "API cần kiểm chữ ký, hạn token và tài khoản còn được phép dùng."
+          ],
+          "misconceptions": [
+            "Chỉ cần giải mã payload JWT mà không xác minh chữ ký."
+          ]
+        },
+        {
+          "key": "c2",
+          "label": "Kiểm tra quyền sở hữu hoặc quan hệ tuyển dụng trên từng ID hồ sơ.",
+          "weight": 0.35,
+          "hints": [
+            "sở hữu",
+            "candidateId",
+            "quyền"
+          ],
+          "reference_answers": [
+            "Kiểm tra quyền sở hữu hoặc quan hệ tuyển dụng trên từng ID hồ sơ.",
+            "Không tin candidateId do client gửi; cần đối chiếu phạm vi người gọi."
+          ],
+          "misconceptions": [
+            "Biết ID hồ sơ là đủ để được quyền đọc hồ sơ đó."
+          ]
+        },
+        {
+          "key": "c3",
+          "label": "Chỉ trả dữ liệu cần thiết và tránh ghi nội dung CV nhạy cảm vào log.",
+          "weight": 0.25,
+          "hints": [
+            "dữ liệu",
+            "log",
+            "nhạy cảm"
+          ],
+          "reference_answers": [
+            "Chỉ trả dữ liệu cần thiết và tránh ghi nội dung CV nhạy cảm vào log.",
+            "Giảm dữ liệu cá nhân trong response và log giúp hạn chế lộ thông tin."
+          ],
+          "misconceptions": [
+            "Nên log toàn bộ CV và token để dễ debug."
+          ]
+        }
+      ],
+      "source": "synthetic-ai-v2",
+      "review_status": "needs_expert_review"
+    },
+    {
+      "id": "m3-v2-027",
+      "skill": "Security",
+      "topic": "Security",
+      "seniority": "Middle",
+      "difficulty": "Hard",
+      "question_type": "SCENARIO",
+      "question": "Một access token bị lộ. Bạn giảm thiệt hại và phòng ngừa thế nào?",
+      "reference_answer": "Thu hồi phiên hoặc token liên quan và kiểm tra dấu hiệu lạm dụng. Dùng thời hạn access token ngắn và cơ chế refresh có kiểm soát. Rà soát nơi lưu token, HTTPS, log và quy trình xử lý sự cố.",
+      "criteria": [
+        {
+          "key": "c1",
+          "label": "Thu hồi phiên hoặc token liên quan và kiểm tra dấu hiệu lạm dụng.",
+          "weight": 0.4,
+          "hints": [
+            "thu hồi",
+            "token",
+            "lạm dụng"
+          ],
+          "reference_answers": [
+            "Thu hồi phiên hoặc token liên quan và kiểm tra dấu hiệu lạm dụng.",
+            "Cần chặn credential bị lộ và xác định phạm vi truy cập bất thường."
+          ],
+          "misconceptions": [
+            "Đổi mật khẩu luôn tự làm mọi JWT đang phát hành hết hiệu lực."
+          ]
+        },
+        {
+          "key": "c2",
+          "label": "Dùng thời hạn access token ngắn và cơ chế refresh có kiểm soát.",
+          "weight": 0.35,
+          "hints": [
+            "thời hạn",
+            "refresh",
+            "ngắn"
+          ],
+          "reference_answers": [
+            "Dùng thời hạn access token ngắn và cơ chế refresh có kiểm soát.",
+            "Giới hạn cửa sổ rủi ro bằng TTL ngắn và quản lý vòng đời refresh token."
+          ],
+          "misconceptions": [
+            "Access token không hết hạn là cách an toàn nhất."
+          ]
+        },
+        {
+          "key": "c3",
+          "label": "Rà soát nơi lưu token, HTTPS, log và quy trình xử lý sự cố.",
+          "weight": 0.25,
+          "hints": [
+            "HTTPS",
+            "log",
+            "sự cố"
+          ],
+          "reference_answers": [
+            "Rà soát nơi lưu token, HTTPS, log và quy trình xử lý sự cố.",
+            "Cần tìm nguồn lộ ở client, truyền tải hoặc logging rồi khắc phục."
+          ],
+          "misconceptions": [
+            "HTTPS làm việc lưu token công khai trong log trở nên an toàn."
+          ]
+        }
+      ],
+      "source": "synthetic-ai-v2",
+      "review_status": "needs_expert_review"
+    },
+    {
+      "id": "m3-v2-028",
+      "skill": "Machine Learning",
+      "topic": "Machine Learning",
+      "seniority": "Intern",
+      "difficulty": "Easy",
+      "question_type": "KNOWLEDGE",
+      "question": "Train, validation và test có vai trò gì khi đánh giá mô hình?",
+      "reference_answer": "Train dùng học tham số mô hình. Validation dùng chọn cấu hình và checkpoint, không thay thế test độc lập. Test được giữ độc lập và tránh để các biến thể cùng nguồn rò giữa các tập.",
+      "criteria": [
+        {
+          "key": "c1",
+          "label": "Train dùng học tham số mô hình.",
+          "weight": 0.4,
+          "hints": [
+            "train",
+            "tham số",
+            "huấn luyện"
+          ],
+          "reference_answers": [
+            "Train dùng học tham số mô hình.",
+            "Tập huấn luyện cung cấp ví dụ để tối ưu trọng số."
+          ],
+          "misconceptions": [
+            "Tập test nên được dùng để học trọng số trong mỗi epoch."
+          ]
+        },
+        {
+          "key": "c2",
+          "label": "Validation dùng chọn cấu hình và checkpoint, không thay thế test độc lập.",
+          "weight": 0.35,
+          "hints": [
+            "validation",
+            "checkpoint",
+            "siêu tham số"
+          ],
+          "reference_answers": [
+            "Validation dùng chọn cấu hình và checkpoint, không thay thế test độc lập.",
+            "Tập phát triển phục vụ chọn siêu tham số mà chưa mở tập đánh giá cuối."
+          ],
+          "misconceptions": [
+            "Chọn siêu tham số trực tiếp theo test không tạo ra thiên lệch."
+          ]
+        },
+        {
+          "key": "c3",
+          "label": "Test được giữ độc lập và tránh để các biến thể cùng nguồn rò giữa các tập.",
+          "weight": 0.25,
+          "hints": [
+            "test",
+            "độc lập",
+            "rò"
+          ],
+          "reference_answers": [
+            "Test được giữ độc lập và tránh để các biến thể cùng nguồn rò giữa các tập.",
+            "Đánh giá cuối cần dữ liệu chưa dùng lựa chọn mô hình và tách theo thực thể nguồn."
+          ],
+          "misconceptions": [
+            "Chia ngẫu nhiên các bản sao gần giống sang train và test luôn là đánh giá độc lập."
+          ]
+        }
+      ],
+      "source": "synthetic-ai-v2",
+      "review_status": "needs_expert_review"
+    },
+    {
+      "id": "m3-v2-029",
+      "skill": "Machine Learning",
+      "topic": "Machine Learning",
+      "seniority": "Junior",
+      "difficulty": "Medium",
+      "question_type": "APPLICATION",
+      "question": "Bạn đánh giá một bộ chấm câu trả lời phỏng vấn tự động như thế nào?",
+      "reference_answer": "So sánh điểm mô hình với điểm người chấm độc lập bằng MAE và phân tích sai số. Tách test theo câu hỏi để tránh câu trả lời biến thể làm rò dữ liệu. Kiểm tra câu diễn đạt lại, phủ định, sai kiến thức và trường hợp ngoài miền.",
+      "criteria": [
+        {
+          "key": "c1",
+          "label": "So sánh điểm mô hình với điểm người chấm độc lập bằng MAE và phân tích sai số.",
+          "weight": 0.4,
+          "hints": [
+            "MAE",
+            "người chấm",
+            "sai số"
+          ],
+          "reference_answers": [
+            "So sánh điểm mô hình với điểm người chấm độc lập bằng MAE và phân tích sai số.",
+            "Cần nhãn chuyên gia và xem độ lệch điểm chứ không chỉ xem vài ví dụ đẹp."
+          ],
+          "misconceptions": [
+            "Nhãn tự sinh luôn tương đương đánh giá của chuyên gia."
+          ]
+        },
+        {
+          "key": "c2",
+          "label": "Tách test theo câu hỏi để tránh câu trả lời biến thể làm rò dữ liệu.",
+          "weight": 0.35,
+          "hints": [
+            "câu hỏi",
+            "nhóm",
+            "rò"
+          ],
+          "reference_answers": [
+            "Tách test theo câu hỏi để tránh câu trả lời biến thể làm rò dữ liệu.",
+            "Các phiên bản đáp án cho một câu cần nằm cùng nhóm khi chia tập."
+          ],
+          "misconceptions": [
+            "Chia từng dòng ngẫu nhiên luôn ngăn mọi dạng rò dữ liệu."
+          ]
+        },
+        {
+          "key": "c3",
+          "label": "Kiểm tra câu diễn đạt lại, phủ định, sai kiến thức và trường hợp ngoài miền.",
+          "weight": 0.25,
+          "hints": [
+            "phủ định",
+            "diễn đạt",
+            "ngoài miền"
+          ],
+          "reference_answers": [
+            "Kiểm tra câu diễn đạt lại, phủ định, sai kiến thức và trường hợp ngoài miền.",
+            "Bộ thử cần có paraphrase, câu sai nhưng giống từ và chủ đề lạ."
+          ],
+          "misconceptions": [
+            "Tương đồng ngữ nghĩa cao luôn chứng minh câu trả lời đúng chuyên môn."
+          ]
+        }
+      ],
+      "source": "synthetic-ai-v2",
+      "review_status": "needs_expert_review"
+    },
+    {
+      "id": "m3-v2-030",
+      "skill": "Machine Learning",
+      "topic": "Machine Learning",
+      "seniority": "Middle",
+      "difficulty": "Hard",
+      "question_type": "SCENARIO",
+      "question": "Model có điểm test tổng hợp cao nhưng chấm CV hoặc phỏng vấn thật kém. Bạn làm gì?",
+      "reference_answer": "Kiểm tra domain shift và dữ liệu rò giữa train với test. Thu thập mẫu thật có nhãn độc lập và đánh giá theo từng nhóm lỗi. So sánh baseline, hiệu chỉnh ngưỡng trên validation và giữ test cuối độc lập.",
+      "criteria": [
+        {
+          "key": "c1",
+          "label": "Kiểm tra domain shift và dữ liệu rò giữa train với test.",
+          "weight": 0.4,
+          "hints": [
+            "domain shift",
+            "dữ liệu",
+            "rò"
+          ],
+          "reference_answers": [
+            "Kiểm tra domain shift và dữ liệu rò giữa train với test.",
+            "Cần xem dữ liệu thật khác mẫu tổng hợp ở ngôn ngữ, bố cục hay phân phối ra sao."
+          ],
+          "misconceptions": [
+            "Điểm cao trên dữ liệu tổng hợp bảo đảm chất lượng trên người dùng thật."
+          ]
+        },
+        {
+          "key": "c2",
+          "label": "Thu thập mẫu thật có nhãn độc lập và đánh giá theo từng nhóm lỗi.",
+          "weight": 0.35,
+          "hints": [
+            "nhãn",
+            "thật",
+            "lỗi"
+          ],
+          "reference_answers": [
+            "Thu thập mẫu thật có nhãn độc lập và đánh giá theo từng nhóm lỗi.",
+            "Cần bộ đánh giá đại diện cùng phân tích theo trường, chủ đề hoặc cấp độ."
+          ],
+          "misconceptions": [
+            "Chỉ tăng số mẫu tổng hợp giống nhau sẽ sửa mọi lỗi thực tế."
+          ]
+        },
+        {
+          "key": "c3",
+          "label": "So sánh baseline, hiệu chỉnh ngưỡng trên validation và giữ test cuối độc lập.",
+          "weight": 0.25,
+          "hints": [
+            "baseline",
+            "ngưỡng",
+            "validation"
+          ],
+          "reference_answers": [
+            "So sánh baseline, hiệu chỉnh ngưỡng trên validation và giữ test cuối độc lập.",
+            "Đo cải thiện với phương án đơn giản, chọn ngưỡng ở dev rồi đánh giá lại trên test chưa dùng."
+          ],
+          "misconceptions": [
+            "Có thể điều chỉnh ngưỡng theo test nhiều lần rồi coi test vẫn độc lập."
+          ]
+        }
+      ],
+      "source": "synthetic-ai-v2",
+      "review_status": "needs_expert_review"
+    }
+  ]
+}

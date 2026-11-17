@@ -17,7 +17,7 @@ import numpy as np
 import pandas as pd
 from sklearn.linear_model import Ridge
 from sklearn.metrics import mean_absolute_error, mean_squared_error, r2_score
-from sklearn.model_selection import train_test_split
+from sklearn.model_selection import GroupShuffleSplit
 
 from .features import FEATURE_COLUMNS, bertscore_prf, build_feature_row, lexical_prf
 from .io_utils import OUTPUT, load_answers, load_questions, questions_by_id
@@ -63,7 +63,7 @@ def compute_features(
                 "id": row["id"],
                 "question_id": row["question_id"],
                 "rank_target": row.get("rank_target", ""),
-                "human_score": float(row["human_score"]),
+                "target_score": float(row.get("target_score", row.get("human_score"))),
                 "answer": row["answer"],
                 **{k: feat[k] for k in FEATURE_COLUMNS},
                 "covered_keys": feat["covered_keys"],
@@ -105,11 +105,10 @@ def main() -> None:
     print(f"      → {feat_path}")
 
     X = feats[FEATURE_COLUMNS].values
-    y = feats["human_score"].values
+    y = feats["target_score"].values
     idx = np.arange(len(feats))
-    train_idx, test_idx = train_test_split(
-        idx, test_size=args.test_size, random_state=args.seed
-    )
+    train_idx, test_idx = next(GroupShuffleSplit(n_splits=1, test_size=args.test_size,
+        random_state=args.seed).split(X, y, groups=feats["question_id"]))
 
     print(f"[2/4] Train Ridge alpha={args.alpha} (train={len(train_idx)}, test={len(test_idx)})...")
     model = Ridge(alpha=args.alpha)
@@ -131,14 +130,18 @@ def main() -> None:
     print(f"      Ridge           test:  {test_m}")
 
     pred_all = np.clip(model.predict(X), 0, 10)
-    out_pred = feats[["id", "question_id", "human_score"]].copy()
+    out_pred = feats[["id", "question_id", "target_score"]].copy()
     out_pred["predicted_score"] = np.round(pred_all, 2)
     out_pred["baseline_f1x10"] = np.round(np.clip(X[:, 2] * 10.0, 0, 10), 2)
     pred_path = OUTPUT / f"predictions_{args.mode}.csv"
     out_pred.to_csv(pred_path, index=False)
 
     calib = {
-        "model_version": f"ridge-on-{args.mode}-v1",
+        "model_version": f"module3-{args.mode}-rubric-v2",
+        "label_source": "synthetic_rubric" if "target_score" in answers.columns else "legacy_unverified",
+        "split_strategy": "held_out_question_id",
+        "train_question_ids": sorted(set(feats.iloc[train_idx]["question_id"])),
+        "test_question_ids": sorted(set(feats.iloc[test_idx]["question_id"])),
         "trained_at": datetime.now(timezone.utc).isoformat(),
         "mode": args.mode,
         "bert_model_type": args.model_type if args.mode == "bertscore" else None,

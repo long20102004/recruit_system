@@ -1,0 +1,42 @@
+{
+  "candidate": {
+    "skills": [
+      "Python",
+      "TensorFlow",
+      "Scikit-learn",
+      "Pandas",
+      "NumPy",
+      "SQL",
+      "Machine Learning",
+      "Deep Learning"
+    ],
+    "experience_years": 4,
+    "job_titles": [
+      "Data Scientist",
+      "ML Engineer"
+    ],
+    "education": {
+      "degree": "Thạc sĩ",
+      "major": "Trí tuệ nhân tạo"
+    },
+    "certificates": [
+      "TensorFlow Developer Certificate"
+    ],
+    "raw_context": "Tôi xây dựng và triển khai các mô hình Machine Learning cho bài toán phân loại và dự báo trong lĩnh vực tài chính. Có kinh nghiệm với MLflow để quản lý experiment và model registry."
+  },
+  "jd": {
+    "required_skills": [
+      "Python",
+      "Machine Learning",
+      "Deep Learning",
+      "PyTorch",
+      "SQL",
+      "Docker"
+    ],
+    "min_experience_years": 3,
+    "required_title": "ML Engineer",
+    "education_requirement": "Thạc sĩ hoặc Tiến sĩ",
+    "context": "Xây dựng và vận hành ML pipeline trên môi trường cloud, tối ưu hoá hiệu năng model cho production, phối hợp với team Data Engineering."
+  },
+  "_note": "Khớp tốt; ML background phù hợp nhưng thiếu PyTorch và Docker."
+}

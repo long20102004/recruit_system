@@ -1,0 +1,177 @@
+pair_id,jd_requirement,cv_bullet,human_label
+1,Develop RESTful APIs using Spring Boot,Built RESTful APIs for a CMS platform using Spring Boot,2
+2,Develop RESTful APIs using Spring Boot,Developed backend services in Java using the Spring framework,1
+3,Develop RESTful APIs using Spring Boot,Created a React dashboard for internal analytics,0
+4,Develop RESTful APIs using Spring Boot,Developed RESTful APIs with Express.js and Node.js,1
+5,Optimize relational database queries for performance,"Rewrote slow SQL queries and added indexes, cutting report time by 60%",2
+6,Optimize relational database queries for performance,Designed database schemas for an e-commerce application,1
+7,Optimize relational database queries for performance,Organized weekly team workshops on public speaking,0
+8,Optimize relational database queries for performance,Built reports using SQL joins across multiple tables,1
+9,Write unit tests and participate in code reviews,Wrote JUnit tests and reviewed teammates' pull requests,2
+10,Write unit tests and participate in code reviews,Set up a CI pipeline that runs builds on every commit,1
+11,Write unit tests and participate in code reviews,Designed marketing banners for a product launch,0
+12,Write unit tests and participate in code reviews,Developed RESTful APIs for a CMS using Spring Boot,0
+13,Integrate third-party systems via APIs,Integrated a payment gateway and an external CRM through REST APIs,2
+14,Integrate third-party systems via APIs,Built internal REST APIs for a booking application,1
+15,Integrate third-party systems via APIs,Managed monthly payroll for a team of 20 employees,0
+16,Integrate third-party systems via APIs,Integrated external system to synchronize product data,2
+17,Experience with Java programming,Developed backend modules in Java for an inventory system,2
+18,Experience with Java programming,Developed single-page applications in JavaScript,1
+19,Experience with Java programming,Wrote data analysis scripts in Python,1
+20,Experience with Java programming,Handled customer complaints at a retail store,0
+21,Deploy applications using Docker and Kubernetes,Containerized services with Docker and deployed them on a Kubernetes cluster,2
+22,Deploy applications using Docker and Kubernetes,Deployed applications to virtual machines using shell scripts,1
+23,Deploy applications using Docker and Kubernetes,Created social media content calendars,0
+24,Deploy applications using Docker and Kubernetes,Wrote Dockerfiles for local development environments,1
+25,Build responsive user interfaces with React,Built responsive web interfaces using React and Redux,2
+26,Build responsive user interfaces with React,Developed front-end pages with Vue.js,1
+27,Build responsive user interfaces with React,Maintained Linux servers and monitored uptime,0
+28,Build responsive user interfaces with React,Styled static web pages using HTML and CSS,1
+29,Design and maintain CI/CD pipelines,"Designed Jenkins pipelines for automated build, test and deployment",2
+30,Design and maintain CI/CD pipelines,Wrote automated test scripts executed nightly,1
+31,Design and maintain CI/CD pipelines,Conducted user interviews for a mobile app redesign,0
+32,Design and maintain CI/CD pipelines,Configured GitHub Actions workflows to deploy to staging,2
+33,Analyze large datasets using Python and pandas,Analyzed sales datasets with pandas and produced weekly insights,2
+34,Analyze large datasets using Python and pandas,Built dashboards in Excel from monthly sales figures,1
+35,Analyze large datasets using Python and pandas,Negotiated contracts with vendors,0
+36,Analyze large datasets using Python and pandas,Wrote Python scripts to automate file renaming,1
+37,Train and evaluate machine learning models,Trained and evaluated classification models with scikit-learn,2
+38,Train and evaluate machine learning models,Cleaned and labeled datasets for a recommendation project,1
+39,Train and evaluate machine learning models,Built a landing page for a product campaign,0
+40,Train and evaluate machine learning models,Deployed a trained model behind a Flask API,1
+41,Manage cloud infrastructure on AWS,"Managed EC2, S3 and RDS resources on AWS for production workloads",2
+42,Manage cloud infrastructure on AWS,Hosted web applications on shared hosting providers,1
+43,Manage cloud infrastructure on AWS,Planned team-building events for the company,0
+44,Manage cloud infrastructure on AWS,Provisioned Azure virtual machines for testing environments,1
+45,Develop mobile applications for Android,Developed an Android app in Kotlin published on Google Play,2
+46,Develop mobile applications for Android,Built a cross-platform mobile app using Flutter,1
+47,Develop mobile applications for Android,Prepared financial statements for quarterly audits,0
+48,Develop mobile applications for Android,Developed iOS applications in Swift,1
+49,Collaborate with designers to implement UI/UX,Worked with designers to implement Figma mockups as web pages,2
+50,Collaborate with designers to implement UI/UX,Created wireframes and prototypes for a new feature,1
+51,Collaborate with designers to implement UI/UX,Processed invoices and handled accounts payable,0
+52,Collaborate with designers to implement UI/UX,Implemented pixel-perfect layouts for a marketing website,1
+53,Lead a team of software engineers,Led a team of six engineers and ran sprint planning and 1:1s,2
+54,Lead a team of software engineers,Mentored two junior developers during onboarding,1
+55,Lead a team of software engineers,Developed REST endpoints for a mobile backend,0
+56,Lead a team of software engineers,Coordinated tasks across a five-person project team,1
+57,Work in an Agile Scrum environment,"Participated in daily standups, sprint planning and retrospectives in Scrum",2
+58,Work in an Agile Scrum environment,Tracked tasks and bugs using Jira,1
+59,Work in an Agile Scrum environment,Repaired network equipment in office buildings,0
+60,Work in an Agile Scrum environment,Used Kanban boards to manage a support queue,1
+61,Design microservices architecture,Designed a microservices architecture with event-driven communication,2
+62,Design microservices architecture,Split a monolithic application into separate modules,1
+63,Design microservices architecture,Taught mathematics to high school students,0
+64,Design microservices architecture,Implemented message queues with RabbitMQ between services,1
+65,Implement authentication and authorization,Implemented JWT-based authentication and role-based access control,2
+66,Implement authentication and authorization,Built user registration and profile management pages,1
+67,Implement authentication and authorization,Scheduled meetings and managed executive calendars,0
+68,Implement authentication and authorization,Configured OAuth2 login with Google for a web app,2
+69,Maintain and monitor production systems,Monitored production services with Grafana and Prometheus and handled incidents,2
+70,Maintain and monitor production systems,Wrote logging utilities for debugging application errors,1
+71,Maintain and monitor production systems,Designed brochures for a trade show,0
+72,Maintain and monitor production systems,Performed on-call support for a customer-facing API,2
+73,Write technical documentation,Wrote API documentation and developer guides in Confluence,2
+74,Write technical documentation,Added inline code comments and README files to repositories,1
+75,Write technical documentation,Operated forklifts in a warehouse,0
+76,Write technical documentation,Prepared user manuals for an internal tool,2
+77,Experience with SQL and NoSQL databases,Worked with PostgreSQL and MongoDB in production applications,2
+78,Experience with SQL and NoSQL databases,Worked with MySQL to store customer records,1
+79,Experience with SQL and NoSQL databases,Led recruitment interviews for sales roles,0
+80,Experience with SQL and NoSQL databases,Used Redis for caching session data,1
+81,Develop ETL pipelines for data warehousing,Built ETL pipelines with Airflow loading data into a warehouse,2
+82,Develop ETL pipelines for data warehousing,Wrote scripts to export database tables to CSV files,1
+83,Develop ETL pipelines for data warehousing,Handled front desk reception duties,0
+84,Develop ETL pipelines for data warehousing,Built dashboards in Power BI from warehouse tables,1
+85,Perform manual and automated software testing,Executed manual test cases and automated regression tests with Selenium,2
+86,Perform manual and automated software testing,Reported bugs found during user acceptance sessions,1
+87,Perform manual and automated software testing,Managed social media advertising budgets,0
+88,Perform manual and automated software testing,Wrote unit tests for backend services using JUnit,1
+89,Implement security best practices in applications,Fixed OWASP Top 10 vulnerabilities and added input validation,2
+90,Implement security best practices in applications,Encrypted sensitive data at rest in a database,1
+91,Implement security best practices in applications,Cooked and served meals in a restaurant,0
+92,Implement security best practices in applications,Configured firewall rules for office network,1
+93,Develop backend services using Python and Django,Developed backend services with Django and Django REST Framework,2
+94,Develop backend services using Python and Django,Built web APIs with Flask,1
+95,Develop backend services using Python and Django,Built backend services with Spring Boot,1
+96,Develop backend services using Python and Django,Managed inventory records in a retail shop,0
+97,Optimize website performance and page load speed,Reduced page load time by 40% through lazy loading and caching,2
+98,Optimize website performance and page load speed,"Built landing pages with HTML, CSS and JavaScript",1
+99,Optimize website performance and page load speed,Drafted legal contracts for clients,0
+100,Optimize website performance and page load speed,Configured a CDN for static assets,1
+101,Experience with Git and version control workflows,Used Git with feature branches and pull request workflows daily,2
+102,Experience with Git and version control workflows,Shared code with teammates via zip files and email,0
+103,Experience with Git and version control workflows,Maintained a shared Subversion repository for a small team,1
+104,Experience with Git and version control workflows,Taught a yoga class twice a week,0
+105,Develop data visualization dashboards,Built interactive dashboards in Tableau for executive reporting,2
+106,Develop data visualization dashboards,Produced monthly Excel reports with charts,1
+107,Develop data visualization dashboards,Repaired laptops and printers for staff,0
+108,Develop data visualization dashboards,Created charts with Matplotlib for research papers,1
+109,Implement real-time features using WebSockets,Implemented real-time chat using WebSockets and Socket.IO,2
+110,Implement real-time features using WebSockets,Built a notification feature using periodic polling,1
+111,Implement real-time features using WebSockets,Designed packaging for consumer goods,0
+112,Implement real-time features using WebSockets,Developed REST APIs for an order management system,0
+113,Experience with message queues such as Kafka,Built event streaming pipelines using Apache Kafka,2
+114,Experience with message queues such as Kafka,Used RabbitMQ to queue background email jobs,1
+115,Experience with message queues such as Kafka,Wrote copy for product advertisements,0
+116,Experience with message queues such as Kafka,Developed scheduled batch jobs with cron,1
+117,Manage product backlog and prioritize features,Managed the product backlog and prioritized features with stakeholders,2
+118,Manage product backlog and prioritize features,Wrote user stories and acceptance criteria for developers,1
+119,Manage product backlog and prioritize features,Developed SQL stored procedures for reporting,0
+120,Manage product backlog and prioritize features,Tracked project timelines and reported progress to managers,1
+121,Conduct user research and usability testing,Ran usability tests and user interviews to improve a checkout flow,2
+122,Conduct user research and usability testing,Designed mockups for a mobile banking app,1
+123,Conduct user research and usability testing,Deployed microservices on Kubernetes,0
+124,Conduct user research and usability testing,Analyzed survey results from customers,1
+125,Create automated infrastructure using Terraform,Provisioned cloud infrastructure as code with Terraform modules,2
+126,Create automated infrastructure using Terraform,Wrote Ansible playbooks to configure servers,1
+127,Create automated infrastructure using Terraform,Led customer support for a telecom provider,0
+128,Create automated infrastructure using Terraform,Created cloud resources manually through the AWS console,1
+129,Develop and tune Elasticsearch search features,Implemented full-text search with Elasticsearch and tuned relevance,2
+130,Develop and tune Elasticsearch search features,Added keyword filtering using SQL LIKE queries,1
+131,Develop and tune Elasticsearch search features,Coordinated logistics for event catering,0
+132,Develop and tune Elasticsearch search features,Built an autocomplete feature in the front end,1
+133,Build reusable component libraries,Created a reusable UI component library used across five products,2
+134,Build reusable component libraries,Refactored duplicated code into shared utility modules,1
+135,Build reusable component libraries,Handled cash transactions at a supermarket,0
+136,Build reusable component libraries,Implemented a design system in Storybook,2
+137,Experience with TypeScript and Node.js,Built backend services with TypeScript and Node.js,2
+138,Experience with TypeScript and Node.js,Wrote front-end scripts in JavaScript,1
+139,Experience with TypeScript and Node.js,Developed services in Go,1
+140,Experience with TypeScript and Node.js,Supervised construction site safety inspections,0
+141,Perform code refactoring and reduce technical debt,Refactored legacy modules and reduced duplicated code by 30%,2
+142,Perform code refactoring and reduce technical debt,Upgraded dependencies and fixed deprecated API usage,1
+143,Perform code refactoring and reduce technical debt,Planned corporate travel itineraries,0
+144,Perform code refactoring and reduce technical debt,Migrated a legacy application to a new framework,1
+145,Develop embedded software in C or C++,Developed firmware in C for microcontroller-based devices,2
+146,Develop embedded software in C or C++,Wrote desktop applications in C#,1
+147,Develop embedded software in C or C++,Taught English to primary school children,0
+148,Develop embedded software in C or C++,Wrote low-level drivers for sensors in C++,2
+149,Implement CI quality gates with static analysis,Added SonarQube quality gates to the CI pipeline,2
+150,Implement CI quality gates with static analysis,Enforced code style with linters in the repository,1
+151,Implement CI quality gates with static analysis,Prepared tax filings for small businesses,0
+152,Implement CI quality gates with static analysis,Wrote performance tests with JMeter,1
+153,Provide technical support to customers,Resolved technical issues for customers by email and phone,2
+154,Provide technical support to customers,Wrote knowledge base articles for common problems,1
+155,Provide technical support to customers,Trained a machine learning model for image classification,0
+156,Provide technical support to customers,Handled IT helpdesk tickets for internal staff,1
+157,Develop GraphQL APIs,Designed and implemented GraphQL APIs with Apollo Server,2
+158,Develop GraphQL APIs,Developed REST APIs consumed by a mobile app,1
+159,Develop GraphQL APIs,Edited video content for social media,0
+160,Develop GraphQL APIs,Consumed GraphQL endpoints from a React front end,1
+161,Experience with big data tools such as Spark,Processed terabytes of logs using Apache Spark jobs,2
+162,Experience with big data tools such as Spark,Wrote Hive queries to analyze data in Hadoop,1
+163,Experience with big data tools such as Spark,Worked as a barista in a coffee shop,0
+164,Experience with big data tools such as Spark,Cleaned CSV datasets using pandas,1
+165,Ensure compliance with data privacy regulations,Implemented GDPR data retention and consent features in the product,2
+166,Ensure compliance with data privacy regulations,Masked personal data in test databases,1
+167,Ensure compliance with data privacy regulations,Managed a warehouse inventory system,0
+168,Ensure compliance with data privacy regulations,Conducted internal security awareness training,1
+169,Build and maintain e-commerce platforms,"Developed an online store with shopping cart, checkout and payments",2
+170,Build and maintain e-commerce platforms,Built a product catalog website,1
+171,Build and maintain e-commerce platforms,Provided physiotherapy to patients,0
+172,Build and maintain e-commerce platforms,Integrated a payment gateway into a web shop,1
+173,Estimate tasks and deliver projects on schedule,Estimated tasks and delivered three projects on time as project lead,2
+174,Estimate tasks and deliver projects on schedule,Delivered assigned features within each sprint,1
+175,Estimate tasks and deliver projects on schedule,Drew illustrations for children's books,0
+176,Estimate tasks and deliver projects on schedule,Created Gantt charts for project plans,1

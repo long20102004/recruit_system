@@ -1,0 +1,307 @@
+// HireLens — lược đồ MySQL sau Flyway V6.
+// Dán vào https://dbdiagram.io
+// Cơ sở dữ liệu không còn khóa ngoại. Các Ref bên dưới là quan hệ kiểm tra trong mã.
+
+Project hirelens {
+  database_type: 'MySQL'
+  Note: 'Hồ sơ CV, tin tuyển dụng, đối sánh và ôn tập phỏng vấn.'
+}
+
+TableGroup nguoi_dung {
+  users
+  candidate_profiles
+  companies
+  recruiter_profiles
+}
+
+TableGroup ho_so {
+  setting
+  cv_data
+  skills
+}
+
+TableGroup viec_lam {
+  jobs
+  job_skills
+  job_applications
+  matching_results
+}
+
+TableGroup phong_van {
+  interview_questions
+  evaluation_rubrics
+  interview_sessions
+  interview_session_questions
+  interview_responses
+  evaluation_results
+  model_versions
+}
+
+Table users {
+  id int [pk, increment]
+  full_name varchar(255) [not null]
+  email varchar(255) [not null, unique, note: 'uq_users_email']
+  password_hash varchar(255) [not null]
+  phone varchar(50)
+  role varchar(32) [not null, default: 'CANDIDATE', note: 'CANDIDATE, RECRUITER, ADMIN']
+  role_chosen tinyint [not null, default: 0, note: '1 = đã chọn vai trò một lần']
+  status varchar(32) [not null, default: 'ACTIVE', note: 'ACTIVE, INACTIVE, BANNED']
+  created_at datetime [not null, default: `CURRENT_TIMESTAMP`]
+  updated_at datetime
+}
+
+Table candidate_profiles {
+  id int [pk, increment]
+  user_id int [not null, unique, note: 'uq_candidate_profiles_user']
+  date_of_birth date
+  address varchar(500)
+  headline varchar(255)
+  summary text
+  years_of_experience decimal(4,1)
+  education_level varchar(120)
+  created_at datetime [not null, default: `CURRENT_TIMESTAMP`]
+  updated_at datetime
+}
+
+Table companies {
+  id int [pk, increment]
+  name varchar(255) [not null, unique, note: 'uq_companies_name']
+  description text
+  website varchar(500)
+  address varchar(500)
+  created_at datetime [not null, default: `CURRENT_TIMESTAMP`]
+}
+
+Table recruiter_profiles {
+  id int [pk, increment]
+  user_id int [not null]
+  company_id int [not null]
+  position varchar(255)
+  created_at datetime [not null, default: `CURRENT_TIMESTAMP`]
+
+  indexes {
+    (user_id, company_id) [unique, note: 'uq_recruiter_user_company']
+  }
+}
+
+Table setting {
+  id int [pk, increment]
+  name varchar(255) [not null, note: 'Ví dụ CV_FIELD']
+  value text [note: 'CV_FIELD: các mục hồ sơ, cách nhau bằng dấu phẩy']
+}
+
+Table cv_data {
+  id int [pk, increment]
+  candidate_id int [not null, note: 'Trỏ candidate_profiles.id, kiểm tra trong mã']
+  field varchar(255) [not null, note: 'Mục hồ sơ hoặc file_name, file_url, parsing_status']
+  value text
+}
+
+Table skills {
+  id int [pk, increment]
+  name varchar(120) [not null, unique, note: 'uq_skills_name']
+  category varchar(80)
+}
+
+Table jobs {
+  id int [pk, increment]
+  company_id int [not null]
+  created_by int [not null, note: 'users.id của nhà tuyển dụng']
+  title varchar(255) [not null]
+  description text
+  requirements text
+  responsibilities text
+  employment_type varchar(80)
+  work_location varchar(255)
+  salary_min decimal(14,2)
+  salary_max decimal(14,2)
+  currency varchar(16) [not null, default: 'VND']
+  experience_required decimal(4,1)
+  status varchar(32) [not null, default: 'DRAFT', note: 'DRAFT, PUBLISHED, CLOSED']
+  posted_at datetime
+  deadline datetime
+  created_at datetime [not null, default: `CURRENT_TIMESTAMP`]
+  updated_at datetime
+
+  indexes {
+    status [name: 'idx_jobs_status']
+    work_location [name: 'idx_jobs_work_location']
+    created_by [name: 'idx_jobs_created_by']
+  }
+}
+
+Table job_skills {
+  id int [pk, increment]
+  job_id int [not null]
+  skill_id int [not null]
+  is_required tinyint [not null, default: 1]
+  minimum_years decimal(4,1)
+
+  indexes {
+    (job_id, skill_id) [unique, note: 'uq_job_skills']
+  }
+}
+
+Table job_applications {
+  id int [pk, increment]
+  candidate_id int [not null]
+  job_id int [not null]
+  cv_id int [note: 'Cột số, không còn bảng cv_documents']
+  status varchar(32) [not null, default: 'SUBMITTED', note: 'SUBMITTED, REVIEWING, INTERVIEW, REJECTED, HIRED']
+  cover_letter text
+  applied_at datetime [not null, default: `CURRENT_TIMESTAMP`]
+  updated_at datetime
+
+  indexes {
+    (candidate_id, job_id) [unique, note: 'uq_job_applications']
+    candidate_id [name: 'idx_job_applications_candidate']
+    job_id [name: 'idx_job_applications_job']
+  }
+}
+
+Table matching_results {
+  id int [pk, increment]
+  candidate_id int [not null]
+  cv_id int [note: 'Cột số, không còn khóa tới hồ sơ']
+  job_id int [not null]
+  semantic_score decimal(6,4)
+  skills_score decimal(6,4)
+  experience_score decimal(6,4)
+  overall_score decimal(6,4) [not null]
+  matched_skills json
+  missing_skills json
+  explanation text
+  model_name varchar(120)
+  model_version varchar(120)
+  created_at datetime [not null, default: `CURRENT_TIMESTAMP`]
+
+  indexes {
+    (cv_id, job_id, created_at) [name: 'idx_matching_results_cv_job_created']
+    candidate_id [name: 'idx_matching_results_candidate']
+    job_id [name: 'idx_matching_results_job']
+  }
+}
+
+Table interview_questions {
+  id int [pk, increment]
+  created_by int
+  title varchar(255)
+  question_text text [not null]
+  topic varchar(120)
+  difficulty varchar(40)
+  question_type varchar(40) [not null, default: 'TEXT']
+  reference_answer text
+  max_score decimal(6,2) [not null, default: 10.00]
+  is_active tinyint [not null, default: 1]
+  created_at datetime [not null, default: `CURRENT_TIMESTAMP`]
+}
+
+Table evaluation_rubrics {
+  id int [pk, increment]
+  question_id int [not null]
+  criterion_name varchar(255) [not null]
+  criterion_description text
+  max_score decimal(6,2)
+  weight decimal(6,4) [not null, default: 1.0000]
+  expected_keywords json
+  created_at datetime [not null, default: `CURRENT_TIMESTAMP`]
+}
+
+Table interview_sessions {
+  id int [pk, increment]
+  candidate_id int [not null]
+  job_id int
+  application_id int
+  title varchar(255)
+  status varchar(32) [not null, default: 'CREATED', note: 'CREATED, IN_PROGRESS, COMPLETED']
+  started_at datetime
+  completed_at datetime
+  created_at datetime [not null, default: `CURRENT_TIMESTAMP`]
+
+  indexes {
+    candidate_id [name: 'idx_interview_sessions_candidate']
+  }
+}
+
+Table interview_session_questions {
+  id int [pk, increment]
+  session_id int [not null]
+  question_id int [not null]
+  question_order int [not null]
+  max_score decimal(6,2) [not null, default: 10.00]
+  time_limit_seconds int
+
+  indexes {
+    (session_id, question_order) [unique, note: 'uq_session_question_order']
+  }
+}
+
+Table interview_responses {
+  id int [pk, increment]
+  session_question_id int [not null, unique, note: 'uq_interview_responses_sq']
+  answer_text text [not null]
+  submitted_at datetime [not null, default: `CURRENT_TIMESTAMP`]
+  response_duration_seconds int
+  status varchar(32) [not null, default: 'SUBMITTED']
+}
+
+Table model_versions {
+  id int [pk, increment]
+  module_name varchar(80) [not null]
+  model_name varchar(120) [not null]
+  version varchar(80) [not null]
+  model_path varchar(500)
+  metrics json
+  is_active tinyint [not null, default: 0]
+  created_at datetime [not null, default: `CURRENT_TIMESTAMP`]
+
+  indexes {
+    (module_name, model_name, version) [unique, note: 'uq_model_versions']
+  }
+}
+
+Table evaluation_results {
+  id int [pk, increment]
+  response_id int [not null, unique, note: 'uq_evaluation_results_response']
+  evaluation_method varchar(40) [not null, default: 'RULE_BASED']
+  bertscore_precision decimal(6,4)
+  bertscore_recall decimal(6,4)
+  bertscore_f1 decimal(6,4)
+  predicted_score decimal(6,2) [not null]
+  human_score decimal(6,2)
+  correctness_score decimal(6,2)
+  completeness_score decimal(6,2)
+  feedback text
+  strengths json
+  missing_points json
+  model_version_id int
+  evaluated_at datetime [not null, default: `CURRENT_TIMESTAMP`]
+}
+
+Ref: candidate_profiles.user_id > users.id
+Ref: recruiter_profiles.user_id > users.id
+Ref: recruiter_profiles.company_id > companies.id
+
+Ref: cv_data.candidate_id > candidate_profiles.id
+
+Ref: jobs.company_id > companies.id
+Ref: jobs.created_by > users.id
+Ref: job_skills.job_id > jobs.id
+Ref: job_skills.skill_id > skills.id
+
+Ref: job_applications.candidate_id > candidate_profiles.id
+Ref: job_applications.job_id > jobs.id
+
+Ref: matching_results.candidate_id > candidate_profiles.id
+Ref: matching_results.job_id > jobs.id
+
+Ref: interview_questions.created_by > users.id
+Ref: evaluation_rubrics.question_id > interview_questions.id
+Ref: interview_sessions.candidate_id > candidate_profiles.id
+Ref: interview_sessions.job_id > jobs.id
+Ref: interview_sessions.application_id > job_applications.id
+Ref: interview_session_questions.session_id > interview_sessions.id
+Ref: interview_session_questions.question_id > interview_questions.id
+Ref: interview_responses.session_question_id > interview_session_questions.id
+Ref: evaluation_results.response_id > interview_responses.id
+Ref: evaluation_results.model_version_id > model_versions.id

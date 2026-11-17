@@ -12,6 +12,7 @@ Docs: http://localhost:8000/docs
 from __future__ import annotations
 
 import os
+from contextlib import asynccontextmanager
 from typing import Any, Literal
 
 from fastapi import FastAPI, HTTPException
@@ -19,10 +20,17 @@ from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel, Field, model_validator
 
 from .io_utils import load_questions, questions_by_id
+from .semantic import get_scorer
 from .scoring import clear_calibration_cache, evaluate_by_id, evaluate_question, load_calibration
 
-DEFAULT_MODE = os.getenv("HIRELENS_MODE", "fast")  # fast | bertscore
+DEFAULT_MODE = os.getenv("HIRELENS_MODE", "bertscore")  # fast | bertscore | finetune
 DEFAULT_DEVICE = os.getenv("HIRELENS_DEVICE")  # cpu | cuda | None
+
+@asynccontextmanager
+async def lifespan(app):
+    ready_model()
+    yield
+
 
 app = FastAPI(
     title="HireLens Interview Scoring API",
@@ -30,7 +38,8 @@ app = FastAPI(
         "Chấm câu trả lời phỏng vấn theo barem (coverage) + BERTScore/fast + Ridge calibration. "
         "Backend Spring Boot gọi POST /v1/interview/evaluate."
     ),
-    version="1.0.0",
+    version="2.0.0",
+    lifespan=lifespan,
 )
 
 app.add_middleware(
@@ -45,33 +54,64 @@ app.add_middleware(
 class CriterionIn(BaseModel):
     key: str
     label: str
-    weight: float = Field(ge=0, le=1)
-    hints: list[str] = Field(default_factory=list)
+    # Spring có thể gửi weight chưa chuẩn hóa; normalize trong endpoint
+    weight: float = Field(ge=0, default=1.0, allow_inf_nan=False)
+    hints: list[str] = Field(default_factory=list, max_length=30)
+    reference_answers: list[str] = Field(default_factory=list, max_length=5)
+    misconceptions: list[str] = Field(default_factory=list, max_length=5)
 
 
 class EvaluateRequest(BaseModel):
     """
     Cách 1: gửi question_id (lấy barem từ data/questions.json).
     Cách 2: gửi reference_answer + criteria (Spring tự truyền barem từ DB).
+    Ưu tiên cách 2 nếu có đủ reference + criteria.
     """
 
-    answer: str = Field(..., min_length=1, description="Câu trả lời ứng viên")
+    answer: str = Field(..., min_length=1, max_length=4000, description="Câu trả lời ứng viên")
     question_id: str | None = None
     question: str | None = None
     reference_answer: str | None = None
-    criteria: list[CriterionIn] | None = None
-    mode: Literal["fast", "bertscore"] | None = None
+    criteria: list[CriterionIn] | None = Field(default=None, max_length=12)
+    mode: Literal["fast", "bertscore", "finetune"] | None = None
     include_debug: bool = False
 
     @model_validator(mode="after")
     def check_source(self) -> EvaluateRequest:
+        if not self.answer.strip(): raise ValueError("Câu trả lời không được chỉ chứa khoảng trắng")
+        if self.criteria and len({c.key for c in self.criteria}) != len(self.criteria):
+            raise ValueError("Rubric keys must be unique")
         has_id = bool(self.question_id)
-        has_inline = bool(self.reference_answer and self.criteria)
+        has_inline = bool(
+            self.reference_answer
+            and self.reference_answer.strip()
+            and self.criteria
+            and len(self.criteria) > 0
+        )
         if not has_id and not has_inline:
             raise ValueError(
-                "Cần question_id hoặc (reference_answer + criteria)"
+                "Cần question_id hoặc (reference_answer + criteria không rỗng)"
             )
         return self
+
+
+def _normalize_criteria(criteria: list[CriterionIn]) -> list[dict[str, Any]]:
+    raw = [max(0.0, float(c.weight)) for c in criteria]
+    total = sum(raw)
+    if total <= 0: raise ValueError("Rubric weights must have a positive total")
+    out: list[dict[str, Any]] = []
+    for c, w in zip(criteria, raw, strict=True):
+        out.append(
+            {
+                "key": c.key,
+                "label": c.label,
+                "weight": (w / total) if total else 0.0,
+                "hints": list(c.hints or []),
+                "reference_answers": list(c.reference_answers or [c.label]),
+                "misconceptions": list(c.misconceptions or []),
+            }
+        )
+    return out
 
 
 class EvaluateResponse(BaseModel):
@@ -83,6 +123,12 @@ class EvaluateResponse(BaseModel):
     comment: str
     model_version: str | None = None
     mode: str
+    bertscore_precision: float | None = None
+    bertscore_recall: float | None = None
+    bertscore_f1: float | None = None
+    coverage_score: float = 0
+    criterion_results: list[dict[str, Any]] = Field(default_factory=list)
+    label_source: str | None = None
     debug: dict[str, Any] | None = None
 
 
@@ -90,6 +136,19 @@ class HealthResponse(BaseModel):
     status: str
     default_mode: str
     calibration_loaded: dict[str, bool]
+    model_loaded: bool = False
+
+
+def ready_model():
+    if DEFAULT_MODE == "finetune":
+        from .regressor import load_regressor
+        load_regressor()
+        return
+    load_calibration(DEFAULT_MODE)
+    if DEFAULT_MODE == "bertscore":
+        from .semantic import get_scorer
+        calib = load_calibration(DEFAULT_MODE)
+        get_scorer(calib.get("bert_model_type") or "bert-base-multilingual-cased", DEFAULT_DEVICE or "cpu")
 
 
 @app.get("/health", response_model=HealthResponse)
@@ -101,10 +160,19 @@ def health() -> HealthResponse:
             loaded[m] = True
         except FileNotFoundError:
             loaded[m] = False
+    finetune_loaded = False
+    if DEFAULT_MODE == "finetune":
+        from .regressor import load_regressor
+        try:
+            load_regressor()
+            finetune_loaded = True
+        except FileNotFoundError:
+            finetune_loaded = False
     return HealthResponse(
         status="ok",
         default_mode=DEFAULT_MODE,
         calibration_loaded=loaded,
+        model_loaded=finetune_loaded or DEFAULT_MODE == "fast" or get_scorer.cache_info().currsize > 0,
     )
 
 
@@ -138,12 +206,18 @@ def get_question(question_id: str) -> dict[str, Any]:
 def evaluate(req: EvaluateRequest) -> EvaluateResponse:
     mode = req.mode or DEFAULT_MODE
     try:
-        if req.reference_answer and req.criteria:
+        use_inline = bool(
+            req.reference_answer
+            and req.reference_answer.strip()
+            and req.criteria
+            and len(req.criteria) > 0
+        )
+        if use_inline:
             question = {
                 "id": req.question_id,
                 "question": req.question or "",
                 "reference_answer": req.reference_answer,
-                "criteria": [c.model_dump() for c in req.criteria],
+                "criteria": _normalize_criteria(req.criteria),
             }
             result = evaluate_question(
                 answer=req.answer,

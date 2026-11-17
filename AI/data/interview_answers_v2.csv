@@ -1,0 +1,391 @@
+id,question_id,rank_target,answer,target_score,target_covered_keys,label_source,variant
+m3-v2-001-correct-0,m3-v2-001,Intern,"Với object, == so sánh hai tham chiếu có trỏ cùng đối tượng hay không.",4.0,c1,synthetic_rubric,correct-0
+m3-v2-001-correct-1,m3-v2-001,Intern,equals có thể được override để so sánh giá trị logic; String.equals so sánh nội dung chuỗi.,3.5,c2,synthetic_rubric,correct-1
+m3-v2-001-correct-2,m3-v2-001,Intern,"Dùng Objects.equals(a,b) để so sánh an toàn khi có null.",2.5,c3,synthetic_rubric,correct-2
+m3-v2-001-correct-01,m3-v2-001,Intern,"Với object, == so sánh hai tham chiếu có trỏ cùng đối tượng hay không. equals có thể được override để so sánh giá trị logic; String.equals so sánh nội dung chuỗi.",7.5,c1;c2,synthetic_rubric,correct-01
+m3-v2-001-correct-02,m3-v2-001,Intern,"Với object, == so sánh hai tham chiếu có trỏ cùng đối tượng hay không. Dùng Objects.equals(a,b) để so sánh an toàn khi có null.",6.5,c1;c3,synthetic_rubric,correct-02
+m3-v2-001-correct-12,m3-v2-001,Intern,"equals có thể được override để so sánh giá trị logic; String.equals so sánh nội dung chuỗi. Dùng Objects.equals(a,b) để so sánh an toàn khi có null.",6.0,c2;c3,synthetic_rubric,correct-12
+m3-v2-001-correct-012,m3-v2-001,Intern,"Với object, == so sánh hai tham chiếu có trỏ cùng đối tượng hay không. equals có thể được override để so sánh giá trị logic; String.equals so sánh nội dung chuỗi. Dùng Objects.equals(a,b) để so sánh an toàn khi có null.",10.0,c1;c2;c3,synthetic_rubric,correct-012
+m3-v2-001-paraphrase,m3-v2-001,Intern,Hai biến object dùng == để kiểm tra cùng địa chỉ tham chiếu. So nội dung hai chuỗi bằng String.equals thay vì so địa chỉ. Objects.equals xử lý được trường hợp một chuỗi là null.,10,c1;c2;c3,synthetic_rubric,paraphrase
+m3-v2-001-misconceptions,m3-v2-001,Intern,== luôn so sánh nội dung của mọi object. String.equals chỉ so sánh địa chỉ bộ nhớ. Gọi a.equals(b) luôn an toàn dù a là null.,0,,synthetic_rubric,misconceptions
+m3-v2-001-unknown,m3-v2-001,Intern,Tôi chưa biết cách giải thích vấn đề này.,0,,synthetic_rubric,unknown
+m3-v2-001-offtopic,m3-v2-001,Intern,Tôi thích thể thao và nghe nhạc vào cuối tuần.,0,,synthetic_rubric,offtopic
+m3-v2-001-keyword-stuffing,m3-v2-001,Intern,"tham chiếu, cùng đối tượng, reference, equals, nội dung, override, Objects.equals, null, an toàn",1,,synthetic_rubric,keyword-stuffing
+m3-v2-001-mixed,m3-v2-001,Intern,"Với object, == so sánh hai tham chiếu có trỏ cùng đối tượng hay không. String.equals chỉ so sánh địa chỉ bộ nhớ.",4,c1,synthetic_rubric,mixed
+m3-v2-002-correct-0,m3-v2-002,Junior,Hai object equals nhau phải có cùng hashCode.,4.0,c1,synthetic_rubric,correct-0
+m3-v2-002-correct-1,m3-v2-002,Junior,HashMap dùng hashCode chọn bucket rồi equals để phân biệt key trong bucket.,3.5,c2,synthetic_rubric,correct-1
+m3-v2-002-correct-2,m3-v2-002,Junior,Tránh thay đổi các trường tham gia equals và hashCode sau khi key đã được đưa vào map.,2.5,c3,synthetic_rubric,correct-2
+m3-v2-002-correct-01,m3-v2-002,Junior,Hai object equals nhau phải có cùng hashCode. HashMap dùng hashCode chọn bucket rồi equals để phân biệt key trong bucket.,7.5,c1;c2,synthetic_rubric,correct-01
+m3-v2-002-correct-02,m3-v2-002,Junior,Hai object equals nhau phải có cùng hashCode. Tránh thay đổi các trường tham gia equals và hashCode sau khi key đã được đưa vào map.,6.5,c1;c3,synthetic_rubric,correct-02
+m3-v2-002-correct-12,m3-v2-002,Junior,HashMap dùng hashCode chọn bucket rồi equals để phân biệt key trong bucket. Tránh thay đổi các trường tham gia equals và hashCode sau khi key đã được đưa vào map.,6.0,c2;c3,synthetic_rubric,correct-12
+m3-v2-002-correct-012,m3-v2-002,Junior,Hai object equals nhau phải có cùng hashCode. HashMap dùng hashCode chọn bucket rồi equals để phân biệt key trong bucket. Tránh thay đổi các trường tham gia equals và hashCode sau khi key đã được đưa vào map.,10.0,c1;c2;c3,synthetic_rubric,correct-012
+m3-v2-002-paraphrase,m3-v2-002,Junior,"Nếu equals trả true thì mã băm của hai key phải giống nhau. Mã băm chọn nhóm lưu trữ, còn equals xác định đúng khóa khi va chạm. Nên dùng key bất biến để không làm mất khả năng tìm kiếm sau khi chèn.",10,c1;c2;c3,synthetic_rubric,paraphrase
+m3-v2-002-misconceptions,m3-v2-002,Junior,Hai object equals nhau được phép có hashCode khác nhau. Chỉ cần hashCode giống nhau là HashMap coi hai key bằng nhau. Thay đổi key trong map không bao giờ ảnh hưởng việc tra cứu.,0,,synthetic_rubric,misconceptions
+m3-v2-002-unknown,m3-v2-002,Junior,Tôi chưa biết cách giải thích vấn đề này.,0,,synthetic_rubric,unknown
+m3-v2-002-offtopic,m3-v2-002,Junior,Tôi thích thể thao và nghe nhạc vào cuối tuần.,0,,synthetic_rubric,offtopic
+m3-v2-002-keyword-stuffing,m3-v2-002,Junior,"equals, hashCode, cùng, bucket, va chạm, equals, bất biến, thay đổi, tra cứu",1,,synthetic_rubric,keyword-stuffing
+m3-v2-002-mixed,m3-v2-002,Junior,Hai object equals nhau phải có cùng hashCode. Chỉ cần hashCode giống nhau là HashMap coi hai key bằng nhau.,4,c1,synthetic_rubric,mixed
+m3-v2-003-correct-0,m3-v2-003,Middle,Phép tăng count++ gồm nhiều thao tác nên có thể xảy ra race condition.,4.0,c1,synthetic_rubric,correct-0
+m3-v2-003-correct-1,m3-v2-003,Middle,Dùng AtomicInteger hoặc synchronized phù hợp để bảo vệ thao tác cập nhật.,3.5,c2,synthetic_rubric,correct-1
+m3-v2-003-correct-2,m3-v2-003,Middle,Đo tải và kiểm thử đồng thời; cân nhắc LongAdder khi tranh chấp cao.,2.5,c3,synthetic_rubric,correct-2
+m3-v2-003-correct-01,m3-v2-003,Middle,Phép tăng count++ gồm nhiều thao tác nên có thể xảy ra race condition. Dùng AtomicInteger hoặc synchronized phù hợp để bảo vệ thao tác cập nhật.,7.5,c1;c2,synthetic_rubric,correct-01
+m3-v2-003-correct-02,m3-v2-003,Middle,Phép tăng count++ gồm nhiều thao tác nên có thể xảy ra race condition. Đo tải và kiểm thử đồng thời; cân nhắc LongAdder khi tranh chấp cao.,6.5,c1;c3,synthetic_rubric,correct-02
+m3-v2-003-correct-12,m3-v2-003,Middle,Dùng AtomicInteger hoặc synchronized phù hợp để bảo vệ thao tác cập nhật. Đo tải và kiểm thử đồng thời; cân nhắc LongAdder khi tranh chấp cao.,6.0,c2;c3,synthetic_rubric,correct-12
+m3-v2-003-correct-012,m3-v2-003,Middle,Phép tăng count++ gồm nhiều thao tác nên có thể xảy ra race condition. Dùng AtomicInteger hoặc synchronized phù hợp để bảo vệ thao tác cập nhật. Đo tải và kiểm thử đồng thời; cân nhắc LongAdder khi tranh chấp cao.,10.0,c1;c2;c3,synthetic_rubric,correct-012
+m3-v2-003-paraphrase,m3-v2-003,Middle,"Đọc, cộng rồi ghi không phải một thao tác nguyên tử khi nhiều luồng chạy. Có thể dùng compare-and-set qua AtomicInteger hoặc khóa đồng bộ. Cần stress test nhiều luồng và đo contention trước khi chọn cách tối ưu.",10,c1;c2;c3,synthetic_rubric,paraphrase
+m3-v2-003-misconceptions,m3-v2-003,Middle,count++ luôn là thao tác nguyên tử trong Java. Chỉ thêm volatile là đủ để count++ luôn chính xác. Không cần kiểm thử đồng thời sau khi thêm khóa.,0,,synthetic_rubric,misconceptions
+m3-v2-003-unknown,m3-v2-003,Middle,Tôi chưa biết cách giải thích vấn đề này.,0,,synthetic_rubric,unknown
+m3-v2-003-offtopic,m3-v2-003,Middle,Tôi thích thể thao và nghe nhạc vào cuối tuần.,0,,synthetic_rubric,offtopic
+m3-v2-003-keyword-stuffing,m3-v2-003,Middle,"race condition, nguyên tử, nhiều thao tác, AtomicInteger, synchronized, khóa, kiểm thử, LongAdder, tranh chấp",1,,synthetic_rubric,keyword-stuffing
+m3-v2-003-mixed,m3-v2-003,Middle,Phép tăng count++ gồm nhiều thao tác nên có thể xảy ra race condition. Chỉ thêm volatile là đủ để count++ luôn chính xác.,4,c1,synthetic_rubric,mixed
+m3-v2-004-correct-0,m3-v2-004,Intern,"Spring Boot được xây trên Spring Framework, không thay thế cơ chế IoC của Spring.",4.0,c1,synthetic_rubric,correct-0
+m3-v2-004-correct-1,m3-v2-004,Intern,"Auto-configuration cấu hình theo classpath và điều kiện, có thể bị cấu hình người dùng thay thế.",3.5,c2,synthetic_rubric,correct-1
+m3-v2-004-correct-2,m3-v2-004,Intern,Starter gom dependency; embedded server giúp đóng gói ứng dụng chạy độc lập.,2.5,c3,synthetic_rubric,correct-2
+m3-v2-004-correct-01,m3-v2-004,Intern,"Spring Boot được xây trên Spring Framework, không thay thế cơ chế IoC của Spring. Auto-configuration cấu hình theo classpath và điều kiện, có thể bị cấu hình người dùng thay thế.",7.5,c1;c2,synthetic_rubric,correct-01
+m3-v2-004-correct-02,m3-v2-004,Intern,"Spring Boot được xây trên Spring Framework, không thay thế cơ chế IoC của Spring. Starter gom dependency; embedded server giúp đóng gói ứng dụng chạy độc lập.",6.5,c1;c3,synthetic_rubric,correct-02
+m3-v2-004-correct-12,m3-v2-004,Intern,"Auto-configuration cấu hình theo classpath và điều kiện, có thể bị cấu hình người dùng thay thế. Starter gom dependency; embedded server giúp đóng gói ứng dụng chạy độc lập.",6.0,c2;c3,synthetic_rubric,correct-12
+m3-v2-004-correct-012,m3-v2-004,Intern,"Spring Boot được xây trên Spring Framework, không thay thế cơ chế IoC của Spring. Auto-configuration cấu hình theo classpath và điều kiện, có thể bị cấu hình người dùng thay thế. Starter gom dependency; embedded server giúp đóng gói ứng dụng chạy độc lập.",10.0,c1;c2;c3,synthetic_rubric,correct-012
+m3-v2-004-paraphrase,m3-v2-004,Intern,Boot bổ sung tiện ích lên nền Spring và vẫn dùng container quản lý bean. Boot tự cấu hình có điều kiện dựa vào dependency và cấu hình hiện có. Starter giảm việc khai báo thư viện và Tomcat nhúng giúp chạy bằng java -jar.,10,c1;c2;c3,synthetic_rubric,paraphrase
+m3-v2-004-misconceptions,m3-v2-004,Intern,Spring Boot là một ngôn ngữ lập trình độc lập. Auto-configuration luôn ghi đè mọi cấu hình người dùng. Mọi ứng dụng Spring Boot bắt buộc phải triển khai lên Tomcat bên ngoài.,0,,synthetic_rubric,misconceptions
+m3-v2-004-unknown,m3-v2-004,Intern,Tôi chưa biết cách giải thích vấn đề này.,0,,synthetic_rubric,unknown
+m3-v2-004-offtopic,m3-v2-004,Intern,Tôi thích thể thao và nghe nhạc vào cuối tuần.,0,,synthetic_rubric,offtopic
+m3-v2-004-keyword-stuffing,m3-v2-004,Intern,"Spring Framework, IoC, bean, auto-configuration, điều kiện, classpath, starter, embedded, Tomcat",1,,synthetic_rubric,keyword-stuffing
+m3-v2-004-mixed,m3-v2-004,Intern,"Spring Boot được xây trên Spring Framework, không thay thế cơ chế IoC của Spring. Auto-configuration luôn ghi đè mọi cấu hình người dùng.",4,c1,synthetic_rubric,mixed
+m3-v2-005-correct-0,m3-v2-005,Junior,Dependency được khai báo rõ trong constructor và có thể giữ trong trường final.,4.0,c1,synthetic_rubric,correct-0
+m3-v2-005-correct-1,m3-v2-005,Junior,Có thể truyền mock trực tiếp khi unit test mà không cần dựng Spring context.,3.5,c2,synthetic_rubric,correct-1
+m3-v2-005-correct-2,m3-v2-005,Junior,Vòng phụ thuộc constructor cần được xử lý bằng cách xem lại thiết kế.,2.5,c3,synthetic_rubric,correct-2
+m3-v2-005-correct-01,m3-v2-005,Junior,Dependency được khai báo rõ trong constructor và có thể giữ trong trường final. Có thể truyền mock trực tiếp khi unit test mà không cần dựng Spring context.,7.5,c1;c2,synthetic_rubric,correct-01
+m3-v2-005-correct-02,m3-v2-005,Junior,Dependency được khai báo rõ trong constructor và có thể giữ trong trường final. Vòng phụ thuộc constructor cần được xử lý bằng cách xem lại thiết kế.,6.5,c1;c3,synthetic_rubric,correct-02
+m3-v2-005-correct-12,m3-v2-005,Junior,Có thể truyền mock trực tiếp khi unit test mà không cần dựng Spring context. Vòng phụ thuộc constructor cần được xử lý bằng cách xem lại thiết kế.,6.0,c2;c3,synthetic_rubric,correct-12
+m3-v2-005-correct-012,m3-v2-005,Junior,Dependency được khai báo rõ trong constructor và có thể giữ trong trường final. Có thể truyền mock trực tiếp khi unit test mà không cần dựng Spring context. Vòng phụ thuộc constructor cần được xử lý bằng cách xem lại thiết kế.,10.0,c1;c2;c3,synthetic_rubric,correct-012
+m3-v2-005-paraphrase,m3-v2-005,Junior,"Hàm khởi tạo thể hiện rõ thành phần bắt buộc, hỗ trợ tính bất biến. Kiểm thử đơn vị chỉ cần khởi tạo service với dependency giả lập. Nếu hai service đòi nhau ở hàm tạo thì nên tách trách nhiệm để bỏ vòng phụ thuộc.",10,c1;c2;c3,synthetic_rubric,paraphrase
+m3-v2-005-misconceptions,m3-v2-005,Junior,Constructor injection bắt buộc dependency phải được tạo bằng new trong service. Constructor injection khiến không thể dùng mock trong unit test. Vòng phụ thuộc constructor luôn được Spring tự giải quyết.,0,,synthetic_rubric,misconceptions
+m3-v2-005-unknown,m3-v2-005,Junior,Tôi chưa biết cách giải thích vấn đề này.,0,,synthetic_rubric,unknown
+m3-v2-005-offtopic,m3-v2-005,Junior,Tôi thích thể thao và nghe nhạc vào cuối tuần.,0,,synthetic_rubric,offtopic
+m3-v2-005-keyword-stuffing,m3-v2-005,Junior,"constructor, final, bắt buộc, mock, unit test, kiểm thử, vòng phụ thuộc, thiết kế, tách",1,,synthetic_rubric,keyword-stuffing
+m3-v2-005-mixed,m3-v2-005,Junior,Dependency được khai báo rõ trong constructor và có thể giữ trong trường final. Constructor injection khiến không thể dùng mock trong unit test.,4,c1,synthetic_rubric,mixed
+m3-v2-006-correct-0,m3-v2-006,Middle,Proxy-based AOP không chặn self-invocation qua this nên annotation ở lời gọi nội bộ có thể không có hiệu lực.,4.0,c1,synthetic_rubric,correct-0
+m3-v2-006-correct-1,m3-v2-006,Middle,Kiểm tra loại exception và rollbackFor vì checked exception mặc định không gây rollback.,3.5,c2,synthetic_rubric,correct-1
+m3-v2-006-correct-2,m3-v2-006,Middle,Kiểm thử tích hợp trạng thái database và cân nhắc tách lời gọi sang bean khác.,2.5,c3,synthetic_rubric,correct-2
+m3-v2-006-correct-01,m3-v2-006,Middle,Proxy-based AOP không chặn self-invocation qua this nên annotation ở lời gọi nội bộ có thể không có hiệu lực. Kiểm tra loại exception và rollbackFor vì checked exception mặc định không gây rollback.,7.5,c1;c2,synthetic_rubric,correct-01
+m3-v2-006-correct-02,m3-v2-006,Middle,Proxy-based AOP không chặn self-invocation qua this nên annotation ở lời gọi nội bộ có thể không có hiệu lực. Kiểm thử tích hợp trạng thái database và cân nhắc tách lời gọi sang bean khác.,6.5,c1;c3,synthetic_rubric,correct-02
+m3-v2-006-correct-12,m3-v2-006,Middle,Kiểm tra loại exception và rollbackFor vì checked exception mặc định không gây rollback. Kiểm thử tích hợp trạng thái database và cân nhắc tách lời gọi sang bean khác.,6.0,c2;c3,synthetic_rubric,correct-12
+m3-v2-006-correct-012,m3-v2-006,Middle,Proxy-based AOP không chặn self-invocation qua this nên annotation ở lời gọi nội bộ có thể không có hiệu lực. Kiểm tra loại exception và rollbackFor vì checked exception mặc định không gây rollback. Kiểm thử tích hợp trạng thái database và cân nhắc tách lời gọi sang bean khác.,10.0,c1;c2;c3,synthetic_rubric,correct-012
+m3-v2-006-paraphrase,m3-v2-006,Middle,Gọi trong cùng đối tượng có thể bỏ qua proxy giao dịch của Spring. Cần xem exception là checked hay runtime và quy tắc rollback đã cấu hình. Xác minh dữ liệu sau lỗi và đưa ranh giới giao dịch qua một bean phù hợp.,10,c1;c2;c3,synthetic_rubric,paraphrase
+m3-v2-006-misconceptions,m3-v2-006,Middle,Mọi self-invocation đều đi qua proxy @Transactional. Mọi checked exception đều tự động rollback theo mặc định. Chỉ xem log là đủ để khẳng định transaction đã rollback.,0,,synthetic_rubric,misconceptions
+m3-v2-006-unknown,m3-v2-006,Middle,Tôi chưa biết cách giải thích vấn đề này.,0,,synthetic_rubric,unknown
+m3-v2-006-offtopic,m3-v2-006,Middle,Tôi thích thể thao và nghe nhạc vào cuối tuần.,0,,synthetic_rubric,offtopic
+m3-v2-006-keyword-stuffing,m3-v2-006,Middle,"proxy, self-invocation, cùng đối tượng, checked, rollbackFor, exception, kiểm thử, database, bean khác",1,,synthetic_rubric,keyword-stuffing
+m3-v2-006-mixed,m3-v2-006,Middle,Proxy-based AOP không chặn self-invocation qua this nên annotation ở lời gọi nội bộ có thể không có hiệu lực. Mọi checked exception đều tự động rollback theo mặc định.,4,c1,synthetic_rubric,mixed
+m3-v2-007-correct-0,m3-v2-007,Intern,INNER JOIN chỉ giữ các cặp dòng thỏa điều kiện nối ở cả hai bảng.,4.0,c1,synthetic_rubric,correct-0
+m3-v2-007-correct-1,m3-v2-007,Intern,LEFT JOIN giữ mọi dòng bảng trái; cột phía phải là NULL khi không có dòng khớp.,3.5,c2,synthetic_rubric,correct-1
+m3-v2-007-correct-2,m3-v2-007,Intern,Điều kiện WHERE trên cột bảng phải có thể loại dòng NULL và thay đổi ý nghĩa LEFT JOIN.,2.5,c3,synthetic_rubric,correct-2
+m3-v2-007-correct-01,m3-v2-007,Intern,INNER JOIN chỉ giữ các cặp dòng thỏa điều kiện nối ở cả hai bảng. LEFT JOIN giữ mọi dòng bảng trái; cột phía phải là NULL khi không có dòng khớp.,7.5,c1;c2,synthetic_rubric,correct-01
+m3-v2-007-correct-02,m3-v2-007,Intern,INNER JOIN chỉ giữ các cặp dòng thỏa điều kiện nối ở cả hai bảng. Điều kiện WHERE trên cột bảng phải có thể loại dòng NULL và thay đổi ý nghĩa LEFT JOIN.,6.5,c1;c3,synthetic_rubric,correct-02
+m3-v2-007-correct-12,m3-v2-007,Intern,LEFT JOIN giữ mọi dòng bảng trái; cột phía phải là NULL khi không có dòng khớp. Điều kiện WHERE trên cột bảng phải có thể loại dòng NULL và thay đổi ý nghĩa LEFT JOIN.,6.0,c2;c3,synthetic_rubric,correct-12
+m3-v2-007-correct-012,m3-v2-007,Intern,INNER JOIN chỉ giữ các cặp dòng thỏa điều kiện nối ở cả hai bảng. LEFT JOIN giữ mọi dòng bảng trái; cột phía phải là NULL khi không có dòng khớp. Điều kiện WHERE trên cột bảng phải có thể loại dòng NULL và thay đổi ý nghĩa LEFT JOIN.,10.0,c1;c2;c3,synthetic_rubric,correct-012
+m3-v2-007-paraphrase,m3-v2-007,Intern,Nối trong chỉ trả các bản ghi có đối tác khớp. Nối trái vẫn giữ bản ghi không tìm được đối tác và điền NULL ở bên phải. Đặt lọc bên phải trong WHERE cần cẩn thận vì có thể làm mất các dòng chưa khớp.,10,c1;c2;c3,synthetic_rubric,paraphrase
+m3-v2-007-misconceptions,m3-v2-007,Intern,INNER JOIN luôn giữ toàn bộ dòng bảng trái. LEFT JOIN loại bỏ mọi dòng không có bản ghi phía phải. Đặt điều kiện bên phải ở WHERE hay ON luôn cho cùng kết quả.,0,,synthetic_rubric,misconceptions
+m3-v2-007-unknown,m3-v2-007,Intern,Tôi chưa biết cách giải thích vấn đề này.,0,,synthetic_rubric,unknown
+m3-v2-007-offtopic,m3-v2-007,Intern,Tôi thích thể thao và nghe nhạc vào cuối tuần.,0,,synthetic_rubric,offtopic
+m3-v2-007-keyword-stuffing,m3-v2-007,Intern,"INNER JOIN, khớp, cả hai, LEFT JOIN, NULL, bảng trái, WHERE, ON, điều kiện",1,,synthetic_rubric,keyword-stuffing
+m3-v2-007-mixed,m3-v2-007,Intern,INNER JOIN chỉ giữ các cặp dòng thỏa điều kiện nối ở cả hai bảng. LEFT JOIN loại bỏ mọi dòng không có bản ghi phía phải.,4,c1,synthetic_rubric,mixed
+m3-v2-008-correct-0,m3-v2-008,Junior,"Xem các cột thường lọc WHERE, nối JOIN hoặc sắp xếp để chọn index phù hợp.",4.0,c1,synthetic_rubric,correct-0
+m3-v2-008-correct-1,m3-v2-008,Junior,Index tốn dung lượng và làm tăng chi phí INSERT UPDATE DELETE.,3.5,c2,synthetic_rubric,correct-1
+m3-v2-008-correct-2,m3-v2-008,Junior,Dùng EXPLAIN và đo thời gian trước sau trên dữ liệu đại diện.,2.5,c3,synthetic_rubric,correct-2
+m3-v2-008-correct-01,m3-v2-008,Junior,"Xem các cột thường lọc WHERE, nối JOIN hoặc sắp xếp để chọn index phù hợp. Index tốn dung lượng và làm tăng chi phí INSERT UPDATE DELETE.",7.5,c1;c2,synthetic_rubric,correct-01
+m3-v2-008-correct-02,m3-v2-008,Junior,"Xem các cột thường lọc WHERE, nối JOIN hoặc sắp xếp để chọn index phù hợp. Dùng EXPLAIN và đo thời gian trước sau trên dữ liệu đại diện.",6.5,c1;c3,synthetic_rubric,correct-02
+m3-v2-008-correct-12,m3-v2-008,Junior,Index tốn dung lượng và làm tăng chi phí INSERT UPDATE DELETE. Dùng EXPLAIN và đo thời gian trước sau trên dữ liệu đại diện.,6.0,c2;c3,synthetic_rubric,correct-12
+m3-v2-008-correct-012,m3-v2-008,Junior,"Xem các cột thường lọc WHERE, nối JOIN hoặc sắp xếp để chọn index phù hợp. Index tốn dung lượng và làm tăng chi phí INSERT UPDATE DELETE. Dùng EXPLAIN và đo thời gian trước sau trên dữ liệu đại diện.",10.0,c1;c2;c3,synthetic_rubric,correct-012
+m3-v2-008-paraphrase,m3-v2-008,Junior,"Tạo chỉ mục theo mẫu truy vấn thực tế, nhất là điều kiện tìm kiếm và liên kết. Chỉ mục tăng tốc đọc nhưng phải đánh đổi bộ nhớ và công cập nhật khi ghi. Kiểm tra execution plan và benchmark thay vì đoán index đã được dùng.",10,c1;c2;c3,synthetic_rubric,paraphrase
+m3-v2-008-misconceptions,m3-v2-008,Junior,Nên tạo index cho mọi cột bất kể truy vấn. Index luôn tăng tốc cả đọc và ghi mà không tốn dung lượng. Có index thì không cần xem execution plan hay đo lại.,0,,synthetic_rubric,misconceptions
+m3-v2-008-unknown,m3-v2-008,Junior,Tôi chưa biết cách giải thích vấn đề này.,0,,synthetic_rubric,unknown
+m3-v2-008-offtopic,m3-v2-008,Junior,Tôi thích thể thao và nghe nhạc vào cuối tuần.,0,,synthetic_rubric,offtopic
+m3-v2-008-keyword-stuffing,m3-v2-008,Junior,"WHERE, JOIN, truy vấn, dung lượng, ghi, UPDATE, EXPLAIN, đo, plan",1,,synthetic_rubric,keyword-stuffing
+m3-v2-008-mixed,m3-v2-008,Junior,"Xem các cột thường lọc WHERE, nối JOIN hoặc sắp xếp để chọn index phù hợp. Index luôn tăng tốc cả đọc và ghi mà không tốn dung lượng.",4,c1,synthetic_rubric,mixed
+m3-v2-009-correct-0,m3-v2-009,Middle,Cần giữ thao tác kiểm tra và trừ tồn kho trong cùng ranh giới transaction.,4.0,c1,synthetic_rubric,correct-0
+m3-v2-009-correct-1,m3-v2-009,Middle,Dùng UPDATE có điều kiện stock >= quantity và kiểm tra số dòng cập nhật hoặc khóa dòng phù hợp.,3.5,c2,synthetic_rubric,correct-1
+m3-v2-009-correct-2,m3-v2-009,Middle,Xử lý retry có giới hạn cho deadlock và kiểm tra tính idempotent khi gửi lại yêu cầu.,2.5,c3,synthetic_rubric,correct-2
+m3-v2-009-correct-01,m3-v2-009,Middle,Cần giữ thao tác kiểm tra và trừ tồn kho trong cùng ranh giới transaction. Dùng UPDATE có điều kiện stock >= quantity và kiểm tra số dòng cập nhật hoặc khóa dòng phù hợp.,7.5,c1;c2,synthetic_rubric,correct-01
+m3-v2-009-correct-02,m3-v2-009,Middle,Cần giữ thao tác kiểm tra và trừ tồn kho trong cùng ranh giới transaction. Xử lý retry có giới hạn cho deadlock và kiểm tra tính idempotent khi gửi lại yêu cầu.,6.5,c1;c3,synthetic_rubric,correct-02
+m3-v2-009-correct-12,m3-v2-009,Middle,Dùng UPDATE có điều kiện stock >= quantity và kiểm tra số dòng cập nhật hoặc khóa dòng phù hợp. Xử lý retry có giới hạn cho deadlock và kiểm tra tính idempotent khi gửi lại yêu cầu.,6.0,c2;c3,synthetic_rubric,correct-12
+m3-v2-009-correct-012,m3-v2-009,Middle,Cần giữ thao tác kiểm tra và trừ tồn kho trong cùng ranh giới transaction. Dùng UPDATE có điều kiện stock >= quantity và kiểm tra số dòng cập nhật hoặc khóa dòng phù hợp. Xử lý retry có giới hạn cho deadlock và kiểm tra tính idempotent khi gửi lại yêu cầu.,10.0,c1;c2;c3,synthetic_rubric,correct-012
+m3-v2-009-paraphrase,m3-v2-009,Middle,Đọc lượng tồn rồi cập nhật riêng rẽ có thể tạo race condition nên cần giao dịch nhất quán. Có thể cập nhật nguyên tử kèm điều kiện số lượng thay vì đọc rồi ghi không bảo vệ. Khi có bế tắc cần retry có kiểm soát và tránh trừ kho hai lần cho một yêu cầu.,10,c1;c2;c3,synthetic_rubric,paraphrase
+m3-v2-009-misconceptions,m3-v2-009,Middle,Chỉ kiểm tra tồn kho ở giao diện là đủ để tránh bán vượt. Luôn đọc stock bằng SELECT thường rồi UPDATE là an toàn với mọi mức cô lập. Retry vô hạn không cần idempotency là cách xử lý deadlock tốt nhất.,0,,synthetic_rubric,misconceptions
+m3-v2-009-unknown,m3-v2-009,Middle,Tôi chưa biết cách giải thích vấn đề này.,0,,synthetic_rubric,unknown
+m3-v2-009-offtopic,m3-v2-009,Middle,Tôi thích thể thao và nghe nhạc vào cuối tuần.,0,,synthetic_rubric,offtopic
+m3-v2-009-keyword-stuffing,m3-v2-009,Middle,"transaction, đồng thời, kiểm tra, UPDATE, điều kiện, khóa, deadlock, retry, idempotent",1,,synthetic_rubric,keyword-stuffing
+m3-v2-009-mixed,m3-v2-009,Middle,Cần giữ thao tác kiểm tra và trừ tồn kho trong cùng ranh giới transaction. Luôn đọc stock bằng SELECT thường rồi UPDATE là an toàn với mọi mức cô lập.,4,c1,synthetic_rubric,mixed
+m3-v2-010-correct-0,m3-v2-010,Intern,GET dùng đọc tài nguyên và không nên tạo tác dụng phụ thay đổi dữ liệu nghiệp vụ.,4.0,c1,synthetic_rubric,correct-0
+m3-v2-010-correct-1,m3-v2-010,Intern,POST thường tạo hoặc xử lý yêu cầu; PUT thường thay thế trạng thái tại URI xác định.,3.5,c2,synthetic_rubric,correct-1
+m3-v2-010-correct-2,m3-v2-010,Intern,PUT và DELETE có ngữ nghĩa idempotent; phản hồi HTTP có thể khác giữa các lần gọi.,2.5,c3,synthetic_rubric,correct-2
+m3-v2-010-correct-01,m3-v2-010,Intern,GET dùng đọc tài nguyên và không nên tạo tác dụng phụ thay đổi dữ liệu nghiệp vụ. POST thường tạo hoặc xử lý yêu cầu; PUT thường thay thế trạng thái tại URI xác định.,7.5,c1;c2,synthetic_rubric,correct-01
+m3-v2-010-correct-02,m3-v2-010,Intern,GET dùng đọc tài nguyên và không nên tạo tác dụng phụ thay đổi dữ liệu nghiệp vụ. PUT và DELETE có ngữ nghĩa idempotent; phản hồi HTTP có thể khác giữa các lần gọi.,6.5,c1;c3,synthetic_rubric,correct-02
+m3-v2-010-correct-12,m3-v2-010,Intern,POST thường tạo hoặc xử lý yêu cầu; PUT thường thay thế trạng thái tại URI xác định. PUT và DELETE có ngữ nghĩa idempotent; phản hồi HTTP có thể khác giữa các lần gọi.,6.0,c2;c3,synthetic_rubric,correct-12
+m3-v2-010-correct-012,m3-v2-010,Intern,GET dùng đọc tài nguyên và không nên tạo tác dụng phụ thay đổi dữ liệu nghiệp vụ. POST thường tạo hoặc xử lý yêu cầu; PUT thường thay thế trạng thái tại URI xác định. PUT và DELETE có ngữ nghĩa idempotent; phản hồi HTTP có thể khác giữa các lần gọi.,10.0,c1;c2;c3,synthetic_rubric,correct-012
+m3-v2-010-paraphrase,m3-v2-010,Intern,"Yêu cầu lấy dữ liệu cần giữ tính an toàn, không dùng GET để xóa bản ghi. POST gửi thao tác còn PUT ghi trạng thái của tài nguyên có địa chỉ đã biết. Gọi lặp PUT hoặc DELETE phải giữ cùng tác động cuối, không bắt buộc mã trả về giống nhau.",10,c1;c2;c3,synthetic_rubric,paraphrase
+m3-v2-010-misconceptions,m3-v2-010,Intern,GET nên được dùng để xóa hoặc tạo dữ liệu. PUT chỉ được dùng để đọc dữ liệu. Idempotent có nghĩa mọi lần gọi phải trả cùng mã HTTP.,0,,synthetic_rubric,misconceptions
+m3-v2-010-unknown,m3-v2-010,Intern,Tôi chưa biết cách giải thích vấn đề này.,0,,synthetic_rubric,unknown
+m3-v2-010-offtopic,m3-v2-010,Intern,Tôi thích thể thao và nghe nhạc vào cuối tuần.,0,,synthetic_rubric,offtopic
+m3-v2-010-keyword-stuffing,m3-v2-010,Intern,"GET, đọc, an toàn, POST, PUT, tài nguyên, idempotent, DELETE, tác động",1,,synthetic_rubric,keyword-stuffing
+m3-v2-010-mixed,m3-v2-010,Intern,GET dùng đọc tài nguyên và không nên tạo tác dụng phụ thay đổi dữ liệu nghiệp vụ. PUT chỉ được dùng để đọc dữ liệu.,4,c1,synthetic_rubric,mixed
+m3-v2-011-correct-0,m3-v2-011,Junior,"Kiểm tra kiểu dữ liệu, số lượng và ràng buộc nghiệp vụ phía server.",4.0,c1,synthetic_rubric,correct-0
+m3-v2-011-correct-1,m3-v2-011,Junior,Dùng mã HTTP phù hợp và cấu trúc lỗi nhất quán có thông tin trường sai.,3.5,c2,synthetic_rubric,correct-1
+m3-v2-011-correct-2,m3-v2-011,Junior,Bảo vệ retry tạo đơn bằng idempotency key hoặc khóa nghiệp vụ duy nhất.,2.5,c3,synthetic_rubric,correct-2
+m3-v2-011-correct-01,m3-v2-011,Junior,"Kiểm tra kiểu dữ liệu, số lượng và ràng buộc nghiệp vụ phía server. Dùng mã HTTP phù hợp và cấu trúc lỗi nhất quán có thông tin trường sai.",7.5,c1;c2,synthetic_rubric,correct-01
+m3-v2-011-correct-02,m3-v2-011,Junior,"Kiểm tra kiểu dữ liệu, số lượng và ràng buộc nghiệp vụ phía server. Bảo vệ retry tạo đơn bằng idempotency key hoặc khóa nghiệp vụ duy nhất.",6.5,c1;c3,synthetic_rubric,correct-02
+m3-v2-011-correct-12,m3-v2-011,Junior,Dùng mã HTTP phù hợp và cấu trúc lỗi nhất quán có thông tin trường sai. Bảo vệ retry tạo đơn bằng idempotency key hoặc khóa nghiệp vụ duy nhất.,6.0,c2;c3,synthetic_rubric,correct-12
+m3-v2-011-correct-012,m3-v2-011,Junior,"Kiểm tra kiểu dữ liệu, số lượng và ràng buộc nghiệp vụ phía server. Dùng mã HTTP phù hợp và cấu trúc lỗi nhất quán có thông tin trường sai. Bảo vệ retry tạo đơn bằng idempotency key hoặc khóa nghiệp vụ duy nhất.",10.0,c1;c2;c3,synthetic_rubric,correct-012
+m3-v2-011-paraphrase,m3-v2-011,Junior,"Không tin validation frontend; server cần xác minh đầu vào và điều kiện nghiệp vụ. Phân biệt lỗi đầu vào với lỗi hệ thống, trả lỗi có cấu trúc để client xử lý. Một yêu cầu gửi lại không nên tạo hai đơn; có thể dùng mã chống trùng.",10,c1;c2;c3,synthetic_rubric,paraphrase
+m3-v2-011-misconceptions,m3-v2-011,Junior,Chỉ cần validation phía frontend vì người dùng không thể bỏ qua. Mọi lỗi nghiệp vụ nên trả HTTP 200 mà không có thông tin lỗi. Mỗi retry luôn phải tạo thêm một đơn hàng mới.,0,,synthetic_rubric,misconceptions
+m3-v2-011-unknown,m3-v2-011,Junior,Tôi chưa biết cách giải thích vấn đề này.,0,,synthetic_rubric,unknown
+m3-v2-011-offtopic,m3-v2-011,Junior,Tôi thích thể thao và nghe nhạc vào cuối tuần.,0,,synthetic_rubric,offtopic
+m3-v2-011-keyword-stuffing,m3-v2-011,Junior,"server, validation, nghiệp vụ, HTTP, cấu trúc, lỗi, idempotency, retry, duy nhất",1,,synthetic_rubric,keyword-stuffing
+m3-v2-011-mixed,m3-v2-011,Junior,"Kiểm tra kiểu dữ liệu, số lượng và ràng buộc nghiệp vụ phía server. Mọi lỗi nghiệp vụ nên trả HTTP 200 mà không có thông tin lỗi.",4,c1,synthetic_rubric,mixed
+m3-v2-012-correct-0,m3-v2-012,Middle,Đặt timeout kết nối và đọc hữu hạn cho lời gọi ra ngoài.,4.0,c1,synthetic_rubric,correct-0
+m3-v2-012-correct-1,m3-v2-012,Middle,Chỉ retry lỗi tạm thời có backoff và giới hạn; cân nhắc idempotency.,3.5,c2,synthetic_rubric,correct-1
+m3-v2-012-correct-2,m3-v2-012,Middle,"Dùng circuit breaker hoặc bulkhead, theo dõi metric và báo lỗi phụ thuộc rõ ràng.",2.5,c3,synthetic_rubric,correct-2
+m3-v2-012-correct-01,m3-v2-012,Middle,Đặt timeout kết nối và đọc hữu hạn cho lời gọi ra ngoài. Chỉ retry lỗi tạm thời có backoff và giới hạn; cân nhắc idempotency.,7.5,c1;c2,synthetic_rubric,correct-01
+m3-v2-012-correct-02,m3-v2-012,Middle,"Đặt timeout kết nối và đọc hữu hạn cho lời gọi ra ngoài. Dùng circuit breaker hoặc bulkhead, theo dõi metric và báo lỗi phụ thuộc rõ ràng.",6.5,c1;c3,synthetic_rubric,correct-02
+m3-v2-012-correct-12,m3-v2-012,Middle,"Chỉ retry lỗi tạm thời có backoff và giới hạn; cân nhắc idempotency. Dùng circuit breaker hoặc bulkhead, theo dõi metric và báo lỗi phụ thuộc rõ ràng.",6.0,c2;c3,synthetic_rubric,correct-12
+m3-v2-012-correct-012,m3-v2-012,Middle,"Đặt timeout kết nối và đọc hữu hạn cho lời gọi ra ngoài. Chỉ retry lỗi tạm thời có backoff và giới hạn; cân nhắc idempotency. Dùng circuit breaker hoặc bulkhead, theo dõi metric và báo lỗi phụ thuộc rõ ràng.",10.0,c1;c2;c3,synthetic_rubric,correct-012
+m3-v2-012-paraphrase,m3-v2-012,Middle,"Cần giới hạn thời gian chờ để luồng xử lý không bị giữ vô hạn. Thử lại có khoảng nghỉ tăng dần, tránh retry thao tác không an toàn. Cô lập tài nguyên và ngắt tạm dịch vụ lỗi để bảo vệ phần còn lại.",10,c1;c2;c3,synthetic_rubric,paraphrase
+m3-v2-012-misconceptions,m3-v2-012,Middle,Không đặt timeout giúp hệ thống ổn định hơn. Retry mọi lỗi liên tục không giới hạn là cách tránh quá tải. Một dịch vụ lỗi nên chiếm toàn bộ thread pool của hệ thống.,0,,synthetic_rubric,misconceptions
+m3-v2-012-unknown,m3-v2-012,Middle,Tôi chưa biết cách giải thích vấn đề này.,0,,synthetic_rubric,unknown
+m3-v2-012-offtopic,m3-v2-012,Middle,Tôi thích thể thao và nghe nhạc vào cuối tuần.,0,,synthetic_rubric,offtopic
+m3-v2-012-keyword-stuffing,m3-v2-012,Middle,"timeout, giới hạn, kết nối, retry, backoff, idempotency, circuit breaker, bulkhead, metric",1,,synthetic_rubric,keyword-stuffing
+m3-v2-012-mixed,m3-v2-012,Middle,Đặt timeout kết nối và đọc hữu hạn cho lời gọi ra ngoài. Retry mọi lỗi liên tục không giới hạn là cách tránh quá tải.,4,c1,synthetic_rubric,mixed
+m3-v2-013-correct-0,m3-v2-013,Intern,List có thể thay đổi phần tử và kích thước sau khi tạo.,4.0,c1,synthetic_rubric,correct-0
+m3-v2-013-correct-1,m3-v2-013,Intern,Tuple không cho gán lại các phần tử của nó sau khi tạo.,3.5,c2,synthetic_rubric,correct-1
+m3-v2-013-correct-2,m3-v2-013,Intern,Tuple chỉ hashable nếu tất cả phần tử bên trong cũng hashable.,2.5,c3,synthetic_rubric,correct-2
+m3-v2-013-correct-01,m3-v2-013,Intern,List có thể thay đổi phần tử và kích thước sau khi tạo. Tuple không cho gán lại các phần tử của nó sau khi tạo.,7.5,c1;c2,synthetic_rubric,correct-01
+m3-v2-013-correct-02,m3-v2-013,Intern,List có thể thay đổi phần tử và kích thước sau khi tạo. Tuple chỉ hashable nếu tất cả phần tử bên trong cũng hashable.,6.5,c1;c3,synthetic_rubric,correct-02
+m3-v2-013-correct-12,m3-v2-013,Intern,Tuple không cho gán lại các phần tử của nó sau khi tạo. Tuple chỉ hashable nếu tất cả phần tử bên trong cũng hashable.,6.0,c2;c3,synthetic_rubric,correct-12
+m3-v2-013-correct-012,m3-v2-013,Intern,List có thể thay đổi phần tử và kích thước sau khi tạo. Tuple không cho gán lại các phần tử của nó sau khi tạo. Tuple chỉ hashable nếu tất cả phần tử bên trong cũng hashable.,10.0,c1;c2;c3,synthetic_rubric,correct-012
+m3-v2-013-paraphrase,m3-v2-013,Intern,Danh sách là cấu trúc mutable cho phép thêm và sửa dữ liệu. Bộ tuple giữ cấu trúc phần tử bất biến ở cấp container. Không phải tuple nào cũng làm key dictionary được; tuple chứa list không hash được.,10,c1;c2;c3,synthetic_rubric,paraphrase
+m3-v2-013-misconceptions,m3-v2-013,Intern,List là immutable và không thể thêm phần tử. Tuple cho phép gán lại từng phần tử bằng chỉ số. Mọi tuple đều hashable kể cả tuple chứa list.,0,,synthetic_rubric,misconceptions
+m3-v2-013-unknown,m3-v2-013,Intern,Tôi chưa biết cách giải thích vấn đề này.,0,,synthetic_rubric,unknown
+m3-v2-013-offtopic,m3-v2-013,Intern,Tôi thích thể thao và nghe nhạc vào cuối tuần.,0,,synthetic_rubric,offtopic
+m3-v2-013-keyword-stuffing,m3-v2-013,Intern,"list, mutable, thay đổi, tuple, bất biến, gán lại, hashable, key, phần tử",1,,synthetic_rubric,keyword-stuffing
+m3-v2-013-mixed,m3-v2-013,Intern,List có thể thay đổi phần tử và kích thước sau khi tạo. Tuple cho phép gán lại từng phần tử bằng chỉ số.,4,c1,synthetic_rubric,mixed
+m3-v2-014-correct-0,m3-v2-014,Junior,Giá trị mặc định được tạo khi định nghĩa hàm và có thể được dùng lại giữa các lời gọi.,4.0,c1,synthetic_rubric,correct-0
+m3-v2-014-correct-1,m3-v2-014,Junior,Sửa bằng mặc định None rồi tạo list mới bên trong khi chưa có giá trị.,3.5,c2,synthetic_rubric,correct-1
+m3-v2-014-correct-2,m3-v2-014,Junior,Viết test nhiều lần gọi để kiểm tra dữ liệu không rò từ lần trước.,2.5,c3,synthetic_rubric,correct-2
+m3-v2-014-correct-01,m3-v2-014,Junior,Giá trị mặc định được tạo khi định nghĩa hàm và có thể được dùng lại giữa các lời gọi. Sửa bằng mặc định None rồi tạo list mới bên trong khi chưa có giá trị.,7.5,c1;c2,synthetic_rubric,correct-01
+m3-v2-014-correct-02,m3-v2-014,Junior,Giá trị mặc định được tạo khi định nghĩa hàm và có thể được dùng lại giữa các lời gọi. Viết test nhiều lần gọi để kiểm tra dữ liệu không rò từ lần trước.,6.5,c1;c3,synthetic_rubric,correct-02
+m3-v2-014-correct-12,m3-v2-014,Junior,Sửa bằng mặc định None rồi tạo list mới bên trong khi chưa có giá trị. Viết test nhiều lần gọi để kiểm tra dữ liệu không rò từ lần trước.,6.0,c2;c3,synthetic_rubric,correct-12
+m3-v2-014-correct-012,m3-v2-014,Junior,Giá trị mặc định được tạo khi định nghĩa hàm và có thể được dùng lại giữa các lời gọi. Sửa bằng mặc định None rồi tạo list mới bên trong khi chưa có giá trị. Viết test nhiều lần gọi để kiểm tra dữ liệu không rò từ lần trước.,10.0,c1;c2;c3,synthetic_rubric,correct-012
+m3-v2-014-paraphrase,m3-v2-014,Junior,"List mặc định là một đối tượng dùng chung, không tự tạo mới mỗi lần gọi. Dùng sentinel như None và khởi tạo danh sách trong thân hàm. Kiểm thử hai lần gọi độc lập giúp phát hiện trạng thái bị chia sẻ ngoài ý muốn.",10,c1;c2;c3,synthetic_rubric,paraphrase
+m3-v2-014-misconceptions,m3-v2-014,Junior,Python luôn tạo list mặc định mới cho từng lời gọi. Thay list mặc định bằng một list rỗng khác trong chữ ký luôn giải quyết được lỗi. Chỉ test một lần gọi là đủ để phát hiện mọi lỗi mặc định mutable.,0,,synthetic_rubric,misconceptions
+m3-v2-014-unknown,m3-v2-014,Junior,Tôi chưa biết cách giải thích vấn đề này.,0,,synthetic_rubric,unknown
+m3-v2-014-offtopic,m3-v2-014,Junior,Tôi thích thể thao và nghe nhạc vào cuối tuần.,0,,synthetic_rubric,offtopic
+m3-v2-014-keyword-stuffing,m3-v2-014,Junior,"mặc định, dùng chung, định nghĩa, None, list mới, bên trong, test, nhiều lần, độc lập",1,,synthetic_rubric,keyword-stuffing
+m3-v2-014-mixed,m3-v2-014,Junior,Giá trị mặc định được tạo khi định nghĩa hàm và có thể được dùng lại giữa các lời gọi. Thay list mặc định bằng một list rỗng khác trong chữ ký luôn giải quyết được lỗi.,4,c1,synthetic_rubric,mixed
+m3-v2-015-correct-0,m3-v2-015,Middle,"Trong CPython có GIL truyền thống, thread Python không tự tăng tốc mã Python CPU-bound.",4.0,c1,synthetic_rubric,correct-0
+m3-v2-015-correct-1,m3-v2-015,Middle,Cân nhắc multiprocessing hoặc thư viện native giải phóng GIL cho phần CPU nặng.,3.5,c2,synthetic_rubric,correct-1
+m3-v2-015-correct-2,m3-v2-015,Middle,"Profile trước và đo chi phí truyền dữ liệu, bộ nhớ để chọn phương án.",2.5,c3,synthetic_rubric,correct-2
+m3-v2-015-correct-01,m3-v2-015,Middle,"Trong CPython có GIL truyền thống, thread Python không tự tăng tốc mã Python CPU-bound. Cân nhắc multiprocessing hoặc thư viện native giải phóng GIL cho phần CPU nặng.",7.5,c1;c2,synthetic_rubric,correct-01
+m3-v2-015-correct-02,m3-v2-015,Middle,"Trong CPython có GIL truyền thống, thread Python không tự tăng tốc mã Python CPU-bound. Profile trước và đo chi phí truyền dữ liệu, bộ nhớ để chọn phương án.",6.5,c1;c3,synthetic_rubric,correct-02
+m3-v2-015-correct-12,m3-v2-015,Middle,"Cân nhắc multiprocessing hoặc thư viện native giải phóng GIL cho phần CPU nặng. Profile trước và đo chi phí truyền dữ liệu, bộ nhớ để chọn phương án.",6.0,c2;c3,synthetic_rubric,correct-12
+m3-v2-015-correct-012,m3-v2-015,Middle,"Trong CPython có GIL truyền thống, thread Python không tự tăng tốc mã Python CPU-bound. Cân nhắc multiprocessing hoặc thư viện native giải phóng GIL cho phần CPU nặng. Profile trước và đo chi phí truyền dữ liệu, bộ nhớ để chọn phương án.",10.0,c1;c2;c3,synthetic_rubric,correct-012
+m3-v2-015-paraphrase,m3-v2-015,Middle,Nhiều luồng không bảo đảm song song CPU cho bytecode khi GIL còn bật. Có thể chia việc sang nhiều tiến trình hoặc dùng phép toán native phù hợp. Đo điểm nghẽn và overhead liên tiến trình thay vì chỉ tăng số worker.,10,c1;c2;c3,synthetic_rubric,paraphrase
+m3-v2-015-misconceptions,m3-v2-015,Middle,GIL giúp mọi thread Python luôn chạy CPU song song hoàn toàn. Multiprocessing luôn dùng chung mọi object mà không có chi phí trao đổi. Tăng worker vô hạn luôn tăng hiệu năng tuyến tính.,0,,synthetic_rubric,misconceptions
+m3-v2-015-unknown,m3-v2-015,Middle,Tôi chưa biết cách giải thích vấn đề này.,0,,synthetic_rubric,unknown
+m3-v2-015-offtopic,m3-v2-015,Middle,Tôi thích thể thao và nghe nhạc vào cuối tuần.,0,,synthetic_rubric,offtopic
+m3-v2-015-keyword-stuffing,m3-v2-015,Middle,"GIL, CPU-bound, thread, multiprocessing, native, tiến trình, profile, bộ nhớ, chi phí",1,,synthetic_rubric,keyword-stuffing
+m3-v2-015-mixed,m3-v2-015,Middle,"Trong CPython có GIL truyền thống, thread Python không tự tăng tốc mã Python CPU-bound. Multiprocessing luôn dùng chung mọi object mà không có chi phí trao đổi.",4,c1,synthetic_rubric,mixed
+m3-v2-016-correct-0,m3-v2-016,Intern,Props là dữ liệu truyền từ component cha và được xem là chỉ đọc trong component nhận.,4.0,c1,synthetic_rubric,correct-0
+m3-v2-016-correct-1,m3-v2-016,Intern,State là dữ liệu component quản lý và cập nhật qua setter hoặc reducer.,3.5,c2,synthetic_rubric,correct-1
+m3-v2-016-correct-2,m3-v2-016,Intern,Thay đổi props hoặc state có thể khiến React render lại giao diện.,2.5,c3,synthetic_rubric,correct-2
+m3-v2-016-correct-01,m3-v2-016,Intern,Props là dữ liệu truyền từ component cha và được xem là chỉ đọc trong component nhận. State là dữ liệu component quản lý và cập nhật qua setter hoặc reducer.,7.5,c1;c2,synthetic_rubric,correct-01
+m3-v2-016-correct-02,m3-v2-016,Intern,Props là dữ liệu truyền từ component cha và được xem là chỉ đọc trong component nhận. Thay đổi props hoặc state có thể khiến React render lại giao diện.,6.5,c1;c3,synthetic_rubric,correct-02
+m3-v2-016-correct-12,m3-v2-016,Intern,State là dữ liệu component quản lý và cập nhật qua setter hoặc reducer. Thay đổi props hoặc state có thể khiến React render lại giao diện.,6.0,c2;c3,synthetic_rubric,correct-12
+m3-v2-016-correct-012,m3-v2-016,Intern,Props là dữ liệu truyền từ component cha và được xem là chỉ đọc trong component nhận. State là dữ liệu component quản lý và cập nhật qua setter hoặc reducer. Thay đổi props hoặc state có thể khiến React render lại giao diện.,10.0,c1;c2;c3,synthetic_rubric,correct-012
+m3-v2-016-paraphrase,m3-v2-016,Intern,Component con nhận đầu vào từ cha và không tự sửa trực tiếp props. Trạng thái nội bộ cần thay đổi bằng API cập nhật state của React. React dựng lại UI theo dữ liệu mới khi trạng thái hoặc đầu vào đổi.,10,c1;c2;c3,synthetic_rubric,paraphrase
+m3-v2-016-misconceptions,m3-v2-016,Intern,Component con nên sửa trực tiếp props để cập nhật cha. Nên sửa trực tiếp object state mà không gọi setter. Thay đổi state không bao giờ làm component render lại.,0,,synthetic_rubric,misconceptions
+m3-v2-016-unknown,m3-v2-016,Intern,Tôi chưa biết cách giải thích vấn đề này.,0,,synthetic_rubric,unknown
+m3-v2-016-offtopic,m3-v2-016,Intern,Tôi thích thể thao và nghe nhạc vào cuối tuần.,0,,synthetic_rubric,offtopic
+m3-v2-016-keyword-stuffing,m3-v2-016,Intern,"props, cha, chỉ đọc, state, setter, reducer, render, giao diện, thay đổi",1,,synthetic_rubric,keyword-stuffing
+m3-v2-016-mixed,m3-v2-016,Intern,Props là dữ liệu truyền từ component cha và được xem là chỉ đọc trong component nhận. Nên sửa trực tiếp object state mà không gọi setter.,4,c1,synthetic_rubric,mixed
+m3-v2-017-correct-0,m3-v2-017,Junior,Khai báo dependency đúng để effect phản ánh giá trị dùng trong lời gọi.,4.0,c1,synthetic_rubric,correct-0
+m3-v2-017-correct-1,m3-v2-017,Junior,Hủy request bằng AbortController hoặc bỏ qua response cũ sau cleanup.,3.5,c2,synthetic_rubric,correct-1
+m3-v2-017-correct-2,m3-v2-017,Junior,Hiển thị trạng thái loading và xử lý lỗi để UI không treo hoặc báo thành công giả.,2.5,c3,synthetic_rubric,correct-2
+m3-v2-017-correct-01,m3-v2-017,Junior,Khai báo dependency đúng để effect phản ánh giá trị dùng trong lời gọi. Hủy request bằng AbortController hoặc bỏ qua response cũ sau cleanup.,7.5,c1;c2,synthetic_rubric,correct-01
+m3-v2-017-correct-02,m3-v2-017,Junior,Khai báo dependency đúng để effect phản ánh giá trị dùng trong lời gọi. Hiển thị trạng thái loading và xử lý lỗi để UI không treo hoặc báo thành công giả.,6.5,c1;c3,synthetic_rubric,correct-02
+m3-v2-017-correct-12,m3-v2-017,Junior,Hủy request bằng AbortController hoặc bỏ qua response cũ sau cleanup. Hiển thị trạng thái loading và xử lý lỗi để UI không treo hoặc báo thành công giả.,6.0,c2;c3,synthetic_rubric,correct-12
+m3-v2-017-correct-012,m3-v2-017,Junior,Khai báo dependency đúng để effect phản ánh giá trị dùng trong lời gọi. Hủy request bằng AbortController hoặc bỏ qua response cũ sau cleanup. Hiển thị trạng thái loading và xử lý lỗi để UI không treo hoặc báo thành công giả.,10.0,c1;c2;c3,synthetic_rubric,correct-012
+m3-v2-017-paraphrase,m3-v2-017,Junior,"Danh sách phụ thuộc phải khớp dữ liệu mà effect sử dụng. Cần ngăn kết quả của yêu cầu cũ ghi đè kết quả mới khi component đổi. UI cần phản ánh đang tải, thất bại và cho phép thử lại hợp lý.",10,c1;c2;c3,synthetic_rubric,paraphrase
+m3-v2-017-misconceptions,m3-v2-017,Junior,Luôn để dependency rỗng dù effect dùng biến thay đổi. Response đến sau luôn phải ghi đè dữ liệu bất kể request nào mới. Có thể bỏ qua mọi lỗi fetch mà vẫn báo thành công.,0,,synthetic_rubric,misconceptions
+m3-v2-017-unknown,m3-v2-017,Junior,Tôi chưa biết cách giải thích vấn đề này.,0,,synthetic_rubric,unknown
+m3-v2-017-offtopic,m3-v2-017,Junior,Tôi thích thể thao và nghe nhạc vào cuối tuần.,0,,synthetic_rubric,offtopic
+m3-v2-017-keyword-stuffing,m3-v2-017,Junior,"dependency, effect, phụ thuộc, AbortController, cleanup, response cũ, loading, lỗi, UI",1,,synthetic_rubric,keyword-stuffing
+m3-v2-017-mixed,m3-v2-017,Junior,Khai báo dependency đúng để effect phản ánh giá trị dùng trong lời gọi. Response đến sau luôn phải ghi đè dữ liệu bất kể request nào mới.,4,c1,synthetic_rubric,mixed
+m3-v2-018-correct-0,m3-v2-018,Middle,Dùng React Profiler để xác định component render tốn thời gian.,4.0,c1,synthetic_rubric,correct-0
+m3-v2-018-correct-1,m3-v2-018,Middle,Dùng key ổn định và cân nhắc virtualization cho danh sách dài.,3.5,c2,synthetic_rubric,correct-1
+m3-v2-018-correct-2,m3-v2-018,Middle,Chỉ dùng memoization khi có lợi và kiểm tra dependency cùng tính đúng đắn.,2.5,c3,synthetic_rubric,correct-2
+m3-v2-018-correct-01,m3-v2-018,Middle,Dùng React Profiler để xác định component render tốn thời gian. Dùng key ổn định và cân nhắc virtualization cho danh sách dài.,7.5,c1;c2,synthetic_rubric,correct-01
+m3-v2-018-correct-02,m3-v2-018,Middle,Dùng React Profiler để xác định component render tốn thời gian. Chỉ dùng memoization khi có lợi và kiểm tra dependency cùng tính đúng đắn.,6.5,c1;c3,synthetic_rubric,correct-02
+m3-v2-018-correct-12,m3-v2-018,Middle,Dùng key ổn định và cân nhắc virtualization cho danh sách dài. Chỉ dùng memoization khi có lợi và kiểm tra dependency cùng tính đúng đắn.,6.0,c2;c3,synthetic_rubric,correct-12
+m3-v2-018-correct-012,m3-v2-018,Middle,Dùng React Profiler để xác định component render tốn thời gian. Dùng key ổn định và cân nhắc virtualization cho danh sách dài. Chỉ dùng memoization khi có lợi và kiểm tra dependency cùng tính đúng đắn.,10.0,c1;c2;c3,synthetic_rubric,correct-012
+m3-v2-018-paraphrase,m3-v2-018,Middle,Cần đo lại số lần render và phần chậm trước khi thêm tối ưu. Chỉ render phần danh sách nhìn thấy và giữ định danh item ổn định. Memo cần giữ kết quả đúng và phải được chứng minh giảm chi phí thực tế.,10,c1;c2;c3,synthetic_rubric,paraphrase
+m3-v2-018-misconceptions,m3-v2-018,Middle,Luôn thêm useMemo cho mọi biểu thức mà không cần đo. Dùng index làm key luôn đúng cả khi danh sách sắp xếp lại. Memoization không có chi phí và không thể gây dữ liệu cũ.,0,,synthetic_rubric,misconceptions
+m3-v2-018-unknown,m3-v2-018,Middle,Tôi chưa biết cách giải thích vấn đề này.,0,,synthetic_rubric,unknown
+m3-v2-018-offtopic,m3-v2-018,Middle,Tôi thích thể thao và nghe nhạc vào cuối tuần.,0,,synthetic_rubric,offtopic
+m3-v2-018-keyword-stuffing,m3-v2-018,Middle,"Profiler, đo, render, key, virtualization, danh sách, memo, dependency, đúng",1,,synthetic_rubric,keyword-stuffing
+m3-v2-018-mixed,m3-v2-018,Middle,Dùng React Profiler để xác định component render tốn thời gian. Dùng index làm key luôn đúng cả khi danh sách sắp xếp lại.,4,c1,synthetic_rubric,mixed
+m3-v2-019-correct-0,m3-v2-019,Intern,Image là mẫu filesystem và cấu hình dùng tạo container.,4.0,c1,synthetic_rubric,correct-0
+m3-v2-019-correct-1,m3-v2-019,Intern,Container là instance chạy từ image và có lớp ghi riêng.,3.5,c2,synthetic_rubric,correct-1
+m3-v2-019-correct-2,m3-v2-019,Intern,Volume lưu dữ liệu cần tồn tại ngoài vòng đời container.,2.5,c3,synthetic_rubric,correct-2
+m3-v2-019-correct-01,m3-v2-019,Intern,Image là mẫu filesystem và cấu hình dùng tạo container. Container là instance chạy từ image và có lớp ghi riêng.,7.5,c1;c2,synthetic_rubric,correct-01
+m3-v2-019-correct-02,m3-v2-019,Intern,Image là mẫu filesystem và cấu hình dùng tạo container. Volume lưu dữ liệu cần tồn tại ngoài vòng đời container.,6.5,c1;c3,synthetic_rubric,correct-02
+m3-v2-019-correct-12,m3-v2-019,Intern,Container là instance chạy từ image và có lớp ghi riêng. Volume lưu dữ liệu cần tồn tại ngoài vòng đời container.,6.0,c2;c3,synthetic_rubric,correct-12
+m3-v2-019-correct-012,m3-v2-019,Intern,Image là mẫu filesystem và cấu hình dùng tạo container. Container là instance chạy từ image và có lớp ghi riêng. Volume lưu dữ liệu cần tồn tại ngoài vòng đời container.,10.0,c1;c2;c3,synthetic_rubric,correct-012
+m3-v2-019-paraphrase,m3-v2-019,Intern,Ảnh container là bản mẫu để khởi tạo tiến trình có môi trường xác định. Container là thực thể được tạo từ image với vòng đời riêng. Database nên có vùng lưu bền vững độc lập với việc tạo lại container.,10,c1;c2;c3,synthetic_rubric,paraphrase
+m3-v2-019-misconceptions,m3-v2-019,Intern,Image là một tiến trình đang chạy trên máy. Xóa container luôn xóa toàn bộ dữ liệu của mọi volume. Dữ liệu database chỉ nên lưu ở lớp ghi tạm của container.,0,,synthetic_rubric,misconceptions
+m3-v2-019-unknown,m3-v2-019,Intern,Tôi chưa biết cách giải thích vấn đề này.,0,,synthetic_rubric,unknown
+m3-v2-019-offtopic,m3-v2-019,Intern,Tôi thích thể thao và nghe nhạc vào cuối tuần.,0,,synthetic_rubric,offtopic
+m3-v2-019-keyword-stuffing,m3-v2-019,Intern,"image, mẫu, container, container, instance, lớp ghi, volume, dữ liệu, vòng đời",1,,synthetic_rubric,keyword-stuffing
+m3-v2-019-mixed,m3-v2-019,Intern,Image là mẫu filesystem và cấu hình dùng tạo container. Xóa container luôn xóa toàn bộ dữ liệu của mọi volume.,4,c1,synthetic_rubric,mixed
+m3-v2-020-correct-0,m3-v2-020,Junior,Dùng tên service và cổng bên trong trên cùng mạng Compose.,4.0,c1,synthetic_rubric,correct-0
+m3-v2-020-correct-1,m3-v2-020,Junior,Phân biệt published port của host với port mà container lắng nghe.,3.5,c2,synthetic_rubric,correct-1
+m3-v2-020-correct-2,m3-v2-020,Junior,Chờ readiness và xử lý kết nối lỗi vì thứ tự tạo container không bảo đảm dịch vụ đã sẵn sàng.,2.5,c3,synthetic_rubric,correct-2
+m3-v2-020-correct-01,m3-v2-020,Junior,Dùng tên service và cổng bên trong trên cùng mạng Compose. Phân biệt published port của host với port mà container lắng nghe.,7.5,c1;c2,synthetic_rubric,correct-01
+m3-v2-020-correct-02,m3-v2-020,Junior,Dùng tên service và cổng bên trong trên cùng mạng Compose. Chờ readiness và xử lý kết nối lỗi vì thứ tự tạo container không bảo đảm dịch vụ đã sẵn sàng.,6.5,c1;c3,synthetic_rubric,correct-02
+m3-v2-020-correct-12,m3-v2-020,Junior,Phân biệt published port của host với port mà container lắng nghe. Chờ readiness và xử lý kết nối lỗi vì thứ tự tạo container không bảo đảm dịch vụ đã sẵn sàng.,6.0,c2;c3,synthetic_rubric,correct-12
+m3-v2-020-correct-012,m3-v2-020,Junior,Dùng tên service và cổng bên trong trên cùng mạng Compose. Phân biệt published port của host với port mà container lắng nghe. Chờ readiness và xử lý kết nối lỗi vì thứ tự tạo container không bảo đảm dịch vụ đã sẵn sàng.,10.0,c1;c2;c3,synthetic_rubric,correct-012
+m3-v2-020-paraphrase,m3-v2-020,Junior,"Các container cùng network tìm nhau bằng DNS service thay vì IP cố định. Cổng host phục vụ truy cập bên ngoài, còn nội bộ dùng cổng dịch vụ. Cần healthcheck và retry hữu hạn thay vì chỉ dựa vào depends_on dạng đơn giản.",10,c1;c2;c3,synthetic_rubric,paraphrase
+m3-v2-020-misconceptions,m3-v2-020,Junior,Container luôn dùng localhost để gọi database ở container khác. Cổng host và cổng container bắt buộc luôn giống nhau. Container đã được tạo nghĩa là database đã sẵn sàng nhận truy vấn.,0,,synthetic_rubric,misconceptions
+m3-v2-020-unknown,m3-v2-020,Junior,Tôi chưa biết cách giải thích vấn đề này.,0,,synthetic_rubric,unknown
+m3-v2-020-offtopic,m3-v2-020,Junior,Tôi thích thể thao và nghe nhạc vào cuối tuần.,0,,synthetic_rubric,offtopic
+m3-v2-020-keyword-stuffing,m3-v2-020,Junior,"service, network, DNS, host, port, nội bộ, healthcheck, readiness, retry",1,,synthetic_rubric,keyword-stuffing
+m3-v2-020-mixed,m3-v2-020,Junior,Dùng tên service và cổng bên trong trên cùng mạng Compose. Cổng host và cổng container bắt buộc luôn giống nhau.,4,c1,synthetic_rubric,mixed
+m3-v2-021-correct-0,m3-v2-021,Middle,Đo CPU RAM swap và I/O bằng công cụ hệ thống hoặc docker stats trước.,4.0,c1,synthetic_rubric,correct-0
+m3-v2-021-correct-1,m3-v2-021,Middle,"Giới hạn song song lúc build, worker và thread suy luận để tránh chiếm hết tài nguyên.",3.5,c2,synthetic_rubric,correct-1
+m3-v2-021-correct-2,m3-v2-021,Middle,"Tái sử dụng image và cache model, không build lại khi chỉ cần start container.",2.5,c3,synthetic_rubric,correct-2
+m3-v2-021-correct-01,m3-v2-021,Middle,"Đo CPU RAM swap và I/O bằng công cụ hệ thống hoặc docker stats trước. Giới hạn song song lúc build, worker và thread suy luận để tránh chiếm hết tài nguyên.",7.5,c1;c2,synthetic_rubric,correct-01
+m3-v2-021-correct-02,m3-v2-021,Middle,"Đo CPU RAM swap và I/O bằng công cụ hệ thống hoặc docker stats trước. Tái sử dụng image và cache model, không build lại khi chỉ cần start container.",6.5,c1;c3,synthetic_rubric,correct-02
+m3-v2-021-correct-12,m3-v2-021,Middle,"Giới hạn song song lúc build, worker và thread suy luận để tránh chiếm hết tài nguyên. Tái sử dụng image và cache model, không build lại khi chỉ cần start container.",6.0,c2;c3,synthetic_rubric,correct-12
+m3-v2-021-correct-012,m3-v2-021,Middle,"Đo CPU RAM swap và I/O bằng công cụ hệ thống hoặc docker stats trước. Giới hạn song song lúc build, worker và thread suy luận để tránh chiếm hết tài nguyên. Tái sử dụng image và cache model, không build lại khi chỉ cần start container.",10.0,c1;c2;c3,synthetic_rubric,correct-012
+m3-v2-021-paraphrase,m3-v2-021,Middle,Xác định nghẽn bộ nhớ hay tính toán bằng số đo thay vì quy hết cho Docker. Giảm số tác vụ đồng thời và đặt ngân sách tài nguyên cho dịch vụ nặng. Tách bước build khỏi khởi động và lưu cache để tránh tải hoặc biên dịch lặp lại.,10,c1;c2;c3,synthetic_rubric,paraphrase
+m3-v2-021-misconceptions,m3-v2-021,Middle,Di chuyển sang ổ lớn hơn luôn làm giảm mức dùng RAM của model. Càng nhiều worker và thread luôn càng ít lag. Mỗi lần khởi động đều bắt buộc rebuild toàn bộ image.,0,,synthetic_rubric,misconceptions
+m3-v2-021-unknown,m3-v2-021,Middle,Tôi chưa biết cách giải thích vấn đề này.,0,,synthetic_rubric,unknown
+m3-v2-021-offtopic,m3-v2-021,Middle,Tôi thích thể thao và nghe nhạc vào cuối tuần.,0,,synthetic_rubric,offtopic
+m3-v2-021-keyword-stuffing,m3-v2-021,Middle,"CPU, RAM, swap, song song, thread, giới hạn, cache, build, start",1,,synthetic_rubric,keyword-stuffing
+m3-v2-021-mixed,m3-v2-021,Middle,Đo CPU RAM swap và I/O bằng công cụ hệ thống hoặc docker stats trước. Càng nhiều worker và thread luôn càng ít lag.,4,c1,synthetic_rubric,mixed
+m3-v2-022-correct-0,m3-v2-022,Intern,Working tree chứa các file đang được chỉnh sửa.,4.0,c1,synthetic_rubric,correct-0
+m3-v2-022-correct-1,m3-v2-022,Intern,Staging area chọn phiên bản thay đổi sẽ đưa vào commit tiếp theo.,3.5,c2,synthetic_rubric,correct-1
+m3-v2-022-correct-2,m3-v2-022,Intern,Commit lưu snapshot có lịch sử để có thể so sánh và truy vết.,2.5,c3,synthetic_rubric,correct-2
+m3-v2-022-correct-01,m3-v2-022,Intern,Working tree chứa các file đang được chỉnh sửa. Staging area chọn phiên bản thay đổi sẽ đưa vào commit tiếp theo.,7.5,c1;c2,synthetic_rubric,correct-01
+m3-v2-022-correct-02,m3-v2-022,Intern,Working tree chứa các file đang được chỉnh sửa. Commit lưu snapshot có lịch sử để có thể so sánh và truy vết.,6.5,c1;c3,synthetic_rubric,correct-02
+m3-v2-022-correct-12,m3-v2-022,Intern,Staging area chọn phiên bản thay đổi sẽ đưa vào commit tiếp theo. Commit lưu snapshot có lịch sử để có thể so sánh và truy vết.,6.0,c2;c3,synthetic_rubric,correct-12
+m3-v2-022-correct-012,m3-v2-022,Intern,Working tree chứa các file đang được chỉnh sửa. Staging area chọn phiên bản thay đổi sẽ đưa vào commit tiếp theo. Commit lưu snapshot có lịch sử để có thể so sánh và truy vết.,10.0,c1;c2;c3,synthetic_rubric,correct-012
+m3-v2-022-paraphrase,m3-v2-022,Intern,Cây làm việc là nội dung file hiện tại trên máy. git add chuẩn bị đúng phần thay đổi muốn ghi nhận. Mỗi commit ghi trạng thái được chọn kèm thông tin lịch sử.,10,c1;c2;c3,synthetic_rubric,paraphrase
+m3-v2-022-misconceptions,m3-v2-022,Intern,Sửa file tự động tạo một commit mới. git add tự động đẩy code lên remote. Commit chỉ lưu trên RAM và mất khi tắt máy.,0,,synthetic_rubric,misconceptions
+m3-v2-022-unknown,m3-v2-022,Intern,Tôi chưa biết cách giải thích vấn đề này.,0,,synthetic_rubric,unknown
+m3-v2-022-offtopic,m3-v2-022,Intern,Tôi thích thể thao và nghe nhạc vào cuối tuần.,0,,synthetic_rubric,offtopic
+m3-v2-022-keyword-stuffing,m3-v2-022,Intern,"working tree, file, chỉnh sửa, staging, git add, commit, snapshot, lịch sử, commit",1,,synthetic_rubric,keyword-stuffing
+m3-v2-022-mixed,m3-v2-022,Intern,Working tree chứa các file đang được chỉnh sửa. git add tự động đẩy code lên remote.,4,c1,synthetic_rubric,mixed
+m3-v2-023-correct-0,m3-v2-023,Junior,Đọc các phần xung đột và hiểu ý nghĩa thay đổi thay vì chọn một phía máy móc.,4.0,c1,synthetic_rubric,correct-0
+m3-v2-023-correct-1,m3-v2-023,Junior,"Sửa nội dung, bỏ conflict markers rồi stage và hoàn thành merge.",3.5,c2,synthetic_rubric,correct-1
+m3-v2-023-correct-2,m3-v2-023,Junior,Chạy kiểm thử phần bị ảnh hưởng và kiểm tra diff trước khi chia sẻ.,2.5,c3,synthetic_rubric,correct-2
+m3-v2-023-correct-01,m3-v2-023,Junior,"Đọc các phần xung đột và hiểu ý nghĩa thay đổi thay vì chọn một phía máy móc. Sửa nội dung, bỏ conflict markers rồi stage và hoàn thành merge.",7.5,c1;c2,synthetic_rubric,correct-01
+m3-v2-023-correct-02,m3-v2-023,Junior,Đọc các phần xung đột và hiểu ý nghĩa thay đổi thay vì chọn một phía máy móc. Chạy kiểm thử phần bị ảnh hưởng và kiểm tra diff trước khi chia sẻ.,6.5,c1;c3,synthetic_rubric,correct-02
+m3-v2-023-correct-12,m3-v2-023,Junior,"Sửa nội dung, bỏ conflict markers rồi stage và hoàn thành merge. Chạy kiểm thử phần bị ảnh hưởng và kiểm tra diff trước khi chia sẻ.",6.0,c2;c3,synthetic_rubric,correct-12
+m3-v2-023-correct-012,m3-v2-023,Junior,"Đọc các phần xung đột và hiểu ý nghĩa thay đổi thay vì chọn một phía máy móc. Sửa nội dung, bỏ conflict markers rồi stage và hoàn thành merge. Chạy kiểm thử phần bị ảnh hưởng và kiểm tra diff trước khi chia sẻ.",10.0,c1;c2;c3,synthetic_rubric,correct-012
+m3-v2-023-paraphrase,m3-v2-023,Junior,Cần so sánh ngữ cảnh và mục tiêu của hai phiên bản. Sau khi hòa giải cần git add và kết thúc thao tác merge đúng trạng thái. Xác minh code sau gộp vẫn đúng bằng test và review thay đổi.,10,c1;c2;c3,synthetic_rubric,paraphrase
+m3-v2-023-misconceptions,m3-v2-023,Junior,Luôn chọn ours cho mọi conflict là cách đúng. Để nguyên conflict markers rồi commit vẫn là kết quả hợp lệ. Merge thành công nghĩa là không cần chạy test.,0,,synthetic_rubric,misconceptions
+m3-v2-023-unknown,m3-v2-023,Junior,Tôi chưa biết cách giải thích vấn đề này.,0,,synthetic_rubric,unknown
+m3-v2-023-offtopic,m3-v2-023,Junior,Tôi thích thể thao và nghe nhạc vào cuối tuần.,0,,synthetic_rubric,offtopic
+m3-v2-023-keyword-stuffing,m3-v2-023,Junior,"xung đột, hai, ngữ cảnh, markers, stage, merge, test, diff, kiểm tra",1,,synthetic_rubric,keyword-stuffing
+m3-v2-023-mixed,m3-v2-023,Junior,Đọc các phần xung đột và hiểu ý nghĩa thay đổi thay vì chọn một phía máy móc. Để nguyên conflict markers rồi commit vẫn là kết quả hợp lệ.,4,c1,synthetic_rubric,mixed
+m3-v2-024-correct-0,m3-v2-024,Middle,Ưu tiên git revert để tạo commit đảo thay đổi mà không viết lại lịch sử chung.,4.0,c1,synthetic_rubric,correct-0
+m3-v2-024-correct-1,m3-v2-024,Middle,"Xác định phạm vi lỗi, dependency và kiểm thử bản hoàn tác.",3.5,c2,synthetic_rubric,correct-1
+m3-v2-024-correct-2,m3-v2-024,Middle,Trao đổi với nhóm và theo dõi triển khai sau khi hoàn tác.,2.5,c3,synthetic_rubric,correct-2
+m3-v2-024-correct-01,m3-v2-024,Middle,"Ưu tiên git revert để tạo commit đảo thay đổi mà không viết lại lịch sử chung. Xác định phạm vi lỗi, dependency và kiểm thử bản hoàn tác.",7.5,c1;c2,synthetic_rubric,correct-01
+m3-v2-024-correct-02,m3-v2-024,Middle,Ưu tiên git revert để tạo commit đảo thay đổi mà không viết lại lịch sử chung. Trao đổi với nhóm và theo dõi triển khai sau khi hoàn tác.,6.5,c1;c3,synthetic_rubric,correct-02
+m3-v2-024-correct-12,m3-v2-024,Middle,"Xác định phạm vi lỗi, dependency và kiểm thử bản hoàn tác. Trao đổi với nhóm và theo dõi triển khai sau khi hoàn tác.",6.0,c2;c3,synthetic_rubric,correct-12
+m3-v2-024-correct-012,m3-v2-024,Middle,"Ưu tiên git revert để tạo commit đảo thay đổi mà không viết lại lịch sử chung. Xác định phạm vi lỗi, dependency và kiểm thử bản hoàn tác. Trao đổi với nhóm và theo dõi triển khai sau khi hoàn tác.",10.0,c1;c2;c3,synthetic_rubric,correct-012
+m3-v2-024-paraphrase,m3-v2-024,Middle,Nhánh đã chia sẻ thường nên hoàn tác bằng một commit mới. Cần kiểm tra các commit liên quan và tác động khi đảo thay đổi. Cần thông báo thay đổi và xác minh hệ thống hoạt động sau rollback.,10,c1;c2;c3,synthetic_rubric,paraphrase
+m3-v2-024-misconceptions,m3-v2-024,Middle,Luôn reset hard và force push nhánh chung mà không trao đổi. Revert không thể gây conflict hoặc ảnh hưởng commit khác. Hoàn tác trên Git tự động bảo đảm mọi môi trường đã phục hồi.,0,,synthetic_rubric,misconceptions
+m3-v2-024-unknown,m3-v2-024,Middle,Tôi chưa biết cách giải thích vấn đề này.,0,,synthetic_rubric,unknown
+m3-v2-024-offtopic,m3-v2-024,Middle,Tôi thích thể thao và nghe nhạc vào cuối tuần.,0,,synthetic_rubric,offtopic
+m3-v2-024-keyword-stuffing,m3-v2-024,Middle,"revert, lịch sử, commit mới, phạm vi, kiểm thử, liên quan, nhóm, triển khai, theo dõi",1,,synthetic_rubric,keyword-stuffing
+m3-v2-024-mixed,m3-v2-024,Middle,Ưu tiên git revert để tạo commit đảo thay đổi mà không viết lại lịch sử chung. Revert không thể gây conflict hoặc ảnh hưởng commit khác.,4,c1,synthetic_rubric,mixed
+m3-v2-025-correct-0,m3-v2-025,Intern,Authentication xác minh danh tính người dùng hoặc dịch vụ.,4.0,c1,synthetic_rubric,correct-0
+m3-v2-025-correct-1,m3-v2-025,Intern,Authorization kiểm tra quyền thực hiện thao tác lên tài nguyên.,3.5,c2,synthetic_rubric,correct-1
+m3-v2-025-correct-2,m3-v2-025,Intern,Cần kiểm tra quyền phía server cho từng thao tác và phạm vi sở hữu.,2.5,c3,synthetic_rubric,correct-2
+m3-v2-025-correct-01,m3-v2-025,Intern,Authentication xác minh danh tính người dùng hoặc dịch vụ. Authorization kiểm tra quyền thực hiện thao tác lên tài nguyên.,7.5,c1;c2,synthetic_rubric,correct-01
+m3-v2-025-correct-02,m3-v2-025,Intern,Authentication xác minh danh tính người dùng hoặc dịch vụ. Cần kiểm tra quyền phía server cho từng thao tác và phạm vi sở hữu.,6.5,c1;c3,synthetic_rubric,correct-02
+m3-v2-025-correct-12,m3-v2-025,Intern,Authorization kiểm tra quyền thực hiện thao tác lên tài nguyên. Cần kiểm tra quyền phía server cho từng thao tác và phạm vi sở hữu.,6.0,c2;c3,synthetic_rubric,correct-12
+m3-v2-025-correct-012,m3-v2-025,Intern,Authentication xác minh danh tính người dùng hoặc dịch vụ. Authorization kiểm tra quyền thực hiện thao tác lên tài nguyên. Cần kiểm tra quyền phía server cho từng thao tác và phạm vi sở hữu.,10.0,c1;c2;c3,synthetic_rubric,correct-012
+m3-v2-025-paraphrase,m3-v2-025,Intern,Xác thực trả lời người gọi là ai. Phân quyền xác định người đã xác thực có được làm hành động đó không. Ẩn nút ở frontend không thay thế kiểm tra quyền trên API.,10,c1;c2;c3,synthetic_rubric,paraphrase
+m3-v2-025-misconceptions,m3-v2-025,Intern,Authentication quyết định mọi quyền truy cập tài nguyên. Đăng nhập thành công đồng nghĩa được truy cập mọi tài nguyên. Chỉ ẩn nút frontend là đủ để bảo vệ dữ liệu.,0,,synthetic_rubric,misconceptions
+m3-v2-025-unknown,m3-v2-025,Intern,Tôi chưa biết cách giải thích vấn đề này.,0,,synthetic_rubric,unknown
+m3-v2-025-offtopic,m3-v2-025,Intern,Tôi thích thể thao và nghe nhạc vào cuối tuần.,0,,synthetic_rubric,offtopic
+m3-v2-025-keyword-stuffing,m3-v2-025,Intern,"authentication, danh tính, xác thực, authorization, quyền, tài nguyên, server, sở hữu, API",1,,synthetic_rubric,keyword-stuffing
+m3-v2-025-mixed,m3-v2-025,Intern,Authentication xác minh danh tính người dùng hoặc dịch vụ. Đăng nhập thành công đồng nghĩa được truy cập mọi tài nguyên.,4,c1,synthetic_rubric,mixed
+m3-v2-026-correct-0,m3-v2-026,Junior,Xác minh token hợp lệ và trạng thái tài khoản trước khi xử lý.,4.0,c1,synthetic_rubric,correct-0
+m3-v2-026-correct-1,m3-v2-026,Junior,Kiểm tra quyền sở hữu hoặc quan hệ tuyển dụng trên từng ID hồ sơ.,3.5,c2,synthetic_rubric,correct-1
+m3-v2-026-correct-2,m3-v2-026,Junior,Chỉ trả dữ liệu cần thiết và tránh ghi nội dung CV nhạy cảm vào log.,2.5,c3,synthetic_rubric,correct-2
+m3-v2-026-correct-01,m3-v2-026,Junior,Xác minh token hợp lệ và trạng thái tài khoản trước khi xử lý. Kiểm tra quyền sở hữu hoặc quan hệ tuyển dụng trên từng ID hồ sơ.,7.5,c1;c2,synthetic_rubric,correct-01
+m3-v2-026-correct-02,m3-v2-026,Junior,Xác minh token hợp lệ và trạng thái tài khoản trước khi xử lý. Chỉ trả dữ liệu cần thiết và tránh ghi nội dung CV nhạy cảm vào log.,6.5,c1;c3,synthetic_rubric,correct-02
+m3-v2-026-correct-12,m3-v2-026,Junior,Kiểm tra quyền sở hữu hoặc quan hệ tuyển dụng trên từng ID hồ sơ. Chỉ trả dữ liệu cần thiết và tránh ghi nội dung CV nhạy cảm vào log.,6.0,c2;c3,synthetic_rubric,correct-12
+m3-v2-026-correct-012,m3-v2-026,Junior,Xác minh token hợp lệ và trạng thái tài khoản trước khi xử lý. Kiểm tra quyền sở hữu hoặc quan hệ tuyển dụng trên từng ID hồ sơ. Chỉ trả dữ liệu cần thiết và tránh ghi nội dung CV nhạy cảm vào log.,10.0,c1;c2;c3,synthetic_rubric,correct-012
+m3-v2-026-paraphrase,m3-v2-026,Junior,"API cần kiểm chữ ký, hạn token và tài khoản còn được phép dùng. Không tin candidateId do client gửi; cần đối chiếu phạm vi người gọi. Giảm dữ liệu cá nhân trong response và log giúp hạn chế lộ thông tin.",10,c1;c2;c3,synthetic_rubric,paraphrase
+m3-v2-026-misconceptions,m3-v2-026,Junior,Chỉ cần giải mã payload JWT mà không xác minh chữ ký. Biết ID hồ sơ là đủ để được quyền đọc hồ sơ đó. Nên log toàn bộ CV và token để dễ debug.,0,,synthetic_rubric,misconceptions
+m3-v2-026-unknown,m3-v2-026,Junior,Tôi chưa biết cách giải thích vấn đề này.,0,,synthetic_rubric,unknown
+m3-v2-026-offtopic,m3-v2-026,Junior,Tôi thích thể thao và nghe nhạc vào cuối tuần.,0,,synthetic_rubric,offtopic
+m3-v2-026-keyword-stuffing,m3-v2-026,Junior,"token, chữ ký, hạn, sở hữu, candidateId, quyền, dữ liệu, log, nhạy cảm",1,,synthetic_rubric,keyword-stuffing
+m3-v2-026-mixed,m3-v2-026,Junior,Xác minh token hợp lệ và trạng thái tài khoản trước khi xử lý. Biết ID hồ sơ là đủ để được quyền đọc hồ sơ đó.,4,c1,synthetic_rubric,mixed
+m3-v2-027-correct-0,m3-v2-027,Middle,Thu hồi phiên hoặc token liên quan và kiểm tra dấu hiệu lạm dụng.,4.0,c1,synthetic_rubric,correct-0
+m3-v2-027-correct-1,m3-v2-027,Middle,Dùng thời hạn access token ngắn và cơ chế refresh có kiểm soát.,3.5,c2,synthetic_rubric,correct-1
+m3-v2-027-correct-2,m3-v2-027,Middle,"Rà soát nơi lưu token, HTTPS, log và quy trình xử lý sự cố.",2.5,c3,synthetic_rubric,correct-2
+m3-v2-027-correct-01,m3-v2-027,Middle,Thu hồi phiên hoặc token liên quan và kiểm tra dấu hiệu lạm dụng. Dùng thời hạn access token ngắn và cơ chế refresh có kiểm soát.,7.5,c1;c2,synthetic_rubric,correct-01
+m3-v2-027-correct-02,m3-v2-027,Middle,"Thu hồi phiên hoặc token liên quan và kiểm tra dấu hiệu lạm dụng. Rà soát nơi lưu token, HTTPS, log và quy trình xử lý sự cố.",6.5,c1;c3,synthetic_rubric,correct-02
+m3-v2-027-correct-12,m3-v2-027,Middle,"Dùng thời hạn access token ngắn và cơ chế refresh có kiểm soát. Rà soát nơi lưu token, HTTPS, log và quy trình xử lý sự cố.",6.0,c2;c3,synthetic_rubric,correct-12
+m3-v2-027-correct-012,m3-v2-027,Middle,"Thu hồi phiên hoặc token liên quan và kiểm tra dấu hiệu lạm dụng. Dùng thời hạn access token ngắn và cơ chế refresh có kiểm soát. Rà soát nơi lưu token, HTTPS, log và quy trình xử lý sự cố.",10.0,c1;c2;c3,synthetic_rubric,correct-012
+m3-v2-027-paraphrase,m3-v2-027,Middle,"Cần chặn credential bị lộ và xác định phạm vi truy cập bất thường. Giới hạn cửa sổ rủi ro bằng TTL ngắn và quản lý vòng đời refresh token. Cần tìm nguồn lộ ở client, truyền tải hoặc logging rồi khắc phục.",10,c1;c2;c3,synthetic_rubric,paraphrase
+m3-v2-027-misconceptions,m3-v2-027,Middle,Đổi mật khẩu luôn tự làm mọi JWT đang phát hành hết hiệu lực. Access token không hết hạn là cách an toàn nhất. HTTPS làm việc lưu token công khai trong log trở nên an toàn.,0,,synthetic_rubric,misconceptions
+m3-v2-027-unknown,m3-v2-027,Middle,Tôi chưa biết cách giải thích vấn đề này.,0,,synthetic_rubric,unknown
+m3-v2-027-offtopic,m3-v2-027,Middle,Tôi thích thể thao và nghe nhạc vào cuối tuần.,0,,synthetic_rubric,offtopic
+m3-v2-027-keyword-stuffing,m3-v2-027,Middle,"thu hồi, token, lạm dụng, thời hạn, refresh, ngắn, HTTPS, log, sự cố",1,,synthetic_rubric,keyword-stuffing
+m3-v2-027-mixed,m3-v2-027,Middle,Thu hồi phiên hoặc token liên quan và kiểm tra dấu hiệu lạm dụng. Access token không hết hạn là cách an toàn nhất.,4,c1,synthetic_rubric,mixed
+m3-v2-028-correct-0,m3-v2-028,Intern,Train dùng học tham số mô hình.,4.0,c1,synthetic_rubric,correct-0
+m3-v2-028-correct-1,m3-v2-028,Intern,"Validation dùng chọn cấu hình và checkpoint, không thay thế test độc lập.",3.5,c2,synthetic_rubric,correct-1
+m3-v2-028-correct-2,m3-v2-028,Intern,Test được giữ độc lập và tránh để các biến thể cùng nguồn rò giữa các tập.,2.5,c3,synthetic_rubric,correct-2
+m3-v2-028-correct-01,m3-v2-028,Intern,"Train dùng học tham số mô hình. Validation dùng chọn cấu hình và checkpoint, không thay thế test độc lập.",7.5,c1;c2,synthetic_rubric,correct-01
+m3-v2-028-correct-02,m3-v2-028,Intern,Train dùng học tham số mô hình. Test được giữ độc lập và tránh để các biến thể cùng nguồn rò giữa các tập.,6.5,c1;c3,synthetic_rubric,correct-02
+m3-v2-028-correct-12,m3-v2-028,Intern,"Validation dùng chọn cấu hình và checkpoint, không thay thế test độc lập. Test được giữ độc lập và tránh để các biến thể cùng nguồn rò giữa các tập.",6.0,c2;c3,synthetic_rubric,correct-12
+m3-v2-028-correct-012,m3-v2-028,Intern,"Train dùng học tham số mô hình. Validation dùng chọn cấu hình và checkpoint, không thay thế test độc lập. Test được giữ độc lập và tránh để các biến thể cùng nguồn rò giữa các tập.",10.0,c1;c2;c3,synthetic_rubric,correct-012
+m3-v2-028-paraphrase,m3-v2-028,Intern,Tập huấn luyện cung cấp ví dụ để tối ưu trọng số. Tập phát triển phục vụ chọn siêu tham số mà chưa mở tập đánh giá cuối. Đánh giá cuối cần dữ liệu chưa dùng lựa chọn mô hình và tách theo thực thể nguồn.,10,c1;c2;c3,synthetic_rubric,paraphrase
+m3-v2-028-misconceptions,m3-v2-028,Intern,Tập test nên được dùng để học trọng số trong mỗi epoch. Chọn siêu tham số trực tiếp theo test không tạo ra thiên lệch. Chia ngẫu nhiên các bản sao gần giống sang train và test luôn là đánh giá độc lập.,0,,synthetic_rubric,misconceptions
+m3-v2-028-unknown,m3-v2-028,Intern,Tôi chưa biết cách giải thích vấn đề này.,0,,synthetic_rubric,unknown
+m3-v2-028-offtopic,m3-v2-028,Intern,Tôi thích thể thao và nghe nhạc vào cuối tuần.,0,,synthetic_rubric,offtopic
+m3-v2-028-keyword-stuffing,m3-v2-028,Intern,"train, tham số, huấn luyện, validation, checkpoint, siêu tham số, test, độc lập, rò",1,,synthetic_rubric,keyword-stuffing
+m3-v2-028-mixed,m3-v2-028,Intern,Train dùng học tham số mô hình. Chọn siêu tham số trực tiếp theo test không tạo ra thiên lệch.,4,c1,synthetic_rubric,mixed
+m3-v2-029-correct-0,m3-v2-029,Junior,So sánh điểm mô hình với điểm người chấm độc lập bằng MAE và phân tích sai số.,4.0,c1,synthetic_rubric,correct-0
+m3-v2-029-correct-1,m3-v2-029,Junior,Tách test theo câu hỏi để tránh câu trả lời biến thể làm rò dữ liệu.,3.5,c2,synthetic_rubric,correct-1
+m3-v2-029-correct-2,m3-v2-029,Junior,"Kiểm tra câu diễn đạt lại, phủ định, sai kiến thức và trường hợp ngoài miền.",2.5,c3,synthetic_rubric,correct-2
+m3-v2-029-correct-01,m3-v2-029,Junior,So sánh điểm mô hình với điểm người chấm độc lập bằng MAE và phân tích sai số. Tách test theo câu hỏi để tránh câu trả lời biến thể làm rò dữ liệu.,7.5,c1;c2,synthetic_rubric,correct-01
+m3-v2-029-correct-02,m3-v2-029,Junior,"So sánh điểm mô hình với điểm người chấm độc lập bằng MAE và phân tích sai số. Kiểm tra câu diễn đạt lại, phủ định, sai kiến thức và trường hợp ngoài miền.",6.5,c1;c3,synthetic_rubric,correct-02
+m3-v2-029-correct-12,m3-v2-029,Junior,"Tách test theo câu hỏi để tránh câu trả lời biến thể làm rò dữ liệu. Kiểm tra câu diễn đạt lại, phủ định, sai kiến thức và trường hợp ngoài miền.",6.0,c2;c3,synthetic_rubric,correct-12
+m3-v2-029-correct-012,m3-v2-029,Junior,"So sánh điểm mô hình với điểm người chấm độc lập bằng MAE và phân tích sai số. Tách test theo câu hỏi để tránh câu trả lời biến thể làm rò dữ liệu. Kiểm tra câu diễn đạt lại, phủ định, sai kiến thức và trường hợp ngoài miền.",10.0,c1;c2;c3,synthetic_rubric,correct-012
+m3-v2-029-paraphrase,m3-v2-029,Junior,"Cần nhãn chuyên gia và xem độ lệch điểm chứ không chỉ xem vài ví dụ đẹp. Các phiên bản đáp án cho một câu cần nằm cùng nhóm khi chia tập. Bộ thử cần có paraphrase, câu sai nhưng giống từ và chủ đề lạ.",10,c1;c2;c3,synthetic_rubric,paraphrase
+m3-v2-029-misconceptions,m3-v2-029,Junior,Nhãn tự sinh luôn tương đương đánh giá của chuyên gia. Chia từng dòng ngẫu nhiên luôn ngăn mọi dạng rò dữ liệu. Tương đồng ngữ nghĩa cao luôn chứng minh câu trả lời đúng chuyên môn.,0,,synthetic_rubric,misconceptions
+m3-v2-029-unknown,m3-v2-029,Junior,Tôi chưa biết cách giải thích vấn đề này.,0,,synthetic_rubric,unknown
+m3-v2-029-offtopic,m3-v2-029,Junior,Tôi thích thể thao và nghe nhạc vào cuối tuần.,0,,synthetic_rubric,offtopic
+m3-v2-029-keyword-stuffing,m3-v2-029,Junior,"MAE, người chấm, sai số, câu hỏi, nhóm, rò, phủ định, diễn đạt, ngoài miền",1,,synthetic_rubric,keyword-stuffing
+m3-v2-029-mixed,m3-v2-029,Junior,So sánh điểm mô hình với điểm người chấm độc lập bằng MAE và phân tích sai số. Chia từng dòng ngẫu nhiên luôn ngăn mọi dạng rò dữ liệu.,4,c1,synthetic_rubric,mixed
+m3-v2-030-correct-0,m3-v2-030,Middle,Kiểm tra domain shift và dữ liệu rò giữa train với test.,4.0,c1,synthetic_rubric,correct-0
+m3-v2-030-correct-1,m3-v2-030,Middle,Thu thập mẫu thật có nhãn độc lập và đánh giá theo từng nhóm lỗi.,3.5,c2,synthetic_rubric,correct-1
+m3-v2-030-correct-2,m3-v2-030,Middle,"So sánh baseline, hiệu chỉnh ngưỡng trên validation và giữ test cuối độc lập.",2.5,c3,synthetic_rubric,correct-2
+m3-v2-030-correct-01,m3-v2-030,Middle,Kiểm tra domain shift và dữ liệu rò giữa train với test. Thu thập mẫu thật có nhãn độc lập và đánh giá theo từng nhóm lỗi.,7.5,c1;c2,synthetic_rubric,correct-01
+m3-v2-030-correct-02,m3-v2-030,Middle,"Kiểm tra domain shift và dữ liệu rò giữa train với test. So sánh baseline, hiệu chỉnh ngưỡng trên validation và giữ test cuối độc lập.",6.5,c1;c3,synthetic_rubric,correct-02
+m3-v2-030-correct-12,m3-v2-030,Middle,"Thu thập mẫu thật có nhãn độc lập và đánh giá theo từng nhóm lỗi. So sánh baseline, hiệu chỉnh ngưỡng trên validation và giữ test cuối độc lập.",6.0,c2;c3,synthetic_rubric,correct-12
+m3-v2-030-correct-012,m3-v2-030,Middle,"Kiểm tra domain shift và dữ liệu rò giữa train với test. Thu thập mẫu thật có nhãn độc lập và đánh giá theo từng nhóm lỗi. So sánh baseline, hiệu chỉnh ngưỡng trên validation và giữ test cuối độc lập.",10.0,c1;c2;c3,synthetic_rubric,correct-012
+m3-v2-030-paraphrase,m3-v2-030,Middle,"Cần xem dữ liệu thật khác mẫu tổng hợp ở ngôn ngữ, bố cục hay phân phối ra sao. Cần bộ đánh giá đại diện cùng phân tích theo trường, chủ đề hoặc cấp độ. Đo cải thiện với phương án đơn giản, chọn ngưỡng ở dev rồi đánh giá lại trên test chưa dùng.",10,c1;c2;c3,synthetic_rubric,paraphrase
+m3-v2-030-misconceptions,m3-v2-030,Middle,Điểm cao trên dữ liệu tổng hợp bảo đảm chất lượng trên người dùng thật. Chỉ tăng số mẫu tổng hợp giống nhau sẽ sửa mọi lỗi thực tế. Có thể điều chỉnh ngưỡng theo test nhiều lần rồi coi test vẫn độc lập.,0,,synthetic_rubric,misconceptions
+m3-v2-030-unknown,m3-v2-030,Middle,Tôi chưa biết cách giải thích vấn đề này.,0,,synthetic_rubric,unknown
+m3-v2-030-offtopic,m3-v2-030,Middle,Tôi thích thể thao và nghe nhạc vào cuối tuần.,0,,synthetic_rubric,offtopic
+m3-v2-030-keyword-stuffing,m3-v2-030,Middle,"domain shift, dữ liệu, rò, nhãn, thật, lỗi, baseline, ngưỡng, validation",1,,synthetic_rubric,keyword-stuffing
+m3-v2-030-mixed,m3-v2-030,Middle,Kiểm tra domain shift và dữ liệu rò giữa train với test. Chỉ tăng số mẫu tổng hợp giống nhau sẽ sửa mọi lỗi thực tế.,4,c1,synthetic_rubric,mixed

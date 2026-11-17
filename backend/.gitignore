@@ -1,5 +1,7 @@
 HELP.md
 target/
+uploads/
+!uploads/.gitkeep
 .mvn/wrapper/maven-wrapper.jar
 !**/src/main/**/target/
 !**/src/test/**/target/
@@ -31,3 +33,6 @@ build/
 
 ### VS Code ###
 .vscode/
+
+# Exported candidate/account data
+legacy-export/

@@ -1,0 +1,14 @@
+surface,skill_name,source
+REST,REST API,system:interview-bank
+RESTful,REST API,system:interview-bank
+HTTP API,REST API,system:interview-bank
+bảo mật,Security,system:interview-bank
+application security,Security,system:interview-bank
+AppSec,Security,system:interview-bank
+an ninh,Security,system:interview-bank
+học sâu,Deep Learning,system:matching-graph
+khoa học dữ liệu,Data Science,system:matching-graph
+shell,Shell Scripting,system:matching-graph
+cloud,Cloud Computing,system:matching-graph
+database,Database,system:matching-graph
+cơ sở dữ liệu,Database,system:matching-graph

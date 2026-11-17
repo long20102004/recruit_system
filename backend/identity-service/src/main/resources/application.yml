@@ -1,0 +1,44 @@
+server:
+  port: ${SERVER_PORT:8081}
+spring:
+  application:
+    name: identity-service
+  datasource:
+    url: ${DB_URL:jdbc:mysql://localhost:3307/hirelens_identity?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=Asia/Ho_Chi_Minh&characterEncoding=UTF-8}
+    username: ${DB_USERNAME:hirelens}
+    password: ${DB_PASSWORD:hirelens-local}
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  jpa:
+    hibernate:
+      ddl-auto: validate
+    open-in-view: false
+    properties:
+      hibernate.jdbc.time_zone: Asia/Ho_Chi_Minh
+  flyway:
+    locations: classpath:db/migration
+  servlet:
+    multipart:
+      max-file-size: 10MB
+      max-request-size: 12MB
+app:
+  identity:
+    remote: false
+  jwt:
+    secret: ${JWT_SECRET:HireLensDemoJwtSecretKeyMustBeAtLeast256BitsLongForHS256!!}
+    expiration-ms: 86400000
+  cors:
+    allowed-origins: ${CORS_ORIGINS:http://localhost:5173}
+  services:
+    token: ${SERVICE_TOKEN:hirelens-local-service-token-change-before-deploy}
+    identity-url: ${IDENTITY_URL:http://localhost:8081}
+    recruitment-url: ${RECRUITMENT_URL:http://localhost:8082}
+    interview-url: ${INTERVIEW_URL:http://localhost:8083}
+  upload:
+    path: ${UPLOAD_PATH:./uploads}
+  ai:
+    base-url: ${AI_URL:http://localhost:8000}
+    enabled: true
+    mode: ${AI_MODE:fast}
+    connect-timeout-ms: 3000
+    read-timeout-ms: 60000
+    fallback-to-rule: false

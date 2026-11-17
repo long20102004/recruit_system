@@ -1,0 +1,301 @@
+jd_id,cv_id,label,annotator_1,annotator_2,annotator_3,jd_title,cv_kieu,cv_tom_tat,rubric_u,ghi_chu,is_synthetic
+jd_01,cv_001,4,4,4,4,Junior Java Backend Developer,strong,backend | Junior | 1.1 năm liên quan,0.913,Cấp bậc Junior vs Junior,0
+jd_01,cv_002,4,4,4,4,Junior Java Backend Developer,strong,backend | Junior | 2.6 năm liên quan,0.885,"Khớp một phần: Spring Boot, Git; Cấp bậc Junior vs Junior",0
+jd_01,cv_003,3,3,3,3,Junior Java Backend Developer,overqual,backend | Lead | 6.9 năm liên quan,0.796,Khớp một phần: REST API; Giới hạn: quá cấp bậc (overqualified); Cấp bậc Lead vs Junior,0
+jd_01,cv_004,3,3,3,4,Junior Java Backend Developer,good,backend | Fresher | 1.2 năm liên quan | sinh viên,0.772,Thiếu: REST API; Cấp bậc Fresher vs Junior,0
+jd_01,cv_005,1,1,1,1,Junior Java Backend Developer,partial,backend | Fresher | 0.7 năm liên quan | sinh viên,0.651,Thiếu: Spring Boot; Giới hạn: thiếu skill cốt lõi; Cấp bậc Fresher vs Junior,0
+jd_01,cv_006,3,3,3,4,Junior Java Backend Developer,junior_low,backend | Fresher | 1.1 năm liên quan | sinh viên,0.821,Cấp bậc Fresher vs Junior,0
+jd_01,cv_007,1,1,1,1,Junior Java Backend Developer,partial,fullstack | Fresher | 0.8 năm liên quan,0.588,"Thiếu: Spring Boot, MySQL / PostgreSQL; Giới hạn: thiếu skill cốt lõi; Cấp bậc Fresher vs Junior",0
+jd_01,cv_008,0,0,0,0,Junior Java Backend Developer,mismatch,data | Fresher | 0.0 năm liên quan,0.276,"Thiếu: Java, Spring Boot, REST API; Khớp một phần: MySQL / PostgreSQL, Git; Giới hạn: thiếu skill cốt lõi; thiếu nhiều skill bắt buộc; Cấp bậc Fresher vs Junior",0
+jd_01,cv_009,4,4,4,4,Junior Java Backend Developer,transfer,backend | Junior | 1.9 năm liên quan,0.868,Khớp một phần: Spring Boot; Cấp bậc Junior vs Junior,0
+jd_01,cv_010,1,1,1,1,Junior Java Backend Developer,weak,backend | Intern | 0.8 năm liên quan | sinh viên,0.506,"Thiếu: Spring Boot, REST API; Khớp một phần: MySQL / PostgreSQL, Git; Giới hạn: thiếu skill cốt lõi; cấp bậc thấp hơn 2 bậc; Cấp bậc Intern vs Junior",0
+jd_02,cv_011,4,4,4,4,Mid Java Backend Developer (Fintech),strong,backend | Mid | 3.6 năm liên quan,0.904,Cấp bậc Mid vs Mid,0
+jd_02,cv_012,4,4,4,4,Mid Java Backend Developer (Fintech),strong,backend | Mid | 4.4 năm liên quan,0.958,Cấp bậc Mid vs Mid,0
+jd_02,cv_013,4,3,4,4,Mid Java Backend Developer (Fintech),good,fullstack | Mid | 1.9 năm liên quan,0.817,Khớp một phần: Microservices; Cấp bậc Mid vs Mid,0
+jd_02,cv_014,3,3,3,4,Mid Java Backend Developer (Fintech),good,fullstack | Mid | 1.5 năm liên quan,0.737,"Thiếu: REST API, Microservices; Cấp bậc Mid vs Mid",0
+jd_02,cv_015,1,1,1,1,Mid Java Backend Developer (Fintech),partial,backend | Junior | 2.3 năm liên quan,0.523,"Thiếu: Java, Spring Boot; Khớp một phần: Git; Giới hạn: thiếu skill cốt lõi; Cấp bậc Junior vs Mid",0
+jd_02,cv_016,4,4,3,4,Mid Java Backend Developer (Fintech),junior_low,backend | Mid | 3.0 năm liên quan,0.82,Thiếu: Microservices; Cấp bậc Mid vs Mid,0
+jd_02,cv_017,0,0,0,0,Mid Java Backend Developer (Fintech),weak,backend | Fresher | 0.5 năm liên quan,0.224,"Thiếu: Java, Spring Boot, REST API, Microservices, Git; Giới hạn: thiếu skill cốt lõi; thiếu nhiều skill bắt buộc; cấp bậc thấp hơn 2 bậc; Cấp bậc Fresher vs Mid",0
+jd_02,cv_018,0,0,0,0,Mid Java Backend Developer (Fintech),junior_low,backend | Junior | 1.1 năm liên quan,0.522,"Thiếu: Spring Boot, REST API, Microservices, Git; Giới hạn: thiếu skill cốt lõi; thiếu nhiều skill bắt buộc; Cấp bậc Junior vs Mid",0
+jd_02,cv_019,4,4,4,4,Mid Java Backend Developer (Fintech),transfer,backend | Mid | 3.2 năm liên quan,0.822,Khớp một phần: Spring Boot; Cấp bậc Mid vs Mid,0
+jd_02,cv_020,1,1,1,1,Mid Java Backend Developer (Fintech),weak,backend | Intern | 0.4 năm liên quan | sinh viên,0.565,"Thiếu: Microservices; Khớp một phần: REST API, Git; Giới hạn: cấp bậc thấp hơn 2 bậc; Cấp bậc Intern vs Mid",0
+jd_03,cv_021,4,4,4,4,Senior Java Backend Engineer,strong,backend | Senior | 5.3 năm liên quan,0.903,Cấp bậc Senior vs Senior,0
+jd_03,cv_022,0,0,0,0,Senior Java Backend Engineer,weak,backend | Intern | 0.3 năm liên quan | sinh viên,0.307,"Thiếu: Spring Boot, Microservices, MySQL / PostgreSQL, Git; Khớp một phần: Java, REST API, Docker; Giới hạn: thiếu skill cốt lõi; thiếu nhiều skill bắt buộc; cấp bậc thấp hơn 2 bậc; Cấp bậc Intern vs Senior",0
+jd_03,cv_023,4,4,4,4,Senior Java Backend Engineer,good,backend | Senior | 5.7 năm liên quan,0.854,Thiếu: REST API; Cấp bậc Senior vs Senior,0
+jd_03,cv_024,4,3,4,4,Senior Java Backend Engineer,good,backend | Mid | 4.8 năm liên quan,0.809,"Thiếu: MySQL / PostgreSQL, Docker; Cấp bậc Mid vs Senior",0
+jd_03,cv_025,3,3,4,3,Senior Java Backend Engineer,partial,backend | Senior | 6.4 năm liên quan,0.772,"Thiếu: REST API, Git; Cấp bậc Senior vs Senior",0
+jd_03,cv_026,3,3,3,3,Senior Java Backend Engineer,junior_low,backend | Mid | 4.7 năm liên quan,0.733,Khớp một phần: Git; Cấp bậc Mid vs Senior,0
+jd_03,cv_027,4,4,4,4,Senior Java Backend Engineer,overqual,backend | Lead | 10.9 năm liên quan | sinh viên,0.887,Cấp bậc Lead vs Senior,0
+jd_03,cv_028,0,0,0,0,Senior Java Backend Engineer,mismatch,mobile | Fresher | 0.0 năm liên quan,0.254,"Thiếu: Spring Boot, Microservices, MySQL / PostgreSQL, Docker; Khớp một phần: Java; Giới hạn: lệch hướng vai trò; thiếu skill cốt lõi; thiếu nhiều skill bắt buộc; cấp bậc thấp hơn 2 bậc; Cấp bậc Fresher vs Senior",0
+jd_03,cv_029,4,4,4,4,Senior Java Backend Engineer,transfer,backend | Senior | 5.5 năm liên quan,0.837,"Khớp một phần: Spring Boot, Docker; Cấp bậc Senior vs Senior",0
+jd_03,cv_030,0,0,0,0,Senior Java Backend Engineer,weak,backend | Intern | 1.0 năm liên quan | sinh viên,0.27,"Thiếu: Java, Spring Boot, REST API, Docker, Git; Giới hạn: thiếu skill cốt lõi; thiếu nhiều skill bắt buộc; cấp bậc thấp hơn 2 bậc; Cấp bậc Intern vs Senior",0
+jd_04,cv_031,4,4,4,4,Junior Python Backend Developer,strong,backend | Junior | 3.0 năm liên quan,0.926,Khớp một phần: REST API; Cấp bậc Junior vs Junior,0
+jd_04,cv_032,4,4,4,4,Junior Python Backend Developer,strong,backend | Junior | 2.9 năm liên quan,0.883,Cấp bậc Junior vs Junior,0
+jd_04,cv_033,4,4,4,4,Junior Python Backend Developer,good,backend | Junior | 1.2 năm liên quan,0.841,Khớp một phần: REST API; Cấp bậc Junior vs Junior,0
+jd_04,cv_034,4,4,4,4,Junior Python Backend Developer,good,backend | Junior | 2.1 năm liên quan,0.83,Khớp một phần: REST API; Cấp bậc Junior vs Junior,0
+jd_04,cv_035,3,3,4,3,Junior Python Backend Developer,partial,backend | Junior | 1.2 năm liên quan,0.75,Thiếu: REST API; Khớp một phần: MySQL / PostgreSQL; Cấp bậc Junior vs Junior,0
+jd_04,cv_036,4,4,4,4,Junior Python Backend Developer,good,backend | Junior | 1.0 năm liên quan,0.863,Cấp bậc Junior vs Junior,0
+jd_04,cv_037,3,3,3,3,Junior Python Backend Developer,overqual,backend | Senior | 5.5 năm liên quan,0.867,Khớp một phần: MySQL / PostgreSQL; Giới hạn: quá cấp bậc (overqualified); Cấp bậc Senior vs Junior,0
+jd_04,cv_038,4,4,4,4,Junior Python Backend Developer,transfer,backend | Junior | 2.1 năm liên quan,0.93,Cấp bậc Junior vs Junior,0
+jd_04,cv_039,4,4,4,4,Junior Python Backend Developer,transfer,backend | Junior | 1.7 năm liên quan,0.873,Cấp bậc Junior vs Junior,0
+jd_04,cv_040,0,0,0,0,Junior Python Backend Developer,weak,backend | Intern | 1.0 năm liên quan | sinh viên,0.479,"Thiếu: Django / Flask / FastAPI, REST API, Git; Khớp một phần: MySQL / PostgreSQL; Giới hạn: thiếu skill cốt lõi; thiếu nhiều skill bắt buộc; cấp bậc thấp hơn 2 bậc; Cấp bậc Intern vs Junior",0
+jd_05,cv_041,4,4,4,4,Mid Python Backend Developer (Healthcare data),strong,backend | Mid | 4.2 năm liên quan,0.854,Thiếu: Git; Khớp một phần: REST API; Cấp bậc Mid vs Mid,0
+jd_05,cv_042,4,4,4,4,Mid Python Backend Developer (Healthcare data),strong,backend | Mid | 4.7 năm liên quan,0.909,Cấp bậc Mid vs Mid,0
+jd_05,cv_043,4,4,4,4,Mid Python Backend Developer (Healthcare data),good,backend | Mid | 3.9 năm liên quan,0.842,Khớp một phần: PostgreSQL; Cấp bậc Mid vs Mid,0
+jd_05,cv_044,4,4,4,4,Mid Python Backend Developer (Healthcare data),good,backend | Mid | 3.8 năm liên quan | sinh viên,0.847,Thiếu: Docker; Cấp bậc Mid vs Mid,0
+jd_05,cv_045,0,0,0,0,Mid Python Backend Developer (Healthcare data),weak,backend | Intern | 0.6 năm liên quan | sinh viên,0.171,"Thiếu: Python, Django / FastAPI, REST API, PostgreSQL, Docker, Git; Giới hạn: thiếu skill cốt lõi; thiếu nhiều skill bắt buộc; cấp bậc thấp hơn 2 bậc; Cấp bậc Intern vs Mid",0
+jd_05,cv_046,4,4,3,4,Mid Python Backend Developer (Healthcare data),junior_low,backend | Junior | 2.2 năm liên quan,0.79,Thiếu: Git; Cấp bậc Junior vs Mid,0
+jd_05,cv_047,3,3,3,3,Mid Python Backend Developer (Healthcare data),overqual,backend | Lead | 8.1 năm liên quan,0.862,Giới hạn: quá cấp bậc (overqualified); Cấp bậc Lead vs Mid,0
+jd_05,cv_048,4,4,4,4,Mid Python Backend Developer (Healthcare data),transfer,backend | Mid | 4.1 năm liên quan,0.875,Khớp một phần: REST API; Cấp bậc Mid vs Mid,0
+jd_05,cv_049,4,4,4,4,Mid Python Backend Developer (Healthcare data),transfer,backend | Senior | 3.2 năm liên quan,0.861,"Khớp một phần: REST API, PostgreSQL; Cấp bậc Senior vs Mid",0
+jd_05,cv_050,0,0,0,0,Mid Python Backend Developer (Healthcare data),weak,backend | Intern | 0.7 năm liên quan,0.283,"Thiếu: Python, Django / FastAPI, Docker, Git; Giới hạn: thiếu skill cốt lõi; thiếu nhiều skill bắt buộc; cấp bậc thấp hơn 2 bậc; Cấp bậc Intern vs Mid",0
+jd_06,cv_051,4,4,4,4,Junior Frontend Developer (React),strong,frontend | Junior | 2.0 năm liên quan,0.923,Khớp một phần: REST API; Cấp bậc Junior vs Junior,0
+jd_06,cv_052,4,4,4,4,Junior Frontend Developer (React),good,frontend | Junior | 1.2 năm liên quan,0.867,Cấp bậc Junior vs Junior,0
+jd_06,cv_053,4,4,4,4,Junior Frontend Developer (React),strong,frontend | Junior | 2.9 năm liên quan,0.93,Cấp bậc Junior vs Junior,0
+jd_06,cv_054,4,4,4,4,Junior Frontend Developer (React),good,frontend | Fresher | 1.1 năm liên quan | sinh viên,0.912,Cấp bậc Fresher vs Junior,0
+jd_06,cv_055,4,4,3,4,Junior Frontend Developer (React),partial,frontend | Mid | 3.0 năm liên quan,0.789,Khớp một phần: HTML/CSS; Cấp bậc Mid vs Junior,0
+jd_06,cv_056,4,4,4,4,Junior Frontend Developer (React),junior_low,frontend | Fresher | 1.0 năm liên quan | sinh viên,0.798,Thiếu: REST API; Cấp bậc Fresher vs Junior,0
+jd_06,cv_057,3,3,3,3,Junior Frontend Developer (React),overqual,frontend | Senior | 5.4 năm liên quan,0.858,Giới hạn: quá cấp bậc (overqualified); Cấp bậc Senior vs Junior,0
+jd_06,cv_058,3,2,3,3,Junior Frontend Developer (React),mismatch,mobile | Fresher | 0.0 năm liên quan,0.625,"Thiếu: HTML/CSS; Khớp một phần: JavaScript, React; Cấp bậc Fresher vs Junior",0
+jd_06,cv_059,3,3,4,3,Junior Frontend Developer (React),transfer,frontend | Junior | 2.8 năm liên quan,0.784,"Khớp một phần: React, HTML/CSS; Cấp bậc Junior vs Junior",0
+jd_06,cv_060,1,1,1,1,Junior Frontend Developer (React),weak,frontend | Intern | 0.8 năm liên quan | sinh viên,0.552,"Thiếu: React, Git; Khớp một phần: HTML/CSS; Giới hạn: thiếu skill cốt lõi; cấp bậc thấp hơn 2 bậc; Cấp bậc Intern vs Junior",0
+jd_07,cv_061,4,4,4,4,Mid Frontend Developer (React/TypeScript),strong,frontend | Mid | 4.5 năm liên quan,0.893,Cấp bậc Mid vs Mid,0
+jd_07,cv_062,4,4,4,4,Mid Frontend Developer (React/TypeScript),strong,frontend | Mid | 4.5 năm liên quan,0.9,Khớp một phần: Git; Cấp bậc Mid vs Mid,0
+jd_07,cv_063,4,4,4,4,Mid Frontend Developer (React/TypeScript),good,frontend | Mid | 3.5 năm liên quan,0.88,Khớp một phần: Git; Cấp bậc Mid vs Mid,0
+jd_07,cv_064,4,3,4,4,Mid Frontend Developer (React/TypeScript),good,fullstack | Junior | 1.8 năm liên quan,0.821,Cấp bậc Junior vs Mid,0
+jd_07,cv_065,4,4,4,4,Mid Frontend Developer (React/TypeScript),good,frontend | Mid | 3.8 năm liên quan,0.85,Khớp một phần: HTML/CSS; Cấp bậc Mid vs Mid,0
+jd_07,cv_066,3,3,3,4,Mid Frontend Developer (React/TypeScript),junior_low,frontend | Junior | 1.6 năm liên quan,0.772,Thiếu: REST API; Cấp bậc Junior vs Mid,0
+jd_07,cv_067,3,3,3,3,Mid Frontend Developer (React/TypeScript),overqual,frontend | Lead | 8.3 năm liên quan,0.858,"Khớp một phần: HTML/CSS, REST API; Giới hạn: quá cấp bậc (overqualified); Cấp bậc Lead vs Mid",0
+jd_07,cv_068,0,0,0,0,Mid Frontend Developer (React/TypeScript),mismatch,devops | Fresher | 0.0 năm liên quan,0.342,"Thiếu: TypeScript, REST API; Khớp một phần: JavaScript, React; Giới hạn: lệch hướng vai trò; thiếu skill cốt lõi; cấp bậc thấp hơn 2 bậc; Cấp bậc Fresher vs Mid",0
+jd_07,cv_069,4,3,4,4,Mid Frontend Developer (React/TypeScript),partial,frontend | Mid | 4.0 năm liên quan,0.854,Cấp bậc Mid vs Mid,0
+jd_07,cv_070,0,0,0,0,Mid Frontend Developer (React/TypeScript),weak,frontend | Fresher | 0.2 năm liên quan | sinh viên,0.23,"Thiếu: JavaScript, TypeScript, React, Git, REST API; Khớp một phần: HTML/CSS; Giới hạn: thiếu skill cốt lõi; thiếu nhiều skill bắt buộc; cấp bậc thấp hơn 2 bậc; Cấp bậc Fresher vs Mid",0
+jd_08,cv_071,4,4,4,4,Mid Fullstack Developer (Node.js + React),strong,fullstack | Mid | 4.4 năm liên quan,0.882,Thiếu: REST API; Cấp bậc Mid vs Mid,0
+jd_08,cv_072,4,4,4,4,Mid Fullstack Developer (Node.js + React),strong,fullstack | Mid | 3.2 năm liên quan,0.957,Cấp bậc Mid vs Mid,0
+jd_08,cv_073,4,4,4,4,Mid Fullstack Developer (Node.js + React),good,fullstack | Senior | 3.5 năm liên quan | sinh viên,0.904,Cấp bậc Senior vs Mid,0
+jd_08,cv_074,4,3,4,4,Mid Fullstack Developer (Node.js + React),good,fullstack | Senior | 3.7 năm liên quan,0.843,Thiếu: MySQL / PostgreSQL / MongoDB; Cấp bậc Senior vs Mid,0
+jd_08,cv_075,3,3,3,4,Mid Fullstack Developer (Node.js + React),partial,fullstack | Junior | 3.0 năm liên quan,0.713,"Thiếu: MySQL / PostgreSQL / MongoDB, Git; Cấp bậc Junior vs Mid",0
+jd_08,cv_076,3,2,3,3,Mid Fullstack Developer (Node.js + React),junior_low,fullstack | Junior | 1.0 năm liên quan,0.712,Thiếu: MySQL / PostgreSQL / MongoDB; Cấp bậc Junior vs Mid,0
+jd_08,cv_077,3,3,3,3,Mid Fullstack Developer (Node.js + React),overqual,fullstack | Lead | 8.1 năm liên quan,0.894,Giới hạn: quá cấp bậc (overqualified); Cấp bậc Lead vs Mid,0
+jd_08,cv_078,3,4,3,3,Mid Fullstack Developer (Node.js + React),partial,fullstack | Junior | 2.6 năm liên quan,0.763,Thiếu: REST API; Cấp bậc Junior vs Mid,0
+jd_08,cv_079,3,3,3,3,Mid Fullstack Developer (Node.js + React),overqual,fullstack | Lead | 7.7 năm liên quan,0.839,"Khớp một phần: REST API, Git; Giới hạn: quá cấp bậc (overqualified); Cấp bậc Lead vs Mid",0
+jd_08,cv_080,0,0,0,1,Mid Fullstack Developer (Node.js + React),weak,fullstack | Fresher | 0.1 năm liên quan | sinh viên,0.306,"Thiếu: Node.js, React, Git; Khớp một phần: JavaScript, MySQL / PostgreSQL / MongoDB, REST API; Giới hạn: thiếu skill cốt lõi; cấp bậc thấp hơn 2 bậc; Cấp bậc Fresher vs Mid",0
+jd_09,cv_081,3,3,3,3,Junior Node.js Backend Developer,overqual,backend | Senior | 5.3 năm liên quan,0.829,Khớp một phần: MongoDB / MySQL / PostgreSQL; Giới hạn: quá cấp bậc (overqualified); Cấp bậc Senior vs Junior,0
+jd_09,cv_082,4,4,4,4,Junior Node.js Backend Developer,strong,backend | Junior | 2.1 năm liên quan,0.935,Khớp một phần: Node.js; Cấp bậc Junior vs Junior,0
+jd_09,cv_083,0,0,0,0,Junior Node.js Backend Developer,weak,backend | Intern | 0.8 năm liên quan | sinh viên,0.313,"Thiếu: Node.js, REST API, MongoDB / MySQL / PostgreSQL, Git; Khớp một phần: JavaScript; Giới hạn: thiếu skill cốt lõi; thiếu nhiều skill bắt buộc; cấp bậc thấp hơn 2 bậc; Cấp bậc Intern vs Junior",0
+jd_09,cv_084,4,4,4,4,Junior Node.js Backend Developer,good,fullstack | Junior | 0.8 năm liên quan,0.848,Cấp bậc Junior vs Junior,0
+jd_09,cv_085,3,3,3,3,Junior Node.js Backend Developer,partial,fullstack | Junior | 1.2 năm liên quan,0.713,"Thiếu: MongoDB / MySQL / PostgreSQL, Git; Khớp một phần: Node.js; Cấp bậc Junior vs Junior",0
+jd_09,cv_086,4,3,4,4,Junior Node.js Backend Developer,junior_low,backend | Fresher | 0.9 năm liên quan | sinh viên,0.793,Khớp một phần: REST API; Cấp bậc Fresher vs Junior,0
+jd_09,cv_087,3,3,3,3,Junior Node.js Backend Developer,overqual,backend | Senior | 6.8 năm liên quan,0.877,Giới hạn: quá cấp bậc (overqualified); Cấp bậc Senior vs Junior,0
+jd_09,cv_088,0,0,0,0,Junior Node.js Backend Developer,mismatch,mobile | Fresher | 0.0 năm liên quan,0.313,"Thiếu: JavaScript, Node.js, MongoDB / MySQL / PostgreSQL; Giới hạn: lệch hướng vai trò; thiếu skill cốt lõi; Cấp bậc Fresher vs Junior",0
+jd_09,cv_089,1,1,1,1,Junior Node.js Backend Developer,transfer,backend | Fresher | 1.9 năm liên quan | sinh viên,0.606,Thiếu: Node.js; Khớp một phần: Git; Giới hạn: thiếu skill cốt lõi; Cấp bậc Fresher vs Junior,0
+jd_09,cv_090,0,0,0,0,Junior Node.js Backend Developer,weak,backend | Fresher | 0.1 năm liên quan | sinh viên,0.369,"Thiếu: Node.js, MongoDB / MySQL / PostgreSQL, Git; Khớp một phần: JavaScript, REST API; Giới hạn: thiếu skill cốt lõi; thiếu nhiều skill bắt buộc; Cấp bậc Fresher vs Junior",0
+jd_10,cv_091,4,4,4,4,Mid DevOps Engineer,strong,devops | Mid | 3.8 năm liên quan,0.891,Cấp bậc Mid vs Mid,0
+jd_10,cv_092,4,4,4,4,Mid DevOps Engineer,strong,devops | Senior | 4.4 năm liên quan,0.84,Thiếu: AWS / Azure / GCP; Khớp một phần: Kubernetes; Cấp bậc Senior vs Mid,0
+jd_10,cv_093,4,4,4,4,Mid DevOps Engineer,good,devops | Mid | 3.5 năm liên quan,0.854,Thiếu: Kubernetes; Cấp bậc Mid vs Mid,0
+jd_10,cv_094,4,4,4,4,Mid DevOps Engineer,good,devops | Mid | 3.1 năm liên quan,0.828,Khớp một phần: Git; Cấp bậc Mid vs Mid,0
+jd_10,cv_095,1,1,1,1,Mid DevOps Engineer,partial,devops | Mid | 4.2 năm liên quan,0.683,"Thiếu: Linux, Docker; Giới hạn: thiếu skill cốt lõi; Cấp bậc Mid vs Mid",0
+jd_10,cv_096,0,0,0,0,Mid DevOps Engineer,weak,devops | Intern | 0.4 năm liên quan | sinh viên,0.384,"Thiếu: Linux, Docker, AWS / Azure / GCP, Kubernetes; Giới hạn: thiếu skill cốt lõi; thiếu nhiều skill bắt buộc; cấp bậc thấp hơn 2 bậc; Cấp bậc Intern vs Mid",0
+jd_10,cv_097,0,0,0,0,Mid DevOps Engineer,partial,devops | Mid | 4.8 năm liên quan,0.529,"Thiếu: Docker, Git, Kubernetes; Khớp một phần: Linux, CI/CD; Giới hạn: thiếu skill cốt lõi; thiếu nhiều skill bắt buộc; Cấp bậc Mid vs Mid",0
+jd_10,cv_098,0,0,0,0,Mid DevOps Engineer,mismatch,frontend | Fresher | 0.0 năm liên quan,0.194,"Thiếu: Linux, Docker, CI/CD, AWS / Azure / GCP, Kubernetes; Giới hạn: lệch hướng vai trò; thiếu skill cốt lõi; thiếu nhiều skill bắt buộc; cấp bậc thấp hơn 2 bậc; Cấp bậc Fresher vs Mid",0
+jd_10,cv_099,4,3,4,4,Mid DevOps Engineer,transfer,devops | Mid | 4.4 năm liên quan,0.825,"Khớp một phần: Linux, Git; Cấp bậc Mid vs Mid",0
+jd_10,cv_100,1,1,1,1,Mid DevOps Engineer,weak,devops | Intern | 0.1 năm liên quan | sinh viên,0.378,"Thiếu: Docker, AWS / Azure / GCP; Khớp một phần: Linux, CI/CD, Git, Kubernetes; Giới hạn: thiếu skill cốt lõi; cấp bậc thấp hơn 2 bậc; Cấp bậc Intern vs Mid",0
+jd_01,cv_101,3,3,3,3,Junior Java Backend Developer,overqual,backend | Senior | 5.6 năm liên quan,0.858,Giới hạn: quá cấp bậc (overqualified); Cấp bậc Senior vs Junior,1
+jd_01,cv_102,4,4,4,4,Junior Java Backend Developer,junior_low,backend | Fresher | 0.7 năm liên quan,0.814,Thiếu: REST API; Khớp một phần: Java; Cấp bậc Fresher vs Junior,1
+jd_01,cv_103,4,4,4,3,Junior Java Backend Developer,strong,backend | Junior | 2.4 năm liên quan,0.93,Cấp bậc Junior vs Junior,1
+jd_01,cv_104,1,2,1,1,Junior Java Backend Developer,weak,backend | Intern | 0.9 năm liên quan | sinh viên,0.571,"Thiếu: Java; Khớp một phần: Spring Boot, MySQL / PostgreSQL; Giới hạn: cấp bậc thấp hơn 2 bậc; Cấp bậc Intern vs Junior",1
+jd_01,cv_105,3,3,3,3,Junior Java Backend Developer,overqual,backend | Lead | 7.8 năm liên quan,0.798,Giới hạn: quá cấp bậc (overqualified); Cấp bậc Lead vs Junior,1
+jd_01,cv_106,4,4,4,4,Junior Java Backend Developer,strong,backend | Junior | 2.0 năm liên quan,0.97,Cấp bậc Junior vs Junior,1
+jd_01,cv_107,4,4,4,4,Junior Java Backend Developer,good,backend | Junior | 2.4 năm liên quan,0.891,Cấp bậc Junior vs Junior,1
+jd_01,cv_108,4,4,4,4,Junior Java Backend Developer,transfer,backend | Mid | 3.8 năm liên quan,0.788,Thiếu: Git; Khớp một phần: MySQL / PostgreSQL; Cấp bậc Mid vs Junior,1
+jd_01,cv_109,4,4,4,4,Junior Java Backend Developer,strong,backend | Junior | 2.4 năm liên quan,0.952,Cấp bậc Junior vs Junior,1
+jd_01,cv_110,1,1,1,1,Junior Java Backend Developer,partial,backend | Intern | 0.7 năm liên quan | sinh viên,0.656,Thiếu: Spring Boot; Khớp một phần: REST API; Giới hạn: cấp bậc thấp hơn 2 bậc; Cấp bậc Intern vs Junior,1
+jd_01,cv_111,1,2,1,1,Junior Java Backend Developer,partial,backend | Fresher | 0.8 năm liên quan | sinh viên,0.609,Thiếu: Java; Khớp một phần: REST API; Cấp bậc Fresher vs Junior,1
+jd_01,cv_112,1,1,1,1,Junior Java Backend Developer,weak,fullstack | Intern | 0.3 năm liên quan | sinh viên,0.493,"Thiếu: Git; Khớp một phần: Spring Boot, MySQL / PostgreSQL; Giới hạn: cấp bậc thấp hơn 2 bậc; Cấp bậc Intern vs Junior",1
+jd_01,cv_113,1,1,2,1,Junior Java Backend Developer,junior_low,backend | Fresher | 1.8 năm liên quan,0.665,Thiếu: Git; Khớp một phần: REST API; Cấp bậc Fresher vs Junior,1
+jd_01,cv_114,4,4,4,4,Junior Java Backend Developer,transfer,backend | Junior | 2.8 năm liên quan,0.871,Cấp bậc Junior vs Junior,1
+jd_01,cv_115,4,4,4,4,Junior Java Backend Developer,strong,fullstack | Junior | 2.0 năm liên quan,0.922,Cấp bậc Junior vs Junior,1
+jd_01,cv_116,3,3,3,3,Junior Java Backend Developer,good,backend | Fresher | 1.4 năm liên quan,0.741,Thiếu: Java; Khớp một phần: MySQL / PostgreSQL; Cấp bậc Fresher vs Junior,1
+jd_01,cv_117,0,1,0,0,Junior Java Backend Developer,mismatch,data | Fresher | 0.0 năm liên quan | sinh viên,0.15,"Thiếu: REST API, MySQL / PostgreSQL, Git; Khớp một phần: Java, Spring Boot; Giới hạn: thiếu skill cốt lõi; thiếu nhiều skill bắt buộc; Cấp bậc Fresher vs Junior",1
+jd_01,cv_118,4,4,4,4,Junior Java Backend Developer,good,backend | Junior | 2.8 năm liên quan,0.922,Cấp bậc Junior vs Junior,1
+jd_01,cv_119,1,1,1,1,Junior Java Backend Developer,good,backend | Fresher | 0.5 năm liên quan,0.586,Thiếu: Java; Khớp một phần: Spring Boot; Cấp bậc Fresher vs Junior,1
+jd_01,cv_120,0,0,0,1,Junior Java Backend Developer,weak,backend | Junior | 0.9 năm liên quan,0.487,"Thiếu: Spring Boot, MySQL / PostgreSQL; Khớp một phần: Java, REST API, Git; Giới hạn: thiếu skill cốt lõi; Cấp bậc Junior vs Junior",1
+jd_02,cv_121,3,3,3,3,Mid Java Backend Developer (Fintech),junior_low,backend | Junior | 2.9 năm liên quan,0.775,Thiếu: REST API; Khớp một phần: Spring Boot; Cấp bậc Junior vs Mid,1
+jd_02,cv_122,3,3,3,4,Mid Java Backend Developer (Fintech),overqual,backend | Lead | 8.5 năm liên quan,0.784,Giới hạn: quá cấp bậc (overqualified); Cấp bậc Lead vs Mid,1
+jd_02,cv_123,4,4,4,4,Mid Java Backend Developer (Fintech),good,backend | Mid | 4.1 năm liên quan,0.944,Cấp bậc Mid vs Mid,1
+jd_02,cv_124,4,4,4,3,Mid Java Backend Developer (Fintech),strong,fullstack | Mid | 3.9 năm liên quan,0.886,Cấp bậc Mid vs Mid,1
+jd_02,cv_125,4,4,4,4,Mid Java Backend Developer (Fintech),strong,backend | Senior | 6.0 năm liên quan,0.931,Cấp bậc Senior vs Mid,1
+jd_02,cv_126,1,1,2,1,Mid Java Backend Developer (Fintech),partial,backend | Senior | 4.9 năm liên quan,0.645,Thiếu: Git; Khớp một phần: Java; Cấp bậc Senior vs Mid,1
+jd_02,cv_127,0,0,0,0,Mid Java Backend Developer (Fintech),mismatch,frontend | Fresher | 0.0 năm liên quan,0.158,"Thiếu: Java, Spring Boot, Microservices; Khớp một phần: REST API, Git; Giới hạn: thiếu skill cốt lõi; thiếu nhiều skill bắt buộc; cấp bậc thấp hơn 2 bậc; Cấp bậc Fresher vs Mid",1
+jd_02,cv_128,4,4,4,4,Mid Java Backend Developer (Fintech),strong,backend | Mid | 3.7 năm liên quan,0.957,Cấp bậc Mid vs Mid,1
+jd_02,cv_129,3,3,3,3,Mid Java Backend Developer (Fintech),good,backend | Mid | 4.1 năm liên quan,0.773,Thiếu: Git; Khớp một phần: Java; Cấp bậc Mid vs Mid,1
+jd_02,cv_130,4,4,4,4,Mid Java Backend Developer (Fintech),good,backend | Mid | 3.5 năm liên quan,0.926,Cấp bậc Mid vs Mid,1
+jd_02,cv_131,3,2,3,3,Mid Java Backend Developer (Fintech),overqual,fullstack | Senior | 6.2 năm liên quan,0.887,Giới hạn: quá cấp bậc (overqualified); Cấp bậc Senior vs Mid,1
+jd_02,cv_132,0,0,0,0,Mid Java Backend Developer (Fintech),weak,backend | Junior | 2.6 năm liên quan,0.404,"Thiếu: Java, Microservices; Khớp một phần: Spring Boot, Git; Giới hạn: thiếu skill cốt lõi; Cấp bậc Junior vs Mid",1
+jd_02,cv_133,4,4,4,3,Mid Java Backend Developer (Fintech),transfer,backend | Junior | 2.5 năm liên quan,0.821,Cấp bậc Junior vs Mid,1
+jd_02,cv_134,4,4,4,4,Mid Java Backend Developer (Fintech),strong,backend | Mid | 3.9 năm liên quan,0.931,Cấp bậc Mid vs Mid,1
+jd_02,cv_135,4,4,4,4,Mid Java Backend Developer (Fintech),good,fullstack | Mid | 4.2 năm liên quan,0.86,Cấp bậc Mid vs Mid,1
+jd_02,cv_136,0,0,0,0,Mid Java Backend Developer (Fintech),weak,backend | Junior | 2.7 năm liên quan,0.431,"Thiếu: Java, Git; Khớp một phần: REST API, Microservices; Giới hạn: thiếu skill cốt lõi; Cấp bậc Junior vs Mid",1
+jd_02,cv_137,4,4,4,4,Mid Java Backend Developer (Fintech),transfer,backend | Senior | 5.7 năm liên quan,0.878,Cấp bậc Senior vs Mid,1
+jd_02,cv_138,1,1,1,1,Mid Java Backend Developer (Fintech),partial,backend | Fresher | 0.5 năm liên quan | sinh viên,0.555,Thiếu: REST API; Khớp một phần: Git; Giới hạn: cấp bậc thấp hơn 2 bậc; Cấp bậc Fresher vs Mid,1
+jd_02,cv_139,0,0,0,0,Mid Java Backend Developer (Fintech),weak,backend | Intern | 0.8 năm liên quan | sinh viên,0.25,"Thiếu: REST API, Microservices, Git; Khớp một phần: Java, Spring Boot; Giới hạn: thiếu skill cốt lõi; thiếu nhiều skill bắt buộc; cấp bậc thấp hơn 2 bậc; Cấp bậc Intern vs Mid",1
+jd_02,cv_140,4,4,4,4,Mid Java Backend Developer (Fintech),junior_low,backend | Junior | 1.9 năm liên quan,0.837,Cấp bậc Junior vs Mid,1
+jd_03,cv_141,4,4,4,4,Senior Java Backend Engineer,strong,backend | Senior | 5.7 năm liên quan,0.97,Cấp bậc Senior vs Senior,1
+jd_03,cv_142,4,4,4,4,Senior Java Backend Engineer,transfer,backend | Mid | 4.2 năm liên quan,0.873,Cấp bậc Mid vs Senior,1
+jd_03,cv_143,0,0,0,0,Senior Java Backend Engineer,weak,backend | Junior | 1.7 năm liên quan,0.445,"Thiếu: Java, Microservices, Git; Khớp một phần: Spring Boot, MySQL / PostgreSQL, Docker; Giới hạn: thiếu skill cốt lõi; thiếu nhiều skill bắt buộc; cấp bậc thấp hơn 2 bậc; Cấp bậc Junior vs Senior",1
+jd_03,cv_144,0,0,0,0,Senior Java Backend Engineer,weak,backend | Intern | 0.1 năm liên quan | sinh viên,0.174,"Thiếu: Java, Spring Boot, Microservices, MySQL / PostgreSQL; Khớp một phần: REST API, Docker, Git; Giới hạn: thiếu skill cốt lõi; thiếu nhiều skill bắt buộc; cấp bậc thấp hơn 2 bậc; Cấp bậc Intern vs Senior",1
+jd_03,cv_145,3,3,3,3,Senior Java Backend Engineer,good,backend | Lead | 9.8 năm liên quan,0.781,Thiếu: Git; Khớp một phần: Spring Boot; Cấp bậc Lead vs Senior,1
+jd_03,cv_146,3,3,3,3,Senior Java Backend Engineer,junior_low,fullstack | Junior | 1.3 năm liên quan,0.731,Thiếu: Docker; Khớp một phần: REST API; Giới hạn: cấp bậc thấp hơn 2 bậc; Cấp bậc Junior vs Senior,1
+jd_03,cv_147,1,1,1,1,Senior Java Backend Engineer,mismatch,data | Fresher | 0.0 năm liên quan,0.386,"Thiếu: Spring Boot, Git; Khớp một phần: REST API, MySQL / PostgreSQL; Giới hạn: cấp bậc thấp hơn 2 bậc; Cấp bậc Fresher vs Senior",1
+jd_03,cv_148,4,4,4,4,Senior Java Backend Engineer,strong,backend | Lead | 9.7 năm liên quan,0.916,Cấp bậc Lead vs Senior,1
+jd_03,cv_149,1,1,1,1,Senior Java Backend Engineer,good,fullstack | Senior | 5.3 năm liên quan,0.644,Thiếu: Spring Boot; Khớp một phần: Java; Cấp bậc Senior vs Senior,1
+jd_03,cv_150,3,4,3,3,Senior Java Backend Engineer,overqual,backend | Lead | 8.4 năm liên quan,0.956,Giới hạn: quá cấp bậc (overqualified); Cấp bậc Lead vs Senior,1
+jd_03,cv_151,3,3,3,3,Senior Java Backend Engineer,partial,backend | Senior | 6.2 năm liên quan,0.716,"Thiếu: Microservices; Khớp một phần: REST API, Git; Cấp bậc Senior vs Senior",1
+jd_03,cv_152,0,0,0,0,Senior Java Backend Engineer,weak,backend | Intern | 0.9 năm liên quan | sinh viên,0.305,"Thiếu: MySQL / PostgreSQL, Docker, Git; Khớp một phần: Java, Spring Boot, Microservices; Giới hạn: thiếu skill cốt lõi; thiếu nhiều skill bắt buộc; cấp bậc thấp hơn 2 bậc; Cấp bậc Intern vs Senior",1
+jd_03,cv_153,4,4,4,4,Senior Java Backend Engineer,strong,backend | Senior | 5.5 năm liên quan,0.881,Cấp bậc Senior vs Senior,1
+jd_03,cv_154,3,3,3,3,Senior Java Backend Engineer,transfer,backend | Mid | 3.2 năm liên quan,0.741,Thiếu: Java; Khớp một phần: Docker; Cấp bậc Mid vs Senior,1
+jd_03,cv_155,3,3,3,3,Senior Java Backend Engineer,junior_low,backend | Mid | 3.7 năm liên quan,0.745,Cấp bậc Mid vs Senior,1
+jd_03,cv_156,4,4,4,4,Senior Java Backend Engineer,good,backend | Lead | 9.1 năm liên quan,0.825,Cấp bậc Lead vs Senior,1
+jd_03,cv_157,4,4,4,4,Senior Java Backend Engineer,good,backend | Senior | 5.1 năm liên quan,0.907,Cấp bậc Senior vs Senior,1
+jd_03,cv_158,3,3,3,3,Senior Java Backend Engineer,overqual,backend | Lead | 9.0 năm liên quan,0.865,Giới hạn: quá cấp bậc (overqualified); Cấp bậc Lead vs Senior,1
+jd_03,cv_159,3,3,3,3,Senior Java Backend Engineer,partial,backend | Lead | 9.5 năm liên quan,0.739,Thiếu: REST API; Khớp một phần: Microservices; Cấp bậc Lead vs Senior,1
+jd_03,cv_160,4,4,4,4,Senior Java Backend Engineer,strong,fullstack | Lead | 10.6 năm liên quan,0.897,Cấp bậc Lead vs Senior,1
+jd_04,cv_161,3,3,3,3,Junior Python Backend Developer,junior_low,backend | Fresher | 0.5 năm liên quan | sinh viên,0.739,Cấp bậc Fresher vs Junior,1
+jd_04,cv_162,1,1,1,1,Junior Python Backend Developer,mismatch,mobile | Fresher | 0.0 năm liên quan,0.53,Thiếu: REST API; Khớp một phần: Django / Flask / FastAPI; Cấp bậc Fresher vs Junior,1
+jd_04,cv_163,3,3,3,3,Junior Python Backend Developer,overqual,backend | Senior | 5.2 năm liên quan,0.856,Giới hạn: quá cấp bậc (overqualified); Cấp bậc Senior vs Junior,1
+jd_04,cv_164,3,3,3,3,Junior Python Backend Developer,overqual,backend | Senior | 6.2 năm liên quan,0.799,Giới hạn: quá cấp bậc (overqualified); Cấp bậc Senior vs Junior,1
+jd_04,cv_165,1,1,1,1,Junior Python Backend Developer,partial,backend | Mid | 3.1 năm liên quan,0.62,Thiếu: Django / Flask / FastAPI; Khớp một phần: Git; Cấp bậc Mid vs Junior,1
+jd_04,cv_166,3,3,3,3,Junior Python Backend Developer,good,backend | Junior | 1.3 năm liên quan,0.708,Thiếu: MySQL / PostgreSQL; Khớp một phần: Git; Cấp bậc Junior vs Junior,1
+jd_04,cv_167,1,1,1,2,Junior Python Backend Developer,weak,backend | Fresher | 0.1 năm liên quan,0.465,Thiếu: Django / Flask / FastAPI; Khớp một phần: REST API; Cấp bậc Fresher vs Junior,1
+jd_04,cv_168,1,1,1,1,Junior Python Backend Developer,partial,backend | Junior | 1.9 năm liên quan,0.64,Thiếu: Django / Flask / FastAPI; Khớp một phần: MySQL / PostgreSQL; Cấp bậc Junior vs Junior,1
+jd_04,cv_169,0,0,0,0,Junior Python Backend Developer,weak,backend | Intern | 0.6 năm liên quan | sinh viên,0.37,"Thiếu: Django / Flask / FastAPI, Git; Khớp một phần: REST API, MySQL / PostgreSQL; Giới hạn: thiếu skill cốt lõi; cấp bậc thấp hơn 2 bậc; Cấp bậc Intern vs Junior",1
+jd_04,cv_170,4,4,4,4,Junior Python Backend Developer,good,backend | Junior | 1.1 năm liên quan,0.809,Cấp bậc Junior vs Junior,1
+jd_04,cv_171,4,4,4,4,Junior Python Backend Developer,strong,backend | Junior | 1.5 năm liên quan,0.919,Cấp bậc Junior vs Junior,1
+jd_04,cv_172,1,1,1,1,Junior Python Backend Developer,good,backend | Fresher | 0.2 năm liên quan,0.656,Thiếu: Git; Khớp một phần: REST API; Cấp bậc Fresher vs Junior,1
+jd_04,cv_173,3,3,3,3,Junior Python Backend Developer,junior_low,backend | Fresher | 1.7 năm liên quan,0.705,Thiếu: Git; Khớp một phần: REST API; Cấp bậc Fresher vs Junior,1
+jd_04,cv_174,3,3,4,3,Junior Python Backend Developer,transfer,backend | Mid | 3.7 năm liên quan,0.734,Thiếu: Django / Flask / FastAPI; Khớp một phần: MySQL / PostgreSQL; Cấp bậc Mid vs Junior,1
+jd_04,cv_175,4,4,4,4,Junior Python Backend Developer,strong,backend | Junior | 1.2 năm liên quan,0.912,Cấp bậc Junior vs Junior,1
+jd_04,cv_176,4,4,4,4,Junior Python Backend Developer,strong,backend | Junior | 1.6 năm liên quan,0.805,Cấp bậc Junior vs Junior,1
+jd_04,cv_177,3,2,3,3,Junior Python Backend Developer,good,backend | Fresher | 0.9 năm liên quan | sinh viên,0.751,Cấp bậc Fresher vs Junior,1
+jd_04,cv_178,1,1,1,1,Junior Python Backend Developer,weak,backend | Junior | 0.9 năm liên quan,0.623,Thiếu: MySQL / PostgreSQL; Khớp một phần: Django / Flask / FastAPI; Cấp bậc Junior vs Junior,1
+jd_04,cv_179,4,4,4,4,Junior Python Backend Developer,strong,backend | Junior | 1.5 năm liên quan,0.97,Cấp bậc Junior vs Junior,1
+jd_04,cv_180,4,4,4,4,Junior Python Backend Developer,transfer,backend | Mid | 3.1 năm liên quan,0.934,Cấp bậc Mid vs Junior,1
+jd_05,cv_181,4,4,4,3,Mid Python Backend Developer (Healthcare data),good,backend | Mid | 4.6 năm liên quan,0.871,Cấp bậc Mid vs Mid,1
+jd_05,cv_182,3,4,3,3,Mid Python Backend Developer (Healthcare data),overqual,backend | Senior | 5.2 năm liên quan,0.768,Khớp một phần: Git; Giới hạn: quá cấp bậc (overqualified); Cấp bậc Senior vs Mid,1
+jd_05,cv_183,4,3,4,4,Mid Python Backend Developer (Healthcare data),strong,fullstack | Mid | 4.8 năm liên quan,0.908,Cấp bậc Mid vs Mid,1
+jd_05,cv_184,4,4,4,4,Mid Python Backend Developer (Healthcare data),good,backend | Mid | 4.1 năm liên quan,0.86,Cấp bậc Mid vs Mid,1
+jd_05,cv_185,3,3,3,3,Mid Python Backend Developer (Healthcare data),partial,backend | Junior | 2.6 năm liên quan,0.699,Thiếu: Django / FastAPI; Khớp một phần: REST API; Cấp bậc Junior vs Mid,1
+jd_05,cv_186,3,3,3,3,Mid Python Backend Developer (Healthcare data),overqual,backend | Senior | 6.4 năm liên quan,0.857,Giới hạn: quá cấp bậc (overqualified); Cấp bậc Senior vs Mid,1
+jd_05,cv_187,4,4,4,3,Mid Python Backend Developer (Healthcare data),good,backend | Junior | 2.2 năm liên quan,0.821,Cấp bậc Junior vs Mid,1
+jd_05,cv_188,1,1,1,1,Mid Python Backend Developer (Healthcare data),junior_low,backend | Junior | 2.2 năm liên quan,0.687,Thiếu: Python; Khớp một phần: Git; Cấp bậc Junior vs Mid,1
+jd_05,cv_189,4,4,4,4,Mid Python Backend Developer (Healthcare data),transfer,backend | Mid | 4.0 năm liên quan,0.925,Cấp bậc Mid vs Mid,1
+jd_05,cv_190,0,0,0,0,Mid Python Backend Developer (Healthcare data),weak,backend | Intern | 0.9 năm liên quan | sinh viên,0.439,"Thiếu: Python, Django / FastAPI; Khớp một phần: Docker, Git; Giới hạn: thiếu skill cốt lõi; cấp bậc thấp hơn 2 bậc; Cấp bậc Intern vs Mid",1
+jd_05,cv_191,1,0,1,1,Mid Python Backend Developer (Healthcare data),partial,backend | Mid | 3.1 năm liên quan,0.534,"Thiếu: Django / FastAPI, Git; Khớp một phần: Python, Docker; Giới hạn: thiếu skill cốt lõi; Cấp bậc Mid vs Mid",1
+jd_05,cv_192,0,0,1,0,Mid Python Backend Developer (Healthcare data),mismatch,mobile | Fresher | 0.0 năm liên quan | sinh viên,0.276,"Thiếu: Django / FastAPI, Docker; Khớp một phần: Python, REST API, Git; Giới hạn: thiếu skill cốt lõi; cấp bậc thấp hơn 2 bậc; Cấp bậc Fresher vs Mid",1
+jd_05,cv_193,4,4,4,4,Mid Python Backend Developer (Healthcare data),strong,backend | Mid | 4.4 năm liên quan,0.888,Cấp bậc Mid vs Mid,1
+jd_05,cv_194,4,4,4,4,Mid Python Backend Developer (Healthcare data),transfer,backend | Mid | 4.5 năm liên quan,0.894,Cấp bậc Mid vs Mid,1
+jd_05,cv_195,0,0,0,0,Mid Python Backend Developer (Healthcare data),weak,backend | Fresher | 1.3 năm liên quan,0.344,"Thiếu: Django / FastAPI, REST API, PostgreSQL; Khớp một phần: Python, Docker, Git; Giới hạn: thiếu skill cốt lõi; thiếu nhiều skill bắt buộc; cấp bậc thấp hơn 2 bậc; Cấp bậc Fresher vs Mid",1
+jd_05,cv_196,3,3,3,3,Mid Python Backend Developer (Healthcare data),good,backend | Senior | 5.9 năm liên quan,0.725,Thiếu: Docker; Khớp một phần: Git; Cấp bậc Senior vs Mid,1
+jd_05,cv_197,4,4,4,4,Mid Python Backend Developer (Healthcare data),strong,fullstack | Mid | 4.0 năm liên quan,0.93,Cấp bậc Mid vs Mid,1
+jd_05,cv_198,4,4,4,4,Mid Python Backend Developer (Healthcare data),strong,backend | Senior | 6.1 năm liên quan,0.867,Cấp bậc Senior vs Mid,1
+jd_05,cv_199,1,0,1,1,Mid Python Backend Developer (Healthcare data),junior_low,backend | Fresher | 1.2 năm liên quan,0.61,"Thiếu: Python, Git; Khớp một phần: REST API, PostgreSQL; Giới hạn: cấp bậc thấp hơn 2 bậc; Cấp bậc Fresher vs Mid",1
+jd_05,cv_200,1,1,1,1,Mid Python Backend Developer (Healthcare data),weak,backend | Intern | 0.6 năm liên quan | sinh viên,0.455,"Thiếu: Python, Docker; Khớp một phần: REST API, PostgreSQL; Giới hạn: cấp bậc thấp hơn 2 bậc; Cấp bậc Intern vs Mid",1
+jd_06,cv_201,0,0,0,0,Junior Frontend Developer (React),weak,frontend | Fresher | 0.9 năm liên quan,0.298,"Thiếu: HTML/CSS, REST API, Git; Khớp một phần: JavaScript, React; Giới hạn: thiếu skill cốt lõi; thiếu nhiều skill bắt buộc; Cấp bậc Fresher vs Junior",1
+jd_06,cv_202,1,1,1,1,Junior Frontend Developer (React),partial,frontend | Junior | 2.0 năm liên quan,0.574,"Thiếu: Git; Khớp một phần: JavaScript, React; Cấp bậc Junior vs Junior",1
+jd_06,cv_203,0,0,0,0,Junior Frontend Developer (React),mismatch,data | Fresher | 0.0 năm liên quan | sinh viên,0.343,"Thiếu: JavaScript, REST API; Khớp một phần: React, HTML/CSS; Giới hạn: thiếu skill cốt lõi; Cấp bậc Fresher vs Junior",1
+jd_06,cv_204,4,4,4,4,Junior Frontend Developer (React),strong,frontend | Junior | 2.5 năm liên quan,0.946,Cấp bậc Junior vs Junior,1
+jd_06,cv_205,4,4,4,4,Junior Frontend Developer (React),good,frontend | Mid | 3.1 năm liên quan,0.852,Cấp bậc Mid vs Junior,1
+jd_06,cv_206,4,4,4,4,Junior Frontend Developer (React),strong,frontend | Junior | 1.5 năm liên quan,0.934,Cấp bậc Junior vs Junior,1
+jd_06,cv_207,3,4,3,3,Junior Frontend Developer (React),overqual,fullstack | Senior | 5.6 năm liên quan,0.757,Giới hạn: quá cấp bậc (overqualified); Cấp bậc Senior vs Junior,1
+jd_06,cv_208,3,3,3,3,Junior Frontend Developer (React),partial,frontend | Mid | 4.8 năm liên quan,0.693,Thiếu: JavaScript; Khớp một phần: React; Cấp bậc Mid vs Junior,1
+jd_06,cv_209,4,4,4,4,Junior Frontend Developer (React),strong,fullstack | Junior | 3.0 năm liên quan,0.861,Cấp bậc Junior vs Junior,1
+jd_06,cv_210,4,4,4,4,Junior Frontend Developer (React),strong,frontend | Junior | 1.6 năm liên quan,0.829,Cấp bậc Junior vs Junior,1
+jd_06,cv_211,4,4,4,4,Junior Frontend Developer (React),good,frontend | Junior | 1.3 năm liên quan,0.851,Thiếu: Git; Khớp một phần: REST API; Cấp bậc Junior vs Junior,1
+jd_06,cv_212,1,1,1,1,Junior Frontend Developer (React),good,frontend | Fresher | 0.8 năm liên quan,0.677,Thiếu: REST API; Khớp một phần: JavaScript; Cấp bậc Fresher vs Junior,1
+jd_06,cv_213,0,0,0,0,Junior Frontend Developer (React),weak,frontend | Fresher | 0.2 năm liên quan | sinh viên,0.258,"Thiếu: React, HTML/CSS; Khớp một phần: JavaScript, REST API, Git; Giới hạn: thiếu skill cốt lõi; Cấp bậc Fresher vs Junior",1
+jd_06,cv_214,3,4,3,3,Junior Frontend Developer (React),overqual,frontend | Mid | 4.2 năm liên quan,0.909,Giới hạn: quá cấp bậc (overqualified); Cấp bậc Mid vs Junior,1
+jd_06,cv_215,3,3,4,3,Junior Frontend Developer (React),junior_low,frontend | Fresher | 0.2 năm liên quan,0.743,Cấp bậc Fresher vs Junior,1
+jd_06,cv_216,4,3,4,4,Junior Frontend Developer (React),good,frontend | Junior | 1.5 năm liên quan,0.866,Cấp bậc Junior vs Junior,1
+jd_06,cv_217,4,4,4,4,Junior Frontend Developer (React),transfer,frontend | Fresher | 0.8 năm liên quan,0.845,Cấp bậc Fresher vs Junior,1
+jd_06,cv_218,3,3,3,3,Junior Frontend Developer (React),junior_low,frontend | Fresher | 0.8 năm liên quan,0.746,Thiếu: JavaScript; Khớp một phần: REST API; Cấp bậc Fresher vs Junior,1
+jd_06,cv_219,4,4,4,3,Junior Frontend Developer (React),transfer,frontend | Fresher | 1.7 năm liên quan,0.858,Cấp bậc Fresher vs Junior,1
+jd_06,cv_220,0,0,0,0,Junior Frontend Developer (React),weak,frontend | Junior | 0.9 năm liên quan,0.437,"Thiếu: React, HTML/CSS; Khớp một phần: REST API, Git; Giới hạn: thiếu skill cốt lõi; Cấp bậc Junior vs Junior",1
+jd_07,cv_221,3,3,3,3,Mid Frontend Developer (React/TypeScript),good,frontend | Mid | 3.6 năm liên quan,0.783,Thiếu: TypeScript; Khớp một phần: REST API; Cấp bậc Mid vs Mid,1
+jd_07,cv_222,3,3,3,3,Mid Frontend Developer (React/TypeScript),good,frontend | Mid | 3.9 năm liên quan,0.69,Thiếu: React; Khớp một phần: REST API; Cấp bậc Mid vs Mid,1
+jd_07,cv_223,1,1,1,0,Mid Frontend Developer (React/TypeScript),junior_low,frontend | Junior | 1.6 năm liên quan,0.66,"Thiếu: JavaScript, HTML/CSS; Khớp một phần: TypeScript, Git; Cấp bậc Junior vs Mid",1
+jd_07,cv_224,1,1,1,1,Mid Frontend Developer (React/TypeScript),junior_low,frontend | Junior | 1.6 năm liên quan,0.636,Thiếu: TypeScript; Khớp một phần: REST API; Cấp bậc Junior vs Mid,1
+jd_07,cv_225,0,0,0,0,Mid Frontend Developer (React/TypeScript),mismatch,backend | Fresher | 0.0 năm liên quan | sinh viên,0.246,"Thiếu: JavaScript, REST API, Git; Khớp một phần: TypeScript, React, HTML/CSS; Giới hạn: thiếu skill cốt lõi; thiếu nhiều skill bắt buộc; cấp bậc thấp hơn 2 bậc; Cấp bậc Fresher vs Mid",1
+jd_07,cv_226,0,0,0,0,Mid Frontend Developer (React/TypeScript),partial,frontend | Mid | 3.3 năm liên quan,0.588,"Thiếu: TypeScript, React; Khớp một phần: JavaScript, REST API; Giới hạn: thiếu skill cốt lõi; Cấp bậc Mid vs Mid",1
+jd_07,cv_227,4,4,4,3,Mid Frontend Developer (React/TypeScript),strong,frontend | Mid | 3.6 năm liên quan,0.838,Thiếu: TypeScript; Khớp một phần: Git; Cấp bậc Mid vs Mid,1
+jd_07,cv_228,4,4,4,4,Mid Frontend Developer (React/TypeScript),strong,fullstack | Mid | 4.3 năm liên quan,0.866,Cấp bậc Mid vs Mid,1
+jd_07,cv_229,4,4,4,4,Mid Frontend Developer (React/TypeScript),strong,frontend | Mid | 4.5 năm liên quan,0.877,Thiếu: React; Khớp một phần: REST API; Cấp bậc Mid vs Mid,1
+jd_07,cv_230,4,4,3,4,Mid Frontend Developer (React/TypeScript),good,frontend | Senior | 5.4 năm liên quan,0.854,Cấp bậc Senior vs Mid,1
+jd_07,cv_231,3,3,3,3,Mid Frontend Developer (React/TypeScript),overqual,fullstack | Senior | 5.4 năm liên quan,0.841,Giới hạn: quá cấp bậc (overqualified); Cấp bậc Senior vs Mid,1
+jd_07,cv_232,4,4,4,4,Mid Frontend Developer (React/TypeScript),strong,fullstack | Senior | 4.8 năm liên quan,0.865,Cấp bậc Senior vs Mid,1
+jd_07,cv_233,4,4,4,4,Mid Frontend Developer (React/TypeScript),good,frontend | Mid | 3.1 năm liên quan,0.807,Thiếu: REST API; Khớp một phần: Git; Cấp bậc Mid vs Mid,1
+jd_07,cv_234,0,0,0,0,Mid Frontend Developer (React/TypeScript),weak,frontend | Intern | 0.8 năm liên quan | sinh viên,0.31,"Thiếu: React, HTML/CSS, Git; Khớp một phần: JavaScript, TypeScript, REST API; Giới hạn: thiếu skill cốt lõi; thiếu nhiều skill bắt buộc; cấp bậc thấp hơn 2 bậc; Cấp bậc Intern vs Mid",1
+jd_07,cv_235,4,4,4,4,Mid Frontend Developer (React/TypeScript),transfer,frontend | Senior | 4.9 năm liên quan,0.804,Cấp bậc Senior vs Mid,1
+jd_07,cv_236,1,1,1,1,Mid Frontend Developer (React/TypeScript),weak,frontend | Fresher | 0.6 năm liên quan | sinh viên,0.463,Thiếu: Git; Khớp một phần: TypeScript; Giới hạn: cấp bậc thấp hơn 2 bậc; Cấp bậc Fresher vs Mid,1
+jd_07,cv_237,4,4,4,4,Mid Frontend Developer (React/TypeScript),transfer,frontend | Junior | 1.6 năm liên quan,0.848,Cấp bậc Junior vs Mid,1
+jd_07,cv_238,3,3,3,3,Mid Frontend Developer (React/TypeScript),overqual,fullstack | Senior | 5.8 năm liên quan,0.926,Giới hạn: quá cấp bậc (overqualified); Cấp bậc Senior vs Mid,1
+jd_07,cv_239,1,1,1,0,Mid Frontend Developer (React/TypeScript),weak,frontend | Fresher | 0.0 năm liên quan | sinh viên,0.544,Thiếu: TypeScript; Khớp một phần: HTML/CSS; Giới hạn: cấp bậc thấp hơn 2 bậc; Cấp bậc Fresher vs Mid,1
+jd_07,cv_240,3,3,3,3,Mid Frontend Developer (React/TypeScript),partial,fullstack | Mid | 3.2 năm liên quan,0.69,Thiếu: Git; Khớp một phần: TypeScript; Cấp bậc Mid vs Mid,1
+jd_08,cv_241,3,3,3,3,Mid Fullstack Developer (Node.js + React),good,backend | Mid | 3.7 năm liên quan,0.762,Thiếu: React; Khớp một phần: Git; Cấp bậc Mid vs Mid,1
+jd_08,cv_242,3,3,4,3,Mid Fullstack Developer (Node.js + React),junior_low,fullstack | Junior | 2.8 năm liên quan,0.714,Thiếu: REST API; Khớp một phần: JavaScript; Cấp bậc Junior vs Mid,1
+jd_08,cv_243,4,4,4,4,Mid Fullstack Developer (Node.js + React),strong,fullstack | Mid | 3.9 năm liên quan,0.939,Cấp bậc Mid vs Mid,1
+jd_08,cv_244,3,3,3,3,Mid Fullstack Developer (Node.js + React),overqual,fullstack | Senior | 5.9 năm liên quan,0.959,Giới hạn: quá cấp bậc (overqualified); Cấp bậc Senior vs Mid,1
+jd_08,cv_245,3,3,3,3,Mid Fullstack Developer (Node.js + React),good,fullstack | Mid | 4.1 năm liên quan,0.759,Thiếu: Node.js; Khớp một phần: JavaScript; Cấp bậc Mid vs Mid,1
+jd_08,cv_246,4,4,4,4,Mid Fullstack Developer (Node.js + React),strong,fullstack | Mid | 3.9 năm liên quan,0.911,Cấp bậc Mid vs Mid,1
+jd_08,cv_247,4,4,4,4,Mid Fullstack Developer (Node.js + React),strong,fullstack | Mid | 4.8 năm liên quan,0.911,Cấp bậc Mid vs Mid,1
+jd_08,cv_248,0,0,0,0,Mid Fullstack Developer (Node.js + React),weak,fullstack | Intern | 0.2 năm liên quan | sinh viên,0.233,"Thiếu: JavaScript, Node.js, React, MySQL / PostgreSQL / MongoDB; Khớp một phần: REST API, Git; Giới hạn: thiếu skill cốt lõi; thiếu nhiều skill bắt buộc; cấp bậc thấp hơn 2 bậc; Cấp bậc Intern vs Mid",1
+jd_08,cv_249,3,3,3,3,Mid Fullstack Developer (Node.js + React),overqual,fullstack | Senior | 6.0 năm liên quan,0.917,Giới hạn: quá cấp bậc (overqualified); Cấp bậc Senior vs Mid,1
+jd_08,cv_250,0,0,0,0,Mid Fullstack Developer (Node.js + React),mismatch,backend | Fresher | 0.0 năm liên quan,0.299,"Thiếu: Node.js, MySQL / PostgreSQL / MongoDB; Khớp một phần: JavaScript, React, Git; Giới hạn: thiếu skill cốt lõi; cấp bậc thấp hơn 2 bậc; Cấp bậc Fresher vs Mid",1
+jd_08,cv_251,4,4,4,4,Mid Fullstack Developer (Node.js + React),transfer,fullstack | Mid | 3.9 năm liên quan,0.928,Cấp bậc Mid vs Mid,1
+jd_08,cv_252,1,1,1,1,Mid Fullstack Developer (Node.js + React),partial,fullstack | Junior | 1.3 năm liên quan,0.621,Thiếu: Git; Khớp một phần: React; Cấp bậc Junior vs Mid,1
+jd_08,cv_253,1,1,1,1,Mid Fullstack Developer (Node.js + React),weak,fullstack | Intern | 0.4 năm liên quan | sinh viên,0.481,"Thiếu: MySQL / PostgreSQL / MongoDB; Khớp một phần: Node.js, React; Giới hạn: cấp bậc thấp hơn 2 bậc; Cấp bậc Intern vs Mid",1
+jd_08,cv_254,4,4,4,4,Mid Fullstack Developer (Node.js + React),transfer,fullstack | Mid | 3.5 năm liên quan,0.816,Thiếu: MySQL / PostgreSQL / MongoDB; Khớp một phần: REST API; Cấp bậc Mid vs Mid,1
+jd_08,cv_255,1,1,2,1,Mid Fullstack Developer (Node.js + React),partial,fullstack | Junior | 1.7 năm liên quan,0.637,"Thiếu: REST API; Khớp một phần: React, MySQL / PostgreSQL / MongoDB; Cấp bậc Junior vs Mid",1
+jd_08,cv_256,4,4,4,4,Mid Fullstack Developer (Node.js + React),good,fullstack | Mid | 3.1 năm liên quan,0.916,Cấp bậc Mid vs Mid,1
+jd_08,cv_257,3,3,3,2,Mid Fullstack Developer (Node.js + React),junior_low,fullstack | Fresher | 0.8 năm liên quan,0.701,Thiếu: JavaScript; Khớp một phần: React; Giới hạn: cấp bậc thấp hơn 2 bậc; Cấp bậc Fresher vs Mid,1
+jd_08,cv_258,0,0,0,0,Mid Fullstack Developer (Node.js + React),weak,fullstack | Fresher | 0.5 năm liên quan,0.275,"Thiếu: JavaScript, REST API, Git; Khớp một phần: Node.js, React, MySQL / PostgreSQL / MongoDB; Giới hạn: thiếu skill cốt lõi; thiếu nhiều skill bắt buộc; cấp bậc thấp hơn 2 bậc; Cấp bậc Fresher vs Mid",1
+jd_08,cv_259,4,4,4,4,Mid Fullstack Developer (Node.js + React),good,fullstack | Mid | 3.7 năm liên quan,0.958,Cấp bậc Mid vs Mid,1
+jd_08,cv_260,4,4,4,4,Mid Fullstack Developer (Node.js + React),strong,fullstack | Mid | 4.2 năm liên quan,0.921,Cấp bậc Mid vs Mid,1
+jd_09,cv_261,4,4,4,4,Junior Node.js Backend Developer,strong,fullstack | Junior | 1.9 năm liên quan,0.896,Cấp bậc Junior vs Junior,1
+jd_09,cv_262,3,4,3,3,Junior Node.js Backend Developer,overqual,backend | Senior | 5.3 năm liên quan,0.858,Giới hạn: quá cấp bậc (overqualified); Cấp bậc Senior vs Junior,1
+jd_09,cv_263,1,1,1,1,Junior Node.js Backend Developer,partial,backend | Fresher | 0.2 năm liên quan | sinh viên,0.658,Thiếu: MongoDB / MySQL / PostgreSQL; Khớp một phần: Node.js; Cấp bậc Fresher vs Junior,1
+jd_09,cv_264,0,0,1,0,Junior Node.js Backend Developer,weak,backend | Junior | 0.9 năm liên quan,0.479,"Thiếu: Node.js, Git; Khớp một phần: REST API, MongoDB / MySQL / PostgreSQL; Giới hạn: thiếu skill cốt lõi; Cấp bậc Junior vs Junior",1
+jd_09,cv_265,3,3,3,3,Junior Node.js Backend Developer,good,backend | Fresher | 0.5 năm liên quan,0.736,Khớp một phần: Git; Cấp bậc Fresher vs Junior,1
+jd_09,cv_266,1,0,1,1,Junior Node.js Backend Developer,weak,backend | Fresher | 0.9 năm liên quan,0.529,"Thiếu: Git; Khớp một phần: JavaScript, Node.js; Cấp bậc Fresher vs Junior",1
+jd_09,cv_267,4,4,4,4,Junior Node.js Backend Developer,good,backend | Junior | 2.1 năm liên quan,0.873,Cấp bậc Junior vs Junior,1
+jd_09,cv_268,4,4,4,4,Junior Node.js Backend Developer,good,backend | Mid | 3.4 năm liên quan,0.874,Cấp bậc Mid vs Junior,1
+jd_09,cv_269,4,4,4,4,Junior Node.js Backend Developer,transfer,backend | Fresher | 0.9 năm liên quan,0.952,Cấp bậc Fresher vs Junior,1
+jd_09,cv_270,4,4,4,3,Junior Node.js Backend Developer,strong,backend | Junior | 2.6 năm liên quan,0.792,Thiếu: Node.js; Khớp một phần: REST API; Cấp bậc Junior vs Junior,1
+jd_09,cv_271,1,1,1,1,Junior Node.js Backend Developer,partial,fullstack | Fresher | 0.5 năm liên quan,0.636,Thiếu: Node.js; Khớp một phần: REST API; Cấp bậc Fresher vs Junior,1
+jd_09,cv_272,3,3,2,3,Junior Node.js Backend Developer,overqual,backend | Senior | 5.8 năm liên quan,0.837,Giới hạn: quá cấp bậc (overqualified); Cấp bậc Senior vs Junior,1
+jd_09,cv_273,4,4,4,3,Junior Node.js Backend Developer,transfer,backend | Fresher | 0.4 năm liên quan,0.794,Cấp bậc Fresher vs Junior,1
+jd_09,cv_274,3,3,4,3,Junior Node.js Backend Developer,junior_low,backend | Fresher | 0.5 năm liên quan | sinh viên,0.713,Thiếu: REST API; Khớp một phần: Git; Cấp bậc Fresher vs Junior,1
+jd_09,cv_275,0,0,0,0,Junior Node.js Backend Developer,weak,backend | Fresher | 0.4 năm liên quan,0.44,"Thiếu: Node.js, REST API; Khớp một phần: JavaScript, Git; Giới hạn: thiếu skill cốt lõi; Cấp bậc Fresher vs Junior",1
+jd_09,cv_276,0,0,0,0,Junior Node.js Backend Developer,mismatch,frontend | Fresher | 0.0 năm liên quan | sinh viên,0.408,"Thiếu: Node.js, REST API; Khớp một phần: JavaScript, MongoDB / MySQL / PostgreSQL; Giới hạn: thiếu skill cốt lõi; Cấp bậc Fresher vs Junior",1
+jd_09,cv_277,4,4,4,4,Junior Node.js Backend Developer,good,backend | Junior | 1.1 năm liên quan,0.892,Cấp bậc Junior vs Junior,1
+jd_09,cv_278,4,4,3,4,Junior Node.js Backend Developer,strong,backend | Junior | 1.6 năm liên quan,0.934,Cấp bậc Junior vs Junior,1
+jd_09,cv_279,4,4,4,4,Junior Node.js Backend Developer,strong,backend | Junior | 2.7 năm liên quan,0.921,Cấp bậc Junior vs Junior,1
+jd_09,cv_280,4,4,4,4,Junior Node.js Backend Developer,junior_low,backend | Fresher | 1.7 năm liên quan,0.824,Cấp bậc Fresher vs Junior,1
+jd_10,cv_281,0,0,0,0,Mid DevOps Engineer,weak,devops | Intern | 0.4 năm liên quan | sinh viên,0.151,"Thiếu: Kubernetes, CI/CD, AWS / Azure / GCP, Git; Khớp một phần: Linux, Docker; Giới hạn: thiếu skill cốt lõi; thiếu nhiều skill bắt buộc; cấp bậc thấp hơn 2 bậc; Cấp bậc Intern vs Mid",1
+jd_10,cv_282,4,4,3,4,Mid DevOps Engineer,good,devops | Mid | 3.5 năm liên quan,0.879,Cấp bậc Mid vs Mid,1
+jd_10,cv_283,3,3,3,3,Mid DevOps Engineer,partial,devops | Junior | 1.7 năm liên quan,0.751,Thiếu: Linux; Khớp một phần: Git; Cấp bậc Junior vs Mid,1
+jd_10,cv_284,4,4,4,4,Mid DevOps Engineer,strong,devops | Mid | 4.2 năm liên quan,0.905,Cấp bậc Mid vs Mid,1
+jd_10,cv_285,3,3,3,3,Mid DevOps Engineer,strong,backend | Mid | 4.4 năm liên quan,0.761,Thiếu: Linux; Khớp một phần: Docker; Cấp bậc Mid vs Mid,1
+jd_10,cv_286,3,3,3,3,Mid DevOps Engineer,overqual,backend | Senior | 6.3 năm liên quan,0.855,Giới hạn: quá cấp bậc (overqualified); Cấp bậc Senior vs Mid,1
+jd_10,cv_287,0,0,0,1,Mid DevOps Engineer,weak,devops | Junior | 2.7 năm liên quan,0.467,"Thiếu: Linux, AWS / Azure / GCP; Khớp một phần: Docker, CI/CD, Git; Giới hạn: thiếu skill cốt lõi; Cấp bậc Junior vs Mid",1
+jd_10,cv_288,4,4,4,4,Mid DevOps Engineer,good,devops | Senior | 5.1 năm liên quan,0.87,Cấp bậc Senior vs Mid,1
+jd_10,cv_289,4,4,4,4,Mid DevOps Engineer,strong,devops | Senior | 5.4 năm liên quan,0.917,Cấp bậc Senior vs Mid,1
+jd_10,cv_290,1,1,1,1,Mid DevOps Engineer,junior_low,devops | Fresher | 0.7 năm liên quan,0.544,Thiếu: Kubernetes; Khớp một phần: CI/CD; Giới hạn: cấp bậc thấp hơn 2 bậc; Cấp bậc Fresher vs Mid,1
+jd_10,cv_291,3,3,3,3,Mid DevOps Engineer,overqual,devops | Lead | 7.2 năm liên quan,0.912,Giới hạn: quá cấp bậc (overqualified); Cấp bậc Lead vs Mid,1
+jd_10,cv_292,4,4,4,4,Mid DevOps Engineer,transfer,devops | Mid | 4.1 năm liên quan,0.803,Cấp bậc Mid vs Mid,1
+jd_10,cv_293,0,0,0,0,Mid DevOps Engineer,mismatch,data | Fresher | 0.0 năm liên quan,0.265,"Thiếu: Docker, CI/CD, AWS / Azure / GCP; Khớp một phần: Linux, Kubernetes, Git; Giới hạn: thiếu skill cốt lõi; thiếu nhiều skill bắt buộc; cấp bậc thấp hơn 2 bậc; Cấp bậc Fresher vs Mid",1
+jd_10,cv_294,4,4,4,4,Mid DevOps Engineer,good,devops | Senior | 5.9 năm liên quan,0.835,Cấp bậc Senior vs Mid,1
+jd_10,cv_295,4,4,4,4,Mid DevOps Engineer,strong,devops | Mid | 4.3 năm liên quan,0.927,Cấp bậc Mid vs Mid,1
+jd_10,cv_296,3,3,3,3,Mid DevOps Engineer,good,backend | Junior | 2.7 năm liên quan,0.77,Cấp bậc Junior vs Mid,1
+jd_10,cv_297,4,4,4,4,Mid DevOps Engineer,transfer,devops | Junior | 2.1 năm liên quan,0.813,Cấp bậc Junior vs Mid,1
+jd_10,cv_298,1,1,1,1,Mid DevOps Engineer,junior_low,devops | Junior | 1.2 năm liên quan,0.62,Thiếu: Linux; Khớp một phần: Git; Cấp bậc Junior vs Mid,1
+jd_10,cv_299,1,1,0,1,Mid DevOps Engineer,partial,devops | Fresher | 0.5 năm liên quan,0.536,Thiếu: Docker; Khớp một phần: Kubernetes; Giới hạn: cấp bậc thấp hơn 2 bậc; Cấp bậc Fresher vs Mid,1
+jd_10,cv_300,0,0,0,0,Mid DevOps Engineer,weak,devops | Junior | 1.3 năm liên quan,0.437,"Thiếu: Docker, AWS / Azure / GCP; Khớp một phần: CI/CD, Git; Giới hạn: thiếu skill cốt lõi; Cấp bậc Junior vs Mid",1

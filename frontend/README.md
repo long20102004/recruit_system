@@ -1,6 +1,6 @@
 # HireLens Frontend
 
-React + Vite + TypeScript. Style và component chung **đồng bộ với** `ui-prototype`.
+React, Vite và TypeScript. Dữ liệu lấy từ backend `/api`.
 
 ## Chạy
 
@@ -9,20 +9,25 @@ npm install
 npm run dev
 ```
 
-## Cấu trúc chung
+Vite proxy: `/api` → `http://localhost:8080`.
 
-```
-src/
-├── styles/main.css          # Copy 1:1 từ ui-prototype/assets/css/main.css
-├── components/common/       # Component UI tái sử dụng
-├── data/mockData.ts         # Mock tương đương mock-data.js
-├── types/                   # Kiểu Job, Match, CV, Interview…
-├── utils/                   # pct, filterJobs, role
-└── context/ToastContext.tsx # Toast giống HireLens.toast
-```
+## Tài khoản dữ liệu mẫu
 
-Import component:
+- Ứng viên: `candidate@hirelens.local` / `demo1234`
+- Nhà tuyển dụng: `recruiter@hirelens.local` / `demo1234`
 
-```ts
-import { Button, JobCard, SiteHeader, Page } from "./components/common";
-```
+## Đường dẫn
+
+| Path | Mô tả |
+|------|--------|
+| `/` | Trang việc làm công khai; đã đăng nhập thì vào trang tài khoản |
+| `/jobs` | Danh sách việc làm công khai |
+| `/login` | Đăng nhập |
+| `/register` | Đăng ký email và mật khẩu |
+| `/choose-role` | Chọn vai trò lần đầu |
+| `/candidate` | Trang việc làm của ứng viên |
+| `/candidate/cv` | Hồ sơ CV |
+| `/candidate/matching` | Việc phù hợp với hồ sơ |
+| `/candidate/jobs/:id` | Chi tiết tin tuyển dụng |
+| `/candidate/interview` | Ôn tập phỏng vấn |
+| `/recruiter` | Tổng quan nhà tuyển dụng |

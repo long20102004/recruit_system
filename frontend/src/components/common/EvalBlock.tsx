@@ -36,17 +36,28 @@ export function EvalBlock({ evaluation: ev }: EvalBlockProps) {
           {ev.predictedScore.toFixed(1)}
         </ScoreRing>
         <div>
-          <strong>Điểm dự đoán / 10</strong>
+          <strong>Điểm / 10</strong>
           <div className="muted" style={{ fontSize: ".85rem" }}>
-            {ev.scoreScale}
+            {ev.modelVersion?.toLowerCase().includes("ai")
+              ? "Chấm bởi HireLens AI"
+              : "Theo tiêu chí đánh giá"}
           </div>
         </div>
       </div>
-      <EvalRow label="BERTScore P" value={ev.bertPrecision.toFixed(3)} />
-      <EvalRow label="BERTScore R" value={ev.bertRecall.toFixed(3)} />
-      <EvalRow label="BERTScore F1" value={ev.bertF1.toFixed(3)} />
+      <p className="muted">Điểm tổng kết hợp mức đạt tiêu chí và độ tương đồng với đáp án tham khảo.</p>
+      <div className="muted">{ev.scoringMode === "bertscore" ? "BERTScore + rubric · điểm luyện tập tự động" : "Đối chiếu từ vựng + rubric"}</div>
+      {ev.scoringMode === "bertscore" && <div>
+        <EvalRow label="BERTScore Precision" value={ev.bertPrecision.toFixed(3)} />
+        <EvalRow label="BERTScore Recall" value={ev.bertRecall.toFixed(3)} />
+        <EvalRow label="BERTScore F1" value={ev.bertF1.toFixed(3)} />
+      </div>}
+      {ev.coverageScore != null && <EvalRow label="Độ phủ tiêu chí" value={`${Math.round(ev.coverageScore * 100)}%`} />}
+      {ev.criterionResults?.map(c => <div key={c.key} className="eval-row">
+        <div><strong>{c.label}</strong><p className="muted">{c.feedback}</p></div>
+        <span>{c.points.toFixed(1)}/{c.max_points.toFixed(1)}</span>
+      </div>)}
       <p style={{ margin: ".5rem 0 0" }}>{ev.comment}</p>
-      <div>
+      <div className="job-tags" style={{ marginTop: ".5rem" }}>
         {ev.coveredPoints.map((p) => (
           <Chip key={`c-${p}`} tone="ok">
             {p}
@@ -54,11 +65,10 @@ export function EvalBlock({ evaluation: ev }: EvalBlockProps) {
         ))}
         {ev.missingPoints.map((p) => (
           <Chip key={`m-${p}`} tone="warn">
-            Thiếu: {p}
+            Cần bổ sung: {p}
           </Chip>
         ))}
       </div>
-      <p className="hint">Model: {ev.modelVersion}</p>
     </div>
   );
 }
