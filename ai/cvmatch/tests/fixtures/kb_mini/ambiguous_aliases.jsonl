@@ -1,0 +1,6 @@
+{"alias": "go", "candidates": ["S0011"]}
+{"alias": "spring", "candidates": ["S0003", "S0002"]}
+{"alias": "node", "candidates": ["S0008"]}
+{"alias": "js", "candidates": ["S0004"]}
+{"alias": "c", "candidates": ["S0012"]}
+{"alias": "r", "candidates": ["S0031"]}

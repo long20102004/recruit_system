@@ -1,0 +1,20 @@
+# EX4 (thiet ke 08 muc 4, 6): loi giai thich KHONG duoc chua cac cum nay (so khop khong phan biet hoa/thuong).
+# Thuoc tinh nhay cam
+tuổi
+giới tính
+hôn nhân
+gia đình
+sức khoẻ
+sức khỏe
+quê quán
+tôn giáo
+dân tộc
+# Loi khuyen tuyen / loai
+nên tuyển
+không nên tuyển
+nên loại
+loại ứng viên
+từ chối ứng viên
+# Cach viet bi cam: chi viet "chua thay bang chung ve X trong CV"
+ứng viên không có
+không có kinh nghiệm

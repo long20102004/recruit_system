@@ -1,0 +1,32 @@
+{"kind": "title", "alias": "java developer", "role_group": "Backend"}
+{"kind": "title", "alias": "lập trình viên java", "role_group": "Backend"}
+{"kind": "title", "alias": "backend developer", "role_group": "Backend"}
+{"kind": "title", "alias": "backend engineer", "role_group": "Backend"}
+{"kind": "title", "alias": "python developer", "role_group": "Backend"}
+{"kind": "title", "alias": "frontend developer", "role_group": "Frontend"}
+{"kind": "title", "alias": "react developer", "role_group": "Frontend"}
+{"kind": "title", "alias": "fullstack developer", "role_group": "Fullstack"}
+{"kind": "title", "alias": "full-stack developer", "role_group": "Fullstack"}
+{"kind": "title", "alias": "mobile developer", "role_group": "Mobile"}
+{"kind": "title", "alias": "android developer", "role_group": "Mobile"}
+{"kind": "title", "alias": "data engineer", "role_group": "Data"}
+{"kind": "title", "alias": "data analyst", "role_group": "Data"}
+{"kind": "title", "alias": "devops engineer", "role_group": "DevOps"}
+{"kind": "title", "alias": "qa engineer", "role_group": "QA"}
+{"kind": "title", "alias": "tester", "role_group": "QA"}
+{"kind": "title", "alias": "kỹ sư kiểm thử", "role_group": "QA"}
+{"kind": "title", "alias": "security engineer", "role_group": "Security"}
+{"kind": "level", "alias": "intern", "level_rank": 0}
+{"kind": "level", "alias": "thực tập sinh", "level_rank": 0}
+{"kind": "level", "alias": "fresher", "level_rank": 1}
+{"kind": "level", "alias": "junior", "level_rank": 2}
+{"kind": "level", "alias": "jr", "level_rank": 2}
+{"kind": "level", "alias": "middle", "level_rank": 3}
+{"kind": "level", "alias": "mid", "level_rank": 3}
+{"kind": "level", "alias": "senior", "level_rank": 4}
+{"kind": "level", "alias": "sr", "level_rank": 4}
+{"kind": "level", "alias": "chuyên viên cao cấp", "level_rank": 4}
+{"kind": "level", "alias": "lead", "level_rank": 5}
+{"kind": "level", "alias": "team lead", "level_rank": 5}
+{"kind": "level", "alias": "tech lead", "level_rank": 5}
+{"kind": "level", "alias": "trưởng nhóm", "level_rank": 5}

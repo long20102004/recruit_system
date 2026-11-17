@@ -1,0 +1,80 @@
+{
+  "ontology_version": "kb-2026-11-16-dev",
+  "created_at": "2026-11-15T19:18:37.201416+00:00",
+  "include_candidate": true,
+  "source": "neo4j",
+  "files": {
+    "skill_ontology": {
+      "rows": 1470,
+      "sha256": "f2e11c9a7a1c65b3bd0a6daef1e43af73a10a77af23fa83fff93ba53885004c7"
+    },
+    "role_title_map": {
+      "rows": 171,
+      "sha256": "a4377e5882688ec65b40d0d96c6cb32698f15a096cda5e1fa04fff4b04cc6762"
+    },
+    "role_distance": {
+      "rows": 44,
+      "sha256": "1399ee8908d33e70b409ce84491156af8e318d6851444da1f1052a8062abb06c"
+    },
+    "major_group": {
+      "rows": 176,
+      "sha256": "cfd2c16a7a88e4e74eb1c9bd3c8d9d5710c5ab42af5a753541cf913d1bbb26a2"
+    },
+    "ambiguous_aliases": {
+      "rows": 32,
+      "sha256": "6ea8db7b0877fa510227b6a0bb6edab170ce808411228c848c53585f6e56da8a"
+    }
+  },
+  "stats": {
+    "n_skills": 1470,
+    "n_technology": 591,
+    "n_aliases": 1974,
+    "n_ambiguous_aliases": 32,
+    "n_parent_of": 15,
+    "n_skills_with_sibling_category": 21,
+    "n_title_aliases": 146,
+    "n_level_aliases": 25,
+    "n_major_aliases": 176,
+    "role_groups": [
+      "AI/ML",
+      "Backend",
+      "Data",
+      "DevOps",
+      "Frontend",
+      "Fullstack",
+      "Mobile",
+      "QA",
+      "Security"
+    ]
+  },
+  "warnings": {
+    "skills_without_evidence": 0,
+    "job_titles_without_role_group": 54,
+    "job_titles_multi_group": [
+      {
+        "title": "DataOps / MLOps Engineer",
+        "groups": [
+          "Data",
+          "AI/ML"
+        ],
+        "chosen": "Data"
+      },
+      {
+        "title": "Data Scientist",
+        "groups": [
+          "Data",
+          "AI/ML"
+        ],
+        "chosen": "Data"
+      },
+      {
+        "title": "DevSecOps Engineer",
+        "groups": [
+          "DevOps",
+          "Security"
+        ],
+        "chosen": "DevOps"
+      }
+    ]
+  }
+}

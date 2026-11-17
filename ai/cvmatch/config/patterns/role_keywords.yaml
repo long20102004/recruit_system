@@ -1,0 +1,98 @@
+# A6: gan role_group cho mot muc kinh nghiem khi chuc danh khong tra duoc role_title_map.
+# Dem so lan cac tu khoa (da chuan hoa) xuat hien trong cac gach cua muc; nhan nhom dau neu
+# >= prep.experience.role_keyword_ratio x nhom thu hai (UL). Can nguoi duy tri.
+# Sau nay co the sinh tu quan he USED_IN cua KB (T3) khi snapshot co bang nay.
+Backend:
+  - backend
+  - back-end
+  - api
+  - restful
+  - microservices
+  - spring boot
+  - django
+  - flask
+  - fastapi
+  - express
+  - laravel
+  - asp.net
+  - server
+  - cơ sở dữ liệu
+  - database
+  - postgresql
+  - mysql
+Frontend:
+  - frontend
+  - front-end
+  - giao diện
+  - ui
+  - react
+  - vue
+  - angular
+  - html
+  - css
+  - responsive
+Fullstack:
+  - fullstack
+  - full-stack
+  - full stack
+Mobile:
+  - mobile
+  - android
+  - ios
+  - flutter
+  - react native
+  - kotlin
+  - swift
+  - ứng dụng di động
+Data:
+  - data pipeline
+  - etl
+  - data warehouse
+  - spark
+  - airflow
+  - power bi
+  - tableau
+  - phân tích dữ liệu
+  - dashboard
+AI/ML:
+  - machine learning
+  - deep learning
+  - học máy
+  - mô hình
+  - model
+  - pytorch
+  - tensorflow
+  - llm
+  - nlp
+  - computer vision
+  - huấn luyện
+  - fine-tune
+DevOps:
+  - devops
+  - ci/cd
+  - kubernetes
+  - k8s
+  - docker
+  - terraform
+  - jenkins
+  - ansible
+  - monitoring
+  - hạ tầng
+QA:
+  - kiểm thử
+  - test case
+  - testing
+  - automation test
+  - selenium
+  - manual test
+  - qa
+  - bug
+Security:
+  - bảo mật
+  - security
+  - pentest
+  - penetration
+  - siem
+  - soc
+  - lỗ hổng
+  - vulnerability

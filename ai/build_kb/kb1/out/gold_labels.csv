@@ -1,0 +1,51 @@
+label,type_expected
+AI Safety and Ethics,category
+Adding end-user IDs in prompts,not_skill
+Advanced Crypto.,concept
+Ajax,concept
+Amazon EC2 ( Compute),technology
+Beginner Certifications,category
+Big Data Concepts,category
+Big Data Tools,category
+Buffer Overflow,concept
+C#,technology
+Choosing the Right Technologies,not_skill
+Cloud-native ML Services,category
+Collaborate with Others,not_skill
+Cut-off Dates / Knowledge,not_skill
+Data Factory (ETL),technology
+Data Lakes & Warehouses,concept
+Data Link,concept
+Data Modelling Techniques,category
+DataStore,technology
+Dependency Injection,concept
+EDR Strategy,concept
+ETL Process,concept
+"Gather Lessons, Prioritize & Integrate",not_skill
+Ghost Inspector,technology
+Horizontal vs Vertical Scaling,concept
+Internet,category
+Istio,technology
+JMeter,technology
+Layered,concept
+MapReduce,concept
+Nessus,technology
+NoSQL Databsases,category
+OpenVAS,technology
+Operating Systems,category
+Packet Filtering,concept
+Projection,concept
+Python is recommended,not_skill
+Regional Cloud,concept
+Roles of Compliance and Auditors,not_skill
+Routers,concept
+SNTP,technology
+Scaling,concept
+Search Engines,category
+Secrets Management,concept
+Shared Responsibility Model,concept
+Site-to-Site vs Remote Access,concept
+Tell User what the Action is and ask for it,not_skill
+Test Planning,concept
+VM,concept
+WPS,technology

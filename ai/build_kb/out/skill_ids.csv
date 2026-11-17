@@ -1,0 +1,1471 @@
+key,skill_id
+.net framework,S0001
+2d,S0002
+a/b testing,S0003
+acceleration,S0004
+access control,S0005
+access points,S0006
+access points & controllers,S0007
+accessibility,S0008
+accessibility testing,S0009
+acid,S0010
+"acid, cap theorem",S0011
+acl,S0012
+acls,S0013
+action funnel,S0014
+activity,S0015
+activity lifecycle,S0016
+actors,S0017
+adding end-user ids in prompts,S0018
+adobe xd,S0019
+adversarial testing,S0020
+affine space,S0021
+affine transformation,S0022
+agile model,S0023
+ai agents,S0024
+ai code editors,S0025
+ai safety and ethics,S0026
+ai safety concerns,S0027
+ai/ml services,S0028
+airflow,S0029
+ajax,S0030
+alert types,S0031
+alibaba cloud,S0032
+allure,S0033
+amazon ec2,S0034
+amazon rds,S0035
+amazon redshift,S0036
+angular,S0037
+angular velocity,S0038
+animations,S0039
+anomaly detection,S0040
+ansible,S0041
+anthropic claude,S0042
+antimalware,S0043
+antivirus,S0044
+any.run,S0045
+apache,S0046
+apache airflow,S0047
+apache hadoop yarn,S0048
+apache kafka,S0049
+apache spark,S0050
+api integration patterns,S0051
+api keys & management,S0052
+api lifecycle management,S0053
+api performance,S0054
+api performance best practices,S0055
+api security,S0056
+api security best practices,S0057
+api styles,S0058
+api testing,S0059
+apollo,S0060
+apollo-android,S0061
+app components,S0062
+app shortcuts,S0063
+appium,S0064
+application,S0065
+application architecture,S0066
+application monitoring,S0067
+apt,S0068
+architectural patterns,S0069
+architecture,S0070
+architecture levels,S0071
+argocd,S0072
+arp,S0073
+artifact management,S0074
+artifact registries,S0075
+artifactory,S0076
+artificial neural network,S0077
+artillery,S0078
+assembla,S0079
+astro,S0080
+asymmetric encryption,S0081
+asynchronism,S0082
+atlassian,S0083
+att&ck,S0084
+attack surface mapping,S0085
+attack vectors,S0086
+attribute based access control,S0087
+audio processing,S0088
+audit & compliance mapping,S0089
+aurora db,S0090
+auth methods,S0091
+auth strategies,S0092
+auth/authorization,S0093
+authentication,S0094
+authorization,S0095
+authorization methods,S0096
+auto scaling,S0097
+automated patching,S0098
+automation levels,S0099
+autopsy,S0100
+availability,S0101
+average,S0102
+aws,S0103
+aws cdk,S0104
+aws ecs/fargate,S0105
+aws eks,S0106
+aws lambda,S0107
+aws neptune,S0108
+aws sagemaker,S0109
+aws sns,S0110
+aws sqs,S0111
+axe,S0112
+azure,S0113
+azure ai,S0114
+azure blob storage,S0115
+azure devops,S0116
+azure functions,S0117
+azure sql database,S0118
+azure vm,S0119
+babok,S0120
+backend automation,S0121
+backpressure,S0122
+balance,S0123
+balsamiq,S0124
+bamboo,S0125
+bandwidth,S0126
+bar charts,S0127
+bare metal cloud,S0128
+base,S0129
+bash,S0130
+basics,S0131
+batch,S0132
+batch processing,S0133
+bcrypt,S0134
+behavior design,S0135
+behavior tree,S0136
+behavioral economics,S0137
+behavioral science,S0138
+bem,S0139
+bezier,S0140
+bgp,S0141
+bias and fairness,S0142
+big data concepts,S0143
+bigtable,S0144
+bitbucket,S0145
+bj fogg's behavior grid,S0146
+bj fogg's behavior model,S0147
+black box testing,S0148
+block storage,S0149
+bluetooth,S0150
+bluetooth basics,S0151
+bottom sheet,S0152
+bounding volume,S0153
+box,S0154
+"bpm, bpel",S0155
+bpmn,S0156
+broad phase,S0157
+broadcast receiver,S0158
+buffer overflow,S0159
+bug magnet,S0160
+build pipeline hardening,S0161
+builder pattern,S0162
+building for scale,S0163
+building json / restful apis,S0164
+bump,S0165
+buoyancy,S0166
+burp suite,S0167
+bus,S0168
+business model canvas,S0169
+business model inspirator,S0170
+bvh,S0171
+c#,S0172
+c++,S0173
+c/c++,S0174
+caching,S0175
+caching server,S0176
+caching strategies,S0177
+caddy,S0178
+call to action,S0179
+cap theorem,S0180
+capabilities context length,S0181
+cascaded,S0182
+cassandra,S0183
+cat,S0184
+catmull-rom,S0185
+ccd,S0186
+cdn,S0187
+cdn edge caching,S0188
+census,S0189
+center of mass,S0190
+central tendency,S0191
+certificate lifecycle,S0192
+certificates,S0193
+charting,S0194
+chat completions api,S0195
+chef,S0196
+choosing the right technologies,S0197
+chroma,S0198
+chrome devtools,S0199
+chucker,S0200
+chunking,S0201
+ci cd,S0202
+ci cd pipelines,S0203
+cia triad,S0204
+cidr,S0205
+circleci,S0206
+circuit breaker,S0207
+circuit level gateway,S0208
+cis,S0209
+cisa,S0210
+cism,S0211
+cissp,S0212
+cleanup,S0213
+clear page of distractions,S0214
+client,S0215
+client‑server architecture,S0216
+client‑server network,S0217
+client‑side caching,S0218
+clipping,S0219
+cloud architectures,S0220
+cloud computing,S0221
+cloud deployment,S0222
+cloud deployment models,S0223
+cloud design patterns,S0224
+cloud messaging,S0225
+cloud providers,S0226
+cloud security,S0227
+cloud service models,S0228
+cloud smith,S0229
+cloud specific tools,S0230
+cloud sql,S0231
+cloud vs on-premises,S0232
+cloudflare,S0233
+cloudformation,S0234
+cloud‑native ml services,S0235
+cluster,S0236
+cluster management tools,S0237
+cnns,S0238
+code completion tools,S0239
+cohere,S0240
+collaborate with others,S0241
+collection,S0242
+collision detection,S0243
+color,S0244
+column,S0245
+common commands,S0246
+common ports,S0247
+common protocols,S0248
+common vulnerabilities,S0249
+communication,S0250
+compatibility,S0251
+competition measurement,S0252
+competitor analysis,S0253
+compliance,S0254
+comptia a+,S0255
+comptia linux+,S0256
+comptia network+,S0257
+comptia security+,S0258
+compute engine,S0259
+concat,S0260
+concave,S0261
+conceptual design,S0262
+configuration management,S0263
+connection types,S0264
+conservation of energy,S0265
+constraining i/o,S0266
+constraint,S0267
+consul,S0268
+consult & coach,S0269
+consult & coach developers,S0270
+contabo,S0271
+containment,S0272
+content negotiation,S0273
+content provider,S0274
+content security policy,S0275
+contract testing,S0276
+convex,S0277
+convex decomposition,S0278
+convex hull,S0279
+convexity,S0280
+cookie based auth,S0281
+cookies,S0282
+coroutines,S0283
+correlation analysis,S0284
+cors,S0285
+cosmosdb,S0286
+cost monitoring,S0287
+couchdb,S0288
+count,S0289
+cqrs,S0290
+"cqrs, eventual consistency",S0291
+crashlytics,S0292
+credentials,S0293
+crest,S0294
+crud operations,S0295
+cryptographic hashing,S0296
+csf,S0297
+csp,S0298
+cspm,S0299
+csrf,S0300
+css,S0301
+css architecture,S0302
+css preprocessors,S0303
+csv,S0304
+cube,S0305
+culling,S0306
+curl,S0307
+curve,S0308
+custom elements,S0309
+cyber kill chain,S0310
+cybersecurity basics,S0311
+cypress,S0312
+daas,S0313
+dagger,S0314
+dall‑e api,S0315
+data analytics,S0316
+data archiving,S0317
+data centers,S0318
+data classification,S0319
+data cleanup,S0320
+data collection,S0321
+data engineering fundamentals,S0322
+data engineering lifecycle,S0323
+data fabric,S0324
+data factory,S0325
+data generation,S0326
+data hub,S0327
+data ingestion,S0328
+data ingestion architecture,S0329
+data interoperability,S0330
+data lake,S0331
+data lifecycle,S0332
+data lineage,S0333
+data link,S0334
+data management,S0335
+data mart,S0336
+data masking,S0337
+data mesh,S0338
+data normalization,S0339
+data obfuscation,S0340
+data pipelines,S0341
+data protection,S0342
+data quality,S0343
+data replication,S0344
+data serving,S0345
+data storage,S0346
+data structures and algorithms,S0347
+data transformation,S0348
+data visualisation,S0349
+data warehouse,S0350
+database,S0351
+database indexes,S0352
+databases,S0353
+datadog,S0354
+dataflow,S0355
+datastore,S0356
+datawarehouse principles,S0357
+datedif,S0358
+dbt,S0359
+dd,S0360
+ddos mitigation,S0361
+deauthentication attack,S0362
+debugging,S0363
+decision learning,S0364
+decision making,S0365
+decision tree,S0366
+decision tree learning,S0367
+decision trees,S0368
+decision-making support,S0369
+deep learning,S0370
+default gateway,S0371
+defaulting,S0372
+defense in depth,S0373
+delta lake,S0374
+dependency injection,S0375
+dependency risk management,S0376
+deployment strategies,S0377
+descriptive analysis,S0378
+descriptive analytics,S0379
+design & architecture decisions,S0380
+design and development principles,S0381
+design and implementation,S0382
+design patterns,S0383
+detekt,S0384
+detox,S0385
+device orientation,S0386
+devtools usage,S0387
+dhcp,S0388
+diagnostic analytics,S0389
+dialogs,S0390
+diamond model,S0391
+diffuse,S0392
+dig,S0393
+digitalocean,S0394
+direct sdk usage,S0395
+directional,S0396
+directory traversal,S0397
+directx,S0398
+directx ray tracing,S0399
+dispersion,S0400
+distributed file systems,S0401
+distributed systems,S0402
+distributed systems basics,S0403
+distribution,S0404
+distribution space,S0405
+dlp,S0406
+dmarc,S0407
+dmz,S0408
+dns,S0409
+dns in the cloud,S0410
+dns poisoning,S0411
+dnssec,S0412
+docker,S0413
+docker swarm,S0414
+dom manipulation,S0415
+domain driven design,S0416
+domain keys,S0417
+domain-driven design,S0418
+dos & ddos,S0419
+dplyr,S0420
+drive by attack,S0421
+drone,S0422
+dropbox,S0423
+dual process theory,S0424
+dumpster diving,S0425
+dynamics,S0426
+dynamodb,S0427
+ec2,S0428
+ecpa,S0429
+edge computing,S0430
+edr,S0431
+edr strategy,S0432
+eigrp,S0433
+elastic stack,S0434
+elasticity,S0435
+elasticsearch,S0436
+electron,S0437
+eleventy,S0438
+embedding,S0439
+embeddings,S0440
+emc dms,S0441
+encryption,S0442
+encryption basics,S0443
+end-to-end testing,S0444
+endpoint,S0445
+endpoint detection,S0446
+endpoint security,S0447
+enforcing standards,S0448
+enterprise architecture,S0449
+environmental management,S0450
+envoy,S0451
+epa,S0452
+eradication,S0453
+error handling,S0454
+esb,S0455
+esbuild,S0456
+eslint,S0457
+espresso,S0458
+estimate and evaluate,S0459
+esxi,S0460
+etl,S0461
+eu ai act,S0462
+euler angle,S0463
+event driven architecture,S0464
+event logs,S0465
+event sourcing,S0466
+event-driven architecture,S0467
+event-driven process chain model,S0468
+evil twin,S0469
+experiment tracking & model registry,S0470
+explicit intents,S0471
+exploration,S0472
+exploratory testing,S0473
+extract data,S0474
+faas,S0475
+factory pattern,S0476
+failover,S0477
+failure modes,S0478
+faiss,S0479
+false negative / false positive,S0480
+fetch api,S0481
+figma,S0482
+file crud,S0483
+file storage,S0484
+file system,S0485
+finding outliers,S0486
+fine-tuning,S0487
+finops,S0488
+firebase,S0489
+firebase distribution,S0490
+firestore,S0491
+firewall,S0492
+firewall logs,S0493
+five forces model,S0494
+flink,S0495
+flow,S0496
+flutter,S0497
+fluxcd,S0498
+fog,S0499
+force,S0500
+forensics,S0501
+forms and validations,S0502
+forward proxy,S0503
+fragments,S0504
+frame,S0505
+freebsd,S0506
+friction,S0507
+frontend automation,S0508
+frustum,S0509
+ftk imager,S0510
+ftp,S0511
+ftp/sftp,S0512
+functional programming,S0513
+functional testing,S0514
+funnel charts,S0515
+fuzzy logic,S0516
+gamification,S0517
+gatling,S0518
+gcp,S0519
+gcp functions,S0520
+gdpr,S0521
+gdscript,S0522
+gemini,S0523
+generation,S0524
+geometry,S0525
+ggplot2,S0526
+ghost inspector,S0527
+giac,S0528
+git,S0529
+github,S0530
+github actions,S0531
+gitlab,S0532
+gitlab ci,S0533
+gitops,S0534
+gjk,S0535
+gke / eks / aks,S0536
+glsl,S0537
+glue,S0538
+gmail tester,S0539
+go,S0540
+goal oriented behavior,S0541
+goal trackers,S0542
+godot,S0543
+gof design patterns,S0544
+good layout rules,S0545
+google admob,S0546
+google bigquery,S0547
+google cloud,S0548
+google cloud gke,S0549
+google cloud storage,S0550
+google deployment manager,S0551
+google drive,S0552
+google maps,S0553
+google play services,S0554
+google playstore,S0555
+google suite,S0556
+gpen,S0557
+graceful degradation,S0558
+grafana,S0559
+graph,S0560
+graphics pipeline,S0561
+graphql,S0562
+graphql apis,S0563
+gray box testing,S0564
+graylog,S0565
+grep,S0566
+group policy,S0567
+grpc,S0568
+grpc apis,S0569
+gsec,S0570
+gtfobins,S0571
+guest os,S0572
+gwapt,S0573
+hackthebox,S0574
+hadoop,S0575
+hashing,S0576
+hashing algorithms,S0577
+hateoas,S0578
+hbase,S0579
+hdfs,S0580
+head,S0581
+headless chrome,S0582
+headless fox,S0583
+heatmap,S0584
+hermite,S0585
+heroku,S0586
+hetzner,S0587
+hightouch,S0588
+hilt,S0589
+hipaa,S0590
+hips,S0591
+histograms,S0592
+hlsl,S0593
+honeypots,S0594
+hook model,S0595
+horizon,S0596
+host,S0597
+host based firewall,S0598
+host os,S0599
+hotspot and tethering,S0600
+hping,S0601
+html,S0602
+html templates,S0603
+htmlunit,S0604
+http,S0605
+http caching,S0606
+http headers,S0607
+http methods,S0608
+http status codes,S0609
+http versions,S0610
+http/https,S0611
+https,S0612
+hub,S0613
+hugging face,S0614
+hugging face hub,S0615
+hugging face models,S0616
+hugging face tasks,S0617
+human decision making,S0618
+hybrid,S0619
+hybrid cloud,S0620
+hypervisor,S0621
+hypervisors,S0622
+hypothesis testing,S0623
+iaas,S0624
+iam,S0625
+ibm bpm,S0626
+icloud,S0627
+idempotency,S0628
+identification,S0629
+ids,S0630
+ids/ips,S0631
+if,S0632
+iis,S0633
+image generation,S0634
+image recognition,S0635
+image scanning,S0636
+image understanding,S0637
+imageview,S0638
+imap,S0639
+impersonation,S0640
+implicit intents,S0641
+incident response,S0642
+incremental a/b testing,S0643
+indexing,S0644
+indexing embeddings,S0645
+inference,S0646
+inference sdk,S0647
+influxdb,S0648
+infrared,S0649
+infrastructure as code,S0650
+infrastructure monitoring,S0651
+input validation patterns,S0652
+installation and configuration,S0653
+installing software and applications,S0654
+instance,S0655
+instance types,S0656
+instrumentation,S0657
+integration testing,S0658
+intent,S0659
+intent filters,S0660
+internet,S0661
+intersection,S0662
+ionic,S0663
+iot,S0664
+ip,S0665
+ip address,S0666
+ip addressing,S0667
+ipam,S0668
+ipconfig,S0669
+ips,S0670
+ipsec,S0671
+iptables,S0672
+ir lifecycle,S0673
+iso,S0674
+iso 27001,S0675
+istio,S0676
+itil,S0677
+jaeger,S0678
+jasmine,S0679
+java,S0680
+java/kotlin/scala,S0681
+javascript,S0682
+jenkins,S0683
+jest,S0684
+jetpack benchmark,S0685
+jetpack compose,S0686
+jmeter,S0687
+job scheduling,S0688
+joe sandbox,S0689
+json api,S0690
+jump server,S0691
+junit,S0692
+jwt,S0693
+jwt auth,S0694
+k-means,S0695
+k6,S0696
+kafka,S0697
+kali linux,S0698
+kanban,S0699
+karate,S0700
+kerberos,S0701
+key exchange,S0702
+key management service,S0703
+key-value store,S0704
+kibana,S0705
+kill chain,S0706
+knn,S0707
+kotlin,S0708
+ktlint,S0709
+kubernetes,S0710
+kurtosis,S0711
+lan,S0712
+lancedb,S0713
+langchain,S0714
+langchain multimodal,S0715
+large scale identity strategy,S0716
+latency,S0717
+latency and throughput,S0718
+layered architecture,S0719
+ldap,S0720
+ldaps,S0721
+leakcanary,S0722
+lean canvas,S0723
+least connections,S0724
+least privilege,S0725
+less,S0726
+light,S0727
+light source,S0728
+lighthouse,S0729
+lighthouse usage,S0730
+lighting and shadow,S0731
+lights-out operations,S0732
+line chart,S0733
+linear,S0734
+linear algebra,S0735
+linear transformation,S0736
+linear velocity,S0737
+link aggregation,S0738
+linkerd,S0739
+linting,S0740
+linux,S0741
+linux/unix,S0742
+listview,S0743
+livedata,S0744
+llamaindex,S0745
+llms,S0746
+load balancer,S0747
+load balancing,S0748
+load data,S0749
+load testing,S0750
+loadshifting,S0751
+local auth,S0752
+localhost,S0753
+location,S0754
+locust,S0755
+log analysis,S0756
+logistic regression,S0757
+logs,S0758
+loki,S0759
+lolbas,S0760
+long polling,S0761
+looker,S0762
+loopback,S0763
+luigi,S0764
+lxc,S0765
+mac address,S0766
+mac address tables,S0767
+mac-based,S0768
+macos,S0769
+mailinator,S0770
+making layouts,S0771
+malware types,S0772
+man,S0773
+managed kubernetes,S0774
+managed relational dbs,S0775
+manual testing,S0776
+mapping,S0777
+mapreduce,S0778
+mariadb,S0779
+markov system,S0780
+matplotlib,S0781
+matrix,S0782
+maximum tokens,S0783
+md5,S0784
+mean,S0785
+median,S0786
+memcached,S0787
+memdump,S0788
+memory leak,S0789
+mesh,S0790
+metadata management,S0791
+metadata-first architecture,S0792
+metal,S0793
+metallicity,S0794
+mfa & 2fa,S0795
+microfrontends,S0796
+microservices,S0797
+microservices architecture,S0798
+microservices communication,S0799
+microsoft power bi,S0800
+microsurface scattering,S0801
+migration strategies,S0802
+min / max,S0803
+mindfulness to avoid acting on the cue,S0804
+minimax,S0805
+missing data handling,S0806
+mistral ai,S0807
+mitm,S0808
+mlops,S0809
+mlops principles,S0810
+mobile automation,S0811
+mobile networks,S0812
+mocking apis,S0813
+mode,S0814
+model evaluation techniques,S0815
+model training & serving,S0816
+models on hugging face,S0817
+modems,S0818
+module bundlers,S0819
+moment of inertia,S0820
+mongodb,S0821
+mongodb atlas,S0822
+monit,S0823
+monitoring,S0824
+monolithic apps,S0825
+movement,S0826
+mpi,S0827
+mpls,S0828
+multimodal ai,S0829
+multivariate testing,S0830
+multi‑cloud,S0831
+multi‑region security planning,S0832
+multi‑tenancy,S0833
+mvc,S0834
+mvi,S0835
+mvp,S0836
+mvvm,S0837
+mysql,S0838
+n+1 problem,S0839
+nac‑based,S0840
+naive bayes,S0841
+naive bayes classifier,S0842
+narrow phase,S0843
+nat,S0844
+nat & ip management,S0845
+native,S0846
+natural language processing,S0847
+navigation components,S0848
+neo4j,S0849
+neptune,S0850
+nessus,S0851
+netbsd,S0852
+netflow,S0853
+netflow / sflow,S0854
+netlify,S0855
+netstat,S0856
+network access,S0857
+network attacks,S0858
+network engineering,S0859
+network segmentation,S0860
+network topology,S0861
+networking fundamentals,S0862
+networking knowledge,S0863
+networks,S0864
+neural networks,S0865
+new relic,S0866
+next-generation,S0867
+next.js,S0868
+nexus,S0869
+nfc,S0870
+nginx,S0871
+nids,S0872
+nightwatch,S0873
+nips,S0874
+nist,S0875
+nmap,S0876
+nmap basics,S0877
+node.js,S0878
+non-functional testing,S0879
+normalization,S0880
+notifications,S0881
+npm,S0882
+nslookup,S0883
+ntp,S0884
+nudge theory,S0885
+nuxt.js,S0886
+oauth,S0887
+oauth 2.0,S0888
+obb,S0889
+obfuscation,S0890
+object storage,S0891
+observability,S0892
+observer pattern,S0893
+occluder,S0894
+octopus deploy,S0895
+office,S0896
+okhttp,S0897
+ollama,S0898
+ollama models,S0899
+ollama sdk,S0900
+onedrive,S0901
+onehouse,S0902
+oop,S0903
+open ai assistant api,S0904
+open ai embedding models,S0905
+open ai embeddings api,S0906
+open-source ai,S0907
+open-source embeddings,S0908
+openai api,S0909
+openai assistant api,S0910
+openai functions,S0911
+openai models,S0912
+openai moderation api,S0913
+openai playground,S0914
+openai vision api,S0915
+openapi spec,S0916
+openbsd,S0917
+opendns,S0918
+opengl,S0919
+opengl es,S0920
+openid,S0921
+opentelemetry,S0922
+opentofu,S0923
+openvas,S0924
+operating system,S0925
+operating systems,S0926
+operations knowledge,S0927
+optix,S0928
+oracle,S0929
+orchestration,S0930
+orientation,S0931
+orms,S0932
+orthogonal,S0933
+os hardening,S0934
+os-independent troubleshooting,S0935
+osi,S0936
+osi model,S0937
+ospf,S0938
+owasp,S0939
+owasp risks,S0940
+owasp security risks,S0941
+owasp top 10,S0942
+p2p network,S0943
+paas,S0944
+package,S0945
+package managers,S0946
+packet captures,S0947
+packet filtering,S0948
+packet prioritization,S0949
+packet sniffers,S0950
+pagerduty,S0951
+pagination,S0952
+pan,S0953
+pandas,S0954
+papertrail,S0955
+parallax,S0956
+parallel processing,S0957
+parcel,S0958
+parrotos,S0959
+pass-the-hash,S0960
+pasta,S0961
+patching,S0962
+payments,S0963
+pbr,S0964
+pci dss,S0965
+peer comparisons,S0966
+pentest rules,S0967
+perfect,S0968
+performance metrics,S0969
+performance monitoring,S0970
+performance testing,S0971
+perspective,S0972
+persuasive tech,S0973
+phishing,S0974
+php,S0975
+picoctf,S0976
+pie charts,S0977
+pii,S0978
+pinecone,S0979
+ping,S0980
+pivot tables,S0981
+pki,S0982
+pki design,S0983
+playwright,S0984
+pmi,S0985
+pnpm,S0986
+point,S0987
+polygon,S0988
+polyhedron,S0989
+pop3s,S0990
+port,S0991
+port blocking,S0992
+port scanner,S0993
+postcss,S0994
+postgresql,S0995
+postman,S0996
+postman/newman,S0997
+power bi,S0998
+powershell,S0999
+pre-trained model,S1000
+predictive analytics,S1001
+prescriptive analytics,S1002
+prettier,S1003
+pricing model,S1004
+prince2,S1005
+privacy and compliance,S1006
+privilege escalation,S1007
+process monitoring,S1008
+profiling and monitoring,S1009
+profiling performance,S1010
+programming fundamentals,S1011
+projection,S1012
+prometheus,S1013
+prompt engineering,S1014
+prompt injection attack,S1015
+protocol,S1016
+protocol analyzer,S1017
+prototyping,S1018
+provider landscape,S1019
+provider lock-in,S1020
+provisioning,S1021
+proxmox,S1022
+proxy,S1023
+prpl pattern,S1024
+pulumi,S1025
+puppet,S1026
+puppeteer,S1027
+pwas,S1028
+python,S1029
+pytorch,S1030
+qa mindset,S1031
+qa wolf,S1032
+qdrant,S1033
+qos,S1034
+qtest,S1035
+quad9,S1036
+qualys,S1037
+quaternion,S1038
+qwik,S1039
+r,S1040
+rabbitmq,S1041
+"racks, pods, & aisles",S1042
+radius,S1043
+rag,S1044
+rail model,S1045
+range,S1046
+rasterization,S1047
+rate limiting,S1048
+ray tracing,S1049
+rbac,S1050
+rdp,S1051
+react,S1052
+react native,S1053
+react prompting,S1054
+react-router,S1055
+reactive programming,S1056
+readme,S1057
+real-time apis,S1058
+real-time data,S1059
+real-time ray tracing,S1060
+realtime,S1061
+recommendation systems,S1062
+reconnaissance,S1063
+recovery,S1064
+recycleview,S1065
+redis,S1066
+reflection,S1067
+"region, availability zone",S1068
+regional cloud,S1069
+regression,S1070
+regression testing,S1071
+reinforcement learning,S1072
+relay modern,S1073
+remote config,S1074
+removing duplicates,S1075
+rendering equation,S1076
+replay attack,S1077
+replication,S1078
+repository pattern,S1079
+requirements elicitation,S1080
+resource optimization,S1081
+response strategy,S1082
+responsive design,S1083
+rest,S1084
+rest assured,S1085
+rest principles,S1086
+restful apis,S1087
+restitution,S1088
+retention & compliance,S1089
+rethinkdb,S1090
+retrieval process,S1091
+reusability,S1092
+reverse etl,S1093
+reverse proxy,S1094
+rfc 7807,S1095
+rhel,S1096
+ring topology,S1097
+rip,S1098
+risk definition,S1099
+risk quantification,S1100
+rmf,S1101
+rnn,S1102
+robust prompt engineering,S1103
+rogue access point,S1104
+role-based access,S1105
+rollup,S1106
+room database,S1107
+root cause analysis,S1108
+round robin,S1109
+route,S1110
+route53,S1111
+router,S1112
+routers,S1113
+routing,S1114
+ruby,S1115
+runscope,S1116
+rup,S1117
+rust,S1118
+rxjava,S1119
+rxkotlin,S1120
+s/mime,S1121
+s3,S1122
+saas,S1123
+safe,S1124
+salesforce,S1125
+salting,S1126
+saml,S1127
+sampling,S1128
+san,S1129
+sandboxing,S1130
+sanity testing,S1131
+sap,S1132
+sass,S1133
+sat,S1134
+sboms,S1135
+scala,S1136
+scalability,S1137
+scaling,S1138
+scaling databases,S1139
+scatter plot,S1140
+scd,S1141
+scripting knowledge,S1142
+scrum,S1143
+scrypt,S1144
+sdn,S1145
+seaborn,S1146
+sealed secrets,S1147
+secure api design,S1148
+secure coding,S1149
+secure network zoning,S1150
+security groups,S1151
+security testing,S1152
+selenium,S1153
+selenium ide,S1154
+semantic search,S1155
+sentence transformers,S1156
+sentry,S1157
+seo basics,S1158
+server,S1159
+server security,S1160
+server side,S1161
+server side rendering,S1162
+serverless,S1163
+serverless computing,S1164
+serverless concepts,S1165
+serverless platforms,S1166
+server‑sent events,S1167
+service mesh,S1168
+service workers,S1169
+service‑oriented architecture,S1170
+ses,S1171
+session,S1172
+session‑based authentication,S1173
+sftp,S1174
+sha,S1175
+shader,S1176
+shadow,S1177
+shadow dom,S1178
+shadow map,S1179
+sharding strategies,S1180
+shared preferences,S1181
+shared responsibility model,S1182
+sha‑256,S1183
+shell/bash,S1184
+short polling,S1185
+shoulder surfing,S1186
+siem,S1187
+signed apk,S1188
+similarity search,S1189
+simple flowchart,S1190
+simple json apis,S1191
+simplifying things,S1192
+sinkholes,S1193
+sketch,S1194
+skewness,S1195
+sla,S1196
+slack,S1197
+smishing,S1198
+smoke testing,S1199
+smtp,S1200
+smtp/imap,S1201
+snmp,S1202
+snowflake,S1203
+sntp,S1204
+soa,S1205
+soap,S1206
+soap api,S1207
+soapui,S1208
+soar,S1209
+soar automation,S1210
+soar concepts,S1211
+soc 2,S1212
+social engineering,S1213
+social sharing,S1214
+socket,S1215
+solid,S1216
+solidjs,S1217
+solr,S1218
+solution architecture,S1219
+sops,S1220
+sort & sweep,S1221
+sources of data,S1222
+spa/ssr/ssg,S1223
+spark,S1224
+spatial partitioning,S1225
+spectrum of thinking interventions,S1226
+specular,S1227
+speech-to-text,S1228
+spf,S1229
+spir-v,S1230
+spline,S1231
+splunk,S1232
+spoofing,S1233
+spot,S1234
+spot & reserved instances,S1235
+sql,S1236
+sql databases,S1237
+sql injection,S1238
+sql injection prevention,S1239
+sql server,S1240
+sqlite,S1241
+srtp,S1242
+ssh,S1243
+ssl/tls,S1244
+ssl/tls basics,S1245
+sso,S1246
+stacked charts,S1247
+stakeholders,S1248
+standard deviation,S1249
+standards and compliance,S1250
+star topology,S1251
+state changes,S1252
+state machine,S1253
+stateful inspection,S1254
+stateless functions,S1255
+static site generators,S1256
+statistical analysis,S1257
+status reports,S1258
+stencil shadow,S1259
+stoplight,S1260
+storage,S1261
+storage classes & tiering,S1262
+storage types,S1263
+stp,S1264
+streaming,S1265
+streamlit,S1266
+stress testing,S1267
+stride,S1268
+subnet mask,S1269
+subnet masks,S1270
+subnets & routing,S1271
+subnetting,S1272
+sum,S1273
+supabase,S1274
+supernetting,S1275
+supervised learning,S1276
+supply chain security,S1277
+suse linux,S1278
+svelte,S1279
+svelte kit,S1280
+swagger/openapi,S1281
+swc,S1282
+switch,S1283
+switches,S1284
+swot analysis,S1285
+symmetric encryption,S1286
+syslogs,S1287
+tableau,S1288
+tableu,S1289
+tabs,S1290
+tail,S1291
+tailgating,S1292
+tailwind,S1293
+tailwind css,S1294
+target action,S1295
+target actor,S1296
+target outcome,S1297
+tauri,S1298
+tcp/ip,S1299
+tcp/ip model,S1300
+tcpdump,S1301
+teamcity,S1302
+tech decisions,S1303
+telemetry,S1304
+tensorflow,S1305
+terraform,S1306
+test cases and scenarios,S1307
+test oracles,S1308
+test planning,S1309
+test prioritization,S1310
+testing,S1311
+testing approaches,S1312
+testing techniques,S1313
+testlink,S1314
+testrail,S1315
+test‑driven development,S1316
+text manipulation,S1317
+texture,S1318
+textview,S1319
+text‑to‑speech,S1320
+threads,S1321
+threat modeling,S1322
+threat modeling workflows,S1323
+throttling,S1324
+throughput,S1325
+timber,S1326
+timescale,S1327
+tls,S1328
+toast,S1329
+togaf,S1330
+token authentication,S1331
+token counting,S1332
+tokenization,S1333
+token‑based auth,S1334
+tomcat,S1335
+tone reproduction,S1336
+tracert,S1337
+trade-offs of serverless,S1338
+traffic management,S1339
+traffic shaping,S1340
+transactions,S1341
+transform data,S1342
+transformers.js,S1343
+translucency & transparency,S1344
+transmission media types,S1345
+transport,S1346
+travis ci,S1347
+trello,S1348
+trim,S1349
+troubleshooting,S1350
+true negative / true positive,S1351
+tryhackme,S1352
+twelve factor apps,S1353
+typescript,S1354
+typo squatting,S1355
+uat,S1356
+ubuntu / debian,S1357
+uml,S1358
+unit testing,S1359
+unity 3d,S1360
+unreal engine,S1361
+unsupervised learning,S1362
+upper/lower/proper functions,S1363
+upstream connectivity,S1364
+uri design,S1365
+url parameters,S1366
+urlscan,S1367
+urlvoid,S1368
+user personas,S1369
+user stories,S1370
+ux best practices,S1371
+v-model,S1372
+variance,S1373
+vault,S1374
+vcs hosting,S1375
+vector database,S1376
+vector databases,S1377
+vector mathematics,S1378
+vegeta,S1379
+vercel,S1380
+verification and validation,S1381
+version control,S1382
+version control system,S1383
+version control systems,S1384
+versioning strategies,S1385
+video understanding,S1386
+"vim, nano, emacs",S1387
+virtual machine instances,S1388
+virtual machines,S1389
+virtual private cloud,S1390
+virtualbox,S1391
+virustotal,S1392
+visibility and occlusion,S1393
+visual perception,S1394
+visualisation,S1395
+visualizing distributions,S1396
+vite,S1397
+vitest,S1398
+vlan,S1399
+vlan hopping,S1400
+vlans,S1401
+vlans & vxlan,S1402
+vlookup / hlookup,S1403
+vlsm,S1404
+vm,S1405
+"vm migration, live migration",S1406
+vmware,S1407
+vpc,S1408
+vpn,S1409
+vpn & direct connect,S1410
+vpns,S1411
+vue.js,S1412
+vuepress,S1413
+vulkan,S1414
+vulkan ray tracing,S1415
+vulnerability scanning,S1416
+vulnhub,S1417
+wadcoms,S1418
+wan,S1419
+waterfall,S1420
+watering hole attack,S1421
+wave,S1422
+weaviate,S1423
+web application,S1424
+web based attacks and owasp10,S1425
+web components,S1426
+web scraping,S1427
+web security,S1428
+web security basics,S1429
+webdriver.io,S1430
+webgl,S1431
+webpack,S1432
+webpage test,S1433
+websocket,S1434
+whaling,S1435
+whishing,S1436
+whisper,S1437
+white / grey listing,S1438
+white box testing,S1439
+whois,S1440
+wifi,S1441
+wifi standards,S1442
+windows,S1443
+winhex,S1444
+wireless networking,S1445
+wireless security,S1446
+wireshark,S1447
+wireshark basics,S1448
+wlan,S1449
+working with data,S1450
+workload,S1451
+workmanager,S1452
+wps,S1453
+writing css,S1454
+writing prompts,S1455
+writing semantic html,S1456
+xcuitest,S1457
+xp,S1458
+xss,S1459
+xss prevention,S1460
+yarn,S1461
+youtrack,S1462
+zabbix,S1463
+zephyr,S1464
+zero day,S1465
+zero trust,S1466
+zero trust architecture,S1467
+zero trust concepts,S1468
+zero trust core concepts,S1469
+zombie.js,S1470

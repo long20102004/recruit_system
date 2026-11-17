@@ -1,0 +1,11 @@
+# Model embedding dense/sparse cho Tang 0 (A10, B7) va Retrieve. RT-E7.
+# Doi model o day KHONG doi backbone BERTScore (bertscore.yaml).
+embed:
+  model: BAAI/bge-m3
+  revision: 5617a9f61b028005a4858fdac845db406aefb181
+  key: bge-m3@5617a9f61b       # gia tri embed_model ghi vao moi ban ghi
+  dim: 1024
+  device: cuda                 # ghi de bang CVMATCH_DEVICE
+  dtype: fp32
+  batch_size: 16
+  max_len: 8192

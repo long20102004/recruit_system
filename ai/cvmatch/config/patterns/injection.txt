@@ -1,0 +1,9 @@
+# Mau dang ngo prompt injection (thiet ke 08 muc 6): quet luc nap, gan co suspected_injection.
+ignore previous
+ignore all previous
+disregard previous
+system:
+assistant:
+you are now
+bỏ qua các chỉ dẫn
+bỏ qua hướng dẫn trước

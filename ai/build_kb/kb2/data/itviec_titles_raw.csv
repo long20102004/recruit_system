@@ -1,0 +1,193 @@
+lang,group,name,url
+vi,IT Executive and Management,"Cấp điều hành (CTO, CIO, CISO, CDO)",/viec-lam-it/cap-dieu-hanh-cto-cio-ciso-cdo
+vi,IT Executive and Management,Phó Chủ tịch / Giám đốc,/viec-lam-it/pho-chu-tich-giam-doc
+vi,IT Executive and Management,Quản lý,/viec-lam-it/quan-ly
+vi,Web Application Development,Lập trình viên Backend,/viec-lam-it/lap-trinh-vien-backend
+vi,Web Application Development,Lập trình viên Frontend,/viec-lam-it/lap-trinh-vien-frontend
+vi,Web Application Development,Lập trình viên Fullstack,/viec-lam-it/lap-trinh-vien-fullstack
+vi,Mobile Application Development,Lập trình viên Ứng dụng Di động,/viec-lam-it/lap-trinh-vien-ung-dung-di-dong
+vi,Core / Enterprise Systems Development,Kỹ sư RPA (Tự động hóa quy trình robot),/viec-lam-it/ky-su-rpa-tu-dong-hoa-quy-trinh-robot
+vi,Core / Enterprise Systems Development,Lập trình viên ERP,/viec-lam-it/lap-trinh-vien-erp
+vi,Core / Enterprise Systems Development,Lập trình viên Hệ thống Integration & Legacy,/viec-lam-it/lap-trinh-vien-he-thong-integration-legacy
+vi,Core / Enterprise Systems Development,Lập trình viên Hệ thống Ngân hàng & Tài chính,/viec-lam-it/lap-trinh-vien-he-thong-ngan-hang-tai-chinh
+vi,Core / Enterprise Systems Development,Lập trình viên Ứng dụng Desktop,/viec-lam-it/lap-trinh-vien-ung-dung-desktop
+vi,Core / Enterprise Systems Development,Lập trình viên Ứng dụng Doanh nghiệp (CRM),/viec-lam-it/lap-trinh-vien-ung-dung-doanh-nghiep-crm
+vi,Low-Code / No-Code Development,Lập trình viên Low-Code/No-Code,/viec-lam-it/lap-trinh-vien-low-code-no-code
+vi,Technical Architecture,Kiến trúc sư Doanh nghiệp,/viec-lam-it/kien-truc-su-doanh-nghiep
+vi,Technical Architecture,Kiến trúc sư Giải pháp,/viec-lam-it/kien-truc-su-giai-phap
+vi,Technical Architecture,Kiến trúc sư Phần mềm/Kỹ thuật,/viec-lam-it/kien-truc-su-phan-mem-ky-thuat
+vi,Blockchain Development,Kiến trúc sư Blockchain,/viec-lam-it/kien-truc-su-blockchain
+vi,Blockchain Development,Lập trình viên Blockchain,/viec-lam-it/lap-trinh-vien-blockchain
+vi,Blockchain Development,Lập trình viên Smart Contract,/viec-lam-it/lap-trinh-vien-smart-contract
+vi,Game Development,Kiểm thử Game,/viec-lam-it/kiem-thu-game
+vi,Game Development,Lập trình viên Game,/viec-lam-it/lap-trinh-vien-game
+vi,Game Development,Lập trình viên Game VR/AR,/viec-lam-it/lap-trinh-vien-game-vr-ar
+vi,Game Development,Sản xuất / Giám đốc Game,/viec-lam-it/san-xuat-giam-doc-game
+vi,Game Development,Thiết kế Game,/viec-lam-it/thiet-ke-game
+vi,Software Testing & Quality Assurance,Chuyên viên PQA,/viec-lam-it/chuyen-vien-pqa
+vi,Software Testing & Quality Assurance,Kiểm thử Hiệu suất / Hiệu năng,/viec-lam-it/kiem-thu-hieu-suat-hieu-nang
+vi,Software Testing & Quality Assurance,Kiểm thử thủ công,/viec-lam-it/kiem-thu-thu-cong
+vi,Software Testing & Quality Assurance,Kiểm thử tự động,/viec-lam-it/kiem-thu-tu-dong
+vi,Software Testing & Quality Assurance,Kỹ sư Phần mềm kiểm thử (SDET),/viec-lam-it/ky-su-phan-mem-kiem-thu-sdet
+vi,Software Testing & Quality Assurance,Điều phối viên Kiểm thử,/viec-lam-it/dieu-phoi-vien-kiem-thu
+vi,Data Analytics & Business Intelligence,Chuyên viên Trực quan hóa Dữ liệu,/viec-lam-it/chuyen-vien-truc-quan-hoa-du-lieu
+vi,Data Analytics & Business Intelligence,Kỹ sư Analytics,/viec-lam-it/ky-su-analytics
+vi,Data Analytics & Business Intelligence,Phân tích BI / Lập trình viên BI,/viec-lam-it/phan-tich-bi-lap-trinh-vien-bi
+vi,Data Analytics & Business Intelligence,Phân tích Dữ liệu,/viec-lam-it/phan-tich-du-lieu
+vi,Data Engineering,Kỹ sư Cơ sở dữ liệu,/viec-lam-it/ky-su-co-so-du-lieu
+vi,Data Engineering,Kỹ sư DataOps / MLOps,/viec-lam-it/ky-su-dataops-mlops
+vi,Data Engineering,Kỹ sư Dữ liệu,/viec-lam-it/ky-su-du-lieu
+vi,Data Engineering,Kỹ sư Dữ liệu Lớn,/viec-lam-it/ky-su-du-lieu-lon
+vi,Data Science & AI / Machine Learning,Data Scientist,/viec-lam-it/data-scientist
+vi,Data Science & AI / Machine Learning,Kỹ sư AI / Machine Learning,/viec-lam-it/ky-su-ai-machine-learning
+vi,Data Science & AI / Machine Learning,Kỹ sư Thị giác Máy tính,/viec-lam-it/ky-su-thi-giac-may-tinh
+vi,Data Science & AI / Machine Learning,Nghiên cứu viên AI,/viec-lam-it/nghien-cuu-vien-ai
+vi,Data Management & Governance,Chuyên gia Quản trị Dữ liệu,/viec-lam-it/chuyen-gia-quan-tri-du-lieu
+vi,Data Management & Governance,Kiến trúc sư AI,/viec-lam-it/kien-truc-su-ai
+vi,Data Management & Governance,Kiến trúc sư Dữ liệu,/viec-lam-it/kien-truc-su-du-lieu
+vi,Data Management & Governance,Người quản lý Dữ liệu / Nhà phân tích Chất lượng Dữ liệu,/viec-lam-it/nguoi-quan-ly-du-lieu-nha-phan-tich-chat-luong-du-lieu
+vi,Data Management & Governance,Quản trị viên Cơ sở dữ liệu,/viec-lam-it/quan-tri-vien-co-so-du-lieu
+vi,Cloud Computing,Kỹ sư Đám mây,/viec-lam-it/ky-su-dam-may
+vi,Systems & Network Engineering / Administration,Kỹ sư Hệ thống / Quản trị viên,/viec-lam-it/ky-su-he-thong-quan-tri-vien
+vi,Systems & Network Engineering / Administration,Kỹ sư Mạng,/viec-lam-it/ky-su-mang
+vi,Systems & Network Engineering / Administration,Kỹ sư SysOps,/viec-lam-it/ky-su-sysops
+vi,DevOps & Site Reliability (SRE),Kỹ sư DevOps,/viec-lam-it/ky-su-devops
+vi,DevOps & Site Reliability (SRE),Kỹ sư Đảm bảo độ tin cậy Trang web (SRE),/viec-lam-it/ky-su-dam-bao-do-tin-cay-trang-web-sre
+vi,DevOps & Site Reliability (SRE),Quản lý Phiên bản,/viec-lam-it/quan-ly-phien-ban
+vi,IT Support & Helpdesk,Hỗ trợ CNTT,/viec-lam-it/ho-tro-cntt
+vi,IT Support & Helpdesk,Hỗ trợ Field,/viec-lam-it/ho-tro-field
+vi,IT Support & Helpdesk,Hỗ trợ Khách hàng Kỹ thuật,/viec-lam-it/ho-tro-khach-hang-ky-thuat
+vi,IT Support & Helpdesk,Quản trị viên CNTT,/viec-lam-it/quan-tri-vien-cntt
+vi,IT Support & Helpdesk,Tổng đài Hỗ trợ CNTT,/viec-lam-it/tong-dai-ho-tro-cntt
+vi,Cybersecurity,Kiểm thử An ninh / Kiểm thử xâm nhập,/viec-lam-it/kiem-thu-an-ninh-kiem-thu-xam-nhap
+vi,Cybersecurity,Kỹ sư An ninh,/viec-lam-it/ky-su-an-ninh
+vi,Cybersecurity,Kỹ sư An ninh Ứng dụng,/viec-lam-it/ky-su-an-ninh-ung-dung
+vi,Cybersecurity,Kỹ sư DevSecOps,/viec-lam-it/ky-su-devsecops
+vi,Cybersecurity,Tư vấn viên An ninh,/viec-lam-it/tu-van-vien-an-ninh
+vi,IT Compliance & Risk Management,Chuyên gia GRC,/viec-lam-it/chuyen-gia-grc
+vi,IT Compliance & Risk Management,Compliance Officer / Analyst,/viec-lam-it/compliance-officer-analyst
+vi,IT Compliance & Risk Management,Kiểm toán viên CNTT / Quản lý Rủi ro CNTT,/viec-lam-it/kiem-toan-vien-cntt-quan-ly-rui-ro-cntt
+vi,Embedded Systems,Kỹ sư Embedded,/viec-lam-it/ky-su-embedded
+vi,Embedded Systems,Kỹ sư Firmware,/viec-lam-it/ky-su-firmware
+vi,Embedded Systems,Kỹ sư Real-Time Systems,/viec-lam-it/ky-su-real-time-systems
+vi,Embedded Systems,Kỹ sư Tích hợp Phần cứng-Phần mềm,/viec-lam-it/ky-su-tich-hop-phan-cung-phan-mem
+vi,IoT & Robotics,Kỹ sư Edge Computing,/viec-lam-it/ky-su-edge-computing
+vi,IoT & Robotics,Kỹ sư Phần mềm Robot,/viec-lam-it/ky-su-phan-mem-robot
+vi,IoT & Robotics,Lập trình viên Ứng dụng IoT,/viec-lam-it/lap-trinh-vien-ung-dung-iot
+vi,Product Management,Chuyên viên Phân tích sản phẩm,/viec-lam-it/chuyen-vien-phan-tich-san-pham
+vi,Product Management,Chuyên viên phát triển sản phẩm,/viec-lam-it/chuyen-vien-phat-trien-san-pham
+vi,Product Management,Quản lý sản phẩm,/viec-lam-it/quan-ly-san-pham
+vi,Project Management / Technical Communication,Chuyên viên Giao tiếp Kỹ thuật,/viec-lam-it/chuyen-vien-giao-tiep-ky-thuat
+vi,Project Management / Technical Communication,Kỹ sư Cầu nối (BrSE),/viec-lam-it/ky-su-cau-noi-brse
+vi,Project Management / Technical Communication,Phân tích nghiệp vụ,/viec-lam-it/phan-tich-nghiep-vu
+vi,Project Management / Technical Communication,Quản lý Chương trình / PMO,/viec-lam-it/quan-ly-chuong-trinh-pmo
+vi,Project Management / Technical Communication,Quản lý Dự án,/viec-lam-it/quan-ly-du-an
+vi,Project Management / Technical Communication,Scrum Master / Agile coach,/viec-lam-it/scrum-master-agile-coach
+vi,Project Management / Technical Communication,Technical Writer,/viec-lam-it/technical-writer
+vi,Design & User Experience,Nghiên cứu viên UX,/viec-lam-it/nghien-cuu-vien-ux
+vi,Design & User Experience,Thiết kế Hình ảnh / Đồ họa,/viec-lam-it/thiet-ke-hinh-anh-do-hoa
+vi,Design & User Experience,Thiết kế Motion,/viec-lam-it/thiet-ke-motion
+vi,Design & User Experience,Thiết kế Sản phẩm,/viec-lam-it/thiet-ke-san-pham
+vi,Design & User Experience,Thiết kế UX/UI,/viec-lam-it/thiet-ke-ux-ui
+vi,IT Consulting & Sales,Kỹ sư bán hàng kỹ thuật,/viec-lam-it/ky-su-ban-hang-ky-thuat
+vi,IT Consulting & Sales,Quản lý Khách hàng Kỹ thuật,/viec-lam-it/quan-ly-khach-hang-ky-thuat
+vi,IT Consulting & Sales,Tư vấn viên CNTT,/viec-lam-it/tu-van-vien-cntt
+vi,IT Consulting & Sales,Tư vấn viên ERP,/viec-lam-it/tu-van-vien-erp
+vi,IT Consulting & Sales,Tư vấn viên Kỹ thuật,/viec-lam-it/tu-van-vien-ky-thuat
+vi,IT Consulting & Sales,Tư vấn viên Ứng dụng Doanh nghiệp (CRM / HCM / SCM và các giải pháp khác),/viec-lam-it/tu-van-vien-ung-dung-doanh-nghiep-crm-hcm-scm-va-cac-giai-phap-khac
+en,IT Executive and Management,"C-level (CTO, CIO, CISO, CDO)",/it-jobs/c-level-cto-cio-ciso-cdo
+en,IT Executive and Management,Manager,/it-jobs/manager
+en,IT Executive and Management,Vice President / Director,/it-jobs/vice-president-director
+en,Web Application Development,Backend Developer,/it-jobs/backend-developer
+en,Web Application Development,Frontend Developer,/it-jobs/frontend-developer
+en,Web Application Development,Fullstack Developer,/it-jobs/fullstack-developer
+en,Mobile Application Development,Mobile Application Developer,/it-jobs/mobile-application-developer
+en,Core / Enterprise Systems Development,Banking & Financial Systems Developer,/it-jobs/banking-financial-systems-developer
+en,Core / Enterprise Systems Development,Desktop Application Developer,/it-jobs/desktop-application-developer
+en,Core / Enterprise Systems Development,ERP Developer,/it-jobs/erp-developer
+en,Core / Enterprise Systems Development,Enterprise Application Developer (CRM),/it-jobs/enterprise-application-developer-crm
+en,Core / Enterprise Systems Development,Integration & Legacy Systems Developer,/it-jobs/integration-legacy-systems-developer
+en,Core / Enterprise Systems Development,RPA Engineer,/it-jobs/rpa-engineer
+en,Low-Code / No-Code Development,Low-Code/No-Code Developer,/it-jobs/low-code-no-code-developer
+en,Technical Architecture,Enterprise Architect,/it-jobs/enterprise-architect
+en,Technical Architecture,Software/Technical Architect,/it-jobs/software-technical-architect
+en,Technical Architecture,Solution Architect,/it-jobs/solution-architect
+en,Blockchain Development,Blockchain Architect,/it-jobs/blockchain-architect
+en,Blockchain Development,Blockchain Developer,/it-jobs/blockchain-developer
+en,Blockchain Development,Smart Contract Developer,/it-jobs/smart-contract-developer
+en,Game Development,Game Designer,/it-jobs/game-designer
+en,Game Development,Game Developer,/it-jobs/game-developer
+en,Game Development,Game Producer / Director,/it-jobs/game-producer-director
+en,Game Development,Game Tester,/it-jobs/game-tester
+en,Game Development,VR/AR Game Developer,/it-jobs/vr-ar-game-developer
+en,Software Testing & Quality Assurance,Automation Tester,/it-jobs/automation-tester
+en,Software Testing & Quality Assurance,Manual Tester,/it-jobs/manual-tester
+en,Software Testing & Quality Assurance,Performance / Load Tester,/it-jobs/performance-load-tester
+en,Software Testing & Quality Assurance,Process Quality Assurance (PQA),/it-jobs/process-quality-assurance-pqa
+en,Software Testing & Quality Assurance,Software Engineer in Test (SDET),/it-jobs/software-engineer-in-test-sdet
+en,Software Testing & Quality Assurance,Test Coordinator / QAQC Coordinator,/it-jobs/test-coordinator-qaqc-coordinator
+en,Data Analytics & Business Intelligence,Analytics Engineer,/it-jobs/analytics-engineer
+en,Data Analytics & Business Intelligence,BI Analyst / BI Developer,/it-jobs/bi-analyst-bi-developer
+en,Data Analytics & Business Intelligence,Data Analyst,/it-jobs/data-analyst
+en,Data Analytics & Business Intelligence,Data Visualization Specialist,/it-jobs/data-visualization-specialist
+en,Data Engineering,Big Data Engineer,/it-jobs/big-data-engineer
+en,Data Engineering,Data Engineer,/it-jobs/data-engineer
+en,Data Engineering,DataOps / MLOps Engineer,/it-jobs/dataops-mlops-engineer
+en,Data Engineering,Database Engineer,/it-jobs/database-engineer
+en,Data Science & AI / Machine Learning,AI / Machine Learning Engineer,/it-jobs/ai-machine-learning-engineer
+en,Data Science & AI / Machine Learning,AI Researcher,/it-jobs/ai-researcher
+en,Data Science & AI / Machine Learning,Computer Vision Engineer,/it-jobs/computer-vision-engineer
+en,Data Science & AI / Machine Learning,Data Scientist,/it-jobs/data-scientist
+en,Data Management & Governance,AI Architect,/it-jobs/ai-architect
+en,Data Management & Governance,Data Architect,/it-jobs/data-architect
+en,Data Management & Governance,Data Governance Specialist,/it-jobs/data-governance-specialist
+en,Data Management & Governance,Data Steward / Data Quality Analyst,/it-jobs/data-steward-data-quality-analyst
+en,Data Management & Governance,Database Administrator,/it-jobs/database-administrator
+en,Cloud Computing,Cloud Engineer,/it-jobs/cloud-engineer
+en,Systems & Network Engineering / Administration,Network Engineer,/it-jobs/network-engineer
+en,Systems & Network Engineering / Administration,SysOps Engineer,/it-jobs/sysops-engineer
+en,Systems & Network Engineering / Administration,Systems Engineer / Administrator,/it-jobs/systems-engineer-administrator
+en,DevOps & Site Reliability (SRE),DevOps Engineer,/it-jobs/devops-engineer
+en,DevOps & Site Reliability (SRE),Release Manager,/it-jobs/release-manager
+en,DevOps & Site Reliability (SRE),Site Reliability Engineer (SRE),/it-jobs/site-reliability-engineer-sre
+en,IT Support & Helpdesk,Field Support,/it-jobs/field-support
+en,IT Support & Helpdesk,IT Administrator,/it-jobs/it-administrator
+en,IT Support & Helpdesk,IT Helpdesk,/it-jobs/it-helpdesk
+en,IT Support & Helpdesk,IT Support,/it-jobs/it-support
+en,IT Support & Helpdesk,Technical Customer Support,/it-jobs/technical-customer-support
+en,Cybersecurity,Application Security Engineer,/it-jobs/application-security-engineer
+en,Cybersecurity,DevSecOps Engineer,/it-jobs/devsecops-engineer
+en,Cybersecurity,Security Consultant,/it-jobs/security-consultant
+en,Cybersecurity,Security Engineer,/it-jobs/security-engineer
+en,Cybersecurity,Security Tester / Penetration Tester,/it-jobs/security-tester-penetration-tester
+en,IT Compliance & Risk Management,Compliance Officer / Analyst,/it-jobs/compliance-officer-analyst
+en,IT Compliance & Risk Management,GRC Specialist,/it-jobs/grc-specialist
+en,IT Compliance & Risk Management,IT Auditor / IT Risk Manager,/it-jobs/it-auditor-it-risk-manager
+en,Embedded Systems,Embedded Engineer,/it-jobs/embedded-engineer
+en,Embedded Systems,Firmware Engineer,/it-jobs/firmware-engineer
+en,Embedded Systems,Hardware-Software Integration Engineer,/it-jobs/hardware-software-integration-engineer
+en,Embedded Systems,Real-Time Systems Engineer,/it-jobs/real-time-systems-engineer
+en,IoT & Robotics,Edge Computing Engineer,/it-jobs/edge-computing-engineer
+en,IoT & Robotics,IoT Application Developer,/it-jobs/iot-application-developer
+en,IoT & Robotics,Robotics Software Engineer,/it-jobs/robotics-software-engineer
+en,Product Management,Product Analyst,/it-jobs/product-analyst
+en,Product Management,Product Manager,/it-jobs/product-manager
+en,Product Management,Product Owner,/it-jobs/product-owner
+en,Project Management / Technical Communication,Bridge System Engineer (BrSE),/it-jobs/bridge-system-engineer-brse
+en,Project Management / Technical Communication,Business Analyst,/it-jobs/business-analyst
+en,Project Management / Technical Communication,IT Communicator,/it-jobs/it-communicator
+en,Project Management / Technical Communication,Program Manager / PMO,/it-jobs/program-manager-pmo
+en,Project Management / Technical Communication,Project Manager,/it-jobs/project-manager
+en,Project Management / Technical Communication,Scrum Master / Agile Coach,/it-jobs/scrum-master-agile-coach
+en,Project Management / Technical Communication,Technical Writer,/it-jobs/technical-writer
+en,Design & User Experience,Motion Designer,/it-jobs/motion-designer
+en,Design & User Experience,Product Designer,/it-jobs/product-designer
+en,Design & User Experience,UX Researcher,/it-jobs/ux-researcher
+en,Design & User Experience,UX/UI Designer,/it-jobs/ux-ui-designer
+en,Design & User Experience,Visual / Graphic Designer,/it-jobs/visual-graphic-designer
+en,IT Consulting & Sales,ERP Consultant,/it-jobs/erp-consultant
+en,IT Consulting & Sales,Enterprise Application Consultant (CRM / HCM / SCM and other enterprise solutions),/it-jobs/enterprise-application-consultant-crm-hcm-scm-and-other-enterprise-solutions
+en,IT Consulting & Sales,IT Consultant,/it-jobs/it-consultant
+en,IT Consulting & Sales,Pre-sales Engineer,/it-jobs/pre-sales-engineer
+en,IT Consulting & Sales,Technical Account Manager,/it-jobs/technical-account-manager
+en,IT Consulting & Sales,Technical Consultant,/it-jobs/technical-consultant

@@ -1,0 +1,48 @@
+# Alias dia diem (da chuan hoa: chu thuong, NFC) -> ma tinh/thanh. A4, B2.
+# So khop: alias dai truoc; cung dang khong dau cua alias cung duoc chap nhan.
+ho_chi_minh:
+  - tp.hcm
+  - tp hcm
+  - tphcm
+  - hcm
+  - hcmc
+  - hồ chí minh
+  - tp hồ chí minh
+  - thành phố hồ chí minh
+  - ho chi minh city
+  - sài gòn
+  - saigon
+ha_noi:
+  - hà nội
+  - hn
+  - tp hà nội
+  - hanoi
+da_nang:
+  - đà nẵng
+  - danang
+  - tp đà nẵng
+hai_phong:
+  - hải phòng
+  - haiphong
+can_tho:
+  - cần thơ
+  - cantho
+binh_duong:
+  - bình dương
+dong_nai:
+  - đồng nai
+bac_ninh:
+  - bắc ninh
+khanh_hoa:
+  - khánh hoà
+  - khánh hòa
+  - nha trang
+thua_thien_hue:
+  - huế
+  - thừa thiên huế
+remote:
+  - remote
+  - làm từ xa
+  - từ xa
+  - work from home
+  - wfh

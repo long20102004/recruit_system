@@ -1,0 +1,171 @@
+{"kind": "title", "alias": "kỹ sư backend", "role_group": "Backend"}
+{"kind": "title", "alias": "back-end developer", "role_group": "Backend"}
+{"kind": "title", "alias": "backend developer", "role_group": "Backend"}
+{"kind": "title", "alias": "lập trình viên backend", "role_group": "Backend"}
+{"kind": "title", "alias": "backend engineer", "role_group": "Backend"}
+{"kind": "title", "alias": "frontend engineer", "role_group": "Frontend"}
+{"kind": "title", "alias": "front-end developer", "role_group": "Frontend"}
+{"kind": "title", "alias": "kỹ sư frontend", "role_group": "Frontend"}
+{"kind": "title", "alias": "frontend developer", "role_group": "Frontend"}
+{"kind": "title", "alias": "lập trình viên frontend", "role_group": "Frontend"}
+{"kind": "title", "alias": "fullstack developer", "role_group": "Fullstack"}
+{"kind": "title", "alias": "lập trình viên fullstack", "role_group": "Fullstack"}
+{"kind": "title", "alias": "full stack developer", "role_group": "Fullstack"}
+{"kind": "title", "alias": "kỹ sư fullstack", "role_group": "Fullstack"}
+{"kind": "title", "alias": "full-stack developer", "role_group": "Fullstack"}
+{"kind": "title", "alias": "fullstack engineer", "role_group": "Fullstack"}
+{"kind": "title", "alias": "mobile engineer", "role_group": "Mobile"}
+{"kind": "title", "alias": "mobile developer", "role_group": "Mobile"}
+{"kind": "title", "alias": "lập trình viên ứng dụng di động", "role_group": "Mobile"}
+{"kind": "title", "alias": "lập trình viên mobile", "role_group": "Mobile"}
+{"kind": "title", "alias": "mobile application developer", "role_group": "Mobile"}
+{"kind": "title", "alias": "lập trình viên hệ thống integration & legacy", "role_group": "Backend"}
+{"kind": "title", "alias": "integration developer", "role_group": "Backend"}
+{"kind": "title", "alias": "integration & legacy systems developer", "role_group": "Backend"}
+{"kind": "title", "alias": "lập trình viên hệ thống ngân hàng & tài chính", "role_group": "Backend"}
+{"kind": "title", "alias": "banking & financial systems developer", "role_group": "Backend"}
+{"kind": "title", "alias": "game qa", "role_group": "QA"}
+{"kind": "title", "alias": "kiểm thử game", "role_group": "QA"}
+{"kind": "title", "alias": "game tester", "role_group": "QA"}
+{"kind": "title", "alias": "pqa", "role_group": "QA"}
+{"kind": "title", "alias": "process quality assurance (pqa)", "role_group": "QA"}
+{"kind": "title", "alias": "process quality assurance", "role_group": "QA"}
+{"kind": "title", "alias": "chuyên viên pqa", "role_group": "QA"}
+{"kind": "title", "alias": "performance tester", "role_group": "QA"}
+{"kind": "title", "alias": "performance / load tester", "role_group": "QA"}
+{"kind": "title", "alias": "kiểm thử hiệu năng", "role_group": "QA"}
+{"kind": "title", "alias": "kiểm thử hiệu suất / hiệu năng", "role_group": "QA"}
+{"kind": "title", "alias": "load tester", "role_group": "QA"}
+{"kind": "title", "alias": "kiểm thử hiệu suất", "role_group": "QA"}
+{"kind": "title", "alias": "manual tester", "role_group": "QA"}
+{"kind": "title", "alias": "manual qa", "role_group": "QA"}
+{"kind": "title", "alias": "kiểm thử thủ công", "role_group": "QA"}
+{"kind": "title", "alias": "kiểm thử tự động", "role_group": "QA"}
+{"kind": "title", "alias": "qa automation", "role_group": "QA"}
+{"kind": "title", "alias": "automation qa", "role_group": "QA"}
+{"kind": "title", "alias": "automation test engineer", "role_group": "QA"}
+{"kind": "title", "alias": "automation tester", "role_group": "QA"}
+{"kind": "title", "alias": "kỹ sư phần mềm kiểm thử (sdet)", "role_group": "QA"}
+{"kind": "title", "alias": "software engineer in test", "role_group": "QA"}
+{"kind": "title", "alias": "sdet", "role_group": "QA"}
+{"kind": "title", "alias": "software engineer in test (sdet)", "role_group": "QA"}
+{"kind": "title", "alias": "qaqc coordinator", "role_group": "QA"}
+{"kind": "title", "alias": "điều phối viên kiểm thử", "role_group": "QA"}
+{"kind": "title", "alias": "test coordinator", "role_group": "QA"}
+{"kind": "title", "alias": "test coordinator / qaqc coordinator", "role_group": "QA"}
+{"kind": "title", "alias": "chuyên viên trực quan hóa dữ liệu", "role_group": "Data"}
+{"kind": "title", "alias": "data visualization specialist", "role_group": "Data"}
+{"kind": "title", "alias": "analytics engineer", "role_group": "Data"}
+{"kind": "title", "alias": "kỹ sư analytics", "role_group": "Data"}
+{"kind": "title", "alias": "chuyên viên phân tích bi", "role_group": "Data"}
+{"kind": "title", "alias": "phân tích bi / lập trình viên bi", "role_group": "Data"}
+{"kind": "title", "alias": "lập trình viên bi", "role_group": "Data"}
+{"kind": "title", "alias": "bi analyst / bi developer", "role_group": "Data"}
+{"kind": "title", "alias": "bi analyst", "role_group": "Data"}
+{"kind": "title", "alias": "bi developer", "role_group": "Data"}
+{"kind": "title", "alias": "chuyên viên phân tích dữ liệu", "role_group": "Data"}
+{"kind": "title", "alias": "data analyst", "role_group": "Data"}
+{"kind": "title", "alias": "phân tích dữ liệu", "role_group": "Data"}
+{"kind": "title", "alias": "kỹ sư cơ sở dữ liệu", "role_group": "Data"}
+{"kind": "title", "alias": "database engineer", "role_group": "Data"}
+{"kind": "title", "alias": "kỹ sư dataops", "role_group": "Data"}
+{"kind": "title", "alias": "kỹ sư dataops / mlops", "role_group": "Data"}
+{"kind": "title", "alias": "kỹ sư mlops", "role_group": "Data"}
+{"kind": "title", "alias": "mlops engineer", "role_group": "Data"}
+{"kind": "title", "alias": "dataops / mlops engineer", "role_group": "Data"}
+{"kind": "title", "alias": "dataops engineer", "role_group": "Data"}
+{"kind": "title", "alias": "data engineer", "role_group": "Data"}
+{"kind": "title", "alias": "kỹ sư dữ liệu", "role_group": "Data"}
+{"kind": "title", "alias": "kỹ sư dữ liệu lớn", "role_group": "Data"}
+{"kind": "title", "alias": "big data engineer", "role_group": "Data"}
+{"kind": "title", "alias": "nhà khoa học dữ liệu", "role_group": "Data"}
+{"kind": "title", "alias": "data scientist", "role_group": "Data"}
+{"kind": "title", "alias": "ai engineer", "role_group": "AI/ML"}
+{"kind": "title", "alias": "machine learning engineer", "role_group": "AI/ML"}
+{"kind": "title", "alias": "ml engineer", "role_group": "AI/ML"}
+{"kind": "title", "alias": "kỹ sư machine learning", "role_group": "AI/ML"}
+{"kind": "title", "alias": "kỹ sư ai / machine learning", "role_group": "AI/ML"}
+{"kind": "title", "alias": "kỹ sư ai", "role_group": "AI/ML"}
+{"kind": "title", "alias": "ai / machine learning engineer", "role_group": "AI/ML"}
+{"kind": "title", "alias": "computer vision engineer", "role_group": "AI/ML"}
+{"kind": "title", "alias": "kỹ sư thị giác máy tính", "role_group": "AI/ML"}
+{"kind": "title", "alias": "ai researcher", "role_group": "AI/ML"}
+{"kind": "title", "alias": "nghiên cứu viên ai", "role_group": "AI/ML"}
+{"kind": "title", "alias": "data governance specialist", "role_group": "Data"}
+{"kind": "title", "alias": "chuyên gia quản trị dữ liệu", "role_group": "Data"}
+{"kind": "title", "alias": "ai architect", "role_group": "AI/ML"}
+{"kind": "title", "alias": "kiến trúc sư ai", "role_group": "AI/ML"}
+{"kind": "title", "alias": "data architect", "role_group": "Data"}
+{"kind": "title", "alias": "kiến trúc sư dữ liệu", "role_group": "Data"}
+{"kind": "title", "alias": "data steward", "role_group": "Data"}
+{"kind": "title", "alias": "data quality analyst", "role_group": "Data"}
+{"kind": "title", "alias": "người quản lý dữ liệu / nhà phân tích chất lượng dữ liệu", "role_group": "Data"}
+{"kind": "title", "alias": "data steward / data quality analyst", "role_group": "Data"}
+{"kind": "title", "alias": "dba", "role_group": "Data"}
+{"kind": "title", "alias": "quản trị viên cơ sở dữ liệu", "role_group": "Data"}
+{"kind": "title", "alias": "database administrator", "role_group": "Data"}
+{"kind": "title", "alias": "cloud engineer", "role_group": "DevOps"}
+{"kind": "title", "alias": "kỹ sư đám mây", "role_group": "DevOps"}
+{"kind": "title", "alias": "sysadmin", "role_group": "DevOps"}
+{"kind": "title", "alias": "quản trị viên hệ thống", "role_group": "DevOps"}
+{"kind": "title", "alias": "kỹ sư hệ thống / quản trị viên", "role_group": "DevOps"}
+{"kind": "title", "alias": "systems engineer", "role_group": "DevOps"}
+{"kind": "title", "alias": "system engineer", "role_group": "DevOps"}
+{"kind": "title", "alias": "systems engineer / administrator", "role_group": "DevOps"}
+{"kind": "title", "alias": "system administrator", "role_group": "DevOps"}
+{"kind": "title", "alias": "kỹ sư hệ thống", "role_group": "DevOps"}
+{"kind": "title", "alias": "kỹ sư sysops", "role_group": "DevOps"}
+{"kind": "title", "alias": "sysops engineer", "role_group": "DevOps"}
+{"kind": "title", "alias": "kỹ sư devops", "role_group": "DevOps"}
+{"kind": "title", "alias": "devops engineer", "role_group": "DevOps"}
+{"kind": "title", "alias": "kỹ sư sre", "role_group": "DevOps"}
+{"kind": "title", "alias": "site reliability engineer (sre)", "role_group": "DevOps"}
+{"kind": "title", "alias": "kỹ sư đảm bảo độ tin cậy trang web (sre)", "role_group": "DevOps"}
+{"kind": "title", "alias": "sre", "role_group": "DevOps"}
+{"kind": "title", "alias": "site reliability engineer", "role_group": "DevOps"}
+{"kind": "title", "alias": "quản lý phiên bản", "role_group": "DevOps"}
+{"kind": "title", "alias": "release manager", "role_group": "DevOps"}
+{"kind": "title", "alias": "security tester / penetration tester", "role_group": "Security"}
+{"kind": "title", "alias": "penetration tester", "role_group": "Security"}
+{"kind": "title", "alias": "pentester", "role_group": "Security"}
+{"kind": "title", "alias": "kiểm thử an ninh / kiểm thử xâm nhập", "role_group": "Security"}
+{"kind": "title", "alias": "kiểm thử an ninh", "role_group": "Security"}
+{"kind": "title", "alias": "security tester", "role_group": "Security"}
+{"kind": "title", "alias": "kiểm thử xâm nhập", "role_group": "Security"}
+{"kind": "title", "alias": "kỹ sư bảo mật", "role_group": "Security"}
+{"kind": "title", "alias": "security engineer", "role_group": "Security"}
+{"kind": "title", "alias": "kỹ sư an ninh", "role_group": "Security"}
+{"kind": "title", "alias": "application security engineer", "role_group": "Security"}
+{"kind": "title", "alias": "appsec engineer", "role_group": "Security"}
+{"kind": "title", "alias": "kỹ sư an ninh ứng dụng", "role_group": "Security"}
+{"kind": "title", "alias": "devsecops engineer", "role_group": "DevOps"}
+{"kind": "title", "alias": "kỹ sư devsecops", "role_group": "DevOps"}
+{"kind": "title", "alias": "tư vấn viên an ninh", "role_group": "Security"}
+{"kind": "title", "alias": "security consultant", "role_group": "Security"}
+{"kind": "title", "alias": "chuyên gia grc", "role_group": "Security"}
+{"kind": "title", "alias": "grc specialist", "role_group": "Security"}
+{"kind": "level", "alias": "intern", "level_rank": 0}
+{"kind": "level", "alias": "internship", "level_rank": 0}
+{"kind": "level", "alias": "thuc tap", "level_rank": 0}
+{"kind": "level", "alias": "thuc tap sinh", "level_rank": 0}
+{"kind": "level", "alias": "thực tập", "level_rank": 0}
+{"kind": "level", "alias": "thực tập sinh", "level_rank": 0}
+{"kind": "level", "alias": "fresher", "level_rank": 1}
+{"kind": "level", "alias": "moi tot nghiep", "level_rank": 1}
+{"kind": "level", "alias": "mới tốt nghiệp", "level_rank": 1}
+{"kind": "level", "alias": "new graduate", "level_rank": 1}
+{"kind": "level", "alias": "jr", "level_rank": 2}
+{"kind": "level", "alias": "junior", "level_rank": 2}
+{"kind": "level", "alias": "intermediate", "level_rank": 3}
+{"kind": "level", "alias": "mid", "level_rank": 3}
+{"kind": "level", "alias": "mid-level", "level_rank": 3}
+{"kind": "level", "alias": "middle", "level_rank": 3}
+{"kind": "level", "alias": "chuyen vien cao cap", "level_rank": 4}
+{"kind": "level", "alias": "chuyên viên cao cấp", "level_rank": 4}
+{"kind": "level", "alias": "senior", "level_rank": 4}
+{"kind": "level", "alias": "sr", "level_rank": 4}
+{"kind": "level", "alias": "lead", "level_rank": 5}
+{"kind": "level", "alias": "team lead", "level_rank": 5}
+{"kind": "level", "alias": "tech lead", "level_rank": 5}
+{"kind": "level", "alias": "truong nhom", "level_rank": 5}
+{"kind": "level", "alias": "trưởng nhóm", "level_rank": 5}

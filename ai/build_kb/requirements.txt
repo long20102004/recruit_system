@@ -1,0 +1,7 @@
+pymupdf
+neo4j
+pandas
+openai==1.59.7
+python-dotenv
+pytest
+requests

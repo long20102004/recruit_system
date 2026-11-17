@@ -1,0 +1,79 @@
+{
+  "alias_conflicts": {},
+  "ambiguous_aliases": {
+    "authentication": [
+      "auth"
+    ],
+    "azure": [
+      "az"
+    ],
+    "caching": [
+      "cache"
+    ],
+    "database": [
+      "db"
+    ],
+    "dependency injection": [
+      "di"
+    ],
+    "design patterns": [
+      "pattern",
+      "patterns"
+    ],
+    "elasticsearch": [
+      "elastic"
+    ],
+    "functional programming": [
+      "functional"
+    ],
+    "go": [
+      "go"
+    ],
+    "google bigquery": [
+      "bq"
+    ],
+    "indexing": [
+      "index",
+      "indexes"
+    ],
+    "macos": [
+      "mac"
+    ],
+    "matplotlib": [
+      "plt"
+    ],
+    "oop": [
+      "oo"
+    ],
+    "operating system": [
+      "os"
+    ],
+    "parallel processing": [
+      "parallel"
+    ],
+    "python": [
+      "py"
+    ],
+    "r": [
+      "r"
+    ],
+    "testing": [
+      "test",
+      "tests"
+    ],
+    "version control": [
+      "scm"
+    ]
+  },
+  "parent_of_cycle": null,
+  "dropped_relations": 326,
+  "so_aliases": {
+    "drop": 340,
+    "not_in_kb": 4771,
+    "alias": 194,
+    "conflict": 16,
+    "exists": 26,
+    "ambiguous": 21
+  },
+  "quotes_not_in_pdf": []
+}

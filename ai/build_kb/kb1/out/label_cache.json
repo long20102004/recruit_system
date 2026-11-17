@@ -1,0 +1,7390 @@
+{
+".net framework based": {
+"type": "technology",
+"canonical": ".NET Framework"
+},
+"2d": {
+"type": "concept",
+"canonical": "2D"
+},
+"7 layers": {
+"type": "concept",
+"canonical": "7 Layers"
+},
+"a/b testing": {
+"type": "concept",
+"canonical": "A/B Testing"
+},
+"aabb": {
+"type": "not_skill",
+"canonical": ""
+},
+"ab pruning": {
+"type": "not_skill",
+"canonical": ""
+},
+"acceleration": {
+"type": "concept",
+"canonical": "Acceleration"
+},
+"access control": {
+"type": "concept",
+"canonical": "Access Control"
+},
+"access points": {
+"type": "technology",
+"canonical": "Access Points"
+},
+"access points & controllers": {
+"type": "technology",
+"canonical": "Access Points & Controllers"
+},
+"accessibility": {
+"type": "concept",
+"canonical": "Accessibility"
+},
+"accessibility testing": {
+"type": "concept",
+"canonical": "Accessibility Testing"
+},
+"accessibility tests": {
+"type": "not_skill",
+"canonical": ""
+},
+"acid": {
+"type": "concept",
+"canonical": "ACID"
+},
+"acid, cap theorem": {
+"type": "concept",
+"canonical": "ACID, CAP Theorem"
+},
+"acl": {
+"type": "concept",
+"canonical": "ACL"
+},
+"acls": {
+"type": "concept",
+"canonical": "ACLs"
+},
+"activity": {
+"type": "concept",
+"canonical": "Activity"
+},
+"activity lifecycle": {
+"type": "concept",
+"canonical": "Activity LifeCycle"
+},
+"actors": {
+"type": "concept",
+"canonical": "Actors"
+},
+"adding end-user ids in prompts": {
+"type": "concept",
+"canonical": "Adding end-user IDs in prompts"
+},
+"adobe xd": {
+"type": "technology",
+"canonical": "Adobe XD"
+},
+"advanced certifications": {
+"type": "not_skill",
+"canonical": ""
+},
+"advanced crypto.": {
+"type": "concept",
+"canonical": "Advanced Crypto."
+},
+"advanced rendering": {
+"type": "not_skill",
+"canonical": ""
+},
+"affine space": {
+"type": "concept",
+"canonical": "Affine Space"
+},
+"affine transformation": {
+"type": "concept",
+"canonical": "Affine Transformation"
+},
+"agile model": {
+"type": "concept",
+"canonical": "Agile Model"
+},
+"ai agents": {
+"type": "concept",
+"canonical": "AI Agents"
+},
+"ai code editors": {
+"type": "technology",
+"canonical": "AI Code Editors"
+},
+"ai safety and ethics": {
+"type": "concept",
+"canonical": "AI Safety and Ethics"
+},
+"ai/ml services": {
+"type": "technology",
+"canonical": "AI/ML Services"
+},
+"airflow": {
+"type": "technology",
+"canonical": "Airflow"
+},
+"ajax": {
+"type": "technology",
+"canonical": "Ajax"
+},
+"alert types": {
+"type": "concept",
+"canonical": "Alert Types"
+},
+"alibaba cloud": {
+"type": "technology",
+"canonical": "Alibaba Cloud"
+},
+"allure": {
+"type": "technology",
+"canonical": "Allure"
+},
+"amazon ec2 ( compute)": {
+"type": "technology",
+"canonical": "Amazon EC2"
+},
+"amazon rds (database)": {
+"type": "technology",
+"canonical": "Amazon RDS"
+},
+"amazon redshift": {
+"type": "technology",
+"canonical": "Amazon Redshift"
+},
+"analysis / reporting with excel": {
+"type": "not_skill",
+"canonical": ""
+},
+"analytics": {
+"type": "concept",
+"canonical": "Analytics"
+},
+"angular": {
+"type": "technology",
+"canonical": "Angular"
+},
+"angular velocity": {
+"type": "concept",
+"canonical": "Angular Velocity"
+},
+"animations": {
+"type": "concept",
+"canonical": "Animations"
+},
+"anomaly detection": {
+"type": "concept",
+"canonical": "Anomaly Detection"
+},
+"ansible": {
+"type": "technology",
+"canonical": "Ansible"
+},
+"anthropic's claude": {
+"type": "technology",
+"canonical": "Anthropic Claude"
+},
+"antimalware": {
+"type": "concept",
+"canonical": "Antimalware"
+},
+"antivirus": {
+"type": "concept",
+"canonical": "Antivirus"
+},
+"any.run": {
+"type": "technology",
+"canonical": "any.run"
+},
+"apache": {
+"type": "technology",
+"canonical": "Apache"
+},
+"apache airflow": {
+"type": "technology",
+"canonical": "Apache Airflow"
+},
+"apache hadoop yarn": {
+"type": "technology",
+"canonical": "Apache Hadoop YARN"
+},
+"apache kafka": {
+"type": "technology",
+"canonical": "Apache Kafka"
+},
+"apache spark": {
+"type": "technology",
+"canonical": "Apache Spark"
+},
+"api documentation tools": {
+"type": "category",
+"canonical": "API Documentation Tools"
+},
+"api gateways": {
+"type": "category",
+"canonical": "API Gateways"
+},
+"api integration patterns": {
+"type": "concept",
+"canonical": "API Integration Patterns"
+},
+"api keys & management": {
+"type": "concept",
+"canonical": "API Keys & Management"
+},
+"api lifecycle management": {
+"type": "concept",
+"canonical": "API Lifecycle Management"
+},
+"api performance": {
+"type": "concept",
+"canonical": "API Performance"
+},
+"api performance best practices": {
+"type": "concept",
+"canonical": "API Performance Best Practices"
+},
+"api security": {
+"type": "concept",
+"canonical": "API Security"
+},
+"api security best practices": {
+"type": "concept",
+"canonical": "API Security Best Practices"
+},
+"api testing": {
+"type": "concept",
+"canonical": "API Testing"
+},
+"apis": {
+"type": "category",
+"canonical": "APIs"
+},
+"apis & integrations": {
+"type": "category",
+"canonical": "APIs & Integrations"
+},
+"apollo": {
+"type": "technology",
+"canonical": "Apollo"
+},
+"apollo-android": {
+"type": "technology",
+"canonical": "Apollo-Android"
+},
+"app components": {
+"type": "concept",
+"canonical": "App Components"
+},
+"app shortcuts": {
+"type": "concept",
+"canonical": "App Shortcuts"
+},
+"appium": {
+"type": "technology",
+"canonical": "Appium"
+},
+"application": {
+"type": "concept",
+"canonical": "Application"
+},
+"application architecture": {
+"type": "concept",
+"canonical": "Application Architecture"
+},
+"application monitoring": {
+"type": "concept",
+"canonical": "Application Monitoring"
+},
+"apt": {
+"type": "concept",
+"canonical": "APT"
+},
+"architectural patterns": {
+"type": "concept",
+"canonical": "Architectural Patterns"
+},
+"architecture": {
+"type": "concept",
+"canonical": "Architecture"
+},
+"argocd": {
+"type": "technology",
+"canonical": "ArgoCD"
+},
+"arp": {
+"type": "technology",
+"canonical": "arp"
+},
+"artifact management": {
+"type": "concept",
+"canonical": "Artifact Management"
+},
+"artifact registries": {
+"type": "concept",
+"canonical": "Artifact Registries"
+},
+"artifactory": {
+"type": "technology",
+"canonical": "Artifactory"
+},
+"artificial neural network": {
+"type": "concept",
+"canonical": "Artificial Neural Network"
+},
+"artillery": {
+"type": "technology",
+"canonical": "Artillery"
+},
+"assembla": {
+"type": "technology",
+"canonical": "Assembla"
+},
+"astro": {
+"type": "technology",
+"canonical": "Astro"
+},
+"asymmetric": {
+"type": "concept",
+"canonical": "Asymmetric Encryption"
+},
+"asynchronism": {
+"type": "concept",
+"canonical": "Asynchronism"
+},
+"atlassian": {
+"type": "technology",
+"canonical": "Atlassian"
+},
+"atlassian tools": {
+"type": "category",
+"canonical": "Atlassian Tools"
+},
+"att&ck": {
+"type": "concept",
+"canonical": "ATT&CK"
+},
+"attack surface mapping": {
+"type": "concept",
+"canonical": "Attack Surface Mapping"
+},
+"attack types and differences": {
+"type": "concept",
+"canonical": "Attack Types and Differences"
+},
+"attack vectors": {
+"type": "concept",
+"canonical": "Attack Vectors"
+},
+"attribute based access control (abac)": {
+"type": "concept",
+"canonical": "Attribute Based Access Control"
+},
+"audio processing": {
+"type": "concept",
+"canonical": "Audio Processing"
+},
+"audit & compliance mapping": {
+"type": "concept",
+"canonical": "Audit & Compliance Mapping"
+},
+"aurora db": {
+"type": "technology",
+"canonical": "Aurora DB"
+},
+"auth strategies": {
+"type": "concept",
+"canonical": "Auth strategies"
+},
+"authentication": {
+"type": "concept",
+"canonical": "Authentication"
+},
+"authentication / authorization": {
+"type": "concept",
+"canonical": "Auth/Authorization"
+},
+"authentication methodologies": {
+"type": "concept",
+"canonical": "Auth methodologies"
+},
+"authentication methods": {
+"type": "concept",
+"canonical": "Auth methods"
+},
+"authentication strategies": {
+"type": "concept",
+"canonical": "Auth strategies"
+},
+"authorization": {
+"type": "concept",
+"canonical": "Authorization"
+},
+"authorization methods": {
+"type": "concept",
+"canonical": "Authorization methods"
+},
+"auto scaling": {
+"type": "concept",
+"canonical": "Auto scaling"
+},
+"automate the act of repetition": {
+"type": "not_skill",
+"canonical": ""
+},
+"automated patching": {
+"type": "concept",
+"canonical": "Automated patching"
+},
+"automating security": {
+"type": "concept",
+"canonical": "Automating security"
+},
+"automation frameworks": {
+"type": "category",
+"canonical": "Automation frameworks"
+},
+"autopsy": {
+"type": "technology",
+"canonical": "Autopsy"
+},
+"availability": {
+"type": "concept",
+"canonical": "Availability"
+},
+"average": {
+"type": "concept",
+"canonical": "Average"
+},
+"avoid choice overload": {
+"type": "not_skill",
+"canonical": ""
+},
+"avoid cognitive overhead": {
+"type": "not_skill",
+"canonical": ""
+},
+"avoid direct payments": {
+"type": "not_skill",
+"canonical": ""
+},
+"aws": {
+"type": "technology",
+"canonical": "AWS"
+},
+"aws / azure / gcp": {
+"type": "category",
+"canonical": "Cloud providers"
+},
+"aws cdk": {
+"type": "technology",
+"canonical": "AWS CDK"
+},
+"aws ecs / fargate": {
+"type": "technology",
+"canonical": "AWS ECS/Fargate"
+},
+"aws eks": {
+"type": "technology",
+"canonical": "AWS EKS"
+},
+"aws lambda": {
+"type": "technology",
+"canonical": "AWS Lambda"
+},
+"aws neptune": {
+"type": "technology",
+"canonical": "AWS Neptune"
+},
+"aws sagemaker": {
+"type": "technology",
+"canonical": "AWS SageMaker"
+},
+"aws sns": {
+"type": "technology",
+"canonical": "AWS SNS"
+},
+"aws sqs": {
+"type": "technology",
+"canonical": "AWS SQS"
+},
+"axe": {
+"type": "technology",
+"canonical": "AXE"
+},
+"azure": {
+"type": "technology",
+"canonical": "Azure"
+},
+"azure ai": {
+"type": "technology",
+"canonical": "Azure AI"
+},
+"azure blob storage": {
+"type": "technology",
+"canonical": "Azure Blob Storage"
+},
+"azure devops services": {
+"type": "technology",
+"canonical": "Azure DevOps"
+},
+"azure functions": {
+"type": "technology",
+"canonical": "Azure Functions"
+},
+"azure sql database": {
+"type": "technology",
+"canonical": "Azure SQL Database"
+},
+"azure virtual machines": {
+"type": "technology",
+"canonical": "Azure VM"
+},
+"babok": {
+"type": "technology",
+"canonical": "BABOK"
+},
+"backend automation": {
+"type": "concept",
+"canonical": "Backend automation"
+},
+"backpressure": {
+"type": "concept",
+"canonical": "Backpressure"
+},
+"balance": {
+"type": "concept",
+"canonical": "Balance"
+},
+"balsamiq": {
+"type": "technology",
+"canonical": "Balsamiq"
+},
+"bamboo": {
+"type": "technology",
+"canonical": "Bamboo"
+},
+"bandwidth": {
+"type": "concept",
+"canonical": "Bandwidth"
+},
+"bar charts": {
+"type": "concept",
+"canonical": "Bar charts"
+},
+"bare metal cloud": {
+"type": "concept",
+"canonical": "Bare metal cloud"
+},
+"base": {
+"type": "concept",
+"canonical": "Base"
+},
+"bash": {
+"type": "technology",
+"canonical": "Bash"
+},
+"batch": {
+"type": "concept",
+"canonical": "Batch"
+},
+"batch processing": {
+"type": "concept",
+"canonical": "Batch processing"
+},
+"bcrypt": {
+"type": "technology",
+"canonical": "bcrypt"
+},
+"be authentic and personal": {
+"type": "not_skill",
+"canonical": ""
+},
+"beginner certifications": {
+"type": "category",
+"canonical": "Beginner Certifications"
+},
+"behavior change games": {
+"type": "category",
+"canonical": "Behavior Change Games"
+},
+"behavior change strategies": {
+"type": "category",
+"canonical": "Behavior Change Strategies"
+},
+"behavior design": {
+"type": "concept",
+"canonical": "Behavior Design"
+},
+"behavior tree": {
+"type": "concept",
+"canonical": "Behavior Tree"
+},
+"behavioral economics": {
+"type": "concept",
+"canonical": "Behavioral Economics"
+},
+"behavioral science": {
+"type": "concept",
+"canonical": "Behavioral Science"
+},
+"bem": {
+"type": "technology",
+"canonical": "BEM"
+},
+"best practices": {
+"type": "not_skill",
+"canonical": ""
+},
+"bezier": {
+"type": "concept",
+"canonical": "Bezier"
+},
+"bgp": {
+"type": "technology",
+"canonical": "BGP"
+},
+"bi tools": {
+"type": "category",
+"canonical": "BI Tools"
+},
+"bias and fairness": {
+"type": "concept",
+"canonical": "Bias and Fairness"
+},
+"big data concepts": {
+"type": "concept",
+"canonical": "Big Data Concepts"
+},
+"big data technologies": {
+"type": "category",
+"canonical": "Big Data Technologies"
+},
+"big data tools": {
+"type": "category",
+"canonical": "Big Data Tools"
+},
+"bigtable": {
+"type": "technology",
+"canonical": "BigTable"
+},
+"bitbucket": {
+"type": "technology",
+"canonical": "Bitbucket"
+},
+"bj fogg's behavior grid": {
+"type": "concept",
+"canonical": "BJ Fogg's Behavior Grid"
+},
+"bj fogg's behavior model": {
+"type": "concept",
+"canonical": "BJ Fogg's Behavior Model"
+},
+"black box testing": {
+"type": "concept",
+"canonical": "Black Box Testing"
+},
+"block storage": {
+"type": "concept",
+"canonical": "Block Storage"
+},
+"blue / red / purple teams": {
+"type": "category",
+"canonical": "Blue / Red / Purple Teams"
+},
+"bluetooth": {
+"type": "technology",
+"canonical": "Bluetooth"
+},
+"bluetooth basics": {
+"type": "concept",
+"canonical": "Bluetooth Basics"
+},
+"board game": {
+"type": "category",
+"canonical": "Board Game"
+},
+"bottom sheet": {
+"type": "concept",
+"canonical": "Bottom Sheet"
+},
+"bounding volume": {
+"type": "concept",
+"canonical": "Bounding Volume"
+},
+"box": {
+"type": "technology",
+"canonical": "Box"
+},
+"bpm, bpel": {
+"type": "technology",
+"canonical": "BPM, BPEL"
+},
+"broad phase": {
+"type": "concept",
+"canonical": "Broad Phase"
+},
+"broadcast receiver": {
+"type": "technology",
+"canonical": "Broadcast Receiver"
+},
+"browser / dev tools": {
+"type": "category",
+"canonical": "Browser / Dev Tools"
+},
+"browser addons": {
+"type": "category",
+"canonical": "Browser Addons"
+},
+"buffer overflow": {
+"type": "concept",
+"canonical": "Buffer Overflow"
+},
+"bug magnet": {
+"type": "technology",
+"canonical": "Bug Magnet"
+},
+"build pipeline hardening": {
+"type": "concept",
+"canonical": "Build Pipeline Hardening"
+},
+"build tools": {
+"type": "category",
+"canonical": "Build Tools"
+},
+"builder pattern": {
+"type": "concept",
+"canonical": "Builder Pattern"
+},
+"building ai agents": {
+"type": "concept",
+"canonical": "Building AI Agents"
+},
+"building for scale": {
+"type": "concept",
+"canonical": "Building For Scale"
+},
+"building json / restful apis": {
+"type": "concept",
+"canonical": "Building JSON / RESTful APIs"
+},
+"bump": {
+"type": "technology",
+"canonical": "Bump"
+},
+"buoyancy": {
+"type": "concept",
+"canonical": "Buoyancy"
+},
+"burp suite": {
+"type": "technology",
+"canonical": "Burp Suite"
+},
+"bus": {
+"type": "concept",
+"canonical": "Bus"
+},
+"business intelligence": {
+"type": "category",
+"canonical": "Business Intelligence"
+},
+"business model": {
+"type": "concept",
+"canonical": "Business Model"
+},
+"business model canvas": {
+"type": "concept",
+"canonical": "Business Model Canvas"
+},
+"business model inspirator": {
+"type": "concept",
+"canonical": "Business Model Inspirator"
+},
+"business process model & notation (bpmn)": {
+"type": "technology",
+"canonical": "BPMN"
+},
+"buttons": {
+"type": "category",
+"canonical": "Buttons"
+},
+"buzzwords to lookout for": {
+"type": "not_skill",
+"canonical": ""
+},
+"bvh": {
+"type": "technology",
+"canonical": "BVH"
+},
+"c#": {
+"type": "technology",
+"canonical": "C#"
+},
+"c++": {
+"type": "technology",
+"canonical": "C++"
+},
+"c/c++": {
+"type": "technology",
+"canonical": "C/C++"
+},
+"caching": {
+"type": "concept",
+"canonical": "Caching"
+},
+"caching server": {
+"type": "technology",
+"canonical": "Caching Server"
+},
+"caching strategies": {
+"type": "concept",
+"canonical": "Caching Strategies"
+},
+"caddy": {
+"type": "technology",
+"canonical": "Caddy"
+},
+"call to action": {
+"type": "concept",
+"canonical": "Call to Action"
+},
+"cap theorem": {
+"type": "concept",
+"canonical": "CAP Theorem"
+},
+"capabilities / context length": {
+"type": "concept",
+"canonical": "Capabilities Context Length"
+},
+"cascaded": {
+"type": "concept",
+"canonical": "Cascaded"
+},
+"cassandra": {
+"type": "technology",
+"canonical": "Cassandra"
+},
+"cat": {
+"type": "technology",
+"canonical": "cat"
+},
+"catmull-rom": {
+"type": "concept",
+"canonical": "Catmull-Rom"
+},
+"ccd": {
+"type": "concept",
+"canonical": "CCD"
+},
+"ccna": {
+"type": "category",
+"canonical": "CCNA"
+},
+"ccpa": {
+"type": "category",
+"canonical": "CCPA"
+},
+"cdn": {
+"type": "technology",
+"canonical": "CDN"
+},
+"cdn & edge caching": {
+"type": "technology",
+"canonical": "CDN Edge Caching"
+},
+"ceh": {
+"type": "category",
+"canonical": "CEH"
+},
+"census": {
+"type": "technology",
+"canonical": "Census"
+},
+"center of mass": {
+"type": "concept",
+"canonical": "Center of Mass"
+},
+"central tendency": {
+"type": "concept",
+"canonical": "Central Tendency"
+},
+"certificate lifecycle": {
+"type": "concept",
+"canonical": "Certificate Lifecycle"
+},
+"certificates": {
+"type": "technology",
+"canonical": "Certificates"
+},
+"certifications": {
+"type": "category",
+"canonical": "Certifications"
+},
+"charting": {
+"type": "technology",
+"canonical": "Charting"
+},
+"chat completions api": {
+"type": "technology",
+"canonical": "Chat Completions API"
+},
+"cheating": {
+"type": "not_skill",
+"canonical": ""
+},
+"chef": {
+"type": "technology",
+"canonical": "Chef"
+},
+"choosing the right technologies": {
+"type": "concept",
+"canonical": "Choosing the Right Technologies"
+},
+"chroma": {
+"type": "technology",
+"canonical": "Chroma"
+},
+"chrome devtools": {
+"type": "technology",
+"canonical": "Chrome DevTools"
+},
+"chucker": {
+"type": "technology",
+"canonical": "Chucker"
+},
+"chunking": {
+"type": "concept",
+"canonical": "Chunking"
+},
+"ci / cd": {
+"type": "concept",
+"canonical": "CI CD"
+},
+"ci / cd tools": {
+"type": "category",
+"canonical": "CI CD Tools"
+},
+"ci/cd": {
+"type": "concept",
+"canonical": "CI CD"
+},
+"ci/cd pipelines": {
+"type": "concept",
+"canonical": "CI CD Pipelines"
+},
+"cia triad": {
+"type": "concept",
+"canonical": "CIA Triad"
+},
+"cidr": {
+"type": "concept",
+"canonical": "CIDR"
+},
+"circle ci": {
+"type": "technology",
+"canonical": "CircleCI"
+},
+"circuit breaker": {
+"type": "concept",
+"canonical": "Circuit Breaker"
+},
+"circuit level gateway": {
+"type": "technology",
+"canonical": "Circuit Level Gateway"
+},
+"cis": {
+"type": "concept",
+"canonical": "CIS"
+},
+"cisa": {
+"type": "technology",
+"canonical": "CISA"
+},
+"cism": {
+"type": "technology",
+"canonical": "CISM"
+},
+"cissp": {
+"type": "technology",
+"canonical": "CISSP"
+},
+"clarify product": {
+"type": "concept",
+"canonical": "Clarify product"
+},
+"classifying behavior": {
+"type": "concept",
+"canonical": "Classifying behavior"
+},
+"cleanup": {
+"type": "concept",
+"canonical": "Cleanup"
+},
+"clear the page of distractions": {
+"type": "concept",
+"canonical": "Clear page of distractions"
+},
+"client": {
+"type": "concept",
+"canonical": "Client"
+},
+"client / server": {
+"type": "concept",
+"canonical": "Client‑server architecture"
+},
+"client side": {
+"type": "concept",
+"canonical": "Client‑side caching"
+},
+"client side development": {
+"type": "category",
+"canonical": ""
+},
+"client-server network": {
+"type": "concept",
+"canonical": "Client‑server network"
+},
+"clipping": {
+"type": "technology",
+"canonical": "Clipping"
+},
+"cloud": {
+"type": "category",
+"canonical": "Cloud"
+},
+"cloud architectures": {
+"type": "concept",
+"canonical": "Cloud architectures"
+},
+"cloud computing": {
+"type": "technology",
+"canonical": "Cloud computing"
+},
+"cloud deployment models": {
+"type": "concept",
+"canonical": "Cloud deployment models"
+},
+"cloud design patterns": {
+"type": "concept",
+"canonical": "Cloud design patterns"
+},
+"cloud messaging": {
+"type": "technology",
+"canonical": "Cloud messaging"
+},
+"cloud models": {
+"type": "concept",
+"canonical": "Cloud models"
+},
+"cloud providers": {
+"type": "technology",
+"canonical": "Cloud providers"
+},
+"cloud security": {
+"type": "concept",
+"canonical": "Cloud security"
+},
+"cloud service models": {
+"type": "concept",
+"canonical": "Cloud service models"
+},
+"cloud skills and knowledge": {
+"type": "category",
+"canonical": ""
+},
+"cloud smith": {
+"type": "technology",
+"canonical": "Cloud Smith"
+},
+"cloud specific tools": {
+"type": "technology",
+"canonical": "Cloud specific tools"
+},
+"cloud sql (database)": {
+"type": "technology",
+"canonical": "Cloud SQL"
+},
+"cloud-native ml services": {
+"type": "technology",
+"canonical": "Cloud‑native ML services"
+},
+"cloudflare": {
+"type": "technology",
+"canonical": "Cloudflare"
+},
+"cloudformation": {
+"type": "technology",
+"canonical": "CloudFormation"
+},
+"cluster": {
+"type": "concept",
+"canonical": "Cluster"
+},
+"cluster computing basics": {
+"type": "category",
+"canonical": ""
+},
+"cluster management tools": {
+"type": "technology",
+"canonical": "Cluster management tools"
+},
+"cnns": {
+"type": "concept",
+"canonical": "CNNs"
+},
+"code completion tools": {
+"type": "technology",
+"canonical": "Code completion tools"
+},
+"cohere": {
+"type": "technology",
+"canonical": "Cohere"
+},
+"collaborate with others": {
+"type": "concept",
+"canonical": "Collaborate with others"
+},
+"collection": {
+"type": "concept",
+"canonical": "Collection"
+},
+"collision detection": {
+"type": "concept",
+"canonical": "Collision detection"
+},
+"color": {
+"type": "concept",
+"canonical": "Color"
+},
+"column": {
+"type": "concept",
+"canonical": "Column"
+},
+"column dbs": {
+"type": "concept",
+"canonical": "Column DBs"
+},
+"common attacks": {
+"type": "concept",
+"canonical": "Common attacks"
+},
+"common cloud environments": {
+"type": "concept",
+"canonical": "Common cloud environments"
+},
+"common cloud storage": {
+"type": "concept",
+"canonical": "Common cloud storage"
+},
+"common commands": {
+"type": "concept",
+"canonical": "Common commands"
+},
+"common distros for hacking": {
+"type": "not_skill",
+"canonical": ""
+},
+"common ports and their uses": {
+"type": "concept",
+"canonical": "Common ports"
+},
+"common protocols and their uses": {
+"type": "concept",
+"canonical": "Common protocols"
+},
+"common services": {
+"type": "category",
+"canonical": "Common Services"
+},
+"common terminology": {
+"type": "category",
+"canonical": "Common Terminology"
+},
+"common tools": {
+"type": "category",
+"canonical": "Common Tools"
+},
+"common virtualization technologies": {
+"type": "category",
+"canonical": "Common Virtualization Technologies"
+},
+"common vulnerabilities": {
+"type": "concept",
+"canonical": "Common Vulnerabilities"
+},
+"communication": {
+"type": "concept",
+"canonical": "Communication"
+},
+"compatibility": {
+"type": "concept",
+"canonical": "Compatibility"
+},
+"competitor analysis": {
+"type": "concept",
+"canonical": "Competitor Analysis"
+},
+"compliance": {
+"type": "concept",
+"canonical": "Compliance"
+},
+"comptia a+": {
+"type": "technology",
+"canonical": "CompTIA A+"
+},
+"comptia linux+": {
+"type": "technology",
+"canonical": "CompTIA Linux+"
+},
+"comptia network+": {
+"type": "technology",
+"canonical": "CompTIA Network+"
+},
+"comptia security+": {
+"type": "technology",
+"canonical": "CompTIA Security+"
+},
+"compute engine (compute)": {
+"type": "technology",
+"canonical": "Compute Engine"
+},
+"computer animation": {
+"type": "category",
+"canonical": "Computer Animation"
+},
+"computer graphics": {
+"type": "category",
+"canonical": "Computer Graphics"
+},
+"computer hardware components": {
+"type": "category",
+"canonical": "Computer Hardware Components"
+},
+"concat": {
+"type": "concept",
+"canonical": "CONCAT"
+},
+"concave": {
+"type": "concept",
+"canonical": "Concave"
+},
+"conceptual design": {
+"type": "concept",
+"canonical": "Conceptual Design"
+},
+"conducting adversarial testing": {
+"type": "concept",
+"canonical": "Adversarial Testing"
+},
+"configuration management": {
+"type": "concept",
+"canonical": "Configuration Management"
+},
+"connection types and their function": {
+"type": "concept",
+"canonical": "Connection Types"
+},
+"conservation of energy": {
+"type": "concept",
+"canonical": "Conservation of Energy"
+},
+"constraining outputs and inputs": {
+"type": "concept",
+"canonical": "Constraining I/O"
+},
+"constraint": {
+"type": "concept",
+"canonical": "Constraint"
+},
+"consul": {
+"type": "technology",
+"canonical": "Consul"
+},
+"consult & coach": {
+"type": "concept",
+"canonical": "Consult & Coach"
+},
+"consult & coach developers": {
+"type": "concept",
+"canonical": "Consult & Coach Developers"
+},
+"contabo": {
+"type": "technology",
+"canonical": "Contabo"
+},
+"container orchestration": {
+"type": "category",
+"canonical": "Container Orchestration"
+},
+"container security": {
+"type": "category",
+"canonical": "Container Security"
+},
+"containerization": {
+"type": "category",
+"canonical": "Containerization"
+},
+"containers": {
+"type": "category",
+"canonical": "Containers"
+},
+"containers & orchestration": {
+"type": "category",
+"canonical": "Containers & Orchestration"
+},
+"containment": {
+"type": "concept",
+"canonical": "Containment"
+},
+"content negotiation": {
+"type": "concept",
+"canonical": "Content Negotiation"
+},
+"content provider": {
+"type": "concept",
+"canonical": "Content Provider"
+},
+"content security policy": {
+"type": "concept",
+"canonical": "Content Security Policy"
+},
+"contract testing": {
+"type": "concept",
+"canonical": "Contract Testing"
+},
+"convex": {
+"type": "concept",
+"canonical": "Convex"
+},
+"convex decomposition": {
+"type": "concept",
+"canonical": "Convex Decomposition"
+},
+"convex hull": {
+"type": "concept",
+"canonical": "Convex Hull"
+},
+"convexity": {
+"type": "concept",
+"canonical": "Convexity"
+},
+"cookie based auth": {
+"type": "concept",
+"canonical": "Cookie Based Auth"
+},
+"cookies": {
+"type": "concept",
+"canonical": "Cookies"
+},
+"core concepts of zero trust": {
+"type": "concept",
+"canonical": "Zero Trust Core Concepts"
+},
+"core networking": {
+"type": "category",
+"canonical": "Core Networking"
+},
+"core protocols": {
+"type": "category",
+"canonical": "Core Protocols"
+},
+"coroutines": {
+"type": "concept",
+"canonical": "Coroutines"
+},
+"correlation analysis": {
+"type": "concept",
+"canonical": "Correlation Analysis"
+},
+"cors": {
+"type": "concept",
+"canonical": "CORS"
+},
+"cosmosdb": {
+"type": "technology",
+"canonical": "CosmosDB"
+},
+"cost monitoring and budgets": {
+"type": "concept",
+"canonical": "Cost Monitoring"
+},
+"couchdb": {
+"type": "technology",
+"canonical": "CouchDB"
+},
+"count": {
+"type": "concept",
+"canonical": "COUNT"
+},
+"cqrs": {
+"type": "concept",
+"canonical": "CQRS"
+},
+"cqrs, eventual consistency": {
+"type": "concept",
+"canonical": "CQRS, Eventual Consistency"
+},
+"crashlytics": {
+"type": "technology",
+"canonical": "Crashlytics"
+},
+"create a basic hello world app": {
+"type": "not_skill",
+"canonical": ""
+},
+"create action funnel": {
+"type": "technology",
+"canonical": "Action Funnel"
+},
+"create product backlog": {
+"type": "concept",
+"canonical": "Product Backlog"
+},
+"create user personas": {
+"type": "concept",
+"canonical": "User Personas"
+},
+"creating urgency to act now": {
+"type": "not_skill",
+"canonical": ""
+},
+"credentials": {
+"type": "concept",
+"canonical": "Credentials"
+},
+"crest": {
+"type": "technology",
+"canonical": "CREST"
+},
+"crowd out old habit with new behavior": {
+"type": "not_skill",
+"canonical": ""
+},
+"cryptographic hashing": {
+"type": "concept",
+"canonical": "Cryptographic Hashing"
+},
+"csf": {
+"type": "concept",
+"canonical": "CSF"
+},
+"csp": {
+"type": "concept",
+"canonical": "CSP"
+},
+"cspm": {
+"type": "technology",
+"canonical": "CSPM"
+},
+"csrf": {
+"type": "concept",
+"canonical": "CSRF"
+},
+"css": {
+"type": "technology",
+"canonical": "CSS"
+},
+"css architecture": {
+"type": "concept",
+"canonical": "CSS Architecture"
+},
+"css preprocessors": {
+"type": "technology",
+"canonical": "CSS Preprocessors"
+},
+"csv files": {
+"type": "technology",
+"canonical": "CSV"
+},
+"ctfs (capture the flag)": {
+"type": "concept",
+"canonical": "CTFs"
+},
+"cube": {
+"type": "technology",
+"canonical": "Cube"
+},
+"cue routine reward model": {
+"type": "not_skill",
+"canonical": ""
+},
+"culling": {
+"type": "technology",
+"canonical": "Culling"
+},
+"curl": {
+"type": "technology",
+"canonical": "curl"
+},
+"curve": {
+"type": "concept",
+"canonical": "Curve"
+},
+"custom elements": {
+"type": "concept",
+"canonical": "Custom Elements"
+},
+"customer experience map by mel edwards": {
+"type": "not_skill",
+"canonical": ""
+},
+"cut-off dates / knowledge": {
+"type": "not_skill",
+"canonical": ""
+},
+"cyber kill chain": {
+"type": "concept",
+"canonical": "Cyber Kill Chain"
+},
+"cybersecurity basics": {
+"type": "concept",
+"canonical": "Cybersecurity Basics"
+},
+"cybersecurity frameworks": {
+"type": "concept",
+"canonical": "Cybersecurity Frameworks"
+},
+"cypress": {
+"type": "technology",
+"canonical": "Cypress"
+},
+"daas": {
+"type": "technology",
+"canonical": "DaaS"
+},
+"dagger": {
+"type": "technology",
+"canonical": "Dagger"
+},
+"dall-e api": {
+"type": "technology",
+"canonical": "DALL‑E API"
+},
+"data analytics": {
+"type": "concept",
+"canonical": "Data Analytics"
+},
+"data archiving": {
+"type": "concept",
+"canonical": "Data Archiving"
+},
+"data centers": {
+"type": "concept",
+"canonical": "Data Centers"
+},
+"data classification": {
+"type": "concept",
+"canonical": "Data Classification"
+},
+"data cleanup": {
+"type": "concept",
+"canonical": "Data Cleanup"
+},
+"data collection": {
+"type": "concept",
+"canonical": "Data Collection"
+},
+"data engineering fundamentals": {
+"type": "concept",
+"canonical": "Data Engineering Fundamentals"
+},
+"data engineering lifecycle": {
+"type": "concept",
+"canonical": "Data Engineering Lifecycle"
+},
+"data fabric": {
+"type": "concept",
+"canonical": "Data Fabric"
+},
+"data factory (etl)": {
+"type": "technology",
+"canonical": "Data Factory"
+},
+"data generation": {
+"type": "concept",
+"canonical": "Data Generation"
+},
+"data hub": {
+"type": "concept",
+"canonical": "Data Hub"
+},
+"data ingestion": {
+"type": "concept",
+"canonical": "Data Ingestion"
+},
+"data ingestion architecture": {
+"type": "concept",
+"canonical": "Data Ingestion Architecture"
+},
+"data interoperability": {
+"type": "concept",
+"canonical": "Data Interoperability"
+},
+"data lake": {
+"type": "concept",
+"canonical": "Data Lake"
+},
+"data lakes & warehouses": {
+"type": "category",
+"canonical": "Data Lakes & Warehouses"
+},
+"data lifecycle": {
+"type": "concept",
+"canonical": "Data Lifecycle"
+},
+"data lineage": {
+"type": "concept",
+"canonical": "Data Lineage"
+},
+"data lineage & feature stores": {
+"type": "category",
+"canonical": "Data Lineage & Feature Stores"
+},
+"data link": {
+"type": "concept",
+"canonical": "Data Link"
+},
+"data management": {
+"type": "concept",
+"canonical": "Data Management"
+},
+"data manipulation libraries": {
+"type": "category",
+"canonical": "Data Manipulation Libraries"
+},
+"data mart": {
+"type": "concept",
+"canonical": "Data Mart"
+},
+"data masking": {
+"type": "concept",
+"canonical": "Data Masking"
+},
+"data mesh": {
+"type": "concept",
+"canonical": "Data Mesh"
+},
+"data modelling techniques": {
+"type": "category",
+"canonical": "Data Modelling Techniques"
+},
+"data normalization": {
+"type": "concept",
+"canonical": "Data Normalization"
+},
+"data obfuscation": {
+"type": "concept",
+"canonical": "Data Obfuscation"
+},
+"data pipeline tools": {
+"type": "category",
+"canonical": "Data Pipeline Tools"
+},
+"data pipelines": {
+"type": "concept",
+"canonical": "Data Pipelines"
+},
+"data processing frameworks": {
+"type": "category",
+"canonical": "Data Processing Frameworks"
+},
+"data processing techniques": {
+"type": "category",
+"canonical": "Data Processing Techniques"
+},
+"data protection": {
+"type": "concept",
+"canonical": "Data Protection"
+},
+"data quality": {
+"type": "concept",
+"canonical": "Data Quality"
+},
+"data replication": {
+"type": "concept",
+"canonical": "Data Replication"
+},
+"data serving": {
+"type": "concept",
+"canonical": "Data Serving"
+},
+"data storage": {
+"type": "concept",
+"canonical": "Data Storage"
+},
+"data storage solutions": {
+"type": "category",
+"canonical": "Data Storage Solutions"
+},
+"data structures and algorithms": {
+"type": "concept",
+"canonical": "Data Structures and Algorithms"
+},
+"data transformation": {
+"type": "concept",
+"canonical": "Data Transformation"
+},
+"data visualisation": {
+"type": "concept",
+"canonical": "Data Visualisation"
+},
+"data visualisation libraries": {
+"type": "category",
+"canonical": "Data Visualisation Libraries"
+},
+"data warehouse": {
+"type": "concept",
+"canonical": "Data Warehouse"
+},
+"data warehousing architectures": {
+"type": "category",
+"canonical": "Data Warehousing Architectures"
+},
+"database": {
+"type": "concept",
+"canonical": "Database"
+},
+"database fundamentals": {
+"type": "category",
+"canonical": "Database Fundamentals"
+},
+"database indexes": {
+"type": "concept",
+"canonical": "Database Indexes"
+},
+"databases": {
+"type": "concept",
+"canonical": "Databases"
+},
+"databricks delta lake": {
+"type": "technology",
+"canonical": "Delta Lake"
+},
+"datadog": {
+"type": "technology",
+"canonical": "Datadog"
+},
+"dataflow": {
+"type": "technology",
+"canonical": "Dataflow"
+},
+"datastore": {
+"type": "technology",
+"canonical": "DataStore"
+},
+"datawarehouse principles": {
+"type": "concept",
+"canonical": "Datawarehouse Principles"
+},
+"datedif": {
+"type": "technology",
+"canonical": "DATEDIF"
+},
+"dbt": {
+"type": "technology",
+"canonical": "dbt"
+},
+"dbvt": {
+"type": "not_skill",
+"canonical": ""
+},
+"dd": {
+"type": "technology",
+"canonical": "dd"
+},
+"ddd": {
+"type": "concept",
+"canonical": "Domain-Driven Design"
+},
+"ddos miligation strategy": {
+"type": "concept",
+"canonical": "DDoS Mitigation"
+},
+"deauth attack": {
+"type": "concept",
+"canonical": "Deauthentication Attack"
+},
+"debugging": {
+"type": "concept",
+"canonical": "Debugging"
+},
+"decision learning": {
+"type": "concept",
+"canonical": "Decision Learning"
+},
+"decision making": {
+"type": "concept",
+"canonical": "Decision Making"
+},
+"decision tree": {
+"type": "concept",
+"canonical": "Decision Tree"
+},
+"decision tree learning": {
+"type": "concept",
+"canonical": "Decision Tree Learning"
+},
+"decision trees": {
+"type": "concept",
+"canonical": "Decision Trees"
+},
+"decision-making support": {
+"type": "concept",
+"canonical": "Decision-Making Support"
+},
+"deep learning": {
+"type": "concept",
+"canonical": "Deep Learning"
+},
+"deep learning (optional)": {
+"type": "concept",
+"canonical": "Deep Learning"
+},
+"default everything": {
+"type": "not_skill",
+"canonical": ""
+},
+"default gateway": {
+"type": "concept",
+"canonical": "Default Gateway"
+},
+"defaulting": {
+"type": "concept",
+"canonical": "Defaulting"
+},
+"defense in depth concepts": {
+"type": "concept",
+"canonical": "Defense in Depth"
+},
+"define target users": {
+"type": "not_skill",
+"canonical": ""
+},
+"deliverables": {
+"type": "not_skill",
+"canonical": ""
+},
+"dependency injection": {
+"type": "concept",
+"canonical": "Dependency Injection"
+},
+"dependency risk management": {
+"type": "concept",
+"canonical": "Dependency Risk Management"
+},
+"deploy peer comparisons": {
+"type": "not_skill",
+"canonical": ""
+},
+"deploy social proof": {
+"type": "not_skill",
+"canonical": ""
+},
+"deploy strong authority on subject": {
+"type": "not_skill",
+"canonical": ""
+},
+"deployment strategies": {
+"type": "concept",
+"canonical": "Deployment Strategies"
+},
+"descriptive analysis": {
+"type": "concept",
+"canonical": "Descriptive Analysis"
+},
+"descriptive analytics": {
+"type": "concept",
+"canonical": "Descriptive Analytics"
+},
+"design & architecture": {
+"type": "category",
+"canonical": "Design & Architecture"
+},
+"design & architecture decisions": {
+"type": "concept",
+"canonical": "Design & Architecture Decisions"
+},
+"design and development principles": {
+"type": "concept",
+"canonical": "Design and Development Principles"
+},
+"design and implementation": {
+"type": "concept",
+"canonical": "Design and Implementation"
+},
+"design patterns": {
+"type": "concept",
+"canonical": "Design Patterns"
+},
+"desktop apps": {
+"type": "category",
+"canonical": "Desktop Applications"
+},
+"detekt": {
+"type": "technology",
+"canonical": "Detekt"
+},
+"detox": {
+"type": "technology",
+"canonical": "Detox"
+},
+"developer-focused": {
+"type": "not_skill",
+"canonical": ""
+},
+"development ide": {
+"type": "category",
+"canonical": "Development IDE"
+},
+"development tools": {
+"type": "category",
+"canonical": "Development Tools"
+},
+"device orientation": {
+"type": "concept",
+"canonical": "Device Orientation"
+},
+"devsecops tools": {
+"type": "category",
+"canonical": "DevSecOps Tools"
+},
+"dhcp": {
+"type": "technology",
+"canonical": "DHCP"
+},
+"diagnostic analytics": {
+"type": "concept",
+"canonical": "Diagnostic Analytics"
+},
+"dialogs": {
+"type": "concept",
+"canonical": "Dialogs"
+},
+"diamond model": {
+"type": "concept",
+"canonical": "Diamond Model"
+},
+"difference & usage": {
+"type": "not_skill",
+"canonical": ""
+},
+"different api styles": {
+"type": "concept",
+"canonical": "API Styles"
+},
+"different versions and differences": {
+"type": "not_skill",
+"canonical": ""
+},
+"diffuse": {
+"type": "concept",
+"canonical": "Diffuse"
+},
+"dig": {
+"type": "technology",
+"canonical": "dig"
+},
+"digital ocean": {
+"type": "technology",
+"canonical": "DigitalOcean"
+},
+"directional": {
+"type": "concept",
+"canonical": "Directional"
+},
+"directory traversal": {
+"type": "concept",
+"canonical": "Directory Traversal"
+},
+"directx": {
+"type": "technology",
+"canonical": "DirectX"
+},
+"directx ray tracing": {
+"type": "technology",
+"canonical": "DirectX Ray Tracing"
+},
+"dispersion": {
+"type": "concept",
+"canonical": "Dispersion"
+},
+"distributed file systems": {
+"type": "concept",
+"canonical": "Distributed File Systems"
+},
+"distributed systems": {
+"type": "concept",
+"canonical": "Distributed Systems"
+},
+"distributed systems basics": {
+"type": "concept",
+"canonical": "Distributed Systems Basics"
+},
+"distribution": {
+"type": "concept",
+"canonical": "Distribution"
+},
+"distribution space": {
+"type": "concept",
+"canonical": "Distribution Space"
+},
+"dlp": {
+"type": "technology",
+"canonical": "DLP"
+},
+"dmarc": {
+"type": "technology",
+"canonical": "DMARC"
+},
+"dmz": {
+"type": "technology",
+"canonical": "DMZ"
+},
+"dns": {
+"type": "technology",
+"canonical": "DNS"
+},
+"dns in the cloud": {
+"type": "concept",
+"canonical": "DNS in the Cloud"
+},
+"dns poisoning": {
+"type": "concept",
+"canonical": "DNS Poisoning"
+},
+"dns servers": {
+"type": "technology",
+"canonical": "DNS Servers"
+},
+"dnssec": {
+"type": "technology",
+"canonical": "DNSSEC"
+},
+"docker": {
+"type": "technology",
+"canonical": "Docker"
+},
+"docker swarm": {
+"type": "technology",
+"canonical": "Docker Swarm"
+},
+"document": {
+"type": "not_skill",
+"canonical": ""
+},
+"document dbs": {
+"type": "technology",
+"canonical": "Document DBs"
+},
+"documentation": {
+"type": "not_skill",
+"canonical": ""
+},
+"domain driven design": {
+"type": "concept",
+"canonical": "Domain Driven Design"
+},
+"domain keys": {
+"type": "technology",
+"canonical": "Domain Keys"
+},
+"dos & ddos": {
+"type": "concept",
+"canonical": "DoS & DDoS"
+},
+"dplyr": {
+"type": "technology",
+"canonical": "dplyr"
+},
+"drawer": {
+"type": "not_skill",
+"canonical": ""
+},
+"drive by attack": {
+"type": "concept",
+"canonical": "Drive by Attack"
+},
+"drone": {
+"type": "technology",
+"canonical": "Drone"
+},
+"dropbox": {
+"type": "technology",
+"canonical": "Dropbox"
+},
+"dual process theory": {
+"type": "concept",
+"canonical": "Dual Process Theory"
+},
+"dumpster diving": {
+"type": "concept",
+"canonical": "Dumpster Diving"
+},
+"dynamics": {
+"type": "concept",
+"canonical": "Dynamics"
+},
+"dynamodb": {
+"type": "technology",
+"canonical": "DynamoDB"
+},
+"ec2": {
+"type": "technology",
+"canonical": "EC2"
+},
+"ecpa": {
+"type": "concept",
+"canonical": "ECPA"
+},
+"edge computing": {
+"type": "concept",
+"canonical": "Edge Computing"
+},
+"editors": {
+"type": "not_skill",
+"canonical": ""
+},
+"edittext": {
+"type": "not_skill",
+"canonical": ""
+},
+"edr": {
+"type": "technology",
+"canonical": "EDR"
+},
+"edr strategy": {
+"type": "concept",
+"canonical": "EDR Strategy"
+},
+"educate & encourage user": {
+"type": "not_skill",
+"canonical": ""
+},
+"eigrp": {
+"type": "technology",
+"canonical": "EIGRP"
+},
+"elastic stack": {
+"type": "technology",
+"canonical": "Elastic Stack"
+},
+"elasticity": {
+"type": "concept",
+"canonical": "Elasticity"
+},
+"elasticsearch": {
+"type": "technology",
+"canonical": "Elasticsearch"
+},
+"electron": {
+"type": "technology",
+"canonical": "Electron"
+},
+"elements": {
+"type": "not_skill",
+"canonical": ""
+},
+"eleventy": {
+"type": "technology",
+"canonical": "Eleventy"
+},
+"elicit implementation intentions": {
+"type": "not_skill",
+"canonical": ""
+},
+"email protocols": {
+"type": "category",
+"canonical": "Email Protocols"
+},
+"email testing": {
+"type": "not_skill",
+"canonical": ""
+},
+"embedding": {
+"type": "concept",
+"canonical": "Embedding"
+},
+"embeddings": {
+"type": "concept",
+"canonical": "Embeddings"
+},
+"emc dms": {
+"type": "technology",
+"canonical": "EMC DMS"
+},
+"encryption": {
+"type": "concept",
+"canonical": "Encryption"
+},
+"encryption basics": {
+"type": "concept",
+"canonical": "Encryption Basics"
+},
+"end-to-end testing": {
+"type": "concept",
+"canonical": "End-to-End Testing"
+},
+"endpoint": {
+"type": "concept",
+"canonical": "Endpoint"
+},
+"endpoint detection": {
+"type": "concept",
+"canonical": "Endpoint Detection"
+},
+"endpoint security": {
+"type": "concept",
+"canonical": "Endpoint Security"
+},
+"enforcing standards": {
+"type": "concept",
+"canonical": "Enforcing Standards"
+},
+"enterprise architecture": {
+"type": "concept",
+"canonical": "Enterprise Architecture"
+},
+"enterprise operations": {
+"type": "category",
+"canonical": "Enterprise Operations"
+},
+"enterprise software": {
+"type": "category",
+"canonical": "Enterprise Software"
+},
+"environmental management": {
+"type": "concept",
+"canonical": "Environmental Management"
+},
+"envoy": {
+"type": "technology",
+"canonical": "Envoy"
+},
+"epa": {
+"type": "technology",
+"canonical": "EPA"
+},
+"eradication": {
+"type": "concept",
+"canonical": "Eradication"
+},
+"error handling": {
+"type": "concept",
+"canonical": "Error Handling"
+},
+"error handling / retries": {
+"type": "concept",
+"canonical": "Error Handling"
+},
+"esb, soap": {
+"type": "technology",
+"canonical": "ESB"
+},
+"esbuild": {
+"type": "technology",
+"canonical": "esbuild"
+},
+"eslint": {
+"type": "technology",
+"canonical": "ESLint"
+},
+"espresso": {
+"type": "technology",
+"canonical": "Espresso"
+},
+"estimate and evaluate": {
+"type": "concept",
+"canonical": "Estimate and Evaluate"
+},
+"esxi": {
+"type": "technology",
+"canonical": "esxi"
+},
+"etl process": {
+"type": "concept",
+"canonical": "ETL Process"
+},
+"etl, datawarehouses": {
+"type": "concept",
+"canonical": "ETL"
+},
+"eu ai act": {
+"type": "concept",
+"canonical": "EU AI Act"
+},
+"euler angle": {
+"type": "concept",
+"canonical": "Euler Angle"
+},
+"event driven architecture": {
+"type": "concept",
+"canonical": "Event Driven Architecture"
+},
+"event logs": {
+"type": "concept",
+"canonical": "Event Logs"
+},
+"event sourcing": {
+"type": "concept",
+"canonical": "Event Sourcing"
+},
+"event-driven architecture": {
+"type": "concept",
+"canonical": "Event-Driven Architecture"
+},
+"event-driven process chain model (epc)": {
+"type": "concept",
+"canonical": "Event-driven Process Chain Model"
+},
+"evil twin": {
+"type": "concept",
+"canonical": "Evil Twin"
+},
+"existing behavior": {
+"type": "concept",
+"canonical": "Existing Behavior"
+},
+"existing business model": {
+"type": "concept",
+"canonical": "Existing Business Model"
+},
+"experiment tracking & model registry": {
+"type": "concept",
+"canonical": "Experiment Tracking & Model Registry"
+},
+"explicit intents": {
+"type": "concept",
+"canonical": "Explicit Intents"
+},
+"exploration": {
+"type": "concept",
+"canonical": "Exploration"
+},
+"exploratory testing": {
+"type": "concept",
+"canonical": "Exploratory Testing"
+},
+"extract data": {
+"type": "concept",
+"canonical": "Extract Data"
+},
+"faas": {
+"type": "technology",
+"canonical": "FaaS"
+},
+"factory pattern": {
+"type": "concept",
+"canonical": "Factory Pattern"
+},
+"failover": {
+"type": "concept",
+"canonical": "Failover"
+},
+"failure modes": {
+"type": "concept",
+"canonical": "Failure Modes"
+},
+"faiss": {
+"type": "technology",
+"canonical": "FAISS"
+},
+"false negative / false positive": {
+"type": "concept",
+"canonical": "False Negative / False Positive"
+},
+"fetch api / ajax (xhr)": {
+"type": "technology",
+"canonical": "Fetch API"
+},
+"figma": {
+"type": "technology",
+"canonical": "Figma"
+},
+"file storage": {
+"type": "concept",
+"canonical": "File Storage"
+},
+"file system": {
+"type": "concept",
+"canonical": "File System"
+},
+"finding open source models": {
+"type": "concept",
+"canonical": "Finding Open Source Models"
+},
+"finding outliers": {
+"type": "concept",
+"canonical": "Finding Outliers"
+},
+"fine-tuning": {
+"type": "concept",
+"canonical": "Fine-tuning"
+},
+"finops": {
+"type": "concept",
+"canonical": "FinOps"
+},
+"firebase": {
+"type": "technology",
+"canonical": "Firebase"
+},
+"firebase distribution": {
+"type": "technology",
+"canonical": "Firebase Distribution"
+},
+"firestore": {
+"type": "technology",
+"canonical": "Firestore"
+},
+"firewall": {
+"type": "technology",
+"canonical": "Firewall"
+},
+"firewall & nextgen firewall": {
+"type": "technology",
+"canonical": "Firewall"
+},
+"firewall logs": {
+"type": "concept",
+"canonical": "Firewall Logs"
+},
+"firewall types": {
+"type": "concept",
+"canonical": "Firewall Types"
+},
+"firewalls": {
+"type": "technology",
+"canonical": "Firewall"
+},
+"firewalls & security groups": {
+"type": "concept",
+"canonical": "Security Groups"
+},
+"five forces model": {
+"type": "concept",
+"canonical": "Five Forces Model"
+},
+"flink": {
+"type": "technology",
+"canonical": "Flink"
+},
+"flow": {
+"type": "concept",
+"canonical": "Flow"
+},
+"flutter": {
+"type": "technology",
+"canonical": "Flutter"
+},
+"fluxcd": {
+"type": "technology",
+"canonical": "FluxCD"
+},
+"fog": {
+"type": "concept",
+"canonical": "Fog"
+},
+"force": {
+"type": "concept",
+"canonical": "Force"
+},
+"forensics": {
+"type": "concept",
+"canonical": "Forensics"
+},
+"forms and validations": {
+"type": "concept",
+"canonical": "Forms and Validations"
+},
+"forward proxy": {
+"type": "concept",
+"canonical": "Forward Proxy"
+},
+"fragments": {
+"type": "concept",
+"canonical": "Fragments"
+},
+"frame": {
+"type": "concept",
+"canonical": "Frame"
+},
+"frame text to avoid temporal myopia": {
+"type": "not_skill",
+"canonical": ""
+},
+"frameworks": {
+"type": "category",
+"canonical": "Frameworks"
+},
+"freebsd": {
+"type": "technology",
+"canonical": "FreeBSD"
+},
+"friction": {
+"type": "concept",
+"canonical": "Friction"
+},
+"frontend automation": {
+"type": "concept",
+"canonical": "Frontend Automation"
+},
+"frustum": {
+"type": "concept",
+"canonical": "Frustum"
+},
+"ftk imager": {
+"type": "technology",
+"canonical": "FTK Imager"
+},
+"ftp": {
+"type": "technology",
+"canonical": "FTP"
+},
+"ftp / sftp": {
+"type": "technology",
+"canonical": "FTP/SFTP"
+},
+"functional programming": {
+"type": "concept",
+"canonical": "Functional Programming"
+},
+"functional testing": {
+"type": "concept",
+"canonical": "Functional Testing"
+},
+"functions of each": {
+"type": "not_skill",
+"canonical": ""
+},
+"fundamental it skills": {
+"type": "category",
+"canonical": "Fundamental IT Skills"
+},
+"funnel charts": {
+"type": "concept",
+"canonical": "Funnel Charts"
+},
+"fuzzy logic": {
+"type": "concept",
+"canonical": "Fuzzy Logic"
+},
+"game ai": {
+"type": "category",
+"canonical": "Game AI"
+},
+"game engine": {
+"type": "category",
+"canonical": "Game Engine"
+},
+"game mathematics": {
+"type": "category",
+"canonical": "Game Mathematics"
+},
+"game physics": {
+"type": "category",
+"canonical": "Game Physics"
+},
+"gamification": {
+"type": "concept",
+"canonical": "Gamification"
+},
+"gather lessons, prioritize & integrate": {
+"type": "not_skill",
+"canonical": ""
+},
+"gatling": {
+"type": "technology",
+"canonical": "Gatling"
+},
+"gcp": {
+"type": "technology",
+"canonical": "GCP"
+},
+"gcp functions": {
+"type": "technology",
+"canonical": "GCP Functions"
+},
+"gdpr": {
+"type": "concept",
+"canonical": "GDPR"
+},
+"gdscript": {
+"type": "technology",
+"canonical": "GDScript"
+},
+"generation": {
+"type": "concept",
+"canonical": "Generation"
+},
+"geometry": {
+"type": "concept",
+"canonical": "Geometry"
+},
+"get a favorable conscious evaluation": {
+"type": "not_skill",
+"canonical": ""
+},
+"getting positive intuitive reaction": {
+"type": "not_skill",
+"canonical": ""
+},
+"getting users attention": {
+"type": "not_skill",
+"canonical": ""
+},
+"ggplot2": {
+"type": "technology",
+"canonical": "ggplot2"
+},
+"ghost inspector": {
+"type": "technology",
+"canonical": "Ghost Inspector"
+},
+"giac": {
+"type": "technology",
+"canonical": "GIAC"
+},
+"git": {
+"type": "technology",
+"canonical": "Git"
+},
+"git and github": {
+"type": "not_skill",
+"canonical": ""
+},
+"github": {
+"type": "technology",
+"canonical": "GitHub"
+},
+"github actions": {
+"type": "technology",
+"canonical": "GitHub Actions"
+},
+"gitlab": {
+"type": "technology",
+"canonical": "GitLab"
+},
+"gitlab ci": {
+"type": "technology",
+"canonical": "GitLab CI"
+},
+"gitops": {
+"type": "concept",
+"canonical": "GitOps"
+},
+"gjk": {
+"type": "technology",
+"canonical": "GJK"
+},
+"gke / eks / aks": {
+"type": "technology",
+"canonical": "GKE / EKS / AKS"
+},
+"glsl": {
+"type": "technology",
+"canonical": "GLSL"
+},
+"glue (etl)": {
+"type": "technology",
+"canonical": "Glue"
+},
+"gmail tester": {
+"type": "technology",
+"canonical": "Gmail Tester"
+},
+"go": {
+"type": "technology",
+"canonical": "Go"
+},
+"goal oriented behavior": {
+"type": "concept",
+"canonical": "Goal Oriented Behavior"
+},
+"goal trackers": {
+"type": "concept",
+"canonical": "Goal Trackers"
+},
+"godot": {
+"type": "technology",
+"canonical": "Godot"
+},
+"gof design patterns": {
+"type": "concept",
+"canonical": "GOF Design Patterns"
+},
+"good layout rules": {
+"type": "concept",
+"canonical": "Good Layout Rules"
+},
+"google": {
+"type": "not_skill",
+"canonical": ""
+},
+"google admob": {
+"type": "technology",
+"canonical": "Google Admob"
+},
+"google bigquery": {
+"type": "technology",
+"canonical": "Google BigQuery"
+},
+"google cloud": {
+"type": "technology",
+"canonical": "Google Cloud"
+},
+"google cloud gke": {
+"type": "technology",
+"canonical": "Google Cloud GKE"
+},
+"google cloud storage": {
+"type": "technology",
+"canonical": "Google Cloud Storage"
+},
+"google deployment mgr.": {
+"type": "technology",
+"canonical": "Google Deployment Manager"
+},
+"google drive": {
+"type": "technology",
+"canonical": "Google Drive"
+},
+"google maps": {
+"type": "technology",
+"canonical": "Google Maps"
+},
+"google play services": {
+"type": "technology",
+"canonical": "Google Play Services"
+},
+"google playstore": {
+"type": "technology",
+"canonical": "Google Playstore"
+},
+"google suite": {
+"type": "technology",
+"canonical": "Google Suite"
+},
+"google's gemini": {
+"type": "technology",
+"canonical": "Gemini"
+},
+"gpen": {
+"type": "technology",
+"canonical": "GPEN"
+},
+"graceful degradation": {
+"type": "concept",
+"canonical": "Graceful Degradation"
+},
+"grafana": {
+"type": "technology",
+"canonical": "Grafana"
+},
+"graph": {
+"type": "concept",
+"canonical": "Graph"
+},
+"graph dbs": {
+"type": "category",
+"canonical": "Graph DBs"
+},
+"graphics api": {
+"type": "category",
+"canonical": "Graphics API"
+},
+"graphics pipeline": {
+"type": "concept",
+"canonical": "Graphics Pipeline"
+},
+"graphql": {
+"type": "technology",
+"canonical": "GraphQL"
+},
+"graphql apis": {
+"type": "concept",
+"canonical": "GraphQL APIs"
+},
+"gray box testing": {
+"type": "concept",
+"canonical": "Gray Box Testing"
+},
+"graylog": {
+"type": "technology",
+"canonical": "Graylog"
+},
+"grep": {
+"type": "technology",
+"canonical": "grep"
+},
+"group policy": {
+"type": "technology",
+"canonical": "Group Policy"
+},
+"grpc": {
+"type": "technology",
+"canonical": "gRPC"
+},
+"grpc apis": {
+"type": "concept",
+"canonical": "gRPC APIs"
+},
+"gsec": {
+"type": "technology",
+"canonical": "GSEC"
+},
+"gtfobins": {
+"type": "technology",
+"canonical": "GTFOBINS"
+},
+"guestos": {
+"type": "concept",
+"canonical": "Guest OS"
+},
+"gwapt": {
+"type": "technology",
+"canonical": "GWAPT"
+},
+"hackthebox": {
+"type": "technology",
+"canonical": "HackTheBox"
+},
+"hadoop": {
+"type": "technology",
+"canonical": "Hadoop"
+},
+"hadoop ecosystem": {
+"type": "category",
+"canonical": "Hadoop Ecosystem"
+},
+"hadoop, spark, mapreduce": {
+"type": "category",
+"canonical": "Hadoop Spark MapReduce"
+},
+"handling crud operations": {
+"type": "concept",
+"canonical": "CRUD Operations"
+},
+"handling missing data": {
+"type": "concept",
+"canonical": "Missing Data Handling"
+},
+"hashing": {
+"type": "concept",
+"canonical": "Hashing"
+},
+"hashing algorithms": {
+"type": "concept",
+"canonical": "Hashing Algorithms"
+},
+"hateoas": {
+"type": "concept",
+"canonical": "HATEOAS"
+},
+"hbase": {
+"type": "technology",
+"canonical": "HBase"
+},
+"hdfs": {
+"type": "technology",
+"canonical": "HDFS"
+},
+"head": {
+"type": "technology",
+"canonical": "head"
+},
+"headless chrome": {
+"type": "technology",
+"canonical": "Headless Chrome"
+},
+"headless fox": {
+"type": "technology",
+"canonical": "Headless Fox"
+},
+"headless testing": {
+"type": "category",
+"canonical": "Headless Testing"
+},
+"heatmap": {
+"type": "concept",
+"canonical": "Heatmap"
+},
+"help user avoiding the cue": {
+"type": "not_skill",
+"canonical": ""
+},
+"help user think about their action": {
+"type": "not_skill",
+"canonical": ""
+},
+"hermite": {
+"type": "concept",
+"canonical": "Hermite"
+},
+"heroku": {
+"type": "technology",
+"canonical": "Heroku"
+},
+"hetzner": {
+"type": "technology",
+"canonical": "Hetzner"
+},
+"hightouch": {
+"type": "technology",
+"canonical": "Hightouch"
+},
+"hilt": {
+"type": "technology",
+"canonical": "Hilt"
+},
+"hipaa": {
+"type": "concept",
+"canonical": "HIPAA"
+},
+"hips": {
+"type": "concept",
+"canonical": "HIPS"
+},
+"histograms": {
+"type": "concept",
+"canonical": "Histograms"
+},
+"hlsl": {
+"type": "technology",
+"canonical": "HLSL"
+},
+"honeypots": {
+"type": "concept",
+"canonical": "Honeypots"
+},
+"horizon": {
+"type": "technology",
+"canonical": "Horizon"
+},
+"host": {
+"type": "concept",
+"canonical": "Host"
+},
+"host based firewall": {
+"type": "concept",
+"canonical": "Host Based Firewall"
+},
+"hostos": {
+"type": "concept",
+"canonical": "Host OS"
+},
+"hotspot and tethering": {
+"type": "concept",
+"canonical": "Hotspot and Tethering"
+},
+"hping": {
+"type": "technology",
+"canonical": "hping"
+},
+"hr": {
+"type": "not_skill",
+"canonical": ""
+},
+"html": {
+"type": "technology",
+"canonical": "HTML"
+},
+"html templates": {
+"type": "concept",
+"canonical": "HTML Templates"
+},
+"html unit": {
+"type": "technology",
+"canonical": "HTMLUnit"
+},
+"html, css, javascript": {
+"type": "category",
+"canonical": ""
+},
+"http": {
+"type": "concept",
+"canonical": "HTTP"
+},
+"http / https": {
+"type": "concept",
+"canonical": "HTTP/HTTPS"
+},
+"http caching": {
+"type": "concept",
+"canonical": "HTTP Caching"
+},
+"http headers": {
+"type": "concept",
+"canonical": "HTTP Headers"
+},
+"http methods": {
+"type": "concept",
+"canonical": "HTTP Methods"
+},
+"http status codes": {
+"type": "concept",
+"canonical": "HTTP Status Codes"
+},
+"http versions": {
+"type": "concept",
+"canonical": "HTTP Versions"
+},
+"http, https": {
+"type": "concept",
+"canonical": "HTTP/HTTPS"
+},
+"https": {
+"type": "concept",
+"canonical": "HTTPS"
+},
+"hub": {
+"type": "technology",
+"canonical": "Hub"
+},
+"hugging face": {
+"type": "technology",
+"canonical": "Hugging Face"
+},
+"hugging face hub": {
+"type": "technology",
+"canonical": "Hugging Face Hub"
+},
+"hugging face models": {
+"type": "technology",
+"canonical": "Hugging Face Models"
+},
+"hugging face tasks": {
+"type": "technology",
+"canonical": "Hugging Face Tasks"
+},
+"human decision making": {
+"type": "concept",
+"canonical": "Human Decision Making"
+},
+"hybrid": {
+"type": "concept",
+"canonical": "Hybrid"
+},
+"hybrid cloud": {
+"type": "concept",
+"canonical": "Hybrid Cloud"
+},
+"hyperscalers": {
+"type": "category",
+"canonical": ""
+},
+"hypervisor": {
+"type": "technology",
+"canonical": "Hypervisor"
+},
+"hypervisors": {
+"type": "technology",
+"canonical": "Hypervisors"
+},
+"hypothesis testing": {
+"type": "concept",
+"canonical": "Hypothesis Testing"
+},
+"iaas": {
+"type": "concept",
+"canonical": "IaaS"
+},
+"iaf": {
+"type": "category",
+"canonical": ""
+},
+"iam": {
+"type": "concept",
+"canonical": "IAM"
+},
+"ibm bpm": {
+"type": "technology",
+"canonical": "IBM BPM"
+},
+"icloud": {
+"type": "technology",
+"canonical": "iCloud"
+},
+"idempotency": {
+"type": "concept",
+"canonical": "Idempotency"
+},
+"identification": {
+"type": "concept",
+"canonical": "Identification"
+},
+"identity basics": {
+"type": "category",
+"canonical": ""
+},
+"ids": {
+"type": "technology",
+"canonical": "IDS"
+},
+"ids / ips": {
+"type": "technology",
+"canonical": "IDS/IPS"
+},
+"if": {
+"type": "concept",
+"canonical": "IF"
+},
+"iis": {
+"type": "technology",
+"canonical": "IIS"
+},
+"image generation": {
+"type": "concept",
+"canonical": "Image Generation"
+},
+"image recognition": {
+"type": "concept",
+"canonical": "Image Recognition"
+},
+"image scanning": {
+"type": "concept",
+"canonical": "Image Scanning"
+},
+"image understanding": {
+"type": "concept",
+"canonical": "Image Understanding"
+},
+"imageview": {
+"type": "technology",
+"canonical": "ImageView"
+},
+"imap": {
+"type": "technology",
+"canonical": "IMAP"
+},
+"impersonation": {
+"type": "concept",
+"canonical": "Impersonation"
+},
+"implementing multimodal ai": {
+"type": "category",
+"canonical": ""
+},
+"implementing rag": {
+"type": "concept",
+"canonical": "Implementing RAG"
+},
+"implementing vector search": {
+"type": "concept",
+"canonical": "Implementing Vector Search"
+},
+"implicit intents": {
+"type": "concept",
+"canonical": "Implicit Intents"
+},
+"important skills to learn": {
+"type": "category",
+"canonical": ""
+},
+"in general, keep it short and simple": {
+"type": "not_skill",
+"canonical": ""
+},
+"incident response": {
+"type": "concept",
+"canonical": "Incident Response"
+},
+"incremental a/b testing": {
+"type": "concept",
+"canonical": "Incremental A/B Testing"
+},
+"indexing": {
+"type": "concept",
+"canonical": "indexing"
+},
+"indexing embeddings": {
+"type": "concept",
+"canonical": "indexing embeddings"
+},
+"inference": {
+"type": "concept",
+"canonical": "inference"
+},
+"inference sdk": {
+"type": "technology",
+"canonical": "inference sdk"
+},
+"infinite": {
+"type": "not_skill",
+"canonical": ""
+},
+"influx db": {
+"type": "technology",
+"canonical": "influxdb"
+},
+"infrared": {
+"type": "concept",
+"canonical": "infrared"
+},
+"infrastructure as code": {
+"type": "concept",
+"canonical": "infrastructure as code"
+},
+"infrastructure as code - iac": {
+"type": "concept",
+"canonical": "infrastructure as code"
+},
+"infrastructure monitoring": {
+"type": "concept",
+"canonical": "infrastructure monitoring"
+},
+"input validation patterns": {
+"type": "concept",
+"canonical": "input validation patterns"
+},
+"installation and configuration": {
+"type": "concept",
+"canonical": "installation and configuration"
+},
+"installing software and applications": {
+"type": "concept",
+"canonical": "installing software and applications"
+},
+"instance": {
+"type": "concept",
+"canonical": "instance"
+},
+"instance types": {
+"type": "concept",
+"canonical": "instance types"
+},
+"instrumentation": {
+"type": "concept",
+"canonical": "instrumentation"
+},
+"integration testing": {
+"type": "concept",
+"canonical": "integration testing"
+},
+"intent": {
+"type": "concept",
+"canonical": "intent"
+},
+"intent filters": {
+"type": "concept",
+"canonical": "intent filters"
+},
+"interface & navigation": {
+"type": "category",
+"canonical": "interface & navigation"
+},
+"internet": {
+"type": "concept",
+"canonical": "internet"
+},
+"intersection": {
+"type": "concept",
+"canonical": "intersection"
+},
+"ionic": {
+"type": "technology",
+"canonical": "ionic"
+},
+"iot": {
+"type": "concept",
+"canonical": "iot"
+},
+"ip": {
+"type": "concept",
+"canonical": "ip"
+},
+"ip address": {
+"type": "concept",
+"canonical": "ip address"
+},
+"ip addressing": {
+"type": "concept",
+"canonical": "ip addressing"
+},
+"ip terminology": {
+"type": "concept",
+"canonical": "ip terminology"
+},
+"ipam": {
+"type": "technology",
+"canonical": "ipam"
+},
+"ipconfig": {
+"type": "technology",
+"canonical": "ipconfig"
+},
+"ips": {
+"type": "technology",
+"canonical": "ips"
+},
+"ipsec": {
+"type": "concept",
+"canonical": "ipsec"
+},
+"iptables": {
+"type": "technology",
+"canonical": "iptables"
+},
+"ir lifecycle": {
+"type": "concept",
+"canonical": "ir lifecycle"
+},
+"iso": {
+"type": "concept",
+"canonical": "iso"
+},
+"iso 27001": {
+"type": "technology",
+"canonical": "iso 27001"
+},
+"istio": {
+"type": "technology",
+"canonical": "istio"
+},
+"itil": {
+"type": "technology",
+"canonical": "itil"
+},
+"jaeger": {
+"type": "technology",
+"canonical": "jaeger"
+},
+"jasmine": {
+"type": "technology",
+"canonical": "jasmine"
+},
+"java": {
+"type": "technology",
+"canonical": "java"
+},
+"java / kotlin / scala": {
+"type": "technology",
+"canonical": "java/kotlin/scala"
+},
+"javascript": {
+"type": "technology",
+"canonical": "javascript"
+},
+"javascript / node.js": {
+"type": "technology",
+"canonical": "node.js"
+},
+"javascript / typescript": {
+"type": "technology",
+"canonical": "typescript"
+},
+"jenkins": {
+"type": "technology",
+"canonical": "jenkins"
+},
+"jest": {
+"type": "technology",
+"canonical": "jest"
+},
+"jetpack benchmark": {
+"type": "concept",
+"canonical": "jetpack benchmark"
+},
+"jetpack compose": {
+"type": "technology",
+"canonical": "jetpack compose"
+},
+"jmeter": {
+"type": "technology",
+"canonical": "jmeter"
+},
+"job scheduling": {
+"type": "concept",
+"canonical": "Job Scheduling"
+},
+"joe sandbox": {
+"type": "technology",
+"canonical": "Joe Sandbox"
+},
+"joints": {
+"type": "not_skill",
+"canonical": ""
+},
+"json apis": {
+"type": "concept",
+"canonical": "JSON API"
+},
+"jump server": {
+"type": "concept",
+"canonical": "Jump Server"
+},
+"junit": {
+"type": "technology",
+"canonical": "JUnit"
+},
+"jwt": {
+"type": "concept",
+"canonical": "JWT"
+},
+"jwt auth": {
+"type": "concept",
+"canonical": "JWT Auth"
+},
+"k-means clustering": {
+"type": "concept",
+"canonical": "K-Means"
+},
+"k6": {
+"type": "technology",
+"canonical": "K6"
+},
+"kafka": {
+"type": "technology",
+"canonical": "Kafka"
+},
+"kali linux": {
+"type": "technology",
+"canonical": "Kali Linux"
+},
+"kanban": {
+"type": "concept",
+"canonical": "Kanban"
+},
+"karateframework": {
+"type": "technology",
+"canonical": "Karate"
+},
+"kerberos": {
+"type": "concept",
+"canonical": "Kerberos"
+},
+"key concepts of data": {
+"type": "not_skill",
+"canonical": ""
+},
+"key exchange": {
+"type": "concept",
+"canonical": "Key Exchange"
+},
+"key management service": {
+"type": "technology",
+"canonical": "Key Management Service"
+},
+"key-value": {
+"type": "concept",
+"canonical": "Key-Value Store"
+},
+"kibana": {
+"type": "technology",
+"canonical": "Kibana"
+},
+"kill chain": {
+"type": "concept",
+"canonical": "Kill Chain"
+},
+"knn": {
+"type": "concept",
+"canonical": "KNN"
+},
+"kodein": {
+"type": "not_skill",
+"canonical": ""
+},
+"koin": {
+"type": "not_skill",
+"canonical": ""
+},
+"kotlin": {
+"type": "technology",
+"canonical": "Kotlin"
+},
+"ktlint": {
+"type": "technology",
+"canonical": "Ktlint"
+},
+"kubernetes": {
+"type": "technology",
+"canonical": "Kubernetes"
+},
+"kurtosis": {
+"type": "concept",
+"canonical": "Kurtosis"
+},
+"lan": {
+"type": "concept",
+"canonical": "LAN"
+},
+"lancedb": {
+"type": "technology",
+"canonical": "LanceDB"
+},
+"langchain": {
+"type": "technology",
+"canonical": "LangChain"
+},
+"langchain for multimodal apps": {
+"type": "technology",
+"canonical": "LangChain Multimodal"
+},
+"large scale identity strategy": {
+"type": "concept",
+"canonical": "Large Scale Identity Strategy"
+},
+"latency": {
+"type": "concept",
+"canonical": "Latency"
+},
+"latency & throughput": {
+"type": "concept",
+"canonical": "Latency and Throughput"
+},
+"layered": {
+"type": "concept",
+"canonical": "Layered Architecture"
+},
+"layouts": {
+"type": "concept",
+"canonical": "Layouts"
+},
+"ldap": {
+"type": "concept",
+"canonical": "LDAP"
+},
+"ldaps": {
+"type": "concept",
+"canonical": "LDAPS"
+},
+"leak canary": {
+"type": "technology",
+"canonical": "LeakCanary"
+},
+"lean canvas": {
+"type": "concept",
+"canonical": "Lean Canvas"
+},
+"learn a programming lang.": {
+"type": "not_skill",
+"canonical": ""
+},
+"learn a programming language": {
+"type": "not_skill",
+"canonical": ""
+},
+"learn about apis": {
+"type": "not_skill",
+"canonical": ""
+},
+"learn common functions": {
+"type": "not_skill",
+"canonical": ""
+},
+"learn different techniques": {
+"type": "not_skill",
+"canonical": ""
+},
+"learn dom manipulation": {
+"type": "concept",
+"canonical": "DOM Manipulation"
+},
+"learn following for each": {
+"type": "not_skill",
+"canonical": ""
+},
+"learn how malware works and types": {
+"type": "concept",
+"canonical": "Malware Types"
+},
+"learn how to find and use these logs": {
+"type": "not_skill",
+"canonical": ""
+},
+"learn sql": {
+"type": "technology",
+"canonical": "SQL"
+},
+"learn the basics": {
+"type": "not_skill",
+"canonical": ""
+},
+"learn the fundamentals": {
+"type": "not_skill",
+"canonical": ""
+},
+"learning": {
+"type": "not_skill",
+"canonical": ""
+},
+"least connections": {
+"type": "concept",
+"canonical": "Least Connections"
+},
+"least privilege": {
+"type": "concept",
+"canonical": "Least Privilege"
+},
+"legal": {
+"type": "not_skill",
+"canonical": ""
+},
+"less": {
+"type": "technology",
+"canonical": "LeSS"
+},
+"lessen the burden of action / info": {
+"type": "not_skill",
+"canonical": ""
+},
+"lessons learned": {
+"type": "not_skill",
+"canonical": ""
+},
+"levels of architecture": {
+"type": "concept",
+"canonical": "Architecture Levels"
+},
+"levels of automation": {
+"type": "concept",
+"canonical": "Automation Levels"
+},
+"leverage loss-aversion": {
+"type": "not_skill",
+"canonical": ""
+},
+"libraries": {
+"type": "category",
+"canonical": ""
+},
+"light": {
+"type": "concept",
+"canonical": "Light"
+},
+"light source": {
+"type": "concept",
+"canonical": "Light Source"
+},
+"lighthouse": {
+"type": "technology",
+"canonical": "Lighthouse"
+},
+"lighting and shadow": {
+"type": "concept",
+"canonical": "Lighting and Shadow"
+},
+"lights-out operations": {
+"type": "concept",
+"canonical": "Lights-Out Operations"
+},
+"line chart": {
+"type": "concept",
+"canonical": "Line Chart"
+},
+"linear": {
+"type": "concept",
+"canonical": "Linear"
+},
+"linear algebra": {
+"type": "concept",
+"canonical": "Linear Algebra"
+},
+"linear transformation": {
+"type": "concept",
+"canonical": "Linear Transformation"
+},
+"linear velocity": {
+"type": "concept",
+"canonical": "Linear Velocity"
+},
+"link aggregation": {
+"type": "technology",
+"canonical": "Link Aggregation"
+},
+"linkerd": {
+"type": "technology",
+"canonical": "Linkerd"
+},
+"linters and formatters": {
+"type": "category",
+"canonical": ""
+},
+"linting": {
+"type": "concept",
+"canonical": "Linting"
+},
+"linux": {
+"type": "technology",
+"canonical": "Linux"
+},
+"linux / unix": {
+"type": "technology",
+"canonical": "Linux/Unix"
+},
+"linux basics": {
+"type": "not_skill",
+"canonical": ""
+},
+"listview": {
+"type": "technology",
+"canonical": "ListView"
+},
+"livedata": {
+"type": "technology",
+"canonical": "LiveData"
+},
+"llama index": {
+"type": "technology",
+"canonical": "LlamaIndex"
+},
+"llamaindex for multimodal apps": {
+"type": "technology",
+"canonical": "LlamaIndex"
+},
+"llms": {
+"type": "concept",
+"canonical": "LLMs"
+},
+"load & performance testing": {
+"type": "category",
+"canonical": ""
+},
+"load balancer": {
+"type": "technology",
+"canonical": "Load Balancer"
+},
+"load balancers": {
+"type": "technology",
+"canonical": "Load Balancer"
+},
+"load balancing": {
+"type": "concept",
+"canonical": "Load Balancing"
+},
+"load data": {
+"type": "concept",
+"canonical": "Load Data"
+},
+"load testing": {
+"type": "technology",
+"canonical": "Load Testing"
+},
+"loadshifting": {
+"type": "concept",
+"canonical": "Loadshifting"
+},
+"local auth": {
+"type": "concept",
+"canonical": "Local Auth"
+},
+"localhost": {
+"type": "concept",
+"canonical": "localhost"
+},
+"location": {
+"type": "concept",
+"canonical": "Location"
+},
+"locust": {
+"type": "technology",
+"canonical": "Locust"
+},
+"log analysis": {
+"type": "concept",
+"canonical": "Log Analysis"
+},
+"logistic regression": {
+"type": "technology",
+"canonical": "Logistic Regression"
+},
+"logs": {
+"type": "concept",
+"canonical": "Logs"
+},
+"logs management": {
+"type": "category",
+"canonical": "Logs Management"
+},
+"loki": {
+"type": "technology",
+"canonical": "Loki"
+},
+"lolbas": {
+"type": "technology",
+"canonical": "LOLBAS"
+},
+"long polling": {
+"type": "concept",
+"canonical": "Long Polling"
+},
+"looker": {
+"type": "technology",
+"canonical": "Looker"
+},
+"loopback": {
+"type": "concept",
+"canonical": "loopback"
+},
+"luigi": {
+"type": "technology",
+"canonical": "Luigi"
+},
+"lxc": {
+"type": "technology",
+"canonical": "LXC"
+},
+"mac address": {
+"type": "concept",
+"canonical": "MAC Address"
+},
+"mac address tables": {
+"type": "concept",
+"canonical": "MAC Address Tables"
+},
+"mac-based": {
+"type": "concept",
+"canonical": "MAC-based"
+},
+"machine learning": {
+"type": "category",
+"canonical": "Machine Learning"
+},
+"machine learning fundamentals": {
+"type": "category",
+"canonical": "Machine Learning Fundamentals"
+},
+"machine learning types": {
+"type": "concept",
+"canonical": "Machine Learning Types"
+},
+"macos": {
+"type": "technology",
+"canonical": "macOS"
+},
+"mailinator": {
+"type": "technology",
+"canonical": "Mailinator"
+},
+"make commitment to friends": {
+"type": "not_skill",
+"canonical": ""
+},
+"make it clear, where to act": {
+"type": "not_skill",
+"canonical": ""
+},
+"make it easy to understand and complete": {
+"type": "not_skill",
+"canonical": ""
+},
+"make or change habits": {
+"type": "not_skill",
+"canonical": ""
+},
+"make progress meaningful to reward user": {
+"type": "not_skill",
+"canonical": ""
+},
+"make progress visible to user": {
+"type": "not_skill",
+"canonical": ""
+},
+"make reward scarce": {
+"type": "not_skill",
+"canonical": ""
+},
+"make successful completion clearly visible": {
+"type": "not_skill",
+"canonical": ""
+},
+"make sure users can do it easily": {
+"type": "not_skill",
+"canonical": ""
+},
+"make ui professional and beautiful": {
+"type": "not_skill",
+"canonical": ""
+},
+"making it incidental": {
+"type": "not_skill",
+"canonical": ""
+},
+"making layouts": {
+"type": "concept",
+"canonical": "Making Layouts"
+},
+"man": {
+"type": "concept",
+"canonical": "MAN"
+},
+"manage your testing": {
+"type": "not_skill",
+"canonical": ""
+},
+"managed kubernetes": {
+"type": "technology",
+"canonical": "Managed Kubernetes"
+},
+"managed relational dbs": {
+"type": "technology",
+"canonical": "Managed Relational DBs"
+},
+"management": {
+"type": "not_skill",
+"canonical": ""
+},
+"management and monitoring": {
+"type": "not_skill",
+"canonical": ""
+},
+"managing tokens": {
+"type": "concept",
+"canonical": "Managing Tokens"
+},
+"manual implementation": {
+"type": "not_skill",
+"canonical": ""
+},
+"manual testing": {
+"type": "concept",
+"canonical": "Manual Testing"
+},
+"mapping": {
+"type": "concept",
+"canonical": "Mapping"
+},
+"mapreduce": {
+"type": "technology",
+"canonical": "MapReduce"
+},
+"mariadb": {
+"type": "technology",
+"canonical": "MariaDB"
+},
+"marketing skills": {
+"type": "not_skill",
+"canonical": ""
+},
+"markov system": {
+"type": "concept",
+"canonical": "Markov System"
+},
+"matplotlib": {
+"type": "technology",
+"canonical": "Matplotlib"
+},
+"matrix": {
+"type": "concept",
+"canonical": "Matrix"
+},
+"maximum tokens": {
+"type": "concept",
+"canonical": "Maximum Tokens"
+},
+"mcts": {
+"type": "not_skill",
+"canonical": ""
+},
+"md5": {
+"type": "technology",
+"canonical": "MD5"
+},
+"mean": {
+"type": "concept",
+"canonical": "Mean"
+},
+"measuring the impact": {
+"type": "not_skill",
+"canonical": ""
+},
+"median": {
+"type": "concept",
+"canonical": "Median"
+},
+"memcached": {
+"type": "technology",
+"canonical": "Memcached"
+},
+"memdump": {
+"type": "technology",
+"canonical": "memdump"
+},
+"memory leak": {
+"type": "concept",
+"canonical": "Memory Leak"
+},
+"mesh": {
+"type": "concept",
+"canonical": "Mesh"
+},
+"message brokers": {
+"type": "category",
+"canonical": "Message Brokers"
+},
+"messaging queues": {
+"type": "category",
+"canonical": "Messaging Queues"
+},
+"messaging systems": {
+"type": "category",
+"canonical": "Messaging Systems"
+},
+"metadata management": {
+"type": "concept",
+"canonical": "Metadata Management"
+},
+"metadata-first architecture": {
+"type": "concept",
+"canonical": "Metadata-first Architecture"
+},
+"metal": {
+"type": "technology",
+"canonical": "Metal"
+},
+"metallicity": {
+"type": "concept",
+"canonical": "Metallicity"
+},
+"mfa & 2fa": {
+"type": "concept",
+"canonical": "MFA & 2FA"
+},
+"microfrontends": {
+"type": "concept",
+"canonical": "Microfrontends"
+},
+"microservices": {
+"type": "concept",
+"canonical": "Microservices"
+},
+"microservices architecture": {
+"type": "concept",
+"canonical": "Microservices Architecture"
+},
+"microservices communication": {
+"type": "concept",
+"canonical": "Microservices Communication"
+},
+"microsoft power bi": {
+"type": "technology",
+"canonical": "Microsoft Power BI"
+},
+"microsurface scattering": {
+"type": "concept",
+"canonical": "Microsurface Scattering"
+},
+"migration strategies": {
+"type": "concept",
+"canonical": "Migration Strategies"
+},
+"migrations": {
+"type": "category",
+"canonical": "Migrations"
+},
+"min / max": {
+"type": "concept",
+"canonical": "MIN / MAX"
+},
+"mindfulness to avoid acting on the cue": {
+"type": "concept",
+"canonical": "Mindfulness to Avoid Acting on the Cue"
+},
+"minimax": {
+"type": "concept",
+"canonical": "Minimax"
+},
+"mistral ai": {
+"type": "technology",
+"canonical": "Mistral AI"
+},
+"mitigation strategies": {
+"type": "concept",
+"canonical": "Mitigation Strategies"
+},
+"mitm": {
+"type": "concept",
+"canonical": "MITM"
+},
+"mlops": {
+"type": "technology",
+"canonical": "MLOps"
+},
+"mlops components": {
+"type": "category",
+"canonical": "MLOps Components"
+},
+"mlops principles": {
+"type": "concept",
+"canonical": "MLOps Principles"
+},
+"mobile apps": {
+"type": "category",
+"canonical": "Mobile Apps"
+},
+"mobile automation": {
+"type": "technology",
+"canonical": "Mobile Automation"
+},
+"mobile networks": {
+"type": "concept",
+"canonical": "Mobile Networks"
+},
+"mocking apis": {
+"type": "technology",
+"canonical": "Mocking APIs"
+},
+"mode": {
+"type": "concept",
+"canonical": "Mode"
+},
+"model evaluation techniques": {
+"type": "concept",
+"canonical": "Model Evaluation Techniques"
+},
+"model training & serving": {
+"type": "technology",
+"canonical": "Model Training & Serving"
+},
+"models on hugging face": {
+"type": "technology",
+"canonical": "Models on Hugging Face"
+},
+"modems": {
+"type": "technology",
+"canonical": "Modems"
+},
+"module bundlers": {
+"type": "technology",
+"canonical": "Module Bundlers"
+},
+"moment of inertia": {
+"type": "concept",
+"canonical": "Moment of Inertia"
+},
+"mongodb": {
+"type": "technology",
+"canonical": "MongoDB"
+},
+"mongodb atlas": {
+"type": "technology",
+"canonical": "MongoDB Atlas"
+},
+"monit": {
+"type": "technology",
+"canonical": "Monit"
+},
+"monitoring": {
+"type": "concept",
+"canonical": "Monitoring"
+},
+"monitoring & logs": {
+"type": "category",
+"canonical": "Monitoring & Logs"
+},
+"monitoring & observability": {
+"type": "category",
+"canonical": "Monitoring & Observability"
+},
+"monolithic apps": {
+"type": "concept",
+"canonical": "Monolithic Apps"
+},
+"more about databases": {
+"type": "category",
+"canonical": "More about Databases"
+},
+"movement": {
+"type": "concept",
+"canonical": "Movement"
+},
+"mpi": {
+"type": "technology",
+"canonical": "MPI"
+},
+"mpls": {
+"type": "technology",
+"canonical": "MPLS"
+},
+"ms dynamics": {
+"type": "technology",
+"canonical": "Dynamics"
+},
+"ms iis": {
+"type": "technology",
+"canonical": "IIS"
+},
+"ms office suite": {
+"type": "technology",
+"canonical": "Office"
+},
+"ms sql": {
+"type": "technology",
+"canonical": "SQL Server"
+},
+"multi region security planning": {
+"type": "concept",
+"canonical": "Multi‑Region Security Planning"
+},
+"multi-cloud": {
+"type": "concept",
+"canonical": "Multi‑Cloud"
+},
+"multi-tenancy": {
+"type": "concept",
+"canonical": "Multi‑Tenancy"
+},
+"multimodal ai": {
+"type": "concept",
+"canonical": "Multimodal AI"
+},
+"multimodal ai tasks": {
+"type": "concept",
+"canonical": "Multimodal AI Tasks"
+},
+"multivariate testing": {
+"type": "concept",
+"canonical": "Multivariate Testing"
+},
+"mvc": {
+"type": "concept",
+"canonical": "MVC"
+},
+"mvc, mvp, mvvm": {
+"type": "category",
+"canonical": "MVC, MVP, MVVM"
+},
+"mvi": {
+"type": "concept",
+"canonical": "MVI"
+},
+"mvp": {
+"type": "concept",
+"canonical": "MVP"
+},
+"mvvm": {
+"type": "concept",
+"canonical": "MVVM"
+},
+"mysql": {
+"type": "technology",
+"canonical": "MySQL"
+},
+"n+1 problem": {
+"type": "concept",
+"canonical": "N+1 Problem"
+},
+"nac-based": {
+"type": "concept",
+"canonical": "NAC‑based"
+},
+"naive bayes classifier": {
+"type": "technology",
+"canonical": "Naive Bayes Classifier"
+},
+"naive byes": {
+"type": "concept",
+"canonical": "Naive Bayes"
+},
+"narrow phase": {
+"type": "concept",
+"canonical": "Narrow Phase"
+},
+"nas and san": {
+"type": "category",
+"canonical": "NAS and SAN"
+},
+"nat": {
+"type": "technology",
+"canonical": "NAT"
+},
+"nat & ip management": {
+"type": "concept",
+"canonical": "NAT & IP Management"
+},
+"native": {
+"type": "concept",
+"canonical": "Native"
+},
+"natural language processing": {
+"type": "concept",
+"canonical": "Natural Language Processing"
+},
+"navigating using gui and cli": {
+"type": "not_skill",
+"canonical": ""
+},
+"navigation components": {
+"type": "technology",
+"canonical": "Navigation Components"
+},
+"neo4j": {
+"type": "technology",
+"canonical": "Neo4j"
+},
+"neptune": {
+"type": "technology",
+"canonical": "Neptune"
+},
+"nessus": {
+"type": "technology",
+"canonical": "Nessus"
+},
+"netbsd": {
+"type": "technology",
+"canonical": "NetBSD"
+},
+"netflow": {
+"type": "technology",
+"canonical": "netflow"
+},
+"netflow / sflow": {
+"type": "technology",
+"canonical": "NetFlow / sFlow"
+},
+"netlify": {
+"type": "technology",
+"canonical": "Netlify"
+},
+"netstat": {
+"type": "technology",
+"canonical": "netstat"
+},
+"network": {
+"type": "not_skill",
+"canonical": ""
+},
+"network access": {
+"type": "concept",
+"canonical": "Network Access"
+},
+"network attacks": {
+"type": "concept",
+"canonical": "Network Attacks"
+},
+"network devices": {
+"type": "not_skill",
+"canonical": ""
+},
+"network engineering": {
+"type": "concept",
+"canonical": "Network Engineering"
+},
+"network observabiity tools": {
+"type": "category",
+"canonical": "Network Observability Tools"
+},
+"network protocols": {
+"type": "category",
+"canonical": "Network Protocols"
+},
+"network segmentation": {
+"type": "concept",
+"canonical": "Network Segmentation"
+},
+"network topologies": {
+"type": "concept",
+"canonical": "Network Topologies"
+},
+"network topology": {
+"type": "concept",
+"canonical": "Network Topology"
+},
+"network types": {
+"type": "concept",
+"canonical": "Network Types"
+},
+"networking & protocols": {
+"type": "category",
+"canonical": "Networking & Protocols"
+},
+"networking basics": {
+"type": "category",
+"canonical": "Networking Basics"
+},
+"networking fundamentals": {
+"type": "concept",
+"canonical": "networking fundamentals"
+},
+"networking knowledge": {
+"type": "concept",
+"canonical": "networking knowledge"
+},
+"networking tools": {
+"type": "category",
+"canonical": "networking tools"
+},
+"networks": {
+"type": "concept",
+"canonical": "networks"
+},
+"neural networks": {
+"type": "concept",
+"canonical": "neural networks"
+},
+"new behavior": {
+"type": "concept",
+"canonical": "new behavior"
+},
+"new business model": {
+"type": "concept",
+"canonical": "new business model"
+},
+"new relic": {
+"type": "technology",
+"canonical": "New Relic"
+},
+"next-generation": {
+"type": "concept",
+"canonical": "next-generation"
+},
+"next.js": {
+"type": "technology",
+"canonical": "Next.js"
+},
+"nexus": {
+"type": "technology",
+"canonical": "Nexus"
+},
+"nfc": {
+"type": "technology",
+"canonical": "NFC"
+},
+"nginx": {
+"type": "technology",
+"canonical": "Nginx"
+},
+"nids": {
+"type": "technology",
+"canonical": "NIDS"
+},
+"nightwatch": {
+"type": "technology",
+"canonical": "Nightwatch"
+},
+"nips": {
+"type": "technology",
+"canonical": "NIPS"
+},
+"nir eyal's hook model": {
+"type": "concept",
+"canonical": "Hook Model"
+},
+"nist": {
+"type": "technology",
+"canonical": "NIST"
+},
+"nmap": {
+"type": "technology",
+"canonical": "nmap"
+},
+"nmap basics": {
+"type": "concept",
+"canonical": "nmap basics"
+},
+"node.js": {
+"type": "technology",
+"canonical": "Node.js"
+},
+"non-functional testing": {
+"type": "concept",
+"canonical": "non-functional testing"
+},
+"normalization": {
+"type": "concept",
+"canonical": "normalization"
+},
+"nosql databases": {
+"type": "category",
+"canonical": "NoSQL databases"
+},
+"nosql databsases": {
+"type": "category",
+"canonical": "NoSQL databases"
+},
+"notifications": {
+"type": "concept",
+"canonical": "notifications"
+},
+"npm": {
+"type": "technology",
+"canonical": "npm"
+},
+"nslookup": {
+"type": "technology",
+"canonical": "nslookup"
+},
+"ntp": {
+"type": "technology",
+"canonical": "NTP"
+},
+"nudge theory": {
+"type": "concept",
+"canonical": "nudge theory"
+},
+"nuxt.js": {
+"type": "technology",
+"canonical": "Nuxt.js"
+},
+"oauth": {
+"type": "technology",
+"canonical": "OAuth"
+},
+"oauth 2.0": {
+"type": "technology",
+"canonical": "OAuth 2.0"
+},
+"obb": {
+"type": "technology",
+"canonical": "OBB"
+},
+"obfuscation": {
+"type": "concept",
+"canonical": "obfuscation"
+},
+"object storage": {
+"type": "concept",
+"canonical": "object storage"
+},
+"observability": {
+"type": "concept",
+"canonical": "observability"
+},
+"observer pattern": {
+"type": "concept",
+"canonical": "observer pattern"
+},
+"occluder": {
+"type": "concept",
+"canonical": "occluder"
+},
+"octopus deploy": {
+"type": "technology",
+"canonical": "Octopus Deploy"
+},
+"okhttp": {
+"type": "technology",
+"canonical": "OkHttp"
+},
+"ollama": {
+"type": "technology",
+"canonical": "Ollama"
+},
+"ollama models": {
+"type": "technology",
+"canonical": "Ollama Models"
+},
+"ollama sdk": {
+"type": "technology",
+"canonical": "Ollama SDK"
+},
+"onedrive": {
+"type": "technology",
+"canonical": "OneDrive"
+},
+"onehouse": {
+"type": "technology",
+"canonical": "Onehouse"
+},
+"oop": {
+"type": "concept",
+"canonical": "OOP"
+},
+"open ai assistant api": {
+"type": "technology",
+"canonical": "Open AI Assistant API"
+},
+"open ai embedding models": {
+"type": "technology",
+"canonical": "Open AI Embedding Models"
+},
+"open ai embeddings api": {
+"type": "technology",
+"canonical": "Open AI Embeddings API"
+},
+"open ai models": {
+"type": "technology",
+"canonical": "OpenAI Models"
+},
+"open ai playground": {
+"type": "technology",
+"canonical": "OpenAI Playground"
+},
+"open api specs": {
+"type": "concept",
+"canonical": "OpenAPI Spec"
+},
+"open-source embeddings": {
+"type": "concept",
+"canonical": "Open-source embeddings"
+},
+"openai api": {
+"type": "technology",
+"canonical": "OpenAI API"
+},
+"openai assistant api": {
+"type": "technology",
+"canonical": "OpenAI Assistant API"
+},
+"openai functions / tools": {
+"type": "technology",
+"canonical": "OpenAI Functions"
+},
+"openai models": {
+"type": "technology",
+"canonical": "OpenAI Models"
+},
+"openai moderation api": {
+"type": "technology",
+"canonical": "OpenAI Moderation API"
+},
+"openai vision api": {
+"type": "technology",
+"canonical": "OpenAI Vision API"
+},
+"openbsd": {
+"type": "technology",
+"canonical": "OpenBSD"
+},
+"opendns": {
+"type": "technology",
+"canonical": "OpenDNS"
+},
+"opengl": {
+"type": "technology",
+"canonical": "OpenGL"
+},
+"opengl es": {
+"type": "technology",
+"canonical": "OpenGL ES"
+},
+"openid": {
+"type": "technology",
+"canonical": "OpenID"
+},
+"opensource ai": {
+"type": "concept",
+"canonical": "Open-source AI"
+},
+"opentelemetry": {
+"type": "technology",
+"canonical": "OpenTelemetry"
+},
+"opentofu": {
+"type": "technology",
+"canonical": "OpenTofu"
+},
+"openvas": {
+"type": "technology",
+"canonical": "OpenVAS"
+},
+"operating system": {
+"type": "concept",
+"canonical": "Operating System"
+},
+"operating system hardening": {
+"type": "concept",
+"canonical": "OS Hardening"
+},
+"operating systems": {
+"type": "concept",
+"canonical": "Operating Systems"
+},
+"operations knowledge": {
+"type": "concept",
+"canonical": "Operations knowledge"
+},
+"optix": {
+"type": "technology",
+"canonical": "OptiX"
+},
+"oracle": {
+"type": "technology",
+"canonical": "Oracle"
+},
+"orchestration": {
+"type": "concept",
+"canonical": "Orchestration"
+},
+"orientation": {
+"type": "concept",
+"canonical": "Orientation"
+},
+"orms": {
+"type": "technology",
+"canonical": "ORMs"
+},
+"orthogonal": {
+"type": "concept",
+"canonical": "Orthogonal"
+},
+"os-independent troubleshooting": {
+"type": "concept",
+"canonical": "OS-independent troubleshooting"
+},
+"oscp": {
+"type": "not_skill",
+"canonical": ""
+},
+"osi": {
+"type": "concept",
+"canonical": "OSI"
+},
+"osi model": {
+"type": "concept",
+"canonical": "OSI Model"
+},
+"ospf": {
+"type": "technology",
+"canonical": "OSPF"
+},
+"other data architectures": {
+"type": "concept",
+"canonical": "Other data architectures"
+},
+"owasp": {
+"type": "concept",
+"canonical": "OWASP"
+},
+"owasp 10": {
+"type": "concept",
+"canonical": "OWASP Top 10"
+},
+"owasp risks": {
+"type": "concept",
+"canonical": "OWASP Risks"
+},
+"owasp security risks": {
+"type": "concept",
+"canonical": "OWASP Security Risks"
+},
+"owasp top 10": {
+"type": "concept",
+"canonical": "OWASP Top 10"
+},
+"paas": {
+"type": "concept",
+"canonical": "PaaS"
+},
+"package": {
+"type": "concept",
+"canonical": "Package"
+},
+"package managers": {
+"type": "concept",
+"canonical": "Package managers"
+},
+"packet captures": {
+"type": "concept",
+"canonical": "Packet captures"
+},
+"packet filtering": {
+"type": "concept",
+"canonical": "Packet filtering"
+},
+"packet prioritization": {
+"type": "concept",
+"canonical": "Packet prioritization"
+},
+"packet sniffers": {
+"type": "concept",
+"canonical": "Packet sniffers"
+},
+"pager duty": {
+"type": "technology",
+"canonical": "PagerDuty"
+},
+"pagination": {
+"type": "concept",
+"canonical": "Pagination"
+},
+"pan": {
+"type": "concept",
+"canonical": "PAN"
+},
+"pandas": {
+"type": "technology",
+"canonical": "pandas"
+},
+"papertrail": {
+"type": "technology",
+"canonical": "papertrail"
+},
+"parallax": {
+"type": "concept",
+"canonical": "parallax"
+},
+"parallel processing": {
+"type": "concept",
+"canonical": "parallel processing"
+},
+"parcel": {
+"type": "technology",
+"canonical": "parcel"
+},
+"parrotos": {
+"type": "technology",
+"canonical": "parrotos"
+},
+"pass the hash": {
+"type": "concept",
+"canonical": "pass-the-hash"
+},
+"pasta": {
+"type": "concept",
+"canonical": "pasta"
+},
+"patching": {
+"type": "concept",
+"canonical": "patching"
+},
+"patterns & design principles": {
+"type": "concept",
+"canonical": "design patterns"
+},
+"payments": {
+"type": "concept",
+"canonical": "payments"
+},
+"pci dss": {
+"type": "concept",
+"canonical": "pci dss"
+},
+"peer-to-peer network": {
+"type": "concept",
+"canonical": "p2p network"
+},
+"penetration testing rules of engagement": {
+"type": "concept",
+"canonical": "pentest rules"
+},
+"perfect": {
+"type": "concept",
+"canonical": ""
+},
+"performance metrics": {
+"type": "concept",
+"canonical": "performance metrics"
+},
+"performance monitoring": {
+"type": "concept",
+"canonical": "performance monitoring"
+},
+"performance testing": {
+"type": "concept",
+"canonical": "performance testing"
+},
+"performing crud on files": {
+"type": "concept",
+"canonical": "file crud"
+},
+"performing similarity search": {
+"type": "concept",
+"canonical": "similarity search"
+},
+"perspective": {
+"type": "concept",
+"canonical": "perspective"
+},
+"persuasive technology": {
+"type": "concept",
+"canonical": "persuasive tech"
+},
+"phishing": {
+"type": "concept",
+"canonical": "phishing"
+},
+"php": {
+"type": "technology",
+"canonical": "php"
+},
+"physical": {
+"type": "not_skill",
+"canonical": ""
+},
+"physically-based rendering": {
+"type": "concept",
+"canonical": "pbr"
+},
+"pick a framework": {
+"type": "not_skill",
+"canonical": ""
+},
+"pick a language": {
+"type": "not_skill",
+"canonical": ""
+},
+"picoctf": {
+"type": "technology",
+"canonical": "picoctf"
+},
+"pie charts": {
+"type": "concept",
+"canonical": "pie charts"
+},
+"pii": {
+"type": "concept",
+"canonical": "pii"
+},
+"pinecone": {
+"type": "technology",
+"canonical": "pinecone"
+},
+"ping": {
+"type": "technology",
+"canonical": "ping"
+},
+"pivot tables": {
+"type": "concept",
+"canonical": "pivot tables"
+},
+"pki": {
+"type": "concept",
+"canonical": "pki"
+},
+"pki design and failover": {
+"type": "concept",
+"canonical": "pki design"
+},
+"planners": {
+"type": "not_skill",
+"canonical": ""
+},
+"playwright": {
+"type": "technology",
+"canonical": "playwright"
+},
+"pmi": {
+"type": "technology",
+"canonical": "pmi"
+},
+"pnpm": {
+"type": "technology",
+"canonical": "pnpm"
+},
+"point": {
+"type": "concept",
+"canonical": "point"
+},
+"polygon": {
+"type": "concept",
+"canonical": "polygon"
+},
+"polyhedron": {
+"type": "concept",
+"canonical": "polyhedron"
+},
+"pop3s": {
+"type": "technology",
+"canonical": "pop3s"
+},
+"popular ai models": {
+"type": "category",
+"canonical": "ai models"
+},
+"popular ml algorithms": {
+"type": "category",
+"canonical": "ml algorithms"
+},
+"popular open source models": {
+"type": "category",
+"canonical": "open source models"
+},
+"popular vector dbs (pick one)": {
+"type": "category",
+"canonical": "vector dbs"
+},
+"port": {
+"type": "concept",
+"canonical": "port"
+},
+"port blocking": {
+"type": "concept",
+"canonical": "port blocking"
+},
+"port scanners": {
+"type": "technology",
+"canonical": "Port Scanner"
+},
+"postcss": {
+"type": "technology",
+"canonical": "PostCSS"
+},
+"postgresql": {
+"type": "technology",
+"canonical": "PostgreSQL"
+},
+"postman": {
+"type": "technology",
+"canonical": "Postman"
+},
+"postman / newman": {
+"type": "technology",
+"canonical": "Postman/Newman"
+},
+"power & cooling": {
+"type": "not_skill",
+"canonical": ""
+},
+"power bi": {
+"type": "technology",
+"canonical": "Power BI"
+},
+"power shell": {
+"type": "technology",
+"canonical": "PowerShell"
+},
+"powershell": {
+"type": "technology",
+"canonical": "PowerShell"
+},
+"practice training models": {
+"type": "concept",
+"canonical": "Practice Training Model"
+},
+"pre-trained models": {
+"type": "concept",
+"canonical": "Pre-trained Model"
+},
+"predictive analytics": {
+"type": "concept",
+"canonical": "Predictive Analytics"
+},
+"preparation": {
+"type": "not_skill",
+"canonical": ""
+},
+"prescriptive analytics": {
+"type": "concept",
+"canonical": "Prescriptive Analytics"
+},
+"presentation": {
+"type": "not_skill",
+"canonical": ""
+},
+"prettier": {
+"type": "technology",
+"canonical": "Prettier"
+},
+"pricing models": {
+"type": "concept",
+"canonical": "Pricing Model"
+},
+"prime user-relevant associations": {
+"type": "not_skill",
+"canonical": ""
+},
+"prince2": {
+"type": "technology",
+"canonical": "PRINCE2"
+},
+"privacy & compliance": {
+"type": "concept",
+"canonical": "Privacy and Compliance"
+},
+"private": {
+"type": "not_skill",
+"canonical": ""
+},
+"private cloud": {
+"type": "not_skill",
+"canonical": ""
+},
+"privilege escalation": {
+"type": "concept",
+"canonical": "Privilege Escalation"
+},
+"process monitoring": {
+"type": "concept",
+"canonical": "Process Monitoring"
+},
+"profiling and monitoring": {
+"type": "concept",
+"canonical": "Profiling and Monitoring"
+},
+"profiling perfor.": {
+"type": "concept",
+"canonical": "Profiling Performance"
+},
+"programming fundamentals": {
+"type": "concept",
+"canonical": "Programming Fundamentals"
+},
+"programming languages": {
+"type": "category",
+"canonical": "Programming Languages"
+},
+"programming skills": {
+"type": "category",
+"canonical": "Programming Skills"
+},
+"project management": {
+"type": "category",
+"canonical": "Project Management"
+},
+"projection": {
+"type": "concept",
+"canonical": "Projection"
+},
+"prometheus": {
+"type": "technology",
+"canonical": "Prometheus"
+},
+"prompt engineering": {
+"type": "concept",
+"canonical": "Prompt Engineering"
+},
+"prompt injection attacks": {
+"type": "concept",
+"canonical": "Prompt Injection Attack"
+},
+"protocol": {
+"type": "concept",
+"canonical": "Protocol"
+},
+"protocol analyzers": {
+"type": "technology",
+"canonical": "Protocol Analyzer"
+},
+"prototyping": {
+"type": "concept",
+"canonical": "Prototyping"
+},
+"provider landscape": {
+"type": "concept",
+"canonical": "Provider Landscape"
+},
+"provider lock-in": {
+"type": "concept",
+"canonical": "Provider Lock-In"
+},
+"provisioning": {
+"type": "concept",
+"canonical": "Provisioning"
+},
+"proxies": {
+"type": "concept",
+"canonical": "Proxy"
+},
+"proxmox": {
+"type": "technology",
+"canonical": "Proxmox"
+},
+"proxy": {
+"type": "concept",
+"canonical": "Proxy"
+},
+"prpl pattern": {
+"type": "concept",
+"canonical": "PRPL Pattern"
+},
+"public": {
+"type": "not_skill",
+"canonical": ""
+},
+"public cloud": {
+"type": "not_skill",
+"canonical": ""
+},
+"pulumi": {
+"type": "technology",
+"canonical": "Pulumi"
+},
+"puppet": {
+"type": "technology",
+"canonical": "Puppet"
+},
+"puppeteer": {
+"type": "technology",
+"canonical": "Puppeteer"
+},
+"purpose and functionality": {
+"type": "not_skill",
+"canonical": ""
+},
+"pwas": {
+"type": "technology",
+"canonical": "PWAs"
+},
+"python": {
+"type": "technology",
+"canonical": "Python"
+},
+"python is recommended": {
+"type": "not_skill",
+"canonical": ""
+},
+"pytorch": {
+"type": "technology",
+"canonical": "PyTorch"
+},
+"qa mindset": {
+"type": "concept",
+"canonical": "QA mindset"
+},
+"qa wolf": {
+"type": "technology",
+"canonical": "QA Wolf"
+},
+"qdrant": {
+"type": "technology",
+"canonical": "Qdrant"
+},
+"qos (quality of service)": {
+"type": "concept",
+"canonical": "QoS"
+},
+"qtest": {
+"type": "technology",
+"canonical": "qTest"
+},
+"quad9": {
+"type": "technology",
+"canonical": "Quad9"
+},
+"qualys": {
+"type": "technology",
+"canonical": "Qualys"
+},
+"quaternion": {
+"type": "concept",
+"canonical": "Quaternion"
+},
+"qwik": {
+"type": "technology",
+"canonical": "Qwik"
+},
+"r": {
+"type": "technology",
+"canonical": "R"
+},
+"rabbit mq": {
+"type": "technology",
+"canonical": "RabbitMQ"
+},
+"rabbitmq": {
+"type": "technology",
+"canonical": "RabbitMQ"
+},
+"racks, pods, & aisles": {
+"type": "concept",
+"canonical": "Racks, Pods, & Aisles"
+},
+"radius": {
+"type": "technology",
+"canonical": "RADIUS"
+},
+"rag": {
+"type": "concept",
+"canonical": "RAG"
+},
+"rag & implementation": {
+"type": "not_skill",
+"canonical": ""
+},
+"rail model": {
+"type": "concept",
+"canonical": "RAIL Model"
+},
+"range": {
+"type": "concept",
+"canonical": "Range"
+},
+"rasterization": {
+"type": "concept",
+"canonical": "Rasterization"
+},
+"rate limiting": {
+"type": "concept",
+"canonical": "Rate Limiting"
+},
+"rate limiting / throttling": {
+"type": "concept",
+"canonical": "Rate Limiting"
+},
+"ray tracing": {
+"type": "concept",
+"canonical": "Ray Tracing"
+},
+"rbac": {
+"type": "concept",
+"canonical": "RBAC"
+},
+"rdp": {
+"type": "technology",
+"canonical": "RDP"
+},
+"react": {
+"type": "technology",
+"canonical": "React"
+},
+"react native": {
+"type": "technology",
+"canonical": "React Native"
+},
+"react prompting": {
+"type": "concept",
+"canonical": "ReAct Prompting"
+},
+"react, vue, angular": {
+"type": "category",
+"canonical": ""
+},
+"react-router": {
+"type": "technology",
+"canonical": "react-router"
+},
+"reactive programming": {
+"type": "concept",
+"canonical": "Reactive Programming"
+},
+"readme.com": {
+"type": "technology",
+"canonical": "Readme"
+},
+"real-time apis": {
+"type": "concept",
+"canonical": "Real-time APIs"
+},
+"real-time data": {
+"type": "concept",
+"canonical": "Real-Time Data"
+},
+"real-time ray tracing": {
+"type": "concept",
+"canonical": "Real-time Ray Tracing"
+},
+"realtime": {
+"type": "concept",
+"canonical": "Realtime"
+},
+"recommendation systems": {
+"type": "concept",
+"canonical": "Recommendation Systems"
+},
+"reconnaissance": {
+"type": "concept",
+"canonical": "Reconnaissance"
+},
+"recovery": {
+"type": "concept",
+"canonical": "Recovery"
+},
+"recycleview": {
+"type": "technology",
+"canonical": "RecycleView"
+},
+"redis": {
+"type": "technology",
+"canonical": "Redis"
+},
+"reflection": {
+"type": "concept",
+"canonical": "Reflection"
+},
+"region, availability zone": {
+"type": "concept",
+"canonical": "Region, Availability Zone"
+},
+"regional cloud": {
+"type": "concept",
+"canonical": "Regional Cloud"
+},
+"regression": {
+"type": "concept",
+"canonical": "Regression"
+},
+"regression testing": {
+"type": "concept",
+"canonical": "Regression Testing"
+},
+"reinforcement learning": {
+"type": "concept",
+"canonical": "Reinforcement Learning"
+},
+"reinforcements learning": {
+"type": "concept",
+"canonical": "Reinforcement Learning"
+},
+"relational databases": {
+"type": "category",
+"canonical": "Relational Databases"
+},
+"relative": {
+"type": "not_skill",
+"canonical": ""
+},
+"relay modern": {
+"type": "technology",
+"canonical": "Relay Modern"
+},
+"remind of prior commitment to act": {
+"type": "not_skill",
+"canonical": ""
+},
+"reminders": {
+"type": "not_skill",
+"canonical": ""
+},
+"reminders & planning prompts": {
+"type": "not_skill",
+"canonical": ""
+},
+"remote config": {
+"type": "technology",
+"canonical": "Remote Config"
+},
+"removing duplicates": {
+"type": "concept",
+"canonical": "Removing Duplicates"
+},
+"rendering equation": {
+"type": "concept",
+"canonical": "Rendering Equation"
+},
+"replace / substitute": {
+"type": "not_skill",
+"canonical": ""
+},
+"replace the routine": {
+"type": "not_skill",
+"canonical": ""
+},
+"replay attack": {
+"type": "concept",
+"canonical": "Replay Attack"
+},
+"replicate": {
+"type": "concept",
+"canonical": "Replication"
+},
+"repo hosting services": {
+"type": "category",
+"canonical": "Repo Hosting Services"
+},
+"reporting": {
+"type": "category",
+"canonical": "Reporting"
+},
+"repository pattern": {
+"type": "concept",
+"canonical": "Repository Pattern"
+},
+"requirements elicitation": {
+"type": "concept",
+"canonical": "Requirements Elicitation"
+},
+"resource optimization": {
+"type": "concept",
+"canonical": "Resource Optimization"
+},
+"response strategy": {
+"type": "concept",
+"canonical": "Response Strategy"
+},
+"responsibilities": {
+"type": "not_skill",
+"canonical": ""
+},
+"responsive design": {
+"type": "concept",
+"canonical": "Responsive Design"
+},
+"rest": {
+"type": "concept",
+"canonical": "REST"
+},
+"rest assured": {
+"type": "technology",
+"canonical": "REST Assured"
+},
+"rest principles": {
+"type": "concept",
+"canonical": "REST Principles"
+},
+"restful apis": {
+"type": "concept",
+"canonical": "RESTful APIs"
+},
+"restitution": {
+"type": "concept",
+"canonical": "Restitution"
+},
+"retention & compliance": {
+"type": "concept",
+"canonical": "Retention & Compliance"
+},
+"rethinkdb": {
+"type": "technology",
+"canonical": "RethinkDB"
+},
+"retrieval process": {
+"type": "concept",
+"canonical": "Retrieval Process"
+},
+"retro": {
+"type": "not_skill",
+"canonical": ""
+},
+"reusability": {
+"type": "concept",
+"canonical": "Reusability"
+},
+"reverse etl": {
+"type": "concept",
+"canonical": "Reverse ETL"
+},
+"reverse proxy": {
+"type": "technology",
+"canonical": "Reverse Proxy"
+},
+"rfc 7807 - problem details for apis": {
+"type": "technology",
+"canonical": "RFC 7807"
+},
+"rhel / derivatives": {
+"type": "technology",
+"canonical": "RHEL"
+},
+"ring": {
+"type": "concept",
+"canonical": "Ring Topology"
+},
+"rip": {
+"type": "technology",
+"canonical": "RIP"
+},
+"risk quantification": {
+"type": "concept",
+"canonical": "Risk Quantification"
+},
+"rmf": {
+"type": "technology",
+"canonical": "RMF"
+},
+"rnn": {
+"type": "technology",
+"canonical": "RNN"
+},
+"robot": {
+"type": "not_skill",
+"canonical": ""
+},
+"robust prompt engineering": {
+"type": "concept",
+"canonical": "Robust Prompt Engineering"
+},
+"rogue access point": {
+"type": "concept",
+"canonical": "Rogue Access Point"
+},
+"role based access": {
+"type": "concept",
+"canonical": "Role-Based Access"
+},
+"role based access control (rbac)": {
+"type": "concept",
+"canonical": "RBAC"
+},
+"roles of compliance and auditors": {
+"type": "not_skill",
+"canonical": ""
+},
+"rollup": {
+"type": "technology",
+"canonical": "Rollup"
+},
+"room database": {
+"type": "technology",
+"canonical": "Room Database"
+},
+"root cause analysis": {
+"type": "concept",
+"canonical": "Root Cause Analysis"
+},
+"round robin": {
+"type": "concept",
+"canonical": "Round Robin"
+},
+"route": {
+"type": "concept",
+"canonical": "route"
+},
+"route53": {
+"type": "technology",
+"canonical": "Route53"
+},
+"router": {
+"type": "technology",
+"canonical": "Router"
+},
+"routers": {
+"type": "technology",
+"canonical": "Routers"
+},
+"routing": {
+"type": "concept",
+"canonical": "Routing"
+},
+"routing protocols": {
+"type": "concept",
+"canonical": "Routing Protocols"
+},
+"ruby": {
+"type": "technology",
+"canonical": "Ruby"
+},
+"runscope": {
+"type": "technology",
+"canonical": "RunScope"
+},
+"rup": {
+"type": "concept",
+"canonical": "RUP"
+},
+"rust": {
+"type": "technology",
+"canonical": "Rust"
+},
+"rxjava": {
+"type": "technology",
+"canonical": "RxJava"
+},
+"rxkotlin": {
+"type": "technology",
+"canonical": "RxKotlin"
+},
+"s/mime": {
+"type": "technology",
+"canonical": "S/MIME"
+},
+"s3": {
+"type": "technology",
+"canonical": "S3"
+},
+"s3 (storage)": {
+"type": "technology",
+"canonical": "S3"
+},
+"saas": {
+"type": "concept",
+"canonical": "SaaS"
+},
+"safe": {
+"type": "concept",
+"canonical": "SAFe"
+},
+"safety best practices": {
+"type": "not_skill",
+"canonical": ""
+},
+"salesforce": {
+"type": "technology",
+"canonical": "Salesforce"
+},
+"salting": {
+"type": "concept",
+"canonical": "Salting"
+},
+"saml": {
+"type": "technology",
+"canonical": "SAML"
+},
+"sampling": {
+"type": "concept",
+"canonical": "Sampling"
+},
+"san": {
+"type": "technology",
+"canonical": "SAN"
+},
+"sandboxing": {
+"type": "concept",
+"canonical": "Sandboxing"
+},
+"sanity testing": {
+"type": "concept",
+"canonical": "Sanity Testing"
+},
+"sans holiday hack challenge": {
+"type": "not_skill",
+"canonical": ""
+},
+"sap erp, hana, business objects": {
+"type": "technology",
+"canonical": "SAP"
+},
+"sass": {
+"type": "technology",
+"canonical": "Sass"
+},
+"sat": {
+"type": "concept",
+"canonical": "SAT"
+},
+"sboms": {
+"type": "concept",
+"canonical": "SBOMs"
+},
+"scala": {
+"type": "technology",
+"canonical": "Scala"
+},
+"scalability": {
+"type": "concept",
+"canonical": "Scalability"
+},
+"scaling": {
+"type": "concept",
+"canonical": "Scaling"
+},
+"scaling databases": {
+"type": "concept",
+"canonical": "Scaling Databases"
+},
+"scatter plot": {
+"type": "concept",
+"canonical": "Scatter Plot"
+},
+"scripting": {
+"type": "concept",
+"canonical": "Scripting"
+},
+"scripting knowledge": {
+"type": "concept",
+"canonical": "Scripting Knowledge"
+},
+"scrum": {
+"type": "concept",
+"canonical": "Scrum"
+},
+"scrypt": {
+"type": "technology",
+"canonical": "scrypt"
+},
+"sdlc delivery model": {
+"type": "category",
+"canonical": "SDLC Delivery Model"
+},
+"sdn": {
+"type": "technology",
+"canonical": "SDN"
+},
+"seaborn": {
+"type": "technology",
+"canonical": "Seaborn"
+},
+"sealed secrets": {
+"type": "technology",
+"canonical": "Sealed Secrets"
+},
+"search engines": {
+"type": "category",
+"canonical": "Search Engines"
+},
+"secret management": {
+"type": "category",
+"canonical": "Secret Management"
+},
+"secrets management": {
+"type": "category",
+"canonical": "Secrets Management"
+},
+"secure api design": {
+"type": "concept",
+"canonical": "Secure API Design"
+},
+"secure coding": {
+"type": "concept",
+"canonical": "Secure Coding"
+},
+"secure network zoning": {
+"type": "concept",
+"canonical": "Secure Network Zoning"
+},
+"security": {
+"type": "category",
+"canonical": "Security"
+},
+"security and privacy concerns": {
+"type": "concept",
+"canonical": "AI safety concerns"
+},
+"security skills and knowledge": {
+"type": "category",
+"canonical": "Security skills"
+},
+"security testing": {
+"type": "concept",
+"canonical": "Security testing"
+},
+"segment": {
+"type": "category",
+"canonical": "Segment"
+},
+"selenium": {
+"type": "technology",
+"canonical": "Selenium"
+},
+"selenium ide": {
+"type": "technology",
+"canonical": "Selenium IDE"
+},
+"semantic search": {
+"type": "concept",
+"canonical": "Semantic search"
+},
+"sentence transformers": {
+"type": "technology",
+"canonical": "Sentence Transformers"
+},
+"sentry": {
+"type": "technology",
+"canonical": "Sentry"
+},
+"seo basics": {
+"type": "concept",
+"canonical": "SEO basics"
+},
+"server": {
+"type": "concept",
+"canonical": "Server"
+},
+"server security": {
+"type": "concept",
+"canonical": "Server security"
+},
+"server sent events": {
+"type": "concept",
+"canonical": "Server‑Sent Events"
+},
+"server side": {
+"type": "concept",
+"canonical": "Server side"
+},
+"serverless": {
+"type": "category",
+"canonical": "Serverless"
+},
+"serverless computing": {
+"type": "concept",
+"canonical": "Serverless computing"
+},
+"serverless concepts": {
+"type": "concept",
+"canonical": "Serverless concepts"
+},
+"serverless options": {
+"type": "category",
+"canonical": "Serverless options"
+},
+"serverless platforms": {
+"type": "technology",
+"canonical": "Serverless platforms"
+},
+"service mesh": {
+"type": "concept",
+"canonical": "Service mesh"
+},
+"service oriented": {
+"type": "concept",
+"canonical": "Service‑oriented architecture"
+},
+"service workers": {
+"type": "technology",
+"canonical": "Service workers"
+},
+"services": {
+"type": "category",
+"canonical": "Services"
+},
+"ses": {
+"type": "technology",
+"canonical": "SES"
+},
+"session": {
+"type": "concept",
+"canonical": "Session"
+},
+"session based auth": {
+"type": "concept",
+"canonical": "Session‑based authentication"
+},
+"sftp": {
+"type": "technology",
+"canonical": "SFTP"
+},
+"sha": {
+"type": "technology",
+"canonical": "SHA"
+},
+"sha 256": {
+"type": "technology",
+"canonical": "SHA‑256"
+},
+"shader": {
+"type": "technology",
+"canonical": "Shader"
+},
+"shadow": {
+"type": "technology",
+"canonical": "Shadow"
+},
+"shadow dom": {
+"type": "technology",
+"canonical": "Shadow DOM"
+},
+"shadow map": {
+"type": "technology",
+"canonical": "Shadow map"
+},
+"sharding strategies": {
+"type": "concept",
+"canonical": "Sharding strategies"
+},
+"shared preferences": {
+"type": "technology",
+"canonical": "Shared preferences"
+},
+"shared responsibility model": {
+"type": "concept",
+"canonical": "Shared responsibility model"
+},
+"shell / bash": {
+"type": "technology",
+"canonical": "Shell/Bash"
+},
+"short polling": {
+"type": "concept",
+"canonical": "Short polling"
+},
+"shoulder surfing": {
+"type": "concept",
+"canonical": "Shoulder surfing"
+},
+"siem": {
+"type": "technology",
+"canonical": "SIEM"
+},
+"signed apk": {
+"type": "concept",
+"canonical": "Signed APK"
+},
+"simple flowchart": {
+"type": "concept",
+"canonical": "Simple flowchart"
+},
+"simple json apis": {
+"type": "concept",
+"canonical": "Simple JSON APIs"
+},
+"simplifying things": {
+"type": "concept",
+"canonical": "Simplifying things"
+},
+"sinkholes": {
+"type": "concept",
+"canonical": "Sinkholes"
+},
+"sketch": {
+"type": "technology",
+"canonical": "Sketch"
+},
+"skewness": {
+"type": "concept",
+"canonical": "Skewness"
+},
+"skills and responsibilities": {
+"type": "category",
+"canonical": "Skills and responsibilities"
+},
+"sla": {
+"type": "concept",
+"canonical": "SLA"
+},
+"slack": {
+"type": "technology",
+"canonical": "Slack"
+},
+"slowly changing dimension - scd": {
+"type": "concept",
+"canonical": "SCD"
+},
+"smishing": {
+"type": "concept",
+"canonical": "Smishing"
+},
+"smoke testing": {
+"type": "concept",
+"canonical": "Smoke Testing"
+},
+"smtp": {
+"type": "technology",
+"canonical": "SMTP"
+},
+"smtp / imap": {
+"type": "technology",
+"canonical": "SMTP/IMAP"
+},
+"snmp": {
+"type": "technology",
+"canonical": "SNMP"
+},
+"snowflake": {
+"type": "technology",
+"canonical": "Snowflake"
+},
+"sntp": {
+"type": "technology",
+"canonical": "SNTP"
+},
+"soa": {
+"type": "concept",
+"canonical": "SOA"
+},
+"soap": {
+"type": "technology",
+"canonical": "SOAP"
+},
+"soap apis": {
+"type": "technology",
+"canonical": "SOAP API"
+},
+"soap ui": {
+"type": "technology",
+"canonical": "SoapUI"
+},
+"soar": {
+"type": "concept",
+"canonical": "SOAR"
+},
+"soar automation": {
+"type": "concept",
+"canonical": "SOAR Automation"
+},
+"soar concepts": {
+"type": "concept",
+"canonical": "SOAR Concepts"
+},
+"soc 2": {
+"type": "concept",
+"canonical": "SOC 2"
+},
+"social engineering": {
+"type": "concept",
+"canonical": "Social Engineering"
+},
+"social sharing": {
+"type": "concept",
+"canonical": "Social Sharing"
+},
+"socket": {
+"type": "technology",
+"canonical": "Socket"
+},
+"solid": {
+"type": "concept",
+"canonical": "SOLID"
+},
+"solid js": {
+"type": "technology",
+"canonical": "SolidJS"
+},
+"solr": {
+"type": "technology",
+"canonical": "Solr"
+},
+"solution architecture": {
+"type": "concept",
+"canonical": "Solution Architecture"
+},
+"sops": {
+"type": "concept",
+"canonical": "SOPs"
+},
+"sort & sweep": {
+"type": "concept",
+"canonical": "Sort & Sweep"
+},
+"sources of data": {
+"type": "concept",
+"canonical": "Sources of Data"
+},
+"spa, ssr, ssg": {
+"type": "concept",
+"canonical": "SPA/SSR/SSG"
+},
+"spark": {
+"type": "technology",
+"canonical": "Spark"
+},
+"spatial partitioning": {
+"type": "concept",
+"canonical": "Spatial Partitioning"
+},
+"spectrum of thinking interventions": {
+"type": "concept",
+"canonical": "Spectrum of Thinking Interventions"
+},
+"specular": {
+"type": "technology",
+"canonical": "Specular"
+},
+"speech-to-text": {
+"type": "concept",
+"canonical": "Speech-to-Text"
+},
+"spf": {
+"type": "technology",
+"canonical": "SPF"
+},
+"spir-v": {
+"type": "technology",
+"canonical": "SPIR-V"
+},
+"spline": {
+"type": "concept",
+"canonical": "Spline"
+},
+"splunk": {
+"type": "technology",
+"canonical": "Splunk"
+},
+"spoofing": {
+"type": "concept",
+"canonical": "Spoofing"
+},
+"spot": {
+"type": "technology",
+"canonical": "Spot"
+},
+"spot & reserved instances": {
+"type": "concept",
+"canonical": "Spot & Reserved Instances"
+},
+"sql databases": {
+"type": "concept",
+"canonical": "SQL Databases"
+},
+"sql injection": {
+"type": "concept",
+"canonical": "SQL Injection"
+},
+"sql injection prevention": {
+"type": "concept",
+"canonical": "SQL Injection Prevention"
+},
+"sqlite": {
+"type": "technology",
+"canonical": "SQLite"
+},
+"srtp": {
+"type": "technology",
+"canonical": "SRTP"
+},
+"ssh": {
+"type": "technology",
+"canonical": "SSH"
+},
+"ssl / tls": {
+"type": "technology",
+"canonical": "SSL/TLS"
+},
+"ssl and tls basics": {
+"type": "concept",
+"canonical": "SSL/TLS Basics"
+},
+"ssl/tls": {
+"type": "technology",
+"canonical": "SSL/TLS"
+},
+"sso": {
+"type": "technology",
+"canonical": "SSO"
+},
+"ssr": {
+"type": "concept",
+"canonical": "Server Side Rendering"
+},
+"stacked charts": {
+"type": "concept",
+"canonical": "Stacked Charts"
+},
+"stakeholders": {
+"type": "concept",
+"canonical": "Stakeholders"
+},
+"standard deviation": {
+"type": "concept",
+"canonical": "Standard Deviation"
+},
+"standards and compliance": {
+"type": "concept",
+"canonical": "Standards and Compliance"
+},
+"star": {
+"type": "concept",
+"canonical": "Star Topology"
+},
+"state changes": {
+"type": "concept",
+"canonical": "State Changes"
+},
+"state machine": {
+"type": "concept",
+"canonical": "State Machine"
+},
+"stateful inspection": {
+"type": "concept",
+"canonical": "Stateful Inspection"
+},
+"stateless functions": {
+"type": "concept",
+"canonical": "Stateless Functions"
+},
+"static site generators": {
+"type": "concept",
+"canonical": "Static Site Generators"
+},
+"statistical analysis": {
+"type": "concept",
+"canonical": "Statistical Analysis"
+},
+"status reports": {
+"type": "concept",
+"canonical": "Status Reports"
+},
+"stencil shadow": {
+"type": "concept",
+"canonical": "Stencil Shadow"
+},
+"stoplight": {
+"type": "technology",
+"canonical": "Stoplight"
+},
+"storage": {
+"type": "concept",
+"canonical": "Storage"
+},
+"storage classes & tiering": {
+"type": "concept",
+"canonical": "Storage Classes & Tiering"
+},
+"storage types": {
+"type": "concept",
+"canonical": "Storage Types"
+},
+"stp": {
+"type": "technology",
+"canonical": "STP"
+},
+"streaming": {
+"type": "concept",
+"canonical": "Streaming"
+},
+"streamlit": {
+"type": "technology",
+"canonical": "Streamlit"
+},
+"stress testing": {
+"type": "concept",
+"canonical": "Stress Testing"
+},
+"stride": {
+"type": "concept",
+"canonical": "STRIDE"
+},
+"subnet mask": {
+"type": "concept",
+"canonical": "Subnet Mask"
+},
+"subnet masks": {
+"type": "concept",
+"canonical": "Subnet Masks"
+},
+"subnets & routing": {
+"type": "concept",
+"canonical": "Subnets & Routing"
+},
+"subnetting": {
+"type": "concept",
+"canonical": "Subnetting"
+},
+"sum": {
+"type": "concept",
+"canonical": "SUM"
+},
+"supabase": {
+"type": "technology",
+"canonical": "Supabase"
+},
+"supernetting": {
+"type": "concept",
+"canonical": "Supernetting"
+},
+"supervised learning": {
+"type": "concept",
+"canonical": "Supervised Learning"
+},
+"supply chain security": {
+"type": "concept",
+"canonical": "Supply Chain Security"
+},
+"support conscious action": {
+"type": "not_skill",
+"canonical": ""
+},
+"suse linux": {
+"type": "technology",
+"canonical": "SUSE Linux"
+},
+"svelte": {
+"type": "technology",
+"canonical": "Svelte"
+},
+"svelte kit": {
+"type": "technology",
+"canonical": "Svelte Kit"
+},
+"swagger / open api": {
+"type": "technology",
+"canonical": "Swagger/OpenAPI"
+},
+"swas, pwas, jamstack": {
+"type": "category",
+"canonical": "SWAs, PWAs, JAMStack"
+},
+"swc": {
+"type": "technology",
+"canonical": "SWC"
+},
+"switch": {
+"type": "concept",
+"canonical": "Switch"
+},
+"switches": {
+"type": "concept",
+"canonical": "Switches"
+},
+"switching": {
+"type": "category",
+"canonical": "Switching"
+},
+"swot analysis": {
+"type": "concept",
+"canonical": "SWOT Analysis"
+},
+"symmetric": {
+"type": "concept",
+"canonical": "Symmetric Encryption"
+},
+"syslogs": {
+"type": "technology",
+"canonical": "Syslogs"
+},
+"tableau": {
+"type": "technology",
+"canonical": "Tableau"
+},
+"tableu": {
+"type": "technology",
+"canonical": "Tableu"
+},
+"tabs": {
+"type": "concept",
+"canonical": "Tabs"
+},
+"tail": {
+"type": "technology",
+"canonical": "Tail"
+},
+"tailgating": {
+"type": "concept",
+"canonical": "Tailgating"
+},
+"tailwind": {
+"type": "technology",
+"canonical": "Tailwind"
+},
+"tailwind css": {
+"type": "technology",
+"canonical": "Tailwind CSS"
+},
+"target action": {
+"type": "concept",
+"canonical": "Target Action"
+},
+"target actor": {
+"type": "concept",
+"canonical": "Target Actor"
+},
+"target outcome": {
+"type": "concept",
+"canonical": "Target Outcome"
+},
+"tasks & backstack": {
+"type": "category",
+"canonical": "Tasks & Backstack"
+},
+"tauri": {
+"type": "technology",
+"canonical": "Tauri"
+},
+"tcp/ip model": {
+"type": "concept",
+"canonical": "TCP/IP Model"
+},
+"tcpdump": {
+"type": "technology",
+"canonical": "tcpdump"
+},
+"tdd": {
+"type": "concept",
+"canonical": "Test‑Driven Development"
+},
+"teamcity": {
+"type": "technology",
+"canonical": "TeamCity"
+},
+"tech decisions": {
+"type": "concept",
+"canonical": "Tech Decisions"
+},
+"technical skills": {
+"type": "category",
+"canonical": "Technical Skills"
+},
+"telemetry": {
+"type": "concept",
+"canonical": "Telemetry"
+},
+"tell user what the action is and ask for it": {
+"type": "not_skill",
+"canonical": ""
+},
+"tensorflow": {
+"type": "technology",
+"canonical": "TensorFlow"
+},
+"terminal knowledge": {
+"type": "category",
+"canonical": "Terminal Knowledge"
+},
+"terraform": {
+"type": "technology",
+"canonical": "Terraform"
+},
+"test cases and scenarios": {
+"type": "concept",
+"canonical": "Test Cases and Scenarios"
+},
+"test driven development": {
+"type": "concept",
+"canonical": "Test‑Driven Development"
+},
+"test oracles": {
+"type": "concept",
+"canonical": "Test Oracles"
+},
+"test planning": {
+"type": "concept",
+"canonical": "Test Planning"
+},
+"test prioritization": {
+"type": "concept",
+"canonical": "Test Prioritization"
+},
+"testing": {
+"type": "concept",
+"canonical": "Testing"
+},
+"testing approaches": {
+"type": "concept",
+"canonical": "Testing Approaches"
+},
+"testing techniques": {
+"type": "concept",
+"canonical": "Testing Techniques"
+},
+"testlink": {
+"type": "technology",
+"canonical": "TestLink"
+},
+"testrail": {
+"type": "technology",
+"canonical": "TestRail"
+},
+"text manipulation": {
+"type": "concept",
+"canonical": "Text Manipulation"
+},
+"text-to-speech": {
+"type": "concept",
+"canonical": "Text‑to‑Speech"
+},
+"texture": {
+"type": "concept",
+"canonical": "Texture"
+},
+"textview": {
+"type": "concept",
+"canonical": "TextView"
+},
+"the fundamentals": {
+"type": "category",
+"canonical": "Fundamentals"
+},
+"things to lookout for": {
+"type": "concept",
+"canonical": "Things to Lookout For"
+},
+"threads": {
+"type": "concept",
+"canonical": "Threads"
+},
+"threat modeling": {
+"type": "concept",
+"canonical": "Threat Modeling"
+},
+"threat modeling workflows": {
+"type": "concept",
+"canonical": "Threat Modeling Workflows"
+},
+"throttling": {
+"type": "concept",
+"canonical": "Throttling"
+},
+"throughput": {
+"type": "concept",
+"canonical": "Throughput"
+},
+"timber": {
+"type": "technology",
+"canonical": "Timber"
+},
+"time series": {
+"type": "technology",
+"canonical": "Time Series"
+},
+"timescale": {
+"type": "technology",
+"canonical": "Timescale"
+},
+"tls": {
+"type": "technology",
+"canonical": "TLS"
+},
+"toast": {
+"type": "concept",
+"canonical": "Toast"
+},
+"togaf": {
+"type": "technology",
+"canonical": "TOGAF"
+},
+"token authentication": {
+"type": "concept",
+"canonical": "Token Authentication"
+},
+"token based auth": {
+"type": "concept",
+"canonical": "Token‑Based Auth"
+},
+"token counting": {
+"type": "concept",
+"canonical": "Token Counting"
+},
+"tokenization": {
+"type": "concept",
+"canonical": "Tokenization"
+},
+"tomcat": {
+"type": "technology",
+"canonical": "Tomcat"
+},
+"tone reproduction": {
+"type": "concept",
+"canonical": "Tone Reproduction"
+},
+"tools": {
+"type": "category",
+"canonical": "Tools"
+},
+"tools for incident response and discovery": {
+"type": "category",
+"canonical": "Tools for Incident Response and Discovery"
+},
+"tracert": {
+"type": "technology",
+"canonical": "tracert"
+},
+"trade-offs of serverless": {
+"type": "concept",
+"canonical": "Trade-offs of Serverless"
+},
+"traffic management": {
+"type": "concept",
+"canonical": "Traffic Management"
+},
+"traffic shaping": {
+"type": "concept",
+"canonical": "Traffic shaping"
+},
+"training": {
+"type": "category",
+"canonical": "Training"
+},
+"transactions": {
+"type": "concept",
+"canonical": "Transactions"
+},
+"transform data": {
+"type": "concept",
+"canonical": "Transform Data"
+},
+"transformers.js": {
+"type": "technology",
+"canonical": "Transformers.js"
+},
+"translucency & transparency": {
+"type": "concept",
+"canonical": "Translucency & Transparency"
+},
+"transmission media types": {
+"type": "concept",
+"canonical": "Transmission Media Types"
+},
+"transport": {
+"type": "concept",
+"canonical": "Transport"
+},
+"travis ci": {
+"type": "technology",
+"canonical": "Travis CI"
+},
+"trello": {
+"type": "technology",
+"canonical": "Trello"
+},
+"trim": {
+"type": "technology",
+"canonical": "TRIM"
+},
+"troubleshooting": {
+"type": "concept",
+"canonical": "Troubleshooting"
+},
+"troubleshooting tools": {
+"type": "category",
+"canonical": "Troubleshooting Tools"
+},
+"true negative / true positive": {
+"type": "concept",
+"canonical": "True Negative / True Positive"
+},
+"tryhackme": {
+"type": "technology",
+"canonical": "TryHackMe"
+},
+"tutorials": {
+"type": "category",
+"canonical": "Tutorials"
+},
+"twelve factor apps": {
+"type": "concept",
+"canonical": "Twelve Factor Apps"
+},
+"type checkers": {
+"type": "category",
+"canonical": "Type Checkers"
+},
+"types of data analytics": {
+"type": "category",
+"canonical": "Types of Data Analytics"
+},
+"types of data ingestion": {
+"type": "category",
+"canonical": "Types of Data Ingestion"
+},
+"types of scaling": {
+"type": "category",
+"canonical": "Types of Scaling"
+},
+"typescript": {
+"type": "technology",
+"canonical": "TypeScript"
+},
+"typo squatting": {
+"type": "concept",
+"canonical": "Typo Squatting"
+},
+"uat": {
+"type": "concept",
+"canonical": "UAT"
+},
+"ubuntu / debian": {
+"type": "technology",
+"canonical": "Ubuntu / Debian"
+},
+"uml": {
+"type": "technology",
+"canonical": "UML"
+},
+"understand audience": {
+"type": "not_skill",
+"canonical": ""
+},
+"understand backups and resiliency": {
+"type": "not_skill",
+"canonical": ""
+},
+"understand basics of forensics": {
+"type": "not_skill",
+"canonical": ""
+},
+"understand basics of popular suites": {
+"type": "not_skill",
+"canonical": ""
+},
+"understand cia triad": {
+"type": "not_skill",
+"canonical": ""
+},
+"understand cloud services": {
+"type": "not_skill",
+"canonical": ""
+},
+"understand common exploit frameworks": {
+"type": "not_skill",
+"canonical": ""
+},
+"understand common hacking tools": {
+"type": "not_skill",
+"canonical": ""
+},
+"understand common standards": {
+"type": "not_skill",
+"canonical": ""
+},
+"understand common tools": {
+"type": "not_skill",
+"canonical": ""
+},
+"understand concept of defense in depth": {
+"type": "not_skill",
+"canonical": ""
+},
+"understand concept of isolation": {
+"type": "not_skill",
+"canonical": ""
+},
+"understand concept of runbooks": {
+"type": "not_skill",
+"canonical": ""
+},
+"understand different steps": {
+"type": "not_skill",
+"canonical": ""
+},
+"understand frameworks": {
+"type": "not_skill",
+"canonical": ""
+},
+"understand handshakes": {
+"type": "not_skill",
+"canonical": ""
+},
+"understand hardening concepts": {
+"type": "not_skill",
+"canonical": ""
+},
+"understand permissions": {
+"type": "not_skill",
+"canonical": ""
+},
+"understand tcp / ip": {
+"type": "concept",
+"canonical": "TCP/IP"
+},
+"understand the basics": {
+"type": "concept",
+"canonical": "Basics"
+},
+"understand the basics and general flow of deploying in the cloud": {
+"type": "concept",
+"canonical": "Cloud Deployment"
+},
+"understand the concept of infrastructure as code": {
+"type": "concept",
+"canonical": "Infrastructure as Code"
+},
+"understand the concept of security in the cloud": {
+"type": "concept",
+"canonical": "Cloud Security"
+},
+"understand the concept of serverless": {
+"type": "concept",
+"canonical": "Serverless"
+},
+"understand the definition of risk": {
+"type": "concept",
+"canonical": "Risk Definition"
+},
+"understand the differences between cloud and on-premises": {
+"type": "concept",
+"canonical": "Cloud vs On-Premises"
+},
+"understand the following": {
+"type": "not_skill",
+"canonical": ""
+},
+"understand the following terms": {
+"type": "not_skill",
+"canonical": ""
+},
+"understand the incident response process": {
+"type": "concept",
+"canonical": "Incident Response"
+},
+"understand the osi model": {
+"type": "concept",
+"canonical": "OSI Model"
+},
+"understand the terminology": {
+"type": "concept",
+"canonical": "Networking Terminology"
+},
+"understand these": {
+"type": "concept",
+"canonical": "Networking Concepts"
+},
+"understand threat classification": {
+"type": "concept",
+"canonical": "Threat Classification"
+},
+"understanding ai safety issues": {
+"type": "concept",
+"canonical": "AI Safety"
+},
+"understanding the product": {
+"type": "not_skill",
+"canonical": ""
+},
+"unit testing": {
+"type": "concept",
+"canonical": "Unit Testing"
+},
+"unity 3d": {
+"type": "technology",
+"canonical": "Unity 3D"
+},
+"unix": {
+"type": "technology",
+"canonical": "Unix"
+},
+"unreal engine": {
+"type": "technology",
+"canonical": "Unreal Engine"
+},
+"unsupervised learning": {
+"type": "concept",
+"canonical": "Unsupervised Learning"
+},
+"upper / lower / proper": {
+"type": "concept",
+"canonical": "UPPER/LOWER/PROPER Functions"
+},
+"upstream connectivity": {
+"type": "concept",
+"canonical": "Upstream Connectivity"
+},
+"uri design": {
+"type": "concept",
+"canonical": "URI Design"
+},
+"url, query & path parameters": {
+"type": "concept",
+"canonical": "URL Parameters"
+},
+"urlscan": {
+"type": "technology",
+"canonical": "urlscan"
+},
+"urlvoid": {
+"type": "technology",
+"canonical": "urlvoid"
+},
+"use competition": {
+"type": "concept",
+"canonical": "Competition Measurement"
+},
+"use consciousness to interfere": {
+"type": "not_skill",
+"canonical": ""
+},
+"use peer comparisons": {
+"type": "concept",
+"canonical": "Peer Comparisons"
+},
+"user stories": {
+"type": "concept",
+"canonical": "User Stories"
+},
+"using devtools": {
+"type": "concept",
+"canonical": "DevTools Usage"
+},
+"using libraries for cleanup": {
+"type": "concept",
+"canonical": "Cleanup Libraries"
+},
+"using lighthouse": {
+"type": "concept",
+"canonical": "Lighthouse Usage"
+},
+"using open source models": {
+"type": "concept",
+"canonical": "Open Source Models"
+},
+"using sdks directly": {
+"type": "concept",
+"canonical": "Direct SDK Usage"
+},
+"using tools for unintended purposes": {
+"type": "not_skill",
+"canonical": ""
+},
+"ux best practices": {
+"type": "concept",
+"canonical": "UX Best Practices"
+},
+"ux patterns": {
+"type": "concept",
+"canonical": "UX Patterns"
+},
+"v model": {
+"type": "concept",
+"canonical": "V-Model"
+},
+"variance": {
+"type": "concept",
+"canonical": "Variance"
+},
+"vault": {
+"type": "technology",
+"canonical": "Vault"
+},
+"vcs hosting": {
+"type": "technology",
+"canonical": "VCS Hosting"
+},
+"vector": {
+"type": "concept",
+"canonical": "Vector Mathematics"
+},
+"vector database": {
+"type": "technology",
+"canonical": "Vector Database"
+},
+"vector databases": {
+"type": "concept",
+"canonical": "Vector Databases"
+},
+"vegeta": {
+"type": "technology",
+"canonical": "Vegeta"
+},
+"vercel": {
+"type": "technology",
+"canonical": "Vercel"
+},
+"verification and validation": {
+"type": "concept",
+"canonical": "Verification and Validation"
+},
+"version control": {
+"type": "concept",
+"canonical": "version control"
+},
+"version control system": {
+"type": "concept",
+"canonical": "version control system"
+},
+"version control systems": {
+"type": "concept",
+"canonical": "version control systems"
+},
+"versioning strategies": {
+"type": "concept",
+"canonical": "versioning strategies"
+},
+"video understanding": {
+"type": "concept",
+"canonical": "video understanding"
+},
+"vim / nano / emacs": {
+"type": "technology",
+"canonical": "vim, nano, emacs"
+},
+"virtual machine instances": {
+"type": "concept",
+"canonical": "virtual machine instances"
+},
+"virtual machines": {
+"type": "concept",
+"canonical": "virtual machines"
+},
+"virtual private cloud": {
+"type": "technology",
+"canonical": "virtual private cloud"
+},
+"virtualbox": {
+"type": "technology",
+"canonical": "virtualbox"
+},
+"virustotal": {
+"type": "technology",
+"canonical": "virustotal"
+},
+"visibility and occlusion": {
+"type": "concept",
+"canonical": "visibility and occlusion"
+},
+"visual perception": {
+"type": "concept",
+"canonical": "visual perception"
+},
+"visualisation": {
+"type": "concept",
+"canonical": "visualisation"
+},
+"visualizing distributions": {
+"type": "concept",
+"canonical": "visualizing distributions"
+},
+"vite": {
+"type": "technology",
+"canonical": "vite"
+},
+"vitest": {
+"type": "technology",
+"canonical": "vitest"
+},
+"vlan": {
+"type": "concept",
+"canonical": "vlan"
+},
+"vlan hopping": {
+"type": "concept",
+"canonical": "vlan hopping"
+},
+"vlans": {
+"type": "concept",
+"canonical": "vlans"
+},
+"vlans & vxlan": {
+"type": "concept",
+"canonical": "vlans & vxlan"
+},
+"vlookup / hlookup": {
+"type": "concept",
+"canonical": "vlookup / hlookup"
+},
+"vlsm": {
+"type": "concept",
+"canonical": "vlsm"
+},
+"vm": {
+"type": "concept",
+"canonical": "vm"
+},
+"vm migration, live migration": {
+"type": "concept",
+"canonical": "vm migration, live migration"
+},
+"vmware": {
+"type": "technology",
+"canonical": "vmware"
+},
+"vpc": {
+"type": "technology",
+"canonical": "vpc"
+},
+"vpn": {
+"type": "concept",
+"canonical": "vpn"
+},
+"vpn & direct connect": {
+"type": "concept",
+"canonical": "vpn & direct connect"
+},
+"vpns": {
+"type": "concept",
+"canonical": "vpns"
+},
+"vue.js": {
+"type": "technology",
+"canonical": "vue.js"
+},
+"vuepress": {
+"type": "technology",
+"canonical": "vuepress"
+},
+"vulkan": {
+"type": "technology",
+"canonical": "vulkan"
+},
+"vulkan ray tracing": {
+"type": "technology",
+"canonical": "vulkan ray tracing"
+},
+"vulnerability scanning": {
+"type": "concept",
+"canonical": "vulnerability scanning"
+},
+"vulnerability scanning tools": {
+"type": "technology",
+"canonical": "vulnerability scanning tools"
+},
+"vulnhub": {
+"type": "technology",
+"canonical": "vulnhub"
+},
+"w3c and whatwg": {
+"type": "category",
+"canonical": "w3c and whatwg"
+},
+"wadcoms": {
+"type": "technology",
+"canonical": "wadcoms"
+},
+"wan": {
+"type": "concept",
+"canonical": "wan"
+},
+"waterfall": {
+"type": "concept",
+"canonical": "waterfall"
+},
+"watering hole attack": {
+"type": "concept",
+"canonical": "watering hole attack"
+},
+"wave": {
+"type": "concept",
+"canonical": "wave"
+},
+"ways of implementing rag": {
+"type": "concept",
+"canonical": "ways of implementing rag"
+},
+"weaviate": {
+"type": "technology",
+"canonical": "weaviate"
+},
+"web application": {
+"type": "concept",
+"canonical": "web application"
+},
+"web based attacks and owasp10": {
+"type": "concept",
+"canonical": "web based attacks and owasp10"
+},
+"web components": {
+"type": "technology",
+"canonical": "web components"
+},
+"web scraping": {
+"type": "concept",
+"canonical": "web scraping"
+},
+"web security": {
+"type": "concept",
+"canonical": "web security"
+},
+"web security basics": {
+"type": "concept",
+"canonical": "Web Security Basics"
+},
+"web server": {
+"type": "not_skill",
+"canonical": ""
+},
+"web servers": {
+"type": "category",
+"canonical": "Web Servers"
+},
+"web sockets": {
+"type": "concept",
+"canonical": "WebSocket"
+},
+"web, mobile": {
+"type": "category",
+"canonical": "Web, Mobile"
+},
+"webdriver.io": {
+"type": "technology",
+"canonical": "Webdriver.io"
+},
+"webgl": {
+"type": "technology",
+"canonical": "WebGL"
+},
+"webpack": {
+"type": "technology",
+"canonical": "Webpack"
+},
+"webpage test": {
+"type": "technology",
+"canonical": "Webpage Test"
+},
+"websockets": {
+"type": "concept",
+"canonical": "WebSocket"
+},
+"whaling": {
+"type": "concept",
+"canonical": "Whaling"
+},
+"whishing": {
+"type": "concept",
+"canonical": "Whishing"
+},
+"whisper api": {
+"type": "technology",
+"canonical": "Whisper"
+},
+"white / grey listing": {
+"type": "concept",
+"canonical": "White / Grey Listing"
+},
+"white box testing": {
+"type": "concept",
+"canonical": "White Box Testing"
+},
+"whois": {
+"type": "technology",
+"canonical": "WHOIS"
+},
+"wifi": {
+"type": "concept",
+"canonical": "WiFi"
+},
+"wifi standards": {
+"type": "concept",
+"canonical": "WiFi Standards"
+},
+"windows": {
+"type": "technology",
+"canonical": "Windows"
+},
+"winhex": {
+"type": "technology",
+"canonical": "winhex"
+},
+"wireframing": {
+"type": "concept",
+"canonical": "Wireframing"
+},
+"wireless networking": {
+"type": "concept",
+"canonical": "Wireless Networking"
+},
+"wireless security": {
+"type": "concept",
+"canonical": "Wireless Security"
+},
+"wireshark": {
+"type": "technology",
+"canonical": "wireshark"
+},
+"wireshark basics": {
+"type": "technology",
+"canonical": "Wireshark basics"
+},
+"with many chances to influence user": {
+"type": "not_skill",
+"canonical": ""
+},
+"wlan": {
+"type": "concept",
+"canonical": "WLAN"
+},
+"working with data": {
+"type": "concept",
+"canonical": "Working with Data"
+},
+"workload": {
+"type": "concept",
+"canonical": "Workload"
+},
+"workmanager": {
+"type": "concept",
+"canonical": "WorkManager"
+},
+"wps": {
+"type": "concept",
+"canonical": "WPS"
+},
+"writing css": {
+"type": "concept",
+"canonical": "Writing CSS"
+},
+"writing prompts": {
+"type": "concept",
+"canonical": "Writing Prompts"
+},
+"writing semantic html": {
+"type": "concept",
+"canonical": "Writing Semantic HTML"
+},
+"xcuitest": {
+"type": "technology",
+"canonical": "XCUITest"
+},
+"xp": {
+"type": "concept",
+"canonical": "XP"
+},
+"xss": {
+"type": "concept",
+"canonical": "XSS"
+},
+"xss prevention": {
+"type": "concept",
+"canonical": "XSS Prevention"
+},
+"yarn": {
+"type": "technology",
+"canonical": "YARN"
+},
+"youtrack": {
+"type": "technology",
+"canonical": "YouTrack"
+},
+"zabbix": {
+"type": "technology",
+"canonical": "Zabbix"
+},
+"zephyr": {
+"type": "technology",
+"canonical": "Zephyr"
+},
+"zero day": {
+"type": "concept",
+"canonical": "Zero Day"
+},
+"zero trust": {
+"type": "concept",
+"canonical": "Zero Trust"
+},
+"zero trust architecture": {
+"type": "concept",
+"canonical": "Zero Trust Architecture"
+},
+"zero trust concepts": {
+"type": "concept",
+"canonical": "Zero Trust Concepts"
+},
+"zombie.js": {
+"type": "technology",
+"canonical": "Zombie.js"
+}
+}

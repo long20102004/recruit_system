@@ -1,0 +1,11 @@
+Điểm 79/100 (cân nhắc, điểm xếp hạng tương đối).
+
+Điểm mạnh
+• Kỹ năng bắt buộc: có 3/3 (Java, Spring Boot, PostgreSQL).
+• Việc đã làm: 2/2 trách nhiệm có bằng chứng. Ví dụ:
+  – "Thiết kế và phát triển API cho hệ thống thanh toán" ← "Xây dựng API thanh toán bằng Spring Boot"  (khớp: phát triển, API, hệ thống, thanh toán; chưa thấy phần: Thiết kế)
+  – "Tối ưu hiệu năng truy vấn cơ sở dữ liệu" ← "Tối ưu truy vấn PostgreSQL, giảm 40% thời gian"  (khớp: Tối ưu, truy vấn, cơ sở dữ liệu; chưa thấy phần: hiệu năng)
+• Kinh nghiệm liên quan: 4,7 năm, nhóm Backend.
+
+Chưa thấy bằng chứng
+• Không có mục nào nổi bật.

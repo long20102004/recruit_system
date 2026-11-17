@@ -1,0 +1,97 @@
+group,name_vi,name_en,canonical,role_groups,aliases
+IT Executive and Management,"Cấp điều hành (CTO, CIO, CISO, CDO)","C-level (CTO, CIO, CISO, CDO)",C-level Executive,,c-level|cto|cio|ciso|cdo|cấp điều hành
+IT Executive and Management,Phó Chủ tịch / Giám đốc,Vice President / Director,,,vice president|director|phó chủ tịch|giám đốc
+IT Executive and Management,Quản lý,Manager,IT Manager,,manager|quản lý cntt
+Web Application Development,Lập trình viên Backend,Backend Developer,,Backend,backend engineer|back-end developer|kỹ sư backend
+Web Application Development,Lập trình viên Frontend,Frontend Developer,,Frontend,frontend engineer|front-end developer|kỹ sư frontend
+Web Application Development,Lập trình viên Fullstack,Fullstack Developer,,Fullstack,fullstack engineer|full-stack developer|full stack developer|kỹ sư fullstack
+Mobile Application Development,Lập trình viên Ứng dụng Di động,Mobile Application Developer,,Mobile,mobile developer|mobile engineer|lập trình viên mobile
+Core / Enterprise Systems Development,Kỹ sư RPA (Tự động hóa quy trình robot),RPA Engineer,,,rpa developer|kỹ sư rpa
+Core / Enterprise Systems Development,Lập trình viên ERP,ERP Developer,,,
+Core / Enterprise Systems Development,Lập trình viên Hệ thống Integration & Legacy,Integration & Legacy Systems Developer,,Backend,integration developer
+Core / Enterprise Systems Development,Lập trình viên Hệ thống Ngân hàng & Tài chính,Banking & Financial Systems Developer,,Backend,
+Core / Enterprise Systems Development,Lập trình viên Ứng dụng Desktop,Desktop Application Developer,,,desktop developer
+Core / Enterprise Systems Development,Lập trình viên Ứng dụng Doanh nghiệp (CRM),Enterprise Application Developer (CRM),Enterprise Application Developer,,crm developer
+Low-Code / No-Code Development,Lập trình viên Low-Code/No-Code,Low-Code/No-Code Developer,,,low-code developer|no-code developer
+Technical Architecture,Kiến trúc sư Doanh nghiệp,Enterprise Architect,,,
+Technical Architecture,Kiến trúc sư Giải pháp,Solution Architect,,,solutions architect
+Technical Architecture,Kiến trúc sư Phần mềm/Kỹ thuật,Software/Technical Architect,,,software architect|technical architect|kiến trúc sư phần mềm|kiến trúc sư kỹ thuật
+Blockchain Development,Kiến trúc sư Blockchain,Blockchain Architect,,,
+Blockchain Development,Lập trình viên Blockchain,Blockchain Developer,,,blockchain engineer
+Blockchain Development,Lập trình viên Smart Contract,Smart Contract Developer,,,
+Game Development,Kiểm thử Game,Game Tester,,QA,game qa
+Game Development,Lập trình viên Game,Game Developer,,,game programmer
+Game Development,Lập trình viên Game VR/AR,VR/AR Game Developer,,,
+Game Development,Sản xuất / Giám đốc Game,Game Producer / Director,,,game producer|game director|nhà sản xuất game|giám đốc game
+Game Development,Thiết kế Game,Game Designer,,,nhà thiết kế game
+Software Testing & Quality Assurance,Chuyên viên PQA,Process Quality Assurance (PQA),Process Quality Assurance,QA,pqa
+Software Testing & Quality Assurance,Kiểm thử Hiệu suất / Hiệu năng,Performance / Load Tester,,QA,performance tester|load tester|kiểm thử hiệu năng|kiểm thử hiệu suất
+Software Testing & Quality Assurance,Kiểm thử thủ công,Manual Tester,,QA,manual qa
+Software Testing & Quality Assurance,Kiểm thử tự động,Automation Tester,,QA,automation qa|qa automation|automation test engineer
+Software Testing & Quality Assurance,Kỹ sư Phần mềm kiểm thử (SDET),Software Engineer in Test (SDET),Software Engineer in Test,QA,sdet
+Software Testing & Quality Assurance,Điều phối viên Kiểm thử,Test Coordinator / QAQC Coordinator,,QA,test coordinator|qaqc coordinator
+Data Analytics & Business Intelligence,Chuyên viên Trực quan hóa Dữ liệu,Data Visualization Specialist,,Data,
+Data Analytics & Business Intelligence,Kỹ sư Analytics,Analytics Engineer,,Data,
+Data Analytics & Business Intelligence,Phân tích BI / Lập trình viên BI,BI Analyst / BI Developer,,Data,bi analyst|bi developer|chuyên viên phân tích bi|lập trình viên bi
+Data Analytics & Business Intelligence,Phân tích Dữ liệu,Data Analyst,,Data,chuyên viên phân tích dữ liệu
+Data Engineering,Kỹ sư Cơ sở dữ liệu,Database Engineer,,Data,
+Data Engineering,Kỹ sư DataOps / MLOps,DataOps / MLOps Engineer,,Data|AI/ML,dataops engineer|mlops engineer|kỹ sư dataops|kỹ sư mlops
+Data Engineering,Kỹ sư Dữ liệu,Data Engineer,,Data,
+Data Engineering,Kỹ sư Dữ liệu Lớn,Big Data Engineer,,Data,
+Data Science & AI / Machine Learning,Data Scientist,Data Scientist,,Data|AI/ML,nhà khoa học dữ liệu
+Data Science & AI / Machine Learning,Kỹ sư AI / Machine Learning,AI / Machine Learning Engineer,,AI/ML,ai engineer|machine learning engineer|ml engineer|kỹ sư ai|kỹ sư machine learning
+Data Science & AI / Machine Learning,Kỹ sư Thị giác Máy tính,Computer Vision Engineer,,AI/ML,
+Data Science & AI / Machine Learning,Nghiên cứu viên AI,AI Researcher,,AI/ML,
+Data Management & Governance,Chuyên gia Quản trị Dữ liệu,Data Governance Specialist,,Data,
+Data Management & Governance,Kiến trúc sư AI,AI Architect,,AI/ML,
+Data Management & Governance,Kiến trúc sư Dữ liệu,Data Architect,,Data,
+Data Management & Governance,Người quản lý Dữ liệu / Nhà phân tích Chất lượng Dữ liệu,Data Steward / Data Quality Analyst,,Data,data steward|data quality analyst
+Data Management & Governance,Quản trị viên Cơ sở dữ liệu,Database Administrator,,Data,dba
+Cloud Computing,Kỹ sư Đám mây,Cloud Engineer,,DevOps,
+Systems & Network Engineering / Administration,Kỹ sư Hệ thống / Quản trị viên,Systems Engineer / Administrator,,DevOps,systems engineer|system engineer|system administrator|sysadmin|kỹ sư hệ thống|quản trị viên hệ thống
+Systems & Network Engineering / Administration,Kỹ sư Mạng,Network Engineer,,,
+Systems & Network Engineering / Administration,Kỹ sư SysOps,SysOps Engineer,,DevOps,
+DevOps & Site Reliability (SRE),Kỹ sư DevOps,DevOps Engineer,,DevOps,
+DevOps & Site Reliability (SRE),Kỹ sư Đảm bảo độ tin cậy Trang web (SRE),Site Reliability Engineer (SRE),Site Reliability Engineer,DevOps,sre|kỹ sư sre
+DevOps & Site Reliability (SRE),Quản lý Phiên bản,Release Manager,,DevOps,
+IT Support & Helpdesk,Hỗ trợ CNTT,IT Support,,,
+IT Support & Helpdesk,Hỗ trợ Field,Field Support,,,
+IT Support & Helpdesk,Hỗ trợ Khách hàng Kỹ thuật,Technical Customer Support,,,
+IT Support & Helpdesk,Quản trị viên CNTT,IT Administrator,,,
+IT Support & Helpdesk,Tổng đài Hỗ trợ CNTT,IT Helpdesk,,,
+Cybersecurity,Kiểm thử An ninh / Kiểm thử xâm nhập,Security Tester / Penetration Tester,,Security,security tester|penetration tester|pentester|kiểm thử xâm nhập|kiểm thử an ninh
+Cybersecurity,Kỹ sư An ninh,Security Engineer,,Security,kỹ sư bảo mật
+Cybersecurity,Kỹ sư An ninh Ứng dụng,Application Security Engineer,,Security,appsec engineer
+Cybersecurity,Kỹ sư DevSecOps,DevSecOps Engineer,,DevOps|Security,
+Cybersecurity,Tư vấn viên An ninh,Security Consultant,,Security,
+IT Compliance & Risk Management,Chuyên gia GRC,GRC Specialist,,Security,
+IT Compliance & Risk Management,Compliance Officer / Analyst,Compliance Officer / Analyst,,,compliance officer|compliance analyst
+IT Compliance & Risk Management,Kiểm toán viên CNTT / Quản lý Rủi ro CNTT,IT Auditor / IT Risk Manager,,,it auditor|it risk manager|kiểm toán viên cntt|quản lý rủi ro cntt
+Embedded Systems,Kỹ sư Embedded,Embedded Engineer,,,embedded developer|kỹ sư nhúng
+Embedded Systems,Kỹ sư Firmware,Firmware Engineer,,,
+Embedded Systems,Kỹ sư Real-Time Systems,Real-Time Systems Engineer,,,
+Embedded Systems,Kỹ sư Tích hợp Phần cứng-Phần mềm,Hardware-Software Integration Engineer,,,
+IoT & Robotics,Kỹ sư Edge Computing,Edge Computing Engineer,,,
+IoT & Robotics,Kỹ sư Phần mềm Robot,Robotics Software Engineer,,,
+IoT & Robotics,Lập trình viên Ứng dụng IoT,IoT Application Developer,,,iot developer
+Product Management,Chuyên viên Phân tích sản phẩm,Product Analyst,,,
+Product Management,Chuyên viên phát triển sản phẩm,Product Owner,,,po
+Product Management,Quản lý sản phẩm,Product Manager,,,
+Project Management / Technical Communication,Chuyên viên Giao tiếp Kỹ thuật,IT Communicator,,,comtor
+Project Management / Technical Communication,Kỹ sư Cầu nối (BrSE),Bridge System Engineer (BrSE),Bridge System Engineer,,brse|bridge se|kỹ sư cầu nối
+Project Management / Technical Communication,Phân tích nghiệp vụ,Business Analyst,,,ba|chuyên viên phân tích nghiệp vụ
+Project Management / Technical Communication,Quản lý Chương trình / PMO,Program Manager / PMO,,,program manager|pmo|quản lý chương trình
+Project Management / Technical Communication,Quản lý Dự án,Project Manager,,,pm
+Project Management / Technical Communication,Scrum Master / Agile coach,Scrum Master / Agile Coach,,,scrum master|agile coach
+Project Management / Technical Communication,Technical Writer,Technical Writer,,,
+Design & User Experience,Nghiên cứu viên UX,UX Researcher,,,
+Design & User Experience,Thiết kế Hình ảnh / Đồ họa,Visual / Graphic Designer,,,visual designer|graphic designer|thiết kế đồ họa
+Design & User Experience,Thiết kế Motion,Motion Designer,,,
+Design & User Experience,Thiết kế Sản phẩm,Product Designer,,,
+Design & User Experience,Thiết kế UX/UI,UX/UI Designer,,,ui/ux designer|ux designer|ui designer
+IT Consulting & Sales,Kỹ sư bán hàng kỹ thuật,Pre-sales Engineer,,,presales engineer
+IT Consulting & Sales,Quản lý Khách hàng Kỹ thuật,Technical Account Manager,,,
+IT Consulting & Sales,Tư vấn viên CNTT,IT Consultant,,,
+IT Consulting & Sales,Tư vấn viên ERP,ERP Consultant,,,
+IT Consulting & Sales,Tư vấn viên Kỹ thuật,Technical Consultant,,,
+IT Consulting & Sales,Tư vấn viên Ứng dụng Doanh nghiệp (CRM / HCM / SCM và các giải pháp khác),Enterprise Application Consultant (CRM / HCM / SCM and other enterprise solutions),Enterprise Application Consultant,,

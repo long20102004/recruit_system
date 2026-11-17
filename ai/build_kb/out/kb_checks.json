@@ -1,0 +1,21 @@
+{
+  "nodes": {
+    "Skill": 1470,
+    "Category": 246,
+    "Source": 21,
+    "JobTitle": 96,
+    "Major": 39,
+    "Level": 6
+  },
+  "edges": {
+    "EVIDENCED_BY": 1746,
+    "IN_CATEGORY": 1234,
+    "PARENT_OF": 15,
+    "USED_IN": 1269,
+    "MAPS_TO": 45,
+    "NEAR": 36
+  },
+  "alias_conflicts": {},
+  "dangling_edges": [],
+  "job_titles_without_role_group": 54
+}
