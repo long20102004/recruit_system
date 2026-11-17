@@ -76,7 +76,7 @@ Phát hiện ngày 17/11/2026: benchmark base–v4 ngày 09/11 chấm v4 trên o
 - Sửa `ai-service/eval/benchmark_base_vs_v4_colab.ipynb`: gọi `?include=raw`, chấm `raw_profile`.
 - Thêm `v4` (và các bản sau) vào `eval_models_colab.ipynb`; chạy base trên `test_real`.
 
-## Câu hỏi còn mở
+## Quyết định bổ sung (17/11/2026)
 
-- Ảnh có CV tiếng Anh và tiếng Việt theo tỷ lệ nào?
-- Có cần giữ lại CV level middle/senior trong train để không mất khả năng với các level đó không? (đề xuất: giữ phần dữ liệu sinh của các level này, tỷ trọng nhỏ).
+- **Không giữ** dữ liệu level middle / senior / lead trong train: model mới chỉ phục vụ **intern và fresher**. Dữ liệu sinh được giữ lại (Giai đoạn 3) cũng chỉ lấy hồ sơ level junior / intern; bộ hồi quy và tiêu chí chấp nhận chỉ tính trên CV intern/fresher.
+- Tỷ lệ CV tiếng Việt / tiếng Anh: **chưa biết**, người dùng báo khi có dataset; builder sẽ in tỷ lệ thực tế, chưa đặt ngưỡng.
