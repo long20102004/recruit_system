@@ -16,7 +16,6 @@ from kb2.pipeline.s1_crawl_itviec import parse_titles
 from kb2.pipeline.s2_titles import build_titles
 from kb2.pipeline.s3_majors import build_majors, strip_accents
 from kb2.pipeline.s4_levels import build_levels
-from load_kb import flatten_evidence, merge_kb, near_edges
 from shared.common import norm
 
 
@@ -93,11 +92,6 @@ def test_find_cycle():
     assert find_cycle([{"type": "PARENT_OF", "src": "a", "dst": "b"}]) is None
     assert find_cycle([{"type": "PARENT_OF", "src": "a", "dst": "b"},
                        {"type": "PARENT_OF", "src": "b", "dst": "a"}])
-
-
-def test_flatten_evidence():
-    edge = {"type": "X", "evidence": [{"source_id": "P01", "page": 1, "quote": "a > b"}]}
-    assert isinstance(flatten_evidence(edge)["evidence"][0], str)
 
 
 def fixture():
@@ -236,41 +230,6 @@ def test_build_titles_rejects_wrong_pair():
         build_titles(raw, [title_row("G", "Quản lý", "Vice President")], {"source_id": "W01"})
     with pytest.raises(SystemExit):
         build_titles(raw, [title_row("G", "Quản lý", "Manager", roles="Management")], {"source_id": "W01"})
-
-
-def test_merge_kb():
-    source = {"label": "Source", "source_id": "P01"}
-    kb1 = ([skill("java"), source],
-           [{"type": "EVIDENCED_BY", "src": "java", "dst": "P01", "sources": ["P01"], "evidence": []}])
-    title = {"label": "JobTitle", "key": "java developer", "aliases": ["java dev"], "ambiguous_aliases": []}
-    kb2 = ([title, {**skill("java", ["java", "java se"])}],
-           [{"type": "MAPS_TO", "src": "java developer", "dst": "Backend", "sources": ["W01"], "evidence": []}])
-    nodes, edges, checks = merge_kb({"KB1": kb1, "KB2": kb2})
-    java = next(n for n in nodes if n.get("key") == "java")
-    assert java["aliases"] == ["java", "java se"] and java["kb_origin"] == ["KB1", "KB2"]
-    assert next(n for n in nodes if n["label"] == "JobTitle")["kb_origin"] == ["KB2"]
-    assert len(edges) == 2 and checks["dangling_edges"] == [] and checks["alias_conflicts"] == {}
-    assert checks["job_titles_without_role_group"] == 0
-
-
-def test_merge_kb_reports_problems():
-    edge = {"type": "MAPS_TO", "src": "ghost", "dst": "Backend", "sources": [], "evidence": []}
-    nodes = [skill("a", ["same"]), skill("b", ["same"])]
-    _, _, checks = merge_kb({"KB1": (nodes, [edge])})
-    assert checks["dangling_edges"] == [["MAPS_TO", "ghost", "Backend"]]
-    assert checks["alias_conflicts"] == {"Skill: same": ["a", "b"]}
-
-
-def used_in(skill_key, group):
-    return {"type": "USED_IN", "src": skill_key, "dst": group, "sources": ["P01"], "evidence": []}
-
-
-def test_near_edges():
-    edges = [used_in("java", "Backend"), used_in("sql", "Backend"), used_in("sql", "Data"), used_in("css", "Frontend")]
-    near = {(e["src"], e["dst"]): e for e in near_edges(edges)}
-    assert set(near) == {("Backend", "Frontend"), ("Backend", "Data"), ("Frontend", "Data")}   # lưu một chiều
-    assert near[("Backend", "Data")]["m"] == 0.5 and near[("Backend", "Data")]["shared_skills"] == 1
-    assert near[("Backend", "Frontend")]["m"] == 0 and near[("Backend", "Data")]["method"] == "computed"
 
 
 def major_row(en, vi, group="it", aliases=""):

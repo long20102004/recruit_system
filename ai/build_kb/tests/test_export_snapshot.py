@@ -37,7 +37,8 @@ def data(**over):
         "levels": [{"key": "senior", "name": "Senior", "rank": 4, "aliases": ["sr", "senior"], "status": "candidate"}],
         "majors": [{"key": "se", "name": "Software Engineering", "group": "it", "aliases": ["kỹ thuật phần mềm"],
                     "status": "candidate"}],
-        "near": [{"a": "Backend", "b": "Fullstack", "m": 0.038, "method": "computed", "status": "candidate"}],
+        "near": [{"a": "Backend", "b": "Fullstack", "m": 0.038, "method": "computed", "status": "candidate"},
+                 {"a": "Backend", "b": "Fullstack", "m": 0.8, "method": "hypothesis", "status": "candidate"}],
     }
     base.update(over)
     return base
@@ -94,3 +95,17 @@ def test_blocking_alias_conflict_and_cycle():
     _, rep = build_snapshot(d, ids_for(d))
     assert "postgres" in rep["blocking"]["alias_conflicts"]
     assert rep["blocking"]["parent_cycles"]
+
+
+def test_kb3_hypothesis_and_ambiguous_name():
+    d = data()
+    d["skills"].append({"key": "cat", "name": "cat", "type": "technology", "aliases": [],
+                        "ambiguous_aliases": ["cat"], "status": "candidate", "n_evidence": 1})
+    d["near"].append({"a": "Game", "b": "Mobile", "m": 0.3, "method": "hypothesis", "status": "candidate"})
+    ids = ids_for(d)
+    rows, _ = build_snapshot(d, ids)
+    sk = {r["name"]: r for r in rows["skill_ontology"]}
+    assert sk["cat"]["aliases"] == ["cat"]                                    # chỉ khớp khi là nguyên phần tử
+    assert {r["alias"]: r["candidates"] for r in rows["ambiguous_aliases"]}["cat"] == [ids["cat"]]
+    hyp = {(r["group_a"], r["group_b"]): r["m"] for r in rows["role_distance"] if r["method"] == "hypothesis"}
+    assert hyp[("Game", "Mobile")] == 0.3 and hyp[("Backend", "Fullstack")] == 0.8

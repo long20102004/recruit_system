@@ -1469,3 +1469,336 @@ zero trust architecture,S1467
 zero trust concepts,S1468
 zero trust core concepts,S1469
 zombie.js,S1470
+.net core,S1471
+.net maui,S1472
+3ds max,S1473
+active directory,S1474
+adaptability,S1475
+adobe after effects,S1476
+adobe illustrator,S1477
+adobe photoshop,S1478
+adobe premiere pro,S1479
+agile,S1480
+airbyte,S1481
+android sdk,S1482
+angularjs,S1483
+ant design,S1484
+apache nifi,S1485
+apex,S1486
+appsheet,S1487
+arduino,S1488
+arm cortex-m,S1489
+asana,S1490
+asp.net core,S1491
+asp.net mvc,S1492
+attention to detail,S1493
+autodesk maya,S1494
+autogen,S1495
+automation anywhere,S1496
+autosar,S1497
+avr,S1498
+aws certified cloud practitioner,S1499
+aws certified developer,S1500
+aws certified solutions architect,S1501
+azure certifications,S1502
+azure machine learning,S1503
+azure synapse analytics,S1504
+backlog,S1505
+bdd,S1506
+blazor,S1507
+blender,S1508
+bloc,S1509
+blockchain,S1510
+blue prism,S1511
+bluetooth low energy,S1512
+bootstrap,S1513
+business analysis,S1514
+c,S1515
+can bus,S1516
+canva,S1517
+catboost,S1518
+ccna,S1519
+ccnp,S1520
+ceh,S1521
+celery,S1522
+chakra ui,S1523
+chinese,S1524
+cinema 4d,S1525
+cisco ios,S1526
+cka,S1527
+clean code,S1528
+clickhouse,S1529
+clickup,S1530
+coap,S1531
+cocoapods,S1532
+cocos creator,S1533
+code review,S1534
+codeigniter,S1535
+composer,S1536
+computer vision,S1537
+confluence,S1538
+core data,S1539
+coreldraw,S1540
+crewai,S1541
+critical thinking,S1542
+cucumber,S1543
+cuda,S1544
+d3.js,S1545
+dagster,S1546
+dart,S1547
+data modeling,S1548
+database design,S1549
+databricks,S1550
+dax,S1551
+design system,S1552
+django,S1553
+docker compose,S1554
+drupal,S1555
+dvc,S1556
+echo,S1557
+embedded c,S1558
+embedded linux,S1559
+embedded systems,S1560
+english,S1561
+entity framework,S1562
+esp32,S1563
+ethereum,S1564
+ethers.js,S1565
+exchange server,S1566
+expo,S1567
+express,S1568
+fastapi,S1569
+fastify,S1570
+fiber,S1571
+figma prototyping,S1572
+firmware development,S1573
+fivetran,S1574
+flask,S1575
+fortinet fortigate,S1576
+foundry,S1577
+fpga,S1578
+framer,S1579
+freertos,S1580
+game design,S1581
+generative ai,S1582
+getx,S1583
+gin,S1584
+google cloud certifications,S1585
+google colab,S1586
+google sheets,S1587
+gorm,S1588
+gradle,S1589
+gulp,S1590
+hardhat,S1591
+hardware troubleshooting,S1592
+haystack,S1593
+helm,S1594
+help desk support,S1595
+hibernate,S1596
+hive,S1597
+hubspot,S1598
+hyper-v,S1599
+hyperledger fabric,S1600
+i2c,S1601
+ielts,S1602
+informatica,S1603
+insomnia,S1604
+invision,S1605
+ios,S1606
+istqb,S1607
+itil service management,S1608
+jakarta ee,S1609
+japanese,S1610
+jax,S1611
+jira,S1612
+jlpt,S1613
+jpa,S1614
+jquery,S1615
+jupyter notebook,S1616
+kafka streams,S1617
+katalon studio,S1618
+keras,S1619
+koa,S1620
+korean,S1621
+kotlin multiplatform,S1622
+ktor,S1623
+kubeflow,S1624
+kustomize,S1625
+langgraph,S1626
+laravel,S1627
+leadership,S1628
+lightgbm,S1629
+linq,S1630
+logstash,S1631
+lorawan,S1632
+machine learning,S1633
+magento,S1634
+material ui,S1635
+maven,S1636
+mediapipe,S1637
+mendix,S1638
+mentoring,S1639
+metasploit,S1640
+microcontroller programming,S1641
+micronaut,S1642
+microsoft 365,S1643
+microsoft dynamics 365,S1644
+microsoft excel,S1645
+microsoft project,S1646
+mlflow,S1647
+mobx,S1648
+mocha,S1649
+mockito,S1650
+modbus,S1651
+mongoose,S1652
+mqtt,S1653
+multiplayer networking,S1654
+multithreading,S1655
+mybatis,S1656
+nagios,S1657
+negotiation,S1658
+nestjs,S1659
+network administration,S1660
+ngrx,S1661
+nltk,S1662
+nomad,S1663
+nosql,S1664
+notion,S1665
+numpy,S1666
+nunit,S1667
+objective-c,S1668
+odoo,S1669
+onnx,S1670
+opencv,S1671
+openshift,S1672
+oracle java certification,S1673
+oscp,S1674
+outsystems,S1675
+owasp zap,S1676
+pcb design,S1677
+penetration testing,S1678
+pfsense,S1679
+phaser,S1680
+phpunit,S1681
+pic microcontroller,S1682
+pinia,S1683
+pl/sql,S1684
+plc,S1685
+plotly,S1686
+pmp,S1687
+podman,S1688
+power apps,S1689
+power automate,S1690
+power query,S1691
+prefect,S1692
+presales,S1693
+presentation skills,S1694
+presto,S1695
+prisma,S1696
+problem solving,S1697
+process modeling,S1698
+product backlog management,S1699
+product roadmap,S1700
+project management,S1701
+pyspark,S1702
+pytest,S1703
+quarkus,S1704
+raspberry pi,S1705
+react testing library,S1706
+real-time operating systems,S1707
+redmine,S1708
+redux,S1709
+remix,S1710
+requirements documentation,S1711
+retool,S1712
+retrofit,S1713
+risk management,S1714
+robot framework,S1715
+ros,S1716
+ruby on rails,S1717
+rxjs,S1718
+sap abap,S1719
+sap s/4hana,S1720
+scikit-learn,S1721
+scipy,S1722
+scrum certifications,S1723
+self-learning,S1724
+semantic kernel,S1725
+sequelize,S1726
+servlet/jsp,S1727
+shadcn/ui,S1728
+shopify,S1729
+smart contracts,S1730
+snyk,S1731
+soc operations,S1732
+socket.io,S1733
+solana,S1734
+solidity,S1735
+sonarqube,S1736
+spacy,S1737
+spark sql,S1738
+spi,S1739
+spring boot,S1740
+spring cloud,S1741
+spring data jpa,S1742
+spring framework,S1743
+spring mvc,S1744
+spring security,S1745
+sqlalchemy,S1746
+ssis,S1747
+ssrs,S1748
+stakeholder management,S1749
+stm32,S1750
+stored procedures,S1751
+storybook,S1752
+strapi,S1753
+substance painter,S1754
+swift,S1755
+swiftui,S1756
+symfony,S1757
+system design,S1758
+t-sql,S1759
+talend,S1760
+teamwork,S1761
+testcafe,S1762
+testng,S1763
+threadx,S1764
+three.js,S1765
+time management,S1766
+toefl,S1767
+toeic,S1768
+trivy,S1769
+truffle,S1770
+typeorm,S1771
+typography,S1772
+uart,S1773
+ui design,S1774
+uikit,S1775
+uipath,S1776
+use case,S1777
+ux research,S1778
+vba,S1779
+vertex ai,S1780
+vllm,S1781
+vuex,S1782
+vxworks,S1783
+web3.js,S1784
+weights & biases,S1785
+windows server,S1786
+winforms,S1787
+wireframing,S1788
+woocommerce,S1789
+wordpress,S1790
+working under pressure,S1791
+wpf,S1792
+xamarin,S1793
+xcode,S1794
+xgboost,S1795
+xray,S1796
+xunit,S1797
+yii,S1798
+yolo,S1799
+zbrush,S1800
+zephyr rtos,S1801
+zigbee,S1802
+zustand,S1803

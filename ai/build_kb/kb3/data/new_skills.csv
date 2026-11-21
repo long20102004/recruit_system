@@ -1,0 +1,334 @@
+name,type,aliases,ambiguous_aliases,categories,parents,role_groups
+Spring Framework,technology,spring framework|spring core|spring ioc,spring,Java Frameworks,java,Backend
+Spring Boot,technology,springboot|spring-boot|spring boot framework,,Java Frameworks,spring framework,Backend
+Spring MVC,technology,spring web mvc|spring-mvc,,Java Frameworks,spring framework,Backend
+Spring Security,technology,spring-security,,,spring framework,Backend
+Spring Cloud,technology,spring-cloud,,,spring framework,Backend
+Spring Data JPA,technology,spring data|spring-data-jpa,,ORM Frameworks,spring framework,Backend
+Hibernate,technology,hibernate orm,,ORM Frameworks,java,Backend
+JPA,technology,java persistence api|jakarta persistence,,ORM Frameworks,java,Backend
+MyBatis,technology,ibatis,,ORM Frameworks,java,Backend
+Quarkus,technology,,,Java Frameworks,java,Backend
+Micronaut,technology,,,Java Frameworks,java,Backend
+Jakarta EE,technology,java ee|j2ee|jee|java enterprise edition,,Java Frameworks,java,Backend
+Servlet/JSP,technology,servlet|jsp|java servlet|java server pages,,,java,Backend
+Maven,technology,apache maven,,Build Tools,java,Backend
+Gradle,technology,,,Build Tools,java,Backend|Mobile
+Mockito,technology,,,,java,Backend|QA
+Django,technology,django framework|django rest framework|drf,,Python Web Frameworks,python,Backend
+Flask,technology,python flask,,Python Web Frameworks,python,Backend
+FastAPI,technology,fast api,,Python Web Frameworks,python,Backend|AI/ML
+SQLAlchemy,technology,sql alchemy,,ORM Frameworks,python,Backend|Data
+Celery,technology,,,,python,Backend
+NumPy,technology,numpy array,,,python,Data|AI/ML
+SciPy,technology,,,,python,Data|AI/ML
+scikit-learn,technology,sklearn|scikit learn|scikitlearn,,ML Frameworks,python,AI/ML|Data
+Jupyter Notebook,technology,jupyter|jupyterlab|jupyter lab|ipython notebook,,Notebook Environments,python,Data|AI/ML
+Google Colab,technology,colab|colaboratory,,Notebook Environments,,Data|AI/ML
+Plotly,technology,plotly express,,,,Data
+pytest,technology,py.test,,Unit Testing Frameworks,python,QA|Backend
+Laravel,technology,laravel framework,,PHP Frameworks,php,Backend
+Symfony,technology,,,PHP Frameworks,php,Backend
+CodeIgniter,technology,codeigniter framework|ci framework,,PHP Frameworks,php,Backend
+Yii,technology,yii2|yii framework,,PHP Frameworks,php,Backend
+Composer,technology,php composer,,Package Managers,php,Backend
+PHPUnit,technology,php unit,,Unit Testing Frameworks,php,QA|Backend
+WordPress,technology,wordpress cms|wp,,CMS Platforms,php,Fullstack|Backend
+Drupal,technology,,,CMS Platforms,php,Backend
+Magento,technology,adobe commerce|magento 2,,E-commerce Platforms,php,Backend
+WooCommerce,technology,woo commerce,,E-commerce Platforms,wordpress,Backend
+Shopify,technology,shopify liquid|liquid,,E-commerce Platforms,,Fullstack
+Strapi,technology,strapi cms,,CMS Platforms,node.js,Backend
+Express,technology,express.js|expressjs|express js,,Node.js Frameworks,node.js,Backend
+NestJS,technology,nest.js|nest js|nestjs framework,,Node.js Frameworks,node.js|typescript,Backend
+Fastify,technology,,,Node.js Frameworks,node.js,Backend
+Koa,technology,koa.js|koajs,,Node.js Frameworks,node.js,Backend
+Socket.IO,technology,socketio|socket io,,,node.js,Backend|Fullstack
+Sequelize,technology,,,ORM Frameworks,node.js,Backend
+TypeORM,technology,type orm,,ORM Frameworks,typescript,Backend
+Prisma,technology,prisma orm,,ORM Frameworks,node.js,Backend|Fullstack
+Mongoose,technology,mongoosejs,,ORM Frameworks,node.js,Backend
+Mocha,technology,mocha.js|mochajs,,Unit Testing Frameworks,javascript,QA|Frontend
+jQuery,technology,jquery ui|jquery.js,,,javascript,Frontend
+RxJS,technology,reactivex js,,,javascript,Frontend
+Redux,technology,redux toolkit|rtk|redux-saga|redux saga|redux thunk,,State Management Libraries,react,Frontend
+MobX,technology,,,State Management Libraries,react,Frontend
+Zustand,technology,,,State Management Libraries,react,Frontend
+Vuex,technology,,,State Management Libraries,vue.js,Frontend
+Pinia,technology,,,State Management Libraries,vue.js,Frontend
+NgRx,technology,ngrx store,,State Management Libraries,angular,Frontend
+AngularJS,technology,angular.js|angular 1,,Frontend Frameworks,javascript,Frontend
+Bootstrap,technology,bootstrap css|bootstrap 5|twitter bootstrap,,CSS Frameworks,css,Frontend
+Material UI,technology,mui|material-ui,,CSS Frameworks,react,Frontend
+Ant Design,technology,antd|ant-design,,CSS Frameworks,react,Frontend
+Chakra UI,technology,chakra-ui,,CSS Frameworks,react,Frontend
+shadcn/ui,technology,shadcn|shadcn ui,,CSS Frameworks,react,Frontend
+Storybook,technology,storybook.js,,,javascript,Frontend
+Three.js,technology,threejs|three js,,,javascript,Frontend|Game
+D3.js,technology,d3|d3js,,,javascript,Frontend|Data
+Gulp,technology,gulp.js|gulpjs,,Module Bundlers,javascript,Frontend
+Remix,technology,remix run|remix.run,,Frontend Frameworks,react,Frontend
+React Testing Library,technology,testing library|@testing-library/react|rtl testing,,Unit Testing Frameworks,react,Frontend|QA
+.NET Core,technology,.net 5|.net 6|.net 7|.net 8|dotnet core|.netcore|net core|.net core framework,,,c#,Backend
+ASP.NET Core,technology,asp.net core mvc|asp.net core web api|aspnet core|asp .net core,,.NET Web Frameworks,.net core,Backend
+ASP.NET MVC,technology,asp.net|aspnet|asp.net web api|asp .net,,.NET Web Frameworks,.net framework,Backend
+Entity Framework,technology,entity framework core|ef core|efcore|ado.net entity framework,,ORM Frameworks,c#,Backend
+LINQ,technology,language integrated query,,,c#,Backend
+Blazor,technology,blazor webassembly|blazor server,,Frontend Frameworks,c#,Frontend|Fullstack
+WPF,technology,windows presentation foundation,,.NET Desktop Frameworks,c#,Backend
+WinForms,technology,windows forms|winform,,.NET Desktop Frameworks,c#,Backend
+Xamarin,technology,xamarin.forms|xamarin forms,,Cross-Platform Mobile Frameworks,c#,Mobile
+.NET MAUI,technology,maui|dotnet maui,,Cross-Platform Mobile Frameworks,c#,Mobile
+NUnit,technology,,,Unit Testing Frameworks,c#,QA|Backend
+xUnit,technology,xunit.net,,Unit Testing Frameworks,c#,QA|Backend
+Gin,technology,gin gonic|gin-gonic|gin framework,,Go Web Frameworks,go,Backend
+Echo,technology,echo framework|labstack echo,echo,Go Web Frameworks,go,Backend
+Fiber,technology,gofiber|fiber framework,fiber,Go Web Frameworks,go,Backend
+GORM,technology,go orm,,ORM Frameworks,go,Backend
+Ruby on Rails,technology,rails|ror|ruby-on-rails,,,ruby,Backend
+Ktor,technology,,,,kotlin,Backend|Mobile
+Kotlin Multiplatform,technology,kmp|kmm|kotlin multiplatform mobile,,Cross-Platform Mobile Frameworks,kotlin,Mobile
+Retrofit,technology,retrofit2,,,kotlin,Mobile
+Android SDK,technology,android|android development|android studio|lập trình android,,,java|kotlin,Mobile
+Swift,technology,swift 5|swift language|swiftlang,,Programming Languages,,Mobile
+Objective-C,technology,objective c|objc|obj-c,,Programming Languages,,Mobile
+SwiftUI,technology,swift ui,,iOS UI Frameworks,swift,Mobile
+UIKit,technology,ui kit,,iOS UI Frameworks,swift,Mobile
+Xcode,technology,,,,swift,Mobile
+CocoaPods,technology,cocoapod,,Package Managers,swift,Mobile
+Core Data,technology,coredata,,,swift,Mobile
+iOS,technology,ios development|lập trình ios,,,swift,Mobile
+Dart,technology,dart language|dartlang,,Programming Languages,,Mobile
+GetX,technology,get x,,State Management Libraries,flutter,Mobile
+Bloc,technology,flutter bloc|bloc pattern,,State Management Libraries,flutter,Mobile
+Expo,technology,expo go,,,react native,Mobile
+NoSQL,concept,nosql database|cơ sở dữ liệu nosql|non-relational database,,,,Backend|Data
+PL/SQL,technology,plsql|pl sql,,,oracle,Backend|Data
+T-SQL,technology,tsql|transact-sql,,,sql server,Backend|Data
+Stored Procedures,concept,stored procedure|thủ tục lưu trữ|store procedure,,,,Backend|Data
+Database Design,concept,thiết kế cơ sở dữ liệu|thiết kế csdl|erd,,,,Backend|Data
+Microsoft Excel,technology,excel|ms excel|advanced excel|excel nâng cao,,Spreadsheet Tools,,Data|Business
+Google Sheets,technology,google sheet|gsheet,,Spreadsheet Tools,,Data|Business
+VBA,technology,excel vba|visual basic for applications|macro excel,,,microsoft excel,Data|Business
+DAX,technology,data analysis expressions,,,microsoft power bi,Data
+Power Query,technology,m language,,,microsoft power bi,Data
+SSIS,technology,sql server integration services,,ETL Tools,sql server,Data
+SSRS,technology,sql server reporting services,,BI Tools,sql server,Data
+Talend,technology,,,ETL Tools,,Data
+Informatica,technology,informatica powercenter,,ETL Tools,,Data
+Apache NiFi,technology,nifi,,ETL Tools,,Data
+Airbyte,technology,,,ETL Tools,,Data
+Fivetran,technology,,,ETL Tools,,Data
+Prefect,technology,prefect.io,,Data Pipeline Tools,python,Data
+Dagster,technology,,,Data Pipeline Tools,python,Data
+PySpark,technology,spark python,,Data Processing Frameworks,spark,Data
+Spark SQL,technology,sparksql,,,spark,Data
+Kafka Streams,technology,kstreams,,,kafka,Data|Backend
+Logstash,technology,,,,elastic stack,DevOps|Data
+Databricks,technology,azure databricks|databricks lakehouse,,Data Warehouses,spark,Data
+Azure Synapse Analytics,technology,azure synapse|synapse analytics,,Data Warehouses,azure,Data
+Hive,technology,apache hive|hiveql,,,hadoop,Data
+Presto,technology,prestodb|trino,,,,Data
+ClickHouse,technology,click house,,Column DBs,,Data|Backend
+Data Modeling,concept,dimensional modeling|star schema|snowflake schema|mô hình dữ liệu,,,,Data
+Machine Learning,concept,học máy|máy học|machine learning algorithms,ml,,,AI/ML|Data
+Computer Vision,concept,thị giác máy tính|xử lý ảnh|image processing|xử lý hình ảnh,,,,AI/ML
+Keras,technology,tf.keras,,ML Frameworks,tensorflow,AI/ML
+JAX,technology,google jax,,ML Frameworks,python,AI/ML
+XGBoost,technology,xgb,,Gradient Boosting Libraries,python,AI/ML|Data
+LightGBM,technology,lgbm|light gbm,,Gradient Boosting Libraries,python,AI/ML|Data
+CatBoost,technology,,,Gradient Boosting Libraries,python,AI/ML|Data
+OpenCV,technology,open cv|opencv-python|cv2,,Computer Vision Libraries,,AI/ML
+YOLO,technology,yolov5|yolov8|yolov11|ultralytics yolo|you only look once,,Computer Vision Libraries,pytorch,AI/ML
+MediaPipe,technology,media pipe,,Computer Vision Libraries,,AI/ML
+spaCy,technology,spacy nlp,,NLP Libraries,python,AI/ML
+NLTK,technology,natural language toolkit,,NLP Libraries,python,AI/ML
+LangGraph,technology,lang graph,,LLM Frameworks,langchain,AI/ML
+Semantic Kernel,technology,microsoft semantic kernel,,LLM Frameworks,,AI/ML
+Haystack,technology,deepset haystack,,LLM Frameworks,python,AI/ML
+CrewAI,technology,crew ai,,LLM Frameworks,python,AI/ML
+AutoGen,technology,microsoft autogen,,LLM Frameworks,python,AI/ML
+vLLM,technology,,,,python,AI/ML
+MLflow,technology,ml flow,,MLOps Platforms,,AI/ML
+Kubeflow,technology,kube flow,,MLOps Platforms,kubernetes,AI/ML
+Weights & Biases,technology,wandb|w&b|weights and biases,,MLOps Platforms,,AI/ML
+DVC,technology,data version control,,MLOps Platforms,git,AI/ML
+Vertex AI,technology,google vertex ai,,MLOps Platforms,google cloud,AI/ML
+Azure Machine Learning,technology,azure ml|azureml,,MLOps Platforms,azure,AI/ML
+ONNX,technology,onnx runtime,,,,AI/ML
+CUDA,technology,nvidia cuda|cuda programming,,,c++,AI/ML|Game
+Generative AI,concept,genai|gen ai|ai tạo sinh|trí tuệ nhân tạo tạo sinh,,,,AI/ML
+Docker Compose,technology,docker-compose,,,docker,DevOps|Backend
+Helm,technology,helm chart|helm charts|kubernetes helm,,,kubernetes,DevOps
+OpenShift,technology,red hat openshift,,Container Orchestration,kubernetes,DevOps
+Nomad,technology,hashicorp nomad,,Container Orchestration,,DevOps
+Kustomize,technology,,,,kubernetes,DevOps
+Podman,technology,,,Containers,,DevOps
+Nagios,technology,,,Monitoring Tools,,DevOps|IT Support
+Windows Server,technology,windows server 2019|windows server 2022|window server,,Operating Systems,windows,IT Support|DevOps
+Active Directory,technology,microsoft active directory|ad ds|azure ad|entra id|microsoft entra id,ad,,windows server,IT Support|Security
+Microsoft 365,technology,office 365|o365|m365,,,office,IT Support|Business
+Exchange Server,technology,microsoft exchange,,,windows server,IT Support
+Hyper-V,technology,microsoft hyper-v|hyperv,,Common Virtualization Technologies,windows server,IT Support|DevOps
+Cisco IOS,technology,cisco ios xe|cisco router,,,,IT Support
+Fortinet FortiGate,technology,fortigate|fortinet,,,,Security|IT Support
+pfSense,technology,pf sense,,,,IT Support|Security
+Penetration Testing,concept,kiểm thử xâm nhập|pentest|pentesting|pen testing|penetration test,,,,Security
+SOC Operations,concept,soc|security operations center|trung tâm điều hành an ninh mạng|soc analyst,,,,Security
+Metasploit,technology,metasploit framework|msfconsole,,,,Security
+OWASP ZAP,technology,zap proxy|zaproxy,,,,Security|QA
+SonarQube,technology,sonar qube|sonarcloud,,,,DevOps|Security|QA
+Snyk,technology,,,,,Security|DevOps
+Trivy,technology,,,,,Security|DevOps
+Katalon Studio,technology,katalon,,E2E Testing Tools,,QA
+TestCafe,technology,test cafe,,E2E Testing Tools,javascript,QA
+Robot Framework,technology,robotframework,,E2E Testing Tools,python,QA
+Cucumber,technology,cucumber bdd|gherkin,,,,QA
+BDD,concept,behavior driven development|behaviour driven development,,,,QA
+TestNG,technology,test ng,,Unit Testing Frameworks,java,QA
+Insomnia,technology,insomnia rest client,,API Testing Tools,,QA|Backend
+Xray,technology,xray test management,,Test Management Tools,jira,QA
+Jira,technology,jira software|atlassian jira,,Project Management Tools,,Business|QA
+Confluence,technology,atlassian confluence,,Documentation Tools,,Business
+Notion,technology,,,Documentation Tools,,Business
+Asana,technology,,,Project Management Tools,,Business
+ClickUp,technology,click up,,Project Management Tools,,Business
+Redmine,technology,,,Project Management Tools,,Business|QA
+Microsoft Project,technology,ms project|ms-project,,Project Management Tools,,Business
+Backlog,technology,nulab backlog,backlog,Project Management Tools,,Business
+Agile,concept,agile methodology|phương pháp agile|agile/scrum|agile scrum|agile software development,,Agile Methodologies,,Business|QA
+Business Analysis,concept,phân tích nghiệp vụ|business analysis techniques,,Business Analysis Techniques,,Business
+Requirements Documentation,concept,srs|brd|frd|tài liệu đặc tả yêu cầu|đặc tả yêu cầu phần mềm|software requirements specification,,Business Analysis Techniques,,Business
+Use Case,concept,use case diagram|use cases|biểu đồ use case,,Business Analysis Techniques,,Business
+Process Modeling,concept,mô hình hóa quy trình|process mapping|business process modeling,,Business Analysis Techniques,,Business
+Product Roadmap,concept,lộ trình sản phẩm|product roadmapping,,Product Management Practices,,Business
+Product Backlog Management,concept,quản lý backlog|backlog grooming|backlog refinement,,Product Management Practices,,Business
+Project Management,concept,quản lý dự án|quản trị dự án,,,,Business
+Risk Management,concept,quản lý rủi ro|quản trị rủi ro,,,,Business|Security
+Stakeholder Management,concept,quản lý các bên liên quan|stakeholder communication,,,,Business
+Presales,concept,pre-sales|tư vấn giải pháp|solution consulting,,,,Business
+ITIL Service Management,concept,itsm|it service management|quản lý dịch vụ cntt,,IT Service Management,,IT Support
+Help Desk Support,concept,hỗ trợ người dùng|hỗ trợ kỹ thuật|technical support|end-user support|desktop support,,IT Service Management,,IT Support
+Hardware Troubleshooting,concept,sửa chữa máy tính|lắp ráp máy tính|bảo trì phần cứng|pc hardware,,,,IT Support
+Network Administration,concept,quản trị mạng|network admin|quản trị hệ thống mạng,,,,IT Support|DevOps
+Figma Prototyping,concept,prototype figma|figma prototype,,,,Design
+Adobe Photoshop,technology,photoshop|ps,,Graphic Design Tools,,Design
+Adobe Illustrator,technology,illustrator|ai illustrator,,Graphic Design Tools,,Design
+Adobe After Effects,technology,after effects|ae,,Motion Design Tools,,Design
+Adobe Premiere Pro,technology,premiere|premiere pro,,Motion Design Tools,,Design
+CorelDRAW,technology,corel draw|corel,,Graphic Design Tools,,Design
+Canva,technology,,,Graphic Design Tools,,Design|Business
+InVision,technology,invision app,,Wireframing,,Design
+Framer,technology,framer motion,,Wireframing,,Design
+Blender,technology,blender 3d,,3D Modeling Tools,,Game|Design
+Autodesk Maya,technology,maya,,3D Modeling Tools,,Game|Design
+3ds Max,technology,3dsmax|autodesk 3ds max,,3D Modeling Tools,,Game|Design
+ZBrush,technology,z brush,,3D Modeling Tools,,Game|Design
+Substance Painter,technology,adobe substance|substance 3d painter,,3D Modeling Tools,,Game|Design
+Cinema 4D,technology,c4d,,Motion Design Tools,,Design
+UI Design,concept,thiết kế giao diện|giao diện người dùng|user interface design|ui,,,,Design|Frontend
+UX Research,concept,nghiên cứu người dùng|user research|usability testing|kiểm thử khả dụng,,,,Design
+Design System,concept,hệ thống thiết kế|design systems|design tokens,,,,Design|Frontend
+Typography,concept,kiểu chữ,,,,Design
+Cocos Creator,technology,cocos2d-x|cocos2d|cocos,,Game Engine,,Game
+Phaser,technology,phaser.js|phaserjs,,Game Engine,javascript,Game
+Game Design,concept,thiết kế game|game mechanics|level design|game balancing,,,,Game
+Multiplayer Networking,concept,game networking|netcode|photon|mirror networking,,,,Game
+Embedded C,technology,c embedded|lập trình nhúng c,,,c/c++,Embedded
+Embedded Linux,technology,linux nhúng|yocto|buildroot,,,linux,Embedded
+Embedded Systems,concept,hệ thống nhúng|lập trình nhúng|embedded programming|embedded software,,,,Embedded
+Firmware Development,concept,firmware|phát triển firmware|lập trình firmware,,,,Embedded
+FreeRTOS,technology,free rtos,,RTOS,,Embedded
+Zephyr RTOS,technology,zephyr os|zephyr project,,RTOS,,Embedded
+VxWorks,technology,vx works,,RTOS,,Embedded
+ThreadX,technology,azure rtos|eclipse threadx,,RTOS,,Embedded
+STM32,technology,stm32 mcu|stm32cube|stm32cubeide,,Microcontrollers,,Embedded
+Arduino,technology,arduino uno|arduino ide,,Microcontrollers,,Embedded
+ESP32,technology,esp8266|esp-idf|espressif,,Microcontrollers,,Embedded
+PIC Microcontroller,technology,pic mcu|pic16|pic18|microchip pic,,Microcontrollers,,Embedded
+AVR,technology,atmega|avr microcontroller,,Microcontrollers,,Embedded
+ARM Cortex-M,technology,arm cortex|cortex-m|arm mcu|arm microcontroller,arm,Microcontrollers,,Embedded
+Raspberry Pi,technology,raspberrypi|rpi,,,,Embedded
+Microcontroller Programming,concept,vi điều khiển|lập trình vi điều khiển|microcontroller|mcu programming,mcu,,,Embedded
+UART,concept,usart|serial communication|giao tiếp nối tiếp,,Embedded Communication Protocols,,Embedded
+SPI,concept,serial peripheral interface,,Embedded Communication Protocols,,Embedded
+I2C,concept,i²c|iic|inter-integrated circuit,,Embedded Communication Protocols,,Embedded
+CAN Bus,concept,can protocol|controller area network|canbus,,Embedded Communication Protocols,,Embedded
+Modbus,concept,modbus rtu|modbus tcp,,Embedded Communication Protocols,,Embedded
+AUTOSAR,technology,autosar classic|autosar adaptive,,,,Embedded
+PCB Design,concept,thiết kế mạch in|thiết kế pcb|altium|altium designer|kicad|orcad,,,,Embedded
+FPGA,technology,verilog|vhdl|fpga programming,,,,Embedded
+PLC,technology,plc programming|lập trình plc|siemens plc|tia portal,,,,Embedded
+ROS,technology,robot operating system|ros2|ros 2,,,,Embedded|AI/ML
+MQTT,concept,mqtt protocol|mosquitto,,IoT Protocols,,Embedded|Backend
+CoAP,concept,constrained application protocol,,IoT Protocols,,Embedded
+Zigbee,concept,,,IoT Protocols,,Embedded
+LoRaWAN,concept,lora|lora wan,,IoT Protocols,,Embedded
+Bluetooth Low Energy,technology,ble|bluetooth le,,IoT Protocols,bluetooth,Embedded|Mobile
+Blockchain,concept,công nghệ chuỗi khối|blockchain technology|distributed ledger,,,,Backend
+Ethereum,technology,eth|evm|ethereum virtual machine,,Blockchain Platforms,,Backend
+Solana,technology,,,Blockchain Platforms,,Backend
+Hyperledger Fabric,technology,hyperledger,,Blockchain Platforms,,Backend
+Solidity,technology,solidity language,,Programming Languages,ethereum,Backend
+Smart Contracts,concept,smart contract|hợp đồng thông minh,,,,Backend
+Hardhat,technology,,,Smart Contract Frameworks,ethereum,Backend
+Truffle,technology,truffle suite,,Smart Contract Frameworks,ethereum,Backend
+Foundry,technology,forge,,Smart Contract Frameworks,ethereum,Backend
+Web3.js,technology,web3js|web3,,Web3 Libraries,javascript,Backend|Frontend
+Ethers.js,technology,ethersjs|ethers,,Web3 Libraries,javascript,Backend|Frontend
+SAP ABAP,technology,abap|sap abap developer,,,sap,Backend
+SAP S/4HANA,technology,s/4hana|sap hana|s4hana|sap erp,,ERP Systems,sap,Business
+Odoo,technology,openerp,,ERP Systems,python,Backend|Business
+Microsoft Dynamics 365,technology,dynamics 365|dynamics crm|dynamics ax|d365,,ERP Systems,,Business|Backend
+Apex,technology,salesforce apex,,,salesforce,Backend
+HubSpot,technology,hubspot crm,,CRM Platforms,,Business
+UiPath,technology,ui path,,RPA Tools,,Backend
+Automation Anywhere,technology,,,RPA Tools,,Backend
+Blue Prism,technology,blueprism,,RPA Tools,,Backend
+Power Automate,technology,microsoft power automate|microsoft flow,,RPA Tools,,Backend|Business
+Power Apps,technology,microsoft power apps|powerapps,,Low-Code Platforms,,Fullstack
+OutSystems,technology,out systems,,Low-Code Platforms,,Fullstack
+Mendix,technology,,,Low-Code Platforms,,Fullstack
+AppSheet,technology,google appsheet,,Low-Code Platforms,,Fullstack
+Retool,technology,,,Low-Code Platforms,,Fullstack
+Multithreading,concept,lập trình đa luồng|đa luồng|multi-threading|concurrency|concurrent programming|lập trình song song,,,,Backend
+Clean Code,concept,code sạch|clean architecture|kiến trúc sạch,,,,Backend|Frontend
+Code Review,concept,review code|đánh giá mã nguồn,,,,Backend|Frontend|QA
+System Design,concept,thiết kế hệ thống|system architecture|kiến trúc hệ thống,,,,Backend
+English,concept,tiếng anh|english communication|giao tiếp tiếng anh|english proficiency|tiếng anh giao tiếp|đọc hiểu tài liệu tiếng anh,,Foreign Languages,,
+Japanese,concept,tiếng nhật|japanese language|nihongo,,Foreign Languages,,
+Korean,concept,tiếng hàn|korean language,,Foreign Languages,,
+Chinese,concept,tiếng trung|chinese language|mandarin,,Foreign Languages,,
+TOEIC,concept,toeic certificate|chứng chỉ toeic,,English Certificates,,
+IELTS,concept,ielts certificate|chứng chỉ ielts,,English Certificates,,
+TOEFL,concept,toefl ibt,,English Certificates,,
+JLPT,concept,jlpt n1|jlpt n2|jlpt n3|jlpt n4|jlpt n5|năng lực tiếng nhật,n1|n2|n3|n4|n5,,,
+AWS Certified Solutions Architect,concept,aws solutions architect|aws saa|aws certified solutions architect associate|aws sap,,Cloud Certifications,,DevOps
+AWS Certified Developer,concept,aws developer associate|aws dva,,Cloud Certifications,,DevOps|Backend
+AWS Certified Cloud Practitioner,concept,aws ccp|aws cloud practitioner,,Cloud Certifications,,DevOps
+Azure Certifications,concept,az-900|az-104|az-204|az-305|azure fundamentals|azure administrator,,Cloud Certifications,,DevOps
+Google Cloud Certifications,concept,gcp ace|google cloud professional cloud architect|google associate cloud engineer,,Cloud Certifications,,DevOps
+CKA,concept,certified kubernetes administrator|ckad|certified kubernetes application developer|cks,,Cloud Certifications,,DevOps
+ISTQB,concept,istqb foundation|istqb ctfl|chứng chỉ istqb,,IT Certifications,,QA
+CCNA,concept,cisco ccna|ccna certificate,,IT Certifications,,IT Support
+CCNP,concept,cisco ccnp,,IT Certifications,,IT Support
+PMP,concept,project management professional|chứng chỉ pmp,,IT Certifications,,Business
+Scrum Certifications,concept,psm|psm i|csm|certified scrum master|professional scrum master|pspo,,IT Certifications,,Business
+Oracle Java Certification,concept,ocpjp|oca java|ocp java|oracle certified professional java,,IT Certifications,,Backend
+CEH,concept,certified ethical hacker,,IT Certifications,,Security
+OSCP,concept,offensive security certified professional,,IT Certifications,,Security
+Teamwork,concept,làm việc nhóm|kỹ năng làm việc nhóm|team work|team player|teamwork skills,,Soft Skills,,
+Problem Solving,concept,giải quyết vấn đề|kỹ năng giải quyết vấn đề|problem-solving,,Soft Skills,,
+Critical Thinking,concept,tư duy phản biện|tư duy logic|logical thinking|analytical thinking|tư duy phân tích,,Soft Skills,,
+Time Management,concept,quản lý thời gian|kỹ năng quản lý thời gian,,Soft Skills,,
+Leadership,concept,lãnh đạo|kỹ năng lãnh đạo|team leadership|quản lý đội nhóm|quản lý team,,Soft Skills,,
+Presentation Skills,concept,thuyết trình|kỹ năng thuyết trình|presentation,,Soft Skills,,
+Negotiation,concept,đàm phán|kỹ năng đàm phán|negotiation skills,,Soft Skills,,
+Self-learning,concept,tự học|khả năng tự học|self-study|self learning|ham học hỏi|eager to learn,,Soft Skills,,
+Adaptability,concept,thích nghi|khả năng thích nghi|flexibility,,Soft Skills,,
+Attention to Detail,concept,tỉ mỉ|cẩn thận|cẩn thận tỉ mỉ|detail-oriented|detail oriented,,Soft Skills,,
+Mentoring,concept,hướng dẫn thành viên|đào tạo nhân viên|coaching|mentor,,Soft Skills,,
+Working Under Pressure,concept,chịu được áp lực|làm việc dưới áp lực|chịu áp lực công việc,,Soft Skills,,
+Wireframing,concept,wireframe|vẽ wireframe|wireframes,,,,Design
+C,technology,c language|c programming|ngôn ngữ c|lập trình c|ansi c,c,Programming Languages,,Embedded|Backend
+Real-time Operating Systems,concept,rtos|hệ điều hành thời gian thực|real-time os|real time operating system,,RTOS,,Embedded

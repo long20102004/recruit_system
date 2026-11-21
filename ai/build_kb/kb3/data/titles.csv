@@ -1,0 +1,85 @@
+name,aliases,ambiguous_aliases,role_groups
+Blockchain Architect,,,Backend
+Blockchain Developer,web3 developer|lập trình viên web3,,Backend
+Smart Contract Developer,solidity developer,,Backend
+Bridge System Engineer,kỹ sư cầu nối nhật bản,,Business
+Business Analyst,it business analyst|chuyên viên ba,,Business
+C-Level Executive,giám đốc công nghệ|chief technology officer,,Business
+Compliance Officer / Analyst,chuyên viên tuân thủ,,Security
+Desktop Application Developer,winforms developer|wpf developer,,Backend
+Edge Computing Engineer,,,Embedded
+Embedded Engineer,embedded software engineer|kỹ sư phần mềm nhúng|lập trình viên nhúng|embedded c developer,,Embedded
+Enterprise Application Consultant,,,Business
+Enterprise Application Developer,,,Backend
+Enterprise Architect,,,Backend|Business
+ERP Consultant,sap consultant|odoo consultant|tư vấn triển khai erp,,Business
+ERP Developer,odoo developer|sap abap developer|abap developer,,Backend
+Field Support,kỹ thuật viên hiện trường,,IT Support
+Firmware Engineer,firmware developer|lập trình viên firmware,,Embedded
+Game Designer,level designer,,Game
+Game Developer,unity developer|lập trình viên unity|unreal developer|cocos developer,,Game
+Game Producer / Director,,,Game
+Hardware-Software Integration Engineer,,,Embedded
+IoT Application Developer,kỹ sư iot,,Embedded
+IT Administrator,quản trị hệ thống cntt,,IT Support
+IT Auditor / IT Risk Manager,,,Security
+IT Communicator,phiên dịch it|biên phiên dịch it,,Business
+IT Consultant,,,Business
+IT Helpdesk,helpdesk|help desk|nhân viên helpdesk,,IT Support
+IT Manager,trưởng phòng cntt|trưởng phòng it,,Business
+IT Support,nhân viên it|kỹ thuật viên it|it support engineer|nhân viên hỗ trợ kỹ thuật,,IT Support
+Low-Code/No-Code Developer,power apps developer|outsystems developer,,Fullstack
+Motion Designer,motion graphic designer|thiết kế chuyển động,,Design
+Network Engineer,network administrator|quản trị mạng|kỹ sư quản trị mạng,,IT Support|DevOps
+Pre-Sales Engineer,presales,,Business
+Product Analyst,,,Business
+Product Designer,,,Design
+Product Manager,,,Business
+Product Owner,,,Business
+Program Manager / PMO,,,Business
+Project Manager,it project manager|quản lý dự án phần mềm|quản lý dự án it,,Business
+Real-Time Systems Engineer,,,Embedded
+Robotics Software Engineer,ros developer,,Embedded
+RPA Engineer,uipath developer,,Backend
+Scrum Master / Agile Coach,,,Business
+Software/Technical Architect,,,Backend
+Solution Architect,cloud solution architect,,Backend|DevOps
+Technical Account Manager,,,Business
+Technical Consultant,,,Business
+Technical Customer Support,customer support engineer,,IT Support
+Technical Writer,người viết tài liệu kỹ thuật|kỹ sư viết tài liệu,,Business
+UX Researcher,,,Design
+UX/UI Designer,thiết kế ui/ux|ui ux designer|uiux designer|web designer|thiết kế web|app designer,,Design
+Vice President / Director,,,Business
+Visual / Graphic Designer,,,Design
+VR/AR Game Developer,ar/vr developer|xr developer,,Game
+Game Tester,,,Game
+Systems Engineer / Administrator,,,IT Support
+Java Developer,lập trình viên java|java dev|java engineer|java backend developer|kỹ sư java,,Backend
+PHP Developer,lập trình viên php|php dev|php engineer|laravel developer,,Backend
+.NET Developer,lập trình viên .net|c# developer|lập trình viên c#|dotnet developer|asp.net developer,,Backend
+Python Developer,lập trình viên python|python engineer|django developer,,Backend
+Node.js Developer,lập trình viên nodejs|nodejs developer|node developer|nestjs developer,,Backend
+Golang Developer,lập trình viên golang|go developer,,Backend
+Ruby Developer,ruby on rails developer|rails developer,,Backend
+C++ Developer,lập trình viên c++|c/c++ developer,,Backend|Embedded
+ReactJS Developer,lập trình viên reactjs|react developer|reactjs engineer,,Frontend
+VueJS Developer,lập trình viên vuejs|vue developer,,Frontend
+Angular Developer,lập trình viên angular,,Frontend
+Web Developer,lập trình viên web|web programmer,,Fullstack
+iOS Developer,lập trình viên ios|ios engineer|swift developer,,Mobile
+Android Developer,lập trình viên android|android engineer|kotlin developer,,Mobile
+Flutter Developer,lập trình viên flutter,,Mobile
+React Native Developer,lập trình viên react native,,Mobile
+Software Engineer,kỹ sư phần mềm|software developer|lập trình viên phần mềm,developer|lập trình viên,Backend|Fullstack
+QA/QC Engineer,qa engineer|qc engineer|tester|software tester|kiểm thử viên|nhân viên kiểm thử|qa tester|qc tester,qa|qc,QA
+NLP Engineer,kỹ sư xử lý ngôn ngữ tự nhiên,,AI/ML
+LLM Engineer,generative ai engineer|genai engineer|ai application engineer|kỹ sư llm,,AI/ML
+Prompt Engineer,,,AI/ML
+Platform Engineer,kỹ sư nền tảng,,DevOps
+Cloud Architect,kiến trúc sư cloud|kiến trúc sư đám mây,,DevOps
+SOC Analyst,chuyên viên soc|security analyst|chuyên viên giám sát an ninh mạng,,Security
+Salesforce Developer,lập trình viên salesforce,,Backend
+WordPress Developer,lập trình viên wordpress|shopify developer|magento developer,,Fullstack
+Game Artist,2d artist|3d artist|họa sĩ game|concept artist,,Game|Design
+Engineering Manager,quản lý kỹ thuật|head of engineering,,Business

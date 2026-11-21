@@ -2993,17 +2993,25 @@
 {"type": "PARENT_OF", "src": "linux", "dst": "ubuntu / debian", "sources": ["P09"], "evidence": [{"source_id": "P09", "page": 1, "quote": "Linux > Ubuntu / Debian"}]}
 {"type": "PARENT_OF", "src": "ollama", "dst": "ollama models", "sources": ["P01"], "evidence": [{"source_id": "P01", "page": 1, "quote": "Ollama > Ollama Models"}]}
 {"type": "PARENT_OF", "src": "ollama", "dst": "ollama sdk", "sources": ["P01"], "evidence": [{"source_id": "P01", "page": 1, "quote": "Ollama > Ollama SDK"}]}
+{"type": "USED_IN", "src": "2d", "dst": "Game", "sources": ["P13"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "a/b testing", "dst": "Data", "sources": ["P08"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
+{"type": "USED_IN", "src": "acceleration", "dst": "Game", "sources": ["P13"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
+{"type": "USED_IN", "src": "access points", "dst": "IT Support", "sources": ["P15"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
+{"type": "USED_IN", "src": "access points & controllers", "dst": "IT Support", "sources": ["P15"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "accessibility", "dst": "Frontend", "sources": ["P11"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "accessibility testing", "dst": "QA", "sources": ["P16"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "acid", "dst": "Backend", "sources": ["P04"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "acl", "dst": "Security", "sources": ["P06"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "acls", "dst": "DevOps", "sources": ["P10"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "acls", "dst": "Security", "sources": ["P06", "P10"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
+{"type": "USED_IN", "src": "action funnel", "dst": "Design", "sources": ["P18"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "activity", "dst": "Mobile", "sources": ["P02"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "activity lifecycle", "dst": "Mobile", "sources": ["P02"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "adding end-user ids in prompts", "dst": "AI/ML", "sources": ["P01"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
+{"type": "USED_IN", "src": "adobe xd", "dst": "Design", "sources": ["P18"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "adversarial testing", "dst": "AI/ML", "sources": ["P01"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
+{"type": "USED_IN", "src": "affine space", "dst": "Game", "sources": ["P13"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
+{"type": "USED_IN", "src": "affine transformation", "dst": "Game", "sources": ["P13"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "agile model", "dst": "QA", "sources": ["P16"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "ai agents", "dst": "AI/ML", "sources": ["P01"], "evidence": [], "in_roadmap": true, "node_kind": "main"}
 {"type": "USED_IN", "src": "ai code editors", "dst": "AI/ML", "sources": ["P01"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
@@ -3019,6 +3027,7 @@
 {"type": "USED_IN", "src": "amazon rds", "dst": "Data", "sources": ["P08"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "amazon redshift", "dst": "Data", "sources": ["P08"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "angular", "dst": "Frontend", "sources": ["P11"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
+{"type": "USED_IN", "src": "angular velocity", "dst": "Game", "sources": ["P13"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "animations", "dst": "Mobile", "sources": ["P02"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "anomaly detection", "dst": "AI/ML", "sources": ["P01"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "ansible", "dst": "DevOps", "sources": ["P09"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
@@ -3038,14 +3047,17 @@
 {"type": "USED_IN", "src": "app components", "dst": "Mobile", "sources": ["P02"], "evidence": [], "in_roadmap": true, "node_kind": "main"}
 {"type": "USED_IN", "src": "app shortcuts", "dst": "Mobile", "sources": ["P02"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "appium", "dst": "QA", "sources": ["P16"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
+{"type": "USED_IN", "src": "application", "dst": "IT Support", "sources": ["P15"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "application monitoring", "dst": "DevOps", "sources": ["P09"], "evidence": [], "in_roadmap": true, "node_kind": "main"}
 {"type": "USED_IN", "src": "apt", "dst": "Security", "sources": ["P06"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "architectural patterns", "dst": "Backend", "sources": ["P04"], "evidence": [], "in_roadmap": true, "node_kind": "main"}
 {"type": "USED_IN", "src": "argocd", "dst": "Data", "sources": ["P08"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "argocd", "dst": "DevOps", "sources": ["P09"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
+{"type": "USED_IN", "src": "arp", "dst": "IT Support", "sources": ["P15"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "arp", "dst": "Security", "sources": ["P06"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "artifact management", "dst": "DevOps", "sources": ["P09"], "evidence": [], "in_roadmap": true, "node_kind": "main"}
 {"type": "USED_IN", "src": "artifactory", "dst": "DevOps", "sources": ["P09"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
+{"type": "USED_IN", "src": "artificial neural network", "dst": "Game", "sources": ["P13"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "artillery", "dst": "QA", "sources": ["P16"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "assembla", "dst": "QA", "sources": ["P16"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "astro", "dst": "Frontend", "sources": ["P11"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
@@ -3096,7 +3108,9 @@
 {"type": "USED_IN", "src": "azure vm", "dst": "Data", "sources": ["P08"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "backend automation", "dst": "QA", "sources": ["P16"], "evidence": [], "in_roadmap": true, "node_kind": "main"}
 {"type": "USED_IN", "src": "backpressure", "dst": "Backend", "sources": ["P04"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
+{"type": "USED_IN", "src": "balsamiq", "dst": "Design", "sources": ["P18"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "bamboo", "dst": "QA", "sources": ["P16"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
+{"type": "USED_IN", "src": "bandwidth", "dst": "IT Support", "sources": ["P15"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "bar charts", "dst": "Data", "sources": ["P07"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "base", "dst": "Backend", "sources": ["P04"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "bash", "dst": "AI/ML", "sources": ["P14"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
@@ -3106,7 +3120,13 @@
 {"type": "USED_IN", "src": "bcrypt", "dst": "Backend", "sources": ["P04"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "bcrypt", "dst": "DevOps", "sources": ["P10"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "bcrypt", "dst": "Security", "sources": ["P10"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
+{"type": "USED_IN", "src": "behavior design", "dst": "Design", "sources": ["P18"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
+{"type": "USED_IN", "src": "behavior tree", "dst": "Game", "sources": ["P13"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
+{"type": "USED_IN", "src": "behavioral economics", "dst": "Design", "sources": ["P18"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
+{"type": "USED_IN", "src": "behavioral science", "dst": "Design", "sources": ["P18"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "bem", "dst": "Frontend", "sources": ["P11"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
+{"type": "USED_IN", "src": "bezier", "dst": "Game", "sources": ["P13"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
+{"type": "USED_IN", "src": "bgp", "dst": "IT Support", "sources": ["P15"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "bias and fairness", "dst": "AI/ML", "sources": ["P01"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "big data concepts", "dst": "Data", "sources": ["P07"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "bigtable", "dst": "Data", "sources": ["P08"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
@@ -3115,10 +3135,16 @@
 {"type": "USED_IN", "src": "bitbucket", "dst": "Frontend", "sources": ["P11"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "bitbucket", "dst": "Mobile", "sources": ["P02"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "bitbucket", "dst": "QA", "sources": ["P16"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
+{"type": "USED_IN", "src": "bj fogg's behavior grid", "dst": "Design", "sources": ["P18"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
+{"type": "USED_IN", "src": "bj fogg's behavior model", "dst": "Design", "sources": ["P18"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "black box testing", "dst": "QA", "sources": ["P16"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "bluetooth", "dst": "Security", "sources": ["P06"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
+{"type": "USED_IN", "src": "bluetooth basics", "dst": "IT Support", "sources": ["P15"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "bottom sheet", "dst": "Mobile", "sources": ["P02"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
+{"type": "USED_IN", "src": "bounding volume", "dst": "Game", "sources": ["P13"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "box", "dst": "Security", "sources": ["P06"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
+{"type": "USED_IN", "src": "bpmn", "dst": "Design", "sources": ["P18"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
+{"type": "USED_IN", "src": "broad phase", "dst": "Game", "sources": ["P13"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "broadcast receiver", "dst": "Mobile", "sources": ["P02"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "buffer overflow", "dst": "Security", "sources": ["P06"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "bug magnet", "dst": "QA", "sources": ["P16"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
@@ -3126,24 +3152,36 @@
 {"type": "USED_IN", "src": "build pipeline hardening", "dst": "Security", "sources": ["P10"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "builder pattern", "dst": "Mobile", "sources": ["P02"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "building for scale", "dst": "Backend", "sources": ["P04"], "evidence": [], "in_roadmap": true, "node_kind": "main"}
+{"type": "USED_IN", "src": "bump", "dst": "Game", "sources": ["P13"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
+{"type": "USED_IN", "src": "buoyancy", "dst": "Game", "sources": ["P13"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "burp suite", "dst": "DevOps", "sources": ["P10"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "burp suite", "dst": "Security", "sources": ["P10"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "bus", "dst": "Security", "sources": ["P06"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
+{"type": "USED_IN", "src": "business model canvas", "dst": "Design", "sources": ["P18"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
+{"type": "USED_IN", "src": "business model inspirator", "dst": "Design", "sources": ["P18"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
+{"type": "USED_IN", "src": "bvh", "dst": "Game", "sources": ["P13"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "c#", "dst": "Backend", "sources": ["P04"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
+{"type": "USED_IN", "src": "c#", "dst": "Game", "sources": ["P13"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "c++", "dst": "Security", "sources": ["P06"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
+{"type": "USED_IN", "src": "c/c++", "dst": "Game", "sources": ["P13"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "caching", "dst": "Backend", "sources": ["P04"], "evidence": [], "in_roadmap": true, "node_kind": "main"}
 {"type": "USED_IN", "src": "caching", "dst": "QA", "sources": ["P16"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "caching server", "dst": "DevOps", "sources": ["P09"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "caddy", "dst": "Backend", "sources": ["P04"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "caddy", "dst": "DevOps", "sources": ["P09"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
+{"type": "USED_IN", "src": "call to action", "dst": "Design", "sources": ["P18"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "cap theorem", "dst": "Backend", "sources": ["P04"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "cap theorem", "dst": "Data", "sources": ["P08"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "capabilities context length", "dst": "AI/ML", "sources": ["P01"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
+{"type": "USED_IN", "src": "cascaded", "dst": "Game", "sources": ["P13"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "cassandra", "dst": "Backend", "sources": ["P04"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "cassandra", "dst": "Data", "sources": ["P08"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "cat", "dst": "Security", "sources": ["P06"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
+{"type": "USED_IN", "src": "catmull-rom", "dst": "Game", "sources": ["P13"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
+{"type": "USED_IN", "src": "ccd", "dst": "Game", "sources": ["P13"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "cdn", "dst": "Backend", "sources": ["P04"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "census", "dst": "Data", "sources": ["P08"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
+{"type": "USED_IN", "src": "center of mass", "dst": "Game", "sources": ["P13"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "central tendency", "dst": "Data", "sources": ["P07"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "certificate lifecycle", "dst": "DevOps", "sources": ["P10"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "certificate lifecycle", "dst": "Security", "sources": ["P10"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
@@ -3162,17 +3200,23 @@
 {"type": "USED_IN", "src": "ci cd", "dst": "QA", "sources": ["P16"], "evidence": [], "in_roadmap": true, "node_kind": "main"}
 {"type": "USED_IN", "src": "cia triad", "dst": "DevOps", "sources": ["P10"], "evidence": [], "in_roadmap": true, "node_kind": "main"}
 {"type": "USED_IN", "src": "cia triad", "dst": "Security", "sources": ["P10"], "evidence": [], "in_roadmap": true, "node_kind": "main"}
+{"type": "USED_IN", "src": "cidr", "dst": "IT Support", "sources": ["P15"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "cidr", "dst": "Security", "sources": ["P06"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "circleci", "dst": "Data", "sources": ["P08"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "circleci", "dst": "DevOps", "sources": ["P09"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "circleci", "dst": "QA", "sources": ["P16"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "circuit breaker", "dst": "Backend", "sources": ["P04"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
+{"type": "USED_IN", "src": "circuit level gateway", "dst": "IT Support", "sources": ["P15"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "cis", "dst": "Security", "sources": ["P06"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "cisa", "dst": "Security", "sources": ["P06"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "cism", "dst": "Security", "sources": ["P06"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "cissp", "dst": "Security", "sources": ["P06"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "cleanup", "dst": "Data", "sources": ["P07"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
+{"type": "USED_IN", "src": "clear page of distractions", "dst": "Design", "sources": ["P18"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
+{"type": "USED_IN", "src": "client", "dst": "IT Support", "sources": ["P15"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
+{"type": "USED_IN", "src": "client‑server network", "dst": "IT Support", "sources": ["P15"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "client‑side caching", "dst": "Backend", "sources": ["P04"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
+{"type": "USED_IN", "src": "clipping", "dst": "Game", "sources": ["P13"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "cloud architectures", "dst": "Data", "sources": ["P08"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "cloud computing", "dst": "AI/ML", "sources": ["P14"], "evidence": [], "in_roadmap": true, "node_kind": "main"}
 {"type": "USED_IN", "src": "cloud computing", "dst": "Data", "sources": ["P08"], "evidence": [], "in_roadmap": true, "node_kind": "main"}
@@ -3187,6 +3231,7 @@
 {"type": "USED_IN", "src": "cloud sql", "dst": "Data", "sources": ["P08"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "cloud vs on-premises", "dst": "Security", "sources": ["P06"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "cloudflare", "dst": "DevOps", "sources": ["P09"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
+{"type": "USED_IN", "src": "cloudflare", "dst": "IT Support", "sources": ["P15"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "cloudformation", "dst": "DevOps", "sources": ["P09"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "cloud‑native ml services", "dst": "AI/ML", "sources": ["P14"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "cluster management tools", "dst": "Data", "sources": ["P08"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
@@ -3194,11 +3239,15 @@
 {"type": "USED_IN", "src": "code completion tools", "dst": "AI/ML", "sources": ["P01"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "cohere", "dst": "AI/ML", "sources": ["P01"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "collection", "dst": "Data", "sources": ["P07"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
+{"type": "USED_IN", "src": "collision detection", "dst": "Game", "sources": ["P13"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
+{"type": "USED_IN", "src": "color", "dst": "Game", "sources": ["P13"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "column", "dst": "Data", "sources": ["P08"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "common commands", "dst": "Security", "sources": ["P06"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "common ports", "dst": "Security", "sources": ["P06"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "common protocols", "dst": "Security", "sources": ["P06"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "compatibility", "dst": "QA", "sources": ["P16"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
+{"type": "USED_IN", "src": "competition measurement", "dst": "Design", "sources": ["P18"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
+{"type": "USED_IN", "src": "competitor analysis", "dst": "Design", "sources": ["P18"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "compliance", "dst": "Security", "sources": ["P06"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "comptia a+", "dst": "Security", "sources": ["P06"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "comptia linux+", "dst": "Security", "sources": ["P06"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
@@ -3206,8 +3255,11 @@
 {"type": "USED_IN", "src": "comptia security+", "dst": "Security", "sources": ["P06"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "compute engine", "dst": "Data", "sources": ["P08"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "concat", "dst": "Data", "sources": ["P07"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
+{"type": "USED_IN", "src": "concave", "dst": "Game", "sources": ["P13"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
+{"type": "USED_IN", "src": "conceptual design", "dst": "Design", "sources": ["P18"], "evidence": [], "in_roadmap": true, "node_kind": "main"}
 {"type": "USED_IN", "src": "configuration management", "dst": "DevOps", "sources": ["P09"], "evidence": [], "in_roadmap": true, "node_kind": "main"}
 {"type": "USED_IN", "src": "connection types", "dst": "Security", "sources": ["P06"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
+{"type": "USED_IN", "src": "conservation of energy", "dst": "Game", "sources": ["P13"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "constraining i/o", "dst": "AI/ML", "sources": ["P01"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "constraint", "dst": "Mobile", "sources": ["P02"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "consul", "dst": "DevOps", "sources": ["P09"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
@@ -3216,6 +3268,10 @@
 {"type": "USED_IN", "src": "containment", "dst": "Security", "sources": ["P06", "P10"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "content provider", "dst": "Mobile", "sources": ["P02"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "content security policy", "dst": "Frontend", "sources": ["P11"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
+{"type": "USED_IN", "src": "convex", "dst": "Game", "sources": ["P13"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
+{"type": "USED_IN", "src": "convex decomposition", "dst": "Game", "sources": ["P13"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
+{"type": "USED_IN", "src": "convex hull", "dst": "Game", "sources": ["P13"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
+{"type": "USED_IN", "src": "convexity", "dst": "Game", "sources": ["P13"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "cookie based auth", "dst": "Backend", "sources": ["P04"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "coroutines", "dst": "Mobile", "sources": ["P02"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "correlation analysis", "dst": "Data", "sources": ["P07"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
@@ -3241,7 +3297,10 @@
 {"type": "USED_IN", "src": "css architecture", "dst": "Frontend", "sources": ["P11"], "evidence": [], "in_roadmap": true, "node_kind": "main"}
 {"type": "USED_IN", "src": "css preprocessors", "dst": "Frontend", "sources": ["P11"], "evidence": [], "in_roadmap": true, "node_kind": "main"}
 {"type": "USED_IN", "src": "csv", "dst": "Data", "sources": ["P07"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
+{"type": "USED_IN", "src": "cube", "dst": "Game", "sources": ["P13"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
+{"type": "USED_IN", "src": "culling", "dst": "Game", "sources": ["P13"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "curl", "dst": "Security", "sources": ["P06"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
+{"type": "USED_IN", "src": "curve", "dst": "Game", "sources": ["P13"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "custom elements", "dst": "Frontend", "sources": ["P11"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "cyber kill chain", "dst": "Security", "sources": ["P06"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "cypress", "dst": "Frontend", "sources": ["P11"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
@@ -3263,6 +3322,7 @@
 {"type": "USED_IN", "src": "data interoperability", "dst": "Data", "sources": ["P08"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "data lake", "dst": "Data", "sources": ["P08"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "data lineage", "dst": "Data", "sources": ["P08"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
+{"type": "USED_IN", "src": "data link", "dst": "IT Support", "sources": ["P15"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "data management", "dst": "DevOps", "sources": ["P09"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "data mart", "dst": "Data", "sources": ["P08"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "data masking", "dst": "Data", "sources": ["P08"], "evidence": [], "in_roadmap": true, "node_kind": "main"}
@@ -3295,9 +3355,17 @@
 {"type": "USED_IN", "src": "ddos mitigation", "dst": "Security", "sources": ["P10"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "deauthentication attack", "dst": "Security", "sources": ["P06"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "debugging", "dst": "Mobile", "sources": ["P02"], "evidence": [], "in_roadmap": true, "node_kind": "main"}
+{"type": "USED_IN", "src": "decision learning", "dst": "Game", "sources": ["P13"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
+{"type": "USED_IN", "src": "decision making", "dst": "Game", "sources": ["P13"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
+{"type": "USED_IN", "src": "decision tree", "dst": "Game", "sources": ["P13"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
+{"type": "USED_IN", "src": "decision tree learning", "dst": "Game", "sources": ["P13"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "decision trees", "dst": "Data", "sources": ["P07"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
+{"type": "USED_IN", "src": "decision-making support", "dst": "Design", "sources": ["P18"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "deep learning", "dst": "Data", "sources": ["P07"], "evidence": [], "in_roadmap": true, "node_kind": "main"}
+{"type": "USED_IN", "src": "deep learning", "dst": "Game", "sources": ["P13"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
+{"type": "USED_IN", "src": "default gateway", "dst": "IT Support", "sources": ["P15"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "default gateway", "dst": "Security", "sources": ["P06"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
+{"type": "USED_IN", "src": "defaulting", "dst": "Design", "sources": ["P18"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "defense in depth", "dst": "DevOps", "sources": ["P10"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "defense in depth", "dst": "Security", "sources": ["P10"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "delta lake", "dst": "Data", "sources": ["P08"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
@@ -3312,14 +3380,19 @@
 {"type": "USED_IN", "src": "detox", "dst": "QA", "sources": ["P16"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "device orientation", "dst": "Frontend", "sources": ["P11"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "devtools usage", "dst": "Frontend", "sources": ["P11"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
+{"type": "USED_IN", "src": "dhcp", "dst": "IT Support", "sources": ["P15"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "dhcp", "dst": "Security", "sources": ["P06"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "diagnostic analytics", "dst": "Data", "sources": ["P07"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "dialogs", "dst": "Mobile", "sources": ["P02"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "diamond model", "dst": "Security", "sources": ["P06"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
+{"type": "USED_IN", "src": "diffuse", "dst": "Game", "sources": ["P13"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "dig", "dst": "Security", "sources": ["P06"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "digitalocean", "dst": "DevOps", "sources": ["P09"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "direct sdk usage", "dst": "AI/ML", "sources": ["P01"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
+{"type": "USED_IN", "src": "directional", "dst": "Game", "sources": ["P13"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "directory traversal", "dst": "Security", "sources": ["P06"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
+{"type": "USED_IN", "src": "directx", "dst": "Game", "sources": ["P13"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
+{"type": "USED_IN", "src": "directx ray tracing", "dst": "Game", "sources": ["P13"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "dispersion", "dst": "Data", "sources": ["P07"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "distributed file systems", "dst": "Data", "sources": ["P08"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "distributed systems basics", "dst": "Data", "sources": ["P08"], "evidence": [], "in_roadmap": true, "node_kind": "main"}
@@ -3329,6 +3402,7 @@
 {"type": "USED_IN", "src": "dmarc", "dst": "DevOps", "sources": ["P09"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "dmz", "dst": "Security", "sources": ["P06"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "dns", "dst": "DevOps", "sources": ["P09", "P10"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
+{"type": "USED_IN", "src": "dns", "dst": "IT Support", "sources": ["P15"], "evidence": [], "in_roadmap": true, "node_kind": "main"}
 {"type": "USED_IN", "src": "dns", "dst": "Security", "sources": ["P06", "P10"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "dns poisoning", "dst": "Security", "sources": ["P06"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "dnssec", "dst": "Security", "sources": ["P06"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
@@ -3340,11 +3414,14 @@
 {"type": "USED_IN", "src": "dom manipulation", "dst": "Frontend", "sources": ["P11"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "domain driven design", "dst": "Backend", "sources": ["P04"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "domain keys", "dst": "DevOps", "sources": ["P09"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
+{"type": "USED_IN", "src": "dos & ddos", "dst": "IT Support", "sources": ["P15"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "dplyr", "dst": "Data", "sources": ["P07"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "drive by attack", "dst": "Security", "sources": ["P06"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "drone", "dst": "QA", "sources": ["P16"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "dropbox", "dst": "Security", "sources": ["P06"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
+{"type": "USED_IN", "src": "dual process theory", "dst": "Design", "sources": ["P18"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "dumpster diving", "dst": "Security", "sources": ["P06"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
+{"type": "USED_IN", "src": "dynamics", "dst": "Game", "sources": ["P13"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "dynamodb", "dst": "Backend", "sources": ["P04"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "dynamodb", "dst": "Data", "sources": ["P08"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "ec2", "dst": "Fullstack", "sources": ["P12"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
@@ -3352,6 +3429,7 @@
 {"type": "USED_IN", "src": "edr", "dst": "Security", "sources": ["P06"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "edr strategy", "dst": "DevOps", "sources": ["P10"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "edr strategy", "dst": "Security", "sources": ["P10"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
+{"type": "USED_IN", "src": "eigrp", "dst": "IT Support", "sources": ["P15"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "elastic stack", "dst": "DevOps", "sources": ["P09"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "elasticsearch", "dst": "Backend", "sources": ["P04"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "elasticsearch", "dst": "Data", "sources": ["P08"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
@@ -3362,12 +3440,14 @@
 {"type": "USED_IN", "src": "encryption", "dst": "Data", "sources": ["P08"], "evidence": [], "in_roadmap": true, "node_kind": "main"}
 {"type": "USED_IN", "src": "encryption", "dst": "DevOps", "sources": ["P10"], "evidence": [], "in_roadmap": true, "node_kind": "main"}
 {"type": "USED_IN", "src": "encryption", "dst": "Security", "sources": ["P10"], "evidence": [], "in_roadmap": true, "node_kind": "main"}
+{"type": "USED_IN", "src": "encryption basics", "dst": "IT Support", "sources": ["P15"], "evidence": [], "in_roadmap": true, "node_kind": "main"}
 {"type": "USED_IN", "src": "end-to-end testing", "dst": "Data", "sources": ["P08"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "endpoint detection", "dst": "DevOps", "sources": ["P10"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "endpoint detection", "dst": "Security", "sources": ["P10"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "endpoint security", "dst": "Security", "sources": ["P06"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "environmental management", "dst": "Data", "sources": ["P08"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "envoy", "dst": "DevOps", "sources": ["P09"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
+{"type": "USED_IN", "src": "epa", "dst": "Game", "sources": ["P13"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "eradication", "dst": "Security", "sources": ["P06"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "esbuild", "dst": "Frontend", "sources": ["P11"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "eslint", "dst": "Frontend", "sources": ["P11"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
@@ -3375,8 +3455,10 @@
 {"type": "USED_IN", "src": "espresso", "dst": "QA", "sources": ["P16"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "esxi", "dst": "Security", "sources": ["P06"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "eu ai act", "dst": "Data", "sources": ["P08"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
+{"type": "USED_IN", "src": "euler angle", "dst": "Game", "sources": ["P13"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "event logs", "dst": "Security", "sources": ["P06"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "event sourcing", "dst": "Backend", "sources": ["P04"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
+{"type": "USED_IN", "src": "event-driven process chain model", "dst": "Design", "sources": ["P18"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "evil twin", "dst": "Security", "sources": ["P06"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "experiment tracking & model registry", "dst": "AI/ML", "sources": ["P14"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "explicit intents", "dst": "Mobile", "sources": ["P02"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
@@ -3384,10 +3466,12 @@
 {"type": "USED_IN", "src": "exploratory testing", "dst": "QA", "sources": ["P16"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "extract data", "dst": "Data", "sources": ["P08"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "factory pattern", "dst": "Mobile", "sources": ["P02"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
+{"type": "USED_IN", "src": "failover", "dst": "IT Support", "sources": ["P15"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "failure modes", "dst": "Backend", "sources": ["P04"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "faiss", "dst": "AI/ML", "sources": ["P01"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "false negative / false positive", "dst": "Security", "sources": ["P06"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "fetch api", "dst": "Frontend", "sources": ["P11"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
+{"type": "USED_IN", "src": "figma", "dst": "Design", "sources": ["P18"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "file crud", "dst": "Security", "sources": ["P06"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "file system", "dst": "Mobile", "sources": ["P02"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "finding outliers", "dst": "Data", "sources": ["P07"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
@@ -3396,33 +3480,45 @@
 {"type": "USED_IN", "src": "firebase distribution", "dst": "Mobile", "sources": ["P02"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "firestore", "dst": "Mobile", "sources": ["P02"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "firewall", "dst": "DevOps", "sources": ["P09", "P10"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
+{"type": "USED_IN", "src": "firewall", "dst": "IT Support", "sources": ["P15"], "evidence": [], "in_roadmap": true, "node_kind": "main"}
 {"type": "USED_IN", "src": "firewall", "dst": "Security", "sources": ["P06", "P10"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "firewall logs", "dst": "Security", "sources": ["P06"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
+{"type": "USED_IN", "src": "five forces model", "dst": "Design", "sources": ["P18"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "flink", "dst": "AI/ML", "sources": ["P14"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "flow", "dst": "Mobile", "sources": ["P02"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "flutter", "dst": "Frontend", "sources": ["P11"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "fluxcd", "dst": "DevOps", "sources": ["P09"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
+{"type": "USED_IN", "src": "fog", "dst": "Game", "sources": ["P13"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
+{"type": "USED_IN", "src": "force", "dst": "Game", "sources": ["P13"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "forensics", "dst": "DevOps", "sources": ["P10"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "forensics", "dst": "Security", "sources": ["P10"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "forms and validations", "dst": "Frontend", "sources": ["P11"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "forward proxy", "dst": "DevOps", "sources": ["P09"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "fragments", "dst": "Mobile", "sources": ["P02"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
+{"type": "USED_IN", "src": "frame", "dst": "IT Support", "sources": ["P15"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "frame", "dst": "Mobile", "sources": ["P02"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "freebsd", "dst": "DevOps", "sources": ["P09"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
+{"type": "USED_IN", "src": "friction", "dst": "Game", "sources": ["P13"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "frontend automation", "dst": "QA", "sources": ["P16"], "evidence": [], "in_roadmap": true, "node_kind": "main"}
+{"type": "USED_IN", "src": "frustum", "dst": "Game", "sources": ["P13"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "ftk imager", "dst": "Security", "sources": ["P06"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "ftp", "dst": "Security", "sources": ["P06"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "ftp/sftp", "dst": "DevOps", "sources": ["P09"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
+{"type": "USED_IN", "src": "ftp/sftp", "dst": "IT Support", "sources": ["P15"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "functional testing", "dst": "Backend", "sources": ["P04"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "functional testing", "dst": "Data", "sources": ["P08"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "functional testing", "dst": "QA", "sources": ["P16"], "evidence": [], "in_roadmap": true, "node_kind": "main"}
 {"type": "USED_IN", "src": "funnel charts", "dst": "Data", "sources": ["P07"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
+{"type": "USED_IN", "src": "fuzzy logic", "dst": "Game", "sources": ["P13"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
+{"type": "USED_IN", "src": "gamification", "dst": "Design", "sources": ["P18"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "gatling", "dst": "QA", "sources": ["P16"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "gcp", "dst": "Security", "sources": ["P06"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "gcp functions", "dst": "DevOps", "sources": ["P09"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "gdpr", "dst": "Data", "sources": ["P08"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
+{"type": "USED_IN", "src": "gdscript", "dst": "Game", "sources": ["P13"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "gemini", "dst": "AI/ML", "sources": ["P01"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "generation", "dst": "AI/ML", "sources": ["P01"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
+{"type": "USED_IN", "src": "geometry", "dst": "Game", "sources": ["P13"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "ggplot2", "dst": "Data", "sources": ["P07"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "ghost inspector", "dst": "QA", "sources": ["P16"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "giac", "dst": "Security", "sources": ["P06"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
@@ -3452,7 +3548,9 @@
 {"type": "USED_IN", "src": "gitlab ci", "dst": "DevOps", "sources": ["P09"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "gitlab ci", "dst": "QA", "sources": ["P16"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "gitops", "dst": "DevOps", "sources": ["P09"], "evidence": [], "in_roadmap": true, "node_kind": "main"}
+{"type": "USED_IN", "src": "gjk", "dst": "Game", "sources": ["P13"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "gke / eks / aks", "dst": "DevOps", "sources": ["P09"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
+{"type": "USED_IN", "src": "glsl", "dst": "Game", "sources": ["P13"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "glue", "dst": "Data", "sources": ["P08"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "gmail tester", "dst": "QA", "sources": ["P16"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "go", "dst": "AI/ML", "sources": ["P14"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
@@ -3460,7 +3558,11 @@
 {"type": "USED_IN", "src": "go", "dst": "Data", "sources": ["P08"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "go", "dst": "DevOps", "sources": ["P09", "P10"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "go", "dst": "Security", "sources": ["P06", "P10"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
+{"type": "USED_IN", "src": "goal oriented behavior", "dst": "Game", "sources": ["P13"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
+{"type": "USED_IN", "src": "goal trackers", "dst": "Design", "sources": ["P18"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
+{"type": "USED_IN", "src": "godot", "dst": "Game", "sources": ["P13"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "gof design patterns", "dst": "Backend", "sources": ["P04"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
+{"type": "USED_IN", "src": "good layout rules", "dst": "Design", "sources": ["P18"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "google admob", "dst": "Mobile", "sources": ["P02"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "google bigquery", "dst": "Data", "sources": ["P08"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "google cloud", "dst": "DevOps", "sources": ["P09"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
@@ -3477,6 +3579,7 @@
 {"type": "USED_IN", "src": "grafana", "dst": "DevOps", "sources": ["P09"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "grafana", "dst": "QA", "sources": ["P16"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "graph", "dst": "Data", "sources": ["P08"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
+{"type": "USED_IN", "src": "graphics pipeline", "dst": "Game", "sources": ["P13"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "graphql", "dst": "Backend", "sources": ["P04"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "graphql", "dst": "Frontend", "sources": ["P11"], "evidence": [], "in_roadmap": true, "node_kind": "main"}
 {"type": "USED_IN", "src": "gray box testing", "dst": "QA", "sources": ["P16"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
@@ -3498,15 +3601,21 @@
 {"type": "USED_IN", "src": "headless chrome", "dst": "QA", "sources": ["P16"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "headless fox", "dst": "QA", "sources": ["P16"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "heatmap", "dst": "Data", "sources": ["P07"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
+{"type": "USED_IN", "src": "hermite", "dst": "Game", "sources": ["P13"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "heroku", "dst": "DevOps", "sources": ["P09"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "hetzner", "dst": "DevOps", "sources": ["P09"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "hightouch", "dst": "Data", "sources": ["P08"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "hilt", "dst": "Mobile", "sources": ["P02"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "hips", "dst": "Security", "sources": ["P06"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "histograms", "dst": "Data", "sources": ["P07"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
+{"type": "USED_IN", "src": "hlsl", "dst": "Game", "sources": ["P13"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "honeypots", "dst": "Security", "sources": ["P06"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
+{"type": "USED_IN", "src": "hook model", "dst": "Design", "sources": ["P18"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
+{"type": "USED_IN", "src": "horizon", "dst": "Game", "sources": ["P13"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
+{"type": "USED_IN", "src": "host", "dst": "IT Support", "sources": ["P15"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "host based firewall", "dst": "Security", "sources": ["P06"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "host os", "dst": "Security", "sources": ["P06"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
+{"type": "USED_IN", "src": "hotspot and tethering", "dst": "IT Support", "sources": ["P15"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "hping", "dst": "Security", "sources": ["P06"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "html", "dst": "Frontend", "sources": ["P11"], "evidence": [], "in_roadmap": true, "node_kind": "main"}
 {"type": "USED_IN", "src": "html", "dst": "Fullstack", "sources": ["P12"], "evidence": [], "in_roadmap": true, "node_kind": "main"}
@@ -3514,14 +3623,17 @@
 {"type": "USED_IN", "src": "htmlunit", "dst": "QA", "sources": ["P16"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "http", "dst": "DevOps", "sources": ["P09", "P10"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "http", "dst": "Security", "sources": ["P10"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
+{"type": "USED_IN", "src": "http/https", "dst": "IT Support", "sources": ["P15"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "http/https", "dst": "Security", "sources": ["P06"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "https", "dst": "Backend", "sources": ["P04"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "https", "dst": "DevOps", "sources": ["P09"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "https", "dst": "Frontend", "sources": ["P11"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
+{"type": "USED_IN", "src": "hub", "dst": "IT Support", "sources": ["P15"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "hugging face", "dst": "AI/ML", "sources": ["P01"], "evidence": [], "in_roadmap": true, "node_kind": "main"}
 {"type": "USED_IN", "src": "hugging face hub", "dst": "AI/ML", "sources": ["P01"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "hugging face models", "dst": "AI/ML", "sources": ["P01"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "hugging face tasks", "dst": "AI/ML", "sources": ["P01"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
+{"type": "USED_IN", "src": "human decision making", "dst": "Design", "sources": ["P18"], "evidence": [], "in_roadmap": true, "node_kind": "main"}
 {"type": "USED_IN", "src": "hybrid", "dst": "Data", "sources": ["P08"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "hybrid", "dst": "Security", "sources": ["P06"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "hypervisor", "dst": "Security", "sources": ["P06"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
@@ -3534,6 +3646,7 @@
 {"type": "USED_IN", "src": "identification", "dst": "Security", "sources": ["P06"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "ids", "dst": "DevOps", "sources": ["P10"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "ids", "dst": "Security", "sources": ["P10"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
+{"type": "USED_IN", "src": "ids/ips", "dst": "IT Support", "sources": ["P15"], "evidence": [], "in_roadmap": true, "node_kind": "main"}
 {"type": "USED_IN", "src": "if", "dst": "Data", "sources": ["P07"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "iis", "dst": "Backend", "sources": ["P04"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "iis", "dst": "DevOps", "sources": ["P09"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
@@ -3548,6 +3661,7 @@
 {"type": "USED_IN", "src": "implicit intents", "dst": "Mobile", "sources": ["P02"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "incident response", "dst": "DevOps", "sources": ["P10"], "evidence": [], "in_roadmap": true, "node_kind": "main"}
 {"type": "USED_IN", "src": "incident response", "dst": "Security", "sources": ["P10"], "evidence": [], "in_roadmap": true, "node_kind": "main"}
+{"type": "USED_IN", "src": "incremental a/b testing", "dst": "Design", "sources": ["P18"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "indexing", "dst": "Data", "sources": ["P08"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "indexing embeddings", "dst": "AI/ML", "sources": ["P01"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "inference", "dst": "AI/ML", "sources": ["P01"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
@@ -3570,9 +3684,13 @@
 {"type": "USED_IN", "src": "intent filters", "dst": "Mobile", "sources": ["P02"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "internet", "dst": "Backend", "sources": ["P04"], "evidence": [], "in_roadmap": true, "node_kind": "main"}
 {"type": "USED_IN", "src": "internet", "dst": "Frontend", "sources": ["P11"], "evidence": [], "in_roadmap": true, "node_kind": "main"}
+{"type": "USED_IN", "src": "internet", "dst": "IT Support", "sources": ["P15"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
+{"type": "USED_IN", "src": "intersection", "dst": "Game", "sources": ["P13"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "ionic", "dst": "Frontend", "sources": ["P11"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "iot", "dst": "Data", "sources": ["P08"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "ip", "dst": "Security", "sources": ["P06"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
+{"type": "USED_IN", "src": "ip address", "dst": "IT Support", "sources": ["P15"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
+{"type": "USED_IN", "src": "ip addressing", "dst": "IT Support", "sources": ["P15"], "evidence": [], "in_roadmap": true, "node_kind": "main"}
 {"type": "USED_IN", "src": "ipam", "dst": "Security", "sources": ["P06"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "ipconfig", "dst": "Security", "sources": ["P06"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "ips", "dst": "DevOps", "sources": ["P10"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
@@ -3631,21 +3749,32 @@
 {"type": "USED_IN", "src": "kubernetes", "dst": "DevOps", "sources": ["P09", "P10"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "kubernetes", "dst": "Security", "sources": ["P10"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "kurtosis", "dst": "Data", "sources": ["P07"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
+{"type": "USED_IN", "src": "lan", "dst": "IT Support", "sources": ["P15"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "lan", "dst": "Security", "sources": ["P06"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "lancedb", "dst": "AI/ML", "sources": ["P01"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "langchain", "dst": "AI/ML", "sources": ["P01"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "langchain multimodal", "dst": "AI/ML", "sources": ["P01"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "large scale identity strategy", "dst": "DevOps", "sources": ["P10"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "large scale identity strategy", "dst": "Security", "sources": ["P10"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
+{"type": "USED_IN", "src": "latency", "dst": "IT Support", "sources": ["P15"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "ldap", "dst": "Security", "sources": ["P06"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "ldaps", "dst": "Security", "sources": ["P06"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "leakcanary", "dst": "Mobile", "sources": ["P02"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
+{"type": "USED_IN", "src": "lean canvas", "dst": "Design", "sources": ["P18"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
+{"type": "USED_IN", "src": "least connections", "dst": "IT Support", "sources": ["P15"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "least privilege", "dst": "DevOps", "sources": ["P10"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "least privilege", "dst": "Security", "sources": ["P10"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
+{"type": "USED_IN", "src": "light", "dst": "Game", "sources": ["P13"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
+{"type": "USED_IN", "src": "light source", "dst": "Game", "sources": ["P13"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "lighthouse", "dst": "QA", "sources": ["P16"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "lighthouse usage", "dst": "Frontend", "sources": ["P11"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
+{"type": "USED_IN", "src": "lighting and shadow", "dst": "Game", "sources": ["P13"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "line chart", "dst": "Data", "sources": ["P07"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "linear", "dst": "Mobile", "sources": ["P02"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
+{"type": "USED_IN", "src": "linear algebra", "dst": "Game", "sources": ["P13"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
+{"type": "USED_IN", "src": "linear transformation", "dst": "Game", "sources": ["P13"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
+{"type": "USED_IN", "src": "linear velocity", "dst": "Game", "sources": ["P13"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
+{"type": "USED_IN", "src": "link aggregation", "dst": "IT Support", "sources": ["P15"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "linkerd", "dst": "DevOps", "sources": ["P09"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "linting", "dst": "Mobile", "sources": ["P02"], "evidence": [], "in_roadmap": true, "node_kind": "main"}
 {"type": "USED_IN", "src": "linux", "dst": "Security", "sources": ["P06"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
@@ -3654,6 +3783,7 @@
 {"type": "USED_IN", "src": "llamaindex", "dst": "AI/ML", "sources": ["P01"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "llms", "dst": "AI/ML", "sources": ["P01"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "load balancer", "dst": "DevOps", "sources": ["P09"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
+{"type": "USED_IN", "src": "load balancer", "dst": "IT Support", "sources": ["P15"], "evidence": [], "in_roadmap": true, "node_kind": "main"}
 {"type": "USED_IN", "src": "load data", "dst": "Data", "sources": ["P08"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "load testing", "dst": "Data", "sources": ["P08"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "load testing", "dst": "QA", "sources": ["P16"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
@@ -3674,17 +3804,23 @@
 {"type": "USED_IN", "src": "luigi", "dst": "Data", "sources": ["P08"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "lxc", "dst": "Backend", "sources": ["P04"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "lxc", "dst": "DevOps", "sources": ["P09"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
+{"type": "USED_IN", "src": "mac address", "dst": "IT Support", "sources": ["P15"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
+{"type": "USED_IN", "src": "mac address tables", "dst": "IT Support", "sources": ["P15"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "mac-based", "dst": "Security", "sources": ["P06"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "macos", "dst": "Security", "sources": ["P06"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "mailinator", "dst": "QA", "sources": ["P16"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "making layouts", "dst": "Frontend", "sources": ["P11"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "malware types", "dst": "Security", "sources": ["P06"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
+{"type": "USED_IN", "src": "man", "dst": "IT Support", "sources": ["P15"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "man", "dst": "Security", "sources": ["P06"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "manual testing", "dst": "QA", "sources": ["P16"], "evidence": [], "in_roadmap": true, "node_kind": "main"}
+{"type": "USED_IN", "src": "mapping", "dst": "Game", "sources": ["P13"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "mapreduce", "dst": "Data", "sources": ["P07", "P08"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "mariadb", "dst": "Backend", "sources": ["P04"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "mariadb", "dst": "Data", "sources": ["P08"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
+{"type": "USED_IN", "src": "markov system", "dst": "Game", "sources": ["P13"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "matplotlib", "dst": "Data", "sources": ["P07"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
+{"type": "USED_IN", "src": "matrix", "dst": "Game", "sources": ["P13"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "maximum tokens", "dst": "AI/ML", "sources": ["P01"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "md5", "dst": "Backend", "sources": ["P04"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "mean", "dst": "Data", "sources": ["P07"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
@@ -3696,22 +3832,30 @@
 {"type": "USED_IN", "src": "mesh", "dst": "Security", "sources": ["P06"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "metadata management", "dst": "Data", "sources": ["P08"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "metadata-first architecture", "dst": "Data", "sources": ["P08"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
+{"type": "USED_IN", "src": "metal", "dst": "Game", "sources": ["P13"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
+{"type": "USED_IN", "src": "metallicity", "dst": "Game", "sources": ["P13"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "mfa & 2fa", "dst": "Security", "sources": ["P06"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "microservices", "dst": "Backend", "sources": ["P04"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "microsoft power bi", "dst": "Data", "sources": ["P08"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
+{"type": "USED_IN", "src": "microsurface scattering", "dst": "Game", "sources": ["P13"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "migration strategies", "dst": "Backend", "sources": ["P04"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "min / max", "dst": "Data", "sources": ["P07"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
+{"type": "USED_IN", "src": "mindfulness to avoid acting on the cue", "dst": "Design", "sources": ["P18"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
+{"type": "USED_IN", "src": "minimax", "dst": "Game", "sources": ["P13"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "missing data handling", "dst": "Data", "sources": ["P07"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "mistral ai", "dst": "AI/ML", "sources": ["P01"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "mitm", "dst": "Security", "sources": ["P06"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "mlops", "dst": "Data", "sources": ["P08"], "evidence": [], "in_roadmap": true, "node_kind": "main"}
 {"type": "USED_IN", "src": "mlops principles", "dst": "AI/ML", "sources": ["P14"], "evidence": [], "in_roadmap": true, "node_kind": "main"}
 {"type": "USED_IN", "src": "mobile automation", "dst": "QA", "sources": ["P16"], "evidence": [], "in_roadmap": true, "node_kind": "main"}
+{"type": "USED_IN", "src": "mobile networks", "dst": "IT Support", "sources": ["P15"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "mode", "dst": "Data", "sources": ["P07"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "model evaluation techniques", "dst": "Data", "sources": ["P07"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "model training & serving", "dst": "AI/ML", "sources": ["P14"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "models on hugging face", "dst": "AI/ML", "sources": ["P01"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
+{"type": "USED_IN", "src": "modems", "dst": "IT Support", "sources": ["P15"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "module bundlers", "dst": "Frontend", "sources": ["P11"], "evidence": [], "in_roadmap": true, "node_kind": "main"}
+{"type": "USED_IN", "src": "moment of inertia", "dst": "Game", "sources": ["P13"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "mongodb", "dst": "Backend", "sources": ["P04"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "mongodb", "dst": "Data", "sources": ["P08"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "mongodb atlas", "dst": "AI/ML", "sources": ["P01"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
@@ -3721,8 +3865,11 @@
 {"type": "USED_IN", "src": "monitoring", "dst": "DevOps", "sources": ["P10"], "evidence": [], "in_roadmap": true, "node_kind": "main"}
 {"type": "USED_IN", "src": "monitoring", "dst": "Security", "sources": ["P10"], "evidence": [], "in_roadmap": true, "node_kind": "main"}
 {"type": "USED_IN", "src": "monolithic apps", "dst": "Backend", "sources": ["P04"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
+{"type": "USED_IN", "src": "movement", "dst": "Game", "sources": ["P13"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "mpi", "dst": "Data", "sources": ["P07"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
+{"type": "USED_IN", "src": "mpls", "dst": "IT Support", "sources": ["P15"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "multimodal ai", "dst": "AI/ML", "sources": ["P01"], "evidence": [], "in_roadmap": true, "node_kind": "main"}
+{"type": "USED_IN", "src": "multivariate testing", "dst": "Design", "sources": ["P18"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "multi‑region security planning", "dst": "DevOps", "sources": ["P10"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "multi‑region security planning", "dst": "Security", "sources": ["P10"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "mvc", "dst": "Mobile", "sources": ["P02"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
@@ -3734,7 +3881,10 @@
 {"type": "USED_IN", "src": "n+1 problem", "dst": "Backend", "sources": ["P04"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "nac‑based", "dst": "Security", "sources": ["P06"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "naive bayes", "dst": "Data", "sources": ["P07"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
+{"type": "USED_IN", "src": "naive bayes classifier", "dst": "Game", "sources": ["P13"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
+{"type": "USED_IN", "src": "narrow phase", "dst": "Game", "sources": ["P13"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "nat", "dst": "Security", "sources": ["P06"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
+{"type": "USED_IN", "src": "native", "dst": "Game", "sources": ["P13"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "natural language processing", "dst": "Data", "sources": ["P07"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "navigation components", "dst": "Mobile", "sources": ["P02"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "neo4j", "dst": "Backend", "sources": ["P04"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
@@ -3744,8 +3894,11 @@
 {"type": "USED_IN", "src": "nessus", "dst": "Security", "sources": ["P10"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "netbsd", "dst": "DevOps", "sources": ["P09"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "netflow", "dst": "Security", "sources": ["P06"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
+{"type": "USED_IN", "src": "netflow / sflow", "dst": "IT Support", "sources": ["P15"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "netlify", "dst": "DevOps", "sources": ["P09"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "netstat", "dst": "Security", "sources": ["P06"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
+{"type": "USED_IN", "src": "network access", "dst": "IT Support", "sources": ["P15"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
+{"type": "USED_IN", "src": "network attacks", "dst": "IT Support", "sources": ["P15"], "evidence": [], "in_roadmap": true, "node_kind": "main"}
 {"type": "USED_IN", "src": "network segmentation", "dst": "DevOps", "sources": ["P10"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "network segmentation", "dst": "Security", "sources": ["P10"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "networking fundamentals", "dst": "Data", "sources": ["P08"], "evidence": [], "in_roadmap": true, "node_kind": "main"}
@@ -3754,6 +3907,7 @@
 {"type": "USED_IN", "src": "new relic", "dst": "Data", "sources": ["P08"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "new relic", "dst": "DevOps", "sources": ["P09"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "new relic", "dst": "QA", "sources": ["P16"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
+{"type": "USED_IN", "src": "next-generation", "dst": "IT Support", "sources": ["P15"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "next.js", "dst": "Frontend", "sources": ["P11"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "nexus", "dst": "DevOps", "sources": ["P09"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "nfc", "dst": "Security", "sources": ["P06"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
@@ -3765,6 +3919,7 @@
 {"type": "USED_IN", "src": "nist", "dst": "DevOps", "sources": ["P10"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "nist", "dst": "Security", "sources": ["P06", "P10"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "nmap", "dst": "DevOps", "sources": ["P10"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
+{"type": "USED_IN", "src": "nmap", "dst": "IT Support", "sources": ["P15"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "nmap", "dst": "Security", "sources": ["P06", "P10"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "nmap basics", "dst": "DevOps", "sources": ["P10"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "nmap basics", "dst": "Security", "sources": ["P10"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
@@ -3777,12 +3932,17 @@
 {"type": "USED_IN", "src": "npm", "dst": "Frontend", "sources": ["P11"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "npm", "dst": "Fullstack", "sources": ["P12"], "evidence": [], "in_roadmap": true, "node_kind": "main"}
 {"type": "USED_IN", "src": "nslookup", "dst": "Security", "sources": ["P06"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
+{"type": "USED_IN", "src": "ntp", "dst": "IT Support", "sources": ["P15"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "ntp", "dst": "Security", "sources": ["P06"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
+{"type": "USED_IN", "src": "nudge theory", "dst": "Design", "sources": ["P18"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "nuxt.js", "dst": "Frontend", "sources": ["P11"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "oauth", "dst": "Backend", "sources": ["P04"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
+{"type": "USED_IN", "src": "obb", "dst": "Game", "sources": ["P13"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "obfuscation", "dst": "Security", "sources": ["P06"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "observability", "dst": "Backend", "sources": ["P04"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
+{"type": "USED_IN", "src": "observability", "dst": "IT Support", "sources": ["P15"], "evidence": [], "in_roadmap": true, "node_kind": "main"}
 {"type": "USED_IN", "src": "observer pattern", "dst": "Mobile", "sources": ["P02"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
+{"type": "USED_IN", "src": "occluder", "dst": "Game", "sources": ["P13"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "octopus deploy", "dst": "DevOps", "sources": ["P09"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "office", "dst": "Security", "sources": ["P06"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "okhttp", "dst": "Mobile", "sources": ["P02"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
@@ -3805,6 +3965,9 @@
 {"type": "USED_IN", "src": "openai vision api", "dst": "AI/ML", "sources": ["P01"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "openapi spec", "dst": "Backend", "sources": ["P04"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "openbsd", "dst": "DevOps", "sources": ["P09"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
+{"type": "USED_IN", "src": "opendns", "dst": "IT Support", "sources": ["P15"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
+{"type": "USED_IN", "src": "opengl", "dst": "Game", "sources": ["P13"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
+{"type": "USED_IN", "src": "opengl es", "dst": "Game", "sources": ["P13"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "openid", "dst": "Backend", "sources": ["P04"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "opentelemetry", "dst": "DevOps", "sources": ["P09"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "opentofu", "dst": "Data", "sources": ["P08"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
@@ -3812,26 +3975,37 @@
 {"type": "USED_IN", "src": "openvas", "dst": "Security", "sources": ["P10"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "operating system", "dst": "DevOps", "sources": ["P09"], "evidence": [], "in_roadmap": true, "node_kind": "main"}
 {"type": "USED_IN", "src": "operating systems", "dst": "Security", "sources": ["P06"], "evidence": [], "in_roadmap": true, "node_kind": "main"}
+{"type": "USED_IN", "src": "optix", "dst": "Game", "sources": ["P13"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "oracle", "dst": "Backend", "sources": ["P04"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "oracle", "dst": "Data", "sources": ["P08"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "orchestration", "dst": "AI/ML", "sources": ["P14"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
+{"type": "USED_IN", "src": "orientation", "dst": "Game", "sources": ["P13"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "orms", "dst": "Backend", "sources": ["P04"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
+{"type": "USED_IN", "src": "orthogonal", "dst": "Game", "sources": ["P13"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "os hardening", "dst": "Security", "sources": ["P06"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "os-independent troubleshooting", "dst": "Security", "sources": ["P06"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "osi model", "dst": "DevOps", "sources": ["P09"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
+{"type": "USED_IN", "src": "osi model", "dst": "IT Support", "sources": ["P15"], "evidence": [], "in_roadmap": true, "node_kind": "main"}
 {"type": "USED_IN", "src": "osi model", "dst": "Security", "sources": ["P06"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
+{"type": "USED_IN", "src": "ospf", "dst": "IT Support", "sources": ["P15"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "owasp risks", "dst": "Backend", "sources": ["P04"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "owasp security risks", "dst": "Frontend", "sources": ["P11"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "owasp top 10", "dst": "DevOps", "sources": ["P10"], "evidence": [], "in_roadmap": true, "node_kind": "main"}
 {"type": "USED_IN", "src": "owasp top 10", "dst": "QA", "sources": ["P16"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "owasp top 10", "dst": "Security", "sources": ["P10"], "evidence": [], "in_roadmap": true, "node_kind": "main"}
+{"type": "USED_IN", "src": "p2p network", "dst": "IT Support", "sources": ["P15"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "paas", "dst": "Security", "sources": ["P06"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
+{"type": "USED_IN", "src": "package", "dst": "IT Support", "sources": ["P15"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "package managers", "dst": "Frontend", "sources": ["P11"], "evidence": [], "in_roadmap": true, "node_kind": "main"}
 {"type": "USED_IN", "src": "packet captures", "dst": "Security", "sources": ["P06"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
+{"type": "USED_IN", "src": "packet filtering", "dst": "IT Support", "sources": ["P15"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
+{"type": "USED_IN", "src": "packet prioritization", "dst": "IT Support", "sources": ["P15"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "packet sniffers", "dst": "Security", "sources": ["P06"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "pagerduty", "dst": "QA", "sources": ["P16"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
+{"type": "USED_IN", "src": "pan", "dst": "IT Support", "sources": ["P15"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "pandas", "dst": "Data", "sources": ["P07"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "papertrail", "dst": "DevOps", "sources": ["P09"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
+{"type": "USED_IN", "src": "parallax", "dst": "Game", "sources": ["P13"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "parallel processing", "dst": "Data", "sources": ["P07"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "parcel", "dst": "Frontend", "sources": ["P11"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "parrotos", "dst": "Security", "sources": ["P06"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
@@ -3840,11 +4014,15 @@
 {"type": "USED_IN", "src": "pasta", "dst": "Security", "sources": ["P10"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "patching", "dst": "Security", "sources": ["P06"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "payments", "dst": "Frontend", "sources": ["P11"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
+{"type": "USED_IN", "src": "pbr", "dst": "Game", "sources": ["P13"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
+{"type": "USED_IN", "src": "peer comparisons", "dst": "Design", "sources": ["P18"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "pentest rules", "dst": "Security", "sources": ["P06"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "perfect", "dst": "Data", "sources": ["P08"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "performance metrics", "dst": "Frontend", "sources": ["P11"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "performance monitoring", "dst": "DevOps", "sources": ["P09"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "performance testing", "dst": "QA", "sources": ["P16"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
+{"type": "USED_IN", "src": "perspective", "dst": "Game", "sources": ["P13"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
+{"type": "USED_IN", "src": "persuasive tech", "dst": "Design", "sources": ["P18"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "phishing", "dst": "Security", "sources": ["P06"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "php", "dst": "Backend", "sources": ["P04"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "picoctf", "dst": "Security", "sources": ["P06"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
@@ -3858,7 +4036,11 @@
 {"type": "USED_IN", "src": "playwright", "dst": "Frontend", "sources": ["P11"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "playwright", "dst": "QA", "sources": ["P16"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "pnpm", "dst": "Frontend", "sources": ["P11"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
+{"type": "USED_IN", "src": "point", "dst": "Game", "sources": ["P13"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
+{"type": "USED_IN", "src": "polygon", "dst": "Game", "sources": ["P13"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
+{"type": "USED_IN", "src": "polyhedron", "dst": "Game", "sources": ["P13"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "pop3s", "dst": "DevOps", "sources": ["P09"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
+{"type": "USED_IN", "src": "port", "dst": "IT Support", "sources": ["P15"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "port blocking", "dst": "Security", "sources": ["P06"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "port scanner", "dst": "Security", "sources": ["P06"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "postcss", "dst": "Frontend", "sources": ["P11"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
@@ -3877,13 +4059,17 @@
 {"type": "USED_IN", "src": "process monitoring", "dst": "DevOps", "sources": ["P09"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "profiling performance", "dst": "Backend", "sources": ["P04"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "programming fundamentals", "dst": "AI/ML", "sources": ["P14"], "evidence": [], "in_roadmap": true, "node_kind": "main"}
+{"type": "USED_IN", "src": "projection", "dst": "Game", "sources": ["P13"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "prometheus", "dst": "Data", "sources": ["P08"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "prometheus", "dst": "DevOps", "sources": ["P09"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "prompt engineering", "dst": "AI/ML", "sources": ["P01"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "prompt injection attack", "dst": "AI/ML", "sources": ["P01"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
+{"type": "USED_IN", "src": "protocol", "dst": "IT Support", "sources": ["P15"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "protocol analyzer", "dst": "Security", "sources": ["P06"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
+{"type": "USED_IN", "src": "prototyping", "dst": "Design", "sources": ["P18"], "evidence": [], "in_roadmap": true, "node_kind": "main"}
 {"type": "USED_IN", "src": "provisioning", "dst": "DevOps", "sources": ["P09"], "evidence": [], "in_roadmap": true, "node_kind": "main"}
 {"type": "USED_IN", "src": "proxmox", "dst": "Security", "sources": ["P06"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
+{"type": "USED_IN", "src": "proxy", "dst": "IT Support", "sources": ["P15"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "prpl pattern", "dst": "Frontend", "sources": ["P11"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "pulumi", "dst": "DevOps", "sources": ["P09"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "puppet", "dst": "DevOps", "sources": ["P09"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
@@ -3893,14 +4079,18 @@
 {"type": "USED_IN", "src": "python", "dst": "Backend", "sources": ["P04"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "python", "dst": "Data", "sources": ["P07", "P08"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "python", "dst": "DevOps", "sources": ["P09", "P10"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
+{"type": "USED_IN", "src": "python", "dst": "Game", "sources": ["P13"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "python", "dst": "Security", "sources": ["P06", "P10"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "pytorch", "dst": "Data", "sources": ["P07"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "qa mindset", "dst": "QA", "sources": ["P16"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "qa wolf", "dst": "QA", "sources": ["P16"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "qdrant", "dst": "AI/ML", "sources": ["P01"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
+{"type": "USED_IN", "src": "qos", "dst": "IT Support", "sources": ["P15"], "evidence": [], "in_roadmap": true, "node_kind": "main"}
 {"type": "USED_IN", "src": "qtest", "dst": "QA", "sources": ["P16"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
+{"type": "USED_IN", "src": "quad9", "dst": "IT Support", "sources": ["P15"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "qualys", "dst": "DevOps", "sources": ["P10"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "qualys", "dst": "Security", "sources": ["P10"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
+{"type": "USED_IN", "src": "quaternion", "dst": "Game", "sources": ["P13"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "qwik", "dst": "Frontend", "sources": ["P11"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "r", "dst": "Data", "sources": ["P07"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "rabbitmq", "dst": "Backend", "sources": ["P04"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
@@ -3909,6 +4099,8 @@
 {"type": "USED_IN", "src": "rag", "dst": "AI/ML", "sources": ["P01"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "rail model", "dst": "Frontend", "sources": ["P11"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "range", "dst": "Data", "sources": ["P07"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
+{"type": "USED_IN", "src": "rasterization", "dst": "Game", "sources": ["P13"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
+{"type": "USED_IN", "src": "ray tracing", "dst": "Game", "sources": ["P13"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "rdp", "dst": "Security", "sources": ["P06"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "react", "dst": "Frontend", "sources": ["P11"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "react", "dst": "Fullstack", "sources": ["P12"], "evidence": [], "in_roadmap": true, "node_kind": "main"}
@@ -3916,6 +4108,7 @@
 {"type": "USED_IN", "src": "react prompting", "dst": "AI/ML", "sources": ["P01"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "react-router", "dst": "Frontend", "sources": ["P11"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "real-time data", "dst": "Backend", "sources": ["P04"], "evidence": [], "in_roadmap": true, "node_kind": "main"}
+{"type": "USED_IN", "src": "real-time ray tracing", "dst": "Game", "sources": ["P13"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "realtime", "dst": "Data", "sources": ["P08"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "recommendation systems", "dst": "AI/ML", "sources": ["P01"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "reconnaissance", "dst": "Security", "sources": ["P06"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
@@ -3924,12 +4117,15 @@
 {"type": "USED_IN", "src": "redis", "dst": "Backend", "sources": ["P04"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "redis", "dst": "Data", "sources": ["P08"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "redis", "dst": "Fullstack", "sources": ["P12"], "evidence": [], "in_roadmap": true, "node_kind": "main"}
+{"type": "USED_IN", "src": "reflection", "dst": "Game", "sources": ["P13"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "regression", "dst": "Data", "sources": ["P07"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "regression testing", "dst": "QA", "sources": ["P16"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "reinforcement learning", "dst": "Data", "sources": ["P07"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
+{"type": "USED_IN", "src": "reinforcement learning", "dst": "Game", "sources": ["P13"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "relay modern", "dst": "Frontend", "sources": ["P11"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "remote config", "dst": "Mobile", "sources": ["P02"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "removing duplicates", "dst": "Data", "sources": ["P07"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
+{"type": "USED_IN", "src": "rendering equation", "dst": "Game", "sources": ["P13"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "replay attack", "dst": "Security", "sources": ["P06"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "replication", "dst": "AI/ML", "sources": ["P01"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "repository pattern", "dst": "Mobile", "sources": ["P02"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
@@ -3939,6 +4135,7 @@
 {"type": "USED_IN", "src": "rest", "dst": "Backend", "sources": ["P04"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "rest assured", "dst": "QA", "sources": ["P16"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "restful apis", "dst": "Fullstack", "sources": ["P12"], "evidence": [], "in_roadmap": true, "node_kind": "main"}
+{"type": "USED_IN", "src": "restitution", "dst": "Game", "sources": ["P13"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "rethinkdb", "dst": "Backend", "sources": ["P04"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "retrieval process", "dst": "AI/ML", "sources": ["P01"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "reusability", "dst": "Data", "sources": ["P08"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
@@ -3946,6 +4143,7 @@
 {"type": "USED_IN", "src": "reverse proxy", "dst": "DevOps", "sources": ["P09"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "rhel", "dst": "DevOps", "sources": ["P09"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "ring topology", "dst": "Security", "sources": ["P06"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
+{"type": "USED_IN", "src": "rip", "dst": "IT Support", "sources": ["P15"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "risk definition", "dst": "Security", "sources": ["P06"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "risk quantification", "dst": "DevOps", "sources": ["P10"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "risk quantification", "dst": "Security", "sources": ["P10"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
@@ -3959,15 +4157,19 @@
 {"type": "USED_IN", "src": "room database", "dst": "Mobile", "sources": ["P02"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "root cause analysis", "dst": "DevOps", "sources": ["P10"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "root cause analysis", "dst": "Security", "sources": ["P10"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
+{"type": "USED_IN", "src": "round robin", "dst": "IT Support", "sources": ["P15"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "route", "dst": "Security", "sources": ["P06"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "route53", "dst": "Fullstack", "sources": ["P12"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "router", "dst": "Security", "sources": ["P06"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
+{"type": "USED_IN", "src": "routers", "dst": "IT Support", "sources": ["P15"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
+{"type": "USED_IN", "src": "routing", "dst": "IT Support", "sources": ["P15"], "evidence": [], "in_roadmap": true, "node_kind": "main"}
 {"type": "USED_IN", "src": "ruby", "dst": "Backend", "sources": ["P04"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "ruby", "dst": "DevOps", "sources": ["P09", "P10"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "ruby", "dst": "Security", "sources": ["P10"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "runscope", "dst": "QA", "sources": ["P16"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "rust", "dst": "Backend", "sources": ["P04"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "rust", "dst": "DevOps", "sources": ["P09", "P10"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
+{"type": "USED_IN", "src": "rust", "dst": "Game", "sources": ["P13"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "rust", "dst": "Security", "sources": ["P10"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "rxjava", "dst": "Mobile", "sources": ["P02"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "rxkotlin", "dst": "Mobile", "sources": ["P02"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
@@ -3979,9 +4181,12 @@
 {"type": "USED_IN", "src": "safe", "dst": "QA", "sources": ["P16"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "salting", "dst": "Security", "sources": ["P06"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "saml", "dst": "Backend", "sources": ["P04"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
+{"type": "USED_IN", "src": "sampling", "dst": "Game", "sources": ["P13"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
+{"type": "USED_IN", "src": "san", "dst": "IT Support", "sources": ["P15"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "sandboxing", "dst": "Security", "sources": ["P06"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "sanity testing", "dst": "QA", "sources": ["P16"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "sass", "dst": "Frontend", "sources": ["P11"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
+{"type": "USED_IN", "src": "sat", "dst": "Game", "sources": ["P13"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "sboms", "dst": "DevOps", "sources": ["P10"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "sboms", "dst": "Security", "sources": ["P10"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "scala", "dst": "Data", "sources": ["P08"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
@@ -4008,6 +4213,7 @@
 {"type": "USED_IN", "src": "sentry", "dst": "Data", "sources": ["P08"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "sentry", "dst": "QA", "sources": ["P16"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "seo basics", "dst": "Frontend", "sources": ["P11"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
+{"type": "USED_IN", "src": "server", "dst": "IT Support", "sources": ["P15"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "server security", "dst": "Backend", "sources": ["P04"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "server side", "dst": "Backend", "sources": ["P04"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "server side rendering", "dst": "Frontend", "sources": ["P11"], "evidence": [], "in_roadmap": true, "node_kind": "main"}
@@ -4018,9 +4224,13 @@
 {"type": "USED_IN", "src": "service mesh", "dst": "DevOps", "sources": ["P09"], "evidence": [], "in_roadmap": true, "node_kind": "main"}
 {"type": "USED_IN", "src": "service workers", "dst": "Frontend", "sources": ["P11"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "ses", "dst": "Fullstack", "sources": ["P12"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
+{"type": "USED_IN", "src": "session", "dst": "IT Support", "sources": ["P15"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "sftp", "dst": "Security", "sources": ["P06"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "sha", "dst": "Backend", "sources": ["P04"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
+{"type": "USED_IN", "src": "shader", "dst": "Game", "sources": ["P13"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
+{"type": "USED_IN", "src": "shadow", "dst": "Game", "sources": ["P13"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "shadow dom", "dst": "Frontend", "sources": ["P11"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
+{"type": "USED_IN", "src": "shadow map", "dst": "Game", "sources": ["P13"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "sharding strategies", "dst": "Backend", "sources": ["P04"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "shared preferences", "dst": "Mobile", "sources": ["P02"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "sha‑256", "dst": "DevOps", "sources": ["P10"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
@@ -4031,13 +4241,18 @@
 {"type": "USED_IN", "src": "siem", "dst": "Security", "sources": ["P06", "P10"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "signed apk", "dst": "Mobile", "sources": ["P02"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "similarity search", "dst": "AI/ML", "sources": ["P01"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
+{"type": "USED_IN", "src": "simple flowchart", "dst": "Design", "sources": ["P18"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "sinkholes", "dst": "Security", "sources": ["P06"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
+{"type": "USED_IN", "src": "sketch", "dst": "Design", "sources": ["P18"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "skewness", "dst": "Data", "sources": ["P07"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "smishing", "dst": "Security", "sources": ["P06"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "smoke testing", "dst": "Data", "sources": ["P08"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "smoke testing", "dst": "QA", "sources": ["P16"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "smtp", "dst": "DevOps", "sources": ["P09"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
+{"type": "USED_IN", "src": "smtp/imap", "dst": "IT Support", "sources": ["P15"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
+{"type": "USED_IN", "src": "snmp", "dst": "IT Support", "sources": ["P15"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "snowflake", "dst": "Data", "sources": ["P08"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
+{"type": "USED_IN", "src": "sntp", "dst": "IT Support", "sources": ["P15"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "soa", "dst": "Backend", "sources": ["P04"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "soap", "dst": "Backend", "sources": ["P04"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "soapui", "dst": "QA", "sources": ["P16"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
@@ -4049,16 +4264,25 @@
 {"type": "USED_IN", "src": "soc 2", "dst": "DevOps", "sources": ["P10"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "soc 2", "dst": "Security", "sources": ["P10"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "social engineering", "dst": "Security", "sources": ["P06"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
+{"type": "USED_IN", "src": "social sharing", "dst": "Design", "sources": ["P18"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
+{"type": "USED_IN", "src": "socket", "dst": "IT Support", "sources": ["P15"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "solidjs", "dst": "Frontend", "sources": ["P11"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "solr", "dst": "Backend", "sources": ["P04"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "sops", "dst": "DevOps", "sources": ["P09"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
+{"type": "USED_IN", "src": "sort & sweep", "dst": "Game", "sources": ["P13"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "sources of data", "dst": "Data", "sources": ["P08"], "evidence": [], "in_roadmap": true, "node_kind": "main"}
 {"type": "USED_IN", "src": "spark", "dst": "AI/ML", "sources": ["P14"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "spark", "dst": "Data", "sources": ["P07"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
+{"type": "USED_IN", "src": "spatial partitioning", "dst": "Game", "sources": ["P13"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
+{"type": "USED_IN", "src": "spectrum of thinking interventions", "dst": "Design", "sources": ["P18"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
+{"type": "USED_IN", "src": "specular", "dst": "Game", "sources": ["P13"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "speech-to-text", "dst": "AI/ML", "sources": ["P01"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "spf", "dst": "DevOps", "sources": ["P09"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
+{"type": "USED_IN", "src": "spir-v", "dst": "Game", "sources": ["P13"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
+{"type": "USED_IN", "src": "spline", "dst": "Game", "sources": ["P13"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "splunk", "dst": "DevOps", "sources": ["P09"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "spoofing", "dst": "Security", "sources": ["P06"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
+{"type": "USED_IN", "src": "spot", "dst": "Game", "sources": ["P13"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "sql", "dst": "Data", "sources": ["P07", "P08"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "sql injection", "dst": "Security", "sources": ["P06"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "sql injection prevention", "dst": "DevOps", "sources": ["P10"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
@@ -4068,9 +4292,11 @@
 {"type": "USED_IN", "src": "sqlite", "dst": "Backend", "sources": ["P04"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "srtp", "dst": "Security", "sources": ["P06"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "ssh", "dst": "DevOps", "sources": ["P09"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
+{"type": "USED_IN", "src": "ssh", "dst": "IT Support", "sources": ["P15"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "ssh", "dst": "Security", "sources": ["P06"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "ssl/tls", "dst": "Backend", "sources": ["P04"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "ssl/tls", "dst": "DevOps", "sources": ["P09"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
+{"type": "USED_IN", "src": "ssl/tls", "dst": "IT Support", "sources": ["P15"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "ssl/tls", "dst": "Security", "sources": ["P06"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "ssl/tls basics", "dst": "Security", "sources": ["P06"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "sso", "dst": "Security", "sources": ["P06"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
@@ -4079,18 +4305,26 @@
 {"type": "USED_IN", "src": "standard deviation", "dst": "Data", "sources": ["P07"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "star topology", "dst": "Security", "sources": ["P06"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "state changes", "dst": "Mobile", "sources": ["P02"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
+{"type": "USED_IN", "src": "state machine", "dst": "Game", "sources": ["P13"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
+{"type": "USED_IN", "src": "stateful inspection", "dst": "IT Support", "sources": ["P15"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "static site generators", "dst": "Frontend", "sources": ["P11"], "evidence": [], "in_roadmap": true, "node_kind": "main"}
 {"type": "USED_IN", "src": "statistical analysis", "dst": "Data", "sources": ["P07"], "evidence": [], "in_roadmap": true, "node_kind": "main"}
+{"type": "USED_IN", "src": "status reports", "dst": "Design", "sources": ["P18"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
+{"type": "USED_IN", "src": "stencil shadow", "dst": "Game", "sources": ["P13"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "storage", "dst": "Frontend", "sources": ["P11"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "storage", "dst": "Mobile", "sources": ["P02"], "evidence": [], "in_roadmap": true, "node_kind": "main"}
+{"type": "USED_IN", "src": "stp", "dst": "IT Support", "sources": ["P15"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "streaming", "dst": "Data", "sources": ["P08"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "streamlit", "dst": "Data", "sources": ["P08"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "stress testing", "dst": "QA", "sources": ["P16"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "stride", "dst": "DevOps", "sources": ["P10"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "stride", "dst": "Security", "sources": ["P10"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "subnet mask", "dst": "Security", "sources": ["P06"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
+{"type": "USED_IN", "src": "subnet masks", "dst": "IT Support", "sources": ["P15"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
+{"type": "USED_IN", "src": "subnetting", "dst": "IT Support", "sources": ["P15"], "evidence": [], "in_roadmap": true, "node_kind": "main"}
 {"type": "USED_IN", "src": "sum", "dst": "Data", "sources": ["P07"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "supabase", "dst": "AI/ML", "sources": ["P01"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
+{"type": "USED_IN", "src": "supernetting", "dst": "IT Support", "sources": ["P15"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "supervised learning", "dst": "Data", "sources": ["P07"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "supply chain security", "dst": "DevOps", "sources": ["P10"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "supply chain security", "dst": "Security", "sources": ["P10"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
@@ -4099,6 +4333,8 @@
 {"type": "USED_IN", "src": "svelte kit", "dst": "Frontend", "sources": ["P11"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "swc", "dst": "Frontend", "sources": ["P11"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "switch", "dst": "Security", "sources": ["P06"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
+{"type": "USED_IN", "src": "switches", "dst": "IT Support", "sources": ["P15"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
+{"type": "USED_IN", "src": "swot analysis", "dst": "Design", "sources": ["P18"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "symmetric encryption", "dst": "DevOps", "sources": ["P10"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "symmetric encryption", "dst": "Security", "sources": ["P10"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "syslogs", "dst": "Security", "sources": ["P06"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
@@ -4109,7 +4345,11 @@
 {"type": "USED_IN", "src": "tailgating", "dst": "Security", "sources": ["P06"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "tailwind", "dst": "Frontend", "sources": ["P11"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "tailwind css", "dst": "Fullstack", "sources": ["P12"], "evidence": [], "in_roadmap": true, "node_kind": "main"}
+{"type": "USED_IN", "src": "target action", "dst": "Design", "sources": ["P18"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
+{"type": "USED_IN", "src": "target actor", "dst": "Design", "sources": ["P18"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
+{"type": "USED_IN", "src": "target outcome", "dst": "Design", "sources": ["P18"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "tauri", "dst": "Frontend", "sources": ["P11"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
+{"type": "USED_IN", "src": "tcp/ip model", "dst": "IT Support", "sources": ["P15"], "evidence": [], "in_roadmap": true, "node_kind": "main"}
 {"type": "USED_IN", "src": "tcpdump", "dst": "Security", "sources": ["P06"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "teamcity", "dst": "DevOps", "sources": ["P09"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "teamcity", "dst": "QA", "sources": ["P16"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
@@ -4133,6 +4373,7 @@
 {"type": "USED_IN", "src": "test‑driven development", "dst": "Backend", "sources": ["P04"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "test‑driven development", "dst": "QA", "sources": ["P16"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "text manipulation", "dst": "DevOps", "sources": ["P09"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
+{"type": "USED_IN", "src": "texture", "dst": "Game", "sources": ["P13"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "textview", "dst": "Mobile", "sources": ["P02"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "text‑to‑speech", "dst": "AI/ML", "sources": ["P01"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "threads", "dst": "Mobile", "sources": ["P02"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
@@ -4141,6 +4382,7 @@
 {"type": "USED_IN", "src": "threat modeling workflows", "dst": "DevOps", "sources": ["P10"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "threat modeling workflows", "dst": "Security", "sources": ["P10"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "throttling", "dst": "Backend", "sources": ["P04"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
+{"type": "USED_IN", "src": "throughput", "dst": "IT Support", "sources": ["P15"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "timber", "dst": "Mobile", "sources": ["P02"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "timescale", "dst": "Backend", "sources": ["P04"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "tls", "dst": "DevOps", "sources": ["P10"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
@@ -4150,11 +4392,16 @@
 {"type": "USED_IN", "src": "token counting", "dst": "AI/ML", "sources": ["P01"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "tokenization", "dst": "Data", "sources": ["P08"], "evidence": [], "in_roadmap": true, "node_kind": "main"}
 {"type": "USED_IN", "src": "tomcat", "dst": "DevOps", "sources": ["P09"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
+{"type": "USED_IN", "src": "tone reproduction", "dst": "Game", "sources": ["P13"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "tracert", "dst": "Security", "sources": ["P06"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
+{"type": "USED_IN", "src": "traffic shaping", "dst": "IT Support", "sources": ["P15"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "transactions", "dst": "Backend", "sources": ["P04"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "transactions", "dst": "Data", "sources": ["P08"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "transform data", "dst": "Data", "sources": ["P08"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "transformers.js", "dst": "AI/ML", "sources": ["P01"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
+{"type": "USED_IN", "src": "translucency & transparency", "dst": "Game", "sources": ["P13"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
+{"type": "USED_IN", "src": "transmission media types", "dst": "IT Support", "sources": ["P15"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
+{"type": "USED_IN", "src": "transport", "dst": "IT Support", "sources": ["P15"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "travis ci", "dst": "QA", "sources": ["P16"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "trello", "dst": "QA", "sources": ["P16"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "trim", "dst": "Data", "sources": ["P07"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
@@ -4169,10 +4416,15 @@
 {"type": "USED_IN", "src": "unit testing", "dst": "Backend", "sources": ["P04"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "unit testing", "dst": "Data", "sources": ["P08"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "unit testing", "dst": "QA", "sources": ["P16"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
+{"type": "USED_IN", "src": "unity 3d", "dst": "Game", "sources": ["P13"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
+{"type": "USED_IN", "src": "unreal engine", "dst": "Game", "sources": ["P13"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "unsupervised learning", "dst": "Data", "sources": ["P07"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "upper/lower/proper functions", "dst": "Data", "sources": ["P07"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "urlscan", "dst": "Security", "sources": ["P06"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "urlvoid", "dst": "Security", "sources": ["P06"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
+{"type": "USED_IN", "src": "user personas", "dst": "Design", "sources": ["P18"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
+{"type": "USED_IN", "src": "user stories", "dst": "Design", "sources": ["P18"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
+{"type": "USED_IN", "src": "ux best practices", "dst": "Design", "sources": ["P18"], "evidence": [], "in_roadmap": true, "node_kind": "main"}
 {"type": "USED_IN", "src": "v-model", "dst": "QA", "sources": ["P16"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "variance", "dst": "Data", "sources": ["P07"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "vault", "dst": "DevOps", "sources": ["P09"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
@@ -4180,6 +4432,7 @@
 {"type": "USED_IN", "src": "vcs hosting", "dst": "Frontend", "sources": ["P11"], "evidence": [], "in_roadmap": true, "node_kind": "main"}
 {"type": "USED_IN", "src": "vector database", "dst": "AI/ML", "sources": ["P01"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "vector databases", "dst": "AI/ML", "sources": ["P01"], "evidence": [], "in_roadmap": true, "node_kind": "main"}
+{"type": "USED_IN", "src": "vector mathematics", "dst": "Game", "sources": ["P13"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "vegeta", "dst": "QA", "sources": ["P16"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "vercel", "dst": "DevOps", "sources": ["P09"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "verification and validation", "dst": "QA", "sources": ["P16"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
@@ -4195,6 +4448,8 @@
 {"type": "USED_IN", "src": "vim, nano, emacs", "dst": "Security", "sources": ["P10"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "virtualbox", "dst": "Security", "sources": ["P06"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "virustotal", "dst": "Security", "sources": ["P06"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
+{"type": "USED_IN", "src": "visibility and occlusion", "dst": "Game", "sources": ["P13"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
+{"type": "USED_IN", "src": "visual perception", "dst": "Game", "sources": ["P13"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "visualisation", "dst": "Data", "sources": ["P07"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "visualizing distributions", "dst": "Data", "sources": ["P07"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "vite", "dst": "Frontend", "sources": ["P11"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
@@ -4202,28 +4457,37 @@
 {"type": "USED_IN", "src": "vlan", "dst": "Security", "sources": ["P06"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "vlan hopping", "dst": "Security", "sources": ["P06"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "vlans", "dst": "DevOps", "sources": ["P10"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
+{"type": "USED_IN", "src": "vlans", "dst": "IT Support", "sources": ["P15"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "vlans", "dst": "Security", "sources": ["P10"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "vlookup / hlookup", "dst": "Data", "sources": ["P07"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
+{"type": "USED_IN", "src": "vlsm", "dst": "IT Support", "sources": ["P15"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "vm", "dst": "Security", "sources": ["P06"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "vmware", "dst": "Security", "sources": ["P06"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "vpc", "dst": "Fullstack", "sources": ["P12"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
+{"type": "USED_IN", "src": "vpn", "dst": "IT Support", "sources": ["P15"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "vpn", "dst": "Security", "sources": ["P06"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
+{"type": "USED_IN", "src": "vpns", "dst": "IT Support", "sources": ["P15"], "evidence": [], "in_roadmap": true, "node_kind": "main"}
 {"type": "USED_IN", "src": "vue.js", "dst": "Frontend", "sources": ["P11"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "vuepress", "dst": "Frontend", "sources": ["P11"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
+{"type": "USED_IN", "src": "vulkan", "dst": "Game", "sources": ["P13"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
+{"type": "USED_IN", "src": "vulkan ray tracing", "dst": "Game", "sources": ["P13"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "vulnerability scanning", "dst": "QA", "sources": ["P16"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "vulnhub", "dst": "Security", "sources": ["P06"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "wadcoms", "dst": "Security", "sources": ["P06"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
+{"type": "USED_IN", "src": "wan", "dst": "IT Support", "sources": ["P15"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "wan", "dst": "Security", "sources": ["P06"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "waterfall", "dst": "QA", "sources": ["P16"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "watering hole attack", "dst": "Security", "sources": ["P06"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "wave", "dst": "QA", "sources": ["P16"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "weaviate", "dst": "AI/ML", "sources": ["P01"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
+{"type": "USED_IN", "src": "web application", "dst": "IT Support", "sources": ["P15"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "web based attacks and owasp10", "dst": "Security", "sources": ["P06"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "web components", "dst": "Frontend", "sources": ["P11"], "evidence": [], "in_roadmap": true, "node_kind": "main"}
 {"type": "USED_IN", "src": "web scraping", "dst": "Data", "sources": ["P07"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "web security", "dst": "Backend", "sources": ["P04"], "evidence": [], "in_roadmap": true, "node_kind": "main"}
 {"type": "USED_IN", "src": "web security basics", "dst": "Frontend", "sources": ["P11"], "evidence": [], "in_roadmap": true, "node_kind": "main"}
 {"type": "USED_IN", "src": "webdriver.io", "dst": "QA", "sources": ["P16"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
+{"type": "USED_IN", "src": "webgl", "dst": "Game", "sources": ["P13"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "webpack", "dst": "Frontend", "sources": ["P11"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "webpage test", "dst": "QA", "sources": ["P16"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "websocket", "dst": "Backend", "sources": ["P04"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
@@ -4235,12 +4499,17 @@
 {"type": "USED_IN", "src": "white box testing", "dst": "QA", "sources": ["P16"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "whois", "dst": "Security", "sources": ["P06"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "wifi", "dst": "Security", "sources": ["P06"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
+{"type": "USED_IN", "src": "wifi standards", "dst": "IT Support", "sources": ["P15"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "windows", "dst": "DevOps", "sources": ["P09"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "windows", "dst": "Security", "sources": ["P06"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "winhex", "dst": "Security", "sources": ["P06"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
+{"type": "USED_IN", "src": "wireless networking", "dst": "IT Support", "sources": ["P15"], "evidence": [], "in_roadmap": true, "node_kind": "main"}
+{"type": "USED_IN", "src": "wireless security", "dst": "IT Support", "sources": ["P15"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
+{"type": "USED_IN", "src": "wireshark", "dst": "IT Support", "sources": ["P15"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "wireshark", "dst": "Security", "sources": ["P06"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "wireshark basics", "dst": "DevOps", "sources": ["P10"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "wireshark basics", "dst": "Security", "sources": ["P10"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
+{"type": "USED_IN", "src": "wlan", "dst": "IT Support", "sources": ["P15"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "wlan", "dst": "Security", "sources": ["P06"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "workmanager", "dst": "Mobile", "sources": ["P02"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "wps", "dst": "Security", "sources": ["P06"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
@@ -4258,6 +4527,7 @@
 {"type": "USED_IN", "src": "zabbix", "dst": "DevOps", "sources": ["P09"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "zephyr", "dst": "QA", "sources": ["P16"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "zero day", "dst": "Security", "sources": ["P06"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
+{"type": "USED_IN", "src": "zero trust architecture", "dst": "IT Support", "sources": ["P15"], "evidence": [], "in_roadmap": true, "node_kind": "main"}
 {"type": "USED_IN", "src": "zero trust concepts", "dst": "DevOps", "sources": ["P10"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "zero trust concepts", "dst": "Security", "sources": ["P10"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}
 {"type": "USED_IN", "src": "zero trust core concepts", "dst": "Security", "sources": ["P06"], "evidence": [], "in_roadmap": true, "node_kind": "sub"}

@@ -24,5 +24,5 @@ AMBIGUOUS_MAJOR_ALIASES = {"ai", "ce", "cs", "ds", "is", "it", "se"}
 # --- T4: cấp bậc ---
 LEVELS_CSV = KB2 / "data" / "levels.csv"
 LEVEL_SOURCE_ID = "M02"
-LEVEL_RANKS = {"Intern": 0, "Fresher": 1, "Junior": 2, "Mid": 3, "Senior": 4, "Lead": 5}   # Knowledge base.md, mục 1
+from shared.config import LEVEL_RANKS  # noqa: E402,F401  (Knowledge base.md, mục 1)
 AMBIGUOUS_LEVEL_ALIASES = {"lead", "mid", "nhan vien", "nhân viên"}

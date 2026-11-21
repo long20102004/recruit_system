@@ -22,3 +22,9 @@ def write_jsonl(path, rows):
     with open(path, "w", encoding="utf-8") as f:
         for row in rows:
             f.write(json.dumps(row, ensure_ascii=False) + "\n")
+
+
+def strip_accents(text):
+    """công nghệ thông tin -> cong nghe thong tin. CV không dấu vẫn khớp được."""
+    decomposed = unicodedata.normalize("NFD", text.replace("đ", "d").replace("Đ", "D"))
+    return "".join(c for c in decomposed if not unicodedata.combining(c))

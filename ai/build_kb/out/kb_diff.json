@@ -1,0 +1,2033 @@
+{
+  "summary": {
+    "nodes": {
+      "added": {},
+      "removed": {},
+      "changed": {
+        "Category": 331
+      },
+      "changed_fields": {
+        "sibling_ok": 331,
+        "sibling_ok_by": 331
+      }
+    },
+    "edges": {
+      "added": {},
+      "removed": {},
+      "changed": {},
+      "changed_fields": {}
+    }
+  },
+  "nodes": {
+    "added": [],
+    "removed": [],
+    "changed": [
+      {
+        "id": [
+          "Category",
+          ".net desktop frameworks"
+        ],
+        "fields": [
+          "sibling_ok",
+          "sibling_ok_by"
+        ]
+      },
+      {
+        "id": [
+          "Category",
+          ".net web frameworks"
+        ],
+        "fields": [
+          "sibling_ok",
+          "sibling_ok_by"
+        ]
+      },
+      {
+        "id": [
+          "Category",
+          "3d modeling tools"
+        ],
+        "fields": [
+          "sibling_ok",
+          "sibling_ok_by"
+        ]
+      },
+      {
+        "id": [
+          "Category",
+          "7 layers"
+        ],
+        "fields": [
+          "sibling_ok",
+          "sibling_ok_by"
+        ]
+      },
+      {
+        "id": [
+          "Category",
+          "access control"
+        ],
+        "fields": [
+          "sibling_ok",
+          "sibling_ok_by"
+        ]
+      },
+      {
+        "id": [
+          "Category",
+          "advanced crypto."
+        ],
+        "fields": [
+          "sibling_ok",
+          "sibling_ok_by"
+        ]
+      },
+      {
+        "id": [
+          "Category",
+          "agile methodologies"
+        ],
+        "fields": [
+          "sibling_ok",
+          "sibling_ok_by"
+        ]
+      },
+      {
+        "id": [
+          "Category",
+          "agile model"
+        ],
+        "fields": [
+          "sibling_ok",
+          "sibling_ok_by"
+        ]
+      },
+      {
+        "id": [
+          "Category",
+          "ai agents"
+        ],
+        "fields": [
+          "sibling_ok",
+          "sibling_ok_by"
+        ]
+      },
+      {
+        "id": [
+          "Category",
+          "ai models"
+        ],
+        "fields": [
+          "sibling_ok",
+          "sibling_ok_by"
+        ]
+      },
+      {
+        "id": [
+          "Category",
+          "ai safety"
+        ],
+        "fields": [
+          "sibling_ok",
+          "sibling_ok_by"
+        ]
+      },
+      {
+        "id": [
+          "Category",
+          "analytics"
+        ],
+        "fields": [
+          "sibling_ok",
+          "sibling_ok_by"
+        ]
+      },
+      {
+        "id": [
+          "Category",
+          "api documentation tools"
+        ],
+        "fields": [
+          "sibling_ok",
+          "sibling_ok_by"
+        ]
+      },
+      {
+        "id": [
+          "Category",
+          "api integration patterns"
+        ],
+        "fields": [
+          "sibling_ok",
+          "sibling_ok_by"
+        ]
+      },
+      {
+        "id": [
+          "Category",
+          "api lifecycle management"
+        ],
+        "fields": [
+          "sibling_ok",
+          "sibling_ok_by"
+        ]
+      },
+      {
+        "id": [
+          "Category",
+          "api performance"
+        ],
+        "fields": [
+          "sibling_ok",
+          "sibling_ok_by"
+        ]
+      },
+      {
+        "id": [
+          "Category",
+          "api styles"
+        ],
+        "fields": [
+          "sibling_ok",
+          "sibling_ok_by"
+        ]
+      },
+      {
+        "id": [
+          "Category",
+          "api testing tools"
+        ],
+        "fields": [
+          "sibling_ok",
+          "sibling_ok_by"
+        ]
+      },
+      {
+        "id": [
+          "Category",
+          "api testing"
+        ],
+        "fields": [
+          "sibling_ok",
+          "sibling_ok_by"
+        ]
+      },
+      {
+        "id": [
+          "Category",
+          "apis & integrations"
+        ],
+        "fields": [
+          "sibling_ok",
+          "sibling_ok_by"
+        ]
+      },
+      {
+        "id": [
+          "Category",
+          "app components"
+        ],
+        "fields": [
+          "sibling_ok",
+          "sibling_ok_by"
+        ]
+      },
+      {
+        "id": [
+          "Category",
+          "application monitoring"
+        ],
+        "fields": [
+          "sibling_ok",
+          "sibling_ok_by"
+        ]
+      },
+      {
+        "id": [
+          "Category",
+          "architectural patterns"
+        ],
+        "fields": [
+          "sibling_ok",
+          "sibling_ok_by"
+        ]
+      },
+      {
+        "id": [
+          "Category",
+          "architecture"
+        ],
+        "fields": [
+          "sibling_ok",
+          "sibling_ok_by"
+        ]
+      },
+      {
+        "id": [
+          "Category",
+          "artifact management"
+        ],
+        "fields": [
+          "sibling_ok",
+          "sibling_ok_by"
+        ]
+      },
+      {
+        "id": [
+          "Category",
+          "asynchronism"
+        ],
+        "fields": [
+          "sibling_ok",
+          "sibling_ok_by"
+        ]
+      },
+      {
+        "id": [
+          "Category",
+          "attack types and differences"
+        ],
+        "fields": [
+          "sibling_ok",
+          "sibling_ok_by"
+        ]
+      },
+      {
+        "id": [
+          "Category",
+          "auth methodologies"
+        ],
+        "fields": [
+          "sibling_ok",
+          "sibling_ok_by"
+        ]
+      },
+      {
+        "id": [
+          "Category",
+          "auth methods"
+        ],
+        "fields": [
+          "sibling_ok",
+          "sibling_ok_by"
+        ]
+      },
+      {
+        "id": [
+          "Category",
+          "authorization methods"
+        ],
+        "fields": [
+          "sibling_ok",
+          "sibling_ok_by"
+        ]
+      },
+      {
+        "id": [
+          "Category",
+          "automating security"
+        ],
+        "fields": [
+          "sibling_ok",
+          "sibling_ok_by"
+        ]
+      },
+      {
+        "id": [
+          "Category",
+          "automation frameworks"
+        ],
+        "fields": [
+          "sibling_ok",
+          "sibling_ok_by"
+        ]
+      },
+      {
+        "id": [
+          "Category",
+          "aws"
+        ],
+        "fields": [
+          "sibling_ok",
+          "sibling_ok_by"
+        ]
+      },
+      {
+        "id": [
+          "Category",
+          "azure"
+        ],
+        "fields": [
+          "sibling_ok",
+          "sibling_ok_by"
+        ]
+      },
+      {
+        "id": [
+          "Category",
+          "backend automation"
+        ],
+        "fields": [
+          "sibling_ok",
+          "sibling_ok_by"
+        ]
+      },
+      {
+        "id": [
+          "Category",
+          "beginner certifications"
+        ],
+        "fields": [
+          "sibling_ok",
+          "sibling_ok_by"
+        ]
+      },
+      {
+        "id": [
+          "Category",
+          "bi tools"
+        ],
+        "fields": [
+          "sibling_ok",
+          "sibling_ok_by"
+        ]
+      },
+      {
+        "id": [
+          "Category",
+          "big data technologies"
+        ],
+        "fields": [
+          "sibling_ok",
+          "sibling_ok_by"
+        ]
+      },
+      {
+        "id": [
+          "Category",
+          "big data tools"
+        ],
+        "fields": [
+          "sibling_ok",
+          "sibling_ok_by"
+        ]
+      },
+      {
+        "id": [
+          "Category",
+          "blockchain platforms"
+        ],
+        "fields": [
+          "sibling_ok",
+          "sibling_ok_by"
+        ]
+      },
+      {
+        "id": [
+          "Category",
+          "browser addons"
+        ],
+        "fields": [
+          "sibling_ok",
+          "sibling_ok_by"
+        ]
+      },
+      {
+        "id": [
+          "Category",
+          "build tools"
+        ],
+        "fields": [
+          "sibling_ok",
+          "sibling_ok_by"
+        ]
+      },
+      {
+        "id": [
+          "Category",
+          "building ai agents"
+        ],
+        "fields": [
+          "sibling_ok",
+          "sibling_ok_by"
+        ]
+      },
+      {
+        "id": [
+          "Category",
+          "building for scale"
+        ],
+        "fields": [
+          "sibling_ok",
+          "sibling_ok_by"
+        ]
+      },
+      {
+        "id": [
+          "Category",
+          "building json / restful apis"
+        ],
+        "fields": [
+          "sibling_ok",
+          "sibling_ok_by"
+        ]
+      },
+      {
+        "id": [
+          "Category",
+          "business analysis techniques"
+        ],
+        "fields": [
+          "sibling_ok",
+          "sibling_ok_by"
+        ]
+      },
+      {
+        "id": [
+          "Category",
+          "caching"
+        ],
+        "fields": [
+          "sibling_ok",
+          "sibling_ok_by"
+        ]
+      },
+      {
+        "id": [
+          "Category",
+          "certifications"
+        ],
+        "fields": [
+          "sibling_ok",
+          "sibling_ok_by"
+        ]
+      },
+      {
+        "id": [
+          "Category",
+          "charting"
+        ],
+        "fields": [
+          "sibling_ok",
+          "sibling_ok_by"
+        ]
+      },
+      {
+        "id": [
+          "Category",
+          "ci cd tools"
+        ],
+        "fields": [
+          "sibling_ok",
+          "sibling_ok_by"
+        ]
+      },
+      {
+        "id": [
+          "Category",
+          "ci cd"
+        ],
+        "fields": [
+          "sibling_ok",
+          "sibling_ok_by"
+        ]
+      },
+      {
+        "id": [
+          "Category",
+          "clarify product"
+        ],
+        "fields": [
+          "sibling_ok",
+          "sibling_ok_by"
+        ]
+      },
+      {
+        "id": [
+          "Category",
+          "cleanup libraries"
+        ],
+        "fields": [
+          "sibling_ok",
+          "sibling_ok_by"
+        ]
+      },
+      {
+        "id": [
+          "Category",
+          "cloud certifications"
+        ],
+        "fields": [
+          "sibling_ok",
+          "sibling_ok_by"
+        ]
+      },
+      {
+        "id": [
+          "Category",
+          "cloud compute"
+        ],
+        "fields": [
+          "sibling_ok",
+          "sibling_ok_by"
+        ]
+      },
+      {
+        "id": [
+          "Category",
+          "cloud computing"
+        ],
+        "fields": [
+          "sibling_ok",
+          "sibling_ok_by"
+        ]
+      },
+      {
+        "id": [
+          "Category",
+          "cloud deployment models"
+        ],
+        "fields": [
+          "sibling_ok",
+          "sibling_ok_by"
+        ]
+      },
+      {
+        "id": [
+          "Category",
+          "cloud design patterns"
+        ],
+        "fields": [
+          "sibling_ok",
+          "sibling_ok_by"
+        ]
+      },
+      {
+        "id": [
+          "Category",
+          "cloud providers"
+        ],
+        "fields": [
+          "sibling_ok",
+          "sibling_ok_by"
+        ]
+      },
+      {
+        "id": [
+          "Category",
+          "cloud security"
+        ],
+        "fields": [
+          "sibling_ok",
+          "sibling_ok_by"
+        ]
+      },
+      {
+        "id": [
+          "Category",
+          "cloud service models"
+        ],
+        "fields": [
+          "sibling_ok",
+          "sibling_ok_by"
+        ]
+      },
+      {
+        "id": [
+          "Category",
+          "cloud skills and knowledge"
+        ],
+        "fields": [
+          "sibling_ok",
+          "sibling_ok_by"
+        ]
+      },
+      {
+        "id": [
+          "Category",
+          "cluster computing basics"
+        ],
+        "fields": [
+          "sibling_ok",
+          "sibling_ok_by"
+        ]
+      },
+      {
+        "id": [
+          "Category",
+          "cms platforms"
+        ],
+        "fields": [
+          "sibling_ok",
+          "sibling_ok_by"
+        ]
+      },
+      {
+        "id": [
+          "Category",
+          "column dbs"
+        ],
+        "fields": [
+          "sibling_ok",
+          "sibling_ok_by"
+        ]
+      },
+      {
+        "id": [
+          "Category",
+          "common attacks"
+        ],
+        "fields": [
+          "sibling_ok",
+          "sibling_ok_by"
+        ]
+      },
+      {
+        "id": [
+          "Category",
+          "common cloud environments"
+        ],
+        "fields": [
+          "sibling_ok",
+          "sibling_ok_by"
+        ]
+      },
+      {
+        "id": [
+          "Category",
+          "common cloud storage"
+        ],
+        "fields": [
+          "sibling_ok",
+          "sibling_ok_by"
+        ]
+      },
+      {
+        "id": [
+          "Category",
+          "common services"
+        ],
+        "fields": [
+          "sibling_ok",
+          "sibling_ok_by"
+        ]
+      },
+      {
+        "id": [
+          "Category",
+          "common terminology"
+        ],
+        "fields": [
+          "sibling_ok",
+          "sibling_ok_by"
+        ]
+      },
+      {
+        "id": [
+          "Category",
+          "common tools"
+        ],
+        "fields": [
+          "sibling_ok",
+          "sibling_ok_by"
+        ]
+      },
+      {
+        "id": [
+          "Category",
+          "common virtualization technologies"
+        ],
+        "fields": [
+          "sibling_ok",
+          "sibling_ok_by"
+        ]
+      },
+      {
+        "id": [
+          "Category",
+          "computer graphics"
+        ],
+        "fields": [
+          "sibling_ok",
+          "sibling_ok_by"
+        ]
+      },
+      {
+        "id": [
+          "Category",
+          "computer vision libraries"
+        ],
+        "fields": [
+          "sibling_ok",
+          "sibling_ok_by"
+        ]
+      },
+      {
+        "id": [
+          "Category",
+          "configuration management"
+        ],
+        "fields": [
+          "sibling_ok",
+          "sibling_ok_by"
+        ]
+      },
+      {
+        "id": [
+          "Category",
+          "container orchestration"
+        ],
+        "fields": [
+          "sibling_ok",
+          "sibling_ok_by"
+        ]
+      },
+      {
+        "id": [
+          "Category",
+          "container security"
+        ],
+        "fields": [
+          "sibling_ok",
+          "sibling_ok_by"
+        ]
+      },
+      {
+        "id": [
+          "Category",
+          "containerization"
+        ],
+        "fields": [
+          "sibling_ok",
+          "sibling_ok_by"
+        ]
+      },
+      {
+        "id": [
+          "Category",
+          "containers & orchestration"
+        ],
+        "fields": [
+          "sibling_ok",
+          "sibling_ok_by"
+        ]
+      },
+      {
+        "id": [
+          "Category",
+          "containers"
+        ],
+        "fields": [
+          "sibling_ok",
+          "sibling_ok_by"
+        ]
+      },
+      {
+        "id": [
+          "Category",
+          "core networking"
+        ],
+        "fields": [
+          "sibling_ok",
+          "sibling_ok_by"
+        ]
+      },
+      {
+        "id": [
+          "Category",
+          "core protocols"
+        ],
+        "fields": [
+          "sibling_ok",
+          "sibling_ok_by"
+        ]
+      },
+      {
+        "id": [
+          "Category",
+          "crm platforms"
+        ],
+        "fields": [
+          "sibling_ok",
+          "sibling_ok_by"
+        ]
+      },
+      {
+        "id": [
+          "Category",
+          "cross-platform mobile frameworks"
+        ],
+        "fields": [
+          "sibling_ok",
+          "sibling_ok_by"
+        ]
+      },
+      {
+        "id": [
+          "Category",
+          "css frameworks"
+        ],
+        "fields": [
+          "sibling_ok",
+          "sibling_ok_by"
+        ]
+      },
+      {
+        "id": [
+          "Category",
+          "css preprocessors"
+        ],
+        "fields": [
+          "sibling_ok",
+          "sibling_ok_by"
+        ]
+      },
+      {
+        "id": [
+          "Category",
+          "css"
+        ],
+        "fields": [
+          "sibling_ok",
+          "sibling_ok_by"
+        ]
+      },
+      {
+        "id": [
+          "Category",
+          "ctfs"
+        ],
+        "fields": [
+          "sibling_ok",
+          "sibling_ok_by"
+        ]
+      },
+      {
+        "id": [
+          "Category",
+          "cybersecurity frameworks"
+        ],
+        "fields": [
+          "sibling_ok",
+          "sibling_ok_by"
+        ]
+      },
+      {
+        "id": [
+          "Category",
+          "data centers"
+        ],
+        "fields": [
+          "sibling_ok",
+          "sibling_ok_by"
+        ]
+      },
+      {
+        "id": [
+          "Category",
+          "data cleanup"
+        ],
+        "fields": [
+          "sibling_ok",
+          "sibling_ok_by"
+        ]
+      },
+      {
+        "id": [
+          "Category",
+          "data collection"
+        ],
+        "fields": [
+          "sibling_ok",
+          "sibling_ok_by"
+        ]
+      },
+      {
+        "id": [
+          "Category",
+          "data engineering fundamentals"
+        ],
+        "fields": [
+          "sibling_ok",
+          "sibling_ok_by"
+        ]
+      },
+      {
+        "id": [
+          "Category",
+          "data lifecycle"
+        ],
+        "fields": [
+          "sibling_ok",
+          "sibling_ok_by"
+        ]
+      },
+      {
+        "id": [
+          "Category",
+          "data manipulation libraries"
+        ],
+        "fields": [
+          "sibling_ok",
+          "sibling_ok_by"
+        ]
+      },
+      {
+        "id": [
+          "Category",
+          "data obfuscation"
+        ],
+        "fields": [
+          "sibling_ok",
+          "sibling_ok_by"
+        ]
+      },
+      {
+        "id": [
+          "Category",
+          "data pipeline tools"
+        ],
+        "fields": [
+          "sibling_ok",
+          "sibling_ok_by"
+        ]
+      },
+      {
+        "id": [
+          "Category",
+          "data processing frameworks"
+        ],
+        "fields": [
+          "sibling_ok",
+          "sibling_ok_by"
+        ]
+      },
+      {
+        "id": [
+          "Category",
+          "data processing techniques"
+        ],
+        "fields": [
+          "sibling_ok",
+          "sibling_ok_by"
+        ]
+      },
+      {
+        "id": [
+          "Category",
+          "data protection"
+        ],
+        "fields": [
+          "sibling_ok",
+          "sibling_ok_by"
+        ]
+      },
+      {
+        "id": [
+          "Category",
+          "data visualisation libraries"
+        ],
+        "fields": [
+          "sibling_ok",
+          "sibling_ok_by"
+        ]
+      },
+      {
+        "id": [
+          "Category",
+          "data warehouses"
+        ],
+        "fields": [
+          "sibling_ok",
+          "sibling_ok_by"
+        ]
+      },
+      {
+        "id": [
+          "Category",
+          "data warehousing architectures"
+        ],
+        "fields": [
+          "sibling_ok",
+          "sibling_ok_by"
+        ]
+      },
+      {
+        "id": [
+          "Category",
+          "database fundamentals"
+        ],
+        "fields": [
+          "sibling_ok",
+          "sibling_ok_by"
+        ]
+      },
+      {
+        "id": [
+          "Category",
+          "debugging"
+        ],
+        "fields": [
+          "sibling_ok",
+          "sibling_ok_by"
+        ]
+      },
+      {
+        "id": [
+          "Category",
+          "dependency injection frameworks"
+        ],
+        "fields": [
+          "sibling_ok",
+          "sibling_ok_by"
+        ]
+      },
+      {
+        "id": [
+          "Category",
+          "descriptive analysis"
+        ],
+        "fields": [
+          "sibling_ok",
+          "sibling_ok_by"
+        ]
+      },
+      {
+        "id": [
+          "Category",
+          "design and development principles"
+        ],
+        "fields": [
+          "sibling_ok",
+          "sibling_ok_by"
+        ]
+      },
+      {
+        "id": [
+          "Category",
+          "design patterns"
+        ],
+        "fields": [
+          "sibling_ok",
+          "sibling_ok_by"
+        ]
+      },
+      {
+        "id": [
+          "Category",
+          "desktop applications"
+        ],
+        "fields": [
+          "sibling_ok",
+          "sibling_ok_by"
+        ]
+      },
+      {
+        "id": [
+          "Category",
+          "development tools"
+        ],
+        "fields": [
+          "sibling_ok",
+          "sibling_ok_by"
+        ]
+      },
+      {
+        "id": [
+          "Category",
+          "devsecops tools"
+        ],
+        "fields": [
+          "sibling_ok",
+          "sibling_ok_by"
+        ]
+      },
+      {
+        "id": [
+          "Category",
+          "distribution"
+        ],
+        "fields": [
+          "sibling_ok",
+          "sibling_ok_by"
+        ]
+      },
+      {
+        "id": [
+          "Category",
+          "dns servers"
+        ],
+        "fields": [
+          "sibling_ok",
+          "sibling_ok_by"
+        ]
+      },
+      {
+        "id": [
+          "Category",
+          "document dbs"
+        ],
+        "fields": [
+          "sibling_ok",
+          "sibling_ok_by"
+        ]
+      },
+      {
+        "id": [
+          "Category",
+          "documentation tools"
+        ],
+        "fields": [
+          "sibling_ok",
+          "sibling_ok_by"
+        ]
+      },
+      {
+        "id": [
+          "Category",
+          "e-commerce platforms"
+        ],
+        "fields": [
+          "sibling_ok",
+          "sibling_ok_by"
+        ]
+      },
+      {
+        "id": [
+          "Category",
+          "e2e testing tools"
+        ],
+        "fields": [
+          "sibling_ok",
+          "sibling_ok_by"
+        ]
+      },
+      {
+        "id": [
+          "Category",
+          "email protocols"
+        ],
+        "fields": [
+          "sibling_ok",
+          "sibling_ok_by"
+        ]
+      },
+      {
+        "id": [
+          "Category",
+          "email testing tools"
+        ],
+        "fields": [
+          "sibling_ok",
+          "sibling_ok_by"
+        ]
+      },
+      {
+        "id": [
+          "Category",
+          "embedded communication protocols"
+        ],
+        "fields": [
+          "sibling_ok",
+          "sibling_ok_by"
+        ]
+      },
+      {
+        "id": [
+          "Category",
+          "embedded platforms"
+        ],
+        "fields": [
+          "sibling_ok",
+          "sibling_ok_by"
+        ]
+      },
+      {
+        "id": [
+          "Category",
+          "encryption"
+        ],
+        "fields": [
+          "sibling_ok",
+          "sibling_ok_by"
+        ]
+      },
+      {
+        "id": [
+          "Category",
+          "english certificates"
+        ],
+        "fields": [
+          "sibling_ok",
+          "sibling_ok_by"
+        ]
+      },
+      {
+        "id": [
+          "Category",
+          "enterprise operations"
+        ],
+        "fields": [
+          "sibling_ok",
+          "sibling_ok_by"
+        ]
+      },
+      {
+        "id": [
+          "Category",
+          "enterprise software"
+        ],
+        "fields": [
+          "sibling_ok",
+          "sibling_ok_by"
+        ]
+      },
+      {
+        "id": [
+          "Category",
+          "erp systems"
+        ],
+        "fields": [
+          "sibling_ok",
+          "sibling_ok_by"
+        ]
+      },
+      {
+        "id": [
+          "Category",
+          "etl process"
+        ],
+        "fields": [
+          "sibling_ok",
+          "sibling_ok_by"
+        ]
+      },
+      {
+        "id": [
+          "Category",
+          "etl tools"
+        ],
+        "fields": [
+          "sibling_ok",
+          "sibling_ok_by"
+        ]
+      },
+      {
+        "id": [
+          "Category",
+          "existing business model"
+        ],
+        "fields": [
+          "sibling_ok",
+          "sibling_ok_by"
+        ]
+      },
+      {
+        "id": [
+          "Category",
+          "finding open source models"
+        ],
+        "fields": [
+          "sibling_ok",
+          "sibling_ok_by"
+        ]
+      },
+      {
+        "id": [
+          "Category",
+          "firebase"
+        ],
+        "fields": [
+          "sibling_ok",
+          "sibling_ok_by"
+        ]
+      },
+      {
+        "id": [
+          "Category",
+          "firewall types"
+        ],
+        "fields": [
+          "sibling_ok",
+          "sibling_ok_by"
+        ]
+      },
+      {
+        "id": [
+          "Category",
+          "firewalls & network appliances"
+        ],
+        "fields": [
+          "sibling_ok",
+          "sibling_ok_by"
+        ]
+      },
+      {
+        "id": [
+          "Category",
+          "foreign languages"
+        ],
+        "fields": [
+          "sibling_ok",
+          "sibling_ok_by"
+        ]
+      },
+      {
+        "id": [
+          "Category",
+          "frameworks"
+        ],
+        "fields": [
+          "sibling_ok",
+          "sibling_ok_by"
+        ]
+      },
+      {
+        "id": [
+          "Category",
+          "frontend frameworks"
+        ],
+        "fields": [
+          "sibling_ok",
+          "sibling_ok_by"
+        ]
+      },
+      {
+        "id": [
+          "Category",
+          "fundamental it skills"
+        ],
+        "fields": [
+          "sibling_ok",
+          "sibling_ok_by"
+        ]
+      },
+      {
+        "id": [
+          "Category",
+          "fundamentals"
+        ],
+        "fields": [
+          "sibling_ok",
+          "sibling_ok_by"
+        ]
+      },
+      {
+        "id": [
+          "Category",
+          "game ai"
+        ],
+        "fields": [
+          "sibling_ok",
+          "sibling_ok_by"
+        ]
+      },
+      {
+        "id": [
+          "Category",
+          "game engine"
+        ],
+        "fields": [
+          "sibling_ok",
+          "sibling_ok_by"
+        ]
+      },
+      {
+        "id": [
+          "Category",
+          "game mathematics"
+        ],
+        "fields": [
+          "sibling_ok",
+          "sibling_ok_by"
+        ]
+      },
+      {
+        "id": [
+          "Category",
+          "game physics"
+        ],
+        "fields": [
+          "sibling_ok",
+          "sibling_ok_by"
+        ]
+      },
+      {
+        "id": [
+          "Category",
+          "gitops"
+        ],
+        "fields": [
+          "sibling_ok",
+          "sibling_ok_by"
+        ]
+      },
+      {
+        "id": [
+          "Category",
+          "go web frameworks"
+        ],
+        "fields": [
+          "sibling_ok",
+          "sibling_ok_by"
+        ]
+      },
+      {
+        "id": [
+          "Category",
+          "google cloud"
+        ],
+        "fields": [
+          "sibling_ok",
+          "sibling_ok_by"
+        ]
+      },
+      {
+        "id": [
+          "Category",
+          "gpu computing"
+        ],
+        "fields": [
+          "sibling_ok",
+          "sibling_ok_by"
+        ]
+      },
+      {
+        "id": [
+          "Category",
+          "gradient boosting libraries"
+        ],
+        "fields": [
+          "sibling_ok",
+          "sibling_ok_by"
+        ]
+      },
+      {
+        "id": [
+          "Category",
+          "graph dbs"
+        ],
+        "fields": [
+          "sibling_ok",
+          "sibling_ok_by"
+        ]
+      },
+      {
+        "id": [
+          "Category",
+          "graphic design tools"
+        ],
+        "fields": [
+          "sibling_ok",
+          "sibling_ok_by"
+        ]
+      },
+      {
+        "id": [
+          "Category",
+          "graphics api"
+        ],
+        "fields": [
+          "sibling_ok",
+          "sibling_ok_by"
+        ]
+      },
+      {
+        "id": [
+          "Category",
+          "graphql"
+        ],
+        "fields": [
+          "sibling_ok",
+          "sibling_ok_by"
+        ]
+      },
+      {
+        "id": [
+          "Category",
+          "hadoop ecosystem"
+        ],
+        "fields": [
+          "sibling_ok",
+          "sibling_ok_by"
+        ]
+      },
+      {
+        "id": [
+          "Category",
+          "hashing algorithms"
+        ],
+        "fields": [
+          "sibling_ok",
+          "sibling_ok_by"
+        ]
+      },
+      {
+        "id": [
+          "Category",
+          "headless testing"
+        ],
+        "fields": [
+          "sibling_ok",
+          "sibling_ok_by"
+        ]
+      },
+      {
+        "id": [
+          "Category",
+          "html"
+        ],
+        "fields": [
+          "sibling_ok",
+          "sibling_ok_by"
+        ]
+      },
+      {
+        "id": [
+          "Category",
+          "http client libraries"
+        ],
+        "fields": [
+          "sibling_ok",
+          "sibling_ok_by"
+        ]
+      },
+      {
+        "id": [
+          "Category",
+          "identity & directory services"
+        ],
+        "fields": [
+          "sibling_ok",
+          "sibling_ok_by"
+        ]
+      },
+      {
+        "id": [
+          "Category",
+          "identity basics"
+        ],
+        "fields": [
+          "sibling_ok",
+          "sibling_ok_by"
+        ]
+      },
+      {
+        "id": [
+          "Category",
+          "ids/ips"
+        ],
+        "fields": [
+          "sibling_ok",
+          "sibling_ok_by"
+        ]
+      },
+      {
+        "id": [
+          "Category",
+          "implementing multimodal ai"
+        ],
+        "fields": [
+          "sibling_ok",
+          "sibling_ok_by"
+        ]
+      },
+      {
+        "id": [
+          "Category",
+          "implementing rag"
+        ],
+        "fields": [
+          "sibling_ok",
+          "sibling_ok_by"
+        ]
+      },
+      {
+        "id": [
+          "Category",
+          "implementing vector search"
+        ],
+        "fields": [
+          "sibling_ok",
+          "sibling_ok_by"
+        ]
+      },
+      {
+        "id": [
+          "Category",
+          "important skills to learn"
+        ],
+        "fields": [
+          "sibling_ok",
+          "sibling_ok_by"
+        ]
+      },
+      {
+        "id": [
+          "Category",
+          "incident response"
+        ],
+        "fields": [
+          "sibling_ok",
+          "sibling_ok_by"
+        ]
+      },
+      {
+        "id": [
+          "Category",
+          "infrastructure as code"
+        ],
+        "fields": [
+          "sibling_ok",
+          "sibling_ok_by"
+        ]
+      },
+      {
+        "id": [
+          "Category",
+          "infrastructure monitoring"
+        ],
+        "fields": [
+          "sibling_ok",
+          "sibling_ok_by"
+        ]
+      },
+      {
+        "id": [
+          "Category",
+          "instance types"
+        ],
+        "fields": [
+          "sibling_ok",
+          "sibling_ok_by"
+        ]
+      },
+      {
+        "id": [
+          "Category",
+          "interface & navigation"
+        ],
+        "fields": [
+          "sibling_ok",
+          "sibling_ok_by"
+        ]
+      },
+      {
+        "id": [
+          "Category",
+          "ios ui frameworks"
+        ],
+        "fields": [
+          "sibling_ok",
+          "sibling_ok_by"
+        ]
+      },
+      {
+        "id": [
+          "Category",
+          "iot protocols"
+        ],
+        "fields": [
+          "sibling_ok",
+          "sibling_ok_by"
+        ]
+      },
+      {
+        "id": [
+          "Category",
+          "ip terminology"
+        ],
+        "fields": [
+          "sibling_ok",
+          "sibling_ok_by"
+        ]
+      },
+      {
+        "id": [
+          "Category",
+          "it certifications"
+        ],
+        "fields": [
+          "sibling_ok",
+          "sibling_ok_by"
+        ]
+      },
+      {
+        "id": [
+          "Category",
+          "it service management"
+        ],
+        "fields": [
+          "sibling_ok",
+          "sibling_ok_by"
+        ]
+      },
+      {
+        "id": [
+          "Category",
+          "java frameworks"
+        ],
+        "fields": [
+          "sibling_ok",
+          "sibling_ok_by"
+        ]
+      },
+      {
+        "id": [
+          "Category",
+          "javascript libraries"
+        ],
+        "fields": [
+          "sibling_ok",
+          "sibling_ok_by"
+        ]
+      },
+      {
+        "id": [
+          "Category",
+          "javascript"
+        ],
+        "fields": [
+          "sibling_ok",
+          "sibling_ok_by"
+        ]
+      },
+      {
+        "id": [
+          "Category",
+          "key-value store"
+        ],
+        "fields": [
+          "sibling_ok",
+          "sibling_ok_by"
+        ]
+      },
+      {
+        "id": [
+          "Category",
+          "kubernetes tooling"
+        ],
+        "fields": [
+          "sibling_ok",
+          "sibling_ok_by"
+        ]
+      },
+      {
+        "id": [
+          "Category",
+          "layouts"
+        ],
+        "fields": [
+          "sibling_ok",
+          "sibling_ok_by"
+        ]
+      },
+      {
+        "id": [
+          "Category",
+          "libraries"
+        ],
+        "fields": [
+          "sibling_ok",
+          "sibling_ok_by"
+        ]
+      },
+      {
+        "id": [
+          "Category",
+          "linters and formatters"
+        ],
+        "fields": [
+          "sibling_ok",
+          "sibling_ok_by"
+        ]
+      },
+      {
+        "id": [
+          "Category",
+          "linting"
+        ],
+        "fields": [
+          "sibling_ok",
+          "sibling_ok_by"
+        ]
+      },
+      {
+        "id": [
+          "Category",
+          "linux distributions"
+        ],
+        "fields": [
+          "sibling_ok",
+          "sibling_ok_by"
+        ]
+      },
+      {
+        "id": [
+          "Category",
+          "linux"
+        ],
+        "fields": [
+          "sibling_ok",
+          "sibling_ok_by"
+        ]
+      },
+      {
+        "id": [
+          "Category",
+          "llm frameworks"
+        ],
+        "fields": [
+          "sibling_ok",
+          "sibling_ok_by"
+        ]
+      },
+      {
+        "id": [
+          "Category",
+          "llm inference servers"
+        ],
+        "fields": [
+          "sibling_ok",
+          "sibling_ok_by"
+        ]
+      },
+      {
+        "id": [
+          "Category",
+          "load & performance testing"
+        ],
+        "fields": [
+          "sibling_ok",
+          "sibling_ok_by"
+        ]
+      },
+      {
+        "id": [
+          "Category",
+          "load balancer"
+        ],
+        "fields": [
+          "sibling_ok",
+          "sibling_ok_by"
+        ]
+      },
+      {
+        "id": [
+          "Category",
+          "logs management"
+        ],
+        "fields": [
+          "sibling_ok",
+          "sibling_ok_by"
+        ]
+      },
+      {
+        "id": [
+          "Category",
+          "low-code platforms"
+        ],
+        "fields": [
+          "sibling_ok",
+          "sibling_ok_by"
+        ]
+      },
+      {
+        "id": [
+          "Category",
+          "machine learning types"
+        ],
+        "fields": [
+          "sibling_ok",
+          "sibling_ok_by"
+        ]
+      },
+      {
+        "id": [
+          "Category",
+          "machine learning"
+        ],
+        "fields": [
+          "sibling_ok",
+          "sibling_ok_by"
+        ]
+      },
+      {
+        "id": [
+          "Category",
+          "managed databases"
+        ],
+        "fields": [
+          "sibling_ok",
+          "sibling_ok_by"
+        ]
+      },
+      {
+        "id": [
+          "Category",
+          "managing tokens"
+        ],
+        "fields": [
+          "sibling_ok",
+          "sibling_ok_by"
+        ]
+      },
+      {
+        "id": [
+          "Category",
+          "manual testing"
+        ],
+        "fields": [
+          "sibling_ok",
+          "sibling_ok_by"
+        ]
+      },
+      {
+        "id": [
+          "Category",
+          "message brokers"
+        ],
+        "fields": [
+          "sibling_ok",
+          "sibling_ok_by"
+        ]
+      },
+      {
+        "id": [
+          "Category",
+          "microcontrollers"
+        ],
+        "fields": [
+          "sibling_ok",
+          "sibling_ok_by"
+        ]
+      },
+      {
+        "id": [
+          "Category",
+          "microservices"
+        ],
+        "fields": [
+          "sibling_ok",
+          "sibling_ok_by"
+        ]
+      },
+      {
+        "id": [
+          "Category",
+          "mitigation strategies"
+        ],
+        "fields": [
+          "sibling_ok",
+          "sibling_ok_by"
+        ]
+      }
+    ]
+  },
+  "edges": {
+    "added": [],
+    "removed": [],
+    "changed": []
+  },
+  "empty": false
+}
