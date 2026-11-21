@@ -1,5 +1,38 @@
 # Trạng thái Knowledge Base
 
+> **Cập nhật 21/11/2026 (3): nhận tạm toàn bộ + bổ sung KB3.** Phiên bản `kb-2026-11-21-4`.
+> - **Chính sách `provisional`** (`ACCEPT_POLICY` trong `kb_pipeline/schema.py`): mọi thứ không `rejected`/`review`
+>   đều `accepted`. Thực thể 2.231 accepted (1.717 qua luật, 514 tạm) / 32 rejected; quan hệ 6.473 accepted
+>   (1.701 qua luật, toàn bộ là `EVIDENCED_BY`; 4.772 tạm) / 75 rejected; 0 candidate. Mọi quan hệ cấu trúc
+>   (`PARENT_OF`, `IN_CATEGORY`, `USED_IN`, `MAPS_TO`, `NEAR`) vẫn là `accepted_by = provisional`, chưa có cái nào
+>   qua luật. 99/331 Category nhận tạm `sibling_ok = true` từ đề xuất. Quay về luật: `--policy rule`.
+> - **KB3 bổ sung:** +43 `PARENT_OF` (GraphQL → Apollo, OpenGL → GLSL, PostgreSQL → Supabase, OAuth → OpenID,
+>   Android SDK → thành phần UI...), 29 Category mới (Cloud Compute, Object Storage, SQL Dialects, Linux
+>   Distributions...), +151 `IN_CATEGORY` cho kỹ năng chưa có nhóm, +169 `USED_IN` (còn 26 kỹ năng không có nhóm vai
+>   trò, chủ yếu kỹ năng mềm và ngoại ngữ, cố ý để trống), `NEAR` hypothesis đủ 91 cặp cho 14 nhóm (trước: 32), gộp
+>   `vector databases` → `vector database`, `soap api` → `soap`.
+> - **`NEAR` computed đổi từ Jaccard sang cosine:** Backend–Fullstack 0,038 → 0,15. Vẫn thấp hơn thang của ma trận M,
+>   nên Rerank nên ưu tiên `hypothesis`.
+> - **Bản chụp:** `export_snapshot.py --from-out` đọc `out/kb_*.jsonl`, không cần Neo4j. Đã xuất
+>   `out/snapshot/kb-2026-11-21-4/` (`--accepted-only`): 1.710 kỹ năng, 348 cạnh cha/con, 407 kỹ năng có Category
+>   `sibling_ok`, 666 alias chức danh, 63 alias cấp bậc, 307 alias ngành, 182 dòng `role_distance`.
+> - Còn thiếu: 302 kỹ năng chưa có Category (phần lớn là concept), `df_jd`/`share_jd` (cần JD), ESCO, nguồn độc lập
+>   thứ hai để chuyển `provisional` thành `rule`.
+
+> **Cập nhật 21/11/2026 (2): thư ký chung `kb_pipeline`.** KB giờ dựng từ 3 gói trong `packs/` (kb1-roadmap,
+> kb2-itviec, kb3-generated), phiên bản `kb-2026-11-21` (`out/versions.jsonl`). Đã có quy tắc nhận ở mục 6:
+> thực thể 1.719 accepted / 485 candidate / 32 rejected; quan hệ 1.702 accepted (chủ yếu EVIDENCED_BY),
+> 4.353 candidate, 75 rejected, 0 review. Hàng đợi duyệt rỗng. 19 PARENT_OF sai luật (concept làm cha/con) đã bỏ
+> khỏi dữ liệu KB3. Định dạng gói: `docs/pack-format.md`.
+
+> **Cập nhật 21/11/2026: thêm KB3 (tự sinh, G01–G09, `trust = low`).** Số liệu lấy từ `out/kb_checks.json`, chưa nạp
+> Neo4j. KB gộp KB1 + KB2 + KB3: 1.744 `Skill` (1.712 còn dùng, 32 `rejected`), 302 `Category` (80 có `sibling_ok_suggest`),
+> 124 `JobTitle` (0 chưa có nhóm), 60 `Major`, 6 `Level`, 30 `Source`. Quan hệ: 324 `PARENT_OF`, 1.535 `IN_CATEGORY`,
+> 1.965 `USED_IN`, 135 `MAPS_TO`, 123 `NEAR` (32 hypothesis + 91 computed), 2.067 `EVIDENCED_BY`.
+> 14 nhóm vai trò (thêm Embedded, Game, Design, Business, IT Support). 59 cặp skill trùng đã gộp (`merged_from`).
+> Script Cypher của KB cuối cùng: `out/kb.cypher`. Tri thức KB3 chưa đủ điều kiện `accepted` (mục 6): cần duyệt
+> hoặc nguồn thật đối chiếu. Phần dưới là trạng thái 05/11/2026, trước KB3.
+
 > Cập nhật: 05/11/2026. Đối chiếu với `Knowledge base.md`, số liệu lấy từ Neo4j.
 > KB trong Neo4j gộp từ KB1 (18 PDF roadmap, alias Stack Overflow) và KB2 (chức danh ITviec) bằng `load_kb.py`. Mọi nút và quan hệ đều là `candidate`, chưa dùng được cho module match.
 

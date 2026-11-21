@@ -120,7 +120,7 @@ Roadmap (1 tài liệu chuẩn cho cả nhóm) và JD (nhiều tài liệu lẻ)
 - `M` là đối xứng (Rerank 3.4): **lưu một chiều**, truy vấn không quan tâm hướng. Cùng nhóm thì ngầm định `m = 1`, không lưu.
 - `method`:
   - `hypothesis`: lấy từ bảng giả thuyết của thiết kế.
-  - `computed`: tính từ KB, ví dụ độ trùng kỹ năng `USED_IN` giữa hai nhóm (hệ số Jaccard).
+  - `computed`: tính từ KB, độ trùng kỹ năng `USED_IN` giữa hai nhóm (cosine `|A∩B| / √(|A|·|B|)`; trước 21/11/2026 là Jaccard, bị nhóm lớn kéo xuống quá thấp).
 
   Có thể lưu cả hai để so sánh trong báo cáo.
 
@@ -163,6 +163,10 @@ Quy tắc tương tự áp cho `JobTitle.aliases`, `Level.aliases`, `Major.alias
 
 ## 5. KB1, KB2 nằm ở đâu
 
+> **Cập nhật 21/11/2026:** mỗi nguồn (KB1, KB2, KB3...) đóng gói vào `packs/<pack_id>/` theo `docs/pack-format.md`;
+> thư ký chung `kb_pipeline` gộp mọi gói, áp quy tắc ở mục 6 (`status`, `confidence`, `KBVersion`). Ghi chú 05/11 dưới
+> đây mô tả cách cũ.
+>
 > **Cập nhật 05/11/2026:** KB1 và KB2 hiện tách bằng **thư mục** (`kb1/`, `kb2/`), không bằng tiền tố nhãn. `load_kb.py` gộp hai bên rồi nạp vào Neo4j với nhãn không tiền tố (`Skill`, `Category`, `JobTitle`, `Source`), `kb_origin` ghi nút đến từ đâu. Khoá nút đang là `key`, chưa cấp `skill_id`. Bảng dưới là thiết kế ban đầu.
 
 Neo4j bản Community chỉ có một database, nên tách KB1/KB2 bằng **tiền tố nhãn**:
@@ -192,7 +196,12 @@ Không chắc chắn thì để `candidate`, người duyệt quyết định.
 - có ít nhất **2 nguồn độc lập** ủng hộ, **hoặc**
 - có **1 nguồn `trust = high`**.
 
-Còn lại giữ `candidate` và vào hàng đợi duyệt. Hai nguồn mâu thuẫn nhau, ví dụ một nguồn ghi cha/con, một nguồn ghi cùng nhóm: ưu tiên nguồn `trust` cao hơn và ghi lại trong `evidence`.
+Còn lại giữ `candidate` và vào hàng đợi duyệt.
+
+> **Tạm thời (chốt 21/11/2026): chính sách `provisional`.** Vì 18 PDF roadmap cùng một publisher và KB3 là nguồn tự sinh,
+> luật trên cho ra 0 quan hệ cấu trúc `accepted`. Trong lúc chưa có nguồn độc lập thứ hai (JD, ESCO) và chưa duyệt
+> tay, mọi thực thể/quan hệ không `rejected`/`review` đều `accepted`, đánh dấu `accepted_by = provisional` (qua luật:
+> `accepted_by = rule`). Quay về luật: `python -m kb_pipeline --policy rule`. Hai nguồn mâu thuẫn nhau, ví dụ một nguồn ghi cha/con, một nguồn ghi cùng nhóm: ưu tiên nguồn `trust` cao hơn và ghi lại trong `evidence`.
 
 **Bước 3. Tính `confidence`** (công thức đề xuất, ƯL):
 

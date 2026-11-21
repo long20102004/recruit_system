@@ -4,19 +4,12 @@ Danh mục ngành do Claude tự sinh, chưa đối chiếu với nguồn nào, 
 key là tên tiếng Anh; tên tiếng Việt và dạng không dấu nằm trong aliases. Ghi kb2/out/kb2_major_nodes.jsonl.
 """
 import collections
-import unicodedata
 
 from kb2.pipeline.config import (
     AMBIGUOUS_MAJOR_ALIASES, MAJOR_GROUPS, MAJOR_SOURCE_ID, MAJORS_CSV, OUT, SOURCES_CSV,
 )
 from kb2.pipeline.s2_titles import read_csv
-from shared.common import norm, write_jsonl
-
-
-def strip_accents(text):
-    """công nghệ thông tin -> cong nghe thong tin. CV không dấu vẫn khớp được."""
-    decomposed = unicodedata.normalize("NFD", text.replace("đ", "d"))
-    return "".join(c for c in decomposed if not unicodedata.combining(c))
+from shared.common import norm, strip_accents, write_jsonl  # noqa: F401  (strip_accents dùng lại ở s4_levels)
 
 
 def build_majors(rows, source):

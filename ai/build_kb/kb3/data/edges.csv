@@ -1,0 +1,677 @@
+type,src,dst,note
+PARENT_OF,javascript,react,React là thư viện JavaScript
+PARENT_OF,javascript,vue.js,Vue là framework JavaScript
+PARENT_OF,typescript,angular,Angular viết bằng TypeScript
+PARENT_OF,javascript,node.js,Node.js là runtime JavaScript
+PARENT_OF,javascript,svelte,
+PARENT_OF,javascript,solidjs,
+PARENT_OF,javascript,qwik,
+PARENT_OF,javascript,electron,
+PARENT_OF,javascript,jest,
+PARENT_OF,javascript,jasmine,
+PARENT_OF,javascript,vitest,
+PARENT_OF,javascript,typescript,TypeScript là tập cha của JavaScript; biết TS là biết JS
+PARENT_OF,react,next.js,Next.js xây trên React
+PARENT_OF,react,react native,React Native dùng React
+PARENT_OF,react,react-router,
+PARENT_OF,vue.js,nuxt.js,Nuxt xây trên Vue
+PARENT_OF,vue.js,vuepress,
+PARENT_OF,svelte,svelte kit,
+PARENT_OF,node.js,npm,
+PARENT_OF,node.js,pnpm,
+PARENT_OF,node.js,yarn,
+PARENT_OF,css,sass,
+PARENT_OF,css,less,
+PARENT_OF,css,tailwind css,
+PARENT_OF,css,postcss,
+PARENT_OF,python,pandas,
+PARENT_OF,python,pytorch,
+PARENT_OF,python,tensorflow,
+PARENT_OF,python,matplotlib,
+PARENT_OF,python,seaborn,
+PARENT_OF,python,streamlit,
+PARENT_OF,python,langchain,
+PARENT_OF,python,llamaindex,
+PARENT_OF,python,airflow,
+PARENT_OF,python,luigi,
+PARENT_OF,python,locust,
+PARENT_OF,r,ggplot2,
+PARENT_OF,r,dplyr,
+PARENT_OF,java,junit,
+PARENT_OF,java,rest assured,
+PARENT_OF,java,tomcat,
+PARENT_OF,java,rxjava,
+PARENT_OF,kotlin,rxkotlin,
+PARENT_OF,kotlin,jetpack compose,
+PARENT_OF,kotlin,ktlint,
+PARENT_OF,kotlin,detekt,
+PARENT_OF,kotlin,hilt,
+PARENT_OF,kotlin,room database,
+PARENT_OF,kotlin,okhttp,
+PARENT_OF,kotlin,livedata,
+PARENT_OF,dart,flutter,Flutter dùng Dart
+PARENT_OF,c#,.net framework,
+PARENT_OF,c#,unity 3d,Unity dùng C#
+PARENT_OF,c++,unreal engine,Unreal dùng C++
+PARENT_OF,godot,gdscript,GDScript là ngôn ngữ của Godot
+PARENT_OF,scala,spark,
+PARENT_OF,sql,mysql,dùng MySQL là dùng SQL
+PARENT_OF,sql,postgresql,
+PARENT_OF,sql,sql server,
+PARENT_OF,sql,oracle,
+PARENT_OF,sql,mariadb,
+PARENT_OF,sql,sqlite,
+PARENT_OF,mysql,mariadb,MariaDB tách từ MySQL
+PARENT_OF,git,github,GitHub xây trên Git
+PARENT_OF,git,gitlab,
+PARENT_OF,git,bitbucket,
+PARENT_OF,github,github actions,
+PARENT_OF,gitlab,gitlab ci,
+PARENT_OF,docker,docker swarm,
+PARENT_OF,kubernetes,argocd,
+PARENT_OF,kubernetes,istio,
+PARENT_OF,kubernetes,linkerd,
+PARENT_OF,kubernetes,fluxcd,
+PARENT_OF,kubernetes,google cloud gke,
+PARENT_OF,kubernetes,aws eks,
+PARENT_OF,aws,aws lambda,
+PARENT_OF,aws,aws eks,
+PARENT_OF,aws,aws ecs/fargate,
+PARENT_OF,aws,aws sagemaker,
+PARENT_OF,aws,aws sns,
+PARENT_OF,aws,aws sqs,
+PARENT_OF,aws,aws cdk,
+PARENT_OF,aws,aws neptune,
+PARENT_OF,aws,dynamodb,
+PARENT_OF,aws,amazon redshift,
+PARENT_OF,aws,route53,
+PARENT_OF,aws,cloudformation,
+PARENT_OF,aws,ses,
+PARENT_OF,aws,aurora db,
+PARENT_OF,azure,azure functions,
+PARENT_OF,azure,azure devops,
+PARENT_OF,azure,cosmosdb,
+PARENT_OF,azure,azure ai,
+PARENT_OF,google cloud,google bigquery,
+PARENT_OF,google cloud,google cloud gke,
+PARENT_OF,google cloud,gcp functions,
+PARENT_OF,google cloud,compute engine,
+PARENT_OF,google cloud,bigtable,
+PARENT_OF,google cloud,cloud sql,
+PARENT_OF,google cloud,dataflow,
+PARENT_OF,google cloud,datastore,
+PARENT_OF,google cloud,google deployment manager,
+PARENT_OF,firebase,firestore,
+PARENT_OF,firebase,crashlytics,
+PARENT_OF,firebase,firebase distribution,
+PARENT_OF,firebase,remote config,
+PARENT_OF,firebase,cloud messaging,
+PARENT_OF,hadoop,hdfs,
+PARENT_OF,hadoop,mapreduce,
+PARENT_OF,hadoop,hbase,
+PARENT_OF,hadoop,apache hadoop yarn,
+PARENT_OF,elastic stack,elasticsearch,
+PARENT_OF,elastic stack,kibana,
+PARENT_OF,microsoft excel,datedif,
+PARENT_OF,hugging face,hugging face hub,
+PARENT_OF,hugging face,hugging face models,
+PARENT_OF,hugging face,transformers.js,
+PARENT_OF,openai api,chat completions api,
+PARENT_OF,openai api,openai assistant api,
+PARENT_OF,openai api,open ai embeddings api,
+PARENT_OF,openai api,openai vision api,
+PARENT_OF,openai api,openai moderation api,
+PARENT_OF,openai api,openai functions,
+PARENT_OF,linux,kali linux,
+PARENT_OF,linux,bash,
+PARENT_OF,windows,powershell,
+PARENT_OF,postman,postman/newman,
+PARENT_OF,selenium,selenium ide,
+PARENT_OF,android sdk,jetpack compose,
+PARENT_OF,android sdk,espresso,
+IN_CATEGORY,mysql,relational databases,
+IN_CATEGORY,postgresql,relational databases,
+IN_CATEGORY,java,programming languages,
+IN_CATEGORY,javascript,programming languages,
+IN_CATEGORY,kotlin,programming languages,
+IN_CATEGORY,php,programming languages,
+IN_CATEGORY,c++,programming languages,
+IN_CATEGORY,scala,programming languages,
+IN_CATEGORY,r,programming languages,
+IN_CATEGORY,react,frontend frameworks,
+IN_CATEGORY,vue.js,frontend frameworks,
+IN_CATEGORY,angular,frontend frameworks,
+IN_CATEGORY,svelte,frontend frameworks,
+IN_CATEGORY,solidjs,frontend frameworks,
+IN_CATEGORY,qwik,frontend frameworks,
+IN_CATEGORY,next.js,frontend frameworks,
+IN_CATEGORY,nuxt.js,frontend frameworks,
+IN_CATEGORY,tailwind css,css frameworks,
+IN_CATEGORY,flutter,cross-platform mobile frameworks,
+IN_CATEGORY,react native,cross-platform mobile frameworks,
+IN_CATEGORY,ionic,cross-platform mobile frameworks,
+IN_CATEGORY,junit,unit testing frameworks,
+IN_CATEGORY,jest,unit testing frameworks,
+IN_CATEGORY,jasmine,unit testing frameworks,
+IN_CATEGORY,vitest,unit testing frameworks,
+IN_CATEGORY,selenium,e2e testing tools,
+IN_CATEGORY,cypress,e2e testing tools,
+IN_CATEGORY,playwright,e2e testing tools,
+IN_CATEGORY,puppeteer,e2e testing tools,
+IN_CATEGORY,webdriver.io,e2e testing tools,
+IN_CATEGORY,nightwatch,e2e testing tools,
+IN_CATEGORY,postman,api testing tools,
+IN_CATEGORY,rest assured,api testing tools,
+IN_CATEGORY,soapui,api testing tools,
+IN_CATEGORY,karate,api testing tools,
+IN_CATEGORY,testrail,test management tools,
+IN_CATEGORY,testlink,test management tools,
+IN_CATEGORY,zephyr,test management tools,
+IN_CATEGORY,qtest,test management tools,
+IN_CATEGORY,trello,project management tools,
+IN_CATEGORY,youtrack,project management tools,
+IN_CATEGORY,tensorflow,ml frameworks,
+IN_CATEGORY,pytorch,ml frameworks,
+IN_CATEGORY,langchain,llm frameworks,
+IN_CATEGORY,llamaindex,llm frameworks,
+IN_CATEGORY,snowflake,data warehouses,
+IN_CATEGORY,google bigquery,data warehouses,
+IN_CATEGORY,amazon redshift,data warehouses,
+IN_CATEGORY,airflow,data pipeline tools,
+IN_CATEGORY,tableau,bi tools,
+IN_CATEGORY,aws sagemaker,mlops platforms,
+IN_CATEGORY,prometheus,monitoring tools,
+IN_CATEGORY,grafana,monitoring tools,
+IN_CATEGORY,datadog,monitoring tools,
+IN_CATEGORY,new relic,monitoring tools,
+IN_CATEGORY,zabbix,monitoring tools,
+IN_CATEGORY,sentry,monitoring tools,
+IN_CATEGORY,salesforce,crm platforms,
+IN_CATEGORY,sap,erp systems,
+IN_CATEGORY,scrum,agile methodologies,
+IN_CATEGORY,kanban,agile methodologies,
+IN_CATEGORY,xp,agile methodologies,
+IN_CATEGORY,safe,agile methodologies,
+IN_CATEGORY,itil,it service management,
+IN_CATEGORY,communication,soft skills,
+IN_CATEGORY,decision making,soft skills,
+IN_CATEGORY,user stories,business analysis techniques,
+IN_CATEGORY,requirements elicitation,business analysis techniques,
+IN_CATEGORY,bpmn,business analysis techniques,
+IN_CATEGORY,uml,business analysis techniques,
+IN_CATEGORY,swot analysis,business analysis techniques,
+IN_CATEGORY,user personas,product management practices,
+IN_CATEGORY,a/b testing,product management practices,
+IN_CATEGORY,competitor analysis,product management practices,
+IN_CATEGORY,lean canvas,product management practices,
+IN_CATEGORY,business model canvas,product management practices,
+IN_CATEGORY,comptia a+,it certifications,
+IN_CATEGORY,comptia network+,it certifications,
+IN_CATEGORY,comptia security+,it certifications,
+IN_CATEGORY,comptia linux+,it certifications,
+IN_CATEGORY,cissp,it certifications,
+IN_CATEGORY,cism,it certifications,
+IN_CATEGORY,cisa,it certifications,
+IN_CATEGORY,gsec,it certifications,
+IN_CATEGORY,gpen,it certifications,
+IN_CATEGORY,gwapt,it certifications,
+IN_CATEGORY,prince2,it certifications,
+IN_CATEGORY,blender,3d modeling tools,
+USED_IN,javascript,Fullstack,
+USED_IN,typescript,Fullstack,
+USED_IN,html,Fullstack,
+USED_IN,css,Fullstack,
+USED_IN,react,Fullstack,
+USED_IN,vue.js,Fullstack,
+USED_IN,angular,Fullstack,
+USED_IN,next.js,Fullstack,
+USED_IN,nuxt.js,Fullstack,
+USED_IN,node.js,Fullstack,
+USED_IN,restful apis,Fullstack,
+USED_IN,graphql,Fullstack,
+USED_IN,sql,Fullstack,
+USED_IN,mysql,Fullstack,
+USED_IN,postgresql,Fullstack,
+USED_IN,mongodb,Fullstack,
+USED_IN,redis,Fullstack,
+USED_IN,docker,Fullstack,
+USED_IN,git,Fullstack,
+USED_IN,github,Fullstack,
+USED_IN,tailwind css,Fullstack,
+USED_IN,php,Fullstack,
+USED_IN,python,Fullstack,
+USED_IN,java,Fullstack,
+USED_IN,jwt,Fullstack,
+USED_IN,aws,Fullstack,
+USED_IN,java,Backend,
+USED_IN,c#,Backend,
+USED_IN,php,Backend,
+USED_IN,python,Backend,
+USED_IN,go,Backend,
+USED_IN,node.js,Backend,
+USED_IN,kotlin,Mobile,
+USED_IN,java,Mobile,
+USED_IN,flutter,Mobile,
+USED_IN,react native,Mobile,
+USED_IN,python,Data,
+USED_IN,python,AI/ML,
+USED_IN,sql,Data,
+USED_IN,c,Embedded,
+USED_IN,c++,Embedded,
+USED_IN,c/c++,Embedded,
+USED_IN,linux,Embedded,
+USED_IN,python,Embedded,
+USED_IN,bluetooth,Embedded,
+USED_IN,iot,Embedded,
+USED_IN,edge computing,Embedded,
+USED_IN,c#,Game,
+USED_IN,c++,Game,
+USED_IN,unity 3d,Game,
+USED_IN,unreal engine,Game,
+USED_IN,godot,Game,
+USED_IN,figma,Design,
+USED_IN,adobe xd,Design,
+USED_IN,sketch,Design,
+USED_IN,balsamiq,Design,
+USED_IN,user personas,Design,
+USED_IN,prototyping,Design,
+USED_IN,responsive design,Design,
+USED_IN,accessibility,Design,
+USED_IN,user stories,Business,
+USED_IN,requirements elicitation,Business,
+USED_IN,uml,Business,
+USED_IN,bpmn,Business,
+USED_IN,swot analysis,Business,
+USED_IN,competitor analysis,Business,
+USED_IN,a/b testing,Business,
+USED_IN,scrum,Business,
+USED_IN,kanban,Business,
+USED_IN,waterfall,Business,
+USED_IN,sql,Business,
+USED_IN,microsoft power bi,Business,
+USED_IN,stakeholders,Business,
+USED_IN,babok,Business,
+USED_IN,pmi,Business,
+USED_IN,prince2,Business,
+USED_IN,itil,IT Support,
+USED_IN,windows,IT Support,
+USED_IN,linux,IT Support,
+USED_IN,macos,IT Support,
+USED_IN,office,IT Support,
+USED_IN,google suite,IT Support,
+USED_IN,troubleshooting,IT Support,
+USED_IN,installing software and applications,IT Support,
+USED_IN,networking fundamentals,IT Support,
+USED_IN,dns,IT Support,
+USED_IN,dhcp,IT Support,
+USED_IN,vpn,IT Support,
+USED_IN,firewall,IT Support,
+USED_IN,virtualbox,IT Support,
+USED_IN,vmware,IT Support,
+USED_IN,comptia a+,IT Support,
+USED_IN,comptia network+,IT Support,
+USED_IN,group policy,IT Support,
+USED_IN,powershell,IT Support,
+PARENT_OF,graphql,apollo,Apollo là client/server GraphQL
+PARENT_OF,graphql,relay modern,Relay là client GraphQL
+PARENT_OF,graphql,apollo-android,Apollo Android là client GraphQL
+PARENT_OF,kotlin,apollo-android,thư viện Kotlin
+PARENT_OF,kubernetes,gke / eks / aks,Kubernetes được quản lý
+PARENT_OF,opengl,opengl es,tập con của OpenGL cho thiết bị nhúng
+PARENT_OF,opengl,glsl,ngôn ngữ shader của OpenGL
+PARENT_OF,directx,hlsl,ngôn ngữ shader của DirectX
+PARENT_OF,vulkan,spir-v,định dạng shader trung gian của Vulkan
+PARENT_OF,vulkan,vulkan ray tracing,phần mở rộng của Vulkan
+PARENT_OF,directx,directx ray tracing,DXR là phần của DirectX 12
+PARENT_OF,mongodb,mongodb atlas,MongoDB được quản lý
+PARENT_OF,postgresql,supabase,Supabase xây trên PostgreSQL
+PARENT_OF,arm cortex-m,stm32,STM32 dùng lõi Cortex-M
+PARENT_OF,oauth,openid,OpenID Connect xây trên OAuth 2.0
+PARENT_OF,ssh,sftp,SFTP chạy trên SSH
+PARENT_OF,dns,dnssec,phần mở rộng bảo mật của DNS
+PARENT_OF,rust,tauri,Tauri viết bằng Rust
+PARENT_OF,javascript,ionic,Ionic là framework JavaScript
+PARENT_OF,javascript,web components,chuẩn web dùng JavaScript
+PARENT_OF,web components,shadow dom,Shadow DOM là phần của Web Components
+PARENT_OF,javascript,ajax,AJAX là kỹ thuật JavaScript
+PARENT_OF,javascript,service workers,API JavaScript của trình duyệt
+PARENT_OF,sql,dbt,dbt biến đổi dữ liệu bằng SQL
+PARENT_OF,spark,delta lake,Delta Lake chạy trên Spark
+PARENT_OF,pytorch,sentence transformers,Sentence Transformers xây trên PyTorch
+PARENT_OF,java,dagger,Dagger là thư viện DI cho Java
+PARENT_OF,c,objective-c,Objective-C là tập cha của C
+PARENT_OF,css,bem,BEM là quy ước đặt tên CSS
+PARENT_OF,android sdk,recycleview,thành phần UI của Android
+PARENT_OF,android sdk,listview,thành phần UI của Android
+PARENT_OF,android sdk,imageview,thành phần UI của Android
+PARENT_OF,android sdk,broadcast receiver,thành phần của Android
+PARENT_OF,android sdk,shared preferences,API lưu trữ của Android
+PARENT_OF,android sdk,workmanager,thư viện Jetpack
+PARENT_OF,android sdk,navigation components,thư viện Jetpack
+PARENT_OF,android sdk,jetpack benchmark,thư viện Jetpack
+PARENT_OF,openai api,openai playground,giao diện thử OpenAI API
+PARENT_OF,openai api,dall‑e api,endpoint ảnh của OpenAI API
+PARENT_OF,hugging face,hugging face tasks,phần của Hugging Face
+PARENT_OF,hugging face,inference sdk,SDK suy luận của Hugging Face
+PARENT_OF,langchain,langchain multimodal,phần của LangChain
+PARENT_OF,windows server,group policy,tính năng của Windows Server / AD
+IN_CATEGORY,.net core,Runtimes & Platforms,bổ sung nhóm cho kỹ năng chưa có Category
+IN_CATEGORY,.net framework,Runtimes & Platforms,bổ sung nhóm cho kỹ năng chưa có Category
+IN_CATEGORY,node.js,Runtimes & Platforms,bổ sung nhóm cho kỹ năng chưa có Category
+IN_CATEGORY,android sdk,Mobile Platforms,bổ sung nhóm cho kỹ năng chưa có Category
+IN_CATEGORY,ios,Mobile Platforms,bổ sung nhóm cho kỹ năng chưa có Category
+IN_CATEGORY,access points,Network Devices,bổ sung nhóm cho kỹ năng chưa có Category
+IN_CATEGORY,modems,Network Devices,bổ sung nhóm cho kỹ năng chưa có Category
+IN_CATEGORY,hub,Network Devices,bổ sung nhóm cho kỹ năng chưa có Category
+IN_CATEGORY,cisco ios,Network Devices,bổ sung nhóm cho kỹ năng chưa có Category
+IN_CATEGORY,fortinet fortigate,Firewalls & Network Appliances,bổ sung nhóm cho kỹ năng chưa có Category
+IN_CATEGORY,pfsense,Firewalls & Network Appliances,bổ sung nhóm cho kỹ năng chưa có Category
+IN_CATEGORY,active directory,Identity & Directory Services,bổ sung nhóm cho kỹ năng chưa có Category
+IN_CATEGORY,group policy,Identity & Directory Services,bổ sung nhóm cho kỹ năng chưa có Category
+IN_CATEGORY,amazon ec2,Cloud Compute,bổ sung nhóm cho kỹ năng chưa có Category
+IN_CATEGORY,azure vm,Cloud Compute,bổ sung nhóm cho kỹ năng chưa có Category
+IN_CATEGORY,compute engine,Cloud Compute,bổ sung nhóm cho kỹ năng chưa có Category
+IN_CATEGORY,amazon rds,Managed Databases,bổ sung nhóm cho kỹ năng chưa có Category
+IN_CATEGORY,azure sql database,Managed Databases,bổ sung nhóm cho kỹ năng chưa có Category
+IN_CATEGORY,cloud sql,Managed Databases,bổ sung nhóm cho kỹ năng chưa có Category
+IN_CATEGORY,azure blob storage,Object Storage,bổ sung nhóm cho kỹ năng chưa có Category
+IN_CATEGORY,google cloud storage,Object Storage,bổ sung nhóm cho kỹ năng chưa có Category
+IN_CATEGORY,s3,Object Storage,bổ sung nhóm cho kỹ năng chưa có Category
+IN_CATEGORY,data factory,etl tools,bổ sung nhóm cho kỹ năng chưa có Category
+IN_CATEGORY,glue,etl tools,bổ sung nhóm cho kỹ năng chưa có Category
+IN_CATEGORY,route53,dns servers,bổ sung nhóm cho kỹ năng chưa có Category
+IN_CATEGORY,any.run,tools for incident response and discovery,bổ sung nhóm cho kỹ năng chưa có Category
+IN_CATEGORY,joe sandbox,tools for incident response and discovery,bổ sung nhóm cho kỹ năng chưa có Category
+IN_CATEGORY,virustotal,tools for incident response and discovery,bổ sung nhóm cho kỹ năng chưa có Category
+IN_CATEGORY,urlscan,tools for incident response and discovery,bổ sung nhóm cho kỹ năng chưa có Category
+IN_CATEGORY,urlvoid,tools for incident response and discovery,bổ sung nhóm cho kỹ năng chưa có Category
+IN_CATEGORY,whois,tools for incident response and discovery,bổ sung nhóm cho kỹ năng chưa có Category
+IN_CATEGORY,gtfobins,tools for incident response and discovery,bổ sung nhóm cho kỹ năng chưa có Category
+IN_CATEGORY,lolbas,tools for incident response and discovery,bổ sung nhóm cho kỹ năng chưa có Category
+IN_CATEGORY,wadcoms,tools for incident response and discovery,bổ sung nhóm cho kỹ năng chưa có Category
+IN_CATEGORY,apex,programming languages,bổ sung nhóm cho kỹ năng chưa có Category
+IN_CATEGORY,sap abap,programming languages,bổ sung nhóm cho kỹ năng chưa có Category
+IN_CATEGORY,embedded c,programming languages,bổ sung nhóm cho kỹ năng chưa có Category
+IN_CATEGORY,sql,programming languages,bổ sung nhóm cho kỹ năng chưa có Category
+IN_CATEGORY,pl/sql,SQL Dialects,bổ sung nhóm cho kỹ năng chưa có Category
+IN_CATEGORY,t-sql,SQL Dialects,bổ sung nhóm cho kỹ năng chưa có Category
+IN_CATEGORY,hive,SQL Query Engines,bổ sung nhóm cho kỹ năng chưa có Category
+IN_CATEGORY,presto,SQL Query Engines,bổ sung nhóm cho kỹ năng chưa có Category
+IN_CATEGORY,spark sql,SQL Query Engines,bổ sung nhóm cho kỹ năng chưa có Category
+IN_CATEGORY,retrofit,HTTP Client Libraries,bổ sung nhóm cho kỹ năng chưa có Category
+IN_CATEGORY,okhttp,HTTP Client Libraries,bổ sung nhóm cho kỹ năng chưa có Category
+IN_CATEGORY,apollo-android,graphql,bổ sung nhóm cho kỹ năng chưa có Category
+IN_CATEGORY,assembla,project management tools,bổ sung nhóm cho kỹ năng chưa có Category
+IN_CATEGORY,atlassian,project management tools,bổ sung nhóm cho kỹ năng chưa có Category
+IN_CATEGORY,mailinator,Email Testing Tools,bổ sung nhóm cho kỹ năng chưa có Category
+IN_CATEGORY,gmail tester,Email Testing Tools,bổ sung nhóm cho kỹ năng chưa có Category
+IN_CATEGORY,autosar,Embedded Platforms,bổ sung nhóm cho kỹ năng chưa có Category
+IN_CATEGORY,embedded linux,Embedded Platforms,bổ sung nhóm cho kỹ năng chưa có Category
+IN_CATEGORY,plc,Embedded Platforms,bổ sung nhóm cho kỹ năng chưa có Category
+IN_CATEGORY,fpga,Embedded Platforms,bổ sung nhóm cho kỹ năng chưa có Category
+IN_CATEGORY,ros,Embedded Platforms,bổ sung nhóm cho kỹ năng chưa có Category
+IN_CATEGORY,raspberry pi,microcontrollers,bổ sung nhóm cho kỹ năng chưa có Category
+IN_CATEGORY,bem,css,bổ sung nhóm cho kỹ năng chưa có Category
+IN_CATEGORY,css,css,bổ sung nhóm cho kỹ năng chưa có Category
+IN_CATEGORY,html,html,bổ sung nhóm cho kỹ năng chưa có Category
+IN_CATEGORY,ajax,javascript,bổ sung nhóm cho kỹ năng chưa có Category
+IN_CATEGORY,fetch api,javascript,bổ sung nhóm cho kỹ năng chưa có Category
+IN_CATEGORY,celery,Task Queues,bổ sung nhóm cho kỹ năng chưa có Category
+IN_CATEGORY,core data,storage,bổ sung nhóm cho kỹ năng chưa có Category
+IN_CATEGORY,rxjs,Reactive Programming Libraries,bổ sung nhóm cho kỹ năng chưa có Category
+IN_CATEGORY,rxjava,Reactive Programming Libraries,bổ sung nhóm cho kỹ năng chưa có Category
+IN_CATEGORY,rxkotlin,Reactive Programming Libraries,bổ sung nhóm cho kỹ năng chưa có Category
+IN_CATEGORY,livedata,Reactive Programming Libraries,bổ sung nhóm cho kỹ năng chưa có Category
+IN_CATEGORY,hilt,Dependency Injection Frameworks,bổ sung nhóm cho kỹ năng chưa có Category
+IN_CATEGORY,dagger,Dependency Injection Frameworks,bổ sung nhóm cho kỹ năng chưa có Category
+IN_CATEGORY,imageview,layouts,bổ sung nhóm cho kỹ năng chưa có Category
+IN_CATEGORY,listview,layouts,bổ sung nhóm cho kỹ năng chưa có Category
+IN_CATEGORY,crest,it certifications,bổ sung nhóm cho kỹ năng chưa có Category
+IN_CATEGORY,giac,it certifications,bổ sung nhóm cho kỹ năng chưa có Category
+IN_CATEGORY,cucumber,automation frameworks,bổ sung nhóm cho kỹ năng chưa có Category
+IN_CATEGORY,mockito,unit testing frameworks,bổ sung nhóm cho kỹ năng chưa có Category
+IN_CATEGORY,cuda,GPU Computing,bổ sung nhóm cho kỹ năng chưa có Category
+IN_CATEGORY,optix,graphics api,bổ sung nhóm cho kỹ năng chưa có Category
+IN_CATEGORY,directx ray tracing,graphics api,bổ sung nhóm cho kỹ năng chưa có Category
+IN_CATEGORY,vulkan ray tracing,graphics api,bổ sung nhóm cho kỹ năng chưa có Category
+IN_CATEGORY,three.js,graphics api,bổ sung nhóm cho kỹ năng chưa có Category
+IN_CATEGORY,epa,game physics,bổ sung nhóm cho kỹ năng chưa có Category
+IN_CATEGORY,gjk,game physics,bổ sung nhóm cho kỹ năng chưa có Category
+IN_CATEGORY,d3.js,data visualisation libraries,bổ sung nhóm cho kỹ năng chưa có Category
+IN_CATEGORY,plotly,data visualisation libraries,bổ sung nhóm cho kỹ năng chưa có Category
+IN_CATEGORY,streamlit,data visualisation libraries,bổ sung nhóm cho kỹ năng chưa có Category
+IN_CATEGORY,datedif,Spreadsheet & BI Formulas,bổ sung nhóm cho kỹ năng chưa có Category
+IN_CATEGORY,dax,Spreadsheet & BI Formulas,bổ sung nhóm cho kỹ năng chưa có Category
+IN_CATEGORY,power query,Spreadsheet & BI Formulas,bổ sung nhóm cho kỹ năng chưa có Category
+IN_CATEGORY,vba,Spreadsheet & BI Formulas,bổ sung nhóm cho kỹ năng chưa có Category
+IN_CATEGORY,trim,Spreadsheet & BI Formulas,bổ sung nhóm cho kỹ năng chưa có Category
+IN_CATEGORY,dnssec,Secure Protocols,bổ sung nhóm cho kỹ năng chưa có Category
+IN_CATEGORY,ipsec,Secure Protocols,bổ sung nhóm cho kỹ năng chưa có Category
+IN_CATEGORY,s/mime,Secure Protocols,bổ sung nhóm cho kỹ năng chưa có Category
+IN_CATEGORY,srtp,Secure Protocols,bổ sung nhóm cho kỹ năng chưa có Category
+IN_CATEGORY,docker compose,containers,bổ sung nhóm cho kỹ năng chưa có Category
+IN_CATEGORY,exchange server,Productivity Suites,bổ sung nhóm cho kỹ năng chưa có Category
+IN_CATEGORY,microsoft 365,Productivity Suites,bổ sung nhóm cho kỹ năng chưa có Category
+IN_CATEGORY,office,Productivity Suites,bổ sung nhóm cho kỹ năng chưa có Category
+IN_CATEGORY,google suite,Productivity Suites,bổ sung nhóm cho kỹ năng chưa có Category
+IN_CATEGORY,expo,cross-platform mobile frameworks,bổ sung nhóm cho kỹ năng chưa có Category
+IN_CATEGORY,helm,Kubernetes Tooling,bổ sung nhóm cho kỹ năng chưa có Category
+IN_CATEGORY,kustomize,Kubernetes Tooling,bổ sung nhóm cho kỹ năng chưa có Category
+IN_CATEGORY,kafka streams,data processing frameworks,bổ sung nhóm cho kỹ năng chưa có Category
+IN_CATEGORY,hugging face,finding open source models,bổ sung nhóm cho kỹ năng chưa có Category
+IN_CATEGORY,ollama,LLM Inference Servers,bổ sung nhóm cho kỹ năng chưa có Category
+IN_CATEGORY,vllm,LLM Inference Servers,bổ sung nhóm cho kỹ năng chưa có Category
+IN_CATEGORY,ollama models,ollama,bổ sung nhóm cho kỹ năng chưa có Category
+IN_CATEGORY,ollama sdk,ollama,bổ sung nhóm cho kỹ năng chưa có Category
+IN_CATEGORY,onnx,Model Formats & Runtimes,bổ sung nhóm cho kỹ năng chưa có Category
+IN_CATEGORY,openai api,openai api,bổ sung nhóm cho kỹ năng chưa có Category
+IN_CATEGORY,open ai embeddings api,openai api,bổ sung nhóm cho kỹ năng chưa có Category
+IN_CATEGORY,openai moderation api,openai api,bổ sung nhóm cho kỹ năng chưa có Category
+IN_CATEGORY,open ai embedding models,openai api,bổ sung nhóm cho kỹ năng chưa có Category
+IN_CATEGORY,jquery,JavaScript Libraries,bổ sung nhóm cho kỹ năng chưa có Category
+IN_CATEGORY,rhel,Linux Distributions,bổ sung nhóm cho kỹ năng chưa có Category
+IN_CATEGORY,suse linux,Linux Distributions,bổ sung nhóm cho kỹ năng chưa có Category
+IN_CATEGORY,ubuntu / debian,Linux Distributions,bổ sung nhóm cho kỹ năng chưa có Category
+IN_CATEGORY,kali linux,Security Distros,bổ sung nhóm cho kỹ năng chưa có Category
+IN_CATEGORY,parrotos,Security Distros,bổ sung nhóm cho kỹ năng chưa có Category
+IN_CATEGORY,ktor,java frameworks,bổ sung nhóm cho kỹ năng chưa có Category
+IN_CATEGORY,servlet/jsp,java frameworks,bổ sung nhóm cho kỹ năng chưa có Category
+IN_CATEGORY,spring cloud,java frameworks,bổ sung nhóm cho kỹ năng chưa có Category
+IN_CATEGORY,spring security,java frameworks,bổ sung nhóm cho kỹ năng chưa có Category
+IN_CATEGORY,logstash,logs management,bổ sung nhóm cho kỹ năng chưa có Category
+IN_CATEGORY,syslogs,logs management,bổ sung nhóm cho kỹ năng chưa có Category
+IN_CATEGORY,metasploit,Penetration Testing Tools,bổ sung nhóm cho kỹ năng chưa có Category
+IN_CATEGORY,burp suite,Penetration Testing Tools,bổ sung nhóm cho kỹ năng chưa có Category
+IN_CATEGORY,owasp zap,vulnerability scanning tools,bổ sung nhóm cho kỹ năng chưa có Category
+IN_CATEGORY,snyk,vulnerability scanning tools,bổ sung nhóm cho kỹ năng chưa có Category
+IN_CATEGORY,trivy,vulnerability scanning tools,bổ sung nhóm cho kỹ năng chưa có Category
+IN_CATEGORY,sonarqube,devsecops tools,bổ sung nhóm cho kỹ năng chưa có Category
+IN_CATEGORY,monit,monitoring tools,bổ sung nhóm cho kỹ năng chưa có Category
+IN_CATEGORY,nids,IDS/IPS,bổ sung nhóm cho kỹ năng chưa có Category
+IN_CATEGORY,nips,IDS/IPS,bổ sung nhóm cho kỹ năng chưa có Category
+IN_CATEGORY,numpy,data manipulation libraries,bổ sung nhóm cho kỹ năng chưa có Category
+IN_CATEGORY,scipy,data manipulation libraries,bổ sung nhóm cho kỹ năng chưa có Category
+IN_CATEGORY,pwas,pwas,bổ sung nhóm cho kỹ năng chưa có Category
+IN_CATEGORY,web components,web components,bổ sung nhóm cho kỹ năng chưa có Category
+IN_CATEGORY,rmf,cybersecurity frameworks,bổ sung nhóm cho kỹ năng chưa có Category
+IN_CATEGORY,socket,networking terminology,bổ sung nhóm cho kỹ năng chưa có Category
+IN_CATEGORY,rnn,machine learning,bổ sung nhóm cho kỹ năng chưa có Category
+IN_CATEGORY,ruby on rails,Ruby Web Frameworks,bổ sung nhóm cho kỹ năng chưa có Category
+IN_CATEGORY,saml,auth methodologies,bổ sung nhóm cho kỹ năng chưa có Category
+IN_CATEGORY,openid,auth methodologies,bổ sung nhóm cho kỹ năng chưa có Category
+IN_CATEGORY,soap,api styles,bổ sung nhóm cho kỹ năng chưa có Category
+IN_CATEGORY,socket.io,realtime,bổ sung nhóm cho kỹ năng chưa có Category
+IN_CATEGORY,storybook,development tools,bổ sung nhóm cho kỹ năng chưa có Category
+IN_CATEGORY,xcode,development tools,bổ sung nhóm cho kỹ năng chưa có Category
+IN_CATEGORY,tomcat,web servers,bổ sung nhóm cho kỹ năng chưa có Category
+IN_CATEGORY,"vim, nano, emacs",terminal knowledge,bổ sung nhóm cho kỹ năng chưa có Category
+USED_IN,.net framework,Backend,bổ sung nhóm vai trò cho kỹ năng chưa có USED_IN
+USED_IN,java/kotlin/scala,Backend,bổ sung nhóm vai trò cho kỹ năng chưa có USED_IN
+USED_IN,postman,Backend,bổ sung nhóm vai trò cho kỹ năng chưa có USED_IN
+USED_IN,readme,Backend,bổ sung nhóm vai trò cho kỹ năng chưa có USED_IN
+USED_IN,rfc 7807,Backend,bổ sung nhóm vai trò cho kỹ năng chưa có USED_IN
+USED_IN,soap api,Backend,bổ sung nhóm vai trò cho kỹ năng chưa có USED_IN
+USED_IN,stoplight,Backend,bổ sung nhóm vai trò cho kỹ năng chưa có USED_IN
+USED_IN,swagger/openapi,Backend,bổ sung nhóm vai trò cho kỹ năng chưa có USED_IN
+USED_IN,api integration patterns,Backend,bổ sung nhóm vai trò cho kỹ năng chưa có USED_IN
+USED_IN,api keys & management,Backend,bổ sung nhóm vai trò cho kỹ năng chưa có USED_IN
+USED_IN,api lifecycle management,Backend,bổ sung nhóm vai trò cho kỹ năng chưa có USED_IN
+USED_IN,api performance,Backend,bổ sung nhóm vai trò cho kỹ năng chưa có USED_IN
+USED_IN,api security,Backend,bổ sung nhóm vai trò cho kỹ năng chưa có USED_IN
+USED_IN,api styles,Backend,bổ sung nhóm vai trò cho kỹ năng chưa có USED_IN
+USED_IN,api testing,Backend,bổ sung nhóm vai trò cho kỹ năng chưa có USED_IN
+USED_IN,application architecture,Backend,bổ sung nhóm vai trò cho kỹ năng chưa có USED_IN
+USED_IN,architecture,Backend,bổ sung nhóm vai trò cho kỹ năng chưa có USED_IN
+USED_IN,architecture levels,Backend,bổ sung nhóm vai trò cho kỹ năng chưa có USED_IN
+USED_IN,auth methods,Backend,bổ sung nhóm vai trò cho kỹ năng chưa có USED_IN
+USED_IN,authorization methods,Backend,bổ sung nhóm vai trò cho kỹ năng chưa có USED_IN
+USED_IN,building json / restful apis,Backend,bổ sung nhóm vai trò cho kỹ năng chưa có USED_IN
+USED_IN,content negotiation,Backend,bổ sung nhóm vai trò cho kỹ năng chưa có USED_IN
+USED_IN,cookies,Backend,bổ sung nhóm vai trò cho kỹ năng chưa có USED_IN
+USED_IN,endpoint,Backend,bổ sung nhóm vai trò cho kỹ năng chưa có USED_IN
+USED_IN,http caching,Backend,bổ sung nhóm vai trò cho kỹ năng chưa có USED_IN
+USED_IN,http headers,Backend,bổ sung nhóm vai trò cho kỹ năng chưa có USED_IN
+USED_IN,http methods,Backend,bổ sung nhóm vai trò cho kỹ năng chưa có USED_IN
+USED_IN,http status codes,Backend,bổ sung nhóm vai trò cho kỹ năng chưa có USED_IN
+USED_IN,http versions,Backend,bổ sung nhóm vai trò cho kỹ năng chưa có USED_IN
+USED_IN,latency and throughput,Backend,bổ sung nhóm vai trò cho kỹ năng chưa có USED_IN
+USED_IN,multi‑tenancy,Backend,bổ sung nhóm vai trò cho kỹ năng chưa có USED_IN
+USED_IN,real-time apis,Backend,bổ sung nhóm vai trò cho kỹ năng chưa có USED_IN
+USED_IN,scalability,Backend,bổ sung nhóm vai trò cho kỹ năng chưa có USED_IN
+USED_IN,solution architecture,Backend,bổ sung nhóm vai trò cho kỹ năng chưa có USED_IN
+USED_IN,url parameters,Backend,bổ sung nhóm vai trò cho kỹ năng chưa có USED_IN
+USED_IN,less,Frontend,bổ sung nhóm vai trò cho kỹ năng chưa có USED_IN
+USED_IN,cookies,Frontend,bổ sung nhóm vai trò cho kỹ năng chưa có USED_IN
+USED_IN,postman,QA,bổ sung nhóm vai trò cho kỹ năng chưa có USED_IN
+USED_IN,api testing,QA,bổ sung nhóm vai trò cho kỹ năng chưa có USED_IN
+USED_IN,cdn edge caching,DevOps,bổ sung nhóm vai trò cho kỹ năng chưa có USED_IN
+USED_IN,daas,DevOps,bổ sung nhóm vai trò cho kỹ năng chưa có USED_IN
+USED_IN,linux/unix,DevOps,bổ sung nhóm vai trò cho kỹ năng chưa có USED_IN
+USED_IN,cloud deployment models,DevOps,bổ sung nhóm vai trò cho kỹ năng chưa có USED_IN
+USED_IN,cloud service models,DevOps,bổ sung nhóm vai trò cho kỹ năng chưa có USED_IN
+USED_IN,cluster,DevOps,bổ sung nhóm vai trò cho kỹ năng chưa có USED_IN
+USED_IN,data centers,DevOps,bổ sung nhóm vai trò cho kỹ năng chưa có USED_IN
+USED_IN,elasticity,DevOps,bổ sung nhóm vai trò cho kỹ năng chưa có USED_IN
+USED_IN,instance,DevOps,bổ sung nhóm vai trò cho kỹ năng chưa có USED_IN
+USED_IN,instance types,DevOps,bổ sung nhóm vai trò cho kỹ năng chưa có USED_IN
+USED_IN,managed relational dbs,DevOps,bổ sung nhóm vai trò cho kỹ năng chưa có USED_IN
+USED_IN,pricing model,DevOps,bổ sung nhóm vai trò cho kỹ năng chưa có USED_IN
+USED_IN,provider landscape,DevOps,bổ sung nhóm vai trò cho kỹ năng chưa có USED_IN
+USED_IN,"region, availability zone",DevOps,bổ sung nhóm vai trò cho kỹ năng chưa có USED_IN
+USED_IN,scaling,DevOps,bổ sung nhóm vai trò cho kỹ năng chưa có USED_IN
+USED_IN,sla,DevOps,bổ sung nhóm vai trò cho kỹ năng chưa có USED_IN
+USED_IN,storage types,DevOps,bổ sung nhóm vai trò cho kỹ năng chưa có USED_IN
+USED_IN,traffic management,DevOps,bổ sung nhóm vai trò cho kỹ năng chưa có USED_IN
+USED_IN,api security,Security,bổ sung nhóm vai trò cho kỹ năng chưa có USED_IN
+USED_IN,access control,Security,bổ sung nhóm vai trò cho kỹ năng chưa có USED_IN
+USED_IN,common vulnerabilities,Security,bổ sung nhóm vai trò cho kỹ năng chưa có USED_IN
+USED_IN,cybersecurity basics,Security,bổ sung nhóm vai trò cho kỹ năng chưa có USED_IN
+USED_IN,data protection,Security,bổ sung nhóm vai trò cho kỹ năng chưa có USED_IN
+USED_IN,standards and compliance,Security,bổ sung nhóm vai trò cho kỹ năng chưa có USED_IN
+USED_IN,"bpm, bpel",Business,bổ sung nhóm vai trò cho kỹ năng chưa có USED_IN
+USED_IN,emc dms,Business,bổ sung nhóm vai trò cho kỹ năng chưa có USED_IN
+USED_IN,ibm bpm,Business,bổ sung nhóm vai trò cho kỹ năng chưa có USED_IN
+USED_IN,salesforce,Business,bổ sung nhóm vai trò cho kỹ năng chưa có USED_IN
+USED_IN,sap,Business,bổ sung nhóm vai trò cho kỹ năng chưa có USED_IN
+USED_IN,slack,Business,bổ sung nhóm vai trò cho kỹ năng chưa có USED_IN
+USED_IN,togaf,Business,bổ sung nhóm vai trò cho kỹ năng chưa có USED_IN
+USED_IN,enterprise architecture,Business,bổ sung nhóm vai trò cho kỹ năng chưa có USED_IN
+USED_IN,data lifecycle,Data,bổ sung nhóm vai trò cho kỹ năng chưa có USED_IN
+USED_IN,working with data,Data,bổ sung nhóm vai trò cho kỹ năng chưa có USED_IN
+USED_IN,ai/ml services,AI/ML,bổ sung nhóm vai trò cho kỹ năng chưa có USED_IN
+USED_IN,data centers,IT Support,bổ sung nhóm vai trò cho kỹ năng chưa có USED_IN
+USED_IN,networks,IT Support,bổ sung nhóm vai trò cho kỹ năng chưa có USED_IN
+USED_IN,"acid, cap theorem",Backend,bổ sung nhóm vai trò theo Category của kỹ năng
+USED_IN,actors,Backend,bổ sung nhóm vai trò theo Category của kỹ năng
+USED_IN,api performance best practices,Backend,bổ sung nhóm vai trò theo Category của kỹ năng
+USED_IN,api security best practices,Backend,bổ sung nhóm vai trò theo Category của kỹ năng
+USED_IN,artifact registries,DevOps,bổ sung nhóm vai trò theo Category của kỹ năng
+USED_IN,attribute based access control,Backend,bổ sung nhóm vai trò theo Category của kỹ năng
+USED_IN,attribute based access control,Security,bổ sung nhóm vai trò theo Category của kỹ năng
+USED_IN,auto scaling,DevOps,bổ sung nhóm vai trò theo Category của kỹ năng
+USED_IN,automation levels,DevOps,bổ sung nhóm vai trò theo Category của kỹ năng
+USED_IN,bare metal cloud,DevOps,bổ sung nhóm vai trò theo Category của kỹ năng
+USED_IN,batch processing,Backend,bổ sung nhóm vai trò theo Category của kỹ năng
+USED_IN,block storage,DevOps,bổ sung nhóm vai trò theo Category của kỹ năng
+USED_IN,caching strategies,Backend,bổ sung nhóm vai trò theo Category của kỹ năng
+USED_IN,client‑server architecture,Backend,bổ sung nhóm vai trò theo Category của kỹ năng
+USED_IN,contract testing,Backend,bổ sung nhóm vai trò theo Category của kỹ năng
+USED_IN,contract testing,QA,bổ sung nhóm vai trò theo Category của kỹ năng
+USED_IN,cost monitoring,DevOps,bổ sung nhóm vai trò theo Category của kỹ năng
+USED_IN,"cqrs, eventual consistency",Backend,bổ sung nhóm vai trò theo Category của kỹ năng
+USED_IN,crud operations,Backend,bổ sung nhóm vai trò theo Category của kỹ năng
+USED_IN,data archiving,Data,bổ sung nhóm vai trò theo Category của kỹ năng
+USED_IN,deployment strategies,DevOps,bổ sung nhóm vai trò theo Category của kỹ năng
+USED_IN,dns in the cloud,DevOps,bổ sung nhóm vai trò theo Category của kỹ năng
+USED_IN,error handling,Backend,bổ sung nhóm vai trò theo Category của kỹ năng
+USED_IN,esb,Backend,bổ sung nhóm vai trò theo Category của kỹ năng
+USED_IN,etl,Data,bổ sung nhóm vai trò theo Category của kỹ năng
+USED_IN,event-driven architecture,Backend,bổ sung nhóm vai trò theo Category của kỹ năng
+USED_IN,event-driven architecture,DevOps,bổ sung nhóm vai trò theo Category của kỹ năng
+USED_IN,faas,DevOps,bổ sung nhóm vai trò theo Category của kỹ năng
+USED_IN,file storage,DevOps,bổ sung nhóm vai trò theo Category của kỹ năng
+USED_IN,finops,DevOps,bổ sung nhóm vai trò theo Category của kỹ năng
+USED_IN,functional programming,Backend,bổ sung nhóm vai trò theo Category của kỹ năng
+USED_IN,functional programming,Frontend,bổ sung nhóm vai trò theo Category của kỹ năng
+USED_IN,graphql apis,Backend,bổ sung nhóm vai trò theo Category của kỹ năng
+USED_IN,grpc apis,Backend,bổ sung nhóm vai trò theo Category của kỹ năng
+USED_IN,hashing algorithms,Security,bổ sung nhóm vai trò theo Category của kỹ năng
+USED_IN,hipaa,Security,bổ sung nhóm vai trò theo Category của kỹ năng
+USED_IN,hybrid cloud,DevOps,bổ sung nhóm vai trò theo Category của kỹ năng
+USED_IN,layered architecture,Backend,bổ sung nhóm vai trò theo Category của kỹ năng
+USED_IN,lights-out operations,DevOps,bổ sung nhóm vai trò theo Category của kỹ năng
+USED_IN,load balancing,Backend,bổ sung nhóm vai trò theo Category của kỹ năng
+USED_IN,managed kubernetes,DevOps,bổ sung nhóm vai trò theo Category của kỹ năng
+USED_IN,microfrontends,Frontend,bổ sung nhóm vai trò theo Category của kỹ năng
+USED_IN,microservices communication,Backend,bổ sung nhóm vai trò theo Category của kỹ năng
+USED_IN,mocking apis,Backend,bổ sung nhóm vai trò theo Category của kỹ năng
+USED_IN,mocking apis,QA,bổ sung nhóm vai trò theo Category của kỹ năng
+USED_IN,multi‑cloud,DevOps,bổ sung nhóm vai trò theo Category của kỹ năng
+USED_IN,nat & ip management,DevOps,bổ sung nhóm vai trò theo Category của kỹ năng
+USED_IN,network engineering,DevOps,bổ sung nhóm vai trò theo Category của kỹ năng
+USED_IN,network topology,DevOps,bổ sung nhóm vai trò theo Category của kỹ năng
+USED_IN,object storage,DevOps,bổ sung nhóm vai trò theo Category của kỹ năng
+USED_IN,oop,Backend,bổ sung nhóm vai trò theo Category của kỹ năng
+USED_IN,owasp,Backend,bổ sung nhóm vai trò theo Category của kỹ năng
+USED_IN,owasp,Security,bổ sung nhóm vai trò theo Category của kỹ năng
+USED_IN,pagination,Backend,bổ sung nhóm vai trò theo Category của kỹ năng
+USED_IN,pci dss,Security,bổ sung nhóm vai trò theo Category của kỹ năng
+USED_IN,pii,Security,bổ sung nhóm vai trò theo Category của kỹ năng
+USED_IN,privacy and compliance,Security,bổ sung nhóm vai trò theo Category của kỹ năng
+USED_IN,profiling and monitoring,Backend,bổ sung nhóm vai trò theo Category của kỹ năng
+USED_IN,provider lock-in,DevOps,bổ sung nhóm vai trò theo Category của kỹ năng
+USED_IN,"racks, pods, & aisles",DevOps,bổ sung nhóm vai trò theo Category của kỹ năng
+USED_IN,rate limiting,Backend,bổ sung nhóm vai trò theo Category của kỹ năng
+USED_IN,rbac,Backend,bổ sung nhóm vai trò theo Category của kỹ năng
+USED_IN,rbac,Security,bổ sung nhóm vai trò theo Category của kỹ năng
+USED_IN,reactive programming,Frontend,bổ sung nhóm vai trò theo Category của kỹ năng
+USED_IN,regional cloud,DevOps,bổ sung nhóm vai trò theo Category của kỹ năng
+USED_IN,resource optimization,DevOps,bổ sung nhóm vai trò theo Category của kỹ năng
+USED_IN,rest principles,Backend,bổ sung nhóm vai trò theo Category của kỹ năng
+USED_IN,retention & compliance,Data,bổ sung nhóm vai trò theo Category của kỹ năng
+USED_IN,sdn,DevOps,bổ sung nhóm vai trò theo Category của kỹ năng
+USED_IN,security groups,DevOps,bổ sung nhóm vai trò theo Category của kỹ năng
+USED_IN,serverless concepts,DevOps,bổ sung nhóm vai trò theo Category của kỹ năng
+USED_IN,serverless platforms,DevOps,bổ sung nhóm vai trò theo Category của kỹ năng
+USED_IN,service‑oriented architecture,Backend,bổ sung nhóm vai trò theo Category của kỹ năng
+USED_IN,session‑based authentication,Backend,bổ sung nhóm vai trò theo Category của kỹ năng
+USED_IN,shared responsibility model,Security,bổ sung nhóm vai trò theo Category của kỹ năng
+USED_IN,simple json apis,Backend,bổ sung nhóm vai trò theo Category của kỹ năng
+USED_IN,solid,Backend,bổ sung nhóm vai trò theo Category của kỹ năng
+USED_IN,spa/ssr/ssg,Frontend,bổ sung nhóm vai trò theo Category của kỹ năng
+USED_IN,spot & reserved instances,DevOps,bổ sung nhóm vai trò theo Category của kỹ năng
+USED_IN,sql databases,Backend,bổ sung nhóm vai trò theo Category của kỹ năng
+USED_IN,sql databases,Data,bổ sung nhóm vai trò theo Category của kỹ năng
+USED_IN,stateless functions,DevOps,bổ sung nhóm vai trò theo Category của kỹ năng
+USED_IN,storage classes & tiering,Data,bổ sung nhóm vai trò theo Category của kỹ năng
+USED_IN,subnets & routing,DevOps,bổ sung nhóm vai trò theo Category của kỹ năng
+USED_IN,token‑based auth,Backend,bổ sung nhóm vai trò theo Category của kỹ năng
+USED_IN,trade-offs of serverless,DevOps,bổ sung nhóm vai trò theo Category của kỹ năng
+USED_IN,upstream connectivity,DevOps,bổ sung nhóm vai trò theo Category của kỹ năng
+USED_IN,uri design,Backend,bổ sung nhóm vai trò theo Category của kỹ năng
+USED_IN,versioning strategies,Backend,bổ sung nhóm vai trò theo Category của kỹ năng
+USED_IN,virtual machine instances,DevOps,bổ sung nhóm vai trò theo Category của kỹ năng
+USED_IN,vlans & vxlan,DevOps,bổ sung nhóm vai trò theo Category của kỹ năng
+USED_IN,"vm migration, live migration",DevOps,bổ sung nhóm vai trò theo Category của kỹ năng
+USED_IN,vpn & direct connect,DevOps,bổ sung nhóm vai trò theo Category của kỹ năng
+USED_IN,workload,DevOps,bổ sung nhóm vai trò theo Category của kỹ năng

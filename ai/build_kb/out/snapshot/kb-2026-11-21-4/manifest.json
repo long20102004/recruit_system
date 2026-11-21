@@ -1,0 +1,149 @@
+{
+  "ontology_version": "kb-2026-11-21-4",
+  "created_at": "2026-11-21T06:36:50.057784+00:00",
+  "include_candidate": false,
+  "source": "out/kb_*.jsonl",
+  "files": {
+    "skill_ontology": {
+      "rows": 1710,
+      "sha256": "e54471f8ea0e3300dbac228293fb76360084dda0e678af41d6e8d556bfe12458"
+    },
+    "role_title_map": {
+      "rows": 729,
+      "sha256": "da5041c25062cc7bf6ff628115f51f53278444ee71a13c55ef24610943f28b5d"
+    },
+    "role_distance": {
+      "rows": 182,
+      "sha256": "dc58fbbed6af7d8e7f7030c0dd58981c716ce2a9fd70db4fa989dabde51a4f0f"
+    },
+    "major_group": {
+      "rows": 307,
+      "sha256": "3926a4468f548385cce4fdd351c12a780ae5399beba70b2e011b827469c65089"
+    },
+    "ambiguous_aliases": {
+      "rows": 128,
+      "sha256": "d86b7d87f1221a69c3c960c0f860c672bd064f7e14c2d62b1875fbd0a8faf0c7"
+    }
+  },
+  "stats": {
+    "n_skills": 1710,
+    "n_technology": 777,
+    "n_aliases": 3446,
+    "n_ambiguous_aliases": 128,
+    "n_parent_of": 348,
+    "n_skills_with_sibling_category": 407,
+    "n_title_aliases": 666,
+    "n_level_aliases": 63,
+    "n_major_aliases": 307,
+    "role_groups": [
+      "AI/ML",
+      "Backend",
+      "Business",
+      "Data",
+      "Design",
+      "DevOps",
+      "Embedded",
+      "Frontend",
+      "Fullstack",
+      "Game",
+      "IT Support",
+      "Mobile",
+      "QA",
+      "Security"
+    ]
+  },
+  "warnings": {
+    "skills_without_evidence": 0,
+    "job_titles_without_role_group": 0,
+    "job_titles_multi_group": [
+      {
+        "title": "C++ Developer",
+        "groups": [
+          "Backend",
+          "Embedded"
+        ],
+        "chosen": "Backend"
+      },
+      {
+        "title": "Data Scientist",
+        "groups": [
+          "Data",
+          "AI/ML"
+        ],
+        "chosen": "Data"
+      },
+      {
+        "title": "DataOps / MLOps Engineer",
+        "groups": [
+          "Data",
+          "AI/ML"
+        ],
+        "chosen": "Data"
+      },
+      {
+        "title": "DevSecOps Engineer",
+        "groups": [
+          "DevOps",
+          "Security"
+        ],
+        "chosen": "DevOps"
+      },
+      {
+        "title": "Enterprise Architect",
+        "groups": [
+          "Backend",
+          "Business"
+        ],
+        "chosen": "Backend"
+      },
+      {
+        "title": "Game Artist",
+        "groups": [
+          "Game",
+          "Design"
+        ],
+        "chosen": "Game"
+      },
+      {
+        "title": "Game Tester",
+        "groups": [
+          "QA",
+          "Game"
+        ],
+        "chosen": "QA"
+      },
+      {
+        "title": "Network Engineer",
+        "groups": [
+          "DevOps",
+          "IT Support"
+        ],
+        "chosen": "DevOps"
+      },
+      {
+        "title": "Software Engineer",
+        "groups": [
+          "Backend",
+          "Fullstack"
+        ],
+        "chosen": "Backend"
+      },
+      {
+        "title": "Solution Architect",
+        "groups": [
+          "Backend",
+          "DevOps"
+        ],
+        "chosen": "Backend"
+      },
+      {
+        "title": "Systems Engineer / Administrator",
+        "groups": [
+          "DevOps",
+          "IT Support"
+        ],
+        "chosen": "DevOps"
+      }
+    ]
+  }
+}

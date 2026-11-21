@@ -11,10 +11,11 @@ import pymupdf
 
 from shared.common import norm, read_jsonl, write_jsonl
 from kb1.pipeline.config import (
-    AMBIGUOUS_ALIASES, OUT, PDF_DIR, PLATFORM_PARENTS, ROADMAPS, ROOT, SO_REPORT_CSV,
+    AMBIGUOUS_ALIASES, OUT, PDF_DIR, PLATFORM_PARENTS, ROADMAPS, SO_REPORT_CSV,
     SO_SYNONYMS_CSV, SOURCES_CSV,
 )
 from kb1.pipeline.so_aliases import apply_so_aliases, load_synonyms, write_report
+from kb_pipeline.quality import find_cycle as find_parent_cycle
 
 SKILL_TYPES = ("technology", "concept")
 
@@ -38,30 +39,7 @@ def is_parent_of(parent_key, child_key):
 
 def find_cycle(edges):
     """Trả một vòng PARENT_OF nếu có, ngược lại None."""
-    graph = collections.defaultdict(list)
-    for e in edges:
-        if e["type"] == "PARENT_OF":
-            graph[e["src"]].append(e["dst"])
-    state = {}
-
-    def visit(node, path):
-        state[node] = 1
-        for nxt in graph[node]:
-            if state.get(nxt) == 1:
-                return path + [node, nxt]
-            if nxt not in state:
-                found = visit(nxt, path + [node])
-                if found:
-                    return found
-        state[node] = 2
-        return None
-
-    for node in list(graph):
-        if node not in state:
-            found = visit(node, [])
-            if found:
-                return found
-    return None
+    return find_parent_cycle({(e["src"], e["dst"]) for e in edges if e["type"] == "PARENT_OF"})
 
 
 def alias_conflicts(kb_nodes):

@@ -1,0 +1,233 @@
+op,key,value,reason
+same_as,apache kafka,kafka,cùng một công nghệ (dòng conflict của Stack Overflow)
+same_as,apache spark,spark,cùng một công nghệ
+same_as,apache airflow,airflow,cùng một công nghệ
+same_as,tailwind,tailwind css,cùng một công nghệ
+same_as,ec2,amazon ec2,cùng một công nghệ
+same_as,gcp,google cloud,cùng một nhà cung cấp
+same_as,databases,database,số ít/số nhiều
+same_as,operating systems,operating system,số ít/số nhiều
+same_as,domain driven design,domain-driven design,khác cách viết
+same_as,jwt auth,jwt,cùng một khái niệm
+same_as,wlan,wifi,WLAN và WiFi dùng như nhau trong JD
+same_as,csp,content security policy,viết tắt
+same_as,tableu,tableau,lỗi chính tả trong roadmap
+same_as,power bi,microsoft power bi,cùng một công cụ
+same_as,event driven architecture,event-driven architecture,khác cách viết
+same_as,microservices architecture,microservices,cùng một khái niệm
+same_as,version control systems,version control,cùng một khái niệm
+same_as,version control system,version control,cùng một khái niệm
+same_as,vlans,vlan,số ít/số nhiều
+same_as,acls,acl,số ít/số nhiều
+same_as,hypervisors,hypervisor,số ít/số nhiều
+same_as,subnet masks,subnet mask,số ít/số nhiều
+same_as,routers,router,số ít/số nhiều
+same_as,switches,switch,số ít/số nhiều
+same_as,vpns,vpn,số ít/số nhiều
+same_as,owasp security risks,owasp top 10,cùng một danh sách
+same_as,owasp risks,owasp top 10,cùng một danh sách
+same_as,embedding,embeddings,số ít/số nhiều
+same_as,open ai assistant api,openai assistant api,khác cách viết
+same_as,oauth 2.0,oauth,JD không phân biệt phiên bản
+same_as,netflow,netflow / sflow,cùng một công nghệ
+same_as,decision tree,decision trees,số ít/số nhiều
+same_as,decision tree learning,decision trees,cùng một thuật toán
+same_as,naive bayes classifier,naive bayes,cùng một thuật toán
+same_as,virtual private cloud,vpc,viết tắt
+same_as,serverless computing,serverless,cùng một khái niệm
+same_as,shell/bash,bash,cùng một công cụ
+same_as,tls,ssl/tls,cùng một giao thức
+same_as,ssl/tls basics,ssl/tls,mục cơ bản của cùng kỹ năng
+same_as,models on hugging face,hugging face models,khác cách viết
+same_as,ci cd pipelines,ci cd,cùng một khái niệm
+same_as,rest,restful apis,cùng một khái niệm trong JD
+same_as,perfect,prefect,roadmap viết sai tên công cụ Prefect
+same_as,auth/authorization,authorization,cùng một khái niệm
+same_as,vm,virtual machines,viết tắt
+same_as,nmap basics,nmap,mục cơ bản của cùng kỹ năng
+same_as,wireshark basics,wireshark,mục cơ bản của cùng kỹ năng
+same_as,zero trust concepts,zero trust,cùng một khái niệm
+same_as,zero trust core concepts,zero trust,cùng một khái niệm
+same_as,web security basics,web security,mục cơ bản của cùng kỹ năng
+same_as,distributed systems basics,distributed systems,mục cơ bản của cùng kỹ năng
+same_as,encryption basics,encryption,mục cơ bản của cùng kỹ năng
+same_as,bluetooth basics,bluetooth,mục cơ bản của cùng kỹ năng
+same_as,osi,osi model,cùng một mô hình
+same_as,tcp/ip model,tcp/ip,cùng một mô hình
+same_as,datawarehouse principles,data warehouse,cùng một khái niệm
+same_as,descriptive analysis,descriptive analytics,cùng một khái niệm
+same_as,gof design patterns,design patterns,cùng một khái niệm trong JD
+same_as,agile model,agile,cùng một phương pháp
+reject,if,,không phải kỹ năng
+reject,basics,,không phải kỹ năng
+reject,simplifying things,,không phải kỹ năng
+reject,clear page of distractions,,mẹo UX không phải kỹ năng
+reject,collaborate with others,,không phải kỹ năng
+reject,mindfulness to avoid acting on the cue,,không phải kỹ năng
+reject,adding end-user ids in prompts,,mẹo thực hành không phải kỹ năng
+reject,choosing the right technologies,,không phải kỹ năng
+reject,making layouts,,không phải kỹ năng
+reject,good layout rules,,không phải kỹ năng
+reject,common commands,,không phải kỹ năng
+reject,common ports,,không phải kỹ năng
+reject,common protocols,,không phải kỹ năng
+reject,installation and configuration,,không phải kỹ năng
+reject,estimate and evaluate,,không phải kỹ năng
+reject,application,,từ chung
+reject,generation,,từ chung
+reject,identification,,từ chung
+reject,exploration,,từ chung
+reject,recovery,,từ chung
+reject,cleanup,,từ chung
+reject,base,,nhãn rác trong nhóm column dbs
+reject,native,,nhãn rác trong nhóm game engine
+reject,column,,từ chung
+reject,collection,,từ chung
+reject,cloud specific tools,,không phải kỹ năng
+reject,design and implementation,,không phải kỹ năng
+reject,design & architecture decisions,,không phải kỹ năng
+reject,tech decisions,,không phải kỹ năng
+reject,operations knowledge,,không phải kỹ năng
+reject,networking knowledge,,trùng networking fundamentals
+reject,scripting knowledge,,không phải kỹ năng
+ambiguous,cat,,lệnh Linux trùng từ thường
+ambiguous,head,,lệnh Linux trùng từ thường
+ambiguous,tail,,lệnh Linux trùng từ thường
+ambiguous,man,,lệnh Linux trùng từ thường
+ambiguous,trim,,hàm Excel trùng từ thường
+ambiguous,sum,,hàm Excel trùng từ thường
+ambiguous,count,,hàm Excel trùng từ thường
+ambiguous,concat,,hàm Excel trùng từ thường
+ambiguous,average,,từ thường
+ambiguous,mean,,từ thường
+ambiguous,median,,từ thường
+ambiguous,mode,,từ thường
+ambiguous,range,,từ thường
+ambiguous,variance,,từ thường
+ambiguous,point,,từ thường
+ambiguous,spot,,từ thường
+ambiguous,light,,từ thường
+ambiguous,fog,,từ thường
+ambiguous,cube,,từ thường
+ambiguous,bump,,từ thường
+ambiguous,horizon,,từ thường
+ambiguous,cascaded,,từ thường
+ambiguous,directional,,từ thường
+ambiguous,diffuse,,từ thường
+ambiguous,specular,,từ thường
+ambiguous,shadow,,từ thường
+ambiguous,frame,,từ thường
+ambiguous,flow,,từ thường
+ambiguous,bus,,từ thường
+ambiguous,hub,,từ thường
+ambiguous,balance,,từ thường
+ambiguous,box,,từ thường
+ambiguous,graph,,từ thường
+ambiguous,force,,từ thường
+ambiguous,friction,,từ thường
+ambiguous,wave,,từ thường
+ambiguous,color,,từ thường
+ambiguous,texture,,từ thường
+ambiguous,dialogs,,từ thường
+ambiguous,tabs,,từ thường
+ambiguous,toast,,từ thường
+ambiguous,activity,,từ thường
+ambiguous,fragments,,từ thường
+ambiguous,intent,,từ thường
+ambiguous,session,,từ thường
+ambiguous,server,,từ thường
+ambiguous,client,,từ thường
+ambiguous,host,,từ thường
+ambiguous,port,,từ thường
+ambiguous,route,,từ thường
+ambiguous,storage,,từ thường
+ambiguous,package,,từ thường
+ambiguous,protocol,,từ thường
+ambiguous,endpoint,,từ thường
+ambiguous,instance,,từ thường
+ambiguous,workload,,từ thường
+ambiguous,cluster,,từ thường
+ambiguous,internet,,từ thường
+ambiguous,transport,,từ thường
+ambiguous,movement,,từ thường
+ambiguous,orientation,,từ thường
+ambiguous,location,,từ thường
+ambiguous,notifications,,từ thường
+ambiguous,hybrid,,từ thường
+ambiguous,linear,,từ thường
+ambiguous,matrix,,từ thường
+ambiguous,curve,,từ thường
+ambiguous,distribution,,từ thường
+ambiguous,regression,,trùng regression testing và hồi quy
+ambiguous,inference,,từ thường
+ambiguous,mapping,,từ thường
+ambiguous,office,,từ thường
+type,action funnel,concept,không phải công cụ
+type,ai code editors,concept,nhóm công cụ chung
+type,ai/ml services,concept,nhóm dịch vụ chung
+type,caching server,concept,không phải một công cụ cụ thể
+type,certificates,concept,khái niệm
+type,charting,concept,khái niệm
+type,cloud computing,concept,khái niệm
+type,cloud providers,concept,nhóm chung
+type,cluster management tools,concept,nhóm công cụ chung
+type,code completion tools,concept,nhóm công cụ chung
+type,firewall,concept,khái niệm
+type,hypervisor,concept,khái niệm
+type,load balancer,concept,khái niệm
+type,load testing,concept,kỹ thuật kiểm thử
+type,managed kubernetes,concept,nhóm dịch vụ chung
+type,managed relational dbs,concept,nhóm dịch vụ chung
+type,mlops,concept,khái niệm
+type,mobile automation,concept,kỹ thuật kiểm thử
+type,mocking apis,concept,kỹ thuật
+type,model training & serving,concept,khái niệm
+type,module bundlers,concept,nhóm công cụ chung
+type,orms,concept,nhóm công cụ chung
+type,port scanner,concept,nhóm công cụ chung
+type,protocol analyzer,concept,nhóm công cụ chung
+type,reverse proxy,concept,khái niệm
+type,router,concept,thiết bị chung
+type,serverless platforms,concept,nhóm dịch vụ chung
+type,vector database,concept,khái niệm
+type,vcs hosting,concept,nhóm dịch vụ chung
+type,css preprocessors,concept,nhóm công cụ chung
+type,cdn,concept,khái niệm
+type,siem,concept,khái niệm
+type,edr,concept,khái niệm
+type,ids,concept,khái niệm
+type,ips,concept,khái niệm
+type,ids/ips,concept,khái niệm
+type,dlp,concept,khái niệm
+type,esb,concept,khái niệm
+type,faas,concept,khái niệm
+type,san,concept,khái niệm
+type,sdn,concept,khái niệm
+type,dmz,concept,khái niệm
+type,nat,concept,khái niệm
+type,shader,concept,khái niệm
+type,websocket,technology,giao thức cụ thể
+type,kerberos,technology,giao thức cụ thể
+type,ipsec,technology,giao thức cụ thể
+type,jetpack benchmark,technology,thư viện cụ thể
+type,workmanager,technology,thư viện cụ thể
+drop_category,gitops,container orchestration,GitOps là phương pháp không phải công cụ điều phối
+drop_category,sql,data visualisation libraries,SQL không phải thư viện trực quan hóa
+drop_category,pandas,data visualisation libraries,pandas là thư viện xử lý dữ liệu
+drop_category,dplyr,data visualisation libraries,dplyr là thư viện xử lý dữ liệu
+drop_category,streamlit,bi tools,Streamlit là framework ứng dụng dữ liệu
+drop_category,replication,ai models,nhãn sai nhóm
+drop_category,concave,programming languages,khái niệm vật lý game
+drop_category,convex,programming languages,khái niệm vật lý game
+drop_category,convex decomposition,programming languages,khái niệm vật lý game
+drop_category,convex hull,programming languages,khái niệm vật lý game
+drop_category,epa,programming languages,thuật toán va chạm
+drop_category,gjk,programming languages,thuật toán va chạm
+drop_category,sat,programming languages,thuật toán va chạm
+drop_category,google suite,operating systems,bộ ứng dụng văn phòng
+drop_category,icloud,operating systems,dịch vụ lưu trữ
+drop_category,office,operating systems,bộ ứng dụng văn phòng
+drop_category,kubernetes,big data tools,không phải công cụ big data
+drop_category,charting,data manipulation libraries,nhãn sai nhóm
+same_as,vector databases,vector database,số nhiều của cùng khái niệm
+same_as,soap api,soap,cùng một chuẩn API

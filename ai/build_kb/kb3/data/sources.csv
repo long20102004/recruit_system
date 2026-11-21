@@ -1,0 +1,10 @@
+source_id,type,title,publisher,uri,lang,trust,license,accessed
+G01,generated,Kỹ năng bổ sung (framework / công cụ / kỹ năng mềm / chứng chỉ),Claude (claude-opus-5-5),kb3/data/new_skills.csv,vi+en,low,tự sinh; chưa đối chiếu nguồn,2026-11-21
+G02,generated,Alias bổ sung cho kỹ năng đã có (tiếng Việt và biến thể),Claude (claude-opus-5-5),kb3/data/skill_aliases.csv,vi+en,low,tự sinh; chưa đối chiếu nguồn,2026-11-21
+G03,generated,Sửa kỹ năng (gộp trùng / loại nhãn rác / đổi loại / alias dễ nhầm),Claude (claude-opus-5-5),kb3/data/skill_fixes.csv,vi+en,low,tự sinh; chưa đối chiếu nguồn,2026-11-21
+G04,generated,Quan hệ bổ sung giữa kỹ năng đã có,Claude (claude-opus-5-5),kb3/data/edges.csv,en,low,tự sinh; chưa đối chiếu nguồn,2026-11-21
+G05,generated,Nhóm kỹ năng và sibling_ok đề xuất,Claude (claude-opus-5-5),kb3/data/categories.csv,en,low,tự sinh; chưa đối chiếu nguồn,2026-11-21
+G06,generated,Chức danh và nhóm vai trò bổ sung,Claude (claude-opus-5-5),kb3/data/titles.csv,vi+en,low,tự sinh; chưa đối chiếu nguồn,2026-11-21
+G07,generated,Alias cấp bậc bổ sung,Claude (claude-opus-5-5),kb3/data/levels.csv,vi+en,low,tự sinh; chưa đối chiếu nguồn,2026-11-21
+G08,generated,Ngành học bổ sung,Claude (claude-opus-5-5),kb3/data/majors.csv,vi+en,low,tự sinh; cần đối chiếu Thông tư 09/2022/TT-BGDĐT,2026-11-21
+G09,generated,Ma trận khoảng cách nhóm vai trò (giả thuyết),Claude (claude-opus-5-5),kb3/data/near.csv,vi+en,low,tự sinh; 8 cặp đầu theo thiết kế 07 mục 5.6,2026-11-21

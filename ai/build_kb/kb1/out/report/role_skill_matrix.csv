@@ -8,6 +8,11 @@ AI/ML,AI/ML,112,1.0
 DevOps,DevOps,192,1.0
 QA,QA,112,1.0
 Security,Security,311,1.0
+Embedded,Embedded,0,1.0
+Game,Game,125,1.0
+Design,Design,47,1.0
+Business,Business,0,1.0
+IT Support,IT Support,98,1.0
 Backend,Frontend,13,0.067
 Backend,Fullstack,5,0.038
 Backend,Mobile,7,0.036
@@ -16,6 +21,11 @@ Backend,AI/ML,7,0.032
 Backend,DevOps,20,0.069
 Backend,QA,10,0.046
 Backend,Security,9,0.022
+Backend,Embedded,0,0.0
+Backend,Game,3,0.013
+Backend,Design,0,0.0
+Backend,Business,0,0.0
+Backend,IT Support,3,0.014
 Frontend,Fullstack,7,0.065
 Frontend,Mobile,6,0.036
 Frontend,Data,2,0.006
@@ -23,24 +33,74 @@ Frontend,AI/ML,3,0.015
 Frontend,DevOps,7,0.025
 Frontend,QA,7,0.036
 Frontend,Security,1,0.002
+Frontend,Embedded,0,0.0
+Frontend,Game,0,0.0
+Frontend,Design,0,0.0
+Frontend,Business,0,0.0
+Frontend,IT Support,1,0.005
 Fullstack,Mobile,2,0.019
 Fullstack,Data,5,0.02
 Fullstack,AI/ML,2,0.015
 Fullstack,DevOps,6,0.029
 Fullstack,QA,2,0.015
 Fullstack,Security,3,0.009
+Fullstack,Embedded,0,0.0
+Fullstack,Game,0,0.0
+Fullstack,Design,0,0.0
+Fullstack,Business,0,0.0
+Fullstack,IT Support,0,0.0
 Mobile,Data,3,0.01
 Mobile,AI/ML,3,0.016
 Mobile,DevOps,5,0.019
 Mobile,QA,6,0.032
 Mobile,Security,1,0.003
+Mobile,Embedded,0,0.0
+Mobile,Game,0,0.0
+Mobile,Design,0,0.0
+Mobile,Business,0,0.0
+Mobile,IT Support,1,0.006
 Data,AI/ML,9,0.027
 Data,DevOps,15,0.037
 Data,QA,11,0.033
 Data,Security,9,0.017
+Data,Embedded,0,0.0
+Data,Game,3,0.009
+Data,Design,0,0.0
+Data,Business,0,0.0
+Data,IT Support,0,0.0
 AI/ML,DevOps,8,0.027
 AI/ML,QA,3,0.014
 AI/ML,Security,6,0.014
+AI/ML,Embedded,0,0.0
+AI/ML,Game,1,0.004
+AI/ML,Design,0,0.0
+AI/ML,Business,0,0.0
+AI/ML,IT Support,0,0.0
 DevOps,QA,12,0.041
 DevOps,Security,92,0.224
+DevOps,Embedded,0,0.0
+DevOps,Game,2,0.006
+DevOps,Design,0,0.0
+DevOps,Business,0,0.0
+DevOps,IT Support,10,0.036
 QA,Security,1,0.002
+QA,Embedded,0,0.0
+QA,Game,0,0.0
+QA,Design,0,0.0
+QA,Business,0,0.0
+QA,IT Support,0,0.0
+Security,Embedded,0,0.0
+Security,Game,2,0.005
+Security,Design,0,0.0
+Security,Business,0,0.0
+Security,IT Support,19,0.049
+Embedded,Game,0,0.0
+Embedded,Design,0,0.0
+Embedded,Business,0,0.0
+Embedded,IT Support,0,0.0
+Game,Design,0,0.0
+Game,Business,0,0.0
+Game,IT Support,0,0.0
+Design,Business,0,0.0
+Design,IT Support,0,0.0
+Business,IT Support,0,0.0

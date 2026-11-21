@@ -1,0 +1,92 @@
+group_a,group_b,m,note
+Backend,Fullstack,0.8,giữ đúng giá trị giả thuyết của thiết kế 07 mục 5.6
+Frontend,Fullstack,0.8,thiết kế 07
+Security,DevOps,0.5,thiết kế 07
+Backend,DevOps,0.4,thiết kế 07
+Backend,Data,0.4,thiết kế 07
+Mobile,Frontend,0.4,thiết kế 07
+Backend,Frontend,0.3,thiết kế 07
+QA,Backend,0.2,thiết kế 07
+Data,AI/ML,0.6,data scientist và ML engineer dùng chung Python/SQL/thống kê
+Backend,AI/ML,0.3,triển khai mô hình qua API
+DevOps,AI/ML,0.2,MLOps
+Mobile,Fullstack,0.3,
+Mobile,Backend,0.2,
+Fullstack,DevOps,0.3,
+QA,Frontend,0.2,
+QA,Mobile,0.2,
+Security,Backend,0.2,
+Backend,Embedded,0.3,cùng C/C++ và lập trình hệ thống
+Mobile,Embedded,0.2,
+AI/ML,Embedded,0.2,edge AI và robotics
+Game,Frontend,0.3,đồ họa và tương tác
+Game,Mobile,0.3,game mobile
+Game,Design,0.3,game art và UI game
+Game,Backend,0.2,game server
+Design,Frontend,0.4,UI developer gần UI designer
+Design,Mobile,0.2,
+Design,Business,0.2,product designer gần product manager
+Business,Data,0.3,BA và data analyst dùng chung SQL/BI
+Business,QA,0.3,BA và QA cùng làm việc với yêu cầu
+IT Support,DevOps,0.5,sysadmin gần DevOps
+IT Support,Security,0.3,
+IT Support,Embedded,0.1,
+Backend,Design,0.0,giả thuyết bổ sung 21/11/2026 (đủ 91 cặp)
+Backend,Business,0.1,giả thuyết bổ sung 21/11/2026 (đủ 91 cặp)
+Backend,IT Support,0.2,giả thuyết bổ sung 21/11/2026 (đủ 91 cặp)
+Frontend,Data,0.1,giả thuyết bổ sung 21/11/2026 (đủ 91 cặp)
+Frontend,AI/ML,0.1,giả thuyết bổ sung 21/11/2026 (đủ 91 cặp)
+Frontend,DevOps,0.1,giả thuyết bổ sung 21/11/2026 (đủ 91 cặp)
+Frontend,Security,0.1,giả thuyết bổ sung 21/11/2026 (đủ 91 cặp)
+Frontend,Embedded,0.0,giả thuyết bổ sung 21/11/2026 (đủ 91 cặp)
+Frontend,Business,0.1,giả thuyết bổ sung 21/11/2026 (đủ 91 cặp)
+Frontend,IT Support,0.1,giả thuyết bổ sung 21/11/2026 (đủ 91 cặp)
+Fullstack,Data,0.3,giả thuyết bổ sung 21/11/2026 (đủ 91 cặp)
+Fullstack,AI/ML,0.2,giả thuyết bổ sung 21/11/2026 (đủ 91 cặp)
+Fullstack,QA,0.2,giả thuyết bổ sung 21/11/2026 (đủ 91 cặp)
+Fullstack,Security,0.2,giả thuyết bổ sung 21/11/2026 (đủ 91 cặp)
+Fullstack,Embedded,0.1,giả thuyết bổ sung 21/11/2026 (đủ 91 cặp)
+Fullstack,Game,0.2,giả thuyết bổ sung 21/11/2026 (đủ 91 cặp)
+Fullstack,Design,0.3,giả thuyết bổ sung 21/11/2026 (đủ 91 cặp)
+Fullstack,Business,0.1,giả thuyết bổ sung 21/11/2026 (đủ 91 cặp)
+Fullstack,IT Support,0.2,giả thuyết bổ sung 21/11/2026 (đủ 91 cặp)
+Mobile,Data,0.1,giả thuyết bổ sung 21/11/2026 (đủ 91 cặp)
+Mobile,AI/ML,0.1,giả thuyết bổ sung 21/11/2026 (đủ 91 cặp)
+Mobile,DevOps,0.1,giả thuyết bổ sung 21/11/2026 (đủ 91 cặp)
+Mobile,Security,0.1,giả thuyết bổ sung 21/11/2026 (đủ 91 cặp)
+Mobile,Business,0.1,giả thuyết bổ sung 21/11/2026 (đủ 91 cặp)
+Mobile,IT Support,0.1,giả thuyết bổ sung 21/11/2026 (đủ 91 cặp)
+Data,DevOps,0.3,giả thuyết bổ sung 21/11/2026 (đủ 91 cặp)
+Data,QA,0.2,giả thuyết bổ sung 21/11/2026 (đủ 91 cặp)
+Data,Security,0.1,giả thuyết bổ sung 21/11/2026 (đủ 91 cặp)
+Data,Embedded,0.1,giả thuyết bổ sung 21/11/2026 (đủ 91 cặp)
+Data,Game,0.1,giả thuyết bổ sung 21/11/2026 (đủ 91 cặp)
+Data,Design,0.1,giả thuyết bổ sung 21/11/2026 (đủ 91 cặp)
+Data,IT Support,0.1,giả thuyết bổ sung 21/11/2026 (đủ 91 cặp)
+AI/ML,QA,0.1,giả thuyết bổ sung 21/11/2026 (đủ 91 cặp)
+AI/ML,Security,0.1,giả thuyết bổ sung 21/11/2026 (đủ 91 cặp)
+AI/ML,Game,0.2,giả thuyết bổ sung 21/11/2026 (đủ 91 cặp)
+AI/ML,Design,0.1,giả thuyết bổ sung 21/11/2026 (đủ 91 cặp)
+AI/ML,Business,0.2,giả thuyết bổ sung 21/11/2026 (đủ 91 cặp)
+AI/ML,IT Support,0.1,giả thuyết bổ sung 21/11/2026 (đủ 91 cặp)
+DevOps,QA,0.3,giả thuyết bổ sung 21/11/2026 (đủ 91 cặp)
+DevOps,Embedded,0.1,giả thuyết bổ sung 21/11/2026 (đủ 91 cặp)
+DevOps,Game,0.1,giả thuyết bổ sung 21/11/2026 (đủ 91 cặp)
+DevOps,Design,0.0,giả thuyết bổ sung 21/11/2026 (đủ 91 cặp)
+DevOps,Business,0.1,giả thuyết bổ sung 21/11/2026 (đủ 91 cặp)
+QA,Security,0.3,giả thuyết bổ sung 21/11/2026 (đủ 91 cặp)
+QA,Embedded,0.1,giả thuyết bổ sung 21/11/2026 (đủ 91 cặp)
+QA,Game,0.2,giả thuyết bổ sung 21/11/2026 (đủ 91 cặp)
+QA,Design,0.1,giả thuyết bổ sung 21/11/2026 (đủ 91 cặp)
+QA,IT Support,0.2,giả thuyết bổ sung 21/11/2026 (đủ 91 cặp)
+Security,Embedded,0.2,giả thuyết bổ sung 21/11/2026 (đủ 91 cặp)
+Security,Game,0.0,giả thuyết bổ sung 21/11/2026 (đủ 91 cặp)
+Security,Design,0.0,giả thuyết bổ sung 21/11/2026 (đủ 91 cặp)
+Security,Business,0.1,giả thuyết bổ sung 21/11/2026 (đủ 91 cặp)
+Embedded,Game,0.2,giả thuyết bổ sung 21/11/2026 (đủ 91 cặp)
+Embedded,Design,0.0,giả thuyết bổ sung 21/11/2026 (đủ 91 cặp)
+Embedded,Business,0.0,giả thuyết bổ sung 21/11/2026 (đủ 91 cặp)
+Game,Business,0.0,giả thuyết bổ sung 21/11/2026 (đủ 91 cặp)
+Game,IT Support,0.0,giả thuyết bổ sung 21/11/2026 (đủ 91 cặp)
+Design,IT Support,0.0,giả thuyết bổ sung 21/11/2026 (đủ 91 cặp)
+Business,IT Support,0.2,giả thuyết bổ sung 21/11/2026 (đủ 91 cặp)

@@ -26,9 +26,9 @@ ROADMAPS = {
     "software-architect": ("topic", []),
     "api-design": ("topic", []),
     "cloud-computing": ("topic", []),
-    "network-engineer": ("out", []),        # [XÁC NHẬN]
-    "game-developer": ("out", []),          # [XÁC NHẬN]
-    "ux-design": ("out", []),
+    "network-engineer": ("role", ["IT Support"]),   # nhóm mới từ KB3 (21/11/2026)
+    "game-developer": ("role", ["Game"]),
+    "ux-design": ("role", ["Design"]),
 }
 
 # --- Màu ô, đo ở Bước 1 trên cả 18 PDF (giá trị fill làm tròn 2 chữ số) ---

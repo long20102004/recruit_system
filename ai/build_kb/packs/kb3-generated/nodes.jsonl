@@ -1,0 +1,718 @@
+{"label": "Category", "name": "Relational Databases", "sibling_ok_suggest": true, "override": ["sibling_ok_suggest"], "sources": ["G05"]}
+{"label": "Category", "name": "Document DBs", "sibling_ok_suggest": true, "override": ["sibling_ok_suggest"], "sources": ["G05"]}
+{"label": "Category", "name": "Key-Value Store", "sibling_ok_suggest": true, "override": ["sibling_ok_suggest"], "sources": ["G05"]}
+{"label": "Category", "name": "Column DBs", "sibling_ok_suggest": true, "override": ["sibling_ok_suggest"], "sources": ["G05"]}
+{"label": "Category", "name": "Graph DBs", "sibling_ok_suggest": true, "override": ["sibling_ok_suggest"], "sources": ["G05"]}
+{"label": "Category", "name": "Time Series", "sibling_ok_suggest": true, "override": ["sibling_ok_suggest"], "sources": ["G05"]}
+{"label": "Category", "name": "Vector DBs", "sibling_ok_suggest": true, "override": ["sibling_ok_suggest"], "sources": ["G05"]}
+{"label": "Category", "name": "Message Brokers", "sibling_ok_suggest": true, "override": ["sibling_ok_suggest"], "sources": ["G05"]}
+{"label": "Category", "name": "CI CD Tools", "sibling_ok_suggest": true, "override": ["sibling_ok_suggest"], "sources": ["G05"]}
+{"label": "Category", "name": "Configuration Management", "sibling_ok_suggest": true, "override": ["sibling_ok_suggest"], "sources": ["G05"]}
+{"label": "Category", "name": "Container Orchestration", "sibling_ok_suggest": true, "override": ["sibling_ok_suggest"], "sources": ["G05"]}
+{"label": "Category", "name": "Logs Management", "sibling_ok_suggest": true, "override": ["sibling_ok_suggest"], "sources": ["G05"]}
+{"label": "Category", "name": "BI Tools", "sibling_ok_suggest": true, "override": ["sibling_ok_suggest"], "sources": ["G05"]}
+{"label": "Category", "name": "Module Bundlers", "sibling_ok_suggest": true, "override": ["sibling_ok_suggest"], "sources": ["G05"]}
+{"label": "Category", "name": "CSS Preprocessors", "sibling_ok_suggest": true, "override": ["sibling_ok_suggest"], "sources": ["G05"]}
+{"label": "Category", "name": "Package Managers", "sibling_ok_suggest": true, "override": ["sibling_ok_suggest"], "sources": ["G05"]}
+{"label": "Category", "name": "Repo Hosting Services", "sibling_ok_suggest": true, "override": ["sibling_ok_suggest"], "sources": ["G05"]}
+{"label": "Category", "name": "VCS Hosting", "sibling_ok_suggest": true, "override": ["sibling_ok_suggest"], "sources": ["G05"]}
+{"label": "Category", "name": "Web Servers", "sibling_ok_suggest": true, "override": ["sibling_ok_suggest"], "sources": ["G05"]}
+{"label": "Category", "name": "Search Engines", "sibling_ok_suggest": true, "override": ["sibling_ok_suggest"], "sources": ["G05"]}
+{"label": "Category", "name": "Static Site Generators", "sibling_ok_suggest": true, "override": ["sibling_ok_suggest"], "sources": ["G05"]}
+{"label": "Category", "name": "Linters and Formatters", "sibling_ok_suggest": true, "override": ["sibling_ok_suggest"], "sources": ["G05"]}
+{"label": "Category", "name": "Game Engine", "sibling_ok_suggest": true, "override": ["sibling_ok_suggest"], "sources": ["G05"]}
+{"label": "Category", "name": "Headless Testing", "sibling_ok_suggest": true, "override": ["sibling_ok_suggest"], "sources": ["G05"]}
+{"label": "Category", "name": "Mobile Automation", "sibling_ok_suggest": true, "override": ["sibling_ok_suggest"], "sources": ["G05"]}
+{"label": "Category", "name": "Data Pipeline Tools", "sibling_ok_suggest": true, "override": ["sibling_ok_suggest"], "sources": ["G05"]}
+{"label": "Category", "name": "Data Processing Frameworks", "sibling_ok_suggest": true, "override": ["sibling_ok_suggest"], "sources": ["G05"]}
+{"label": "Category", "name": "Wireframing", "sibling_ok_suggest": true, "override": ["sibling_ok_suggest"], "sources": ["G05"]}
+{"label": "Category", "name": "Cloud Providers", "sibling_ok_suggest": true, "override": ["sibling_ok_suggest"], "sources": ["G05"]}
+{"label": "Category", "name": "Common Virtualization Technologies", "sibling_ok_suggest": true, "override": ["sibling_ok_suggest"], "sources": ["G05"]}
+{"label": "Category", "name": "Containers", "sibling_ok_suggest": true, "override": ["sibling_ok_suggest"], "sources": ["G05"]}
+{"label": "Category", "name": "API Documentation Tools", "sibling_ok_suggest": true, "override": ["sibling_ok_suggest"], "sources": ["G05"]}
+{"label": "Category", "name": "Secret Management", "sibling_ok_suggest": true, "override": ["sibling_ok_suggest"], "sources": ["G05"]}
+{"label": "Category", "name": "Java Frameworks", "sibling_ok_suggest": true, "override": ["sibling_ok_suggest"], "sources": ["G05"]}
+{"label": "Category", "name": "Python Web Frameworks", "sibling_ok_suggest": true, "override": ["sibling_ok_suggest"], "sources": ["G05"]}
+{"label": "Category", "name": "PHP Frameworks", "sibling_ok_suggest": true, "override": ["sibling_ok_suggest"], "sources": ["G05"]}
+{"label": "Category", "name": "Node.js Frameworks", "sibling_ok_suggest": true, "override": ["sibling_ok_suggest"], "sources": ["G05"]}
+{"label": "Category", "name": ".NET Web Frameworks", "sibling_ok_suggest": true, "override": ["sibling_ok_suggest"], "sources": ["G05"]}
+{"label": "Category", "name": "Go Web Frameworks", "sibling_ok_suggest": true, "override": ["sibling_ok_suggest"], "sources": ["G05"]}
+{"label": "Category", "name": "Frontend Frameworks", "sibling_ok_suggest": true, "override": ["sibling_ok_suggest"], "sources": ["G05"]}
+{"label": "Category", "name": "CSS Frameworks", "sibling_ok_suggest": true, "override": ["sibling_ok_suggest"], "sources": ["G05"]}
+{"label": "Category", "name": "State Management Libraries", "sibling_ok_suggest": true, "override": ["sibling_ok_suggest"], "sources": ["G05"]}
+{"label": "Category", "name": "Cross-Platform Mobile Frameworks", "sibling_ok_suggest": true, "override": ["sibling_ok_suggest"], "sources": ["G05"]}
+{"label": "Category", "name": "iOS UI Frameworks", "sibling_ok_suggest": true, "override": ["sibling_ok_suggest"], "sources": ["G05"]}
+{"label": "Category", "name": ".NET Desktop Frameworks", "sibling_ok_suggest": true, "override": ["sibling_ok_suggest"], "sources": ["G05"]}
+{"label": "Category", "name": "ORM Frameworks", "sibling_ok_suggest": false, "override": ["sibling_ok_suggest"], "sources": ["G05"]}
+{"label": "Category", "name": "Build Tools", "sibling_ok_suggest": false, "override": ["sibling_ok_suggest"], "sources": ["G05"]}
+{"label": "Category", "name": "Unit Testing Frameworks", "sibling_ok_suggest": true, "override": ["sibling_ok_suggest"], "sources": ["G05"]}
+{"label": "Category", "name": "E2E Testing Tools", "sibling_ok_suggest": true, "override": ["sibling_ok_suggest"], "sources": ["G05"]}
+{"label": "Category", "name": "API Testing Tools", "sibling_ok_suggest": true, "override": ["sibling_ok_suggest"], "sources": ["G05"]}
+{"label": "Category", "name": "Test Management Tools", "sibling_ok_suggest": true, "override": ["sibling_ok_suggest"], "sources": ["G05"]}
+{"label": "Category", "name": "Project Management Tools", "sibling_ok_suggest": true, "override": ["sibling_ok_suggest"], "sources": ["G05"]}
+{"label": "Category", "name": "Documentation Tools", "sibling_ok_suggest": true, "override": ["sibling_ok_suggest"], "sources": ["G05"]}
+{"label": "Category", "name": "ML Frameworks", "sibling_ok_suggest": true, "override": ["sibling_ok_suggest"], "sources": ["G05"]}
+{"label": "Category", "name": "Gradient Boosting Libraries", "sibling_ok_suggest": true, "override": ["sibling_ok_suggest"], "sources": ["G05"]}
+{"label": "Category", "name": "LLM Frameworks", "sibling_ok_suggest": true, "override": ["sibling_ok_suggest"], "sources": ["G05"]}
+{"label": "Category", "name": "MLOps Platforms", "sibling_ok_suggest": true, "override": ["sibling_ok_suggest"], "sources": ["G05"]}
+{"label": "Category", "name": "Computer Vision Libraries", "sibling_ok_suggest": true, "override": ["sibling_ok_suggest"], "sources": ["G05"]}
+{"label": "Category", "name": "NLP Libraries", "sibling_ok_suggest": true, "override": ["sibling_ok_suggest"], "sources": ["G05"]}
+{"label": "Category", "name": "Data Warehouses", "sibling_ok_suggest": true, "override": ["sibling_ok_suggest"], "sources": ["G05"]}
+{"label": "Category", "name": "ETL Tools", "sibling_ok_suggest": true, "override": ["sibling_ok_suggest"], "sources": ["G05"]}
+{"label": "Category", "name": "Notebook Environments", "sibling_ok_suggest": true, "override": ["sibling_ok_suggest"], "sources": ["G05"]}
+{"label": "Category", "name": "Spreadsheet Tools", "sibling_ok_suggest": true, "override": ["sibling_ok_suggest"], "sources": ["G05"]}
+{"label": "Category", "name": "Graphic Design Tools", "sibling_ok_suggest": true, "override": ["sibling_ok_suggest"], "sources": ["G05"]}
+{"label": "Category", "name": "Motion Design Tools", "sibling_ok_suggest": true, "override": ["sibling_ok_suggest"], "sources": ["G05"]}
+{"label": "Category", "name": "3D Modeling Tools", "sibling_ok_suggest": true, "override": ["sibling_ok_suggest"], "sources": ["G05"]}
+{"label": "Category", "name": "RTOS", "sibling_ok_suggest": true, "override": ["sibling_ok_suggest"], "sources": ["G05"]}
+{"label": "Category", "name": "Microcontrollers", "sibling_ok_suggest": true, "override": ["sibling_ok_suggest"], "sources": ["G05"]}
+{"label": "Category", "name": "Embedded Communication Protocols", "sibling_ok_suggest": false, "override": ["sibling_ok_suggest"], "sources": ["G05"]}
+{"label": "Category", "name": "IoT Protocols", "sibling_ok_suggest": true, "override": ["sibling_ok_suggest"], "sources": ["G05"]}
+{"label": "Category", "name": "Blockchain Platforms", "sibling_ok_suggest": true, "override": ["sibling_ok_suggest"], "sources": ["G05"]}
+{"label": "Category", "name": "Smart Contract Frameworks", "sibling_ok_suggest": true, "override": ["sibling_ok_suggest"], "sources": ["G05"]}
+{"label": "Category", "name": "Web3 Libraries", "sibling_ok_suggest": true, "override": ["sibling_ok_suggest"], "sources": ["G05"]}
+{"label": "Category", "name": "ERP Systems", "sibling_ok_suggest": true, "override": ["sibling_ok_suggest"], "sources": ["G05"]}
+{"label": "Category", "name": "CRM Platforms", "sibling_ok_suggest": true, "override": ["sibling_ok_suggest"], "sources": ["G05"]}
+{"label": "Category", "name": "CMS Platforms", "sibling_ok_suggest": true, "override": ["sibling_ok_suggest"], "sources": ["G05"]}
+{"label": "Category", "name": "E-commerce Platforms", "sibling_ok_suggest": true, "override": ["sibling_ok_suggest"], "sources": ["G05"]}
+{"label": "Category", "name": "RPA Tools", "sibling_ok_suggest": true, "override": ["sibling_ok_suggest"], "sources": ["G05"]}
+{"label": "Category", "name": "Low-Code Platforms", "sibling_ok_suggest": true, "override": ["sibling_ok_suggest"], "sources": ["G05"]}
+{"label": "Category", "name": "Monitoring Tools", "sibling_ok_suggest": true, "override": ["sibling_ok_suggest"], "sources": ["G05"]}
+{"label": "Category", "name": "Agile Methodologies", "sibling_ok_suggest": false, "override": ["sibling_ok_suggest"], "sources": ["G05"]}
+{"label": "Category", "name": "Foreign Languages", "sibling_ok_suggest": false, "override": ["sibling_ok_suggest"], "sources": ["G05"]}
+{"label": "Category", "name": "English Certificates", "sibling_ok_suggest": true, "override": ["sibling_ok_suggest"], "sources": ["G05"]}
+{"label": "Category", "name": "Cloud Certifications", "sibling_ok_suggest": false, "override": ["sibling_ok_suggest"], "sources": ["G05"]}
+{"label": "Category", "name": "IT Certifications", "sibling_ok_suggest": false, "override": ["sibling_ok_suggest"], "sources": ["G05"]}
+{"label": "Category", "name": "Soft Skills", "sibling_ok_suggest": false, "override": ["sibling_ok_suggest"], "sources": ["G05"]}
+{"label": "Category", "name": "Business Analysis Techniques", "sibling_ok_suggest": false, "override": ["sibling_ok_suggest"], "sources": ["G05"]}
+{"label": "Category", "name": "Product Management Practices", "sibling_ok_suggest": false, "override": ["sibling_ok_suggest"], "sources": ["G05"]}
+{"label": "Category", "name": "IT Service Management", "sibling_ok_suggest": false, "override": ["sibling_ok_suggest"], "sources": ["G05"]}
+{"label": "Category", "name": "Runtimes & Platforms", "sibling_ok_suggest": false, "override": ["sibling_ok_suggest"], "sources": ["G05"]}
+{"label": "Category", "name": "Mobile Platforms", "sibling_ok_suggest": false, "override": ["sibling_ok_suggest"], "sources": ["G05"]}
+{"label": "Category", "name": "Network Devices", "sibling_ok_suggest": false, "override": ["sibling_ok_suggest"], "sources": ["G05"]}
+{"label": "Category", "name": "Firewalls & Network Appliances", "sibling_ok_suggest": true, "override": ["sibling_ok_suggest"], "sources": ["G05"]}
+{"label": "Category", "name": "Identity & Directory Services", "sibling_ok_suggest": false, "override": ["sibling_ok_suggest"], "sources": ["G05"]}
+{"label": "Category", "name": "Cloud Compute", "sibling_ok_suggest": true, "override": ["sibling_ok_suggest"], "sources": ["G05"]}
+{"label": "Category", "name": "Managed Databases", "sibling_ok_suggest": true, "override": ["sibling_ok_suggest"], "sources": ["G05"]}
+{"label": "Category", "name": "Object Storage", "sibling_ok_suggest": true, "override": ["sibling_ok_suggest"], "sources": ["G05"]}
+{"label": "Category", "name": "SQL Dialects", "sibling_ok_suggest": true, "override": ["sibling_ok_suggest"], "sources": ["G05"]}
+{"label": "Category", "name": "SQL Query Engines", "sibling_ok_suggest": true, "override": ["sibling_ok_suggest"], "sources": ["G05"]}
+{"label": "Category", "name": "HTTP Client Libraries", "sibling_ok_suggest": true, "override": ["sibling_ok_suggest"], "sources": ["G05"]}
+{"label": "Category", "name": "Dependency Injection Frameworks", "sibling_ok_suggest": true, "override": ["sibling_ok_suggest"], "sources": ["G05"]}
+{"label": "Category", "name": "Reactive Programming Libraries", "sibling_ok_suggest": true, "override": ["sibling_ok_suggest"], "sources": ["G05"]}
+{"label": "Category", "name": "Email Testing Tools", "sibling_ok_suggest": true, "override": ["sibling_ok_suggest"], "sources": ["G05"]}
+{"label": "Category", "name": "Embedded Platforms", "sibling_ok_suggest": false, "override": ["sibling_ok_suggest"], "sources": ["G05"]}
+{"label": "Category", "name": "GPU Computing", "sibling_ok_suggest": false, "override": ["sibling_ok_suggest"], "sources": ["G05"]}
+{"label": "Category", "name": "Spreadsheet & BI Formulas", "sibling_ok_suggest": false, "override": ["sibling_ok_suggest"], "sources": ["G05"]}
+{"label": "Category", "name": "Secure Protocols", "sibling_ok_suggest": false, "override": ["sibling_ok_suggest"], "sources": ["G05"]}
+{"label": "Category", "name": "Productivity Suites", "sibling_ok_suggest": true, "override": ["sibling_ok_suggest"], "sources": ["G05"]}
+{"label": "Category", "name": "Kubernetes Tooling", "sibling_ok_suggest": true, "override": ["sibling_ok_suggest"], "sources": ["G05"]}
+{"label": "Category", "name": "LLM Inference Servers", "sibling_ok_suggest": true, "override": ["sibling_ok_suggest"], "sources": ["G05"]}
+{"label": "Category", "name": "Model Formats & Runtimes", "sibling_ok_suggest": false, "override": ["sibling_ok_suggest"], "sources": ["G05"]}
+{"label": "Category", "name": "Linux Distributions", "sibling_ok_suggest": true, "override": ["sibling_ok_suggest"], "sources": ["G05"]}
+{"label": "Category", "name": "Security Distros", "sibling_ok_suggest": true, "override": ["sibling_ok_suggest"], "sources": ["G05"]}
+{"label": "Category", "name": "Penetration Testing Tools", "sibling_ok_suggest": true, "override": ["sibling_ok_suggest"], "sources": ["G05"]}
+{"label": "Category", "name": "IDS/IPS", "sibling_ok_suggest": true, "override": ["sibling_ok_suggest"], "sources": ["G05"]}
+{"label": "Category", "name": "Ruby Web Frameworks", "sibling_ok_suggest": true, "override": ["sibling_ok_suggest"], "sources": ["G05"]}
+{"label": "Category", "name": "Task Queues", "sibling_ok_suggest": true, "override": ["sibling_ok_suggest"], "sources": ["G05"]}
+{"label": "Category", "name": "JavaScript Libraries", "sibling_ok_suggest": false, "override": ["sibling_ok_suggest"], "sources": ["G05"]}
+{"label": "Skill", "name": "Spring Framework", "type": "technology", "aliases": ["spring framework", "spring core", "spring ioc"], "ambiguous_aliases": ["spring"], "sources": ["G01"]}
+{"label": "Skill", "name": "Spring Boot", "type": "technology", "aliases": ["springboot", "spring-boot", "spring boot framework"], "ambiguous_aliases": [], "sources": ["G01"]}
+{"label": "Skill", "name": "Spring MVC", "type": "technology", "aliases": ["spring web mvc", "spring-mvc"], "ambiguous_aliases": [], "sources": ["G01"]}
+{"label": "Skill", "name": "Spring Security", "type": "technology", "aliases": ["spring-security"], "ambiguous_aliases": [], "sources": ["G01"]}
+{"label": "Skill", "name": "Spring Cloud", "type": "technology", "aliases": ["spring-cloud"], "ambiguous_aliases": [], "sources": ["G01"]}
+{"label": "Skill", "name": "Spring Data JPA", "type": "technology", "aliases": ["spring data", "spring-data-jpa"], "ambiguous_aliases": [], "sources": ["G01"]}
+{"label": "Skill", "name": "Hibernate", "type": "technology", "aliases": ["hibernate orm"], "ambiguous_aliases": [], "sources": ["G01"]}
+{"label": "Skill", "name": "JPA", "type": "technology", "aliases": ["java persistence api", "jakarta persistence"], "ambiguous_aliases": [], "sources": ["G01"]}
+{"label": "Skill", "name": "MyBatis", "type": "technology", "aliases": ["ibatis"], "ambiguous_aliases": [], "sources": ["G01"]}
+{"label": "Skill", "name": "Quarkus", "type": "technology", "aliases": [], "ambiguous_aliases": [], "sources": ["G01"]}
+{"label": "Skill", "name": "Micronaut", "type": "technology", "aliases": [], "ambiguous_aliases": [], "sources": ["G01"]}
+{"label": "Skill", "name": "Jakarta EE", "type": "technology", "aliases": ["java ee", "j2ee", "jee", "java enterprise edition"], "ambiguous_aliases": [], "sources": ["G01"]}
+{"label": "Skill", "name": "Servlet/JSP", "type": "technology", "aliases": ["servlet", "jsp", "java servlet", "java server pages"], "ambiguous_aliases": [], "sources": ["G01"]}
+{"label": "Skill", "name": "Maven", "type": "technology", "aliases": ["apache maven"], "ambiguous_aliases": [], "sources": ["G01"]}
+{"label": "Skill", "name": "Gradle", "type": "technology", "aliases": [], "ambiguous_aliases": [], "sources": ["G01"]}
+{"label": "Skill", "name": "Mockito", "type": "technology", "aliases": [], "ambiguous_aliases": [], "sources": ["G01"]}
+{"label": "Skill", "name": "Django", "type": "technology", "aliases": ["django framework", "django rest framework", "drf"], "ambiguous_aliases": [], "sources": ["G01"]}
+{"label": "Skill", "name": "Flask", "type": "technology", "aliases": ["python flask"], "ambiguous_aliases": [], "sources": ["G01"]}
+{"label": "Skill", "name": "FastAPI", "type": "technology", "aliases": ["fast api"], "ambiguous_aliases": [], "sources": ["G01"]}
+{"label": "Skill", "name": "SQLAlchemy", "type": "technology", "aliases": ["sql alchemy"], "ambiguous_aliases": [], "sources": ["G01"]}
+{"label": "Skill", "name": "Celery", "type": "technology", "aliases": [], "ambiguous_aliases": [], "sources": ["G01"]}
+{"label": "Skill", "name": "NumPy", "type": "technology", "aliases": ["numpy array"], "ambiguous_aliases": [], "sources": ["G01"]}
+{"label": "Skill", "name": "SciPy", "type": "technology", "aliases": [], "ambiguous_aliases": [], "sources": ["G01"]}
+{"label": "Skill", "name": "scikit-learn", "type": "technology", "aliases": ["sklearn", "scikit learn", "scikitlearn"], "ambiguous_aliases": [], "sources": ["G01"]}
+{"label": "Skill", "name": "Jupyter Notebook", "type": "technology", "aliases": ["jupyter", "jupyterlab", "jupyter lab", "ipython notebook"], "ambiguous_aliases": [], "sources": ["G01"]}
+{"label": "Skill", "name": "Google Colab", "type": "technology", "aliases": ["colab", "colaboratory"], "ambiguous_aliases": [], "sources": ["G01"]}
+{"label": "Skill", "name": "Plotly", "type": "technology", "aliases": ["plotly express"], "ambiguous_aliases": [], "sources": ["G01"]}
+{"label": "Skill", "name": "pytest", "type": "technology", "aliases": ["py.test"], "ambiguous_aliases": [], "sources": ["G01"]}
+{"label": "Skill", "name": "Laravel", "type": "technology", "aliases": ["laravel framework"], "ambiguous_aliases": [], "sources": ["G01"]}
+{"label": "Skill", "name": "Symfony", "type": "technology", "aliases": [], "ambiguous_aliases": [], "sources": ["G01"]}
+{"label": "Skill", "name": "CodeIgniter", "type": "technology", "aliases": ["codeigniter framework", "ci framework"], "ambiguous_aliases": [], "sources": ["G01"]}
+{"label": "Skill", "name": "Yii", "type": "technology", "aliases": ["yii2", "yii framework"], "ambiguous_aliases": [], "sources": ["G01"]}
+{"label": "Skill", "name": "Composer", "type": "technology", "aliases": ["php composer"], "ambiguous_aliases": [], "sources": ["G01"]}
+{"label": "Skill", "name": "PHPUnit", "type": "technology", "aliases": ["php unit"], "ambiguous_aliases": [], "sources": ["G01"]}
+{"label": "Skill", "name": "WordPress", "type": "technology", "aliases": ["wordpress cms", "wp"], "ambiguous_aliases": [], "sources": ["G01"]}
+{"label": "Skill", "name": "Drupal", "type": "technology", "aliases": [], "ambiguous_aliases": [], "sources": ["G01"]}
+{"label": "Skill", "name": "Magento", "type": "technology", "aliases": ["adobe commerce", "magento 2"], "ambiguous_aliases": [], "sources": ["G01"]}
+{"label": "Skill", "name": "WooCommerce", "type": "technology", "aliases": ["woo commerce"], "ambiguous_aliases": [], "sources": ["G01"]}
+{"label": "Skill", "name": "Shopify", "type": "technology", "aliases": ["shopify liquid", "liquid"], "ambiguous_aliases": [], "sources": ["G01"]}
+{"label": "Skill", "name": "Strapi", "type": "technology", "aliases": ["strapi cms"], "ambiguous_aliases": [], "sources": ["G01"]}
+{"label": "Skill", "name": "Express", "type": "technology", "aliases": ["express.js", "expressjs", "express js"], "ambiguous_aliases": [], "sources": ["G01"]}
+{"label": "Skill", "name": "NestJS", "type": "technology", "aliases": ["nest.js", "nest js", "nestjs framework"], "ambiguous_aliases": [], "sources": ["G01"]}
+{"label": "Skill", "name": "Fastify", "type": "technology", "aliases": [], "ambiguous_aliases": [], "sources": ["G01"]}
+{"label": "Skill", "name": "Koa", "type": "technology", "aliases": ["koa.js", "koajs"], "ambiguous_aliases": [], "sources": ["G01"]}
+{"label": "Skill", "name": "Socket.IO", "type": "technology", "aliases": ["socketio", "socket io"], "ambiguous_aliases": [], "sources": ["G01"]}
+{"label": "Skill", "name": "Sequelize", "type": "technology", "aliases": [], "ambiguous_aliases": [], "sources": ["G01"]}
+{"label": "Skill", "name": "TypeORM", "type": "technology", "aliases": ["type orm"], "ambiguous_aliases": [], "sources": ["G01"]}
+{"label": "Skill", "name": "Prisma", "type": "technology", "aliases": ["prisma orm"], "ambiguous_aliases": [], "sources": ["G01"]}
+{"label": "Skill", "name": "Mongoose", "type": "technology", "aliases": ["mongoosejs"], "ambiguous_aliases": [], "sources": ["G01"]}
+{"label": "Skill", "name": "Mocha", "type": "technology", "aliases": ["mocha.js", "mochajs"], "ambiguous_aliases": [], "sources": ["G01"]}
+{"label": "Skill", "name": "jQuery", "type": "technology", "aliases": ["jquery ui", "jquery.js"], "ambiguous_aliases": [], "sources": ["G01"]}
+{"label": "Skill", "name": "RxJS", "type": "technology", "aliases": ["reactivex js"], "ambiguous_aliases": [], "sources": ["G01"]}
+{"label": "Skill", "name": "Redux", "type": "technology", "aliases": ["redux toolkit", "rtk", "redux-saga", "redux saga", "redux thunk"], "ambiguous_aliases": [], "sources": ["G01"]}
+{"label": "Skill", "name": "MobX", "type": "technology", "aliases": [], "ambiguous_aliases": [], "sources": ["G01"]}
+{"label": "Skill", "name": "Zustand", "type": "technology", "aliases": [], "ambiguous_aliases": [], "sources": ["G01"]}
+{"label": "Skill", "name": "Vuex", "type": "technology", "aliases": [], "ambiguous_aliases": [], "sources": ["G01"]}
+{"label": "Skill", "name": "Pinia", "type": "technology", "aliases": [], "ambiguous_aliases": [], "sources": ["G01"]}
+{"label": "Skill", "name": "NgRx", "type": "technology", "aliases": ["ngrx store"], "ambiguous_aliases": [], "sources": ["G01"]}
+{"label": "Skill", "name": "AngularJS", "type": "technology", "aliases": ["angular.js", "angular 1"], "ambiguous_aliases": [], "sources": ["G01"]}
+{"label": "Skill", "name": "Bootstrap", "type": "technology", "aliases": ["bootstrap css", "bootstrap 5", "twitter bootstrap"], "ambiguous_aliases": [], "sources": ["G01"]}
+{"label": "Skill", "name": "Material UI", "type": "technology", "aliases": ["mui", "material-ui"], "ambiguous_aliases": [], "sources": ["G01"]}
+{"label": "Skill", "name": "Ant Design", "type": "technology", "aliases": ["antd", "ant-design"], "ambiguous_aliases": [], "sources": ["G01"]}
+{"label": "Skill", "name": "Chakra UI", "type": "technology", "aliases": ["chakra-ui"], "ambiguous_aliases": [], "sources": ["G01"]}
+{"label": "Skill", "name": "shadcn/ui", "type": "technology", "aliases": ["shadcn", "shadcn ui"], "ambiguous_aliases": [], "sources": ["G01"]}
+{"label": "Skill", "name": "Storybook", "type": "technology", "aliases": ["storybook.js"], "ambiguous_aliases": [], "sources": ["G01"]}
+{"label": "Skill", "name": "Three.js", "type": "technology", "aliases": ["threejs", "three js"], "ambiguous_aliases": [], "sources": ["G01"]}
+{"label": "Skill", "name": "D3.js", "type": "technology", "aliases": ["d3", "d3js"], "ambiguous_aliases": [], "sources": ["G01"]}
+{"label": "Skill", "name": "Gulp", "type": "technology", "aliases": ["gulp.js", "gulpjs"], "ambiguous_aliases": [], "sources": ["G01"]}
+{"label": "Skill", "name": "Remix", "type": "technology", "aliases": ["remix run", "remix.run"], "ambiguous_aliases": [], "sources": ["G01"]}
+{"label": "Skill", "name": "React Testing Library", "type": "technology", "aliases": ["testing library", "@testing-library/react", "rtl testing"], "ambiguous_aliases": [], "sources": ["G01"]}
+{"label": "Skill", "name": ".NET Core", "type": "technology", "aliases": [".net 5", ".net 6", ".net 7", ".net 8", "dotnet core", ".netcore", "net core", ".net core framework"], "ambiguous_aliases": [], "sources": ["G01"]}
+{"label": "Skill", "name": "ASP.NET Core", "type": "technology", "aliases": ["asp.net core mvc", "asp.net core web api", "aspnet core", "asp .net core"], "ambiguous_aliases": [], "sources": ["G01"]}
+{"label": "Skill", "name": "ASP.NET MVC", "type": "technology", "aliases": ["asp.net", "aspnet", "asp.net web api", "asp .net"], "ambiguous_aliases": [], "sources": ["G01"]}
+{"label": "Skill", "name": "Entity Framework", "type": "technology", "aliases": ["entity framework core", "ef core", "efcore", "ado.net entity framework"], "ambiguous_aliases": [], "sources": ["G01"]}
+{"label": "Skill", "name": "LINQ", "type": "technology", "aliases": ["language integrated query"], "ambiguous_aliases": [], "sources": ["G01"]}
+{"label": "Skill", "name": "Blazor", "type": "technology", "aliases": ["blazor webassembly", "blazor server"], "ambiguous_aliases": [], "sources": ["G01"]}
+{"label": "Skill", "name": "WPF", "type": "technology", "aliases": ["windows presentation foundation"], "ambiguous_aliases": [], "sources": ["G01"]}
+{"label": "Skill", "name": "WinForms", "type": "technology", "aliases": ["windows forms", "winform"], "ambiguous_aliases": [], "sources": ["G01"]}
+{"label": "Skill", "name": "Xamarin", "type": "technology", "aliases": ["xamarin.forms", "xamarin forms"], "ambiguous_aliases": [], "sources": ["G01"]}
+{"label": "Skill", "name": ".NET MAUI", "type": "technology", "aliases": ["maui", "dotnet maui"], "ambiguous_aliases": [], "sources": ["G01"]}
+{"label": "Skill", "name": "NUnit", "type": "technology", "aliases": [], "ambiguous_aliases": [], "sources": ["G01"]}
+{"label": "Skill", "name": "xUnit", "type": "technology", "aliases": ["xunit.net"], "ambiguous_aliases": [], "sources": ["G01"]}
+{"label": "Skill", "name": "Gin", "type": "technology", "aliases": ["gin gonic", "gin-gonic", "gin framework"], "ambiguous_aliases": [], "sources": ["G01"]}
+{"label": "Skill", "name": "Echo", "type": "technology", "aliases": ["echo framework", "labstack echo"], "ambiguous_aliases": ["echo"], "sources": ["G01"]}
+{"label": "Skill", "name": "Fiber", "type": "technology", "aliases": ["gofiber", "fiber framework"], "ambiguous_aliases": ["fiber"], "sources": ["G01"]}
+{"label": "Skill", "name": "GORM", "type": "technology", "aliases": ["go orm"], "ambiguous_aliases": [], "sources": ["G01"]}
+{"label": "Skill", "name": "Ruby on Rails", "type": "technology", "aliases": ["rails", "ror", "ruby-on-rails"], "ambiguous_aliases": [], "sources": ["G01"]}
+{"label": "Skill", "name": "Ktor", "type": "technology", "aliases": [], "ambiguous_aliases": [], "sources": ["G01"]}
+{"label": "Skill", "name": "Kotlin Multiplatform", "type": "technology", "aliases": ["kmp", "kmm", "kotlin multiplatform mobile"], "ambiguous_aliases": [], "sources": ["G01"]}
+{"label": "Skill", "name": "Retrofit", "type": "technology", "aliases": ["retrofit2"], "ambiguous_aliases": [], "sources": ["G01"]}
+{"label": "Skill", "name": "Android SDK", "type": "technology", "aliases": ["android", "android development", "android studio", "lập trình android"], "ambiguous_aliases": [], "sources": ["G01"]}
+{"label": "Skill", "name": "Swift", "type": "technology", "aliases": ["swift 5", "swift language", "swiftlang"], "ambiguous_aliases": [], "sources": ["G01"]}
+{"label": "Skill", "name": "Objective-C", "type": "technology", "aliases": ["objective c", "objc", "obj-c"], "ambiguous_aliases": [], "sources": ["G01"]}
+{"label": "Skill", "name": "SwiftUI", "type": "technology", "aliases": ["swift ui"], "ambiguous_aliases": [], "sources": ["G01"]}
+{"label": "Skill", "name": "UIKit", "type": "technology", "aliases": ["ui kit"], "ambiguous_aliases": [], "sources": ["G01"]}
+{"label": "Skill", "name": "Xcode", "type": "technology", "aliases": [], "ambiguous_aliases": [], "sources": ["G01"]}
+{"label": "Skill", "name": "CocoaPods", "type": "technology", "aliases": ["cocoapod"], "ambiguous_aliases": [], "sources": ["G01"]}
+{"label": "Skill", "name": "Core Data", "type": "technology", "aliases": ["coredata"], "ambiguous_aliases": [], "sources": ["G01"]}
+{"label": "Skill", "name": "iOS", "type": "technology", "aliases": ["ios development", "lập trình ios"], "ambiguous_aliases": [], "sources": ["G01"]}
+{"label": "Skill", "name": "Dart", "type": "technology", "aliases": ["dart language", "dartlang"], "ambiguous_aliases": [], "sources": ["G01"]}
+{"label": "Skill", "name": "GetX", "type": "technology", "aliases": ["get x"], "ambiguous_aliases": [], "sources": ["G01"]}
+{"label": "Skill", "name": "Bloc", "type": "technology", "aliases": ["flutter bloc", "bloc pattern"], "ambiguous_aliases": [], "sources": ["G01"]}
+{"label": "Skill", "name": "Expo", "type": "technology", "aliases": ["expo go"], "ambiguous_aliases": [], "sources": ["G01"]}
+{"label": "Skill", "name": "NoSQL", "type": "concept", "aliases": ["nosql database", "cơ sở dữ liệu nosql", "non-relational database"], "ambiguous_aliases": [], "sources": ["G01"]}
+{"label": "Skill", "name": "PL/SQL", "type": "technology", "aliases": ["plsql", "pl sql"], "ambiguous_aliases": [], "sources": ["G01"]}
+{"label": "Skill", "name": "T-SQL", "type": "technology", "aliases": ["tsql", "transact-sql"], "ambiguous_aliases": [], "sources": ["G01"]}
+{"label": "Skill", "name": "Stored Procedures", "type": "concept", "aliases": ["stored procedure", "thủ tục lưu trữ", "store procedure"], "ambiguous_aliases": [], "sources": ["G01"]}
+{"label": "Skill", "name": "Database Design", "type": "concept", "aliases": ["thiết kế cơ sở dữ liệu", "thiết kế csdl", "erd"], "ambiguous_aliases": [], "sources": ["G01"]}
+{"label": "Skill", "name": "Microsoft Excel", "type": "technology", "aliases": ["excel", "ms excel", "advanced excel", "excel nâng cao"], "ambiguous_aliases": [], "sources": ["G01"]}
+{"label": "Skill", "name": "Google Sheets", "type": "technology", "aliases": ["google sheet", "gsheet"], "ambiguous_aliases": [], "sources": ["G01"]}
+{"label": "Skill", "name": "VBA", "type": "technology", "aliases": ["excel vba", "visual basic for applications", "macro excel"], "ambiguous_aliases": [], "sources": ["G01"]}
+{"label": "Skill", "name": "DAX", "type": "technology", "aliases": ["data analysis expressions"], "ambiguous_aliases": [], "sources": ["G01"]}
+{"label": "Skill", "name": "Power Query", "type": "technology", "aliases": ["m language"], "ambiguous_aliases": [], "sources": ["G01"]}
+{"label": "Skill", "name": "SSIS", "type": "technology", "aliases": ["sql server integration services"], "ambiguous_aliases": [], "sources": ["G01"]}
+{"label": "Skill", "name": "SSRS", "type": "technology", "aliases": ["sql server reporting services"], "ambiguous_aliases": [], "sources": ["G01"]}
+{"label": "Skill", "name": "Talend", "type": "technology", "aliases": [], "ambiguous_aliases": [], "sources": ["G01"]}
+{"label": "Skill", "name": "Informatica", "type": "technology", "aliases": ["informatica powercenter"], "ambiguous_aliases": [], "sources": ["G01"]}
+{"label": "Skill", "name": "Apache NiFi", "type": "technology", "aliases": ["nifi"], "ambiguous_aliases": [], "sources": ["G01"]}
+{"label": "Skill", "name": "Airbyte", "type": "technology", "aliases": [], "ambiguous_aliases": [], "sources": ["G01"]}
+{"label": "Skill", "name": "Fivetran", "type": "technology", "aliases": [], "ambiguous_aliases": [], "sources": ["G01"]}
+{"label": "Skill", "name": "Prefect", "type": "technology", "aliases": ["prefect.io"], "ambiguous_aliases": [], "sources": ["G01"]}
+{"label": "Skill", "name": "Dagster", "type": "technology", "aliases": [], "ambiguous_aliases": [], "sources": ["G01"]}
+{"label": "Skill", "name": "PySpark", "type": "technology", "aliases": ["spark python"], "ambiguous_aliases": [], "sources": ["G01"]}
+{"label": "Skill", "name": "Spark SQL", "type": "technology", "aliases": ["sparksql"], "ambiguous_aliases": [], "sources": ["G01"]}
+{"label": "Skill", "name": "Kafka Streams", "type": "technology", "aliases": ["kstreams"], "ambiguous_aliases": [], "sources": ["G01"]}
+{"label": "Skill", "name": "Logstash", "type": "technology", "aliases": [], "ambiguous_aliases": [], "sources": ["G01"]}
+{"label": "Skill", "name": "Databricks", "type": "technology", "aliases": ["azure databricks", "databricks lakehouse"], "ambiguous_aliases": [], "sources": ["G01"]}
+{"label": "Skill", "name": "Azure Synapse Analytics", "type": "technology", "aliases": ["azure synapse", "synapse analytics"], "ambiguous_aliases": [], "sources": ["G01"]}
+{"label": "Skill", "name": "Hive", "type": "technology", "aliases": ["apache hive", "hiveql"], "ambiguous_aliases": [], "sources": ["G01"]}
+{"label": "Skill", "name": "Presto", "type": "technology", "aliases": ["prestodb", "trino"], "ambiguous_aliases": [], "sources": ["G01"]}
+{"label": "Skill", "name": "ClickHouse", "type": "technology", "aliases": ["click house"], "ambiguous_aliases": [], "sources": ["G01"]}
+{"label": "Skill", "name": "Data Modeling", "type": "concept", "aliases": ["dimensional modeling", "star schema", "snowflake schema", "mô hình dữ liệu"], "ambiguous_aliases": [], "sources": ["G01"]}
+{"label": "Skill", "name": "Machine Learning", "type": "concept", "aliases": ["học máy", "máy học", "machine learning algorithms"], "ambiguous_aliases": ["ml"], "sources": ["G01"]}
+{"label": "Skill", "name": "Computer Vision", "type": "concept", "aliases": ["thị giác máy tính", "xử lý ảnh", "image processing", "xử lý hình ảnh"], "ambiguous_aliases": [], "sources": ["G01"]}
+{"label": "Skill", "name": "Keras", "type": "technology", "aliases": ["tf.keras"], "ambiguous_aliases": [], "sources": ["G01"]}
+{"label": "Skill", "name": "JAX", "type": "technology", "aliases": ["google jax"], "ambiguous_aliases": [], "sources": ["G01"]}
+{"label": "Skill", "name": "XGBoost", "type": "technology", "aliases": ["xgb"], "ambiguous_aliases": [], "sources": ["G01"]}
+{"label": "Skill", "name": "LightGBM", "type": "technology", "aliases": ["lgbm", "light gbm"], "ambiguous_aliases": [], "sources": ["G01"]}
+{"label": "Skill", "name": "CatBoost", "type": "technology", "aliases": [], "ambiguous_aliases": [], "sources": ["G01"]}
+{"label": "Skill", "name": "OpenCV", "type": "technology", "aliases": ["open cv", "opencv-python", "cv2"], "ambiguous_aliases": [], "sources": ["G01"]}
+{"label": "Skill", "name": "YOLO", "type": "technology", "aliases": ["yolov5", "yolov8", "yolov11", "ultralytics yolo", "you only look once"], "ambiguous_aliases": [], "sources": ["G01"]}
+{"label": "Skill", "name": "MediaPipe", "type": "technology", "aliases": ["media pipe"], "ambiguous_aliases": [], "sources": ["G01"]}
+{"label": "Skill", "name": "spaCy", "type": "technology", "aliases": ["spacy nlp"], "ambiguous_aliases": [], "sources": ["G01"]}
+{"label": "Skill", "name": "NLTK", "type": "technology", "aliases": ["natural language toolkit"], "ambiguous_aliases": [], "sources": ["G01"]}
+{"label": "Skill", "name": "LangGraph", "type": "technology", "aliases": ["lang graph"], "ambiguous_aliases": [], "sources": ["G01"]}
+{"label": "Skill", "name": "Semantic Kernel", "type": "technology", "aliases": ["microsoft semantic kernel"], "ambiguous_aliases": [], "sources": ["G01"]}
+{"label": "Skill", "name": "Haystack", "type": "technology", "aliases": ["deepset haystack"], "ambiguous_aliases": [], "sources": ["G01"]}
+{"label": "Skill", "name": "CrewAI", "type": "technology", "aliases": ["crew ai"], "ambiguous_aliases": [], "sources": ["G01"]}
+{"label": "Skill", "name": "AutoGen", "type": "technology", "aliases": ["microsoft autogen"], "ambiguous_aliases": [], "sources": ["G01"]}
+{"label": "Skill", "name": "vLLM", "type": "technology", "aliases": [], "ambiguous_aliases": [], "sources": ["G01"]}
+{"label": "Skill", "name": "MLflow", "type": "technology", "aliases": ["ml flow"], "ambiguous_aliases": [], "sources": ["G01"]}
+{"label": "Skill", "name": "Kubeflow", "type": "technology", "aliases": ["kube flow"], "ambiguous_aliases": [], "sources": ["G01"]}
+{"label": "Skill", "name": "Weights & Biases", "type": "technology", "aliases": ["wandb", "w&b", "weights and biases"], "ambiguous_aliases": [], "sources": ["G01"]}
+{"label": "Skill", "name": "DVC", "type": "technology", "aliases": ["data version control"], "ambiguous_aliases": [], "sources": ["G01"]}
+{"label": "Skill", "name": "Vertex AI", "type": "technology", "aliases": ["google vertex ai"], "ambiguous_aliases": [], "sources": ["G01"]}
+{"label": "Skill", "name": "Azure Machine Learning", "type": "technology", "aliases": ["azure ml", "azureml"], "ambiguous_aliases": [], "sources": ["G01"]}
+{"label": "Skill", "name": "ONNX", "type": "technology", "aliases": ["onnx runtime"], "ambiguous_aliases": [], "sources": ["G01"]}
+{"label": "Skill", "name": "CUDA", "type": "technology", "aliases": ["nvidia cuda", "cuda programming"], "ambiguous_aliases": [], "sources": ["G01"]}
+{"label": "Skill", "name": "Generative AI", "type": "concept", "aliases": ["genai", "gen ai", "ai tạo sinh", "trí tuệ nhân tạo tạo sinh"], "ambiguous_aliases": [], "sources": ["G01"]}
+{"label": "Skill", "name": "Docker Compose", "type": "technology", "aliases": ["docker-compose"], "ambiguous_aliases": [], "sources": ["G01"]}
+{"label": "Skill", "name": "Helm", "type": "technology", "aliases": ["helm chart", "helm charts", "kubernetes helm"], "ambiguous_aliases": [], "sources": ["G01"]}
+{"label": "Skill", "name": "OpenShift", "type": "technology", "aliases": ["red hat openshift"], "ambiguous_aliases": [], "sources": ["G01"]}
+{"label": "Skill", "name": "Nomad", "type": "technology", "aliases": ["hashicorp nomad"], "ambiguous_aliases": [], "sources": ["G01"]}
+{"label": "Skill", "name": "Kustomize", "type": "technology", "aliases": [], "ambiguous_aliases": [], "sources": ["G01"]}
+{"label": "Skill", "name": "Podman", "type": "technology", "aliases": [], "ambiguous_aliases": [], "sources": ["G01"]}
+{"label": "Skill", "name": "Nagios", "type": "technology", "aliases": [], "ambiguous_aliases": [], "sources": ["G01"]}
+{"label": "Skill", "name": "Windows Server", "type": "technology", "aliases": ["windows server 2019", "windows server 2022", "window server"], "ambiguous_aliases": [], "sources": ["G01"]}
+{"label": "Skill", "name": "Active Directory", "type": "technology", "aliases": ["microsoft active directory", "ad ds", "azure ad", "entra id", "microsoft entra id"], "ambiguous_aliases": ["ad"], "sources": ["G01"]}
+{"label": "Skill", "name": "Microsoft 365", "type": "technology", "aliases": ["office 365", "o365", "m365"], "ambiguous_aliases": [], "sources": ["G01"]}
+{"label": "Skill", "name": "Exchange Server", "type": "technology", "aliases": ["microsoft exchange"], "ambiguous_aliases": [], "sources": ["G01"]}
+{"label": "Skill", "name": "Hyper-V", "type": "technology", "aliases": ["microsoft hyper-v", "hyperv"], "ambiguous_aliases": [], "sources": ["G01"]}
+{"label": "Skill", "name": "Cisco IOS", "type": "technology", "aliases": ["cisco ios xe", "cisco router"], "ambiguous_aliases": [], "sources": ["G01"]}
+{"label": "Skill", "name": "Fortinet FortiGate", "type": "technology", "aliases": ["fortigate", "fortinet"], "ambiguous_aliases": [], "sources": ["G01"]}
+{"label": "Skill", "name": "pfSense", "type": "technology", "aliases": ["pf sense"], "ambiguous_aliases": [], "sources": ["G01"]}
+{"label": "Skill", "name": "Penetration Testing", "type": "concept", "aliases": ["kiểm thử xâm nhập", "pentest", "pentesting", "pen testing", "penetration test"], "ambiguous_aliases": [], "sources": ["G01"]}
+{"label": "Skill", "name": "SOC Operations", "type": "concept", "aliases": ["soc", "security operations center", "trung tâm điều hành an ninh mạng", "soc analyst"], "ambiguous_aliases": [], "sources": ["G01"]}
+{"label": "Skill", "name": "Metasploit", "type": "technology", "aliases": ["metasploit framework", "msfconsole"], "ambiguous_aliases": [], "sources": ["G01"]}
+{"label": "Skill", "name": "OWASP ZAP", "type": "technology", "aliases": ["zap proxy", "zaproxy"], "ambiguous_aliases": [], "sources": ["G01"]}
+{"label": "Skill", "name": "SonarQube", "type": "technology", "aliases": ["sonar qube", "sonarcloud"], "ambiguous_aliases": [], "sources": ["G01"]}
+{"label": "Skill", "name": "Snyk", "type": "technology", "aliases": [], "ambiguous_aliases": [], "sources": ["G01"]}
+{"label": "Skill", "name": "Trivy", "type": "technology", "aliases": [], "ambiguous_aliases": [], "sources": ["G01"]}
+{"label": "Skill", "name": "Katalon Studio", "type": "technology", "aliases": ["katalon"], "ambiguous_aliases": [], "sources": ["G01"]}
+{"label": "Skill", "name": "TestCafe", "type": "technology", "aliases": ["test cafe"], "ambiguous_aliases": [], "sources": ["G01"]}
+{"label": "Skill", "name": "Robot Framework", "type": "technology", "aliases": ["robotframework"], "ambiguous_aliases": [], "sources": ["G01"]}
+{"label": "Skill", "name": "Cucumber", "type": "technology", "aliases": ["cucumber bdd", "gherkin"], "ambiguous_aliases": [], "sources": ["G01"]}
+{"label": "Skill", "name": "BDD", "type": "concept", "aliases": ["behavior driven development", "behaviour driven development"], "ambiguous_aliases": [], "sources": ["G01"]}
+{"label": "Skill", "name": "TestNG", "type": "technology", "aliases": ["test ng"], "ambiguous_aliases": [], "sources": ["G01"]}
+{"label": "Skill", "name": "Insomnia", "type": "technology", "aliases": ["insomnia rest client"], "ambiguous_aliases": [], "sources": ["G01"]}
+{"label": "Skill", "name": "Xray", "type": "technology", "aliases": ["xray test management"], "ambiguous_aliases": [], "sources": ["G01"]}
+{"label": "Skill", "name": "Jira", "type": "technology", "aliases": ["jira software", "atlassian jira"], "ambiguous_aliases": [], "sources": ["G01"]}
+{"label": "Skill", "name": "Confluence", "type": "technology", "aliases": ["atlassian confluence"], "ambiguous_aliases": [], "sources": ["G01"]}
+{"label": "Skill", "name": "Notion", "type": "technology", "aliases": [], "ambiguous_aliases": [], "sources": ["G01"]}
+{"label": "Skill", "name": "Asana", "type": "technology", "aliases": [], "ambiguous_aliases": [], "sources": ["G01"]}
+{"label": "Skill", "name": "ClickUp", "type": "technology", "aliases": ["click up"], "ambiguous_aliases": [], "sources": ["G01"]}
+{"label": "Skill", "name": "Redmine", "type": "technology", "aliases": [], "ambiguous_aliases": [], "sources": ["G01"]}
+{"label": "Skill", "name": "Microsoft Project", "type": "technology", "aliases": ["ms project", "ms-project"], "ambiguous_aliases": [], "sources": ["G01"]}
+{"label": "Skill", "name": "Backlog", "type": "technology", "aliases": ["nulab backlog"], "ambiguous_aliases": ["backlog"], "sources": ["G01"]}
+{"label": "Skill", "name": "Agile", "type": "concept", "aliases": ["agile methodology", "phương pháp agile", "agile/scrum", "agile scrum", "agile software development"], "ambiguous_aliases": [], "sources": ["G01"]}
+{"label": "Skill", "name": "Business Analysis", "type": "concept", "aliases": ["phân tích nghiệp vụ", "business analysis techniques"], "ambiguous_aliases": [], "sources": ["G01"]}
+{"label": "Skill", "name": "Requirements Documentation", "type": "concept", "aliases": ["srs", "brd", "frd", "tài liệu đặc tả yêu cầu", "đặc tả yêu cầu phần mềm", "software requirements specification"], "ambiguous_aliases": [], "sources": ["G01"]}
+{"label": "Skill", "name": "Use Case", "type": "concept", "aliases": ["use case diagram", "use cases", "biểu đồ use case"], "ambiguous_aliases": [], "sources": ["G01"]}
+{"label": "Skill", "name": "Process Modeling", "type": "concept", "aliases": ["mô hình hóa quy trình", "process mapping", "business process modeling"], "ambiguous_aliases": [], "sources": ["G01"]}
+{"label": "Skill", "name": "Product Roadmap", "type": "concept", "aliases": ["lộ trình sản phẩm", "product roadmapping"], "ambiguous_aliases": [], "sources": ["G01"]}
+{"label": "Skill", "name": "Product Backlog Management", "type": "concept", "aliases": ["quản lý backlog", "backlog grooming", "backlog refinement"], "ambiguous_aliases": [], "sources": ["G01"]}
+{"label": "Skill", "name": "Project Management", "type": "concept", "aliases": ["quản lý dự án", "quản trị dự án"], "ambiguous_aliases": [], "sources": ["G01"]}
+{"label": "Skill", "name": "Risk Management", "type": "concept", "aliases": ["quản lý rủi ro", "quản trị rủi ro"], "ambiguous_aliases": [], "sources": ["G01"]}
+{"label": "Skill", "name": "Stakeholder Management", "type": "concept", "aliases": ["quản lý các bên liên quan", "stakeholder communication"], "ambiguous_aliases": [], "sources": ["G01"]}
+{"label": "Skill", "name": "Presales", "type": "concept", "aliases": ["pre-sales", "tư vấn giải pháp", "solution consulting"], "ambiguous_aliases": [], "sources": ["G01"]}
+{"label": "Skill", "name": "ITIL Service Management", "type": "concept", "aliases": ["itsm", "it service management", "quản lý dịch vụ cntt"], "ambiguous_aliases": [], "sources": ["G01"]}
+{"label": "Skill", "name": "Help Desk Support", "type": "concept", "aliases": ["hỗ trợ người dùng", "hỗ trợ kỹ thuật", "technical support", "end-user support", "desktop support"], "ambiguous_aliases": [], "sources": ["G01"]}
+{"label": "Skill", "name": "Hardware Troubleshooting", "type": "concept", "aliases": ["sửa chữa máy tính", "lắp ráp máy tính", "bảo trì phần cứng", "pc hardware"], "ambiguous_aliases": [], "sources": ["G01"]}
+{"label": "Skill", "name": "Network Administration", "type": "concept", "aliases": ["quản trị mạng", "network admin", "quản trị hệ thống mạng"], "ambiguous_aliases": [], "sources": ["G01"]}
+{"label": "Skill", "name": "Figma Prototyping", "type": "concept", "aliases": ["prototype figma", "figma prototype"], "ambiguous_aliases": [], "sources": ["G01"]}
+{"label": "Skill", "name": "Adobe Photoshop", "type": "technology", "aliases": ["photoshop", "ps"], "ambiguous_aliases": [], "sources": ["G01"]}
+{"label": "Skill", "name": "Adobe Illustrator", "type": "technology", "aliases": ["illustrator", "ai illustrator"], "ambiguous_aliases": [], "sources": ["G01"]}
+{"label": "Skill", "name": "Adobe After Effects", "type": "technology", "aliases": ["after effects", "ae"], "ambiguous_aliases": [], "sources": ["G01"]}
+{"label": "Skill", "name": "Adobe Premiere Pro", "type": "technology", "aliases": ["premiere", "premiere pro"], "ambiguous_aliases": [], "sources": ["G01"]}
+{"label": "Skill", "name": "CorelDRAW", "type": "technology", "aliases": ["corel draw", "corel"], "ambiguous_aliases": [], "sources": ["G01"]}
+{"label": "Skill", "name": "Canva", "type": "technology", "aliases": [], "ambiguous_aliases": [], "sources": ["G01"]}
+{"label": "Skill", "name": "InVision", "type": "technology", "aliases": ["invision app"], "ambiguous_aliases": [], "sources": ["G01"]}
+{"label": "Skill", "name": "Framer", "type": "technology", "aliases": ["framer motion"], "ambiguous_aliases": [], "sources": ["G01"]}
+{"label": "Skill", "name": "Blender", "type": "technology", "aliases": ["blender 3d"], "ambiguous_aliases": [], "sources": ["G01"]}
+{"label": "Skill", "name": "Autodesk Maya", "type": "technology", "aliases": ["maya"], "ambiguous_aliases": [], "sources": ["G01"]}
+{"label": "Skill", "name": "3ds Max", "type": "technology", "aliases": ["3dsmax", "autodesk 3ds max"], "ambiguous_aliases": [], "sources": ["G01"]}
+{"label": "Skill", "name": "ZBrush", "type": "technology", "aliases": ["z brush"], "ambiguous_aliases": [], "sources": ["G01"]}
+{"label": "Skill", "name": "Substance Painter", "type": "technology", "aliases": ["adobe substance", "substance 3d painter"], "ambiguous_aliases": [], "sources": ["G01"]}
+{"label": "Skill", "name": "Cinema 4D", "type": "technology", "aliases": ["c4d"], "ambiguous_aliases": [], "sources": ["G01"]}
+{"label": "Skill", "name": "UI Design", "type": "concept", "aliases": ["thiết kế giao diện", "giao diện người dùng", "user interface design", "ui"], "ambiguous_aliases": [], "sources": ["G01"]}
+{"label": "Skill", "name": "UX Research", "type": "concept", "aliases": ["nghiên cứu người dùng", "user research", "usability testing", "kiểm thử khả dụng"], "ambiguous_aliases": [], "sources": ["G01"]}
+{"label": "Skill", "name": "Design System", "type": "concept", "aliases": ["hệ thống thiết kế", "design systems", "design tokens"], "ambiguous_aliases": [], "sources": ["G01"]}
+{"label": "Skill", "name": "Typography", "type": "concept", "aliases": ["kiểu chữ"], "ambiguous_aliases": [], "sources": ["G01"]}
+{"label": "Skill", "name": "Cocos Creator", "type": "technology", "aliases": ["cocos2d-x", "cocos2d", "cocos"], "ambiguous_aliases": [], "sources": ["G01"]}
+{"label": "Skill", "name": "Phaser", "type": "technology", "aliases": ["phaser.js", "phaserjs"], "ambiguous_aliases": [], "sources": ["G01"]}
+{"label": "Skill", "name": "Game Design", "type": "concept", "aliases": ["thiết kế game", "game mechanics", "level design", "game balancing"], "ambiguous_aliases": [], "sources": ["G01"]}
+{"label": "Skill", "name": "Multiplayer Networking", "type": "concept", "aliases": ["game networking", "netcode", "photon", "mirror networking"], "ambiguous_aliases": [], "sources": ["G01"]}
+{"label": "Skill", "name": "Embedded C", "type": "technology", "aliases": ["c embedded", "lập trình nhúng c"], "ambiguous_aliases": [], "sources": ["G01"]}
+{"label": "Skill", "name": "Embedded Linux", "type": "technology", "aliases": ["linux nhúng", "yocto", "buildroot"], "ambiguous_aliases": [], "sources": ["G01"]}
+{"label": "Skill", "name": "Embedded Systems", "type": "concept", "aliases": ["hệ thống nhúng", "lập trình nhúng", "embedded programming", "embedded software"], "ambiguous_aliases": [], "sources": ["G01"]}
+{"label": "Skill", "name": "Firmware Development", "type": "concept", "aliases": ["firmware", "phát triển firmware", "lập trình firmware"], "ambiguous_aliases": [], "sources": ["G01"]}
+{"label": "Skill", "name": "FreeRTOS", "type": "technology", "aliases": ["free rtos"], "ambiguous_aliases": [], "sources": ["G01"]}
+{"label": "Skill", "name": "Zephyr RTOS", "type": "technology", "aliases": ["zephyr os", "zephyr project"], "ambiguous_aliases": [], "sources": ["G01"]}
+{"label": "Skill", "name": "VxWorks", "type": "technology", "aliases": ["vx works"], "ambiguous_aliases": [], "sources": ["G01"]}
+{"label": "Skill", "name": "ThreadX", "type": "technology", "aliases": ["azure rtos", "eclipse threadx"], "ambiguous_aliases": [], "sources": ["G01"]}
+{"label": "Skill", "name": "STM32", "type": "technology", "aliases": ["stm32 mcu", "stm32cube", "stm32cubeide"], "ambiguous_aliases": [], "sources": ["G01"]}
+{"label": "Skill", "name": "Arduino", "type": "technology", "aliases": ["arduino uno", "arduino ide"], "ambiguous_aliases": [], "sources": ["G01"]}
+{"label": "Skill", "name": "ESP32", "type": "technology", "aliases": ["esp8266", "esp-idf", "espressif"], "ambiguous_aliases": [], "sources": ["G01"]}
+{"label": "Skill", "name": "PIC Microcontroller", "type": "technology", "aliases": ["pic mcu", "pic16", "pic18", "microchip pic"], "ambiguous_aliases": [], "sources": ["G01"]}
+{"label": "Skill", "name": "AVR", "type": "technology", "aliases": ["atmega", "avr microcontroller"], "ambiguous_aliases": [], "sources": ["G01"]}
+{"label": "Skill", "name": "ARM Cortex-M", "type": "technology", "aliases": ["arm cortex", "cortex-m", "arm mcu", "arm microcontroller"], "ambiguous_aliases": ["arm"], "sources": ["G01"]}
+{"label": "Skill", "name": "Raspberry Pi", "type": "technology", "aliases": ["raspberrypi", "rpi"], "ambiguous_aliases": [], "sources": ["G01"]}
+{"label": "Skill", "name": "Microcontroller Programming", "type": "concept", "aliases": ["vi điều khiển", "lập trình vi điều khiển", "microcontroller", "mcu programming"], "ambiguous_aliases": ["mcu"], "sources": ["G01"]}
+{"label": "Skill", "name": "UART", "type": "concept", "aliases": ["usart", "serial communication", "giao tiếp nối tiếp"], "ambiguous_aliases": [], "sources": ["G01"]}
+{"label": "Skill", "name": "SPI", "type": "concept", "aliases": ["serial peripheral interface"], "ambiguous_aliases": [], "sources": ["G01"]}
+{"label": "Skill", "name": "I2C", "type": "concept", "aliases": ["i²c", "iic", "inter-integrated circuit"], "ambiguous_aliases": [], "sources": ["G01"]}
+{"label": "Skill", "name": "CAN Bus", "type": "concept", "aliases": ["can protocol", "controller area network", "canbus"], "ambiguous_aliases": [], "sources": ["G01"]}
+{"label": "Skill", "name": "Modbus", "type": "concept", "aliases": ["modbus rtu", "modbus tcp"], "ambiguous_aliases": [], "sources": ["G01"]}
+{"label": "Skill", "name": "AUTOSAR", "type": "technology", "aliases": ["autosar classic", "autosar adaptive"], "ambiguous_aliases": [], "sources": ["G01"]}
+{"label": "Skill", "name": "PCB Design", "type": "concept", "aliases": ["thiết kế mạch in", "thiết kế pcb", "altium", "altium designer", "kicad", "orcad"], "ambiguous_aliases": [], "sources": ["G01"]}
+{"label": "Skill", "name": "FPGA", "type": "technology", "aliases": ["verilog", "vhdl", "fpga programming"], "ambiguous_aliases": [], "sources": ["G01"]}
+{"label": "Skill", "name": "PLC", "type": "technology", "aliases": ["plc programming", "lập trình plc", "siemens plc", "tia portal"], "ambiguous_aliases": [], "sources": ["G01"]}
+{"label": "Skill", "name": "ROS", "type": "technology", "aliases": ["robot operating system", "ros2", "ros 2"], "ambiguous_aliases": [], "sources": ["G01"]}
+{"label": "Skill", "name": "MQTT", "type": "concept", "aliases": ["mqtt protocol", "mosquitto"], "ambiguous_aliases": [], "sources": ["G01"]}
+{"label": "Skill", "name": "CoAP", "type": "concept", "aliases": ["constrained application protocol"], "ambiguous_aliases": [], "sources": ["G01"]}
+{"label": "Skill", "name": "Zigbee", "type": "concept", "aliases": [], "ambiguous_aliases": [], "sources": ["G01"]}
+{"label": "Skill", "name": "LoRaWAN", "type": "concept", "aliases": ["lora", "lora wan"], "ambiguous_aliases": [], "sources": ["G01"]}
+{"label": "Skill", "name": "Bluetooth Low Energy", "type": "technology", "aliases": ["ble", "bluetooth le"], "ambiguous_aliases": [], "sources": ["G01"]}
+{"label": "Skill", "name": "Blockchain", "type": "concept", "aliases": ["công nghệ chuỗi khối", "blockchain technology", "distributed ledger"], "ambiguous_aliases": [], "sources": ["G01"]}
+{"label": "Skill", "name": "Ethereum", "type": "technology", "aliases": ["eth", "evm", "ethereum virtual machine"], "ambiguous_aliases": [], "sources": ["G01"]}
+{"label": "Skill", "name": "Solana", "type": "technology", "aliases": [], "ambiguous_aliases": [], "sources": ["G01"]}
+{"label": "Skill", "name": "Hyperledger Fabric", "type": "technology", "aliases": ["hyperledger"], "ambiguous_aliases": [], "sources": ["G01"]}
+{"label": "Skill", "name": "Solidity", "type": "technology", "aliases": ["solidity language"], "ambiguous_aliases": [], "sources": ["G01"]}
+{"label": "Skill", "name": "Smart Contracts", "type": "concept", "aliases": ["smart contract", "hợp đồng thông minh"], "ambiguous_aliases": [], "sources": ["G01"]}
+{"label": "Skill", "name": "Hardhat", "type": "technology", "aliases": [], "ambiguous_aliases": [], "sources": ["G01"]}
+{"label": "Skill", "name": "Truffle", "type": "technology", "aliases": ["truffle suite"], "ambiguous_aliases": [], "sources": ["G01"]}
+{"label": "Skill", "name": "Foundry", "type": "technology", "aliases": ["forge"], "ambiguous_aliases": [], "sources": ["G01"]}
+{"label": "Skill", "name": "Web3.js", "type": "technology", "aliases": ["web3js", "web3"], "ambiguous_aliases": [], "sources": ["G01"]}
+{"label": "Skill", "name": "Ethers.js", "type": "technology", "aliases": ["ethersjs", "ethers"], "ambiguous_aliases": [], "sources": ["G01"]}
+{"label": "Skill", "name": "SAP ABAP", "type": "technology", "aliases": ["abap", "sap abap developer"], "ambiguous_aliases": [], "sources": ["G01"]}
+{"label": "Skill", "name": "SAP S/4HANA", "type": "technology", "aliases": ["s/4hana", "sap hana", "s4hana", "sap erp"], "ambiguous_aliases": [], "sources": ["G01"]}
+{"label": "Skill", "name": "Odoo", "type": "technology", "aliases": ["openerp"], "ambiguous_aliases": [], "sources": ["G01"]}
+{"label": "Skill", "name": "Microsoft Dynamics 365", "type": "technology", "aliases": ["dynamics 365", "dynamics crm", "dynamics ax", "d365"], "ambiguous_aliases": [], "sources": ["G01"]}
+{"label": "Skill", "name": "Apex", "type": "technology", "aliases": ["salesforce apex"], "ambiguous_aliases": [], "sources": ["G01"]}
+{"label": "Skill", "name": "HubSpot", "type": "technology", "aliases": ["hubspot crm"], "ambiguous_aliases": [], "sources": ["G01"]}
+{"label": "Skill", "name": "UiPath", "type": "technology", "aliases": ["ui path"], "ambiguous_aliases": [], "sources": ["G01"]}
+{"label": "Skill", "name": "Automation Anywhere", "type": "technology", "aliases": [], "ambiguous_aliases": [], "sources": ["G01"]}
+{"label": "Skill", "name": "Blue Prism", "type": "technology", "aliases": ["blueprism"], "ambiguous_aliases": [], "sources": ["G01"]}
+{"label": "Skill", "name": "Power Automate", "type": "technology", "aliases": ["microsoft power automate", "microsoft flow"], "ambiguous_aliases": [], "sources": ["G01"]}
+{"label": "Skill", "name": "Power Apps", "type": "technology", "aliases": ["microsoft power apps", "powerapps"], "ambiguous_aliases": [], "sources": ["G01"]}
+{"label": "Skill", "name": "OutSystems", "type": "technology", "aliases": ["out systems"], "ambiguous_aliases": [], "sources": ["G01"]}
+{"label": "Skill", "name": "Mendix", "type": "technology", "aliases": [], "ambiguous_aliases": [], "sources": ["G01"]}
+{"label": "Skill", "name": "AppSheet", "type": "technology", "aliases": ["google appsheet"], "ambiguous_aliases": [], "sources": ["G01"]}
+{"label": "Skill", "name": "Retool", "type": "technology", "aliases": [], "ambiguous_aliases": [], "sources": ["G01"]}
+{"label": "Skill", "name": "Multithreading", "type": "concept", "aliases": ["lập trình đa luồng", "đa luồng", "multi-threading", "concurrency", "concurrent programming", "lập trình song song"], "ambiguous_aliases": [], "sources": ["G01"]}
+{"label": "Skill", "name": "Clean Code", "type": "concept", "aliases": ["code sạch", "clean architecture", "kiến trúc sạch"], "ambiguous_aliases": [], "sources": ["G01"]}
+{"label": "Skill", "name": "Code Review", "type": "concept", "aliases": ["review code", "đánh giá mã nguồn"], "ambiguous_aliases": [], "sources": ["G01"]}
+{"label": "Skill", "name": "System Design", "type": "concept", "aliases": ["thiết kế hệ thống", "system architecture", "kiến trúc hệ thống"], "ambiguous_aliases": [], "sources": ["G01"]}
+{"label": "Skill", "name": "English", "type": "concept", "aliases": ["tiếng anh", "english communication", "giao tiếp tiếng anh", "english proficiency", "tiếng anh giao tiếp", "đọc hiểu tài liệu tiếng anh"], "ambiguous_aliases": [], "sources": ["G01"]}
+{"label": "Skill", "name": "Japanese", "type": "concept", "aliases": ["tiếng nhật", "japanese language", "nihongo"], "ambiguous_aliases": [], "sources": ["G01"]}
+{"label": "Skill", "name": "Korean", "type": "concept", "aliases": ["tiếng hàn", "korean language"], "ambiguous_aliases": [], "sources": ["G01"]}
+{"label": "Skill", "name": "Chinese", "type": "concept", "aliases": ["tiếng trung", "chinese language", "mandarin"], "ambiguous_aliases": [], "sources": ["G01"]}
+{"label": "Skill", "name": "TOEIC", "type": "concept", "aliases": ["toeic certificate", "chứng chỉ toeic"], "ambiguous_aliases": [], "sources": ["G01"]}
+{"label": "Skill", "name": "IELTS", "type": "concept", "aliases": ["ielts certificate", "chứng chỉ ielts"], "ambiguous_aliases": [], "sources": ["G01"]}
+{"label": "Skill", "name": "TOEFL", "type": "concept", "aliases": ["toefl ibt"], "ambiguous_aliases": [], "sources": ["G01"]}
+{"label": "Skill", "name": "JLPT", "type": "concept", "aliases": ["jlpt n1", "jlpt n2", "jlpt n3", "jlpt n4", "jlpt n5", "năng lực tiếng nhật"], "ambiguous_aliases": ["n1", "n2", "n3", "n4", "n5"], "sources": ["G01"]}
+{"label": "Skill", "name": "AWS Certified Solutions Architect", "type": "concept", "aliases": ["aws solutions architect", "aws saa", "aws certified solutions architect associate", "aws sap"], "ambiguous_aliases": [], "sources": ["G01"]}
+{"label": "Skill", "name": "AWS Certified Developer", "type": "concept", "aliases": ["aws developer associate", "aws dva"], "ambiguous_aliases": [], "sources": ["G01"]}
+{"label": "Skill", "name": "AWS Certified Cloud Practitioner", "type": "concept", "aliases": ["aws ccp", "aws cloud practitioner"], "ambiguous_aliases": [], "sources": ["G01"]}
+{"label": "Skill", "name": "Azure Certifications", "type": "concept", "aliases": ["az-900", "az-104", "az-204", "az-305", "azure fundamentals", "azure administrator"], "ambiguous_aliases": [], "sources": ["G01"]}
+{"label": "Skill", "name": "Google Cloud Certifications", "type": "concept", "aliases": ["gcp ace", "google cloud professional cloud architect", "google associate cloud engineer"], "ambiguous_aliases": [], "sources": ["G01"]}
+{"label": "Skill", "name": "CKA", "type": "concept", "aliases": ["certified kubernetes administrator", "ckad", "certified kubernetes application developer", "cks"], "ambiguous_aliases": [], "sources": ["G01"]}
+{"label": "Skill", "name": "ISTQB", "type": "concept", "aliases": ["istqb foundation", "istqb ctfl", "chứng chỉ istqb"], "ambiguous_aliases": [], "sources": ["G01"]}
+{"label": "Skill", "name": "CCNA", "type": "concept", "aliases": ["cisco ccna", "ccna certificate"], "ambiguous_aliases": [], "sources": ["G01"]}
+{"label": "Skill", "name": "CCNP", "type": "concept", "aliases": ["cisco ccnp"], "ambiguous_aliases": [], "sources": ["G01"]}
+{"label": "Skill", "name": "PMP", "type": "concept", "aliases": ["project management professional", "chứng chỉ pmp"], "ambiguous_aliases": [], "sources": ["G01"]}
+{"label": "Skill", "name": "Scrum Certifications", "type": "concept", "aliases": ["psm", "psm i", "csm", "certified scrum master", "professional scrum master", "pspo"], "ambiguous_aliases": [], "sources": ["G01"]}
+{"label": "Skill", "name": "Oracle Java Certification", "type": "concept", "aliases": ["ocpjp", "oca java", "ocp java", "oracle certified professional java"], "ambiguous_aliases": [], "sources": ["G01"]}
+{"label": "Skill", "name": "CEH", "type": "concept", "aliases": ["certified ethical hacker"], "ambiguous_aliases": [], "sources": ["G01"]}
+{"label": "Skill", "name": "OSCP", "type": "concept", "aliases": ["offensive security certified professional"], "ambiguous_aliases": [], "sources": ["G01"]}
+{"label": "Skill", "name": "Teamwork", "type": "concept", "aliases": ["làm việc nhóm", "kỹ năng làm việc nhóm", "team work", "team player", "teamwork skills"], "ambiguous_aliases": [], "sources": ["G01"]}
+{"label": "Skill", "name": "Problem Solving", "type": "concept", "aliases": ["giải quyết vấn đề", "kỹ năng giải quyết vấn đề", "problem-solving"], "ambiguous_aliases": [], "sources": ["G01"]}
+{"label": "Skill", "name": "Critical Thinking", "type": "concept", "aliases": ["tư duy phản biện", "tư duy logic", "logical thinking", "analytical thinking", "tư duy phân tích"], "ambiguous_aliases": [], "sources": ["G01"]}
+{"label": "Skill", "name": "Time Management", "type": "concept", "aliases": ["quản lý thời gian", "kỹ năng quản lý thời gian"], "ambiguous_aliases": [], "sources": ["G01"]}
+{"label": "Skill", "name": "Leadership", "type": "concept", "aliases": ["lãnh đạo", "kỹ năng lãnh đạo", "team leadership", "quản lý đội nhóm", "quản lý team"], "ambiguous_aliases": [], "sources": ["G01"]}
+{"label": "Skill", "name": "Presentation Skills", "type": "concept", "aliases": ["thuyết trình", "kỹ năng thuyết trình", "presentation"], "ambiguous_aliases": [], "sources": ["G01"]}
+{"label": "Skill", "name": "Negotiation", "type": "concept", "aliases": ["đàm phán", "kỹ năng đàm phán", "negotiation skills"], "ambiguous_aliases": [], "sources": ["G01"]}
+{"label": "Skill", "name": "Self-learning", "type": "concept", "aliases": ["tự học", "khả năng tự học", "self-study", "self learning", "ham học hỏi", "eager to learn"], "ambiguous_aliases": [], "sources": ["G01"]}
+{"label": "Skill", "name": "Adaptability", "type": "concept", "aliases": ["thích nghi", "khả năng thích nghi", "flexibility"], "ambiguous_aliases": [], "sources": ["G01"]}
+{"label": "Skill", "name": "Attention to Detail", "type": "concept", "aliases": ["tỉ mỉ", "cẩn thận", "cẩn thận tỉ mỉ", "detail-oriented", "detail oriented"], "ambiguous_aliases": [], "sources": ["G01"]}
+{"label": "Skill", "name": "Mentoring", "type": "concept", "aliases": ["hướng dẫn thành viên", "đào tạo nhân viên", "coaching", "mentor"], "ambiguous_aliases": [], "sources": ["G01"]}
+{"label": "Skill", "name": "Working Under Pressure", "type": "concept", "aliases": ["chịu được áp lực", "làm việc dưới áp lực", "chịu áp lực công việc"], "ambiguous_aliases": [], "sources": ["G01"]}
+{"label": "Skill", "name": "Wireframing", "type": "concept", "aliases": ["wireframe", "vẽ wireframe", "wireframes"], "ambiguous_aliases": [], "sources": ["G01"]}
+{"label": "Skill", "name": "C", "type": "technology", "aliases": ["c language", "c programming", "ngôn ngữ c", "lập trình c", "ansi c"], "ambiguous_aliases": ["c"], "sources": ["G01"]}
+{"label": "Skill", "name": "Real-time Operating Systems", "type": "concept", "aliases": ["rtos", "hệ điều hành thời gian thực", "real-time os", "real time operating system"], "ambiguous_aliases": [], "sources": ["G01"]}
+{"label": "Skill", "ref": "oop", "aliases": ["lập trình hướng đối tượng", "hướng đối tượng", "object oriented programming", "object-oriented programming", "oop concepts"], "ambiguous_aliases": [], "sources": ["G02"]}
+{"label": "Skill", "ref": "data structures and algorithms", "aliases": ["cấu trúc dữ liệu và giải thuật", "cấu trúc dữ liệu và thuật toán", "cấu trúc dữ liệu", "giải thuật", "thuật toán", "dsa", "algorithms"], "ambiguous_aliases": [], "sources": ["G02"]}
+{"label": "Skill", "ref": "database", "aliases": ["cơ sở dữ liệu", "csdl", "hệ quản trị cơ sở dữ liệu", "dbms"], "ambiguous_aliases": [], "sources": ["G02"]}
+{"label": "Skill", "ref": "sql databases", "aliases": ["cơ sở dữ liệu quan hệ", "relational database", "rdbms"], "ambiguous_aliases": [], "sources": ["G02"]}
+{"label": "Skill", "ref": "sql", "aliases": ["ngôn ngữ truy vấn sql", "truy vấn sql", "sql query", "sql queries"], "ambiguous_aliases": [], "sources": ["G02"]}
+{"label": "Skill", "ref": "deep learning", "aliases": ["học sâu"], "ambiguous_aliases": [], "sources": ["G02"]}
+{"label": "Skill", "ref": "artificial neural network", "aliases": ["mạng nơ-ron nhân tạo", "ann"], "ambiguous_aliases": [], "sources": ["G02"]}
+{"label": "Skill", "ref": "neural networks", "aliases": ["mạng nơ-ron", "mạng neural", "neural network"], "ambiguous_aliases": [], "sources": ["G02"]}
+{"label": "Skill", "ref": "natural language processing", "aliases": ["xử lý ngôn ngữ tự nhiên"], "ambiguous_aliases": [], "sources": ["G02"]}
+{"label": "Skill", "ref": "image recognition", "aliases": ["nhận dạng ảnh", "nhận diện hình ảnh"], "ambiguous_aliases": [], "sources": ["G02"]}
+{"label": "Skill", "ref": "recommendation systems", "aliases": ["hệ thống gợi ý", "hệ gợi ý", "recommender system", "recommendation system"], "ambiguous_aliases": [], "sources": ["G02"]}
+{"label": "Skill", "ref": "reinforcement learning", "aliases": ["học tăng cường"], "ambiguous_aliases": [], "sources": ["G02"]}
+{"label": "Skill", "ref": "supervised learning", "aliases": ["học có giám sát"], "ambiguous_aliases": [], "sources": ["G02"]}
+{"label": "Skill", "ref": "unsupervised learning", "aliases": ["học không giám sát"], "ambiguous_aliases": [], "sources": ["G02"]}
+{"label": "Skill", "ref": "llms", "aliases": ["mô hình ngôn ngữ lớn", "large language models", "large language model", "llm"], "ambiguous_aliases": [], "sources": ["G02"]}
+{"label": "Skill", "ref": "prompt engineering", "aliases": ["kỹ thuật prompt", "viết prompt"], "ambiguous_aliases": [], "sources": ["G02"]}
+{"label": "Skill", "ref": "fine-tuning", "aliases": ["tinh chỉnh mô hình", "finetuning", "fine tuning", "fine-tune llm"], "ambiguous_aliases": [], "sources": ["G02"]}
+{"label": "Skill", "ref": "rag", "aliases": ["retrieval augmented generation", "retrieval-augmented generation"], "ambiguous_aliases": [], "sources": ["G02"]}
+{"label": "Skill", "ref": "ai agents", "aliases": ["tác tử ai", "ai agent", "agentic ai"], "ambiguous_aliases": [], "sources": ["G02"]}
+{"label": "Skill", "ref": "statistical analysis", "aliases": ["phân tích thống kê", "thống kê"], "ambiguous_aliases": [], "sources": ["G02"]}
+{"label": "Skill", "ref": "hypothesis testing", "aliases": ["kiểm định giả thuyết"], "ambiguous_aliases": [], "sources": ["G02"]}
+{"label": "Skill", "ref": "data visualisation", "aliases": ["trực quan hóa dữ liệu", "data visualization"], "ambiguous_aliases": [], "sources": ["G02"]}
+{"label": "Skill", "ref": "data cleanup", "aliases": ["làm sạch dữ liệu", "data cleaning", "data cleansing"], "ambiguous_aliases": [], "sources": ["G02"]}
+{"label": "Skill", "ref": "data analytics", "aliases": ["phân tích dữ liệu", "data analysis"], "ambiguous_aliases": [], "sources": ["G02"]}
+{"label": "Skill", "ref": "data warehouse", "aliases": ["kho dữ liệu"], "ambiguous_aliases": [], "sources": ["G02"]}
+{"label": "Skill", "ref": "data lake", "aliases": ["hồ dữ liệu"], "ambiguous_aliases": [], "sources": ["G02"]}
+{"label": "Skill", "ref": "etl", "aliases": ["extract transform load", "elt"], "ambiguous_aliases": [], "sources": ["G02"]}
+{"label": "Skill", "ref": "data pipelines", "aliases": ["đường ống dữ liệu", "data pipeline"], "ambiguous_aliases": [], "sources": ["G02"]}
+{"label": "Skill", "ref": "big data concepts", "aliases": ["dữ liệu lớn", "big data"], "ambiguous_aliases": [], "sources": ["G02"]}
+{"label": "Skill", "ref": "web scraping", "aliases": ["cào dữ liệu web", "thu thập dữ liệu web", "crawl dữ liệu", "web crawling", "crawler"], "ambiguous_aliases": [], "sources": ["G02"]}
+{"label": "Skill", "ref": "unit testing", "aliases": ["kiểm thử đơn vị", "unit test"], "ambiguous_aliases": [], "sources": ["G02"]}
+{"label": "Skill", "ref": "integration testing", "aliases": ["kiểm thử tích hợp", "integration test"], "ambiguous_aliases": [], "sources": ["G02"]}
+{"label": "Skill", "ref": "end-to-end testing", "aliases": ["kiểm thử end-to-end", "e2e testing", "e2e test"], "ambiguous_aliases": [], "sources": ["G02"]}
+{"label": "Skill", "ref": "regression testing", "aliases": ["kiểm thử hồi quy"], "ambiguous_aliases": [], "sources": ["G02"]}
+{"label": "Skill", "ref": "performance testing", "aliases": ["kiểm thử hiệu năng"], "ambiguous_aliases": [], "sources": ["G02"]}
+{"label": "Skill", "ref": "load testing", "aliases": ["kiểm thử tải"], "ambiguous_aliases": [], "sources": ["G02"]}
+{"label": "Skill", "ref": "stress testing", "aliases": ["kiểm thử áp lực"], "ambiguous_aliases": [], "sources": ["G02"]}
+{"label": "Skill", "ref": "manual testing", "aliases": ["kiểm thử thủ công", "test thủ công"], "ambiguous_aliases": [], "sources": ["G02"]}
+{"label": "Skill", "ref": "security testing", "aliases": ["kiểm thử bảo mật"], "ambiguous_aliases": [], "sources": ["G02"]}
+{"label": "Skill", "ref": "api testing", "aliases": ["kiểm thử api", "test api"], "ambiguous_aliases": [], "sources": ["G02"]}
+{"label": "Skill", "ref": "black box testing", "aliases": ["kiểm thử hộp đen"], "ambiguous_aliases": [], "sources": ["G02"]}
+{"label": "Skill", "ref": "white box testing", "aliases": ["kiểm thử hộp trắng"], "ambiguous_aliases": [], "sources": ["G02"]}
+{"label": "Skill", "ref": "functional testing", "aliases": ["kiểm thử chức năng"], "ambiguous_aliases": [], "sources": ["G02"]}
+{"label": "Skill", "ref": "uat", "aliases": ["kiểm thử chấp nhận người dùng", "user acceptance testing"], "ambiguous_aliases": [], "sources": ["G02"]}
+{"label": "Skill", "ref": "test cases and scenarios", "aliases": ["viết test case", "test case", "test cases", "testcase", "kịch bản kiểm thử"], "ambiguous_aliases": [], "sources": ["G02"]}
+{"label": "Skill", "ref": "test planning", "aliases": ["lập kế hoạch kiểm thử", "test plan"], "ambiguous_aliases": [], "sources": ["G02"]}
+{"label": "Skill", "ref": "exploratory testing", "aliases": ["kiểm thử thăm dò"], "ambiguous_aliases": [], "sources": ["G02"]}
+{"label": "Skill", "ref": "testing", "aliases": ["kiểm thử phần mềm"], "ambiguous_aliases": [], "sources": ["G02"]}
+{"label": "Skill", "ref": "version control", "aliases": ["quản lý mã nguồn"], "ambiguous_aliases": [], "sources": ["G02"]}
+{"label": "Skill", "ref": "design patterns", "aliases": ["mẫu thiết kế"], "ambiguous_aliases": [], "sources": ["G02"]}
+{"label": "Skill", "ref": "solid", "aliases": ["nguyên lý solid", "solid principles"], "ambiguous_aliases": [], "sources": ["G02"]}
+{"label": "Skill", "ref": "microservices", "aliases": ["kiến trúc microservices", "kiến trúc vi dịch vụ", "micro-services", "microservice"], "ambiguous_aliases": [], "sources": ["G02"]}
+{"label": "Skill", "ref": "monolithic apps", "aliases": ["kiến trúc nguyên khối", "monolith", "monolithic"], "ambiguous_aliases": [], "sources": ["G02"]}
+{"label": "Skill", "ref": "event-driven architecture", "aliases": ["kiến trúc hướng sự kiện"], "ambiguous_aliases": [], "sources": ["G02"]}
+{"label": "Skill", "ref": "layered architecture", "aliases": ["kiến trúc phân lớp", "n-tier architecture"], "ambiguous_aliases": [], "sources": ["G02"]}
+{"label": "Skill", "ref": "restful apis", "aliases": ["restful api", "rest api", "rest apis", "api restful"], "ambiguous_aliases": [], "sources": ["G02"]}
+{"label": "Skill", "ref": "dependency injection", "aliases": ["tiêm phụ thuộc"], "ambiguous_aliases": [], "sources": ["G02"]}
+{"label": "Skill", "ref": "distributed systems", "aliases": ["hệ thống phân tán"], "ambiguous_aliases": [], "sources": ["G02"]}
+{"label": "Skill", "ref": "caching", "aliases": ["bộ nhớ đệm"], "ambiguous_aliases": [], "sources": ["G02"]}
+{"label": "Skill", "ref": "load balancing", "aliases": ["cân bằng tải"], "ambiguous_aliases": [], "sources": ["G02"]}
+{"label": "Skill", "ref": "scalability", "aliases": ["khả năng mở rộng"], "ambiguous_aliases": [], "sources": ["G02"]}
+{"label": "Skill", "ref": "networking fundamentals", "aliases": ["kiến thức mạng", "mạng máy tính căn bản", "networking"], "ambiguous_aliases": [], "sources": ["G02"]}
+{"label": "Skill", "ref": "operating system", "aliases": ["hệ điều hành"], "ambiguous_aliases": [], "sources": ["G02"]}
+{"label": "Skill", "ref": "cloud computing", "aliases": ["điện toán đám mây"], "ambiguous_aliases": [], "sources": ["G02"]}
+{"label": "Skill", "ref": "virtual machines", "aliases": ["máy ảo"], "ambiguous_aliases": [], "sources": ["G02"]}
+{"label": "Skill", "ref": "infrastructure as code", "aliases": ["hạ tầng dưới dạng mã", "iac"], "ambiguous_aliases": [], "sources": ["G02"]}
+{"label": "Skill", "ref": "ci cd", "aliases": ["tích hợp liên tục", "triển khai liên tục", "continuous integration", "continuous delivery", "continuous deployment", "ci/cd"], "ambiguous_aliases": [], "sources": ["G02"]}
+{"label": "Skill", "ref": "encryption", "aliases": ["mã hóa dữ liệu"], "ambiguous_aliases": [], "sources": ["G02"]}
+{"label": "Skill", "ref": "authentication", "aliases": ["xác thực"], "ambiguous_aliases": [], "sources": ["G02"]}
+{"label": "Skill", "ref": "authorization", "aliases": ["phân quyền"], "ambiguous_aliases": [], "sources": ["G02"]}
+{"label": "Skill", "ref": "vulnerability scanning", "aliases": ["quét lỗ hổng"], "ambiguous_aliases": [], "sources": ["G02"]}
+{"label": "Skill", "ref": "incident response", "aliases": ["ứng cứu sự cố", "phản ứng sự cố"], "ambiguous_aliases": [], "sources": ["G02"]}
+{"label": "Skill", "ref": "forensics", "aliases": ["điều tra số", "digital forensics"], "ambiguous_aliases": [], "sources": ["G02"]}
+{"label": "Skill", "ref": "firewall", "aliases": ["tường lửa"], "ambiguous_aliases": [], "sources": ["G02"]}
+{"label": "Skill", "ref": "social engineering", "aliases": ["tấn công phi kỹ thuật"], "ambiguous_aliases": [], "sources": ["G02"]}
+{"label": "Skill", "ref": "threat modeling", "aliases": ["mô hình hóa mối đe dọa"], "ambiguous_aliases": [], "sources": ["G02"]}
+{"label": "Skill", "ref": "secure coding", "aliases": ["lập trình an toàn"], "ambiguous_aliases": [], "sources": ["G02"]}
+{"label": "Skill", "ref": "responsive design", "aliases": ["thiết kế đáp ứng", "thiết kế responsive", "responsive web design"], "ambiguous_aliases": [], "sources": ["G02"]}
+{"label": "Skill", "ref": "user personas", "aliases": ["chân dung người dùng", "persona"], "ambiguous_aliases": [], "sources": ["G02"]}
+{"label": "Skill", "ref": "prototyping", "aliases": ["tạo mẫu thử", "prototype"], "ambiguous_aliases": [], "sources": ["G02"]}
+{"label": "Skill", "ref": "user stories", "aliases": ["câu chuyện người dùng", "user story"], "ambiguous_aliases": [], "sources": ["G02"]}
+{"label": "Skill", "ref": "requirements elicitation", "aliases": ["khơi gợi yêu cầu", "thu thập yêu cầu", "requirement gathering", "requirements gathering", "requirement analysis", "phân tích yêu cầu"], "ambiguous_aliases": [], "sources": ["G02"]}
+{"label": "Skill", "ref": "swot analysis", "aliases": ["phân tích swot"], "ambiguous_aliases": [], "sources": ["G02"]}
+{"label": "Skill", "ref": "competitor analysis", "aliases": ["phân tích đối thủ cạnh tranh"], "ambiguous_aliases": [], "sources": ["G02"]}
+{"label": "Skill", "ref": "a/b testing", "aliases": ["thử nghiệm a/b", "ab testing"], "ambiguous_aliases": [], "sources": ["G02"]}
+{"label": "Skill", "ref": "waterfall", "aliases": ["mô hình thác nước"], "ambiguous_aliases": [], "sources": ["G02"]}
+{"label": "Skill", "ref": "uml", "aliases": ["ngôn ngữ mô hình hóa thống nhất", "biểu đồ uml", "uml diagram"], "ambiguous_aliases": [], "sources": ["G02"]}
+{"label": "Skill", "ref": "bpmn", "aliases": ["mô hình hóa quy trình nghiệp vụ"], "ambiguous_aliases": [], "sources": ["G02"]}
+{"label": "Skill", "ref": "debugging", "aliases": ["gỡ lỗi", "debug"], "ambiguous_aliases": [], "sources": ["G02"]}
+{"label": "Skill", "ref": "troubleshooting", "aliases": ["xử lý sự cố", "khắc phục sự cố"], "ambiguous_aliases": [], "sources": ["G02"]}
+{"label": "Skill", "ref": "communication", "aliases": ["giao tiếp", "kỹ năng giao tiếp", "communication skills"], "ambiguous_aliases": [], "sources": ["G02"]}
+{"label": "Skill", "ref": "decision making", "aliases": ["ra quyết định"], "ambiguous_aliases": [], "sources": ["G02"]}
+{"label": "Skill", "ref": "html", "aliases": ["html5"], "ambiguous_aliases": [], "sources": ["G02"]}
+{"label": "Skill", "ref": "css", "aliases": ["css3"], "ambiguous_aliases": [], "sources": ["G02"]}
+{"label": "Skill", "ref": "javascript", "aliases": ["es6", "ecmascript 6", "es2015"], "ambiguous_aliases": [], "sources": ["G02"]}
+{"label": "Skill", "ref": "react", "aliases": ["reactjs", "react.js", "react js"], "ambiguous_aliases": [], "sources": ["G02"]}
+{"label": "Skill", "ref": "vue.js", "aliases": ["vuejs", "vue js", "vue 3", "vue"], "ambiguous_aliases": [], "sources": ["G02"]}
+{"label": "Skill", "ref": "next.js", "aliases": ["nextjs", "next js"], "ambiguous_aliases": [], "sources": ["G02"]}
+{"label": "Skill", "ref": "nuxt.js", "aliases": ["nuxtjs", "nuxt"], "ambiguous_aliases": [], "sources": ["G02"]}
+{"label": "Skill", "ref": "node.js", "aliases": ["nodejs", "node js"], "ambiguous_aliases": ["node"], "sources": ["G02"]}
+{"label": "Skill", "ref": "c#", "aliases": ["c sharp"], "ambiguous_aliases": [], "sources": ["G02"]}
+{"label": "Skill", "ref": "sql server", "aliases": ["microsoft sql server", "ms sql server", "ms sql"], "ambiguous_aliases": [], "sources": ["G02"]}
+{"label": "Skill", "ref": "unity 3d", "aliases": ["unity", "unity3d", "unity engine"], "ambiguous_aliases": [], "sources": ["G02"]}
+{"label": "Skill", "ref": "unreal engine", "aliases": ["ue4", "ue5", "unreal"], "ambiguous_aliases": [], "sources": ["G02"]}
+{"label": "Skill", "ref": "office", "aliases": ["microsoft office", "ms office", "tin học văn phòng"], "ambiguous_aliases": [], "sources": ["G02"]}
+{"label": "Skill", "ref": "google suite", "aliases": ["google workspace", "g suite"], "ambiguous_aliases": [], "sources": ["G02"]}
+{"label": "Skill", "ref": "linux", "aliases": ["hệ điều hành linux"], "ambiguous_aliases": [], "sources": ["G02"]}
+{"label": "Skill", "ref": "git", "aliases": ["git flow", "gitflow"], "ambiguous_aliases": [], "sources": ["G02"]}
+{"label": "Skill", "ref": "docker", "aliases": ["container hóa", "dockerfile"], "ambiguous_aliases": [], "sources": ["G02"]}
+{"label": "Skill", "ref": "kubernetes", "aliases": ["kubernetes cluster"], "ambiguous_aliases": [], "sources": ["G02"]}
+{"label": "Skill", "ref": "aws", "aliases": ["amazon web services"], "ambiguous_aliases": [], "sources": ["G02"]}
+{"label": "Skill", "ref": "azure", "aliases": ["microsoft azure"], "ambiguous_aliases": [], "sources": ["G02"]}
+{"label": "Skill", "ref": "figma", "aliases": ["figma design"], "ambiguous_aliases": [], "sources": ["G02"]}
+{"label": "Skill", "ref": "tableau", "aliases": ["tableau desktop"], "ambiguous_aliases": [], "sources": ["G02"]}
+{"label": "Skill", "ref": "microsoft power bi", "aliases": ["power bi desktop"], "ambiguous_aliases": [], "sources": ["G02"]}
+{"label": "Skill", "ref": "pandas", "aliases": ["python pandas"], "ambiguous_aliases": [], "sources": ["G02"]}
+{"label": "Skill", "ref": "flutter", "aliases": ["flutter framework"], "ambiguous_aliases": [], "sources": ["G02"]}
+{"label": "Skill", "ref": "react native", "aliases": ["react-native", "reactnative"], "ambiguous_aliases": [], "sources": ["G02"]}
+{"label": "Skill", "ref": "jetpack compose", "aliases": ["compose ui"], "ambiguous_aliases": [], "sources": ["G02"]}
+{"label": "Skill", "ref": "kotlin", "aliases": ["kotlin android"], "ambiguous_aliases": [], "sources": ["G02"]}
+{"label": "Skill", "ref": "java", "aliases": ["core java", "java core", "java 8", "java 11", "java 17"], "ambiguous_aliases": [], "sources": ["G02"]}
+{"label": "Skill", "ref": "python", "aliases": ["python3", "python 3"], "ambiguous_aliases": [], "sources": ["G02"]}
+{"label": "Skill", "ref": "php", "aliases": ["php 8", "php7"], "ambiguous_aliases": [], "sources": ["G02"]}
+{"label": "Skill", "ref": "mongodb", "aliases": ["mongo db"], "ambiguous_aliases": [], "sources": ["G02"]}
+{"label": "Skill", "ref": "redis", "aliases": ["redis cache"], "ambiguous_aliases": [], "sources": ["G02"]}
+{"label": "Skill", "ref": "elasticsearch", "aliases": ["elastic search"], "ambiguous_aliases": [], "sources": ["G02"]}
+{"label": "Skill", "ref": "kafka", "aliases": ["kafka cluster"], "ambiguous_aliases": [], "sources": ["G02"]}
+{"label": "Skill", "ref": "rabbitmq", "aliases": ["rabbit mq"], "ambiguous_aliases": [], "sources": ["G02"]}
+{"label": "Skill", "ref": "jenkins", "aliases": ["jenkins pipeline"], "ambiguous_aliases": [], "sources": ["G02"]}
+{"label": "Skill", "ref": "terraform", "aliases": ["hashicorp terraform"], "ambiguous_aliases": [], "sources": ["G02"]}
+{"label": "Skill", "ref": "ansible", "aliases": ["ansible playbook"], "ambiguous_aliases": [], "sources": ["G02"]}
+{"label": "Skill", "ref": "grafana", "aliases": ["grafana dashboard"], "ambiguous_aliases": [], "sources": ["G02"]}
+{"label": "Skill", "ref": "prometheus", "aliases": ["prometheus monitoring"], "ambiguous_aliases": [], "sources": ["G02"]}
+{"label": "Skill", "ref": "selenium", "aliases": ["selenium webdriver"], "ambiguous_aliases": [], "sources": ["G02"]}
+{"label": "Skill", "ref": "jmeter", "aliases": ["apache jmeter"], "ambiguous_aliases": [], "sources": ["G02"]}
+{"label": "Skill", "ref": "postman", "aliases": ["postman api"], "ambiguous_aliases": [], "sources": ["G02"]}
+{"label": "Skill", "ref": "graphql", "aliases": ["graph ql"], "ambiguous_aliases": [], "sources": ["G02"]}
+{"label": "Skill", "ref": "grpc", "aliases": ["g rpc"], "ambiguous_aliases": [], "sources": ["G02"]}
+{"label": "Skill", "ref": "websocket", "aliases": ["web socket", "websockets"], "ambiguous_aliases": [], "sources": ["G02"]}
+{"label": "Skill", "ref": "oauth", "aliases": ["oauth2", "oauth 2"], "ambiguous_aliases": [], "sources": ["G02"]}
+{"label": "Skill", "ref": "jwt", "aliases": ["json web token"], "ambiguous_aliases": [], "sources": ["G02"]}
+{"label": "Skill", "ref": "scrum", "aliases": ["scrum framework"], "ambiguous_aliases": [], "sources": ["G02"]}
+{"label": "Skill", "ref": "kanban", "aliases": ["kanban board"], "ambiguous_aliases": [], "sources": ["G02"]}
+{"label": "Skill", "ref": "itil", "aliases": ["itil v4", "itil foundation"], "ambiguous_aliases": [], "sources": ["G02"]}
+{"label": "Skill", "ref": "salesforce", "aliases": ["salesforce crm"], "ambiguous_aliases": [], "sources": ["G02"]}
+{"label": "Skill", "ref": "sap", "aliases": ["sap system"], "ambiguous_aliases": [], "sources": ["G02"]}
+{"label": "Skill", "ref": "burp suite", "aliases": ["burpsuite"], "ambiguous_aliases": [], "sources": ["G02"]}
+{"label": "Skill", "ref": "wireshark", "aliases": ["wire shark"], "ambiguous_aliases": [], "sources": ["G02"]}
+{"label": "Skill", "ref": "iot", "aliases": ["internet of things", "internet vạn vật", "vạn vật kết nối"], "ambiguous_aliases": [], "sources": ["G02"]}
+{"label": "Skill", "ref": "edge computing", "aliases": ["điện toán biên"], "ambiguous_aliases": [], "sources": ["G02"]}
+{"label": "Skill", "ref": "elastic stack", "aliases": ["elk", "efk", "efk stack", "elk stack logging"], "ambiguous_aliases": [], "sources": ["G02"]}
+{"label": "JobTitle", "name": "Blockchain Architect", "aliases": [], "ambiguous_aliases": [], "sources": ["G06"]}
+{"label": "JobTitle", "name": "Blockchain Developer", "aliases": ["web3 developer", "lập trình viên web3"], "ambiguous_aliases": [], "sources": ["G06"]}
+{"label": "JobTitle", "name": "Smart Contract Developer", "aliases": ["solidity developer"], "ambiguous_aliases": [], "sources": ["G06"]}
+{"label": "JobTitle", "name": "Bridge System Engineer", "aliases": ["kỹ sư cầu nối nhật bản"], "ambiguous_aliases": [], "sources": ["G06"]}
+{"label": "JobTitle", "name": "Business Analyst", "aliases": ["it business analyst", "chuyên viên ba"], "ambiguous_aliases": [], "sources": ["G06"]}
+{"label": "JobTitle", "name": "C-Level Executive", "aliases": ["giám đốc công nghệ", "chief technology officer"], "ambiguous_aliases": [], "sources": ["G06"]}
+{"label": "JobTitle", "name": "Compliance Officer / Analyst", "aliases": ["chuyên viên tuân thủ"], "ambiguous_aliases": [], "sources": ["G06"]}
+{"label": "JobTitle", "name": "Desktop Application Developer", "aliases": ["winforms developer", "wpf developer"], "ambiguous_aliases": [], "sources": ["G06"]}
+{"label": "JobTitle", "name": "Edge Computing Engineer", "aliases": [], "ambiguous_aliases": [], "sources": ["G06"]}
+{"label": "JobTitle", "name": "Embedded Engineer", "aliases": ["embedded software engineer", "kỹ sư phần mềm nhúng", "lập trình viên nhúng", "embedded c developer"], "ambiguous_aliases": [], "sources": ["G06"]}
+{"label": "JobTitle", "name": "Enterprise Application Consultant", "aliases": [], "ambiguous_aliases": [], "sources": ["G06"]}
+{"label": "JobTitle", "name": "Enterprise Application Developer", "aliases": [], "ambiguous_aliases": [], "sources": ["G06"]}
+{"label": "JobTitle", "name": "Enterprise Architect", "aliases": [], "ambiguous_aliases": [], "sources": ["G06"]}
+{"label": "JobTitle", "name": "ERP Consultant", "aliases": ["sap consultant", "odoo consultant", "tư vấn triển khai erp"], "ambiguous_aliases": [], "sources": ["G06"]}
+{"label": "JobTitle", "name": "ERP Developer", "aliases": ["odoo developer", "sap abap developer", "abap developer"], "ambiguous_aliases": [], "sources": ["G06"]}
+{"label": "JobTitle", "name": "Field Support", "aliases": ["kỹ thuật viên hiện trường"], "ambiguous_aliases": [], "sources": ["G06"]}
+{"label": "JobTitle", "name": "Firmware Engineer", "aliases": ["firmware developer", "lập trình viên firmware"], "ambiguous_aliases": [], "sources": ["G06"]}
+{"label": "JobTitle", "name": "Game Designer", "aliases": ["level designer"], "ambiguous_aliases": [], "sources": ["G06"]}
+{"label": "JobTitle", "name": "Game Developer", "aliases": ["unity developer", "lập trình viên unity", "unreal developer", "cocos developer"], "ambiguous_aliases": [], "sources": ["G06"]}
+{"label": "JobTitle", "name": "Game Producer / Director", "aliases": [], "ambiguous_aliases": [], "sources": ["G06"]}
+{"label": "JobTitle", "name": "Hardware-Software Integration Engineer", "aliases": [], "ambiguous_aliases": [], "sources": ["G06"]}
+{"label": "JobTitle", "name": "IoT Application Developer", "aliases": ["kỹ sư iot"], "ambiguous_aliases": [], "sources": ["G06"]}
+{"label": "JobTitle", "name": "IT Administrator", "aliases": ["quản trị hệ thống cntt"], "ambiguous_aliases": [], "sources": ["G06"]}
+{"label": "JobTitle", "name": "IT Auditor / IT Risk Manager", "aliases": [], "ambiguous_aliases": [], "sources": ["G06"]}
+{"label": "JobTitle", "name": "IT Communicator", "aliases": ["phiên dịch it", "biên phiên dịch it"], "ambiguous_aliases": [], "sources": ["G06"]}
+{"label": "JobTitle", "name": "IT Consultant", "aliases": [], "ambiguous_aliases": [], "sources": ["G06"]}
+{"label": "JobTitle", "name": "IT Helpdesk", "aliases": ["helpdesk", "help desk", "nhân viên helpdesk"], "ambiguous_aliases": [], "sources": ["G06"]}
+{"label": "JobTitle", "name": "IT Manager", "aliases": ["trưởng phòng cntt", "trưởng phòng it"], "ambiguous_aliases": [], "sources": ["G06"]}
+{"label": "JobTitle", "name": "IT Support", "aliases": ["nhân viên it", "kỹ thuật viên it", "it support engineer", "nhân viên hỗ trợ kỹ thuật"], "ambiguous_aliases": [], "sources": ["G06"]}
+{"label": "JobTitle", "name": "Low-Code/No-Code Developer", "aliases": ["power apps developer", "outsystems developer"], "ambiguous_aliases": [], "sources": ["G06"]}
+{"label": "JobTitle", "name": "Motion Designer", "aliases": ["motion graphic designer", "thiết kế chuyển động"], "ambiguous_aliases": [], "sources": ["G06"]}
+{"label": "JobTitle", "name": "Network Engineer", "aliases": ["network administrator", "quản trị mạng", "kỹ sư quản trị mạng"], "ambiguous_aliases": [], "sources": ["G06"]}
+{"label": "JobTitle", "name": "Pre-Sales Engineer", "aliases": ["presales"], "ambiguous_aliases": [], "sources": ["G06"]}
+{"label": "JobTitle", "name": "Product Analyst", "aliases": [], "ambiguous_aliases": [], "sources": ["G06"]}
+{"label": "JobTitle", "name": "Product Designer", "aliases": [], "ambiguous_aliases": [], "sources": ["G06"]}
+{"label": "JobTitle", "name": "Product Manager", "aliases": [], "ambiguous_aliases": [], "sources": ["G06"]}
+{"label": "JobTitle", "name": "Product Owner", "aliases": [], "ambiguous_aliases": [], "sources": ["G06"]}
+{"label": "JobTitle", "name": "Program Manager / PMO", "aliases": [], "ambiguous_aliases": [], "sources": ["G06"]}
+{"label": "JobTitle", "name": "Project Manager", "aliases": ["it project manager", "quản lý dự án phần mềm", "quản lý dự án it"], "ambiguous_aliases": [], "sources": ["G06"]}
+{"label": "JobTitle", "name": "Real-Time Systems Engineer", "aliases": [], "ambiguous_aliases": [], "sources": ["G06"]}
+{"label": "JobTitle", "name": "Robotics Software Engineer", "aliases": ["ros developer"], "ambiguous_aliases": [], "sources": ["G06"]}
+{"label": "JobTitle", "name": "RPA Engineer", "aliases": ["uipath developer"], "ambiguous_aliases": [], "sources": ["G06"]}
+{"label": "JobTitle", "name": "Scrum Master / Agile Coach", "aliases": [], "ambiguous_aliases": [], "sources": ["G06"]}
+{"label": "JobTitle", "name": "Software/Technical Architect", "aliases": [], "ambiguous_aliases": [], "sources": ["G06"]}
+{"label": "JobTitle", "name": "Solution Architect", "aliases": ["cloud solution architect"], "ambiguous_aliases": [], "sources": ["G06"]}
+{"label": "JobTitle", "name": "Technical Account Manager", "aliases": [], "ambiguous_aliases": [], "sources": ["G06"]}
+{"label": "JobTitle", "name": "Technical Consultant", "aliases": [], "ambiguous_aliases": [], "sources": ["G06"]}
+{"label": "JobTitle", "name": "Technical Customer Support", "aliases": ["customer support engineer"], "ambiguous_aliases": [], "sources": ["G06"]}
+{"label": "JobTitle", "name": "Technical Writer", "aliases": ["người viết tài liệu kỹ thuật", "kỹ sư viết tài liệu"], "ambiguous_aliases": [], "sources": ["G06"]}
+{"label": "JobTitle", "name": "UX Researcher", "aliases": [], "ambiguous_aliases": [], "sources": ["G06"]}
+{"label": "JobTitle", "name": "UX/UI Designer", "aliases": ["thiết kế ui/ux", "ui ux designer", "uiux designer", "web designer", "thiết kế web", "app designer"], "ambiguous_aliases": [], "sources": ["G06"]}
+{"label": "JobTitle", "name": "Vice President / Director", "aliases": [], "ambiguous_aliases": [], "sources": ["G06"]}
+{"label": "JobTitle", "name": "Visual / Graphic Designer", "aliases": [], "ambiguous_aliases": [], "sources": ["G06"]}
+{"label": "JobTitle", "name": "VR/AR Game Developer", "aliases": ["ar/vr developer", "xr developer"], "ambiguous_aliases": [], "sources": ["G06"]}
+{"label": "JobTitle", "name": "Game Tester", "aliases": [], "ambiguous_aliases": [], "sources": ["G06"]}
+{"label": "JobTitle", "name": "Systems Engineer / Administrator", "aliases": [], "ambiguous_aliases": [], "sources": ["G06"]}
+{"label": "JobTitle", "name": "Java Developer", "aliases": ["lập trình viên java", "java dev", "java engineer", "java backend developer", "kỹ sư java"], "ambiguous_aliases": [], "sources": ["G06"]}
+{"label": "JobTitle", "name": "PHP Developer", "aliases": ["lập trình viên php", "php dev", "php engineer", "laravel developer"], "ambiguous_aliases": [], "sources": ["G06"]}
+{"label": "JobTitle", "name": ".NET Developer", "aliases": ["lập trình viên .net", "c# developer", "lập trình viên c#", "dotnet developer", "asp.net developer"], "ambiguous_aliases": [], "sources": ["G06"]}
+{"label": "JobTitle", "name": "Python Developer", "aliases": ["lập trình viên python", "python engineer", "django developer"], "ambiguous_aliases": [], "sources": ["G06"]}
+{"label": "JobTitle", "name": "Node.js Developer", "aliases": ["lập trình viên nodejs", "nodejs developer", "node developer", "nestjs developer"], "ambiguous_aliases": [], "sources": ["G06"]}
+{"label": "JobTitle", "name": "Golang Developer", "aliases": ["lập trình viên golang", "go developer"], "ambiguous_aliases": [], "sources": ["G06"]}
+{"label": "JobTitle", "name": "Ruby Developer", "aliases": ["ruby on rails developer", "rails developer"], "ambiguous_aliases": [], "sources": ["G06"]}
+{"label": "JobTitle", "name": "C++ Developer", "aliases": ["lập trình viên c++", "c/c++ developer"], "ambiguous_aliases": [], "sources": ["G06"]}
+{"label": "JobTitle", "name": "ReactJS Developer", "aliases": ["lập trình viên reactjs", "react developer", "reactjs engineer"], "ambiguous_aliases": [], "sources": ["G06"]}
+{"label": "JobTitle", "name": "VueJS Developer", "aliases": ["lập trình viên vuejs", "vue developer"], "ambiguous_aliases": [], "sources": ["G06"]}
+{"label": "JobTitle", "name": "Angular Developer", "aliases": ["lập trình viên angular"], "ambiguous_aliases": [], "sources": ["G06"]}
+{"label": "JobTitle", "name": "Web Developer", "aliases": ["lập trình viên web", "web programmer"], "ambiguous_aliases": [], "sources": ["G06"]}
+{"label": "JobTitle", "name": "iOS Developer", "aliases": ["lập trình viên ios", "ios engineer", "swift developer"], "ambiguous_aliases": [], "sources": ["G06"]}
+{"label": "JobTitle", "name": "Android Developer", "aliases": ["lập trình viên android", "android engineer", "kotlin developer"], "ambiguous_aliases": [], "sources": ["G06"]}
+{"label": "JobTitle", "name": "Flutter Developer", "aliases": ["lập trình viên flutter"], "ambiguous_aliases": [], "sources": ["G06"]}
+{"label": "JobTitle", "name": "React Native Developer", "aliases": ["lập trình viên react native"], "ambiguous_aliases": [], "sources": ["G06"]}
+{"label": "JobTitle", "name": "Software Engineer", "aliases": ["kỹ sư phần mềm", "software developer", "lập trình viên phần mềm"], "ambiguous_aliases": ["developer", "lập trình viên"], "sources": ["G06"]}
+{"label": "JobTitle", "name": "QA/QC Engineer", "aliases": ["qa engineer", "qc engineer", "tester", "software tester", "kiểm thử viên", "nhân viên kiểm thử", "qa tester", "qc tester"], "ambiguous_aliases": ["qa", "qc"], "sources": ["G06"]}
+{"label": "JobTitle", "name": "NLP Engineer", "aliases": ["kỹ sư xử lý ngôn ngữ tự nhiên"], "ambiguous_aliases": [], "sources": ["G06"]}
+{"label": "JobTitle", "name": "LLM Engineer", "aliases": ["generative ai engineer", "genai engineer", "ai application engineer", "kỹ sư llm"], "ambiguous_aliases": [], "sources": ["G06"]}
+{"label": "JobTitle", "name": "Prompt Engineer", "aliases": [], "ambiguous_aliases": [], "sources": ["G06"]}
+{"label": "JobTitle", "name": "Platform Engineer", "aliases": ["kỹ sư nền tảng"], "ambiguous_aliases": [], "sources": ["G06"]}
+{"label": "JobTitle", "name": "Cloud Architect", "aliases": ["kiến trúc sư cloud", "kiến trúc sư đám mây"], "ambiguous_aliases": [], "sources": ["G06"]}
+{"label": "JobTitle", "name": "SOC Analyst", "aliases": ["chuyên viên soc", "security analyst", "chuyên viên giám sát an ninh mạng"], "ambiguous_aliases": [], "sources": ["G06"]}
+{"label": "JobTitle", "name": "Salesforce Developer", "aliases": ["lập trình viên salesforce"], "ambiguous_aliases": [], "sources": ["G06"]}
+{"label": "JobTitle", "name": "WordPress Developer", "aliases": ["lập trình viên wordpress", "shopify developer", "magento developer"], "ambiguous_aliases": [], "sources": ["G06"]}
+{"label": "JobTitle", "name": "Game Artist", "aliases": ["2d artist", "3d artist", "họa sĩ game", "concept artist"], "ambiguous_aliases": [], "sources": ["G06"]}
+{"label": "JobTitle", "name": "Engineering Manager", "aliases": ["quản lý kỹ thuật", "head of engineering"], "ambiguous_aliases": [], "sources": ["G06"]}
+{"label": "Level", "ref": "Intern", "aliases": ["trainee", "thực tập sinh it", "sinh viên thực tập", "internship program"], "ambiguous_aliases": [], "sources": ["G07"]}
+{"label": "Level", "ref": "Fresher", "aliases": ["fresh graduate", "entry level", "entry-level", "mới ra trường", "sinh viên mới ra trường", "sinh viên mới tốt nghiệp", "graduate"], "ambiguous_aliases": [], "sources": ["G07"]}
+{"label": "Level", "ref": "Junior", "aliases": ["junior developer", "associate", "jr."], "ambiguous_aliases": [], "sources": ["G07"]}
+{"label": "Level", "ref": "Mid", "aliases": ["mid-senior", "middle level", "middle developer", "mid level"], "ambiguous_aliases": ["chuyên viên"], "sources": ["G07"]}
+{"label": "Level", "ref": "Senior", "aliases": ["sr.", "snr", "senior developer", "senior engineer", "cao cấp"], "ambiguous_aliases": ["chuyên gia", "expert"], "sources": ["G07"]}
+{"label": "Level", "ref": "Lead", "aliases": ["team leader", "technical lead", "technical leader", "engineering lead", "leader", "trưởng nhóm kỹ thuật", "quản lý nhóm"], "ambiguous_aliases": ["principal", "staff", "head of", "manager"], "sources": ["G07"]}
+{"label": "Major", "name": "Computer Science", "group": "it", "aliases": ["Khoa học máy tính", "computer science and engineering", "khoa học và kỹ thuật máy tính"], "sources": ["G08"]}
+{"label": "Major", "name": "Information Technology", "group": "it", "aliases": ["Công nghệ thông tin", "information technology (japanese)", "công nghệ thông tin việt nhật", "it việt nhật", "công nghệ thông tin chất lượng cao"], "sources": ["G08"]}
+{"label": "Major", "name": "Information Security", "group": "it", "aliases": ["An toàn thông tin", "bảo mật thông tin", "an ninh thông tin"], "sources": ["G08"]}
+{"label": "Major", "name": "Computer Networks and Data Communications", "group": "it", "aliases": ["Mạng máy tính và truyền thông dữ liệu", "quản trị mạng máy tính"], "sources": ["G08"]}
+{"label": "Major", "name": "Embedded Systems and IoT", "group": "it", "aliases": ["Hệ thống nhúng và IoT", "hệ thống nhúng", "kỹ thuật nhúng", "embedded systems", "iot engineering", "internet of things"], "sources": ["G08"]}
+{"label": "Major", "name": "Digital Economy", "group": "related", "aliases": ["Kinh tế số", "digital economics"], "sources": ["G08"]}
+{"label": "Major", "name": "Financial Technology", "group": "related", "aliases": ["Công nghệ tài chính", "fintech", "công nghệ tài chính fintech"], "sources": ["G08"]}
+{"label": "Major", "name": "Computer Engineering Technology", "group": "it", "aliases": ["Công nghệ kỹ thuật máy tính"], "sources": ["G08"]}
+{"label": "Major", "name": "Electronics and Telecommunications Engineering Technology", "group": "related", "aliases": ["Công nghệ kỹ thuật điện tử - viễn thông", "công nghệ kỹ thuật điện tử viễn thông", "cnkt điện tử viễn thông"], "sources": ["G08"]}
+{"label": "Major", "name": "Control and Automation Engineering Technology", "group": "related", "aliases": ["Công nghệ kỹ thuật điều khiển và tự động hóa", "cnkt điều khiển và tự động hóa"], "sources": ["G08"]}
+{"label": "Major", "name": "Electrical Engineering Technology", "group": "related", "aliases": ["Công nghệ kỹ thuật điện", "công nghệ kỹ thuật điện điện tử", "cnkt điện"], "sources": ["G08"]}
+{"label": "Major", "name": "Microelectronics and Semiconductor", "group": "related", "aliases": ["Vi điện tử và bán dẫn", "thiết kế vi mạch", "kỹ thuật vi điện tử", "công nghệ bán dẫn", "vi mạch bán dẫn", "ic design", "semiconductor engineering"], "sources": ["G08"]}
+{"label": "Major", "name": "Robotics Engineering", "group": "related", "aliases": ["Kỹ thuật robot", "robotics", "robot và trí tuệ nhân tạo"], "sources": ["G08"]}
+{"label": "Major", "name": "Engineering Physics", "group": "related", "aliases": ["Vật lý kỹ thuật"], "sources": ["G08"]}
+{"label": "Major", "name": "Physics", "group": "other", "aliases": ["Vật lý học", "vật lý"], "sources": ["G08"]}
+{"label": "Major", "name": "Biomedical Engineering", "group": "other", "aliases": ["Kỹ thuật y sinh", "y sinh"], "sources": ["G08"]}
+{"label": "Major", "name": "Mathematics Education", "group": "related", "aliases": ["Sư phạm Toán học", "sư phạm toán"], "sources": ["G08"]}
+{"label": "Major", "name": "Computational Science", "group": "related", "aliases": ["Khoa học tính toán"], "sources": ["G08"]}
+{"label": "Major", "name": "Digital Marketing", "group": "other", "aliases": ["Marketing số", "marketing kỹ thuật số"], "sources": ["G08"]}
+{"label": "Major", "name": "Multimedia Communications", "group": "other", "aliases": ["Truyền thông đa phương tiện"], "sources": ["G08"]}
+{"label": "Major", "name": "Digital Art and Design", "group": "other", "aliases": ["Thiết kế đa phương tiện", "thiết kế mỹ thuật số", "digital design"], "sources": ["G08"]}
+{"label": "Major", "name": "Korean Language", "group": "other", "aliases": ["Ngôn ngữ Hàn Quốc", "tiếng hàn quốc"], "sources": ["G08"]}
+{"label": "Major", "name": "Chinese Language", "group": "other", "aliases": ["Ngôn ngữ Trung Quốc", "tiếng trung quốc"], "sources": ["G08"]}
+{"label": "Major", "name": "Architecture", "group": "other", "aliases": ["Kiến trúc"], "sources": ["G08"]}
+{"label": "Major", "name": "Industrial Engineering", "group": "other", "aliases": ["Kỹ thuật công nghiệp", "quản lý công nghiệp"], "sources": ["G08"]}
+{"label": "Major", "name": "Automotive Engineering", "group": "other", "aliases": ["Kỹ thuật ô tô", "công nghệ kỹ thuật ô tô"], "sources": ["G08"]}

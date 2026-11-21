@@ -1,0 +1,119 @@
+name,sibling_ok,note
+Relational Databases,true,đã có ở KB1; MySQL thay PostgreSQL được
+Document DBs,true,đã có ở KB1
+Key-Value Store,true,đã có ở KB1
+Column DBs,true,đã có ở KB1
+Graph DBs,true,đã có ở KB1
+Time Series,true,đã có ở KB1
+Vector DBs,true,đã có ở KB1
+Message Brokers,true,đã có ở KB1
+CI CD Tools,true,đã có ở KB1
+Configuration Management,true,đã có ở KB1
+Container Orchestration,true,đã có ở KB1
+Logs Management,true,đã có ở KB1
+BI Tools,true,đã có ở KB1
+Module Bundlers,true,đã có ở KB1
+CSS Preprocessors,true,đã có ở KB1
+Package Managers,true,đã có ở KB1
+Repo Hosting Services,true,đã có ở KB1
+VCS Hosting,true,đã có ở KB1
+Web Servers,true,đã có ở KB1
+Search Engines,true,đã có ở KB1
+Static Site Generators,true,đã có ở KB1
+Linters and Formatters,true,đã có ở KB1
+Game Engine,true,đã có ở KB1
+Headless Testing,true,đã có ở KB1
+Mobile Automation,true,đã có ở KB1
+Data Pipeline Tools,true,đã có ở KB1
+Data Processing Frameworks,true,đã có ở KB1
+Wireframing,true,đã có ở KB1
+Cloud Providers,true,đã có ở KB1
+Common Virtualization Technologies,true,đã có ở KB1
+Containers,true,đã có ở KB1
+API Documentation Tools,true,đã có ở KB1
+Secret Management,true,đã có ở KB1
+Java Frameworks,true,framework web/ứng dụng của Java
+Python Web Frameworks,true,
+PHP Frameworks,true,
+Node.js Frameworks,true,
+.NET Web Frameworks,true,
+Go Web Frameworks,true,
+Frontend Frameworks,true,React thay Vue/Angular được một phần
+CSS Frameworks,true,
+State Management Libraries,true,
+Cross-Platform Mobile Frameworks,true,
+iOS UI Frameworks,true,
+.NET Desktop Frameworks,true,
+ORM Frameworks,false,ORM khác ngôn ngữ không thay nhau được
+Build Tools,false,Maven/Gradle khác hệ sinh thái với npm
+Unit Testing Frameworks,true,
+E2E Testing Tools,true,
+API Testing Tools,true,
+Test Management Tools,true,
+Project Management Tools,true,
+Documentation Tools,true,
+ML Frameworks,true,
+Gradient Boosting Libraries,true,
+LLM Frameworks,true,
+MLOps Platforms,true,
+Computer Vision Libraries,true,
+NLP Libraries,true,
+Data Warehouses,true,
+ETL Tools,true,
+Notebook Environments,true,
+Spreadsheet Tools,true,
+Graphic Design Tools,true,
+Motion Design Tools,true,
+3D Modeling Tools,true,
+RTOS,true,
+Microcontrollers,true,
+Embedded Communication Protocols,false,
+IoT Protocols,true,
+Blockchain Platforms,true,
+Smart Contract Frameworks,true,
+Web3 Libraries,true,
+ERP Systems,true,
+CRM Platforms,true,
+CMS Platforms,true,
+E-commerce Platforms,true,
+RPA Tools,true,
+Low-Code Platforms,true,
+Monitoring Tools,true,
+Agile Methodologies,false,
+Foreign Languages,false,tiếng Anh không thay tiếng Nhật
+English Certificates,true,TOEIC thay IELTS được ở mức sàng lọc
+Cloud Certifications,false,
+IT Certifications,false,
+Soft Skills,false,
+Business Analysis Techniques,false,
+Product Management Practices,false,
+IT Service Management,false,
+Runtimes & Platforms,false,"nền tảng chạy (Node.js, .NET); khác nhau về hệ sinh thái"
+Mobile Platforms,false,"Android SDK / iOS: khác ngôn ngữ, khác công cụ"
+Network Devices,false,thiết bị mạng cơ bản
+Firewalls & Network Appliances,true,FortiGate thay pfSense được ở mức vận hành
+Identity & Directory Services,false,"Active Directory, Group Policy"
+Cloud Compute,true,EC2 / Azure VM / Compute Engine thay nhau được
+Managed Databases,true,RDS / Azure SQL Database / Cloud SQL
+Object Storage,true,S3 / Blob Storage / GCS
+SQL Dialects,true,"PL/SQL, T-SQL: cùng SQL, khác phương ngữ"
+SQL Query Engines,true,"Hive, Presto, Spark SQL"
+HTTP Client Libraries,true,"Retrofit, OkHttp"
+Dependency Injection Frameworks,true,"Hilt, Dagger"
+Reactive Programming Libraries,true,"RxJS, RxJava, RxKotlin: cùng mô hình ReactiveX"
+Email Testing Tools,true,"Mailinator, Gmail Tester"
+Embedded Platforms,false,"AUTOSAR, Embedded Linux, PLC, FPGA, ROS: khác hẳn nhau"
+GPU Computing,false,CUDA
+Spreadsheet & BI Formulas,false,hàm và ngôn ngữ công thức Excel / Power BI
+Secure Protocols,false,"DNSSEC, IPsec, S/MIME, SRTP"
+Productivity Suites,true,Microsoft 365 thay Google Workspace được
+Kubernetes Tooling,true,"Helm, Kustomize"
+LLM Inference Servers,true,"Ollama, vLLM"
+Model Formats & Runtimes,false,ONNX
+Linux Distributions,true,RHEL / SUSE / Ubuntu-Debian
+Security Distros,true,Kali Linux / Parrot OS
+Penetration Testing Tools,true,"Metasploit, Burp Suite"
+IDS/IPS,true,"NIDS, NIPS"
+Ruby Web Frameworks,true,Ruby on Rails
+Task Queues,true,Celery
+JavaScript Libraries,false,jQuery

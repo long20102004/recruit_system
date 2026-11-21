@@ -8,7 +8,8 @@ này bằng `cvmatch kb import` (không đọc Neo4j lúc chạy).
   nút Skill mỗi lần nạp. Key đã có giữ nguyên mã; key mới cấp tiếp số lớn nhất; mã đã dùng không cấp lại.
 - Q-3 (đã chốt 14/11/2026): tạm thời xuất CẢ `candidate` (mặc định). `--accepted-only` khi KB đã duyệt.
   Bản có candidate mang hậu tố `-dev` và cột `status` cho từng kỹ năng.
-- `sibling_ok`: dùng thuộc tính `sibling_ok` nếu người duyệt đã đặt; bản dev dùng tạm `sibling_ok_suggest`.
+- `sibling_ok`: dùng thuộc tính `sibling_ok` nếu người duyệt đã đặt (hoặc kb_pipeline policy provisional đã nhận
+  tạm từ `sibling_ok_suggest`, `sibling_ok_by = provisional`); bản dev dùng tạm `sibling_ok_suggest`.
 - Alias dễ nhầm: `ambiguous_aliases` của KB + mọi alias ≤ 2 ký tự không có ký tự đặc biệt
   ("if", "ip", "js", "s3"...) - không tự khớp trong văn bản tự do, chỉ khớp khi là nguyên phần tử
   của mảng kỹ năng.
@@ -17,6 +18,7 @@ này bằng `cvmatch kb import` (không đọc Neo4j lúc chạy).
 Chạy:  python export_snapshot.py                  xuất bản dev (cả candidate)
        python export_snapshot.py --accepted-only  chỉ tri thức đã duyệt
        python export_snapshot.py --dry-run        chỉ kiểm tra, không ghi
+       python export_snapshot.py --from-out       đọc out/kb_nodes.jsonl, out/kb_edges.jsonl thay vì Neo4j
 """
 import argparse
 import collections
@@ -28,6 +30,7 @@ import os
 import pathlib
 import re
 
+from kb_pipeline.quality import find_cycle
 from shared.common import norm
 from shared.config import ROLE_GROUPS
 
@@ -36,12 +39,6 @@ OUT = ROOT / "out"
 SKILL_IDS = OUT / "skill_ids.csv"
 FILES = ("skill_ontology", "role_title_map", "role_distance", "major_group", "ambiguous_aliases")
 
-# Ma trận M giả thuyết của thiết kế 07 mục 5.6 (ƯL). Cặp không có ở đây: 0. Cùng nhóm: 1 (không lưu).
-M_HYPOTHESIS = [
-    ("Backend", "Fullstack", 0.8), ("Frontend", "Fullstack", 0.8), ("Security", "DevOps", 0.5),
-    ("Backend", "DevOps", 0.4), ("Backend", "Data", 0.4), ("Mobile", "Frontend", 0.4),
-    ("Backend", "Frontend", 0.3), ("QA", "Backend", 0.2),
-]
 _SPECIAL = re.compile(r"[#+./\-]")
 
 
@@ -75,6 +72,44 @@ def read_neo4j():
         driver.verify_connectivity()
         with driver.session() as s:
             return {k: s.run(v).data() for k, v in q.items()}
+
+
+def read_out(out=OUT):
+    """Cùng dạng dữ liệu với read_neo4j(), đọc từ KB do kb_pipeline ghi (không cần Neo4j)."""
+    def jl(name):
+        with open(out / name, encoding="utf-8") as f:
+            return [json.loads(line) for line in f if line.strip()]
+
+    nodes, edges = jl("kb_nodes.jsonl"), jl("kb_edges.jsonl")
+    of = collections.defaultdict(dict)
+    for n in nodes:
+        of[n["label"]][n.get("key") or n.get("source_id")] = n
+    n_ev = collections.Counter(e["src"] for e in edges if e["type"] == "EVIDENCED_BY")
+    groups = collections.defaultdict(list)
+    for e in edges:
+        if e["type"] == "MAPS_TO":
+            groups[e["src"]].append({"group": e["dst"], "status": e["status"]})
+
+    def base(n, *fields):
+        return {"key": n["key"], "name": n["name"], "aliases": n.get("aliases") or [], "status": n["status"],
+                **{f: n.get(f) for f in fields}}
+
+    cats = of["Category"]
+    return {
+        "skills": [{**base(n, "type", "ambiguous_aliases"), "n_evidence": n_ev[k]} for k, n in of["Skill"].items()],
+        "parent_of": [{"parent": e["src"], "child": e["dst"], "status": e["status"]}
+                      for e in edges if e["type"] == "PARENT_OF"],
+        "in_category": [{"skill": e["src"], "category": e["dst"], "status": e["status"],
+                         "sibling_ok": cats.get(e["dst"], {}).get("sibling_ok"),
+                         "sibling_ok_suggest": cats.get(e["dst"], {}).get("sibling_ok_suggest"),
+                         "category_status": cats.get(e["dst"], {}).get("status")}
+                        for e in edges if e["type"] == "IN_CATEGORY"],
+        "titles": [{**base(n), "groups": groups[k]} for k, n in of["JobTitle"].items()],
+        "levels": [base(n, "rank") for n in of["Level"].values()],
+        "majors": [base(n, "group") for n in of["Major"].values()],
+        "near": [{"a": e["src"], "b": e["dst"], "m": e.get("m"), "method": e.get("method"), "status": e["status"]}
+                 for e in edges if e["type"] == "NEAR"],
+    }
 
 
 # --------------------------------------------------------------------------- skill_id
@@ -112,30 +147,6 @@ def _ok(status, include_candidate):
     return status == "accepted" or (include_candidate and status in (None, "candidate"))
 
 
-def _find_cycles(parent_edges):
-    """Chu trình trong PARENT_OF (DFS). parent_edges: [(cha, con)]."""
-    graph = collections.defaultdict(list)
-    for p, c in parent_edges:
-        graph[p].append(c)
-    color, cycles = {}, []
-
-    def dfs(u, stack):
-        color[u] = 1
-        stack.append(u)
-        for v in graph[u]:
-            if color.get(v) == 1:
-                cycles.append(stack[stack.index(v):] + [v])
-            elif not color.get(v):
-                dfs(v, stack)
-        stack.pop()
-        color[u] = 2
-
-    for u in list(graph):
-        if not color.get(u):
-            dfs(u, [])
-    return cycles
-
-
 def build_snapshot(data, skill_ids, *, include_candidate=True):
     """data: kết quả read_neo4j(). Trả (rows {file: [dòng]}, report {kiểm tra + thống kê})."""
     skills = [s for s in data["skills"] if _ok(s["status"], include_candidate)]
@@ -146,10 +157,12 @@ def build_snapshot(data, skill_ids, *, include_candidate=True):
     amb = collections.defaultdict(set)                 # alias dễ nhầm -> skill_id
     for s in skills:
         sid = key_to_id[s["key"]]
-        for a in {norm(s["name"]), *(norm(x) for x in s.get("aliases") or [])}:
+        ambiguous = {norm(x) for x in s.get("ambiguous_aliases") or []}
+        # tên trùng từ thường ("cat", "head") đã bị KB3 chuyển sang ambiguous: không thành alias tự do nữa
+        for a in {norm(s["name"]), *(norm(x) for x in s.get("aliases") or [])} - ambiguous:
             if a:
                 owners[a].add(sid)
-        for a in (norm(x) for x in s.get("ambiguous_aliases") or []):
+        for a in ambiguous:
             if a:
                 amb[a].add(sid)
     for a, sids in list(owners.items()):
@@ -214,14 +227,15 @@ def build_snapshot(data, skill_ids, *, include_candidate=True):
                     seen_major.add(a)
                     major_rows.append({"major_alias": a, "group": mj["group"]})
 
-    dist_rows = [{"group_a": a, "group_b": b, "m": m, "method": "hypothesis"} for a, b, m in M_HYPOTHESIS]
-    dist_rows += [{"group_a": e["a"], "group_b": e["b"], "m": float(e["m"]), "method": "computed"}
-                  for e in data["near"] if e.get("method") == "computed" and _ok(e["status"], include_candidate)]
+    # NEAR hypothesis (ma trận M giả thuyết của thiết kế 07 mục 5.6, nằm trong gói kb3-generated) và computed
+    dist_rows = [{"group_a": e["a"], "group_b": e["b"], "m": float(e["m"]), "method": e["method"]}
+                 for e in data["near"] if e.get("method") in ("hypothesis", "computed")
+                 and _ok(e["status"], include_candidate)]
 
     rows = {"skill_ontology": skill_rows, "role_title_map": title_rows, "role_distance": dist_rows,
             "major_group": major_rows, "ambiguous_aliases": amb_rows}
     report = {
-        "blocking": {"alias_conflicts": conflicts, "parent_cycles": _find_cycles(parent_edges)},
+        "blocking": {"alias_conflicts": conflicts, "parent_cycles": [c] if (c := find_cycle(parent_edges)) else []},
         "warnings": {
             "skills_without_evidence": sum(1 for s in skills if not s.get("n_evidence")),
             "job_titles_without_role_group": no_group,
@@ -241,7 +255,7 @@ def build_snapshot(data, skill_ids, *, include_candidate=True):
 
 # --------------------------------------------------------------------------- ghi
 
-def write_snapshot(rows, report, version, include_candidate, out_root=OUT / "snapshot"):
+def write_snapshot(rows, report, version, include_candidate, out_root=OUT / "snapshot", source="neo4j"):
     d = out_root / version
     d.mkdir(parents=True, exist_ok=True)
     files = {}
@@ -250,7 +264,7 @@ def write_snapshot(rows, report, version, include_candidate, out_root=OUT / "sna
         (d / f"{name}.jsonl").write_text(text, encoding="utf-8")
         files[name] = {"rows": len(rows[name]), "sha256": hashlib.sha256(text.encode("utf-8")).hexdigest()}
     manifest = {"ontology_version": version, "created_at": dt.datetime.now(dt.timezone.utc).isoformat(),
-                "include_candidate": include_candidate, "source": "neo4j", "files": files,
+                "include_candidate": include_candidate, "source": source, "files": files,
                 "stats": report["stats"], "warnings": report["warnings"]}
     (d / "manifest.json").write_text(json.dumps(manifest, ensure_ascii=False, indent=2), encoding="utf-8")
     return d
@@ -261,11 +275,16 @@ def main():
     ap.add_argument("--accepted-only", action="store_true", help="chỉ xuất status = accepted")
     ap.add_argument("--version", default=None, help="mặc định kb-YYYY-MM-DD (+ -dev nếu có candidate)")
     ap.add_argument("--dry-run", action="store_true")
+    ap.add_argument("--from-out", action="store_true", help="đọc KB từ out/*.jsonl (không cần Neo4j)")
     args = ap.parse_args()
     include_candidate = not args.accepted_only
-    version = args.version or f"kb-{dt.date.today().isoformat()}" + ("-dev" if include_candidate else "")
+    # ontology_version = KBVersion.id (thiết kế mục 8): phiên bản cuối do kb_pipeline ghi ở out/versions.jsonl
+    versions = OUT / "versions.jsonl"
+    lines = versions.read_text(encoding="utf-8").splitlines() if versions.exists() else []
+    base = json.loads(lines[-1])["id"] if lines else f"kb-{dt.date.today().isoformat()}"
+    version = args.version or base + ("-dev" if include_candidate else "")
 
-    data = read_neo4j()
+    data = read_out() if args.from_out else read_neo4j()
     ids = assign_skill_ids([s["key"] for s in data["skills"]], load_skill_ids())
     rows, report = build_snapshot(data, ids, include_candidate=include_candidate)
     print(json.dumps({"stats": report["stats"], "warnings": report["warnings"]}, ensure_ascii=False, indent=2))
@@ -274,7 +293,8 @@ def main():
     if args.dry_run:
         return
     save_skill_ids(ids)
-    print(f"Đã xuất: {write_snapshot(rows, report, version, include_candidate)}")
+    source = "out/kb_*.jsonl" if args.from_out else "neo4j"
+    print(f"Đã xuất: {write_snapshot(rows, report, version, include_candidate, source=source)}")
 
 
 if __name__ == "__main__":

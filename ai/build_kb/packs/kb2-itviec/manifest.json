@@ -1,0 +1,45 @@
+{
+  "pack_id": "kb2-itviec",
+  "kb_origin": "KB2",
+  "priority": 20,
+  "enabled": true,
+  "description": "KB2: chức danh ITviec (W01), ngành học tự sinh (M01), alias cấp bậc tự soạn (M02)",
+  "sources": [
+    {
+      "source_id": "W01",
+      "type": "web",
+      "title": "ITviec IT jobs by expertise",
+      "publisher": "ITviec",
+      "uri": "https://itviec.com/jobs-expertise-index",
+      "lang": "vi+en",
+      "trust": "medium",
+      "license": "ITviec giữ bản quyền; chưa xin đồng ý bằng văn bản (điều khoản mục 2.2)",
+      "accessed": "2026-11-05",
+      "sha256": "94d7664d27613dc8f468c5c402b199c8944472445cd444af1821d8489e67c01e"
+    },
+    {
+      "source_id": "M01",
+      "type": "generated",
+      "title": "Danh mục ngành học tự sinh",
+      "publisher": "Claude",
+      "uri": "kb2/data/majors.csv",
+      "lang": "vi+en",
+      "trust": "low",
+      "license": "tự sinh; chưa đối chiếu nguồn",
+      "accessed": "2026-11-05",
+      "sha256": "2717a8c16fcbf2b0cf99005450020b3a35c2273e08dc589cee7f3d385a8302e6"
+    },
+    {
+      "source_id": "M02",
+      "type": "generated",
+      "title": "Alias cấp bậc tự soạn",
+      "publisher": "Claude",
+      "uri": "kb2/data/levels.csv",
+      "lang": "vi+en",
+      "trust": "low",
+      "license": "tự sinh; thang rank theo Knowledge base.md",
+      "accessed": "2026-11-05",
+      "sha256": "fed09a331eea7bdd60316076904bdf71f7400feab480fa29e4d4a4f17d51a06a"
+    }
+  ]
+}
