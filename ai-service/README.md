@@ -19,6 +19,7 @@ ai-service/
 ├── fine_tune_qwen3-1.7B.ipynb  # Notebook huấn luyện LoRA v1 (cũ)
 ├── training/                   # build_dataset.py + retrain_qwen3_v2.ipynb (v2, feature 006)
 ├── run_on_colab.ipynb          # Notebook chạy thử nghiệm inference trên Google Colab
+├── run_v6.1_on_colab.ipynb     # Notebook chạy inference model retrain_v6.1 GGUF trên Colab T4 + Tunnel
 ├── main.py                     # Entry point (shim): `uvicorn main:app`
 ├── app/
 │   ├── main.py                 # Khởi tạo FastAPI, include router, load model khi startup
