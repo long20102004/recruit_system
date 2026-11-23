@@ -28,7 +28,7 @@ def load_split_with_stats(path: str | Path) -> tuple[list[Sample], int]:
     - output: JSON string or dict containing profile
 
     Rules:
-    - id = sha1(input.encode("utf-8")).hexdigest()[:12]
+    - id = the row's "id" when present (non-empty string), else sha1(input.encode("utf-8")).hexdigest()[:12]
     - gold = normalize_profile(parsed_output)
     - raw = original line dict (for swap to rewrite)
     - Unparseable output lines are skipped and counted.
@@ -73,7 +73,10 @@ def load_split_with_stats(path: str | Path) -> tuple[list[Sample], int]:
                 skipped += 1
                 continue
 
-            sample_id = hashlib.sha1(cv_text.encode("utf-8")).hexdigest()[:12]
+            # Prefer the row's own id (prediction writers key on it, e.g. "v6-test-004");
+            # older splits used sha1(input)[:12] as their id, so both paths agree there.
+            row_id = raw_item.get("id")
+            sample_id = row_id if isinstance(row_id, str) and row_id.strip() else hashlib.sha1(cv_text.encode("utf-8")).hexdigest()[:12]
             gold = normalize_profile(parsed_output)
             samples.append(Sample(id=sample_id, cv_text=cv_text, gold=gold, raw=raw_item))
 
