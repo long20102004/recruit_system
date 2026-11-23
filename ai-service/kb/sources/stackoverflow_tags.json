@@ -1,0 +1,974 @@
+{
+  "min_count": 500,
+  "note": "display = spelling of the term in the synthetic label vocabulary that matched the tag",
+  "records": [
+    {
+      "count": 45890,
+      "display": ".NET Core",
+      "synonyms": [
+        "dotnet-core",
+        "dotnetcore"
+      ],
+      "tag": ".net-core"
+    },
+    {
+      "count": 31951,
+      "display": "AWS Lambda",
+      "synonyms": [
+        "amazon-lambda"
+      ],
+      "tag": "aws-lambda"
+    },
+    {
+      "count": 16248,
+      "display": "Active Directory",
+      "synonyms": [
+        "active-directory-group"
+      ],
+      "tag": "active-directory"
+    },
+    {
+      "count": 1022,
+      "display": "Agile",
+      "synonyms": [
+        "agile-development",
+        "agile-processes",
+        "agile-project-management"
+      ],
+      "tag": "agile"
+    },
+    {
+      "count": 10647,
+      "display": "Airflow",
+      "synonyms": [
+        "airflow-operator",
+        "airflow-scheduler",
+        "airflow-worker",
+        "apache-airflow",
+        "apache-airflow-xcom"
+      ],
+      "tag": "airflow"
+    },
+    {
+      "count": 14753,
+      "display": "Anaconda",
+      "synonyms": [],
+      "tag": "anaconda"
+    },
+    {
+      "count": 19994,
+      "display": "Angular Material",
+      "synonyms": [],
+      "tag": "angular-material"
+    },
+    {
+      "count": 9785,
+      "display": "Apache POI",
+      "synonyms": [
+        "poi"
+      ],
+      "tag": "apache-poi"
+    },
+    {
+      "count": 603,
+      "display": "ArgoCD",
+      "synonyms": [],
+      "tag": "argocd"
+    },
+    {
+      "count": 6643,
+      "display": "AutoMapper",
+      "synonyms": [],
+      "tag": "automapper"
+    },
+    {
+      "count": 24363,
+      "display": "Axios",
+      "synonyms": [],
+      "tag": "axios"
+    },
+    {
+      "count": 144936,
+      "display": "Azure",
+      "synonyms": [
+        "az",
+        "windows-azure"
+      ],
+      "tag": "azure"
+    },
+    {
+      "count": 2209,
+      "display": "BLoC",
+      "synonyms": [],
+      "tag": "bloc"
+    },
+    {
+      "count": 1106,
+      "display": "BPMN",
+      "synonyms": [],
+      "tag": "bpmn"
+    },
+    {
+      "count": 156525,
+      "display": "Bash",
+      "synonyms": [
+        ".bash-profile",
+        ".bashrc",
+        "bash-alias",
+        "bash-function",
+        "bash-script",
+        "bash-variables",
+        "bashrc"
+      ],
+      "tag": "bash"
+    },
+    {
+      "count": 2665,
+      "display": "CI/CD",
+      "synonyms": [],
+      "tag": "cicd"
+    },
+    {
+      "count": 805578,
+      "display": "CSS",
+      "synonyms": [
+        "alternate-stylesheets",
+        "box-model",
+        "box-shadow",
+        "box-sizing",
+        "cascading-style-sheet",
+        "css-attributes",
+        "css-background-image",
+        "css-border-image",
+        "css-border-radius",
+        "css-borders",
+        "css-box-model",
+        "css-box-shadow",
+        "css-centering",
+        "css-classes",
+        "css-columns",
+        "css-display",
+        "css-font-weight",
+        "css-height",
+        "css-inheritance",
+        "css-layout",
+        "css-line-height",
+        "css-menu",
+        "css-overflow",
+        "css-reset",
+        "css-text-overflow",
+        "css-text-shadow",
+        "css-validation",
+        "css2",
+        "css3",
+        "dynamic-css",
+        "font-weight",
+        "inline-block",
+        "max-height",
+        "max-width",
+        "min-height",
+        "min-width",
+        "style.css-template-file"
+      ],
+      "tag": "css"
+    },
+    {
+      "count": 584,
+      "display": "Charles Proxy",
+      "synonyms": [
+        "charles"
+      ],
+      "tag": "charles-proxy"
+    },
+    {
+      "count": 630,
+      "display": "ClosedXML",
+      "synonyms": [],
+      "tag": "closedxml"
+    },
+    {
+      "count": 1667,
+      "display": "Cloudinary",
+      "synonyms": [],
+      "tag": "cloudinary"
+    },
+    {
+      "count": 2100,
+      "display": "Combine",
+      "synonyms": [],
+      "tag": "combine"
+    },
+    {
+      "count": 29131,
+      "display": "Core Data",
+      "synonyms": [
+        "nsmanagedobject",
+        "nsmanagedobjectcontext"
+      ],
+      "tag": "core-data"
+    },
+    {
+      "count": 2952,
+      "display": "Dapper",
+      "synonyms": [],
+      "tag": "dapper"
+    },
+    {
+      "count": 32216,
+      "display": "Docker Compose",
+      "synonyms": [],
+      "tag": "docker-compose"
+    },
+    {
+      "count": 91637,
+      "display": "Entity Framework",
+      "synonyms": [
+        "ef",
+        "entity-framework-designer",
+        "entity-framework-mapping",
+        "fluent-entity-framework",
+        "linq-entity-framework",
+        "sql-to-entity-framework"
+      ],
+      "tag": "entity-framework"
+    },
+    {
+      "count": 23564,
+      "display": "Entity Framework Core",
+      "synonyms": [
+        "ef-core",
+        "efcore",
+        "entity-framework-7"
+      ],
+      "tag": "entity-framework-core"
+    },
+    {
+      "count": 288603,
+      "display": "Excel",
+      "synonyms": [
+        "excel-macro",
+        "ms-excel",
+        "workbook"
+      ],
+      "tag": "excel"
+    },
+    {
+      "count": 16690,
+      "display": "Expo",
+      "synonyms": [
+        "expo-cli"
+      ],
+      "tag": "expo"
+    },
+    {
+      "count": 1515,
+      "display": "Fastlane",
+      "synonyms": [],
+      "tag": "fastlane"
+    },
+    {
+      "count": 2944,
+      "display": "Firewall",
+      "synonyms": [],
+      "tag": "firewall"
+    },
+    {
+      "count": 2298,
+      "display": "Flyway",
+      "synonyms": [],
+      "tag": "flyway"
+    },
+    {
+      "count": 1171,
+      "display": "FreeRTOS",
+      "synonyms": [],
+      "tag": "freertos"
+    },
+    {
+      "count": 153595,
+      "display": "Git",
+      "synonyms": [
+        "git-commands"
+      ],
+      "tag": "git"
+    },
+    {
+      "count": 11209,
+      "display": "GitHub Actions",
+      "synonyms": [
+        "github-workflow"
+      ],
+      "tag": "github-actions"
+    },
+    {
+      "count": 8881,
+      "display": "GitLab CI",
+      "synonyms": [
+        "gitlab-pipelines"
+      ],
+      "tag": "gitlab-ci"
+    },
+    {
+      "count": 26141,
+      "display": "Google BigQuery",
+      "synonyms": [
+        "bigquery",
+        "bigquery-ml",
+        "bigquery-standard-sql",
+        "bq",
+        "google-bigquery-ml",
+        "python-bigquery"
+      ],
+      "tag": "google-bigquery"
+    },
+    {
+      "count": 50295,
+      "display": "Google Cloud Platform",
+      "synonyms": [
+        "gcp",
+        "google-cloud"
+      ],
+      "tag": "google-cloud-platform"
+    },
+    {
+      "count": 5841,
+      "display": "Grafana",
+      "synonyms": [],
+      "tag": "grafana"
+    },
+    {
+      "count": 20770,
+      "display": "GraphQL",
+      "synonyms": [],
+      "tag": "graphql"
+    },
+    {
+      "count": 1185018,
+      "display": "HTML",
+      "synonyms": [
+        "div",
+        "div-layouts",
+        "divs",
+        "htm",
+        "html-attributes",
+        "html-comments",
+        "html-head",
+        "html-syntax",
+        "html-tag",
+        "html5",
+        "nested-divs",
+        "span",
+        "time-tag",
+        "webpage"
+      ],
+      "tag": "html"
+    },
+    {
+      "count": 1361,
+      "display": "Hangfire",
+      "synonyms": [],
+      "tag": "hangfire"
+    },
+    {
+      "count": 94916,
+      "display": "Hibernate",
+      "synonyms": [],
+      "tag": "hibernate"
+    },
+    {
+      "count": 21736,
+      "display": "Hive",
+      "synonyms": [
+        "apache-hive",
+        "hiveql"
+      ],
+      "tag": "hive"
+    },
+    {
+      "count": 900,
+      "display": "Hugging Face",
+      "synonyms": [],
+      "tag": "huggingface"
+    },
+    {
+      "count": 1813,
+      "display": "I2C",
+      "synonyms": [],
+      "tag": "i2c"
+    },
+    {
+      "count": 2624,
+      "display": "Istio",
+      "synonyms": [],
+      "tag": "istio"
+    },
+    {
+      "count": 19971,
+      "display": "JMeter",
+      "synonyms": [
+        "apache-jmeter"
+      ],
+      "tag": "jmeter"
+    },
+    {
+      "count": 52039,
+      "display": "JPA",
+      "synonyms": [
+        "jakarta-persistence",
+        "jakarta.persistence-api",
+        "java-persistence-api",
+        "javax.persistence"
+      ],
+      "tag": "jpa"
+    },
+    {
+      "count": 28007,
+      "display": "JUnit",
+      "synonyms": [],
+      "tag": "junit"
+    },
+    {
+      "count": 3792,
+      "display": "JUnit 5",
+      "synonyms": [],
+      "tag": "junit5"
+    },
+    {
+      "count": 18198,
+      "display": "JWT",
+      "synonyms": [
+        "json-web-token",
+        "jwt-auth"
+      ],
+      "tag": "jwt"
+    },
+    {
+      "count": 13357,
+      "display": "Jasmine",
+      "synonyms": [],
+      "tag": "jasmine"
+    },
+    {
+      "count": 1262,
+      "display": "Java 17",
+      "synonyms": [
+        "openjdk-17"
+      ],
+      "tag": "java-17"
+    },
+    {
+      "count": 50453,
+      "display": "Jenkins",
+      "synonyms": [],
+      "tag": "jenkins"
+    },
+    {
+      "count": 86666,
+      "display": "LINQ",
+      "synonyms": [
+        "language-integrated-query",
+        "linq-query-syntax"
+      ],
+      "tag": "linq"
+    },
+    {
+      "count": 12741,
+      "display": "Leaflet",
+      "synonyms": [],
+      "tag": "leaflet"
+    },
+    {
+      "count": 226887,
+      "display": "Linux",
+      "synonyms": [
+        "linux-development"
+      ],
+      "tag": "linux"
+    },
+    {
+      "count": 3875,
+      "display": "Liquibase",
+      "synonyms": [],
+      "tag": "liquibase"
+    },
+    {
+      "count": 2560,
+      "display": "Lombok",
+      "synonyms": [],
+      "tag": "lombok"
+    },
+    {
+      "count": 2578,
+      "display": "Lumen",
+      "synonyms": [],
+      "tag": "lumen"
+    },
+    {
+      "count": 6443,
+      "display": "MQTT",
+      "synonyms": [],
+      "tag": "mqtt"
+    },
+    {
+      "count": 2222,
+      "display": "MassTransit",
+      "synonyms": [],
+      "tag": "masstransit"
+    },
+    {
+      "count": 22603,
+      "display": "Material UI",
+      "synonyms": [
+        "mui"
+      ],
+      "tag": "material-ui"
+    },
+    {
+      "count": 553,
+      "display": "MediatR",
+      "synonyms": [],
+      "tag": "mediatr"
+    },
+    {
+      "count": 9275,
+      "display": "Microservices",
+      "synonyms": [],
+      "tag": "microservices"
+    },
+    {
+      "count": 13893,
+      "display": "Mockito",
+      "synonyms": [],
+      "tag": "mockito"
+    },
+    {
+      "count": 3407,
+      "display": "MyBatis",
+      "synonyms": [],
+      "tag": "mybatis"
+    },
+    {
+      "count": 6924,
+      "display": "MySQL Workbench",
+      "synonyms": [],
+      "tag": "mysql-workbench"
+    },
+    {
+      "count": 4645,
+      "display": "NgRx",
+      "synonyms": [],
+      "tag": "ngrx"
+    },
+    {
+      "count": 54458,
+      "display": "Nginx",
+      "synonyms": [],
+      "tag": "nginx"
+    },
+    {
+      "count": 703,
+      "display": "Nmap",
+      "synonyms": [],
+      "tag": "nmap"
+    },
+    {
+      "count": 469544,
+      "display": "Node.js",
+      "synonyms": [
+        "io.js",
+        "nodejs"
+      ],
+      "tag": "node.js"
+    },
+    {
+      "count": 152323,
+      "display": "Oracle Database",
+      "synonyms": [],
+      "tag": "oracle-database"
+    },
+    {
+      "count": 29147,
+      "display": "PL/SQL",
+      "synonyms": [],
+      "tag": "plsql"
+    },
+    {
+      "count": 2505,
+      "display": "Photoshop",
+      "synonyms": [],
+      "tag": "photoshop"
+    },
+    {
+      "count": 876,
+      "display": "Pinia",
+      "synonyms": [],
+      "tag": "pinia"
+    },
+    {
+      "count": 12556,
+      "display": "Postman",
+      "synonyms": [],
+      "tag": "postman"
+    },
+    {
+      "count": 20517,
+      "display": "Power BI",
+      "synonyms": [],
+      "tag": "powerbi"
+    },
+    {
+      "count": 3707,
+      "display": "Prisma",
+      "synonyms": [],
+      "tag": "prisma"
+    },
+    {
+      "count": 7858,
+      "display": "Protocol Buffers",
+      "synonyms": [
+        "google-protobuf",
+        "google-protocol-buffer",
+        "proto",
+        "protobuf",
+        "protobufs"
+      ],
+      "tag": "protocol-buffers"
+    },
+    {
+      "count": 1745,
+      "display": "Provider",
+      "synonyms": [],
+      "tag": "provider"
+    },
+    {
+      "count": 23811,
+      "display": "PyTorch",
+      "synonyms": [],
+      "tag": "pytorch"
+    },
+    {
+      "count": 2227,
+      "display": "REST-Assured",
+      "synonyms": [],
+      "tag": "rest-assured"
+    },
+    {
+      "count": 2560,
+      "display": "React Hook Form",
+      "synonyms": [],
+      "tag": "react-hook-form"
+    },
+    {
+      "count": 1843,
+      "display": "React Query",
+      "synonyms": [],
+      "tag": "react-query"
+    },
+    {
+      "count": 3714,
+      "display": "React Testing Library",
+      "synonyms": [],
+      "tag": "react-testing-library"
+    },
+    {
+      "count": 35316,
+      "display": "Redux",
+      "synonyms": [
+        "redux-reducers"
+      ],
+      "tag": "redux"
+    },
+    {
+      "count": 3622,
+      "display": "Redux Toolkit",
+      "synonyms": [
+        "reduxjs-toolkit"
+      ],
+      "tag": "redux-toolkit"
+    },
+    {
+      "count": 17419,
+      "display": "Responsive Design",
+      "synonyms": [],
+      "tag": "responsive-design"
+    },
+    {
+      "count": 8501,
+      "display": "Retrofit",
+      "synonyms": [],
+      "tag": "retrofit"
+    },
+    {
+      "count": 1477,
+      "display": "Riverpod",
+      "synonyms": [
+        "flutter-riverpod"
+      ],
+      "tag": "riverpod"
+    },
+    {
+      "count": 21223,
+      "display": "RxJS",
+      "synonyms": [
+        "reactive-extensions-js"
+      ],
+      "tag": "rxjs"
+    },
+    {
+      "count": 1454,
+      "display": "SPI",
+      "synonyms": [],
+      "tag": "spi"
+    },
+    {
+      "count": 336206,
+      "display": "SQL Server",
+      "synonyms": [
+        "ms-sql-server",
+        "mssql",
+        "sql-server-on-linux",
+        "sql-server-vnext",
+        "sql-srever"
+      ],
+      "tag": "sql-server"
+    },
+    {
+      "count": 2389,
+      "display": "SSE",
+      "synonyms": [
+        "xmm"
+      ],
+      "tag": "sse"
+    },
+    {
+      "count": 753,
+      "display": "Scrum",
+      "synonyms": [],
+      "tag": "scrum"
+    },
+    {
+      "count": 57351,
+      "display": "Selenium WebDriver",
+      "synonyms": [
+        "selenium",
+        "selenium-webdriver-c#",
+        "selenium-webdriver-java",
+        "selenium-webdriver-python",
+        "selenium2",
+        "webdriverjs"
+      ],
+      "tag": "selenium-webdriver"
+    },
+    {
+      "count": 3092,
+      "display": "Serverless Framework",
+      "synonyms": [],
+      "tag": "serverless-framework"
+    },
+    {
+      "count": 9816,
+      "display": "SignalR",
+      "synonyms": [],
+      "tag": "signalr"
+    },
+    {
+      "count": 20510,
+      "display": "Socket.io",
+      "synonyms": [
+        "socketio"
+      ],
+      "tag": "socket.io"
+    },
+    {
+      "count": 11899,
+      "display": "SonarQube",
+      "synonyms": [
+        "sonar"
+      ],
+      "tag": "sonarqube"
+    },
+    {
+      "count": 5172,
+      "display": "Spring Cloud",
+      "synonyms": [],
+      "tag": "spring-cloud"
+    },
+    {
+      "count": 1269,
+      "display": "Spring Cloud Gateway",
+      "synonyms": [],
+      "tag": "spring-cloud-gateway"
+    },
+    {
+      "count": 23200,
+      "display": "Spring Data JPA",
+      "synonyms": [
+        "spring-boot-jpa",
+        "spring-jpa"
+      ],
+      "tag": "spring-data-jpa"
+    },
+    {
+      "count": 58277,
+      "display": "Spring MVC",
+      "synonyms": [
+        "spring-mvc-initbinders",
+        "spring-web"
+      ],
+      "tag": "spring-mvc"
+    },
+    {
+      "count": 29080,
+      "display": "Spring Security",
+      "synonyms": [
+        "acegi"
+      ],
+      "tag": "spring-security"
+    },
+    {
+      "count": 6395,
+      "display": "Spring WebFlux",
+      "synonyms": [
+        "spring-reactive",
+        "spring-reactor",
+        "webflux"
+      ],
+      "tag": "spring-webflux"
+    },
+    {
+      "count": 2133,
+      "display": "Storybook",
+      "synonyms": [],
+      "tag": "storybook"
+    },
+    {
+      "count": 4553,
+      "display": "Styled Components",
+      "synonyms": [],
+      "tag": "styled-components"
+    },
+    {
+      "count": 12402,
+      "display": "Swagger",
+      "synonyms": [],
+      "tag": "swagger"
+    },
+    {
+      "count": 10551,
+      "display": "Tailwind CSS",
+      "synonyms": [
+        "tailwind"
+      ],
+      "tag": "tailwind-css"
+    },
+    {
+      "count": 9273,
+      "display": "Thymeleaf",
+      "synonyms": [],
+      "tag": "thymeleaf"
+    },
+    {
+      "count": 4667,
+      "display": "TypeORM",
+      "synonyms": [],
+      "tag": "typeorm"
+    },
+    {
+      "count": 12505,
+      "display": "UIKit",
+      "synonyms": [],
+      "tag": "uikit"
+    },
+    {
+      "count": 3198,
+      "display": "VPN",
+      "synonyms": [],
+      "tag": "vpn"
+    },
+    {
+      "count": 28129,
+      "display": "WebSocket",
+      "synonyms": [
+        "websockets",
+        "wss-websocket"
+      ],
+      "tag": "websocket"
+    },
+    {
+      "count": 973,
+      "display": "WireMock",
+      "synonyms": [],
+      "tag": "wiremock"
+    },
+    {
+      "count": 2999,
+      "display": "Wireshark",
+      "synonyms": [],
+      "tag": "wireshark"
+    },
+    {
+      "count": 2015,
+      "display": "XCTest",
+      "synonyms": [],
+      "tag": "xctest"
+    },
+    {
+      "count": 583,
+      "display": "continuous delivery",
+      "synonyms": [],
+      "tag": "continuous-delivery"
+    },
+    {
+      "count": 14026,
+      "display": "continuous integration",
+      "synonyms": [
+        "ci"
+      ],
+      "tag": "continuous-integration"
+    },
+    {
+      "count": 1566,
+      "display": "dbt",
+      "synonyms": [],
+      "tag": "dbt"
+    },
+    {
+      "count": 27043,
+      "display": "dependency injection",
+      "synonyms": [
+        "di"
+      ],
+      "tag": "dependency-injection"
+    },
+    {
+      "count": 6785,
+      "display": "gRPC",
+      "synonyms": [],
+      "tag": "grpc"
+    },
+    {
+      "count": 55531,
+      "display": "machine learning",
+      "synonyms": [],
+      "tag": "machine-learning"
+    },
+    {
+      "count": 33738,
+      "display": "model-view-controller",
+      "synonyms": [
+        "mvc"
+      ],
+      "tag": "model-view-controller"
+    },
+    {
+      "count": 85631,
+      "display": "unit testing",
+      "synonyms": [
+        "unit-test",
+        "unit-tests",
+        "unittest"
+      ],
+      "tag": "unit-testing"
+    }
+  ]
+}
