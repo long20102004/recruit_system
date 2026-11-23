@@ -7,17 +7,16 @@
     <link rel="stylesheet" href="../assets/css/main.css" />
   </head>
   <body>
-    <div class="demo-banner">Nhà tuyển dụng · <span>Quản lý tin đăng & ứng viên (demo)</span></div>
     <header class="site-header" data-header></header>
 
     <main class="page">
       <header class="page-head">
         <div style="display:flex;flex-wrap:wrap;justify-content:space-between;gap:1rem;align-items:end">
           <div>
-            <h1>Tin đang đăng & ứng viên</h1>
-            <p>Tin đang mở, hồ sơ đã đọc và câu hỏi phỏng vấn — cùng một mặt giấy với trang việc làm.</p>
+            <h1>Xin chào, <span id="recName"></span></h1>
+            <p>Quản lý tin đăng, hồ sơ ứng viên và phiên phỏng vấn của <strong id="recCompany"></strong>.</p>
           </div>
-          <a class="btn btn-primary" href="jobs.html">Đăng tin mới</a>
+          <a class="btn btn-primary" href="jobs.html">Đăng vị trí mới</a>
         </div>
       </header>
 
@@ -28,28 +27,31 @@
           <div class="note">Hiển thị trên trang tìm việc</div>
         </article>
         <article class="stat">
-          <div class="label">CV đã parse</div>
-          <div class="value">1</div>
-          <div class="note">Chờ ứng viên xác nhận</div>
+          <div class="label">Hồ sơ ứng viên</div>
+          <div class="value" id="candCount">0</div>
+          <div class="note">Đã nộp / đang xem xét</div>
         </article>
         <article class="stat">
           <div class="label">Câu hỏi phỏng vấn</div>
           <div class="value" id="qCount">0</div>
-          <div class="note">Có reference + rubric</div>
+          <div class="note">Ngân hàng theo vị trí</div>
         </article>
       </section>
 
       <section class="grid-2">
         <article class="panel">
-          <h2>Tin tuyển dụng của bạn</h2>
+          <h2>Tin tuyển dụng gần đây</h2>
           <div class="job-list" id="myJobs"></div>
+          <div class="split-actions">
+            <a class="btn btn-soft btn-sm" href="jobs.html">Quản lý tất cả tin</a>
+          </div>
         </article>
         <article class="panel">
-          <h2>Model version (truy vết)</h2>
-          <div id="models" class="kv"></div>
+          <h2>Ứng viên mới</h2>
+          <div id="apps"></div>
           <div class="split-actions">
-            <a class="btn btn-soft btn-sm" href="candidates.html">Xem ứng viên</a>
-            <a class="btn btn-ghost btn-sm" href="matching.html">Matching AI</a>
+            <a class="btn btn-soft btn-sm" href="candidates.html">Xem hồ sơ</a>
+            <a class="btn btn-ghost btn-sm" href="matching.html">Ghép hồ sơ–tin</a>
           </div>
         </article>
       </section>
@@ -60,20 +62,33 @@
     <script>
       HireLens.setRole("recruiter");
       HireLens.renderHeader("home", "recruiter");
-      document.getElementById("jobCount").textContent = HireLensMock.jobs.length;
+
+      const r = HireLensMock.recruiter;
+      document.getElementById("recName").textContent = r.name.split(" ").slice(-1)[0];
+      document.getElementById("recCompany").textContent = r.company;
+      document.getElementById("jobCount").textContent = HireLens.getJobs().length;
+      document.getElementById("candCount").textContent = HireLensMock.applications.length;
       document.getElementById("qCount").textContent = HireLensMock.interviewQuestions.length;
-      document.getElementById("myJobs").innerHTML = HireLensMock.jobs
+
+      document.getElementById("myJobs").innerHTML = HireLens.getJobs()
         .slice(0, 4)
         .map((j, i) => HireLens.renderJobCard(j, { delay: i * 40 }))
         .join("");
-      document.getElementById("models").innerHTML = Object.entries(HireLensMock.meta.modelVersions)
-        .map(
-          ([k, v]) => `
-          <div class="kv-row">
-            <label>${k}</label>
-            <div><span class="chip brand">${v}</span></div>
-          </div>`
-        )
+
+      document.getElementById("apps").innerHTML = HireLensMock.applications
+        .map((a) => {
+          const job = HireLens.jobById(a.jobId);
+          return `
+            <div class="kv-row" style="padding:.75rem 0;border-bottom:1px solid var(--line)">
+              <label>${a.candidateName}</label>
+              <div>
+                <strong>${job ? job.title : a.jobId}</strong><br />
+                <span class="chip brand">${HireLens.pct(a.matchScore)}% phù hợp</span>
+                <span class="chip">${a.status}</span>
+                <span class="muted"> · ${a.appliedAt}</span>
+              </div>
+            </div>`;
+        })
         .join("");
     </script>
   </body>

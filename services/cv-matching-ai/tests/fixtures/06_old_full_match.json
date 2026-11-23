@@ -1,0 +1,38 @@
+{
+  "candidate": {
+    "skills": [
+      "React",
+      "JavaScript",
+      "Node.js",
+      "MongoDB",
+      "REST API",
+      "Git",
+      "Agile"
+    ],
+    "experience_years": 3,
+    "job_titles": [
+      "Frontend Developer",
+      "Fullstack Developer"
+    ],
+    "education": {
+      "degree": "Cử nhân",
+      "major": "Khoa học máy tính"
+    },
+    "certificates": [
+      "AWS Certified Developer"
+    ],
+    "raw_context": "Tôi đã phát triển hệ thống e-commerce quy mô vừa với React và Node.js, làm việc trong môi trường Agile, thường xuyên giao tiếp với khách hàng để hiểu yêu cầu và chuyển đổi thành tính năng sản phẩm."
+  },
+  "jd": {
+    "required_skills": [
+      "React",
+      "JavaScript",
+      "REST API"
+    ],
+    "min_experience_years": 2,
+    "required_title": "Frontend Developer",
+    "education_requirement": "Cử nhân CNTT trở lên",
+    "context": "Cần người có khả năng làm việc nhóm, phát triển giao diện responsive, làm việc trong môi trường Agile."
+  },
+  "_note": "Khớp hoàn toàn; ứng viên vượt yêu cầu."
+}

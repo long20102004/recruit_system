@@ -1,0 +1,28 @@
+{
+  "candidate": {
+    "name": "Dũng",
+    "skills": [
+      "Python",
+      "AWS",
+      "Machine Learning"
+    ],
+    "experience_years": 8,
+    "job_titles": [
+      "Data Scientist"
+    ],
+    "education": "Thạc sĩ",
+    "raw_context": "Huấn luyện mô hình machine learning trên AWS."
+  },
+  "jd": {
+    "title": "Data Scientist",
+    "required_skills": [
+      "Python",
+      "Machine Learning",
+      "AWS"
+    ],
+    "min_experience_years": 5,
+    "required_title": "Data Scientist",
+    "education": "Cử nhân",
+    "context": "Xây dựng mô hình machine learning trên cloud."
+  }
+}

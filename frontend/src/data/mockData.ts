@@ -11,12 +11,6 @@ import type {
 export const mockMeta = {
   notice: "Dữ liệu minh họa cho demo UI",
   userLocation: "Quận 1, TP. Hồ Chí Minh",
-  modelVersions: {
-    ner: "rule+ner-baseline-v0 (chưa deploy service)",
-    embedding: "sentence-transformer-planned-v0",
-    matching: "hybrid-baseline-v0 (TF-IDF + semantic stub)",
-    interview: "bertscore-mbert + linear-calibration-demo",
-  },
 };
 
 export const mockCandidate: Candidate = {
@@ -61,13 +55,13 @@ export const mockExtractedCv: ExtractedCv = {
   projects: [
     {
       name: "Hệ thống tuyển dụng thông minh",
-      description: "Áp dụng NER, Embedding, Learning-to-Rank và BERTScore.",
+      description: "Hệ thống hỗ trợ tuyển dụng: phân tích CV, ghép việc và luyện phỏng vấn.",
       skills: ["Java", "Spring Boot", "Python", "NLP"],
     },
   ],
   skills: ["Java", "Spring Boot", "PostgreSQL", "Python", "REST API", "Git"],
   languages: ["Tiếng Việt (bản ngữ)", "English (B1)"],
-  certificates: ["AWS Cloud Practitioner (minh họa)"],
+  certificates: ["AWS Cloud Practitioner"],
   missingFields: ["linkedin", "expected_salary"],
 };
 
@@ -90,6 +84,8 @@ export const mockJobs: Job[] = [
     requiredSkills: ["Java", "Spring Boot", "PostgreSQL", "REST API"],
     preferredSkills: ["Docker", "Kafka"],
     minYears: 1,
+    requirements: "",
+    responsibilities: "",
     description:
       "Tham gia xây dựng microservice Java/Spring Boot, viết API và tối ưu truy vấn PostgreSQL.",
   },
@@ -111,6 +107,8 @@ export const mockJobs: Job[] = [
     requiredSkills: ["Python", "NLP", "PyTorch"],
     preferredSkills: ["BERT", "FastAPI"],
     minYears: 0,
+    requirements: "",
+    responsibilities: "",
     description:
       "Hỗ trợ pipeline trích xuất thông tin CV và đánh giá câu trả lời phỏng vấn bằng Transformer.",
   },
@@ -132,6 +130,8 @@ export const mockJobs: Job[] = [
     requiredSkills: ["React", "Node.js", "TypeScript", "PostgreSQL"],
     preferredSkills: ["AWS"],
     minYears: 2,
+    requirements: "",
+    responsibilities: "",
     description: "Phát triển sản phẩm web end-to-end cho nền tảng HR.",
   },
   {
@@ -152,6 +152,8 @@ export const mockJobs: Job[] = [
     requiredSkills: ["Java", "SQL", "Git"],
     preferredSkills: ["Spring Boot"],
     minYears: 0,
+    requirements: "",
+    responsibilities: "",
     description: "Thực tập Java, tham gia dự án outsourcing và mentorship.",
   },
   {
@@ -172,6 +174,8 @@ export const mockJobs: Job[] = [
     requiredSkills: ["Java", "Spring Boot", "MySQL", "Redis"],
     preferredSkills: ["Kafka", "Kubernetes"],
     minYears: 1,
+    requirements: "",
+    responsibilities: "",
     description: "Xây dựng dịch vụ backend cho sản phẩm game / social.",
   },
   {
@@ -192,6 +196,8 @@ export const mockJobs: Job[] = [
     requiredSkills: ["Python", "Machine Learning", "SQL"],
     preferredSkills: ["NLP"],
     minYears: 0,
+    requirements: "",
+    responsibilities: "",
     description: "Hỗ trợ các bài toán ranking, NLP và phân tích hành vi người dùng.",
   },
 ];
@@ -208,8 +214,8 @@ export const mockMatchingResults: MatchResult[] = [
     missingSkills: ["Docker"],
     reasons: [
       "Kỹ năng bắt buộc trùng 4/4",
-      "Kinh nghiệm backend Java phù hợp JD",
-      "Điểm semantic (stub) cao với mô tả công việc",
+      "Kinh nghiệm backend Java phù hợp mô tả công việc",
+      "Hồ sơ gần với yêu cầu vị trí",
     ],
     modelVersion: "hybrid-baseline-v0",
   },
@@ -305,13 +311,12 @@ export const mockInterviewSession: InterviewSession = {
         bertRecall: 0.84,
         bertF1: 0.87,
         predictedScore: 8.2,
-        scoreScale:
-          "0–10 (đã hiệu chỉnh từ BERTScore, không quy đổi trực tiếp)",
+        scoreScale: "0–10",
         coveredPoints: ["Hướng đối tượng", "Ứng dụng backend"],
         missingPoints: ["Đa nền tảng"],
         comment:
           "Câu trả lời đúng trọng tâm nhưng chưa đề cập đặc tính đa nền tảng.",
-        modelVersion: "bertscore-mbert + linear-calibration-demo",
+        modelVersion: "",
       },
     },
   ],
@@ -319,9 +324,8 @@ export const mockInterviewSession: InterviewSession = {
 
 export const scoreDefinitions = {
   matchScore:
-    "Điểm phù hợp tổng hợp (0–1) = trọng số semantic + skill overlap + kinh nghiệm. Bản demo dùng stub có thể giải thích được, chưa phải Learning-to-Rank đã huấn luyện.",
-  bertscore:
-    "BERTScore đo tương đồng ngữ nghĩa với đáp án tham chiếu. Điểm phỏng vấn hiển thị đã qua bước hiệu chỉnh tuyến tính trên dữ liệu demo — không phải điểm tuyệt đối.",
-  cvConfidence:
-    "Độ tin cậy trích xuất ước lượng từ rule-based + NER baseline (minh họa).",
+    "Điểm phù hợp dựa trên kỹ năng, kinh nghiệm và mức gần với mô tả việc.",
+  interview:
+    "Điểm phỏng vấn theo thang 0–10, kèm ý đã nêu và ý còn thiếu.",
+  cvConfidence: "Độ đầy đủ hồ sơ ước lượng từ thông tin đã đọc được trên CV.",
 };

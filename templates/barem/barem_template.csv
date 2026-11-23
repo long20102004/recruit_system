@@ -1,0 +1,3 @@
+﻿﻿ma_vi_tri,ten_vi_tri,cap_bac,cong_ty,thang_diem,nhom_tieu_chi,ma_tieu_chi,ten_tieu_chi,loai_cham,diem_toi_da,bat_buoc,tu_khoa_goi_y,cau_hoi_goi_y,dap_an_tham_chieu,ghi_chu
+JOB001,Junior Backend Developer (Java),Junior,Tên công ty bạn,0-100,Ngoại ngữ,lang_jp,Tiếng Nhật (tối thiểu N3),diem_cong,5,khong,tiếng nhật;N3;JLPT,Bạn có chứng chỉ tiếng Nhật không? Mức nào?,Ứng viên đạt JLPT N3 trở lên được cộng 5 điểm.,Ví dụ — xóa/sửa thành barem thật của bạn
+JOB001,Junior Backend Developer (Java),Junior,Tên công ty bạn,0-100,Kỹ thuật,java_oop,Java OOP — các ý cốt lõi,cham_theo_y,10,co,hướng đối tượng;oop;đa nền tảng;backend,Java là gì? Nêu các đặc điểm chính.,Java là ngôn ngữ hướng đối tượng; đa nền tảng; thường dùng backend/web.,Chấm theo số ý ứng viên nêu được

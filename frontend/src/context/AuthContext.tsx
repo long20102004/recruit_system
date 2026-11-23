@@ -1,0 +1,108 @@
+import {
+  createContext,
+  useCallback,
+  useContext,
+  useEffect,
+  useMemo,
+  useState,
+  type ReactNode,
+} from "react";
+import {
+  authApi,
+  getToken,
+  setToken,
+  type RoleDto,
+  type UserDto,
+} from "../api/client";
+import type { HeaderMode, UserRole } from "../types";
+
+interface AuthState {
+  user: UserDto | null;
+  loading: boolean;
+  login: (email: string, password: string) => Promise<UserDto>;
+  register: (input: { email: string; password: string }) => Promise<UserDto>;
+  chooseRole: (role: "CANDIDATE" | "RECRUITER") => Promise<UserDto>;
+  logout: () => void;
+  headerMode: HeaderMode;
+  uiRole: UserRole | null;
+}
+
+const AuthContext = createContext<AuthState | null>(null);
+
+function roleToHeader(role: RoleDto | undefined): HeaderMode {
+  if (role === "RECRUITER" || role === "ADMIN") return "recruiter";
+  if (role === "CANDIDATE") return "candidate";
+  return "public";
+}
+
+function roleToUi(role: RoleDto | undefined): UserRole | null {
+  if (role === "RECRUITER" || role === "ADMIN") return "recruiter";
+  if (role === "CANDIDATE") return "candidate";
+  return null;
+}
+
+export function AuthProvider({ children }: { children: ReactNode }) {
+  const [user, setUser] = useState<UserDto | null>(null);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const token = getToken();
+    if (!token) {
+      setLoading(false);
+      return;
+    }
+    authApi
+      .me()
+      .then(setUser)
+      .catch(() => setToken(null))
+      .finally(() => setLoading(false));
+  }, []);
+
+  const login = useCallback(async (email: string, password: string) => {
+    const res = await authApi.login(email, password);
+    setToken(res.token);
+    setUser(res.user);
+    return res.user;
+  }, []);
+
+  const register = useCallback(async (input: { email: string; password: string }) => {
+    const res = await authApi.register(input);
+    setToken(res.token);
+    setUser(res.user);
+    return res.user;
+  }, []);
+
+  const chooseRole = useCallback(async (role: "CANDIDATE" | "RECRUITER") => {
+    const res = await authApi.chooseRole(role);
+    setToken(res.token);
+    setUser(res.user);
+    return res.user;
+  }, []);
+
+  const logout = useCallback(() => {
+    setToken(null);
+    setUser(null);
+  }, []);
+
+  const value = useMemo<AuthState>(
+    () => ({
+      user,
+      loading,
+      login,
+      register,
+      chooseRole,
+      logout,
+      headerMode: roleToHeader(user?.role),
+      uiRole: roleToUi(user?.role),
+    }),
+    [user, loading, login, register, chooseRole, logout]
+  );
+
+  return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;
+}
+
+export function useAuth() {
+  const ctx = useContext(AuthContext);
+  if (!ctx) throw new Error("useAuth must be used within AuthProvider");
+  return ctx;
+}

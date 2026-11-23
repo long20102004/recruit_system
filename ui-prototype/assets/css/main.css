@@ -83,7 +83,9 @@ h3,
   color: var(--muted);
 }
 
+/* Ẩn banner nội bộ đồ án — prototype hướng người dùng cuối */
 .demo-banner {
+  display: none !important;
   background: transparent;
   color: var(--muted);
   font-size: 0.75rem;

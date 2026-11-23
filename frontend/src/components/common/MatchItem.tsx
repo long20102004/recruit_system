@@ -2,7 +2,6 @@ import type { ReactNode } from "react";
 import type { Job, MatchResult } from "../../types";
 import { pct } from "../../utils/format";
 import { Button } from "./Button";
-import { Chip } from "./Chip";
 import { JobLogo } from "./JobLogo";
 import { ProgressBar } from "./ProgressBar";
 import { ScoreRing } from "./ScoreRing";
@@ -14,11 +13,26 @@ interface MatchItemProps {
   actionLabel?: string;
 }
 
+function gapLine(match: MatchResult): string {
+  const gaps: string[] = [];
+  if (match.missingSkills.length > 0) {
+    gaps.push("thiếu " + match.missingSkills.join(", "));
+  }
+  const lowExperience = match.reasons.find((reason) => /thấp hơn/i.test(reason));
+  if (lowExperience) {
+    gaps.push(lowExperience.charAt(0).toLowerCase() + lowExperience.slice(1));
+  }
+  if (gaps.length === 0) {
+    return "Đã phù hợp với yêu cầu kỹ năng và kinh nghiệm đang so khớp.";
+  }
+  return "Chưa phù hợp: " + gaps.join("; ") + ".";
+}
+
 export function MatchItem({
   job,
   match,
-  actionHref = "/candidate/interview",
-  actionLabel = "Phỏng vấn",
+  actionHref = "/candidate/matching",
+  actionLabel = "Xem chi tiết",
 }: MatchItemProps) {
   return (
     <article className="match-item">
@@ -46,33 +60,7 @@ export function MatchItem({
           </div>
         </div>
         <ProgressBar percent={pct(match.score)} />
-        <div>
-          {match.matchedSkills.map((s) => (
-            <Chip key={`m-${s}`} tone="ok">
-              {s}
-            </Chip>
-          ))}
-          {match.missingSkills.map((s) => (
-            <Chip key={`x-${s}`} tone="warn">
-              Thiếu: {s}
-            </Chip>
-          ))}
-        </div>
-        <ul
-          style={{
-            margin: ".75rem 0 0",
-            paddingLeft: "1.1rem",
-            color: "var(--muted)",
-          }}
-        >
-          {match.reasons.map((x) => (
-            <li key={x}>{x}</li>
-          ))}
-        </ul>
-        <p className="hint">
-          Semantic: {pct(match.semanticSimilarity)}% · TF-IDF:{" "}
-          {pct(match.tfidfSimilarity)}% · Model: {match.modelVersion}
-        </p>
+        <p className="match-gap">{gapLine(match)}</p>
       </div>
       <div style={{ textAlign: "center" }}>
         <ScoreRing percent={pct(match.score)}>

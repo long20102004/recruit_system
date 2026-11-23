@@ -1,0 +1,8 @@
+{
+  "label_source": "assistant_graded",
+  "grader": "coding-assistant",
+  "human_expert": false,
+  "n_answers": 90,
+  "n_questions": 30,
+  "note": "Điểm do trợ lý lập trình chấm khi đọc câu hỏi và rubric. Không phải giảng viên hay chuyên gia tuyển dụng chấm."
+}

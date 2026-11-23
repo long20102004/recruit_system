@@ -1,0 +1,744 @@
+id,name,alias_key,source
+1,accessibility designer,accessibility designer,esco:http://data.europa.eu/esco/occupation/96e20037-0a25-4bf6-a25e-808d1605d890
+2,accessibility test specialist,accessibility test specialist,esco:http://data.europa.eu/esco/occupation/50af07f0-7a75-424e-a66d-5a9deea10f4c
+3,accessibility testers,accessibility testers,esco:http://data.europa.eu/esco/occupation/50af07f0-7a75-424e-a66d-5a9deea10f4c
+4,ADR editor,adr editor,esco:http://data.europa.eu/esco/occupation/36095ccd-c62d-4f1f-8af7-1fd10618b044
+5,AI system designer,ai system designer,esco:http://data.europa.eu/esco/occupation/35553663-deab-4d9a-bf22-15c1625d28e8
+6,analyst of software,analyst of software,esco:http://data.europa.eu/esco/occupation/04ba4d6c-957d-417f-bf63-5b9e015a9f86
+7,app coder,app coder,esco:http://data.europa.eu/esco/occupation/2ed56c3f-61d6-4f7e-9ef8-8849eb102e4c
+8,app configurator,app configurator,esco:http://data.europa.eu/esco/occupation/456ed487-02f2-45c9-9213-d0fd8e9a069d
+9,app developer,app developer,esco:http://data.europa.eu/esco/occupation/2ed56c3f-61d6-4f7e-9ef8-8849eb102e4c
+10,app programmer,app programmer,esco:http://data.europa.eu/esco/occupation/2ed56c3f-61d6-4f7e-9ef8-8849eb102e4c
+11,app software developer,app software developer,esco:http://data.europa.eu/esco/occupation/bd272aee-adc9-4a06-a15c-a73b4b4a46a7
+12,application analyst,application analyst,esco:http://data.europa.eu/esco/occupation/04ba4d6c-957d-417f-bf63-5b9e015a9f86
+13,application architect,application architect,esco:http://data.europa.eu/esco/occupation/d0aa0792-4345-474b-9365-686cf4869d2e
+14,application configurators,application configurators,esco:http://data.europa.eu/esco/occupation/456ed487-02f2-45c9-9213-d0fd8e9a069d
+15,application designer,application designer,esco:http://data.europa.eu/esco/occupation/bd272aee-adc9-4a06-a15c-a73b4b4a46a7
+16,application integration consultant,application integration consultant,esco:http://data.europa.eu/esco/occupation/bd9d395a-d587-45c6-8d72-ceef226df9e1
+17,application lifecycle manager,application lifecycle manager,esco:http://data.europa.eu/esco/occupation/3b1ea27c-781c-41eb-821f-214285260dd2
+18,application programmer,application programmer,esco:http://data.europa.eu/esco/occupation/f2b15a0e-e65a-438a-affb-29b9d50b77d1
+19,application software configurator,application software configurator,esco:http://data.europa.eu/esco/occupation/456ed487-02f2-45c9-9213-d0fd8e9a069d
+20,application software developer,application software developer,esco:http://data.europa.eu/esco/occupation/f2b15a0e-e65a-438a-affb-29b9d50b77d1
+21,application software developers,application software developers,esco:http://data.europa.eu/esco/occupation/bd272aee-adc9-4a06-a15c-a73b4b4a46a7
+22,application software engineer,application software engineer,esco:http://data.europa.eu/esco/occupation/bd272aee-adc9-4a06-a15c-a73b4b4a46a7
+23,application software tester,application software tester,esco:http://data.europa.eu/esco/occupation/106f79e4-6264-45f1-9e7a-297435cd684b
+24,application tester,application tester,esco:http://data.europa.eu/esco/occupation/106f79e4-6264-45f1-9e7a-297435cd684b
+25,applications engineer,applications engineer,esco:http://data.europa.eu/esco/occupation/f2b15a0e-e65a-438a-affb-29b9d50b77d1
+26,artificial intelligence designer,artificial intelligence designer,esco:http://data.europa.eu/esco/occupation/35553663-deab-4d9a-bf22-15c1625d28e8
+27,artificial intelligence engineer,artificial intelligence engineer,esco:http://data.europa.eu/esco/occupation/35553663-deab-4d9a-bf22-15c1625d28e8
+28,assistant network administrator,assistant network administrator,esco:http://data.europa.eu/esco/occupation/64c7d461-152c-477f-a8e2-c2c537e9d617
+29,audio & video operator,audio & video operator,esco:http://data.europa.eu/esco/occupation/7642cbcc-9839-47fb-b2cf-d4bb831d6c93
+30,audio and video operator,audio and video operator,esco:http://data.europa.eu/esco/occupation/7642cbcc-9839-47fb-b2cf-d4bb831d6c93
+31,audio board operator,audio board operator,esco:http://data.europa.eu/esco/occupation/0da2ee5c-b480-498f-97a8-a292a0f4c54c
+32,audio designer,audio designer,esco:http://data.europa.eu/esco/occupation/790c8dca-f624-4bdc-ac16-27bc13ead188
+33,audio engineer & sound artist,audio engineer & sound artist,esco:http://data.europa.eu/esco/occupation/790c8dca-f624-4bdc-ac16-27bc13ead188
+34,audio engineer and sound artist,audio engineer and sound artist,esco:http://data.europa.eu/esco/occupation/790c8dca-f624-4bdc-ac16-27bc13ead188
+35,audio engineer and sound designer,audio engineer and sound designer,esco:http://data.europa.eu/esco/occupation/790c8dca-f624-4bdc-ac16-27bc13ead188
+36,audio mastering engineer,audio mastering engineer,esco:http://data.europa.eu/esco/occupation/239707a0-4754-4f4b-80b6-6b1ef5657aed
+37,audio mastering operator,audio mastering operator,esco:http://data.europa.eu/esco/occupation/239707a0-4754-4f4b-80b6-6b1ef5657aed
+38,audio operator,audio operator,esco:http://data.europa.eu/esco/occupation/0da2ee5c-b480-498f-97a8-a292a0f4c54c
+39,audio post-production technician,audio post-production technician,esco:http://data.europa.eu/esco/occupation/aa50ae49-1e40-4ba9-959f-22a11ff172b4
+40,audio restorer,audio restorer,esco:http://data.europa.eu/esco/occupation/aa50ae49-1e40-4ba9-959f-22a11ff172b4
+41,audio technician,audio technician,esco:http://data.europa.eu/esco/occupation/7642cbcc-9839-47fb-b2cf-d4bb831d6c93
+42,audio video specialist,audio video specialist,esco:http://data.europa.eu/esco/occupation/a59feab2-9bc9-4b25-97cf-995998164502
+43,audio visual specialist,audio visual specialist,esco:http://data.europa.eu/esco/occupation/a59feab2-9bc9-4b25-97cf-995998164502
+44,audio visual technician,audio visual technician,esco:http://data.europa.eu/esco/occupation/a59feab2-9bc9-4b25-97cf-995998164502
+45,audio-video operator,audio-video operator,esco:http://data.europa.eu/esco/occupation/7642cbcc-9839-47fb-b2cf-d4bb831d6c93
+46,audio-video specialist,audio-video specialist,esco:http://data.europa.eu/esco/occupation/a59feab2-9bc9-4b25-97cf-995998164502
+47,audio-visual assistant,audio-visual assistant,esco:http://data.europa.eu/esco/occupation/7642cbcc-9839-47fb-b2cf-d4bb831d6c93
+48,audio-visual engineer,audio-visual engineer,esco:http://data.europa.eu/esco/occupation/7642cbcc-9839-47fb-b2cf-d4bb831d6c93
+49,audio-visual operator,audio-visual operator,esco:http://data.europa.eu/esco/occupation/7642cbcc-9839-47fb-b2cf-d4bb831d6c93
+50,audio-visual specialist,audio-visual specialist,esco:http://data.europa.eu/esco/occupation/a59feab2-9bc9-4b25-97cf-995998164502
+51,audio-visual technician,audio-visual technician,esco:http://data.europa.eu/esco/occupation/7642cbcc-9839-47fb-b2cf-d4bb831d6c93
+52,audio-visuals technician,audio-visuals technician,esco:http://data.europa.eu/esco/occupation/7642cbcc-9839-47fb-b2cf-d4bb831d6c93
+53,audio/visual technician,audio/visual technician,esco:http://data.europa.eu/esco/occupation/a59feab2-9bc9-4b25-97cf-995998164502
+54,audiovisual assistant,audiovisual assistant,esco:http://data.europa.eu/esco/occupation/7642cbcc-9839-47fb-b2cf-d4bb831d6c93
+55,automatic dialogue replacement editor,automatic dialogue replacement editor,esco:http://data.europa.eu/esco/occupation/36095ccd-c62d-4f1f-8af7-1fd10618b044
+56,AV technician,av technician,esco:http://data.europa.eu/esco/occupation/a59feab2-9bc9-4b25-97cf-995998164502
+57,aviation data communications consultant,aviation data communications consultant,esco:http://data.europa.eu/esco/occupation/591c5063-69ce-4551-ba60-e2304111130f
+58,aviation data communications contractor,aviation data communications contractor,esco:http://data.europa.eu/esco/occupation/591c5063-69ce-4551-ba60-e2304111130f
+59,aviation data communications manager,aviation data communications manager,esco:http://data.europa.eu/esco/occupation/591c5063-69ce-4551-ba60-e2304111130f
+60,aviation data communications officer,aviation data communications officer,esco:http://data.europa.eu/esco/occupation/591c5063-69ce-4551-ba60-e2304111130f
+61,aviation data communications specialist,aviation data communications specialist,esco:http://data.europa.eu/esco/occupation/591c5063-69ce-4551-ba60-e2304111130f
+62,aviation sector data manager,aviation sector data manager,esco:http://data.europa.eu/esco/occupation/591c5063-69ce-4551-ba60-e2304111130f
+63,aws cloud architect,aws cloud architect,esco:http://data.europa.eu/esco/occupation/2fb96c6c-8d0b-4ef0-b1ee-3e493305e4eb
+64,battery controls engineer,battery controls engineer,esco:http://data.europa.eu/esco/occupation/10469d70-78a3-4650-9e29-d04de13c62c1
+65,battery data analyst,battery data analyst,esco:http://data.europa.eu/esco/occupation/d3edb8f8-3a06-47a0-8fb9-9b212c006aa2
+66,battery materials data analyst,battery materials data analyst,esco:http://data.europa.eu/esco/occupation/d3edb8f8-3a06-47a0-8fb9-9b212c006aa2
+67,battery module performance data analyst,battery module performance data analyst,esco:http://data.europa.eu/esco/occupation/d3edb8f8-3a06-47a0-8fb9-9b212c006aa2
+68,battery software developer,battery software developer,esco:http://data.europa.eu/esco/occupation/f2b15a0e-e65a-438a-affb-29b9d50b77d1
+69,blockchain architect,blockchain architect,esco:http://data.europa.eu/esco/occupation/78faf623-2543-43a5-acb2-3c43a22d36e4
+70,blockchain developer,blockchain developer,esco:http://data.europa.eu/esco/occupation/24135b84-cbdd-4d42-9ed2-02fd982d15b2
+71,blockchain development engineer,blockchain development engineer,esco:http://data.europa.eu/esco/occupation/24135b84-cbdd-4d42-9ed2-02fd982d15b2
+72,blockchain engineer,blockchain engineer,esco:http://data.europa.eu/esco/occupation/24135b84-cbdd-4d42-9ed2-02fd982d15b2
+73,blockchain technology specialist,blockchain technology specialist,esco:http://data.europa.eu/esco/occupation/78faf623-2543-43a5-acb2-3c43a22d36e4
+74,boom holder,boom holder,esco:http://data.europa.eu/esco/occupation/4d102082-8d43-4c59-81ab-08a7509f3c40
+75,boom operator,boom operator,esco:http://data.europa.eu/esco/occupation/4d102082-8d43-4c59-81ab-08a7509f3c40
+76,booth operator,booth operator,esco:http://data.europa.eu/esco/occupation/dce6a68c-8a05-4c26-85d4-6fbc43e7d822
+77,broadcast engineering technician,broadcast engineering technician,esco:http://data.europa.eu/esco/occupation/fe4a72af-6206-4d86-90c1-b5fb4b5ba2b2
+78,broadcast technician,broadcast technician,esco:http://data.europa.eu/esco/occupation/fe4a72af-6206-4d86-90c1-b5fb4b5ba2b2
+79,broadcast technicians,broadcast technicians,esco:http://data.europa.eu/esco/occupation/fe4a72af-6206-4d86-90c1-b5fb4b5ba2b2
+80,broadcast transmitter operator,broadcast transmitter operator,esco:http://data.europa.eu/esco/occupation/fe4a72af-6206-4d86-90c1-b5fb4b5ba2b2
+81,broadcast transmitting equipment operator,broadcast transmitting equipment operator,esco:http://data.europa.eu/esco/occupation/fe4a72af-6206-4d86-90c1-b5fb4b5ba2b2
+82,broadcast transmitting technician,broadcast transmitting technician,esco:http://data.europa.eu/esco/occupation/fe4a72af-6206-4d86-90c1-b5fb4b5ba2b2
+83,broadcasting engineer,broadcasting engineer,esco:http://data.europa.eu/esco/occupation/fe4a72af-6206-4d86-90c1-b5fb4b5ba2b2
+84,broadcasting equipment operator,broadcasting equipment operator,esco:http://data.europa.eu/esco/occupation/fe4a72af-6206-4d86-90c1-b5fb4b5ba2b2
+85,broadcasting technician,broadcasting technician,esco:http://data.europa.eu/esco/occupation/fe4a72af-6206-4d86-90c1-b5fb4b5ba2b2
+86,business continuity analyst,business continuity analyst,esco:http://data.europa.eu/esco/occupation/102e75c8-3b47-4964-9b47-30a980aed25c
+87,business continuity strategist,business continuity strategist,esco:http://data.europa.eu/esco/occupation/102e75c8-3b47-4964-9b47-30a980aed25c
+88,business data analyst,business data analyst,esco:http://data.europa.eu/esco/occupation/d3edb8f8-3a06-47a0-8fb9-9b212c006aa2
+89,business process specialist,business process specialist,esco:http://data.europa.eu/esco/occupation/fe0fa514-b48d-4a53-9757-a283c0baacf0
+90,camera crane operator,camera crane operator,esco:http://data.europa.eu/esco/occupation/6fed206a-ac4d-492b-a81a-5a3a0f2b67bc
+91,camera equipment operator,camera equipment operator,esco:http://data.europa.eu/esco/occupation/6fed206a-ac4d-492b-a81a-5a3a0f2b67bc
+92,camera operator,camera operator,esco:http://data.europa.eu/esco/occupation/6fed206a-ac4d-492b-a81a-5a3a0f2b67bc
+93,cameraman,cameraman,esco:http://data.europa.eu/esco/occupation/6fed206a-ac4d-492b-a81a-5a3a0f2b67bc
+94,camerawoman,camerawoman,esco:http://data.europa.eu/esco/occupation/6fed206a-ac4d-492b-a81a-5a3a0f2b67bc
+95,cell phone app developer,cell phone app developer,esco:http://data.europa.eu/esco/occupation/2ed56c3f-61d6-4f7e-9ef8-8849eb102e4c
+96,chief ICT security officer,chief ict security officer,esco:http://data.europa.eu/esco/occupation/276ba420-ef09-4a0e-b215-2c2e2f80ad28
+97,chief ICT security officers,chief ict security officers,esco:http://data.europa.eu/esco/occupation/276ba420-ef09-4a0e-b215-2c2e2f80ad28
+98,chief ICT system developer,chief ict system developer,esco:http://data.europa.eu/esco/occupation/a7c1d23d-aeca-4bee-9a08-5993ed98b135
+99,chief information security officer,chief information security officer,esco:http://data.europa.eu/esco/occupation/276ba420-ef09-4a0e-b215-2c2e2f80ad28
+100,cinema projectionist,cinema projectionist,esco:http://data.europa.eu/esco/occupation/dce6a68c-8a05-4c26-85d4-6fbc43e7d822
+101,cloud administrator,cloud administrator,esco:http://data.europa.eu/esco/occupation/781a6350-e686-45b9-b075-e4c8d5a05ff7
+102,cloud and infrastructure specialist,cloud and infrastructure specialist,esco:http://data.europa.eu/esco/occupation/781a6350-e686-45b9-b075-e4c8d5a05ff7
+103,cloud architect,cloud architect,esco:http://data.europa.eu/esco/occupation/2fb96c6c-8d0b-4ef0-b1ee-3e493305e4eb
+104,cloud automation engineer,cloud automation engineer,esco:http://data.europa.eu/esco/occupation/cc867bee-ab5c-427f-9244-f7a204d9574b
+105,cloud computing engineer,cloud computing engineer,esco:http://data.europa.eu/esco/occupation/349ee6f6-c295-4c38-9b98-48765b55280e
+106,cloud consultant,cloud consultant,esco:http://data.europa.eu/esco/occupation/781a6350-e686-45b9-b075-e4c8d5a05ff7
+107,cloud deployment specialist,cloud deployment specialist,esco:http://data.europa.eu/esco/occupation/781a6350-e686-45b9-b075-e4c8d5a05ff7
+108,cloud developer,cloud developer,esco:http://data.europa.eu/esco/occupation/349ee6f6-c295-4c38-9b98-48765b55280e
+109,cloud devops,cloud devops,esco:http://data.europa.eu/esco/occupation/cc867bee-ab5c-427f-9244-f7a204d9574b
+110,cloud DevOps engineer,cloud devops engineer,esco:http://data.europa.eu/esco/occupation/cc867bee-ab5c-427f-9244-f7a204d9574b
+111,cloud devops solution specialist,cloud devops solution specialist,esco:http://data.europa.eu/esco/occupation/cc867bee-ab5c-427f-9244-f7a204d9574b
+112,cloud engineer,cloud engineer,esco:http://data.europa.eu/esco/occupation/349ee6f6-c295-4c38-9b98-48765b55280e
+113,cloud identity access manager,cloud identity access manager,esco:http://data.europa.eu/esco/occupation/cc325a8f-702e-4bf0-893f-5b5d456475ad
+114,cloud identity engineer,cloud identity engineer,esco:http://data.europa.eu/esco/occupation/cc325a8f-702e-4bf0-893f-5b5d456475ad
+115,cloud identity manager,cloud identity manager,esco:http://data.europa.eu/esco/occupation/cc325a8f-702e-4bf0-893f-5b5d456475ad
+116,cloud identity risk manager,cloud identity risk manager,esco:http://data.europa.eu/esco/occupation/cc325a8f-702e-4bf0-893f-5b5d456475ad
+117,cloud infrastructure devops engineer,cloud infrastructure devops engineer,esco:http://data.europa.eu/esco/occupation/cc867bee-ab5c-427f-9244-f7a204d9574b
+118,cloud infrastructure engineer,cloud infrastructure engineer,esco:http://data.europa.eu/esco/occupation/349ee6f6-c295-4c38-9b98-48765b55280e
+119,cloud infrastructure it specialist,cloud infrastructure it specialist,esco:http://data.europa.eu/esco/occupation/781a6350-e686-45b9-b075-e4c8d5a05ff7
+120,cloud network engineer,cloud network engineer,esco:http://data.europa.eu/esco/occupation/349ee6f6-c295-4c38-9b98-48765b55280e
+121,cloud security engineer,cloud security engineer,esco:http://data.europa.eu/esco/occupation/349ee6f6-c295-4c38-9b98-48765b55280e
+122,cloud software developer,cloud software developer,esco:http://data.europa.eu/esco/occupation/781a6350-e686-45b9-b075-e4c8d5a05ff7
+123,cloud software engineer,cloud software engineer,esco:http://data.europa.eu/esco/occupation/349ee6f6-c295-4c38-9b98-48765b55280e
+124,cloud solution engineer,cloud solution engineer,esco:http://data.europa.eu/esco/occupation/349ee6f6-c295-4c38-9b98-48765b55280e
+125,cloud solutions consultant,cloud solutions consultant,esco:http://data.europa.eu/esco/occupation/2fb96c6c-8d0b-4ef0-b1ee-3e493305e4eb
+126,cloud solutions specialist,cloud solutions specialist,esco:http://data.europa.eu/esco/occupation/781a6350-e686-45b9-b075-e4c8d5a05ff7
+127,cloud technical specialist,cloud technical specialist,esco:http://data.europa.eu/esco/occupation/781a6350-e686-45b9-b075-e4c8d5a05ff7
+128,cloud-native engineer,cloud-native engineer,esco:http://data.europa.eu/esco/occupation/349ee6f6-c295-4c38-9b98-48765b55280e
+129,communication administrator,communication administrator,esco:http://data.europa.eu/esco/occupation/d84bf1d7-ef99-40c4-a407-3791d6531b44
+130,communications administrator,communications administrator,esco:http://data.europa.eu/esco/occupation/d84bf1d7-ef99-40c4-a407-3791d6531b44
+131,compatibility tester,compatibility tester,esco:http://data.europa.eu/esco/occupation/731f38f1-b08f-4dd5-a25e-f8627c038273
+132,component developer,component developer,esco:http://data.europa.eu/esco/occupation/a7c1d23d-aeca-4bee-9a08-5993ed98b135
+133,composer & sound designer,composer & sound designer,esco:http://data.europa.eu/esco/occupation/790c8dca-f624-4bdc-ac16-27bc13ead188
+134,composer and sound designer,composer and sound designer,esco:http://data.europa.eu/esco/occupation/790c8dca-f624-4bdc-ac16-27bc13ead188
+135,computer forensics consultant,computer forensics consultant,esco:http://data.europa.eu/esco/occupation/0c448a27-10ec-43ba-b880-d9938bade424
+136,computer forensics expert,computer forensics expert,esco:http://data.europa.eu/esco/occupation/0c448a27-10ec-43ba-b880-d9938bade424
+137,computer forensics investigator,computer forensics investigator,esco:http://data.europa.eu/esco/occupation/0c448a27-10ec-43ba-b880-d9938bade424
+138,computer games developer,computer games developer,esco:http://data.europa.eu/esco/occupation/9ebaf3f0-0be0-47b7-b2b1-b3b04130fa81
+139,computer games tester,computer games tester,esco:http://data.europa.eu/esco/occupation/33e4f026-a823-4ffc-99e4-60d3fe597a1e
+140,computer operator,computer operator,esco:http://data.europa.eu/esco/occupation/3e7bf729-4442-4b9f-ad5e-83111963795c
+141,computer scientist,computer scientist,esco:http://data.europa.eu/esco/occupation/e3229e40-f571-4b26-baca-29edc8fe313e
+142,computer vision applied scientist,computer vision applied scientist,esco:http://data.europa.eu/esco/occupation/1c5a45b9-440e-4726-b565-16a952abd341
+143,computer vision engineer,computer vision engineer,esco:http://data.europa.eu/esco/occupation/1c5a45b9-440e-4726-b565-16a952abd341
+144,computer vision expert,computer vision expert,esco:http://data.europa.eu/esco/occupation/1c5a45b9-440e-4726-b565-16a952abd341
+145,computer vision project engineer,computer vision project engineer,esco:http://data.europa.eu/esco/occupation/1c5a45b9-440e-4726-b565-16a952abd341
+146,computer vision specialist,computer vision specialist,esco:http://data.europa.eu/esco/occupation/1c5a45b9-440e-4726-b565-16a952abd341
+147,computers scientist,computers scientist,esco:http://data.europa.eu/esco/occupation/e3229e40-f571-4b26-baca-29edc8fe313e
+148,configuration manager,configuration manager,esco:http://data.europa.eu/esco/occupation/3b1ea27c-781c-41eb-821f-214285260dd2
+149,consultant in ICT security activities,consultant in ict security activities,esco:http://data.europa.eu/esco/occupation/0ce5a9f4-e00a-4bbe-b255-3c63407167a4
+150,content curator,content curator,esco:http://data.europa.eu/esco/occupation/a74f6c51-37e5-423e-aa5b-044e98663027
+151,content specialist,content specialist,esco:http://data.europa.eu/esco/occupation/a74f6c51-37e5-423e-aa5b-044e98663027
+152,cyber crisis expert,cyber crisis expert,esco:http://data.europa.eu/esco/occupation/0ce5a9f4-e00a-4bbe-b255-3c63407167a4
+153,cyber defender,cyber defender,esco:http://data.europa.eu/esco/occupation/0ce5a9f4-e00a-4bbe-b255-3c63407167a4
+154,cyber fighter,cyber fighter,esco:http://data.europa.eu/esco/occupation/0ce5a9f4-e00a-4bbe-b255-3c63407167a4
+155,cyber forensics expert,cyber forensics expert,esco:http://data.europa.eu/esco/occupation/0c448a27-10ec-43ba-b880-d9938bade424
+156,cyber incident handler,cyber incident handler,esco:http://data.europa.eu/esco/occupation/0ce5a9f4-e00a-4bbe-b255-3c63407167a4
+157,cyber incident responder,cyber incident responder,esco:http://data.europa.eu/esco/occupation/0ce5a9f4-e00a-4bbe-b255-3c63407167a4
+158,cyber risk manager,cyber risk manager,esco:http://data.europa.eu/esco/occupation/7754d570-9519-48c2-b1c9-8e165f8bca0f
+159,cyber security engineer,cyber security engineer,esco:http://data.europa.eu/esco/occupation/1c5a896a-e010-4217-a29a-c44db26e25da
+160,cybersecurity analyst,cybersecurity analyst,esco:http://data.europa.eu/esco/occupation/0c448a27-10ec-43ba-b880-d9938bade424
+161,cybersecurity and forensic specialist,cybersecurity and forensic specialist,esco:http://data.europa.eu/esco/occupation/0c448a27-10ec-43ba-b880-d9938bade424
+162,cybersecurity developer,cybersecurity developer,esco:http://data.europa.eu/esco/occupation/a44a1dc5-be08-4840-8bd5-770c4ac1ca6d
+163,cybersecurity engineer,cybersecurity engineer,esco:http://data.europa.eu/esco/occupation/1c5a896a-e010-4217-a29a-c44db26e25da
+164,cybersecurity impact analyst,cybersecurity impact analyst,esco:http://data.europa.eu/esco/occupation/7754d570-9519-48c2-b1c9-8e165f8bca0f
+165,cybersecurity implementer,cybersecurity implementer,esco:http://data.europa.eu/esco/occupation/a44a1dc5-be08-4840-8bd5-770c4ac1ca6d
+166,cybersecurity programme director,cybersecurity programme director,esco:http://data.europa.eu/esco/occupation/276ba420-ef09-4a0e-b215-2c2e2f80ad28
+167,cybersecurity risk assessor,cybersecurity risk assessor,esco:http://data.europa.eu/esco/occupation/7754d570-9519-48c2-b1c9-8e165f8bca0f
+168,cybersecurity risk assurance consultant,cybersecurity risk assurance consultant,esco:http://data.europa.eu/esco/occupation/7754d570-9519-48c2-b1c9-8e165f8bca0f
+169,cybersecurity risk manager,cybersecurity risk manager,esco:http://data.europa.eu/esco/occupation/7754d570-9519-48c2-b1c9-8e165f8bca0f
+170,cybersecurity SIEM manager,cybersecurity siem manager,esco:http://data.europa.eu/esco/occupation/0ce5a9f4-e00a-4bbe-b255-3c63407167a4
+171,cybersecurity solutions expert,cybersecurity solutions expert,esco:http://data.europa.eu/esco/occupation/a44a1dc5-be08-4840-8bd5-770c4ac1ca6d
+172,cybersecurity tester,cybersecurity tester,esco:http://data.europa.eu/esco/occupation/76ef0a87-6afe-4560-b5d0-9a086abe45c5
+173,data administrator,data administrator,esco:http://data.europa.eu/esco/occupation/8c57af09-719c-42b3-be40-6ed4946236cc
+174,data analyst,data analyst,esco:http://data.europa.eu/esco/occupation/d3edb8f8-3a06-47a0-8fb9-9b212c006aa2
+175,data architect,data architect,esco:http://data.europa.eu/esco/occupation/8d9ec84d-cf2d-4179-87bc-335cda54a427
+176,data base administrator,data base administrator,esco:http://data.europa.eu/esco/occupation/8c57af09-719c-42b3-be40-6ed4946236cc
+177,data base administrators,data base administrators,esco:http://data.europa.eu/esco/occupation/8c57af09-719c-42b3-be40-6ed4946236cc
+178,data base designer,data base designer,esco:http://data.europa.eu/esco/occupation/8d9ec84d-cf2d-4179-87bc-335cda54a427
+179,data base designers,data base designers,esco:http://data.europa.eu/esco/occupation/8d9ec84d-cf2d-4179-87bc-335cda54a427
+180,data base developer,data base developer,esco:http://data.europa.eu/esco/occupation/b11e1742-5e28-4270-b081-b0193d85ee7d
+181,data base developers,data base developers,esco:http://data.europa.eu/esco/occupation/b11e1742-5e28-4270-b081-b0193d85ee7d
+182,data base integrator,data base integrator,esco:http://data.europa.eu/esco/occupation/3d190639-90f8-4402-b1b3-a104a17e0d67
+183,data base integrators,data base integrators,esco:http://data.europa.eu/esco/occupation/3d190639-90f8-4402-b1b3-a104a17e0d67
+184,data center administrator,data center administrator,esco:http://data.europa.eu/esco/occupation/9729c0f3-c9bc-482e-ac59-a82ec3b67ba3
+185,data center operator,data center operator,esco:http://data.europa.eu/esco/occupation/9729c0f3-c9bc-482e-ac59-a82ec3b67ba3
+186,data centre administrator,data centre administrator,esco:http://data.europa.eu/esco/occupation/9729c0f3-c9bc-482e-ac59-a82ec3b67ba3
+187,data centre employee,data centre employee,esco:http://data.europa.eu/esco/occupation/9729c0f3-c9bc-482e-ac59-a82ec3b67ba3
+188,data centre operator,data centre operator,esco:http://data.europa.eu/esco/occupation/9729c0f3-c9bc-482e-ac59-a82ec3b67ba3
+189,data centre operators,data centre operators,esco:http://data.europa.eu/esco/occupation/9729c0f3-c9bc-482e-ac59-a82ec3b67ba3
+190,data communications manager in aviation,data communications manager in aviation,esco:http://data.europa.eu/esco/occupation/591c5063-69ce-4551-ba60-e2304111130f
+191,data engineer,data engineer,esco:http://data.europa.eu/esco/occupation/2079755f-d809-49e6-8037-4de6180e54c0
+192,data engineer expert,data engineer expert,esco:http://data.europa.eu/esco/occupation/2079755f-d809-49e6-8037-4de6180e54c0
+193,data expert,data expert,esco:http://data.europa.eu/esco/occupation/258e46f9-0075-4a2e-adae-1ff0477e0f30
+194,data integrator,data integrator,esco:http://data.europa.eu/esco/occupation/3d190639-90f8-4402-b1b3-a104a17e0d67
+195,data integrity officer,data integrity officer,esco:http://data.europa.eu/esco/occupation/7086d0ca-1e77-4690-89c9-7ed1a0478fa3
+196,data integrity specialist,data integrity specialist,esco:http://data.europa.eu/esco/occupation/7086d0ca-1e77-4690-89c9-7ed1a0478fa3
+197,data manager,data manager,esco:http://data.europa.eu/esco/occupation/8c57af09-719c-42b3-be40-6ed4946236cc
+198,data model designer,data model designer,esco:http://data.europa.eu/esco/occupation/8d9ec84d-cf2d-4179-87bc-335cda54a427
+199,data quality expert,data quality expert,esco:http://data.europa.eu/esco/occupation/7086d0ca-1e77-4690-89c9-7ed1a0478fa3
+200,data quality officer,data quality officer,esco:http://data.europa.eu/esco/occupation/7086d0ca-1e77-4690-89c9-7ed1a0478fa3
+201,data quality specialist,data quality specialist,esco:http://data.europa.eu/esco/occupation/7086d0ca-1e77-4690-89c9-7ed1a0478fa3
+202,data quality specialists,data quality specialists,esco:http://data.europa.eu/esco/occupation/7086d0ca-1e77-4690-89c9-7ed1a0478fa3
+203,data research scientist,data research scientist,esco:http://data.europa.eu/esco/occupation/258e46f9-0075-4a2e-adae-1ff0477e0f30
+204,data scientist,data scientist,esco:http://data.europa.eu/esco/occupation/258e46f9-0075-4a2e-adae-1ff0477e0f30
+205,data storage analyst,data storage analyst,esco:http://data.europa.eu/esco/occupation/d3edb8f8-3a06-47a0-8fb9-9b212c006aa2
+206,data warehouse analyst,data warehouse analyst,esco:http://data.europa.eu/esco/occupation/d3edb8f8-3a06-47a0-8fb9-9b212c006aa2
+207,data warehouse architect,data warehouse architect,esco:http://data.europa.eu/esco/occupation/1562c7a3-c7d9-419d-b9b6-db26610bcf84
+208,data warehouse designer,data warehouse designer,esco:http://data.europa.eu/esco/occupation/1562c7a3-c7d9-419d-b9b6-db26610bcf84
+209,data warehouse developer,data warehouse developer,esco:http://data.europa.eu/esco/occupation/1562c7a3-c7d9-419d-b9b6-db26610bcf84
+210,data warehousing analyst,data warehousing analyst,esco:http://data.europa.eu/esco/occupation/d3edb8f8-3a06-47a0-8fb9-9b212c006aa2
+211,database administrator,database administrator,esco:http://data.europa.eu/esco/occupation/8c57af09-719c-42b3-be40-6ed4946236cc
+212,database administrators,database administrators,esco:http://data.europa.eu/esco/occupation/8c57af09-719c-42b3-be40-6ed4946236cc
+213,database architect,database architect,esco:http://data.europa.eu/esco/occupation/8d9ec84d-cf2d-4179-87bc-335cda54a427
+214,database coder,database coder,esco:http://data.europa.eu/esco/occupation/b11e1742-5e28-4270-b081-b0193d85ee7d
+215,database configurator,database configurator,esco:http://data.europa.eu/esco/occupation/8c57af09-719c-42b3-be40-6ed4946236cc
+216,database design engineer,database design engineer,esco:http://data.europa.eu/esco/occupation/8d9ec84d-cf2d-4179-87bc-335cda54a427
+217,database design specialist,database design specialist,esco:http://data.europa.eu/esco/occupation/b11e1742-5e28-4270-b081-b0193d85ee7d
+218,database designer,database designer,esco:http://data.europa.eu/esco/occupation/8d9ec84d-cf2d-4179-87bc-335cda54a427
+219,database designers,database designers,esco:http://data.europa.eu/esco/occupation/8d9ec84d-cf2d-4179-87bc-335cda54a427
+220,database developer,database developer,esco:http://data.europa.eu/esco/occupation/b11e1742-5e28-4270-b081-b0193d85ee7d
+221,database developers,database developers,esco:http://data.europa.eu/esco/occupation/b11e1742-5e28-4270-b081-b0193d85ee7d
+222,database development engineer,database development engineer,esco:http://data.europa.eu/esco/occupation/b11e1742-5e28-4270-b081-b0193d85ee7d
+223,database development specialist,database development specialist,esco:http://data.europa.eu/esco/occupation/3d190639-90f8-4402-b1b3-a104a17e0d67
+224,database integrator,database integrator,esco:http://data.europa.eu/esco/occupation/3d190639-90f8-4402-b1b3-a104a17e0d67
+225,database integrators,database integrators,esco:http://data.europa.eu/esco/occupation/3d190639-90f8-4402-b1b3-a104a17e0d67
+226,database manager,database manager,esco:http://data.europa.eu/esco/occupation/8c57af09-719c-42b3-be40-6ed4946236cc
+227,database programmer,database programmer,esco:http://data.europa.eu/esco/occupation/b11e1742-5e28-4270-b081-b0193d85ee7d
+228,DBA,dba,esco:http://data.europa.eu/esco/occupation/8c57af09-719c-42b3-be40-6ed4946236cc
+229,designer of intelligent systems,designer of intelligent systems,esco:http://data.europa.eu/esco/occupation/35553663-deab-4d9a-bf22-15c1625d28e8
+230,developer of software,developer of software,esco:http://data.europa.eu/esco/occupation/f2b15a0e-e65a-438a-affb-29b9d50b77d1
+231,development and operations security engineer,development and operations security engineer,esco:http://data.europa.eu/esco/occupation/a44a1dc5-be08-4840-8bd5-770c4ac1ca6d
+232,devops,devops,esco:http://data.europa.eu/esco/occupation/cc867bee-ab5c-427f-9244-f7a204d9574b
+233,devops administrator,devops administrator,esco:http://data.europa.eu/esco/occupation/cc867bee-ab5c-427f-9244-f7a204d9574b
+234,devops analyst,devops analyst,esco:http://data.europa.eu/esco/occupation/cc867bee-ab5c-427f-9244-f7a204d9574b
+235,devops architect,devops architect,esco:http://data.europa.eu/esco/occupation/cc867bee-ab5c-427f-9244-f7a204d9574b
+236,devops consultant,devops consultant,esco:http://data.europa.eu/esco/occupation/cc867bee-ab5c-427f-9244-f7a204d9574b
+237,devops consultant engineer,devops consultant engineer,esco:http://data.europa.eu/esco/occupation/cc867bee-ab5c-427f-9244-f7a204d9574b
+238,devops engineer,devops engineer,esco:http://data.europa.eu/esco/occupation/cc867bee-ab5c-427f-9244-f7a204d9574b
+239,devops specialist,devops specialist,esco:http://data.europa.eu/esco/occupation/cc867bee-ab5c-427f-9244-f7a204d9574b
+240,DevSecOps engineer,devsecops engineer,esco:http://data.europa.eu/esco/occupation/a44a1dc5-be08-4840-8bd5-770c4ac1ca6d
+241,dialogue editor,dialogue editor,esco:http://data.europa.eu/esco/occupation/36095ccd-c62d-4f1f-8af7-1fd10618b044
+242,digital cinema projectionist,digital cinema projectionist,esco:http://data.europa.eu/esco/occupation/dce6a68c-8a05-4c26-85d4-6fbc43e7d822
+243,digital content,digital content,esco:http://data.europa.eu/esco/occupation/a74f6c51-37e5-423e-aa5b-044e98663027
+244,digital forensic expert,digital forensic expert,esco:http://data.europa.eu/esco/occupation/0c448a27-10ec-43ba-b880-d9938bade424
+245,digital forensics analyst,digital forensics analyst,esco:http://data.europa.eu/esco/occupation/0c448a27-10ec-43ba-b880-d9938bade424
+246,digital forensics expert,digital forensics expert,esco:http://data.europa.eu/esco/occupation/0c448a27-10ec-43ba-b880-d9938bade424
+247,digital forensics experts,digital forensics experts,esco:http://data.europa.eu/esco/occupation/0c448a27-10ec-43ba-b880-d9938bade424
+248,digital forensics specialist,digital forensics specialist,esco:http://data.europa.eu/esco/occupation/0c448a27-10ec-43ba-b880-d9938bade424
+249,digital game developer,digital game developer,esco:http://data.europa.eu/esco/occupation/9ebaf3f0-0be0-47b7-b2b1-b3b04130fa81
+250,digital game tester,digital game tester,esco:http://data.europa.eu/esco/occupation/33e4f026-a823-4ffc-99e4-60d3fe597a1e
+251,digital games developer,digital games developer,esco:http://data.europa.eu/esco/occupation/9ebaf3f0-0be0-47b7-b2b1-b3b04130fa81
+252,digital games developers,digital games developers,esco:http://data.europa.eu/esco/occupation/9ebaf3f0-0be0-47b7-b2b1-b3b04130fa81
+253,digital games tester,digital games tester,esco:http://data.europa.eu/esco/occupation/33e4f026-a823-4ffc-99e4-60d3fe597a1e
+254,digital games testers,digital games testers,esco:http://data.europa.eu/esco/occupation/33e4f026-a823-4ffc-99e4-60d3fe597a1e
+255,digital mastering technician,digital mastering technician,esco:http://data.europa.eu/esco/occupation/239707a0-4754-4f4b-80b6-6b1ef5657aed
+256,disaster recovery manager,disaster recovery manager,esco:http://data.europa.eu/esco/occupation/a99b38bc-6e71-4bef-b127-0f2b5e357815
+257,disaster recovery officer,disaster recovery officer,esco:http://data.europa.eu/esco/occupation/102e75c8-3b47-4964-9b47-30a980aed25c
+258,DLT architect,dlt architect,esco:http://data.europa.eu/esco/occupation/78faf623-2543-43a5-acb2-3c43a22d36e4
+259,DLT engineer,dlt engineer,esco:http://data.europa.eu/esco/occupation/24135b84-cbdd-4d42-9ed2-02fd982d15b2
+260,dubbing manager,dubbing manager,esco:http://data.europa.eu/esco/occupation/36095ccd-c62d-4f1f-8af7-1fd10618b044
+261,e-commerce technician,e-commerce technician,esco:http://data.europa.eu/esco/occupation/dc8ef7da-d2c0-4474-96a0-6d0385eeec1e
+262,electric vehicle software development engineer,electric vehicle software development engineer,esco:http://data.europa.eu/esco/occupation/f2b15a0e-e65a-438a-affb-29b9d50b77d1
+263,electromobility data scientist,electromobility data scientist,esco:http://data.europa.eu/esco/occupation/258e46f9-0075-4a2e-adae-1ff0477e0f30
+264,embedded software developer,embedded software developer,esco:http://data.europa.eu/esco/occupation/10469d70-78a3-4650-9e29-d04de13c62c1
+265,embedded software developerl embedded systems engineer,embedded software developerl embedded systems engineer,esco:http://data.europa.eu/esco/occupation/57af9090-55b4-4911-b2d0-86db01c00b02
+266,embedded software programmer,embedded software programmer,esco:http://data.europa.eu/esco/occupation/57af9090-55b4-4911-b2d0-86db01c00b02
+267,embedded system designer,embedded system designer,esco:http://data.europa.eu/esco/occupation/10469d70-78a3-4650-9e29-d04de13c62c1
+268,embedded system developer,embedded system developer,esco:http://data.europa.eu/esco/occupation/10469d70-78a3-4650-9e29-d04de13c62c1
+269,embedded system programmer,embedded system programmer,esco:http://data.europa.eu/esco/occupation/10469d70-78a3-4650-9e29-d04de13c62c1
+270,embedded system software developer,embedded system software developer,esco:http://data.europa.eu/esco/occupation/57af9090-55b4-4911-b2d0-86db01c00b02
+271,embedded system software programmer,embedded system software programmer,esco:http://data.europa.eu/esco/occupation/57af9090-55b4-4911-b2d0-86db01c00b02
+272,embedded systems designer,embedded systems designer,esco:http://data.europa.eu/esco/occupation/57af9090-55b4-4911-b2d0-86db01c00b02
+273,embedded systems designers,embedded systems designers,esco:http://data.europa.eu/esco/occupation/10469d70-78a3-4650-9e29-d04de13c62c1
+274,embedded systems developer,embedded systems developer,esco:http://data.europa.eu/esco/occupation/10469d70-78a3-4650-9e29-d04de13c62c1
+275,embedded systems engineer,embedded systems engineer,esco:http://data.europa.eu/esco/occupation/10469d70-78a3-4650-9e29-d04de13c62c1
+276,embedded systems programmer,embedded systems programmer,esco:http://data.europa.eu/esco/occupation/10469d70-78a3-4650-9e29-d04de13c62c1
+277,embedded systems security engineer,embedded systems security engineer,esco:http://data.europa.eu/esco/occupation/1c5a896a-e010-4217-a29a-c44db26e25da
+278,embedded systems security expert,embedded systems security expert,esco:http://data.europa.eu/esco/occupation/1c5a896a-e010-4217-a29a-c44db26e25da
+279,embedded systems software developer,embedded systems software developer,esco:http://data.europa.eu/esco/occupation/57af9090-55b4-4911-b2d0-86db01c00b02
+280,embedded systems software developers,embedded systems software developers,esco:http://data.europa.eu/esco/occupation/57af9090-55b4-4911-b2d0-86db01c00b02
+281,enterprise administrator,enterprise administrator,esco:http://data.europa.eu/esco/occupation/9e2e6e1e-363b-4e1b-a673-7bc0f7343300
+282,enterprise architect,enterprise architect,esco:http://data.europa.eu/esco/occupation/2bef94db-0088-4507-982a-2ca717529adb
+283,enterprise architects,enterprise architects,esco:http://data.europa.eu/esco/occupation/2bef94db-0088-4507-982a-2ca717529adb
+284,enterprise architecture manager,enterprise architecture manager,esco:http://data.europa.eu/esco/occupation/2bef94db-0088-4507-982a-2ca717529adb
+285,enterprise designer,enterprise designer,esco:http://data.europa.eu/esco/occupation/2bef94db-0088-4507-982a-2ca717529adb
+286,enterprise developer,enterprise developer,esco:http://data.europa.eu/esco/occupation/2bef94db-0088-4507-982a-2ca717529adb
+287,equipment hire technician,equipment hire technician,esco:http://data.europa.eu/esco/occupation/47e4135b-95d1-4462-920c-afcbd7c4d9be
+288,equipment technician,equipment technician,esco:http://data.europa.eu/esco/occupation/47e4135b-95d1-4462-920c-afcbd7c4d9be
+289,ethical hacker,ethical hacker,esco:http://data.europa.eu/esco/occupation/76ef0a87-6afe-4560-b5d0-9a086abe45c5
+290,film boom operator,film boom operator,esco:http://data.europa.eu/esco/occupation/4d102082-8d43-4c59-81ab-08a7509f3c40
+291,film projectionist,film projectionist,esco:http://data.europa.eu/esco/occupation/dce6a68c-8a05-4c26-85d4-6fbc43e7d822
+292,foley artist,foley artist,esco:http://data.europa.eu/esco/occupation/36095ccd-c62d-4f1f-8af7-1fd10618b044
+293,foley editor,foley editor,esco:http://data.europa.eu/esco/occupation/36095ccd-c62d-4f1f-8af7-1fd10618b044
+294,front end developer,front end developer,esco:http://data.europa.eu/esco/occupation/866c7813-2c03-47d7-9bdc-192cfbace57c
+295,full stack cloud software engineer,full stack cloud software engineer,esco:http://data.europa.eu/esco/occupation/781a6350-e686-45b9-b075-e4c8d5a05ff7
+296,games programmer,games programmer,esco:http://data.europa.eu/esco/occupation/9ebaf3f0-0be0-47b7-b2b1-b3b04130fa81
+297,graphics/video technician,graphics/video technician,esco:http://data.europa.eu/esco/occupation/a59feab2-9bc9-4b25-97cf-995998164502
+298,green ICT consultant,green ict consultant,esco:http://data.europa.eu/esco/occupation/22987b58-dbfa-4ecd-ae3f-82dd209255f6
+299,green ICT consultants,green ict consultants,esco:http://data.europa.eu/esco/occupation/22987b58-dbfa-4ecd-ae3f-82dd209255f6
+300,green IT consultant,green it consultant,esco:http://data.europa.eu/esco/occupation/22987b58-dbfa-4ecd-ae3f-82dd209255f6
+301,growth hacker,growth hacker,esco:http://data.europa.eu/esco/occupation/092fdeeb-a76f-4ed2-b248-90fd6eaaffef
+302,handheld programmer,handheld programmer,esco:http://data.europa.eu/esco/occupation/bb6198c4-1d3e-40b9-9cc4-ad2dd9d7c74b
+303,handheld software developer,handheld software developer,esco:http://data.europa.eu/esco/occupation/bb6198c4-1d3e-40b9-9cc4-ad2dd9d7c74b
+304,head IT security officer,head it security officer,esco:http://data.europa.eu/esco/occupation/276ba420-ef09-4a0e-b215-2c2e2f80ad28
+305,head of information security,head of information security,esco:http://data.europa.eu/esco/occupation/276ba420-ef09-4a0e-b215-2c2e2f80ad28
+306,head of IT security,head of it security,esco:http://data.europa.eu/esco/occupation/276ba420-ef09-4a0e-b215-2c2e2f80ad28
+307,hybrid cloud engineer,hybrid cloud engineer,esco:http://data.europa.eu/esco/occupation/349ee6f6-c295-4c38-9b98-48765b55280e
+308,ICT accessibility tester,ict accessibility tester,esco:http://data.europa.eu/esco/occupation/50af07f0-7a75-424e-a66d-5a9deea10f4c
+309,ICT advisor,ict advisor,esco:http://data.europa.eu/esco/occupation/b1c80369-067e-4041-84c8-dbe65640a5d8
+310,ICT application configurator,ict application configurator,esco:http://data.europa.eu/esco/occupation/456ed487-02f2-45c9-9213-d0fd8e9a069d
+311,ICT application developer,ict application developer,esco:http://data.europa.eu/esco/occupation/bd272aee-adc9-4a06-a15c-a73b4b4a46a7
+312,ICT audit manager,ict audit manager,esco:http://data.europa.eu/esco/occupation/76a1a76c-b014-4600-8901-56cb936de7ed
+313,ICT auditor,ict auditor,esco:http://data.europa.eu/esco/occupation/cdd3d773-75a4-4f35-bd1d-1ac720afcf9d
+314,ICT auditor manager,ict auditor manager,esco:http://data.europa.eu/esco/occupation/76a1a76c-b014-4600-8901-56cb936de7ed
+315,ICT auditor managers,ict auditor managers,esco:http://data.europa.eu/esco/occupation/76a1a76c-b014-4600-8901-56cb936de7ed
+316,ICT business analysis manager,ict business analysis manager,esco:http://data.europa.eu/esco/occupation/4b3201cb-ffc5-4f61-9fc3-5c0f0038fa5f
+317,ICT business analysis managers,ict business analysis managers,esco:http://data.europa.eu/esco/occupation/4b3201cb-ffc5-4f61-9fc3-5c0f0038fa5f
+318,ICT business analyst,ict business analyst,esco:http://data.europa.eu/esco/occupation/fe0fa514-b48d-4a53-9757-a283c0baacf0
+319,ICT business analysts,ict business analysts,esco:http://data.europa.eu/esco/occupation/fe0fa514-b48d-4a53-9757-a283c0baacf0
+320,ICT capability manager,ict capability manager,esco:http://data.europa.eu/esco/occupation/4543bf7b-8ffb-4ade-88b9-58da34366f04
+321,ICT capacity planner,ict capacity planner,esco:http://data.europa.eu/esco/occupation/4543bf7b-8ffb-4ade-88b9-58da34366f04
+322,ICT capacity planners,ict capacity planners,esco:http://data.europa.eu/esco/occupation/4543bf7b-8ffb-4ade-88b9-58da34366f04
+323,ICT change and configuration manager,ict change and configuration manager,esco:http://data.europa.eu/esco/occupation/3b1ea27c-781c-41eb-821f-214285260dd2
+324,ICT commercial analysis manager,ict commercial analysis manager,esco:http://data.europa.eu/esco/occupation/4b3201cb-ffc5-4f61-9fc3-5c0f0038fa5f
+325,ICT compatibility tester,ict compatibility tester,esco:http://data.europa.eu/esco/occupation/731f38f1-b08f-4dd5-a25e-f8627c038273
+326,ICT consultant,ict consultant,esco:http://data.europa.eu/esco/occupation/b1c80369-067e-4041-84c8-dbe65640a5d8
+327,ICT disaster recovery analyst,ict disaster recovery analyst,esco:http://data.europa.eu/esco/occupation/102e75c8-3b47-4964-9b47-30a980aed25c
+328,ICT engineer,ict engineer,esco:http://data.europa.eu/esco/occupation/3e7bf729-4442-4b9f-ad5e-83111963795c
+329,ICT environmental consultant,ict environmental consultant,esco:http://data.europa.eu/esco/occupation/22987b58-dbfa-4ecd-ae3f-82dd209255f6
+330,ICT ERP consultant,ict erp consultant,esco:http://data.europa.eu/esco/occupation/b1c80369-067e-4041-84c8-dbe65640a5d8
+331,ICT forensics expert,ict forensics expert,esco:http://data.europa.eu/esco/occupation/0c448a27-10ec-43ba-b880-d9938bade424
+332,ICT help desk advisor,ict help desk advisor,esco:http://data.europa.eu/esco/occupation/aaeec9a7-dc57-4485-890c-86b3eef735f9
+333,ICT help desk agent,ict help desk agent,esco:http://data.europa.eu/esco/occupation/aaeec9a7-dc57-4485-890c-86b3eef735f9
+334,ICT help desk manager,ict help desk manager,esco:http://data.europa.eu/esco/occupation/1242d99a-47f1-4a62-b884-33746db8a6ca
+335,ICT help desk managers,ict help desk managers,esco:http://data.europa.eu/esco/occupation/1242d99a-47f1-4a62-b884-33746db8a6ca
+336,ICT helpdesk agent,ict helpdesk agent,esco:http://data.europa.eu/esco/occupation/aaeec9a7-dc57-4485-890c-86b3eef735f9
+337,ICT helpdesk manager,ict helpdesk manager,esco:http://data.europa.eu/esco/occupation/1242d99a-47f1-4a62-b884-33746db8a6ca
+338,ICT helpdesk managers,ict helpdesk managers,esco:http://data.europa.eu/esco/occupation/1242d99a-47f1-4a62-b884-33746db8a6ca
+339,ICT integration engineers,ict integration engineers,esco:http://data.europa.eu/esco/occupation/07e60525-1aad-4099-aaf3-2c7014c92212
+340,ICT integration tester,ict integration tester,esco:http://data.europa.eu/esco/occupation/731f38f1-b08f-4dd5-a25e-f8627c038273
+341,ICT intelligent systems designer,ict intelligent systems designer,esco:http://data.europa.eu/esco/occupation/35553663-deab-4d9a-bf22-15c1625d28e8
+342,ICT network administrator,ict network administrator,esco:http://data.europa.eu/esco/occupation/81480b40-a318-47f3-9b2c-56b69ed67d95
+343,ICT network architect,ict network architect,esco:http://data.europa.eu/esco/occupation/e0b544dd-b621-4126-a55e-054af25c6ea0
+344,ICT network engineer,ict network engineer,esco:http://data.europa.eu/esco/occupation/cf2b03cd-feb7-4f47-90f6-ff1ed6016d3d
+345,ICT network technician,ict network technician,esco:http://data.europa.eu/esco/occupation/64c7d461-152c-477f-a8e2-c2c537e9d617
+346,ICT performance manager,ict performance manager,esco:http://data.europa.eu/esco/occupation/4543bf7b-8ffb-4ade-88b9-58da34366f04
+347,ICT principal testing manager,ict principal testing manager,esco:http://data.europa.eu/esco/occupation/a28dff76-74df-46ee-929f-d1fffbb63cd7
+348,ICT quality assurance manager,ict quality assurance manager,esco:http://data.europa.eu/esco/occupation/a28dff76-74df-46ee-929f-d1fffbb63cd7
+349,ICT quality assurance managers,ict quality assurance managers,esco:http://data.europa.eu/esco/occupation/a28dff76-74df-46ee-929f-d1fffbb63cd7
+350,ICT quality manager,ict quality manager,esco:http://data.europa.eu/esco/occupation/a28dff76-74df-46ee-929f-d1fffbb63cd7
+351,ICT research advisor,ict research advisor,esco:http://data.europa.eu/esco/occupation/6e92d4b5-3167-4166-802f-da7753951a31
+352,ICT research consultant,ict research consultant,esco:http://data.europa.eu/esco/occupation/6e92d4b5-3167-4166-802f-da7753951a31
+353,ICT research consultants,ict research consultants,esco:http://data.europa.eu/esco/occupation/6e92d4b5-3167-4166-802f-da7753951a31
+354,ICT research scientist,ict research scientist,esco:http://data.europa.eu/esco/occupation/e3229e40-f571-4b26-baca-29edc8fe313e
+355,ICT research specialist,ict research specialist,esco:http://data.europa.eu/esco/occupation/6e92d4b5-3167-4166-802f-da7753951a31
+356,ICT researcher,ict researcher,esco:http://data.europa.eu/esco/occupation/e3229e40-f571-4b26-baca-29edc8fe313e
+357,ICT resilience analysts,ict resilience analysts,esco:http://data.europa.eu/esco/occupation/102e75c8-3b47-4964-9b47-30a980aed25c
+358,ICT resilience manager,ict resilience manager,esco:http://data.europa.eu/esco/occupation/a99b38bc-6e71-4bef-b127-0f2b5e357815
+359,ICT science researcher,ict science researcher,esco:http://data.europa.eu/esco/occupation/e3229e40-f571-4b26-baca-29edc8fe313e
+360,ICT scientist,ict scientist,esco:http://data.europa.eu/esco/occupation/e3229e40-f571-4b26-baca-29edc8fe313e
+361,ICT security administrator,ict security administrator,esco:http://data.europa.eu/esco/occupation/0464b062-cea6-4164-b10d-956c61956ae7
+362,ICT security administrators,ict security administrators,esco:http://data.europa.eu/esco/occupation/0464b062-cea6-4164-b10d-956c61956ae7
+363,ICT security advisor,ict security advisor,esco:http://data.europa.eu/esco/occupation/0ce5a9f4-e00a-4bbe-b255-3c63407167a4
+364,ICT security architect,ict security architect,esco:http://data.europa.eu/esco/occupation/0ce5a9f4-e00a-4bbe-b255-3c63407167a4
+365,ICT security chief,ict security chief,esco:http://data.europa.eu/esco/occupation/7754d570-9519-48c2-b1c9-8e165f8bca0f
+366,ICT security consultant,ict security consultant,esco:http://data.europa.eu/esco/occupation/0ce5a9f4-e00a-4bbe-b255-3c63407167a4
+367,ICT security engineer,ict security engineer,esco:http://data.europa.eu/esco/occupation/0ce5a9f4-e00a-4bbe-b255-3c63407167a4
+368,ICT security manager,ict security manager,esco:http://data.europa.eu/esco/occupation/7754d570-9519-48c2-b1c9-8e165f8bca0f
+369,ICT security technician,ict security technician,esco:http://data.europa.eu/esco/occupation/a44a1dc5-be08-4840-8bd5-770c4ac1ca6d
+370,ICT security technicians,ict security technicians,esco:http://data.europa.eu/esco/occupation/a44a1dc5-be08-4840-8bd5-770c4ac1ca6d
+371,ICT security tester,ict security tester,esco:http://data.europa.eu/esco/occupation/76ef0a87-6afe-4560-b5d0-9a086abe45c5
+372,ICT service desk agent,ict service desk agent,esco:http://data.europa.eu/esco/occupation/aaeec9a7-dc57-4485-890c-86b3eef735f9
+373,ICT service desk manager,ict service desk manager,esco:http://data.europa.eu/esco/occupation/1242d99a-47f1-4a62-b884-33746db8a6ca
+374,ICT sustainability systems consultant,ict sustainability systems consultant,esco:http://data.europa.eu/esco/occupation/22987b58-dbfa-4ecd-ae3f-82dd209255f6
+375,ICT sysadmin,ict sysadmin,esco:http://data.europa.eu/esco/occupation/9e2e6e1e-363b-4e1b-a673-7bc0f7343300
+376,ICT sysadmins,ict sysadmins,esco:http://data.europa.eu/esco/occupation/9e2e6e1e-363b-4e1b-a673-7bc0f7343300
+377,ICT system administrator,ict system administrator,esco:http://data.europa.eu/esco/occupation/9e2e6e1e-363b-4e1b-a673-7bc0f7343300
+378,ICT system analyst,ict system analyst,esco:http://data.europa.eu/esco/occupation/a6a0b60f-08da-4faa-bf54-942987efb471
+379,ICT system analysts,ict system analysts,esco:http://data.europa.eu/esco/occupation/a6a0b60f-08da-4faa-bf54-942987efb471
+380,ICT system architect,ict system architect,esco:http://data.europa.eu/esco/occupation/e1c72b5f-4c5c-487c-a6df-e84b64a51dae
+381,ICT system architects,ict system architects,esco:http://data.europa.eu/esco/occupation/e1c72b5f-4c5c-487c-a6df-e84b64a51dae
+382,ICT system configurator,ict system configurator,esco:http://data.europa.eu/esco/occupation/98c3d8f8-e3a8-49b7-9e58-236f25a6f6a0
+383,ICT system developer,ict system developer,esco:http://data.europa.eu/esco/occupation/a7c1d23d-aeca-4bee-9a08-5993ed98b135
+384,ICT system developers,ict system developers,esco:http://data.europa.eu/esco/occupation/a7c1d23d-aeca-4bee-9a08-5993ed98b135
+385,ICT system integration consultant,ict system integration consultant,esco:http://data.europa.eu/esco/occupation/bd9d395a-d587-45c6-8d72-ceef226df9e1
+386,ICT system tester,ict system tester,esco:http://data.europa.eu/esco/occupation/52d5edc9-7902-4cd3-8b06-6bd77c98d440
+387,ICT systems analyst,ict systems analyst,esco:http://data.europa.eu/esco/occupation/a6a0b60f-08da-4faa-bf54-942987efb471
+388,ICT systems analysts,ict systems analysts,esco:http://data.europa.eu/esco/occupation/a6a0b60f-08da-4faa-bf54-942987efb471
+389,ICT systems architect,ict systems architect,esco:http://data.europa.eu/esco/occupation/e1c72b5f-4c5c-487c-a6df-e84b64a51dae
+390,ICT systems architects,ict systems architects,esco:http://data.europa.eu/esco/occupation/e1c72b5f-4c5c-487c-a6df-e84b64a51dae
+391,ICT systems developer,ict systems developer,esco:http://data.europa.eu/esco/occupation/a7c1d23d-aeca-4bee-9a08-5993ed98b135
+392,ICT systems developers,ict systems developers,esco:http://data.europa.eu/esco/occupation/a7c1d23d-aeca-4bee-9a08-5993ed98b135
+393,ICT systems test engineer,ict systems test engineer,esco:http://data.europa.eu/esco/occupation/52d5edc9-7902-4cd3-8b06-6bd77c98d440
+394,ICT systems tester,ict systems tester,esco:http://data.europa.eu/esco/occupation/52d5edc9-7902-4cd3-8b06-6bd77c98d440
+395,ICT systems testers,ict systems testers,esco:http://data.europa.eu/esco/occupation/52d5edc9-7902-4cd3-8b06-6bd77c98d440
+396,ICT technical security expert,ict technical security expert,esco:http://data.europa.eu/esco/occupation/7754d570-9519-48c2-b1c9-8e165f8bca0f
+397,ICT technician,ict technician,esco:http://data.europa.eu/esco/occupation/3e7bf729-4442-4b9f-ad5e-83111963795c
+398,ICT test analyst,ict test analyst,esco:http://data.europa.eu/esco/occupation/0ab5c12c-c1c1-4772-8345-aa287d0e391d
+399,ICT test manager,ict test manager,esco:http://data.europa.eu/esco/occupation/a28dff76-74df-46ee-929f-d1fffbb63cd7
+400,ICT usability tester,ict usability tester,esco:http://data.europa.eu/esco/occupation/5f50290d-f520-4a69-85c7-1390d2a4a8b6
+401,image technician,image technician,esco:http://data.europa.eu/esco/occupation/a59feab2-9bc9-4b25-97cf-995998164502
+402,inbound marketer,inbound marketer,esco:http://data.europa.eu/esco/occupation/092fdeeb-a76f-4ed2-b248-90fd6eaaffef
+403,incident response engineer,incident response engineer,esco:http://data.europa.eu/esco/occupation/0ce5a9f4-e00a-4bbe-b255-3c63407167a4
+404,industrial mobile devices software coder,industrial mobile devices software coder,esco:http://data.europa.eu/esco/occupation/bb6198c4-1d3e-40b9-9cc4-ad2dd9d7c74b
+405,industrial mobile devices software developer,industrial mobile devices software developer,esco:http://data.europa.eu/esco/occupation/bb6198c4-1d3e-40b9-9cc4-ad2dd9d7c74b
+406,industrial mobile devices software programmer,industrial mobile devices software programmer,esco:http://data.europa.eu/esco/occupation/bb6198c4-1d3e-40b9-9cc4-ad2dd9d7c74b
+407,information communications technology security consultant,information communications technology security consultant,esco:http://data.europa.eu/esco/occupation/0ce5a9f4-e00a-4bbe-b255-3c63407167a4
+408,information engineer,information engineer,esco:http://data.europa.eu/esco/occupation/812c217d-32b7-4f6a-9faf-993d3577ac7f
+409,information forensics expert,information forensics expert,esco:http://data.europa.eu/esco/occupation/0c448a27-10ec-43ba-b880-d9938bade424
+410,information security implement,information security implement,esco:http://data.europa.eu/esco/occupation/a44a1dc5-be08-4840-8bd5-770c4ac1ca6d
+411,information security officer,information security officer,esco:http://data.europa.eu/esco/occupation/276ba420-ef09-4a0e-b215-2c2e2f80ad28
+412,information security risk analyst,information security risk analyst,esco:http://data.europa.eu/esco/occupation/7754d570-9519-48c2-b1c9-8e165f8bca0f
+413,information systems architect,information systems architect,esco:http://data.europa.eu/esco/occupation/e1c72b5f-4c5c-487c-a6df-e84b64a51dae
+414,information systems technician,information systems technician,esco:http://data.europa.eu/esco/occupation/3e7bf729-4442-4b9f-ad5e-83111963795c
+415,information technology audit manager,information technology audit manager,esco:http://data.europa.eu/esco/occupation/76a1a76c-b014-4600-8901-56cb936de7ed
+416,information technology auditor,information technology auditor,esco:http://data.europa.eu/esco/occupation/cdd3d773-75a4-4f35-bd1d-1ac720afcf9d
+417,information technology security consultant,information technology security consultant,esco:http://data.europa.eu/esco/occupation/0ce5a9f4-e00a-4bbe-b255-3c63407167a4
+418,integration engineer,integration engineer,esco:http://data.europa.eu/esco/occupation/07e60525-1aad-4099-aaf3-2c7014c92212
+419,integration testers,integration testers,esco:http://data.europa.eu/esco/occupation/731f38f1-b08f-4dd5-a25e-f8627c038273
+420,intelligent system designer,intelligent system designer,esco:http://data.europa.eu/esco/occupation/35553663-deab-4d9a-bf22-15c1625d28e8
+421,intelligent systems designers,intelligent systems designers,esco:http://data.europa.eu/esco/occupation/35553663-deab-4d9a-bf22-15c1625d28e8
+422,intelligent systems developer,intelligent systems developer,esco:http://data.europa.eu/esco/occupation/35553663-deab-4d9a-bf22-15c1625d28e8
+423,intelligent systems engineer,intelligent systems engineer,esco:http://data.europa.eu/esco/occupation/35553663-deab-4d9a-bf22-15c1625d28e8
+424,internet of thing security engineer,internet of thing security engineer,esco:http://data.europa.eu/esco/occupation/1c5a896a-e010-4217-a29a-c44db26e25da
+425,IoT developer,iot developer,esco:http://data.europa.eu/esco/occupation/6ce5f7e3-a534-4aa2-ab23-255408ddb53a
+426,IoT security engineer,iot security engineer,esco:http://data.europa.eu/esco/occupation/1c5a896a-e010-4217-a29a-c44db26e25da
+427,IoT software developer,iot software developer,esco:http://data.europa.eu/esco/occupation/6ce5f7e3-a534-4aa2-ab23-255408ddb53a
+428,ISO,iso,esco:http://data.europa.eu/esco/occupation/276ba420-ef09-4a0e-b215-2c2e2f80ad28
+429,IT advisor,it advisor,esco:http://data.europa.eu/esco/occupation/b1c80369-067e-4041-84c8-dbe65640a5d8
+430,IT assistant,it assistant,esco:http://data.europa.eu/esco/occupation/3e7bf729-4442-4b9f-ad5e-83111963795c
+431,IT audit manager,it audit manager,esco:http://data.europa.eu/esco/occupation/76a1a76c-b014-4600-8901-56cb936de7ed
+432,IT auditor,it auditor,esco:http://data.europa.eu/esco/occupation/cdd3d773-75a4-4f35-bd1d-1ac720afcf9d
+433,IT business analysis director,it business analysis director,esco:http://data.europa.eu/esco/occupation/4b3201cb-ffc5-4f61-9fc3-5c0f0038fa5f
+434,IT business analysis manager,it business analysis manager,esco:http://data.europa.eu/esco/occupation/4b3201cb-ffc5-4f61-9fc3-5c0f0038fa5f
+435,IT business analyst,it business analyst,esco:http://data.europa.eu/esco/occupation/fe0fa514-b48d-4a53-9757-a283c0baacf0
+436,IT capability planner,it capability planner,esco:http://data.europa.eu/esco/occupation/4543bf7b-8ffb-4ade-88b9-58da34366f04
+437,IT capacity planner,it capacity planner,esco:http://data.europa.eu/esco/occupation/4543bf7b-8ffb-4ade-88b9-58da34366f04
+438,IT commercial analysis manager,it commercial analysis manager,esco:http://data.europa.eu/esco/occupation/4b3201cb-ffc5-4f61-9fc3-5c0f0038fa5f
+439,IT compatibility tester,it compatibility tester,esco:http://data.europa.eu/esco/occupation/731f38f1-b08f-4dd5-a25e-f8627c038273
+440,IT compliance consultant,it compliance consultant,esco:http://data.europa.eu/esco/occupation/b1c80369-067e-4041-84c8-dbe65640a5d8
+441,IT consultant,it consultant,esco:http://data.europa.eu/esco/occupation/b1c80369-067e-4041-84c8-dbe65640a5d8
+442,IT disaster recovery analyst,it disaster recovery analyst,esco:http://data.europa.eu/esco/occupation/102e75c8-3b47-4964-9b47-30a980aed25c
+443,IT engineer,it engineer,esco:http://data.europa.eu/esco/occupation/3e7bf729-4442-4b9f-ad5e-83111963795c
+444,IT environmental consultant,it environmental consultant,esco:http://data.europa.eu/esco/occupation/22987b58-dbfa-4ecd-ae3f-82dd209255f6
+445,IT help desk advisor,it help desk advisor,esco:http://data.europa.eu/esco/occupation/aaeec9a7-dc57-4485-890c-86b3eef735f9
+446,IT help desk agent,it help desk agent,esco:http://data.europa.eu/esco/occupation/aaeec9a7-dc57-4485-890c-86b3eef735f9
+447,IT help desk manager,it help desk manager,esco:http://data.europa.eu/esco/occupation/1242d99a-47f1-4a62-b884-33746db8a6ca
+448,IT helpdesk manager,it helpdesk manager,esco:http://data.europa.eu/esco/occupation/1242d99a-47f1-4a62-b884-33746db8a6ca
+449,IT integration engineer,it integration engineer,esco:http://data.europa.eu/esco/occupation/07e60525-1aad-4099-aaf3-2c7014c92212
+450,IT network technician,it network technician,esco:http://data.europa.eu/esco/occupation/64c7d461-152c-477f-a8e2-c2c537e9d617
+451,IT officer,it officer,esco:http://data.europa.eu/esco/occupation/3e7bf729-4442-4b9f-ad5e-83111963795c
+452,IT Quality Appraiser,it quality appraiser,esco:http://data.europa.eu/esco/occupation/cdd3d773-75a4-4f35-bd1d-1ac720afcf9d
+453,IT quality assurance manager,it quality assurance manager,esco:http://data.europa.eu/esco/occupation/a28dff76-74df-46ee-929f-d1fffbb63cd7
+454,IT research advisor,it research advisor,esco:http://data.europa.eu/esco/occupation/6e92d4b5-3167-4166-802f-da7753951a31
+455,IT research consultant,it research consultant,esco:http://data.europa.eu/esco/occupation/6e92d4b5-3167-4166-802f-da7753951a31
+456,IT research scientist,it research scientist,esco:http://data.europa.eu/esco/occupation/e3229e40-f571-4b26-baca-29edc8fe313e
+457,IT research specialist,it research specialist,esco:http://data.europa.eu/esco/occupation/6e92d4b5-3167-4166-802f-da7753951a31
+458,IT researcher,it researcher,esco:http://data.europa.eu/esco/occupation/e3229e40-f571-4b26-baca-29edc8fe313e
+459,IT resilience analyst,it resilience analyst,esco:http://data.europa.eu/esco/occupation/102e75c8-3b47-4964-9b47-30a980aed25c
+460,IT resilience manager,it resilience manager,esco:http://data.europa.eu/esco/occupation/a99b38bc-6e71-4bef-b127-0f2b5e357815
+461,IT science researcher,it science researcher,esco:http://data.europa.eu/esco/occupation/e3229e40-f571-4b26-baca-29edc8fe313e
+462,IT scientist,it scientist,esco:http://data.europa.eu/esco/occupation/e3229e40-f571-4b26-baca-29edc8fe313e
+463,IT security administrator,it security administrator,esco:http://data.europa.eu/esco/occupation/0464b062-cea6-4164-b10d-956c61956ae7
+464,IT security advisor,it security advisor,esco:http://data.europa.eu/esco/occupation/0ce5a9f4-e00a-4bbe-b255-3c63407167a4
+465,IT security chief,it security chief,esco:http://data.europa.eu/esco/occupation/7754d570-9519-48c2-b1c9-8e165f8bca0f
+466,IT security consultant,it security consultant,esco:http://data.europa.eu/esco/occupation/0ce5a9f4-e00a-4bbe-b255-3c63407167a4
+467,IT security expert,it security expert,esco:http://data.europa.eu/esco/occupation/0ce5a9f4-e00a-4bbe-b255-3c63407167a4
+468,IT security manager,it security manager,esco:http://data.europa.eu/esco/occupation/7754d570-9519-48c2-b1c9-8e165f8bca0f
+469,IT security technician,it security technician,esco:http://data.europa.eu/esco/occupation/a44a1dc5-be08-4840-8bd5-770c4ac1ca6d
+470,IT support technician,it support technician,esco:http://data.europa.eu/esco/occupation/aaeec9a7-dc57-4485-890c-86b3eef735f9
+471,IT system administrator,it system administrator,esco:http://data.europa.eu/esco/occupation/9e2e6e1e-363b-4e1b-a673-7bc0f7343300
+472,IT system analyst,it system analyst,esco:http://data.europa.eu/esco/occupation/a6a0b60f-08da-4faa-bf54-942987efb471
+473,IT system architect,it system architect,esco:http://data.europa.eu/esco/occupation/e1c72b5f-4c5c-487c-a6df-e84b64a51dae
+474,IT system configurator,it system configurator,esco:http://data.europa.eu/esco/occupation/98c3d8f8-e3a8-49b7-9e58-236f25a6f6a0
+475,IT system developer,it system developer,esco:http://data.europa.eu/esco/occupation/a7c1d23d-aeca-4bee-9a08-5993ed98b135
+476,IT system tester,it system tester,esco:http://data.europa.eu/esco/occupation/52d5edc9-7902-4cd3-8b06-6bd77c98d440
+477,IT systems administrator,it systems administrator,esco:http://data.europa.eu/esco/occupation/9e2e6e1e-363b-4e1b-a673-7bc0f7343300
+478,IT systems analyst,it systems analyst,esco:http://data.europa.eu/esco/occupation/a6a0b60f-08da-4faa-bf54-942987efb471
+479,IT systems architect,it systems architect,esco:http://data.europa.eu/esco/occupation/e1c72b5f-4c5c-487c-a6df-e84b64a51dae
+480,IT technician,it technician,esco:http://data.europa.eu/esco/occupation/3e7bf729-4442-4b9f-ad5e-83111963795c
+481,IT test analyst,it test analyst,esco:http://data.europa.eu/esco/occupation/0ab5c12c-c1c1-4772-8345-aa287d0e391d
+482,knowledge engineer,knowledge engineer,esco:http://data.europa.eu/esco/occupation/812c217d-32b7-4f6a-9faf-993d3577ac7f
+483,knowledge engineers,knowledge engineers,esco:http://data.europa.eu/esco/occupation/812c217d-32b7-4f6a-9faf-993d3577ac7f
+484,knowledge officer,knowledge officer,esco:http://data.europa.eu/esco/occupation/812c217d-32b7-4f6a-9faf-993d3577ac7f
+485,lead IT business analyst,lead it business analyst,esco:http://data.europa.eu/esco/occupation/4b3201cb-ffc5-4f61-9fc3-5c0f0038fa5f
+486,lighting hire equipment technician,lighting hire equipment technician,esco:http://data.europa.eu/esco/occupation/47e4135b-95d1-4462-920c-afcbd7c4d9be
+487,live video operator,live video operator,esco:http://data.europa.eu/esco/occupation/061f56c6-36eb-4aa7-b5ef-98b7a569da1c
+488,load cell hire technician,load cell hire technician,esco:http://data.europa.eu/esco/occupation/47e4135b-95d1-4462-920c-afcbd7c4d9be
+489,machine learning engineer,machine learning engineer,esco:http://data.europa.eu/esco/occupation/35553663-deab-4d9a-bf22-15c1625d28e8
+490,machine learning systems designer,machine learning systems designer,esco:http://data.europa.eu/esco/occupation/35553663-deab-4d9a-bf22-15c1625d28e8
+491,manager for disaster recovery,manager for disaster recovery,esco:http://data.europa.eu/esco/occupation/a99b38bc-6e71-4bef-b127-0f2b5e357815
+492,manager for IT resilience,manager for it resilience,esco:http://data.europa.eu/esco/occupation/a99b38bc-6e71-4bef-b127-0f2b5e357815
+493,manager for vulnerability,manager for vulnerability,esco:http://data.europa.eu/esco/occupation/a99b38bc-6e71-4bef-b127-0f2b5e357815
+494,mastering engineer,mastering engineer,esco:http://data.europa.eu/esco/occupation/239707a0-4754-4f4b-80b6-6b1ef5657aed
+495,mastering technician,mastering technician,esco:http://data.europa.eu/esco/occupation/239707a0-4754-4f4b-80b6-6b1ef5657aed
+496,mine electrification data analyst,mine electrification data analyst,esco:http://data.europa.eu/esco/occupation/d3edb8f8-3a06-47a0-8fb9-9b212c006aa2
+497,mixing & mastering sound engineer,mixing & mastering sound engineer,esco:http://data.europa.eu/esco/occupation/239707a0-4754-4f4b-80b6-6b1ef5657aed
+498,mixing and mastering engineer,mixing and mastering engineer,esco:http://data.europa.eu/esco/occupation/239707a0-4754-4f4b-80b6-6b1ef5657aed
+499,mobile app developer,mobile app developer,esco:http://data.europa.eu/esco/occupation/2ed56c3f-61d6-4f7e-9ef8-8849eb102e4c
+500,mobile app specialist,mobile app specialist,esco:http://data.europa.eu/esco/occupation/2ed56c3f-61d6-4f7e-9ef8-8849eb102e4c
+501,mobile application developer,mobile application developer,esco:http://data.europa.eu/esco/occupation/2ed56c3f-61d6-4f7e-9ef8-8849eb102e4c
+502,module compatibility tester,module compatibility tester,esco:http://data.europa.eu/esco/occupation/731f38f1-b08f-4dd5-a25e-f8627c038273
+503,module integration tester,module integration tester,esco:http://data.europa.eu/esco/occupation/731f38f1-b08f-4dd5-a25e-f8627c038273
+504,module tester,module tester,esco:http://data.europa.eu/esco/occupation/106f79e4-6264-45f1-9e7a-297435cd684b
+505,movie projector operator,movie projector operator,esco:http://data.europa.eu/esco/occupation/dce6a68c-8a05-4c26-85d4-6fbc43e7d822
+506,music and sound artist,music and sound artist,esco:http://data.europa.eu/esco/occupation/790c8dca-f624-4bdc-ac16-27bc13ead188
+507,music composer & sound designer,music composer & sound designer,esco:http://data.europa.eu/esco/occupation/790c8dca-f624-4bdc-ac16-27bc13ead188
+508,music composer and sound designer,music composer and sound designer,esco:http://data.europa.eu/esco/occupation/790c8dca-f624-4bdc-ac16-27bc13ead188
+509,music editor,music editor,esco:http://data.europa.eu/esco/occupation/36095ccd-c62d-4f1f-8af7-1fd10618b044
+510,music supervisor,music supervisor,esco:http://data.europa.eu/esco/occupation/36095ccd-c62d-4f1f-8af7-1fd10618b044
+511,network administrator,network administrator,esco:http://data.europa.eu/esco/occupation/9e2e6e1e-363b-4e1b-a673-7bc0f7343300
+512,network administrators,network administrators,esco:http://data.europa.eu/esco/occupation/81480b40-a318-47f3-9b2c-56b69ed67d95
+513,network analyst,network analyst,esco:http://data.europa.eu/esco/occupation/a6a0b60f-08da-4faa-bf54-942987efb471
+514,network architects,network architects,esco:http://data.europa.eu/esco/occupation/e0b544dd-b621-4126-a55e-054af25c6ea0
+515,network configurator,network configurator,esco:http://data.europa.eu/esco/occupation/cf2b03cd-feb7-4f47-90f6-ff1ed6016d3d
+516,network designer,network designer,esco:http://data.europa.eu/esco/occupation/e0b544dd-b621-4126-a55e-054af25c6ea0
+517,network developer,network developer,esco:http://data.europa.eu/esco/occupation/cf2b03cd-feb7-4f47-90f6-ff1ed6016d3d
+518,network engineer,network engineer,esco:http://data.europa.eu/esco/occupation/64c7d461-152c-477f-a8e2-c2c537e9d617
+519,network engineers,network engineers,esco:http://data.europa.eu/esco/occupation/cf2b03cd-feb7-4f47-90f6-ff1ed6016d3d
+520,network integration consultant,network integration consultant,esco:http://data.europa.eu/esco/occupation/bd9d395a-d587-45c6-8d72-ceef226df9e1
+521,network maintenance professional,network maintenance professional,esco:http://data.europa.eu/esco/occupation/64c7d461-152c-477f-a8e2-c2c537e9d617
+522,network manager,network manager,esco:http://data.europa.eu/esco/occupation/81480b40-a318-47f3-9b2c-56b69ed67d95
+523,network security administrator,network security administrator,esco:http://data.europa.eu/esco/occupation/0464b062-cea6-4164-b10d-956c61956ae7
+524,network security tester,network security tester,esco:http://data.europa.eu/esco/occupation/76ef0a87-6afe-4560-b5d0-9a086abe45c5
+525,network specialist,network specialist,esco:http://data.europa.eu/esco/occupation/81480b40-a318-47f3-9b2c-56b69ed67d95
+526,network support,network support,esco:http://data.europa.eu/esco/occupation/81480b40-a318-47f3-9b2c-56b69ed67d95
+527,network technician,network technician,esco:http://data.europa.eu/esco/occupation/64c7d461-152c-477f-a8e2-c2c537e9d617
+528,network technicians,network technicians,esco:http://data.europa.eu/esco/occupation/64c7d461-152c-477f-a8e2-c2c537e9d617
+529,networks administrator,networks administrator,esco:http://data.europa.eu/esco/occupation/81480b40-a318-47f3-9b2c-56b69ed67d95
+530,networks designer,networks designer,esco:http://data.europa.eu/esco/occupation/cf2b03cd-feb7-4f47-90f6-ff1ed6016d3d
+531,networks developer,networks developer,esco:http://data.europa.eu/esco/occupation/cf2b03cd-feb7-4f47-90f6-ff1ed6016d3d
+532,networks engineer,networks engineer,esco:http://data.europa.eu/esco/occupation/cf2b03cd-feb7-4f47-90f6-ff1ed6016d3d
+533,networks technician,networks technician,esco:http://data.europa.eu/esco/occupation/64c7d461-152c-477f-a8e2-c2c537e9d617
+534,numerical process control operator,numerical process control operator,esco:http://data.europa.eu/esco/occupation/6e5ceba0-df96-465f-adb4-2e06ae715d43
+535,numerical process control programmer,numerical process control programmer,esco:http://data.europa.eu/esco/occupation/6e5ceba0-df96-465f-adb4-2e06ae715d43
+536,numerical process control set up operator,numerical process control set up operator,esco:http://data.europa.eu/esco/occupation/6e5ceba0-df96-465f-adb4-2e06ae715d43
+537,numerical process control supervisor,numerical process control supervisor,esco:http://data.europa.eu/esco/occupation/6e5ceba0-df96-465f-adb4-2e06ae715d43
+538,numerical process control tool setting operator,numerical process control tool setting operator,esco:http://data.europa.eu/esco/occupation/6e5ceba0-df96-465f-adb4-2e06ae715d43
+539,numerical tool and process control programer,numerical tool and process control programer,esco:http://data.europa.eu/esco/occupation/6e5ceba0-df96-465f-adb4-2e06ae715d43
+540,numerical tool and process control programmer,numerical tool and process control programmer,esco:http://data.europa.eu/esco/occupation/6e5ceba0-df96-465f-adb4-2e06ae715d43
+541,numerical tool l programme setter,numerical tool l programme setter,esco:http://data.europa.eu/esco/occupation/6e5ceba0-df96-465f-adb4-2e06ae715d43
+542,numerical tool machine operator,numerical tool machine operator,esco:http://data.europa.eu/esco/occupation/6e5ceba0-df96-465f-adb4-2e06ae715d43
+543,numerical tool machine set up operator,numerical tool machine set up operator,esco:http://data.europa.eu/esco/occupation/6e5ceba0-df96-465f-adb4-2e06ae715d43
+544,numerical tool maker,numerical tool maker,esco:http://data.europa.eu/esco/occupation/6e5ceba0-df96-465f-adb4-2e06ae715d43
+545,numerical tool programmer,numerical tool programmer,esco:http://data.europa.eu/esco/occupation/6e5ceba0-df96-465f-adb4-2e06ae715d43
+546,numerical tool setter,numerical tool setter,esco:http://data.europa.eu/esco/occupation/6e5ceba0-df96-465f-adb4-2e06ae715d43
+547,numerical tool setting operator,numerical tool setting operator,esco:http://data.europa.eu/esco/occupation/6e5ceba0-df96-465f-adb4-2e06ae715d43
+548,offensive cybersecurity expert,offensive cybersecurity expert,esco:http://data.europa.eu/esco/occupation/76ef0a87-6afe-4560-b5d0-9a086abe45c5
+549,penetration tester,penetration tester,esco:http://data.europa.eu/esco/occupation/76ef0a87-6afe-4560-b5d0-9a086abe45c5
+550,pentester,pentester,esco:http://data.europa.eu/esco/occupation/76ef0a87-6afe-4560-b5d0-9a086abe45c5
+551,performance rental engineer,performance rental engineer,esco:http://data.europa.eu/esco/occupation/47e4135b-95d1-4462-920c-afcbd7c4d9be
+552,performance rental monitor,performance rental monitor,esco:http://data.europa.eu/esco/occupation/47e4135b-95d1-4462-920c-afcbd7c4d9be
+553,performance rental technician,performance rental technician,esco:http://data.europa.eu/esco/occupation/47e4135b-95d1-4462-920c-afcbd7c4d9be
+554,performance video operator,performance video operator,esco:http://data.europa.eu/esco/occupation/061f56c6-36eb-4aa7-b5ef-98b7a569da1c
+555,principal test manager,principal test manager,esco:http://data.europa.eu/esco/occupation/a28dff76-74df-46ee-929f-d1fffbb63cd7
+556,production sound mixer assistant,production sound mixer assistant,esco:http://data.europa.eu/esco/occupation/4d102082-8d43-4c59-81ab-08a7509f3c40
+557,programmer,programmer,esco:http://data.europa.eu/esco/occupation/f2b15a0e-e65a-438a-affb-29b9d50b77d1
+558,programmer analyst,programmer analyst,esco:http://data.europa.eu/esco/occupation/04ba4d6c-957d-417f-bf63-5b9e015a9f86
+559,programming analyst,programming analyst,esco:http://data.europa.eu/esco/occupation/04ba4d6c-957d-417f-bf63-5b9e015a9f86
+560,projection technician,projection technician,esco:http://data.europa.eu/esco/occupation/dce6a68c-8a05-4c26-85d4-6fbc43e7d822
+561,projectionist,projectionist,esco:http://data.europa.eu/esco/occupation/dce6a68c-8a05-4c26-85d4-6fbc43e7d822
+562,projector booth operator,projector booth operator,esco:http://data.europa.eu/esco/occupation/dce6a68c-8a05-4c26-85d4-6fbc43e7d822
+563,projector operator,projector operator,esco:http://data.europa.eu/esco/occupation/dce6a68c-8a05-4c26-85d4-6fbc43e7d822
+564,radio and TV technician,radio and tv technician,esco:http://data.europa.eu/esco/occupation/fe4a72af-6206-4d86-90c1-b5fb4b5ba2b2
+565,railcam operator,railcam operator,esco:http://data.europa.eu/esco/occupation/6fed206a-ac4d-492b-a81a-5a3a0f2b67bc
+566,re-recording mixer,re-recording mixer,esco:http://data.europa.eu/esco/occupation/aa50ae49-1e40-4ba9-959f-22a11ff172b4
+567,recording audio technician,recording audio technician,esco:http://data.europa.eu/esco/occupation/aa50ae49-1e40-4ba9-959f-22a11ff172b4
+568,recording engineer,recording engineer,esco:http://data.europa.eu/esco/occupation/aa50ae49-1e40-4ba9-959f-22a11ff172b4
+569,recording sound engineer,recording sound engineer,esco:http://data.europa.eu/esco/occupation/aa50ae49-1e40-4ba9-959f-22a11ff172b4
+570,recording sound technician,recording sound technician,esco:http://data.europa.eu/esco/occupation/aa50ae49-1e40-4ba9-959f-22a11ff172b4
+571,recording studio audio engineer,recording studio audio engineer,esco:http://data.europa.eu/esco/occupation/aa50ae49-1e40-4ba9-959f-22a11ff172b4
+572,recording studio sound technician,recording studio sound technician,esco:http://data.europa.eu/esco/occupation/aa50ae49-1e40-4ba9-959f-22a11ff172b4
+573,recording studio technician,recording studio technician,esco:http://data.europa.eu/esco/occupation/aa50ae49-1e40-4ba9-959f-22a11ff172b4
+574,recording technician,recording technician,esco:http://data.europa.eu/esco/occupation/aa50ae49-1e40-4ba9-959f-22a11ff172b4
+575,red team expert,red team expert,esco:http://data.europa.eu/esco/occupation/76ef0a87-6afe-4560-b5d0-9a086abe45c5
+576,remote head operator,remote head operator,esco:http://data.europa.eu/esco/occupation/6fed206a-ac4d-492b-a81a-5a3a0f2b67bc
+577,rental equipment performance engineer,rental equipment performance engineer,esco:http://data.europa.eu/esco/occupation/47e4135b-95d1-4462-920c-afcbd7c4d9be
+578,rental equipment performance technician,rental equipment performance technician,esco:http://data.europa.eu/esco/occupation/47e4135b-95d1-4462-920c-afcbd7c4d9be
+579,requirement engineer,requirement engineer,esco:http://data.europa.eu/esco/occupation/fe0fa514-b48d-4a53-9757-a283c0baacf0
+580,research data engineer,research data engineer,esco:http://data.europa.eu/esco/occupation/2079755f-d809-49e6-8037-4de6180e54c0
+581,research data scientist,research data scientist,esco:http://data.europa.eu/esco/occupation/258e46f9-0075-4a2e-adae-1ff0477e0f30
+582,search engine marketing specialist,search engine marketing specialist,esco:http://data.europa.eu/esco/occupation/092fdeeb-a76f-4ed2-b248-90fd6eaaffef
+583,search engine optimisation consultant,search engine optimisation consultant,esco:http://data.europa.eu/esco/occupation/092fdeeb-a76f-4ed2-b248-90fd6eaaffef
+584,search engine optimisation expert,search engine optimisation expert,esco:http://data.europa.eu/esco/occupation/092fdeeb-a76f-4ed2-b248-90fd6eaaffef
+585,search engine optimisation experts,search engine optimisation experts,esco:http://data.europa.eu/esco/occupation/092fdeeb-a76f-4ed2-b248-90fd6eaaffef
+586,search engine optimisation specialist,search engine optimisation specialist,esco:http://data.europa.eu/esco/occupation/092fdeeb-a76f-4ed2-b248-90fd6eaaffef
+587,search engine optimiser,search engine optimiser,esco:http://data.europa.eu/esco/occupation/092fdeeb-a76f-4ed2-b248-90fd6eaaffef
+588,search engine optimization expert,search engine optimization expert,esco:http://data.europa.eu/esco/occupation/092fdeeb-a76f-4ed2-b248-90fd6eaaffef
+589,secure could-edge computing system architect,secure could-edge computing system architect,esco:http://data.europa.eu/esco/occupation/8d9ec84d-cf2d-4179-87bc-335cda54a427
+590,security architect,security architect,esco:http://data.europa.eu/esco/occupation/0ce5a9f4-e00a-4bbe-b255-3c63407167a4
+591,security coordinator,security coordinator,esco:http://data.europa.eu/esco/occupation/7754d570-9519-48c2-b1c9-8e165f8bca0f
+592,security operation analyst,security operation analyst,esco:http://data.europa.eu/esco/occupation/0ce5a9f4-e00a-4bbe-b255-3c63407167a4
+593,security operations center analyst,security operations center analyst,esco:http://data.europa.eu/esco/occupation/0ce5a9f4-e00a-4bbe-b255-3c63407167a4
+594,semantic technologies engineer,semantic technologies engineer,esco:http://data.europa.eu/esco/occupation/35553663-deab-4d9a-bf22-15c1625d28e8
+595,SEO expert,seo expert,esco:http://data.europa.eu/esco/occupation/092fdeeb-a76f-4ed2-b248-90fd6eaaffef
+596,SEO experts,seo experts,esco:http://data.europa.eu/esco/occupation/092fdeeb-a76f-4ed2-b248-90fd6eaaffef
+597,SEO specialist,seo specialist,esco:http://data.europa.eu/esco/occupation/092fdeeb-a76f-4ed2-b248-90fd6eaaffef
+598,server administrator,server administrator,esco:http://data.europa.eu/esco/occupation/9e2e6e1e-363b-4e1b-a673-7bc0f7343300
+599,shotgun microphone operator,shotgun microphone operator,esco:http://data.europa.eu/esco/occupation/4d102082-8d43-4c59-81ab-08a7509f3c40
+600,shotgun operator,shotgun operator,esco:http://data.europa.eu/esco/occupation/4d102082-8d43-4c59-81ab-08a7509f3c40
+601,site reliability devops engineer,site reliability devops engineer,esco:http://data.europa.eu/esco/occupation/cc867bee-ab5c-427f-9244-f7a204d9574b
+602,smart technics computer vision engineer,smart technics computer vision engineer,esco:http://data.europa.eu/esco/occupation/1c5a45b9-440e-4726-b565-16a952abd341
+603,SOC Analyst,soc analyst,esco:http://data.europa.eu/esco/occupation/0ce5a9f4-e00a-4bbe-b255-3c63407167a4
+604,soft developer,soft developer,esco:http://data.europa.eu/esco/occupation/f2b15a0e-e65a-438a-affb-29b9d50b77d1
+605,soft tester,soft tester,esco:http://data.europa.eu/esco/occupation/106f79e4-6264-45f1-9e7a-297435cd684b
+606,software analyst,software analyst,esco:http://data.europa.eu/esco/occupation/04ba4d6c-957d-417f-bf63-5b9e015a9f86
+607,software analysts,software analysts,esco:http://data.europa.eu/esco/occupation/04ba4d6c-957d-417f-bf63-5b9e015a9f86
+608,software application configurator,software application configurator,esco:http://data.europa.eu/esco/occupation/456ed487-02f2-45c9-9213-d0fd8e9a069d
+609,software application tester,software application tester,esco:http://data.europa.eu/esco/occupation/106f79e4-6264-45f1-9e7a-297435cd684b
+610,software architect,software architect,esco:http://data.europa.eu/esco/occupation/d0aa0792-4345-474b-9365-686cf4869d2e
+611,software architects,software architects,esco:http://data.europa.eu/esco/occupation/d0aa0792-4345-474b-9365-686cf4869d2e
+612,software change and configuration manager,software change and configuration manager,esco:http://data.europa.eu/esco/occupation/3b1ea27c-781c-41eb-821f-214285260dd2
+613,software designer,software designer,esco:http://data.europa.eu/esco/occupation/d0aa0792-4345-474b-9365-686cf4869d2e
+614,software developer,software developer,esco:http://data.europa.eu/esco/occupation/f2b15a0e-e65a-438a-affb-29b9d50b77d1
+615,software developers,software developers,esco:http://data.europa.eu/esco/occupation/f2b15a0e-e65a-438a-affb-29b9d50b77d1
+616,software engineer,software engineer,esco:http://data.europa.eu/esco/occupation/f2b15a0e-e65a-438a-affb-29b9d50b77d1
+617,software integration engineer,software integration engineer,esco:http://data.europa.eu/esco/occupation/07e60525-1aad-4099-aaf3-2c7014c92212
+618,software programmer,software programmer,esco:http://data.europa.eu/esco/occupation/bd272aee-adc9-4a06-a15c-a73b4b4a46a7
+619,software requirement analyst,software requirement analyst,esco:http://data.europa.eu/esco/occupation/04ba4d6c-957d-417f-bf63-5b9e015a9f86
+620,software requirements analyst,software requirements analyst,esco:http://data.europa.eu/esco/occupation/04ba4d6c-957d-417f-bf63-5b9e015a9f86
+621,software specialist,software specialist,esco:http://data.europa.eu/esco/occupation/f2b15a0e-e65a-438a-affb-29b9d50b77d1
+622,software support manager,software support manager,esco:http://data.europa.eu/esco/occupation/1242d99a-47f1-4a62-b884-33746db8a6ca
+623,software tester,software tester,esco:http://data.europa.eu/esco/occupation/106f79e4-6264-45f1-9e7a-297435cd684b
+624,software testers,software testers,esco:http://data.europa.eu/esco/occupation/106f79e4-6264-45f1-9e7a-297435cd684b
+625,software testing specialist,software testing specialist,esco:http://data.europa.eu/esco/occupation/106f79e4-6264-45f1-9e7a-297435cd684b
+626,solution architect,solution architect,esco:http://data.europa.eu/esco/occupation/e1c72b5f-4c5c-487c-a6df-e84b64a51dae
+627,solutions developer,solutions developer,esco:http://data.europa.eu/esco/occupation/f2b15a0e-e65a-438a-affb-29b9d50b77d1
+628,sound artist and audio engineer,sound artist and audio engineer,esco:http://data.europa.eu/esco/occupation/790c8dca-f624-4bdc-ac16-27bc13ead188
+629,sound audio technician,sound audio technician,esco:http://data.europa.eu/esco/occupation/0da2ee5c-b480-498f-97a8-a292a0f4c54c
+630,sound board operator,sound board operator,esco:http://data.europa.eu/esco/occupation/0da2ee5c-b480-498f-97a8-a292a0f4c54c
+631,sound board technician,sound board technician,esco:http://data.europa.eu/esco/occupation/0da2ee5c-b480-498f-97a8-a292a0f4c54c
+632,sound designer & audio engineer,sound designer & audio engineer,esco:http://data.europa.eu/esco/occupation/790c8dca-f624-4bdc-ac16-27bc13ead188
+633,sound designer & composer,sound designer & composer,esco:http://data.europa.eu/esco/occupation/790c8dca-f624-4bdc-ac16-27bc13ead188
+634,sound designer & engineer,sound designer & engineer,esco:http://data.europa.eu/esco/occupation/790c8dca-f624-4bdc-ac16-27bc13ead188
+635,sound designer & music composer,sound designer & music composer,esco:http://data.europa.eu/esco/occupation/790c8dca-f624-4bdc-ac16-27bc13ead188
+636,sound designer and audio engineer,sound designer and audio engineer,esco:http://data.europa.eu/esco/occupation/790c8dca-f624-4bdc-ac16-27bc13ead188
+637,sound designer and composer,sound designer and composer,esco:http://data.europa.eu/esco/occupation/790c8dca-f624-4bdc-ac16-27bc13ead188
+638,sound designer and engineer,sound designer and engineer,esco:http://data.europa.eu/esco/occupation/790c8dca-f624-4bdc-ac16-27bc13ead188
+639,sound designer and music composer,sound designer and music composer,esco:http://data.europa.eu/esco/occupation/790c8dca-f624-4bdc-ac16-27bc13ead188
+640,sound editor,sound editor,esco:http://data.europa.eu/esco/occupation/36095ccd-c62d-4f1f-8af7-1fd10618b044
+641,sound engineer & designer,sound engineer & designer,esco:http://data.europa.eu/esco/occupation/790c8dca-f624-4bdc-ac16-27bc13ead188
+642,sound engineer and designer,sound engineer and designer,esco:http://data.europa.eu/esco/occupation/790c8dca-f624-4bdc-ac16-27bc13ead188
+643,sound equipment hire technician,sound equipment hire technician,esco:http://data.europa.eu/esco/occupation/47e4135b-95d1-4462-920c-afcbd7c4d9be
+644,sound equipment technician,sound equipment technician,esco:http://data.europa.eu/esco/occupation/4d102082-8d43-4c59-81ab-08a7509f3c40
+645,sound mastering engineer,sound mastering engineer,esco:http://data.europa.eu/esco/occupation/239707a0-4754-4f4b-80b6-6b1ef5657aed
+646,sound operator,sound operator,esco:http://data.europa.eu/esco/occupation/0da2ee5c-b480-498f-97a8-a292a0f4c54c
+647,sounds technician,sounds technician,esco:http://data.europa.eu/esco/occupation/aa50ae49-1e40-4ba9-959f-22a11ff172b4
+648,special effects hire equipment technician,special effects hire equipment technician,esco:http://data.europa.eu/esco/occupation/47e4135b-95d1-4462-920c-afcbd7c4d9be
+649,special effects sound technician,special effects sound technician,esco:http://data.europa.eu/esco/occupation/aa50ae49-1e40-4ba9-959f-22a11ff172b4
+650,steadicam operator,steadicam operator,esco:http://data.europa.eu/esco/occupation/6fed206a-ac4d-492b-a81a-5a3a0f2b67bc
+651,studio sound engineer,studio sound engineer,esco:http://data.europa.eu/esco/occupation/aa50ae49-1e40-4ba9-959f-22a11ff172b4
+652,studio technician,studio technician,esco:http://data.europa.eu/esco/occupation/aa50ae49-1e40-4ba9-959f-22a11ff172b4
+653,sysadmin,sysadmin,esco:http://data.europa.eu/esco/occupation/9e2e6e1e-363b-4e1b-a673-7bc0f7343300
+654,system analyst,system analyst,esco:http://data.europa.eu/esco/occupation/a6a0b60f-08da-4faa-bf54-942987efb471
+655,system and network administrator,system and network administrator,esco:http://data.europa.eu/esco/occupation/9e2e6e1e-363b-4e1b-a673-7bc0f7343300
+656,system and networks administrator,system and networks administrator,esco:http://data.europa.eu/esco/occupation/9e2e6e1e-363b-4e1b-a673-7bc0f7343300
+657,system configuration professional,system configuration professional,esco:http://data.europa.eu/esco/occupation/98c3d8f8-e3a8-49b7-9e58-236f25a6f6a0
+658,system configurator,system configurator,esco:http://data.europa.eu/esco/occupation/98c3d8f8-e3a8-49b7-9e58-236f25a6f6a0
+659,system configurators,system configurators,esco:http://data.europa.eu/esco/occupation/98c3d8f8-e3a8-49b7-9e58-236f25a6f6a0
+660,system developer,system developer,esco:http://data.europa.eu/esco/occupation/a7c1d23d-aeca-4bee-9a08-5993ed98b135
+661,system engineer,system engineer,esco:http://data.europa.eu/esco/occupation/64c7d461-152c-477f-a8e2-c2c537e9d617
+662,system integration consultants,system integration consultants,esco:http://data.europa.eu/esco/occupation/bd9d395a-d587-45c6-8d72-ceef226df9e1
+663,system integration engineer,system integration engineer,esco:http://data.europa.eu/esco/occupation/07e60525-1aad-4099-aaf3-2c7014c92212
+664,system security administrator,system security administrator,esco:http://data.europa.eu/esco/occupation/0464b062-cea6-4164-b10d-956c61956ae7
+665,system security tester,system security tester,esco:http://data.europa.eu/esco/occupation/76ef0a87-6afe-4560-b5d0-9a086abe45c5
+666,system setup professional,system setup professional,esco:http://data.europa.eu/esco/occupation/98c3d8f8-e3a8-49b7-9e58-236f25a6f6a0
+667,system software developer,system software developer,esco:http://data.europa.eu/esco/occupation/a7c1d23d-aeca-4bee-9a08-5993ed98b135
+668,systems analyst,systems analyst,esco:http://data.europa.eu/esco/occupation/a6a0b60f-08da-4faa-bf54-942987efb471
+669,systems architect,systems architect,esco:http://data.europa.eu/esco/occupation/e1c72b5f-4c5c-487c-a6df-e84b64a51dae
+670,systems configurator,systems configurator,esco:http://data.europa.eu/esco/occupation/98c3d8f8-e3a8-49b7-9e58-236f25a6f6a0
+671,systems developer,systems developer,esco:http://data.europa.eu/esco/occupation/a7c1d23d-aeca-4bee-9a08-5993ed98b135
+672,systems integration consultant,systems integration consultant,esco:http://data.europa.eu/esco/occupation/bd9d395a-d587-45c6-8d72-ceef226df9e1
+673,systems integration consultants,systems integration consultants,esco:http://data.europa.eu/esco/occupation/bd9d395a-d587-45c6-8d72-ceef226df9e1
+674,systems programmer,systems programmer,esco:http://data.europa.eu/esco/occupation/a7c1d23d-aeca-4bee-9a08-5993ed98b135
+675,systems tester,systems tester,esco:http://data.europa.eu/esco/occupation/52d5edc9-7902-4cd3-8b06-6bd77c98d440
+676,taxonomist,taxonomist,esco:http://data.europa.eu/esco/occupation/812c217d-32b7-4f6a-9faf-993d3577ac7f
+677,technical support manager,technical support manager,esco:http://data.europa.eu/esco/occupation/1242d99a-47f1-4a62-b884-33746db8a6ca
+678,telecom administrator,telecom administrator,esco:http://data.europa.eu/esco/occupation/d84bf1d7-ef99-40c4-a407-3791d6531b44
+679,telecommunication administrator,telecommunication administrator,esco:http://data.europa.eu/esco/occupation/d84bf1d7-ef99-40c4-a407-3791d6531b44
+680,telecommunications administrator,telecommunications administrator,esco:http://data.europa.eu/esco/occupation/d84bf1d7-ef99-40c4-a407-3791d6531b44
+681,telecommunications administrators,telecommunications administrators,esco:http://data.europa.eu/esco/occupation/d84bf1d7-ef99-40c4-a407-3791d6531b44
+682,telecommunications engineering technician,telecommunications engineering technician,esco:http://data.europa.eu/esco/occupation/d84bf1d7-ef99-40c4-a407-3791d6531b44
+683,telecoms administrator,telecoms administrator,esco:http://data.europa.eu/esco/occupation/d84bf1d7-ef99-40c4-a407-3791d6531b44
+684,test designer,test designer,esco:http://data.europa.eu/esco/occupation/0ab5c12c-c1c1-4772-8345-aa287d0e391d
+685,tester,tester,esco:http://data.europa.eu/esco/occupation/106f79e4-6264-45f1-9e7a-297435cd684b
+686,towercam operator,towercam operator,esco:http://data.europa.eu/esco/occupation/6fed206a-ac4d-492b-a81a-5a3a0f2b67bc
+687,TV boom operator,tv boom operator,esco:http://data.europa.eu/esco/occupation/4d102082-8d43-4c59-81ab-08a7509f3c40
+688,UI designer,ui designer,esco:http://data.europa.eu/esco/occupation/96e20037-0a25-4bf6-a25e-808d1605d890
+689,UI developer,ui developer,esco:http://data.europa.eu/esco/occupation/866c7813-2c03-47d7-9bdc-192cfbace57c
+690,UI developers,ui developers,esco:http://data.europa.eu/esco/occupation/866c7813-2c03-47d7-9bdc-192cfbace57c
+691,UI programmer,ui programmer,esco:http://data.europa.eu/esco/occupation/866c7813-2c03-47d7-9bdc-192cfbace57c
+692,unit tester,unit tester,esco:http://data.europa.eu/esco/occupation/106f79e4-6264-45f1-9e7a-297435cd684b
+693,usability analyst,usability analyst,esco:http://data.europa.eu/esco/occupation/faed411a-f920-4100-86a8-b877928b429c
+694,usability developer,usability developer,esco:http://data.europa.eu/esco/occupation/5f50290d-f520-4a69-85c7-1390d2a4a8b6
+695,usability specialist,usability specialist,esco:http://data.europa.eu/esco/occupation/5f50290d-f520-4a69-85c7-1390d2a4a8b6
+696,usability tester,usability tester,esco:http://data.europa.eu/esco/occupation/50af07f0-7a75-424e-a66d-5a9deea10f4c
+697,usability testers,usability testers,esco:http://data.europa.eu/esco/occupation/5f50290d-f520-4a69-85c7-1390d2a4a8b6
+698,user experience analyst,user experience analyst,esco:http://data.europa.eu/esco/occupation/faed411a-f920-4100-86a8-b877928b429c
+699,user experience analysts,user experience analysts,esco:http://data.europa.eu/esco/occupation/faed411a-f920-4100-86a8-b877928b429c
+700,user experience officer,user experience officer,esco:http://data.europa.eu/esco/occupation/faed411a-f920-4100-86a8-b877928b429c
+701,user interface designer,user interface designer,esco:http://data.europa.eu/esco/occupation/96e20037-0a25-4bf6-a25e-808d1605d890
+702,user interface designers,user interface designers,esco:http://data.europa.eu/esco/occupation/96e20037-0a25-4bf6-a25e-808d1605d890
+703,user interface developer,user interface developer,esco:http://data.europa.eu/esco/occupation/866c7813-2c03-47d7-9bdc-192cfbace57c
+704,user interface developers,user interface developers,esco:http://data.europa.eu/esco/occupation/866c7813-2c03-47d7-9bdc-192cfbace57c
+705,user interface engineer,user interface engineer,esco:http://data.europa.eu/esco/occupation/866c7813-2c03-47d7-9bdc-192cfbace57c
+706,user-friendliness tester,user-friendliness tester,esco:http://data.europa.eu/esco/occupation/5f50290d-f520-4a69-85c7-1390d2a4a8b6
+707,venue performance monitor,venue performance monitor,esco:http://data.europa.eu/esco/occupation/47e4135b-95d1-4462-920c-afcbd7c4d9be
+708,venue technician (rental equipment),venue technician (rental equipment),esco:http://data.europa.eu/esco/occupation/47e4135b-95d1-4462-920c-afcbd7c4d9be
+709,video and graphics operator,video and graphics operator,esco:http://data.europa.eu/esco/occupation/061f56c6-36eb-4aa7-b5ef-98b7a569da1c
+710,video and graphics technician,video and graphics technician,esco:http://data.europa.eu/esco/occupation/061f56c6-36eb-4aa7-b5ef-98b7a569da1c
+711,video camera operator,video camera operator,esco:http://data.europa.eu/esco/occupation/6fed206a-ac4d-492b-a81a-5a3a0f2b67bc
+712,video conference technician,video conference technician,esco:http://data.europa.eu/esco/occupation/a59feab2-9bc9-4b25-97cf-995998164502
+713,video games developer,video games developer,esco:http://data.europa.eu/esco/occupation/9ebaf3f0-0be0-47b7-b2b1-b3b04130fa81
+714,video games tester,video games tester,esco:http://data.europa.eu/esco/occupation/33e4f026-a823-4ffc-99e4-60d3fe597a1e
+715,video operator,video operator,esco:http://data.europa.eu/esco/occupation/061f56c6-36eb-4aa7-b5ef-98b7a569da1c
+716,video projection operator,video projection operator,esco:http://data.europa.eu/esco/occupation/061f56c6-36eb-4aa7-b5ef-98b7a569da1c
+717,video projection technician,video projection technician,esco:http://data.europa.eu/esco/occupation/061f56c6-36eb-4aa7-b5ef-98b7a569da1c
+718,video/graphics technician,video/graphics technician,esco:http://data.europa.eu/esco/occupation/a59feab2-9bc9-4b25-97cf-995998164502
+719,videographer,videographer,esco:http://data.europa.eu/esco/occupation/6fed206a-ac4d-492b-a81a-5a3a0f2b67bc
+720,virtual games developer,virtual games developer,esco:http://data.europa.eu/esco/occupation/9ebaf3f0-0be0-47b7-b2b1-b3b04130fa81
+721,virtual games tester,virtual games tester,esco:http://data.europa.eu/esco/occupation/33e4f026-a823-4ffc-99e4-60d3fe597a1e
+722,visual and graphic operator,visual and graphic operator,esco:http://data.europa.eu/esco/occupation/061f56c6-36eb-4aa7-b5ef-98b7a569da1c
+723,visual projection operator,visual projection operator,esco:http://data.europa.eu/esco/occupation/061f56c6-36eb-4aa7-b5ef-98b7a569da1c
+724,visuals operator,visuals operator,esco:http://data.europa.eu/esco/occupation/061f56c6-36eb-4aa7-b5ef-98b7a569da1c
+725,visuals technician,visuals technician,esco:http://data.europa.eu/esco/occupation/a59feab2-9bc9-4b25-97cf-995998164502
+726,vulnerability analyst,vulnerability analyst,esco:http://data.europa.eu/esco/occupation/76ef0a87-6afe-4560-b5d0-9a086abe45c5
+727,vulnerability manager,vulnerability manager,esco:http://data.europa.eu/esco/occupation/a99b38bc-6e71-4bef-b127-0f2b5e357815
+728,web administrator,web administrator,esco:http://data.europa.eu/esco/occupation/dc8ef7da-d2c0-4474-96a0-6d0385eeec1e
+729,web application developer,web application developer,esco:http://data.europa.eu/esco/occupation/c40a2919-48a9-40ea-b506-1f34f693496d
+730,web content administrators,web content administrators,esco:http://data.europa.eu/esco/occupation/a74f6c51-37e5-423e-aa5b-044e98663027
+731,web content curatorspecialist,web content curatorspecialist,esco:http://data.europa.eu/esco/occupation/a74f6c51-37e5-423e-aa5b-044e98663027
+732,web content manager,web content manager,esco:http://data.europa.eu/esco/occupation/a74f6c51-37e5-423e-aa5b-044e98663027
+733,web content specialist,web content specialist,esco:http://data.europa.eu/esco/occupation/a74f6c51-37e5-423e-aa5b-044e98663027
+734,web developer,web developer,esco:http://data.europa.eu/esco/occupation/c40a2919-48a9-40ea-b506-1f34f693496d
+735,web developers,web developers,esco:http://data.europa.eu/esco/occupation/c40a2919-48a9-40ea-b506-1f34f693496d
+736,web engineer,web engineer,esco:http://data.europa.eu/esco/occupation/c40a2919-48a9-40ea-b506-1f34f693496d
+737,web programmer,web programmer,esco:http://data.europa.eu/esco/occupation/c40a2919-48a9-40ea-b506-1f34f693496d
+738,web specialist,web specialist,esco:http://data.europa.eu/esco/occupation/c40a2919-48a9-40ea-b506-1f34f693496d
+739,web technician,web technician,esco:http://data.europa.eu/esco/occupation/dc8ef7da-d2c0-4474-96a0-6d0385eeec1e
+740,webmaster,webmaster,esco:http://data.europa.eu/esco/occupation/dc8ef7da-d2c0-4474-96a0-6d0385eeec1e
+741,webmasters,webmasters,esco:http://data.europa.eu/esco/occupation/dc8ef7da-d2c0-4474-96a0-6d0385eeec1e
+742,website administrator,website administrator,esco:http://data.europa.eu/esco/occupation/dc8ef7da-d2c0-4474-96a0-6d0385eeec1e
+743,weight report technician,weight report technician,esco:http://data.europa.eu/esco/occupation/47e4135b-95d1-4462-920c-afcbd7c4d9be

@@ -1,0 +1,35 @@
+{
+  "candidate": {
+    "skills": [
+      "Vue.js",
+      "JavaScript",
+      "PHP",
+      "MySQL",
+      "Git"
+    ],
+    "experience_years": 3,
+    "job_titles": [
+      "Frontend Developer",
+      "Web Developer"
+    ],
+    "education": {
+      "degree": "Cử nhân",
+      "major": "Khoa học máy tính"
+    },
+    "certificates": [],
+    "raw_context": "Tôi phát triển web application với Vue.js và PHP, có kinh nghiệm xây dựng dashboard và giao diện người dùng responsive."
+  },
+  "jd": {
+    "required_skills": [
+      "React",
+      "TypeScript",
+      "Node.js",
+      "PostgreSQL"
+    ],
+    "min_experience_years": 2,
+    "required_title": "Frontend Developer",
+    "education_requirement": "Cử nhân CNTT trở lên",
+    "context": "Cần Frontend Developer có kinh nghiệm React/TypeScript để phát triển giao diện ứng dụng quản lý nội bộ."
+  },
+  "_note": "Kiểm tra semantic matching giữa các kỹ năng frontend liên quan."
+}

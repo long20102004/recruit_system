@@ -7,10 +7,6 @@
     <link rel="stylesheet" href="assets/css/main.css" />
   </head>
   <body>
-    <div class="demo-banner">
-      Bản mẫu giao diện · <span>dữ liệu minh họa, chưa nối backend</span>
-    </div>
-
     <header class="site-header" data-header></header>
 
     <main class="page">
@@ -18,7 +14,7 @@
         <p class="kicker">Quận 1 · việc IT</p>
         <h1>Việc quanh bạn, xếp theo mức gần và mức hợp.</h1>
         <p class="lead">
-          Đọc danh sách trước. CV, ghép nối và phỏng vấn nằm phía sau, khi bạn cần.
+          Duyệt tin tuyển dụng trước. Hồ sơ, gợi ý phù hợp và luyện phỏng vấn sẵn khi bạn cần.
         </p>
 
         <form class="search-bar" id="searchForm">
@@ -43,7 +39,7 @@
           <button type="button" class="chip-filter" data-near="0">Tất cả khu vực</button>
           <button type="button" class="chip-filter" data-kw="Intern">Fresher / Intern</button>
           <button type="button" class="chip-filter" data-kw="Remote">Remote</button>
-          <button type="button" class="chip-filter" data-kw="NLP">NLP / AI</button>
+          <button type="button" class="chip-filter" data-kw="Spring">Spring Boot</button>
         </div>
       </section>
 
@@ -52,7 +48,7 @@
           <div class="section-head">
             <div>
               <h2 id="listTitle">Việc làm gần bạn</h2>
-              <p id="listSub">Dựa trên vị trí minh họa: Quận 1, TP.HCM</p>
+              <p id="listSub">Dựa trên vị trí: Quận 1, TP.HCM</p>
             </div>
             <span class="chip brand" id="countBadge">0 việc</span>
           </div>
@@ -62,15 +58,15 @@
         <aside class="side-panel">
           <article class="panel" id="detailPanel">
             <h3>Chi tiết việc làm</h3>
-            <p class="muted">Chọn một tin bên trái để xem mô tả, kỹ năng và mức phù hợp (nếu có).</p>
+            <p class="muted">Chọn một tin bên trái để xem mô tả, yêu cầu và mức phù hợp.</p>
           </article>
 
           <article class="panel">
-            <h3>Công cụ AI của đồ án</h3>
-            <a class="quick-link" href="login.html">Phân tích CV (NER) <span>Module 1</span></a>
-            <a class="quick-link" href="login.html">Ghép nối CV–Job <span>Module 2</span></a>
-            <a class="quick-link" href="login.html">Phỏng vấn + BERTScore <span>Module 3</span></a>
-            <p class="hint">Đăng nhập demo để xem đủ luồng ứng viên / nhà tuyển dụng.</p>
+            <h3>Bắt đầu với HireLens</h3>
+            <a class="quick-link" href="login.html">Cập nhật hồ sơ CV <span>Ứng viên</span></a>
+            <a class="quick-link" href="login.html">Xem việc phù hợp <span>Ứng viên</span></a>
+            <a class="quick-link" href="login.html">Đăng tin tuyển dụng <span>Nhà tuyển dụng</span></a>
+            <p class="hint">Đăng nhập để dùng đủ tính năng theo vai trò của bạn.</p>
           </article>
         </aside>
       </div>
@@ -103,20 +99,26 @@
               <div class="muted">${job.company} · ${job.location}</div>
             </div>
           </div>
-          <div class="salary" style="margin-bottom:.75rem">${job.salary}</div>
-          <p style="margin:0 0 .75rem">${job.description}</p>
+          <div class="salary" style="margin-bottom:.75rem">${job.salary} · ${job.level} · ${job.workType}</div>
+          <p style="margin:0 0 .5rem"><strong>Mô tả</strong></p>
+          <p style="margin:0 0 .75rem">${job.description || "—"}</p>
+          ${
+            job.requirements
+              ? `<p style="margin:0 0 .5rem"><strong>Yêu cầu</strong></p><p style="margin:0 0 .75rem">${job.requirements}</p>`
+              : ""
+          }
           <div style="margin-bottom:.75rem">
-            ${job.requiredSkills.map((s) => `<span class="chip ok">${s}</span>`).join("")}
-            ${job.preferredSkills.map((s) => `<span class="chip accent">${s}</span>`).join("")}
+            ${(job.requiredSkills || []).map((s) => `<span class="chip ok">${s}</span>`).join("")}
+            ${(job.preferredSkills || []).map((s) => `<span class="chip accent">${s}</span>`).join("")}
           </div>
           ${
             match
-              ? `<div class="empty-note"><strong>${HireLens.pct(match.score)}% phù hợp (minh họa).</strong><br>${match.reasons[0]}</div>`
-              : `<div class="empty-note">Chưa có điểm matching cho tin này. Đăng nhập để chạy Module 2.</div>`
+              ? `<div class="empty-note"><strong>${HireLens.pct(match.score)}% phù hợp với hồ sơ mẫu.</strong><br>${match.reasons[0]}</div>`
+              : `<div class="empty-note">Đăng nhập với tài khoản ứng viên để xem mức phù hợp với CV của bạn.</div>`
           }
           <div class="split-actions">
-            <a class="btn btn-primary btn-sm" href="login.html">Ứng tuyển demo</a>
-            <a class="btn btn-ghost btn-sm" href="login.html">Phỏng vấn AI</a>
+            <a class="btn btn-primary btn-sm" href="login.html">Ứng tuyển</a>
+            <a class="btn btn-ghost btn-sm" href="login.html">Luyện phỏng vấn</a>
           </div>`;
       }
 
@@ -124,7 +126,6 @@
         const filters = currentFilters();
         let jobs = HireLens.filterJobs(filters);
 
-        // Nếu lọc "gần bạn" mà rỗng theo keyword+city, nới keyword
         if (!jobs.length && filters.nearOnly) {
           jobs = HireLens.filterJobs({ city: filters.city, nearOnly: true, keyword: "" });
         }
@@ -134,7 +135,7 @@
           ? "Việc làm gần bạn"
           : "Việc làm phù hợp tìm kiếm";
         document.getElementById("listSub").textContent = filters.nearOnly
-          ? "Dựa trên vị trí minh họa: " + HireLensMock.meta.userLocation
+          ? "Dựa trên vị trí: " + HireLensMock.meta.userLocation
           : "Kết quả theo từ khóa / khu vực đã chọn";
 
         const list = document.getElementById("jobList");
@@ -150,7 +151,7 @@
         HireLens.qsa(".job-card", list).forEach((card) => {
           card.addEventListener("click", (e) => {
             if (e.target.closest("[data-apply]")) {
-              HireLens.toast("Demo: đăng nhập để ứng tuyển / matching");
+              HireLens.toast("Đăng nhập để ứng tuyển");
               return;
             }
             selectedId = card.dataset.jobId;

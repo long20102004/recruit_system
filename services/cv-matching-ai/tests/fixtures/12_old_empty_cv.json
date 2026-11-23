@@ -1,0 +1,24 @@
+{
+  "candidate": {
+    "skills": [],
+    "experience_years": 0,
+    "job_titles": [],
+    "education": {
+      "degree": "",
+      "major": ""
+    },
+    "certificates": [],
+    "raw_context": ""
+  },
+  "jd": {
+    "required_skills": [
+      "Python",
+      "SQL"
+    ],
+    "min_experience_years": 1,
+    "required_title": "Junior Developer",
+    "education_requirement": "Cử nhân",
+    "context": "Môi trường học việc, được đào tạo thêm."
+  },
+  "_note": "CV rỗng hoàn toàn; hệ thống không được crash."
+}

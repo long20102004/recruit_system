@@ -1,0 +1,28 @@
+{
+  "candidate": {
+    "name": "An",
+    "skills": [
+      "Python",
+      "ReactJS",
+      "PostgreSQL"
+    ],
+    "experience_years": 5,
+    "job_titles": [
+      "Backend Engineer"
+    ],
+    "education": "Cử nhân",
+    "raw_context": "Xây dựng API web và hệ thống dữ liệu bằng Python."
+  },
+  "jd": {
+    "title": "Backend Engineer",
+    "required_skills": [
+      "Python",
+      "React",
+      "Postgres"
+    ],
+    "min_experience_years": 3,
+    "required_title": "Backend Engineer",
+    "education": "Cử nhân",
+    "context": "Phát triển API web và hệ thống dữ liệu."
+  }
+}

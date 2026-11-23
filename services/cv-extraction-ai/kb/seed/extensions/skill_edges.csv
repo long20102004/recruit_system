@@ -1,0 +1,36 @@
+src_name,rel,dst_name,source
+React,IS_A,Frontend Framework,system:matching-graph
+Vue.js,IS_A,Frontend Framework,system:matching-graph
+Angular,IS_A,Frontend Framework,system:matching-graph
+Frontend Framework,RELATED_TO,JavaScript,system:matching-graph
+Node.js,IS_A,Backend Framework,system:matching-graph
+Express,IS_A,Backend Framework,system:matching-graph
+FastAPI,IS_A,Web Framework,system:matching-graph
+Django,IS_A,Web Framework,system:matching-graph
+Spring Boot,IS_A,Web Framework,system:matching-graph
+Backend Framework,IS_A,Web Framework,system:matching-graph
+Web Framework,RELATED_TO,API,system:matching-graph
+PostgreSQL,IS_A,Database,system:matching-graph
+MongoDB,IS_A,Database,system:matching-graph
+REST API,IS_A,API,system:matching-graph
+GraphQL,IS_A,API,system:matching-graph
+JavaScript,RELATED_TO,Web Framework,system:matching-graph
+TypeScript,IS_A,JavaScript,system:matching-graph
+Java,RELATED_TO,Backend Framework,system:matching-graph
+C#,RELATED_TO,Backend Framework,system:matching-graph
+Amazon Web Services (AWS),IS_A,Cloud Computing,system:matching-graph
+Google Cloud,IS_A,Cloud Computing,system:matching-graph
+Microsoft Azure,IS_A,Cloud Computing,system:matching-graph
+Docker,RELATED_TO,Cloud Computing,system:matching-graph
+Kubernetes,RELATED_TO,Cloud Computing,system:matching-graph
+CI/CD,RELATED_TO,Git,system:matching-graph
+Linux,RELATED_TO,Shell Scripting,system:matching-graph
+Deep Learning,IS_A,Machine learning,system:matching-graph
+TensorFlow,IS_A,Deep Learning,system:matching-graph
+PyTorch,IS_A,Deep Learning,system:matching-graph
+Scikit-Learn,IS_A,Machine learning,system:matching-graph
+Machine learning,IS_A,Data Science,system:matching-graph
+HTML,RELATED_TO,Frontend Framework,system:matching-graph
+CSS,RELATED_TO,Frontend Framework,system:matching-graph
+Tailwind CSS,IS_A,CSS,system:matching-graph
+Python,RELATED_TO,Data Science,system:matching-graph

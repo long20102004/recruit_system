@@ -1,0 +1,3312 @@
+{
+  "kind": "occupation",
+  "records": [
+    {
+      "_links": {
+        "broaderConcept": [
+          {
+            "uri": "http://data.europa.eu/esco/isco/C2"
+          }
+        ],
+        "isInScheme": [
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/occupations"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/isco"
+          }
+        ]
+      },
+      "className": "Occupation",
+      "preferredLabel": {
+        "en": "Information and communications technology professionals"
+      },
+      "uri": "http://data.europa.eu/esco/isco/C25"
+    },
+    {
+      "_links": {
+        "broaderConcept": [
+          {
+            "uri": "http://data.europa.eu/esco/isco/C3"
+          }
+        ],
+        "isInScheme": [
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/isco"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/occupations"
+          }
+        ]
+      },
+      "className": "Occupation",
+      "preferredLabel": {
+        "en": "Information and communications technicians"
+      },
+      "uri": "http://data.europa.eu/esco/isco/C35"
+    },
+    {
+      "_links": {
+        "broaderConcept": [
+          {
+            "uri": "http://data.europa.eu/esco/isco/C25"
+          }
+        ],
+        "isInScheme": [
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/isco"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/occupations"
+          }
+        ]
+      },
+      "className": "Occupation",
+      "preferredLabel": {
+        "en": "Database and network professionals"
+      },
+      "uri": "http://data.europa.eu/esco/isco/C252"
+    },
+    {
+      "_links": {
+        "broaderConcept": [
+          {
+            "uri": "http://data.europa.eu/esco/isco/C25"
+          }
+        ],
+        "isInScheme": [
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/occupations"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/isco"
+          }
+        ]
+      },
+      "className": "Occupation",
+      "preferredLabel": {
+        "en": "Software and applications developers and analysts"
+      },
+      "uri": "http://data.europa.eu/esco/isco/C251"
+    },
+    {
+      "_links": {
+        "broaderConcept": [
+          {
+            "uri": "http://data.europa.eu/esco/isco/C35"
+          }
+        ],
+        "isInScheme": [
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/occupations"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/isco"
+          }
+        ]
+      },
+      "className": "Occupation",
+      "preferredLabel": {
+        "en": "Information and communications technology operations and user support technicians"
+      },
+      "uri": "http://data.europa.eu/esco/isco/C351"
+    },
+    {
+      "_links": {
+        "broaderConcept": [
+          {
+            "uri": "http://data.europa.eu/esco/isco/C35"
+          }
+        ],
+        "isInScheme": [
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/occupations"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/isco"
+          }
+        ]
+      },
+      "className": "Occupation",
+      "preferredLabel": {
+        "en": "Telecommunications and broadcasting technicians"
+      },
+      "uri": "http://data.europa.eu/esco/isco/C352"
+    },
+    {
+      "_links": {
+        "broaderConcept": [
+          {
+            "uri": "http://data.europa.eu/esco/isco/C252"
+          }
+        ],
+        "isInScheme": [
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/occupations"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/isco"
+          }
+        ]
+      },
+      "className": "Occupation",
+      "preferredLabel": {
+        "en": "Database and network professionals not elsewhere classified"
+      },
+      "uri": "http://data.europa.eu/esco/isco/C2529"
+    },
+    {
+      "_links": {
+        "broaderConcept": [
+          {
+            "uri": "http://data.europa.eu/esco/isco/C252"
+          }
+        ],
+        "isInScheme": [
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/occupations"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/isco"
+          }
+        ]
+      },
+      "className": "Occupation",
+      "preferredLabel": {
+        "en": "Computer network professionals"
+      },
+      "uri": "http://data.europa.eu/esco/isco/C2523"
+    },
+    {
+      "_links": {
+        "broaderConcept": [
+          {
+            "uri": "http://data.europa.eu/esco/isco/C252"
+          }
+        ],
+        "isInScheme": [
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/occupations"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/isco"
+          }
+        ]
+      },
+      "className": "Occupation",
+      "preferredLabel": {
+        "en": "Database designers and administrators"
+      },
+      "uri": "http://data.europa.eu/esco/isco/C2521"
+    },
+    {
+      "_links": {
+        "broaderConcept": [
+          {
+            "uri": "http://data.europa.eu/esco/isco/C252"
+          }
+        ],
+        "isInScheme": [
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/occupations"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/isco"
+          }
+        ]
+      },
+      "className": "Occupation",
+      "preferredLabel": {
+        "en": "Systems administrators"
+      },
+      "uri": "http://data.europa.eu/esco/isco/C2522"
+    },
+    {
+      "_links": {
+        "broaderConcept": [
+          {
+            "uri": "http://data.europa.eu/esco/isco/C251"
+          }
+        ],
+        "isInScheme": [
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/isco"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/occupations"
+          }
+        ]
+      },
+      "className": "Occupation",
+      "preferredLabel": {
+        "en": "Software developers"
+      },
+      "uri": "http://data.europa.eu/esco/isco/C2512"
+    },
+    {
+      "_links": {
+        "broaderConcept": [
+          {
+            "uri": "http://data.europa.eu/esco/isco/C251"
+          }
+        ],
+        "isInScheme": [
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/occupations"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/isco"
+          }
+        ]
+      },
+      "className": "Occupation",
+      "preferredLabel": {
+        "en": "Web and multimedia developers"
+      },
+      "uri": "http://data.europa.eu/esco/isco/C2513"
+    },
+    {
+      "_links": {
+        "broaderConcept": [
+          {
+            "uri": "http://data.europa.eu/esco/isco/C251"
+          }
+        ],
+        "isInScheme": [
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/occupations"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/isco"
+          }
+        ]
+      },
+      "className": "Occupation",
+      "preferredLabel": {
+        "en": "Systems analysts"
+      },
+      "uri": "http://data.europa.eu/esco/isco/C2511"
+    },
+    {
+      "_links": {
+        "broaderConcept": [
+          {
+            "uri": "http://data.europa.eu/esco/isco/C251"
+          }
+        ],
+        "isInScheme": [
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/isco"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/occupations"
+          }
+        ]
+      },
+      "className": "Occupation",
+      "preferredLabel": {
+        "en": "Applications programmers"
+      },
+      "uri": "http://data.europa.eu/esco/isco/C2514"
+    },
+    {
+      "_links": {
+        "broaderConcept": [
+          {
+            "uri": "http://data.europa.eu/esco/isco/C251"
+          }
+        ],
+        "isInScheme": [
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/occupations"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/isco"
+          }
+        ]
+      },
+      "className": "Occupation",
+      "preferredLabel": {
+        "en": "Software and applications developers and analysts not elsewhere classified"
+      },
+      "uri": "http://data.europa.eu/esco/isco/C2519"
+    },
+    {
+      "_links": {
+        "broaderConcept": [
+          {
+            "uri": "http://data.europa.eu/esco/isco/C351"
+          }
+        ],
+        "isInScheme": [
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/occupations"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/isco"
+          }
+        ]
+      },
+      "className": "Occupation",
+      "preferredLabel": {
+        "en": "Web technicians"
+      },
+      "uri": "http://data.europa.eu/esco/isco/C3514"
+    },
+    {
+      "_links": {
+        "broaderConcept": [
+          {
+            "uri": "http://data.europa.eu/esco/isco/C351"
+          }
+        ],
+        "isInScheme": [
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/occupations"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/isco"
+          }
+        ]
+      },
+      "className": "Occupation",
+      "preferredLabel": {
+        "en": "Computer network and systems technicians"
+      },
+      "uri": "http://data.europa.eu/esco/isco/C3513"
+    },
+    {
+      "_links": {
+        "broaderConcept": [
+          {
+            "uri": "http://data.europa.eu/esco/isco/C351"
+          }
+        ],
+        "isInScheme": [
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/occupations"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/isco"
+          }
+        ]
+      },
+      "className": "Occupation",
+      "preferredLabel": {
+        "en": "Information and communications technology operations technicians"
+      },
+      "uri": "http://data.europa.eu/esco/isco/C3511"
+    },
+    {
+      "_links": {
+        "broaderConcept": [
+          {
+            "uri": "http://data.europa.eu/esco/isco/C351"
+          }
+        ],
+        "isInScheme": [
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/isco"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/occupations"
+          }
+        ]
+      },
+      "className": "Occupation",
+      "preferredLabel": {
+        "en": "Information and communications technology user support technicians"
+      },
+      "uri": "http://data.europa.eu/esco/isco/C3512"
+    },
+    {
+      "_links": {
+        "broaderConcept": [
+          {
+            "uri": "http://data.europa.eu/esco/isco/C352"
+          }
+        ],
+        "isInScheme": [
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/occupations"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/isco"
+          }
+        ]
+      },
+      "className": "Occupation",
+      "preferredLabel": {
+        "en": "Broadcasting and audiovisual technicians"
+      },
+      "uri": "http://data.europa.eu/esco/isco/C3521"
+    },
+    {
+      "_links": {
+        "broaderConcept": [
+          {
+            "uri": "http://data.europa.eu/esco/isco/C352"
+          }
+        ],
+        "isInScheme": [
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/isco"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/occupations"
+          }
+        ]
+      },
+      "className": "Occupation",
+      "preferredLabel": {
+        "en": "Telecommunications engineering technicians"
+      },
+      "uri": "http://data.europa.eu/esco/isco/C3522"
+    },
+    {
+      "_links": {
+        "isInScheme": [
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/member-occupations"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/occupations"
+          }
+        ]
+      },
+      "alternativeLabel": {
+        "en": [
+          "manager for disaster recovery",
+          "manager for vulnerability",
+          "manager for IT resilience",
+          "IT resilience manager",
+          "vulnerability manager",
+          "disaster recovery manager"
+        ]
+      },
+      "className": "Occupation",
+      "preferredLabel": {
+        "en": "ICT resilience manager"
+      },
+      "uri": "http://data.europa.eu/esco/occupation/a99b38bc-6e71-4bef-b127-0f2b5e357815"
+    },
+    {
+      "_links": {
+        "isInScheme": [
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/occupations"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/member-occupations"
+          }
+        ]
+      },
+      "alternativeLabel": {
+        "en": [
+          "cybersecurity SIEM manager",
+          "IT security expert",
+          "security architect",
+          "cyber incident handler",
+          "security operations center analyst",
+          "ICT security engineer",
+          "cyber defender",
+          "IT security consultant",
+          "information technology security consultant",
+          "ICT security advisor",
+          "ICT security architect",
+          "information communications technology security consultant",
+          "cyber crisis expert",
+          "ICT security consultant",
+          "cyber fighter",
+          "IT security advisor",
+          "SOC Analyst",
+          "incident response engineer",
+          "consultant in ICT security activities",
+          "security operation analyst"
+        ]
+      },
+      "className": "Occupation",
+      "preferredLabel": {
+        "en": "cyber incident responder"
+      },
+      "uri": "http://data.europa.eu/esco/occupation/0ce5a9f4-e00a-4bbe-b255-3c63407167a4"
+    },
+    {
+      "_links": {
+        "isInScheme": [
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/member-occupations"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/occupations"
+          }
+        ]
+      },
+      "alternativeLabel": {
+        "en": [
+          "chief information security officer",
+          "cybersecurity programme director",
+          "head of IT security",
+          "ISO",
+          "information security officer",
+          "chief ICT security officers",
+          "IT security officer",
+          "information security manager",
+          "ICT security officer",
+          "head of information security",
+          "head IT security officer",
+          "information security administrator",
+          "CISO"
+        ]
+      },
+      "className": "Occupation",
+      "preferredLabel": {
+        "en": "chief ICT security officer"
+      },
+      "uri": "http://data.europa.eu/esco/occupation/276ba420-ef09-4a0e-b215-2c2e2f80ad28"
+    },
+    {
+      "_links": {
+        "isInScheme": [
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/member-occupations"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/occupations"
+          }
+        ]
+      },
+      "alternativeLabel": {
+        "en": [
+          "taxonomist",
+          "knowledge engineers",
+          "linked data engineer",
+          "knowledge officer",
+          "information engineer"
+        ]
+      },
+      "className": "Occupation",
+      "preferredLabel": {
+        "en": "knowledge engineer"
+      },
+      "uri": "http://data.europa.eu/esco/occupation/812c217d-32b7-4f6a-9faf-993d3577ac7f"
+    },
+    {
+      "_links": {
+        "isInScheme": [
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/occupations"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/member-occupations"
+          }
+        ]
+      },
+      "alternativeLabel": {
+        "en": [
+          "cybersecurity engineer",
+          "IoT security engineer",
+          "internet of thing security engineer",
+          "embedded systems security expert",
+          "cyber security engineer"
+        ]
+      },
+      "className": "Occupation",
+      "preferredLabel": {
+        "en": "embedded systems security engineer"
+      },
+      "uri": "http://data.europa.eu/esco/occupation/1c5a896a-e010-4217-a29a-c44db26e25da"
+    },
+    {
+      "_links": {
+        "isInScheme": [
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/member-occupations"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/occupations"
+          }
+        ]
+      },
+      "alternativeLabel": {
+        "en": [
+          "network security administrator",
+          "information security administrator",
+          "system security administrator",
+          "ICT security administrators",
+          "IT security administrator",
+          "CISO"
+        ]
+      },
+      "className": "Occupation",
+      "preferredLabel": {
+        "en": "ICT security administrator"
+      },
+      "uri": "http://data.europa.eu/esco/occupation/0464b062-cea6-4164-b10d-956c61956ae7"
+    },
+    {
+      "_links": {
+        "isInScheme": [
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/member-occupations"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/occupations"
+          }
+        ]
+      },
+      "alternativeLabel": {
+        "en": [
+          "cybersecurity specialist",
+          "information security manager",
+          "information security risk analyst",
+          "IT security manager",
+          "ICT security chief",
+          "cybersecurity risk assurance consultant",
+          "cybersecurity risk assessor",
+          "security coordinator",
+          "ICT technical security expert",
+          "cyber risk manager",
+          "cybersecurity impact analyst",
+          "ICT security manager",
+          "IT security chief"
+        ]
+      },
+      "className": "Occupation",
+      "preferredLabel": {
+        "en": "cybersecurity risk manager"
+      },
+      "uri": "http://data.europa.eu/esco/occupation/7754d570-9519-48c2-b1c9-8e165f8bca0f"
+    },
+    {
+      "_links": {
+        "isInScheme": [
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/member-occupations"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/occupations"
+          }
+        ]
+      },
+      "alternativeLabel": {
+        "en": [
+          "information forensics expert",
+          "cyber forensics expert",
+          "digital forensics specialist",
+          "digital forensics experts",
+          "cybersecurity and forensic specialist",
+          "cybersecurity analyst",
+          "digital forensic expert",
+          "ICT forensics expert",
+          "computer forensics investigator",
+          "computer forensics consultant",
+          "digital forensics analyst",
+          "computer forensics expert"
+        ]
+      },
+      "className": "Occupation",
+      "preferredLabel": {
+        "en": "digital forensics expert"
+      },
+      "uri": "http://data.europa.eu/esco/occupation/0c448a27-10ec-43ba-b880-d9938bade424"
+    },
+    {
+      "_links": {
+        "isInScheme": [
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/occupations"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/member-occupations"
+          }
+        ]
+      },
+      "alternativeLabel": {
+        "en": [
+          "cybersecurity specialist",
+          "pentester",
+          "cybersecurity tester",
+          "offensive cybersecurity expert",
+          "vulnerability analyst",
+          "ICT security tester",
+          "system security tester",
+          "red team expert",
+          "penetration tester",
+          "network security tester"
+        ]
+      },
+      "className": "Occupation",
+      "preferredLabel": {
+        "en": "ethical hacker"
+      },
+      "uri": "http://data.europa.eu/esco/occupation/76ef0a87-6afe-4560-b5d0-9a086abe45c5"
+    },
+    {
+      "_links": {
+        "isInScheme": [
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/occupations"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/member-occupations"
+          }
+        ]
+      },
+      "alternativeLabel": {
+        "en": [
+          "network configurator",
+          "networks engineer",
+          "networks developer",
+          "network developer",
+          "networks designer",
+          "network engineers"
+        ]
+      },
+      "className": "Occupation",
+      "preferredLabel": {
+        "en": "ICT network engineer"
+      },
+      "uri": "http://data.europa.eu/esco/occupation/cf2b03cd-feb7-4f47-90f6-ff1ed6016d3d"
+    },
+    {
+      "_links": {
+        "isInScheme": [
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/member-occupations"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/occupations"
+          }
+        ]
+      },
+      "alternativeLabel": {
+        "en": [
+          "network designer",
+          "network architects"
+        ]
+      },
+      "className": "Occupation",
+      "preferredLabel": {
+        "en": "ICT network architect"
+      },
+      "uri": "http://data.europa.eu/esco/occupation/e0b544dd-b621-4126-a55e-054af25c6ea0"
+    },
+    {
+      "_links": {
+        "isInScheme": [
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/occupations"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/member-occupations"
+          }
+        ]
+      },
+      "alternativeLabel": {
+        "en": [
+          "ICT performance manager",
+          "ICT capacity planners",
+          "ICT capability manager",
+          "IT capability planner",
+          "IT capacity planner"
+        ]
+      },
+      "className": "Occupation",
+      "preferredLabel": {
+        "en": "ICT capacity planner"
+      },
+      "uri": "http://data.europa.eu/esco/occupation/4543bf7b-8ffb-4ade-88b9-58da34366f04"
+    },
+    {
+      "_links": {
+        "isInScheme": [
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/member-occupations"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/occupations"
+          }
+        ]
+      },
+      "alternativeLabel": {
+        "en": [
+          "database developers",
+          "data base developer",
+          "data base developers",
+          "database development engineer",
+          "database coder",
+          "database design specialist",
+          "database programmer"
+        ]
+      },
+      "className": "Occupation",
+      "preferredLabel": {
+        "en": "database developer"
+      },
+      "uri": "http://data.europa.eu/esco/occupation/b11e1742-5e28-4270-b081-b0193d85ee7d"
+    },
+    {
+      "_links": {
+        "isInScheme": [
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/occupations"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/member-occupations"
+          }
+        ]
+      },
+      "alternativeLabel": {
+        "en": [
+          "data architect",
+          "database designers",
+          "data base designers",
+          "database architect",
+          "secure could-edge computing system architect",
+          "data base designer",
+          "database design engineer",
+          "data model designer"
+        ]
+      },
+      "className": "Occupation",
+      "preferredLabel": {
+        "en": "database designer"
+      },
+      "uri": "http://data.europa.eu/esco/occupation/8d9ec84d-cf2d-4179-87bc-335cda54a427"
+    },
+    {
+      "_links": {
+        "isInScheme": [
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/member-occupations"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/occupations"
+          }
+        ]
+      },
+      "alternativeLabel": {
+        "en": [
+          "data base integrators",
+          "data base integrator",
+          "database integrators",
+          "data integrator",
+          "database development specialist"
+        ]
+      },
+      "className": "Occupation",
+      "preferredLabel": {
+        "en": "database integrator"
+      },
+      "uri": "http://data.europa.eu/esco/occupation/3d190639-90f8-4402-b1b3-a104a17e0d67"
+    },
+    {
+      "_links": {
+        "isInScheme": [
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/occupations"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/member-occupations"
+          }
+        ]
+      },
+      "alternativeLabel": {
+        "en": [
+          "data warehouse architect",
+          "data warehouse developer"
+        ]
+      },
+      "className": "Occupation",
+      "preferredLabel": {
+        "en": "data warehouse designer"
+      },
+      "uri": "http://data.europa.eu/esco/occupation/1562c7a3-c7d9-419d-b9b6-db26610bcf84"
+    },
+    {
+      "_links": {
+        "isInScheme": [
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/occupations"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/member-occupations"
+          }
+        ]
+      },
+      "alternativeLabel": {
+        "en": [
+          "database manager",
+          "DBA",
+          "database administrators",
+          "data manager",
+          "data administrator",
+          "database configurator",
+          "data base administrator",
+          "data base administrators"
+        ]
+      },
+      "className": "Occupation",
+      "preferredLabel": {
+        "en": "database administrator"
+      },
+      "uri": "http://data.europa.eu/esco/occupation/8c57af09-719c-42b3-be40-6ed4946236cc"
+    },
+    {
+      "_links": {
+        "isInScheme": [
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/occupations"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/member-occupations"
+          }
+        ]
+      },
+      "alternativeLabel": {
+        "en": [
+          "enterprise administrator",
+          "system and network administrator",
+          "IT system administrator",
+          "server administrator",
+          "system and networks administrator",
+          "network administrator",
+          "ICT sysadmins",
+          "IT systems administrator",
+          "ICT sysadmin",
+          "sysadmin"
+        ]
+      },
+      "className": "Occupation",
+      "preferredLabel": {
+        "en": "ICT system administrator"
+      },
+      "uri": "http://data.europa.eu/esco/occupation/9e2e6e1e-363b-4e1b-a673-7bc0f7343300"
+    },
+    {
+      "_links": {
+        "isInScheme": [
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/member-occupations"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/occupations"
+          }
+        ]
+      },
+      "alternativeLabel": {
+        "en": [
+          "aws cloud architect",
+          "cloud solutions consultant"
+        ]
+      },
+      "className": "Occupation",
+      "preferredLabel": {
+        "en": "cloud architect"
+      },
+      "uri": "http://data.europa.eu/esco/occupation/2fb96c6c-8d0b-4ef0-b1ee-3e493305e4eb"
+    },
+    {
+      "_links": {
+        "isInScheme": [
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/occupations"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/member-occupations"
+          }
+        ]
+      },
+      "alternativeLabel": {
+        "en": [
+          "IoT software developer"
+        ]
+      },
+      "className": "Occupation",
+      "preferredLabel": {
+        "en": "IoT developer"
+      },
+      "uri": "http://data.europa.eu/esco/occupation/6ce5f7e3-a534-4aa2-ab23-255408ddb53a"
+    },
+    {
+      "_links": {
+        "isInScheme": [
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/occupations"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/member-occupations"
+          }
+        ]
+      },
+      "alternativeLabel": {
+        "en": [
+          "hybrid cloud engineer",
+          "cloud infrastructure engineer",
+          "cloud software engineer",
+          "cloud computing engineer",
+          "cloud network engineer",
+          "cloud solution engineer",
+          "cloud security engineer",
+          "cloud-native engineer",
+          "cloud developer"
+        ]
+      },
+      "className": "Occupation",
+      "preferredLabel": {
+        "en": "cloud engineer"
+      },
+      "uri": "http://data.europa.eu/esco/occupation/349ee6f6-c295-4c38-9b98-48765b55280e"
+    },
+    {
+      "_links": {
+        "isInScheme": [
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/member-occupations"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/occupations"
+          }
+        ]
+      },
+      "alternativeLabel": {
+        "en": [
+          "battery software developer",
+          "application developer",
+          "application programmer",
+          "solutions developer",
+          "programmer",
+          "software specialist",
+          "software developers",
+          "applications engineer",
+          "soft developer",
+          "electric vehicle software development engineer",
+          "application software developer",
+          "software engineer",
+          "developer of software"
+        ]
+      },
+      "className": "Occupation",
+      "preferredLabel": {
+        "en": "software developer"
+      },
+      "uri": "http://data.europa.eu/esco/occupation/f2b15a0e-e65a-438a-affb-29b9d50b77d1"
+    },
+    {
+      "_links": {
+        "isInScheme": [
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/occupations"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/member-occupations"
+          }
+        ]
+      },
+      "alternativeLabel": {
+        "en": [
+          "front end developer",
+          "UI programmer",
+          "user interface developers",
+          "UI developers",
+          "UI developer",
+          "user interface engineer"
+        ]
+      },
+      "className": "Occupation",
+      "preferredLabel": {
+        "en": "user interface developer"
+      },
+      "uri": "http://data.europa.eu/esco/occupation/866c7813-2c03-47d7-9bdc-192cfbace57c"
+    },
+    {
+      "_links": {
+        "isInScheme": [
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/member-occupations"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/occupations"
+          }
+        ]
+      },
+      "alternativeLabel": {
+        "en": [
+          "full stack cloud software engineer",
+          "cloud deployment specialist",
+          "cloud technical specialist",
+          "cloud solutions specialist",
+          "cloud consultant",
+          "cloud and infrastructure specialist",
+          "cloud infrastructure it specialist",
+          "cloud administrator"
+        ]
+      },
+      "className": "Occupation",
+      "preferredLabel": {
+        "en": "cloud software developer"
+      },
+      "uri": "http://data.europa.eu/esco/occupation/781a6350-e686-45b9-b075-e4c8d5a05ff7"
+    },
+    {
+      "_links": {
+        "isInScheme": [
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/member-occupations"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/occupations"
+          }
+        ]
+      },
+      "alternativeLabel": {
+        "en": [
+          "software architects",
+          "software designer",
+          "application architect"
+        ]
+      },
+      "className": "Occupation",
+      "preferredLabel": {
+        "en": "software architect"
+      },
+      "uri": "http://data.europa.eu/esco/occupation/d0aa0792-4345-474b-9365-686cf4869d2e"
+    },
+    {
+      "_links": {
+        "isInScheme": [
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/member-occupations"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/occupations"
+          }
+        ]
+      },
+      "alternativeLabel": {
+        "en": [
+          "application analyst",
+          "programming analyst",
+          "programmer analyst",
+          "software analysts",
+          "software requirement analyst",
+          "software requirements analyst",
+          "analyst of software"
+        ]
+      },
+      "className": "Occupation",
+      "preferredLabel": {
+        "en": "software analyst"
+      },
+      "uri": "http://data.europa.eu/esco/occupation/04ba4d6c-957d-417f-bf63-5b9e015a9f86"
+    },
+    {
+      "_links": {
+        "isInScheme": [
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/member-occupations"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/occupations"
+          }
+        ]
+      },
+      "alternativeLabel": {
+        "en": [
+          "search engine optimisation specialist",
+          "SEO specialist",
+          "search engine marketing specialist",
+          "search engine optimisation consultant",
+          "SEO expert",
+          "growth hacker",
+          "search engine optimisation experts",
+          "search engine optimization expert",
+          "search engine optimiser",
+          "SEO experts",
+          "inbound marketer"
+        ]
+      },
+      "className": "Occupation",
+      "preferredLabel": {
+        "en": "search engine optimisation expert"
+      },
+      "uri": "http://data.europa.eu/esco/occupation/092fdeeb-a76f-4ed2-b248-90fd6eaaffef"
+    },
+    {
+      "_links": {
+        "isInScheme": [
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/member-occupations"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/occupations"
+          }
+        ]
+      },
+      "alternativeLabel": {
+        "en": [
+          "accessibility designer",
+          "user interface designers",
+          "UI designer"
+        ]
+      },
+      "className": "Occupation",
+      "preferredLabel": {
+        "en": "user interface designer"
+      },
+      "uri": "http://data.europa.eu/esco/occupation/96e20037-0a25-4bf6-a25e-808d1605d890"
+    },
+    {
+      "_links": {
+        "isInScheme": [
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/member-occupations"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/occupations"
+          }
+        ]
+      },
+      "alternativeLabel": {
+        "en": [
+          "web programmer",
+          "web application developer",
+          "web engineer",
+          "web developers",
+          "web specialist"
+        ]
+      },
+      "className": "Occupation",
+      "preferredLabel": {
+        "en": "web developer"
+      },
+      "uri": "http://data.europa.eu/esco/occupation/c40a2919-48a9-40ea-b506-1f34f693496d"
+    },
+    {
+      "_links": {
+        "isInScheme": [
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/occupations"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/member-occupations"
+          }
+        ]
+      },
+      "alternativeLabel": {
+        "en": [
+          "digital game developer",
+          "computer games developer",
+          "virtual games developer",
+          "video games developer",
+          "games programmer",
+          "digital games developers"
+        ]
+      },
+      "className": "Occupation",
+      "preferredLabel": {
+        "en": "digital games developer"
+      },
+      "uri": "http://data.europa.eu/esco/occupation/9ebaf3f0-0be0-47b7-b2b1-b3b04130fa81"
+    },
+    {
+      "_links": {
+        "isInScheme": [
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/occupations"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/member-occupations"
+          }
+        ]
+      },
+      "alternativeLabel": {
+        "en": [
+          "web content specialist",
+          "digital content",
+          "web content curatorspecialist",
+          "web content administrators",
+          "content curator",
+          "content specialist"
+        ]
+      },
+      "className": "Occupation",
+      "preferredLabel": {
+        "en": "web content manager"
+      },
+      "uri": "http://data.europa.eu/esco/occupation/a74f6c51-37e5-423e-aa5b-044e98663027"
+    },
+    {
+      "_links": {
+        "isInScheme": [
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/occupations"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/member-occupations"
+          }
+        ]
+      },
+      "alternativeLabel": {
+        "en": [
+          "software integration engineer",
+          "ICT integration engineers",
+          "IT integration engineer",
+          "system integration engineer"
+        ]
+      },
+      "className": "Occupation",
+      "preferredLabel": {
+        "en": "integration engineer"
+      },
+      "uri": "http://data.europa.eu/esco/occupation/07e60525-1aad-4099-aaf3-2c7014c92212"
+    },
+    {
+      "_links": {
+        "isInScheme": [
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/occupations"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/member-occupations"
+          }
+        ]
+      },
+      "alternativeLabel": {
+        "en": [
+          "enterprise developer",
+          "enterprise architects",
+          "enterprise architecture manager",
+          "enterprise designer"
+        ]
+      },
+      "className": "Occupation",
+      "preferredLabel": {
+        "en": "enterprise architect"
+      },
+      "uri": "http://data.europa.eu/esco/occupation/2bef94db-0088-4507-982a-2ca717529adb"
+    },
+    {
+      "_links": {
+        "isInScheme": [
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/occupations"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/member-occupations"
+          }
+        ]
+      },
+      "alternativeLabel": {
+        "en": [
+          "research data engineer",
+          "data engineer expert"
+        ]
+      },
+      "className": "Occupation",
+      "preferredLabel": {
+        "en": "data engineer"
+      },
+      "uri": "http://data.europa.eu/esco/occupation/2079755f-d809-49e6-8037-4de6180e54c0"
+    },
+    {
+      "_links": {
+        "isInScheme": [
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/member-occupations"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/occupations"
+          }
+        ]
+      },
+      "alternativeLabel": {
+        "en": [
+          "ICT systems architect",
+          "solution architect",
+          "IT systems architect",
+          "IT system architect",
+          "systems architect",
+          "ICT system architects",
+          "ICT systems architects",
+          "information systems architect"
+        ]
+      },
+      "className": "Occupation",
+      "preferredLabel": {
+        "en": "ICT system architect"
+      },
+      "uri": "http://data.europa.eu/esco/occupation/e1c72b5f-4c5c-487c-a6df-e84b64a51dae"
+    },
+    {
+      "_links": {
+        "isInScheme": [
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/member-occupations"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/occupations"
+          }
+        ]
+      },
+      "alternativeLabel": {
+        "en": [
+          "green IT consultant",
+          "ICT sustainability systems consultant",
+          "IT environmental consultant",
+          "ICT environmental consultant",
+          "green ICT consultants"
+        ]
+      },
+      "className": "Occupation",
+      "preferredLabel": {
+        "en": "green ICT consultant"
+      },
+      "uri": "http://data.europa.eu/esco/occupation/22987b58-dbfa-4ecd-ae3f-82dd209255f6"
+    },
+    {
+      "_links": {
+        "isInScheme": [
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/occupations"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/member-occupations"
+          }
+        ]
+      },
+      "alternativeLabel": {
+        "en": [
+          "ICT business analysis managers",
+          "IT business analysis director",
+          "IT business analysis manager",
+          "IT commercial analysis manager",
+          "ICT commercial analysis manager",
+          "lead IT business analyst"
+        ]
+      },
+      "className": "Occupation",
+      "preferredLabel": {
+        "en": "ICT business analysis manager"
+      },
+      "uri": "http://data.europa.eu/esco/occupation/4b3201cb-ffc5-4f61-9fc3-5c0f0038fa5f"
+    },
+    {
+      "_links": {
+        "isInScheme": [
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/member-occupations"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/occupations"
+          }
+        ]
+      },
+      "alternativeLabel": {
+        "en": [
+          "systems integration consultant",
+          "system integration consultants",
+          "application integration consultant",
+          "network integration consultant",
+          "systems integration consultants"
+        ]
+      },
+      "className": "Occupation",
+      "preferredLabel": {
+        "en": "ICT system integration consultant"
+      },
+      "uri": "http://data.europa.eu/esco/occupation/bd9d395a-d587-45c6-8d72-ceef226df9e1"
+    },
+    {
+      "_links": {
+        "isInScheme": [
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/member-occupations"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/occupations"
+          }
+        ]
+      },
+      "alternativeLabel": {
+        "en": [
+          "AI system designer",
+          "machine learning engineer",
+          "intelligent systems developer",
+          "linked data engineer",
+          "semantic technologies engineer",
+          "designer of intelligent systems",
+          "ICT intelligent systems designer",
+          "machine learning systems designer",
+          "intelligent systems engineer",
+          "intelligent system designer",
+          "artificial intelligence designer",
+          "intelligent systems designers"
+        ]
+      },
+      "className": "Occupation",
+      "preferredLabel": {
+        "en": "artificial intelligence engineer"
+      },
+      "uri": "http://data.europa.eu/esco/occupation/35553663-deab-4d9a-bf22-15c1625d28e8"
+    },
+    {
+      "_links": {
+        "isInScheme": [
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/occupations"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/member-occupations"
+          }
+        ]
+      },
+      "alternativeLabel": {
+        "en": [
+          "ICT auditor",
+          "IT Quality Appraiser",
+          "information technology auditor"
+        ]
+      },
+      "className": "Occupation",
+      "preferredLabel": {
+        "en": "IT auditor"
+      },
+      "uri": "http://data.europa.eu/esco/occupation/cdd3d773-75a4-4f35-bd1d-1ac720afcf9d"
+    },
+    {
+      "_links": {
+        "isInScheme": [
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/member-occupations"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/occupations"
+          }
+        ]
+      },
+      "alternativeLabel": {
+        "en": [
+          "IT system analyst",
+          "IT systems analyst",
+          "network analyst",
+          "ICT systems analysts",
+          "ICT system analysts",
+          "systems analyst",
+          "system analyst",
+          "ICT systems analyst"
+        ]
+      },
+      "className": "Occupation",
+      "preferredLabel": {
+        "en": "ICT system analyst"
+      },
+      "uri": "http://data.europa.eu/esco/occupation/a6a0b60f-08da-4faa-bf54-942987efb471"
+    },
+    {
+      "_links": {
+        "isInScheme": [
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/occupations"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/member-occupations"
+          }
+        ]
+      },
+      "alternativeLabel": {
+        "en": [
+          "user experience officer",
+          "user experience analysts",
+          "usability analyst"
+        ]
+      },
+      "className": "Occupation",
+      "preferredLabel": {
+        "en": "user experience analyst"
+      },
+      "uri": "http://data.europa.eu/esco/occupation/faed411a-f920-4100-86a8-b877928b429c"
+    },
+    {
+      "_links": {
+        "isInScheme": [
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/occupations"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/8ae4b9f3-507e-4057-a145-2f96f0132613"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/member-occupations"
+          }
+        ]
+      },
+      "alternativeLabel": {
+        "en": [
+          "IT research consultant",
+          "ICT research specialist",
+          "ICT research advisor",
+          "ICT research consultants",
+          "IT research advisor",
+          "IT research specialist"
+        ]
+      },
+      "className": "Occupation",
+      "preferredLabel": {
+        "en": "ICT research consultant"
+      },
+      "uri": "http://data.europa.eu/esco/occupation/6e92d4b5-3167-4166-802f-da7753951a31"
+    },
+    {
+      "_links": {
+        "isInScheme": [
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/8ae4b9f3-507e-4057-a145-2f96f0132613"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/member-occupations"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/occupations"
+          }
+        ]
+      },
+      "alternativeLabel": {
+        "en": [
+          "ICT scientist",
+          "IT researcher",
+          "ICT science researcher",
+          "computers scientist",
+          "ICT research scientist",
+          "IT research scientist",
+          "IT science researcher",
+          "ICT researcher",
+          "IT scientist"
+        ]
+      },
+      "className": "Occupation",
+      "preferredLabel": {
+        "en": "computer scientist"
+      },
+      "uri": "http://data.europa.eu/esco/occupation/e3229e40-f571-4b26-baca-29edc8fe313e"
+    },
+    {
+      "_links": {
+        "isInScheme": [
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/occupations"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/member-occupations"
+          }
+        ]
+      },
+      "alternativeLabel": {
+        "en": [
+          "embedded systems engineer",
+          "embedded software developer",
+          "embedded systems designers",
+          "embedded systems developer",
+          "battery controls engineer",
+          "embedded systems programmer",
+          "embedded system programmer",
+          "embedded system developer"
+        ]
+      },
+      "className": "Occupation",
+      "preferredLabel": {
+        "en": "embedded system designer"
+      },
+      "uri": "http://data.europa.eu/esco/occupation/10469d70-78a3-4650-9e29-d04de13c62c1"
+    },
+    {
+      "_links": {
+        "isInScheme": [
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/member-occupations"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/occupations"
+          }
+        ]
+      },
+      "alternativeLabel": {
+        "en": [
+          "ICT advisor",
+          "IT advisor",
+          "ICT ERP consultant",
+          "IT consultant",
+          "IT compliance consultant"
+        ]
+      },
+      "className": "Occupation",
+      "preferredLabel": {
+        "en": "ICT consultant"
+      },
+      "uri": "http://data.europa.eu/esco/occupation/b1c80369-067e-4041-84c8-dbe65640a5d8"
+    },
+    {
+      "_links": {
+        "isInScheme": [
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/occupations"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/member-occupations"
+          }
+        ]
+      },
+      "alternativeLabel": {
+        "en": [
+          "computer vision specialist",
+          "computer vision project engineer",
+          "computer vision applied scientist",
+          "smart technics computer vision engineer",
+          "computer vision expert"
+        ]
+      },
+      "className": "Occupation",
+      "preferredLabel": {
+        "en": "computer vision engineer"
+      },
+      "uri": "http://data.europa.eu/esco/occupation/1c5a45b9-440e-4726-b565-16a952abd341"
+    },
+    {
+      "_links": {
+        "isInScheme": [
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/member-occupations"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/occupations"
+          }
+        ]
+      },
+      "alternativeLabel": {
+        "en": [
+          "battery data analyst",
+          "mine electrification data analyst",
+          "data warehousing analyst",
+          "battery materials data analyst",
+          "data warehouse analyst",
+          "battery module performance data analyst",
+          "business data analyst",
+          "data storage analyst"
+        ]
+      },
+      "className": "Occupation",
+      "preferredLabel": {
+        "en": "data analyst"
+      },
+      "uri": "http://data.europa.eu/esco/occupation/d3edb8f8-3a06-47a0-8fb9-9b212c006aa2"
+    },
+    {
+      "_links": {
+        "isInScheme": [
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/member-occupations"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/occupations"
+          }
+        ]
+      },
+      "alternativeLabel": {
+        "en": [
+          "ICT system developers",
+          "ICT systems developer",
+          "systems programmer",
+          "system developer",
+          "component developer",
+          "system software developer",
+          "chief ICT system developer",
+          "ICT systems developers",
+          "IT system developer",
+          "systems developer"
+        ]
+      },
+      "className": "Occupation",
+      "preferredLabel": {
+        "en": "ICT system developer"
+      },
+      "uri": "http://data.europa.eu/esco/occupation/a7c1d23d-aeca-4bee-9a08-5993ed98b135"
+    },
+    {
+      "_links": {
+        "isInScheme": [
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/member-occupations"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/occupations"
+          }
+        ]
+      },
+      "alternativeLabel": {
+        "en": [
+          "ICT business analysts",
+          "requirement engineer",
+          "business process specialist",
+          "IT business analyst"
+        ]
+      },
+      "className": "Occupation",
+      "preferredLabel": {
+        "en": "ICT business analyst"
+      },
+      "uri": "http://data.europa.eu/esco/occupation/fe0fa514-b48d-4a53-9757-a283c0baacf0"
+    },
+    {
+      "_links": {
+        "isInScheme": [
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/8ae4b9f3-507e-4057-a145-2f96f0132613"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/member-occupations"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/occupations"
+          }
+        ]
+      },
+      "alternativeLabel": {
+        "en": [
+          "electromobility data scientist",
+          "research data scientist",
+          "data expert",
+          "data research scientist"
+        ]
+      },
+      "className": "Occupation",
+      "preferredLabel": {
+        "en": "data scientist"
+      },
+      "uri": "http://data.europa.eu/esco/occupation/258e46f9-0075-4a2e-adae-1ff0477e0f30"
+    },
+    {
+      "_links": {
+        "isInScheme": [
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/member-occupations"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/occupations"
+          }
+        ]
+      },
+      "alternativeLabel": {
+        "en": [
+          "software application configurator",
+          "app configurator",
+          "application configurators",
+          "application software configurator"
+        ]
+      },
+      "className": "Occupation",
+      "preferredLabel": {
+        "en": "ICT application configurator"
+      },
+      "uri": "http://data.europa.eu/esco/occupation/456ed487-02f2-45c9-9213-d0fd8e9a069d"
+    },
+    {
+      "_links": {
+        "isInScheme": [
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/occupations"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/member-occupations"
+          }
+        ]
+      },
+      "alternativeLabel": {
+        "en": [
+          "numerical process control set up operator",
+          "numerical tool setting operator",
+          "numerical process control programmer",
+          "numerical tool and process control programer",
+          "numerical tool setter",
+          "numerical process control operator",
+          "numerical tool programmer",
+          "numerical process control tool setting operator",
+          "numerical tool maker",
+          "numerical tool machine set up operator",
+          "numerical tool machine operator",
+          "numerical process control supervisor",
+          "numerical tool l programme setter"
+        ]
+      },
+      "className": "Occupation",
+      "preferredLabel": {
+        "en": "numerical tool and process control programmer"
+      },
+      "uri": "http://data.europa.eu/esco/occupation/6e5ceba0-df96-465f-adb4-2e06ae715d43"
+    },
+    {
+      "_links": {
+        "isInScheme": [
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/member-occupations"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/occupations"
+          }
+        ]
+      },
+      "alternativeLabel": {
+        "en": [
+          "handheld software developer",
+          "industrial mobile devices software programmer",
+          "industrial mobile devices software coder",
+          "handheld programmer"
+        ]
+      },
+      "className": "Occupation",
+      "preferredLabel": {
+        "en": "industrial mobile devices software developer"
+      },
+      "uri": "http://data.europa.eu/esco/occupation/bb6198c4-1d3e-40b9-9cc4-ad2dd9d7c74b"
+    },
+    {
+      "_links": {
+        "isInScheme": [
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/occupations"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/member-occupations"
+          }
+        ]
+      },
+      "alternativeLabel": {
+        "en": [
+          "application software developers",
+          "application developer",
+          "application software engineer",
+          "application designer",
+          "app software developer",
+          "software programmer"
+        ]
+      },
+      "className": "Occupation",
+      "preferredLabel": {
+        "en": "ICT application developer"
+      },
+      "uri": "http://data.europa.eu/esco/occupation/bd272aee-adc9-4a06-a15c-a73b4b4a46a7"
+    },
+    {
+      "_links": {
+        "isInScheme": [
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/occupations"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/member-occupations"
+          }
+        ]
+      },
+      "alternativeLabel": {
+        "en": [
+          "cloud identity engineer",
+          "cloud identity risk manager",
+          "cloud identity access manager"
+        ]
+      },
+      "className": "Occupation",
+      "preferredLabel": {
+        "en": "cloud identity manager"
+      },
+      "uri": "http://data.europa.eu/esco/occupation/cc325a8f-702e-4bf0-893f-5b5d456475ad"
+    },
+    {
+      "_links": {
+        "isInScheme": [
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/occupations"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/member-occupations"
+          }
+        ]
+      },
+      "alternativeLabel": {
+        "en": [
+          "data quality expert",
+          "data integrity officer",
+          "data quality officer",
+          "data integrity specialist",
+          "data quality specialists"
+        ]
+      },
+      "className": "Occupation",
+      "preferredLabel": {
+        "en": "data quality specialist"
+      },
+      "uri": "http://data.europa.eu/esco/occupation/7086d0ca-1e77-4690-89c9-7ed1a0478fa3"
+    },
+    {
+      "_links": {
+        "isInScheme": [
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/member-occupations"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/occupations"
+          }
+        ]
+      },
+      "alternativeLabel": {
+        "en": [
+          "application software tester",
+          "unit tester",
+          "application tester",
+          "software application tester",
+          "tester",
+          "module tester",
+          "software testers",
+          "software testing specialist",
+          "soft tester"
+        ]
+      },
+      "className": "Occupation",
+      "preferredLabel": {
+        "en": "software tester"
+      },
+      "uri": "http://data.europa.eu/esco/occupation/106f79e4-6264-45f1-9e7a-297435cd684b"
+    },
+    {
+      "_links": {
+        "isInScheme": [
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/member-occupations"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/occupations"
+          }
+        ]
+      },
+      "alternativeLabel": {
+        "en": [
+          "ICT resilience analysts",
+          "business continuity strategist",
+          "business continuity analyst",
+          "IT resilience analyst",
+          "IT disaster recovery analyst",
+          "disaster recovery officer"
+        ]
+      },
+      "className": "Occupation",
+      "preferredLabel": {
+        "en": "ICT disaster recovery analyst"
+      },
+      "uri": "http://data.europa.eu/esco/occupation/102e75c8-3b47-4964-9b47-30a980aed25c"
+    },
+    {
+      "_links": {
+        "isInScheme": [
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/member-occupations"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/occupations"
+          }
+        ]
+      },
+      "alternativeLabel": {
+        "en": [
+          "ICT quality manager",
+          "ICT test manager",
+          "IT quality assurance manager",
+          "ICT quality assurance managers",
+          "principal test manager",
+          "ICT principal testing manager"
+        ]
+      },
+      "className": "Occupation",
+      "preferredLabel": {
+        "en": "ICT quality assurance manager"
+      },
+      "uri": "http://data.europa.eu/esco/occupation/a28dff76-74df-46ee-929f-d1fffbb63cd7"
+    },
+    {
+      "_links": {
+        "isInScheme": [
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/member-occupations"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/occupations"
+          }
+        ]
+      },
+      "alternativeLabel": {
+        "en": [
+          "configuration manager",
+          "application lifecycle manager",
+          "software change and configuration manager"
+        ]
+      },
+      "className": "Occupation",
+      "preferredLabel": {
+        "en": "ICT change and configuration manager"
+      },
+      "uri": "http://data.europa.eu/esco/occupation/3b1ea27c-781c-41eb-821f-214285260dd2"
+    },
+    {
+      "_links": {
+        "isInScheme": [
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/member-occupations"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/occupations"
+          }
+        ]
+      },
+      "alternativeLabel": {
+        "en": [
+          "ICT audit manager",
+          "ICT auditor managers",
+          "information technology audit manager",
+          "IT audit manager"
+        ]
+      },
+      "className": "Occupation",
+      "preferredLabel": {
+        "en": "ICT auditor manager"
+      },
+      "uri": "http://data.europa.eu/esco/occupation/76a1a76c-b014-4600-8901-56cb936de7ed"
+    },
+    {
+      "_links": {
+        "isInScheme": [
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/occupations"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/member-occupations"
+          }
+        ]
+      },
+      "alternativeLabel": {
+        "en": [
+          "IT test analyst",
+          "test designer"
+        ]
+      },
+      "className": "Occupation",
+      "preferredLabel": {
+        "en": "ICT test analyst"
+      },
+      "uri": "http://data.europa.eu/esco/occupation/0ab5c12c-c1c1-4772-8345-aa287d0e391d"
+    },
+    {
+      "_links": {
+        "isInScheme": [
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/member-occupations"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/occupations"
+          }
+        ]
+      },
+      "alternativeLabel": {
+        "en": [
+          "web technician",
+          "webmasters",
+          "e-commerce technician",
+          "web administrator",
+          "website administrator"
+        ]
+      },
+      "className": "Occupation",
+      "preferredLabel": {
+        "en": "webmaster"
+      },
+      "uri": "http://data.europa.eu/esco/occupation/dc8ef7da-d2c0-4474-96a0-6d0385eeec1e"
+    },
+    {
+      "_links": {
+        "isInScheme": [
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/member-occupations"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/occupations"
+          }
+        ]
+      },
+      "alternativeLabel": {
+        "en": [
+          "network technician",
+          "network engineer",
+          "network maintenance professional",
+          "networks technician",
+          "network technicians",
+          "IT network technician",
+          "assistant network administrator",
+          "system engineer"
+        ]
+      },
+      "className": "Occupation",
+      "preferredLabel": {
+        "en": "ICT network technician"
+      },
+      "uri": "http://data.europa.eu/esco/occupation/64c7d461-152c-477f-a8e2-c2c537e9d617"
+    },
+    {
+      "_links": {
+        "isInScheme": [
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/member-occupations"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/occupations"
+          }
+        ]
+      },
+      "alternativeLabel": {
+        "en": [
+          "data communications manager in aviation",
+          "aviation data communications consultant",
+          "aviation data communications contractor",
+          "aviation data communications officer",
+          "aviation sector data manager",
+          "aviation data communications specialist"
+        ]
+      },
+      "className": "Occupation",
+      "preferredLabel": {
+        "en": "aviation data communications manager"
+      },
+      "uri": "http://data.europa.eu/esco/occupation/591c5063-69ce-4551-ba60-e2304111130f"
+    },
+    {
+      "_links": {
+        "isInScheme": [
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/occupations"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/member-occupations"
+          }
+        ]
+      },
+      "alternativeLabel": {
+        "en": [
+          "data center administrator",
+          "data centre administrator",
+          "data centre operators",
+          "data center operator",
+          "data centre employee"
+        ]
+      },
+      "className": "Occupation",
+      "preferredLabel": {
+        "en": "data centre operator"
+      },
+      "uri": "http://data.europa.eu/esco/occupation/9729c0f3-c9bc-482e-ac59-a82ec3b67ba3"
+    },
+    {
+      "_links": {
+        "isInScheme": [
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/member-occupations"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/occupations"
+          }
+        ]
+      },
+      "alternativeLabel": {
+        "en": [
+          "IT assistant",
+          "IT engineer",
+          "IT technician",
+          "computer operator",
+          "information systems technician",
+          "ICT engineer",
+          "IT officer"
+        ]
+      },
+      "className": "Occupation",
+      "preferredLabel": {
+        "en": "ICT technician"
+      },
+      "uri": "http://data.europa.eu/esco/occupation/3e7bf729-4442-4b9f-ad5e-83111963795c"
+    },
+    {
+      "_links": {
+        "isInScheme": [
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/member-occupations"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/occupations"
+          }
+        ]
+      },
+      "alternativeLabel": {
+        "en": [
+          "ICT help desk managers",
+          "IT helpdesk manager",
+          "ICT service desk manager",
+          "software support manager",
+          "ICT helpdesk manager",
+          "IT help desk manager",
+          "ICT helpdesk managers",
+          "technical support manager"
+        ]
+      },
+      "className": "Occupation",
+      "preferredLabel": {
+        "en": "ICT help desk manager"
+      },
+      "uri": "http://data.europa.eu/esco/occupation/1242d99a-47f1-4a62-b884-33746db8a6ca"
+    },
+    {
+      "_links": {
+        "isInScheme": [
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/member-occupations"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/occupations"
+          }
+        ]
+      },
+      "alternativeLabel": {
+        "en": [
+          "IT help desk advisor",
+          "ICT service desk agent",
+          "ICT help desk advisor",
+          "IT help desk agent",
+          "IT support technician",
+          "ICT helpdesk agent"
+        ]
+      },
+      "className": "Occupation",
+      "preferredLabel": {
+        "en": "ICT help desk agent"
+      },
+      "uri": "http://data.europa.eu/esco/occupation/aaeec9a7-dc57-4485-890c-86b3eef735f9"
+    },
+    {
+      "_links": {
+        "isInScheme": [
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/member-occupations"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/occupations"
+          }
+        ]
+      },
+      "alternativeLabel": {
+        "en": [
+          "ICT security technicians",
+          "cybersecurity developer",
+          "development and operations security engineer",
+          "IT security officer",
+          "cybersecurity implementer",
+          "IT security technician",
+          "DevSecOps engineer",
+          "cybersecurity solutions expert",
+          "information security implement",
+          "ICT security officer"
+        ]
+      },
+      "className": "Occupation",
+      "preferredLabel": {
+        "en": "ICT security technician"
+      },
+      "uri": "http://data.europa.eu/esco/occupation/a44a1dc5-be08-4840-8bd5-770c4ac1ca6d"
+    },
+    {
+      "_links": {
+        "isInScheme": [
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/occupations"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/member-occupations"
+          }
+        ]
+      },
+      "alternativeLabel": {
+        "en": [
+          "broadcast transmitting technician",
+          "broadcasting engineer",
+          "broadcast transmitter operator",
+          "broadcasting equipment operator",
+          "broadcasting technician",
+          "broadcast transmitting equipment operator",
+          "broadcast technicians",
+          "broadcast engineering technician",
+          "radio and TV technician"
+        ]
+      },
+      "className": "Occupation",
+      "preferredLabel": {
+        "en": "broadcast technician"
+      },
+      "uri": "http://data.europa.eu/esco/occupation/fe4a72af-6206-4d86-90c1-b5fb4b5ba2b2"
+    },
+    {
+      "_links": {
+        "isInScheme": [
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/member-occupations"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/occupations"
+          }
+        ]
+      },
+      "alternativeLabel": {
+        "en": [
+          "audio-visual operator",
+          "audio-video operator",
+          "video technician",
+          "audio-video technician",
+          "audio technician",
+          "audio and video operator",
+          "audio & video operator",
+          "audiovisual assistant",
+          "audio-visuals technician",
+          "audio-visual assistant",
+          "audio-visual engineer"
+        ]
+      },
+      "className": "Occupation",
+      "preferredLabel": {
+        "en": "audio-visual technician"
+      },
+      "uri": "http://data.europa.eu/esco/occupation/7642cbcc-9839-47fb-b2cf-d4bb831d6c93"
+    },
+    {
+      "_links": {
+        "isInScheme": [
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/member-occupations"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/occupations"
+          }
+        ]
+      },
+      "alternativeLabel": {
+        "en": [
+          "telecommunications administrator",
+          "telecommunication administrator",
+          "telecommunications administrators",
+          "telecom administrator",
+          "communication administrator",
+          "communications administrator",
+          "telecoms administrator"
+        ]
+      },
+      "className": "Occupation",
+      "preferredLabel": {
+        "en": "telecommunications engineering technician"
+      },
+      "uri": "http://data.europa.eu/esco/occupation/d84bf1d7-ef99-40c4-a407-3791d6531b44"
+    },
+    {
+      "_links": {
+        "broaderOccupation": [
+          {
+            "uri": "http://data.europa.eu/esco/occupation/9e2e6e1e-363b-4e1b-a673-7bc0f7343300"
+          }
+        ],
+        "isInScheme": [
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/member-occupations"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/occupations"
+          }
+        ]
+      },
+      "alternativeLabel": {
+        "en": [
+          "system setup professional",
+          "system configuration professional",
+          "IT system configurator",
+          "ICT system configurator",
+          "systems configurator",
+          "system configurators"
+        ]
+      },
+      "className": "Occupation",
+      "preferredLabel": {
+        "en": "system configurator"
+      },
+      "uri": "http://data.europa.eu/esco/occupation/98c3d8f8-e3a8-49b7-9e58-236f25a6f6a0"
+    },
+    {
+      "_links": {
+        "broaderOccupation": [
+          {
+            "uri": "http://data.europa.eu/esco/occupation/9e2e6e1e-363b-4e1b-a673-7bc0f7343300"
+          }
+        ],
+        "isInScheme": [
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/member-occupations"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/occupations"
+          }
+        ]
+      },
+      "alternativeLabel": {
+        "en": [
+          "network administrators",
+          "network support",
+          "network manager",
+          "network specialist",
+          "networks administrator"
+        ]
+      },
+      "className": "Occupation",
+      "preferredLabel": {
+        "en": "ICT network administrator"
+      },
+      "uri": "http://data.europa.eu/esco/occupation/81480b40-a318-47f3-9b2c-56b69ed67d95"
+    },
+    {
+      "_links": {
+        "broaderOccupation": [
+          {
+            "uri": "http://data.europa.eu/esco/occupation/349ee6f6-c295-4c38-9b98-48765b55280e"
+          }
+        ],
+        "isInScheme": [
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/member-occupations"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/occupations"
+          }
+        ]
+      },
+      "alternativeLabel": {
+        "en": [
+          "cloud infrastructure devops engineer",
+          "devops consultant",
+          "cloud devops solution specialist",
+          "devops engineer",
+          "cloud automation engineer",
+          "site reliability devops engineer",
+          "devops",
+          "devops architect",
+          "devops administrator",
+          "devops consultant engineer",
+          "devops specialist",
+          "cloud devops",
+          "devops analyst"
+        ]
+      },
+      "className": "Occupation",
+      "preferredLabel": {
+        "en": "cloud DevOps engineer"
+      },
+      "uri": "http://data.europa.eu/esco/occupation/cc867bee-ab5c-427f-9244-f7a204d9574b"
+    },
+    {
+      "_links": {
+        "broaderOccupation": [
+          {
+            "uri": "http://data.europa.eu/esco/occupation/f2b15a0e-e65a-438a-affb-29b9d50b77d1"
+          }
+        ],
+        "isInScheme": [
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/member-occupations"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/occupations"
+          }
+        ]
+      },
+      "alternativeLabel": {
+        "en": [
+          "DLT specialist",
+          "blockchain development engineer",
+          "DLT engineer",
+          "blockchain engineer",
+          "decentralized ledger technology specialist"
+        ]
+      },
+      "className": "Occupation",
+      "preferredLabel": {
+        "en": "blockchain developer"
+      },
+      "uri": "http://data.europa.eu/esco/occupation/24135b84-cbdd-4d42-9ed2-02fd982d15b2"
+    },
+    {
+      "_links": {
+        "broaderOccupation": [
+          {
+            "uri": "http://data.europa.eu/esco/occupation/e1c72b5f-4c5c-487c-a6df-e84b64a51dae"
+          }
+        ],
+        "isInScheme": [
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/member-occupations"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/occupations"
+          }
+        ]
+      },
+      "alternativeLabel": {
+        "en": [
+          "DLT specialist",
+          "blockchain technology specialist",
+          "DLT architect",
+          "decentralized ledger technology specialist"
+        ]
+      },
+      "className": "Occupation",
+      "preferredLabel": {
+        "en": "blockchain architect"
+      },
+      "uri": "http://data.europa.eu/esco/occupation/78faf623-2543-43a5-acb2-3c43a22d36e4"
+    },
+    {
+      "_links": {
+        "broaderOccupation": [
+          {
+            "uri": "http://data.europa.eu/esco/occupation/bd272aee-adc9-4a06-a15c-a73b4b4a46a7"
+          }
+        ],
+        "isInScheme": [
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/occupations"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/member-occupations"
+          }
+        ]
+      },
+      "alternativeLabel": {
+        "en": [
+          "app developer",
+          "mobile app specialist",
+          "mobile app developer",
+          "app programmer",
+          "cell phone app developer",
+          "app coder"
+        ]
+      },
+      "className": "Occupation",
+      "preferredLabel": {
+        "en": "mobile application developer"
+      },
+      "uri": "http://data.europa.eu/esco/occupation/2ed56c3f-61d6-4f7e-9ef8-8849eb102e4c"
+    },
+    {
+      "_links": {
+        "broaderOccupation": [
+          {
+            "uri": "http://data.europa.eu/esco/occupation/bd272aee-adc9-4a06-a15c-a73b4b4a46a7"
+          }
+        ],
+        "isInScheme": [
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/occupations"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/member-occupations"
+          }
+        ]
+      },
+      "alternativeLabel": {
+        "en": [
+          "embedded systems designer",
+          "embedded systems software developers",
+          "embedded software developerl embedded systems engineer",
+          "embedded system software programmer",
+          "embedded system software developer",
+          "embedded software programmer"
+        ]
+      },
+      "className": "Occupation",
+      "preferredLabel": {
+        "en": "embedded systems software developer"
+      },
+      "uri": "http://data.europa.eu/esco/occupation/57af9090-55b4-4911-b2d0-86db01c00b02"
+    },
+    {
+      "_links": {
+        "broaderOccupation": [
+          {
+            "uri": "http://data.europa.eu/esco/occupation/106f79e4-6264-45f1-9e7a-297435cd684b"
+          }
+        ],
+        "isInScheme": [
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/occupations"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/member-occupations"
+          }
+        ]
+      },
+      "alternativeLabel": {
+        "en": [
+          "ICT systems test engineer",
+          "ICT systems testers",
+          "ICT systems tester",
+          "systems tester",
+          "IT system tester"
+        ]
+      },
+      "className": "Occupation",
+      "preferredLabel": {
+        "en": "ICT system tester"
+      },
+      "uri": "http://data.europa.eu/esco/occupation/52d5edc9-7902-4cd3-8b06-6bd77c98d440"
+    },
+    {
+      "_links": {
+        "broaderOccupation": [
+          {
+            "uri": "http://data.europa.eu/esco/occupation/106f79e4-6264-45f1-9e7a-297435cd684b"
+          }
+        ],
+        "isInScheme": [
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/occupations"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/member-occupations"
+          }
+        ]
+      },
+      "alternativeLabel": {
+        "en": [
+          "digital game tester",
+          "virtual games tester",
+          "digital games testers",
+          "computer games tester",
+          "video games tester"
+        ]
+      },
+      "className": "Occupation",
+      "preferredLabel": {
+        "en": "digital games tester"
+      },
+      "uri": "http://data.europa.eu/esco/occupation/33e4f026-a823-4ffc-99e4-60d3fe597a1e"
+    },
+    {
+      "_links": {
+        "broaderOccupation": [
+          {
+            "uri": "http://data.europa.eu/esco/occupation/106f79e4-6264-45f1-9e7a-297435cd684b"
+          }
+        ],
+        "isInScheme": [
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/occupations"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/member-occupations"
+          }
+        ]
+      },
+      "alternativeLabel": {
+        "en": [
+          "accessibility testers",
+          "accessibility test specialist",
+          "usability tester"
+        ]
+      },
+      "className": "Occupation",
+      "preferredLabel": {
+        "en": "ICT accessibility tester"
+      },
+      "uri": "http://data.europa.eu/esco/occupation/50af07f0-7a75-424e-a66d-5a9deea10f4c"
+    },
+    {
+      "_links": {
+        "broaderOccupation": [
+          {
+            "uri": "http://data.europa.eu/esco/occupation/106f79e4-6264-45f1-9e7a-297435cd684b"
+          }
+        ],
+        "isInScheme": [
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/occupations"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/member-occupations"
+          }
+        ]
+      },
+      "alternativeLabel": {
+        "en": [
+          "compatibility tester",
+          "IT compatibility tester",
+          "module integration tester",
+          "integration testers",
+          "ICT compatibility tester",
+          "module compatibility tester"
+        ]
+      },
+      "className": "Occupation",
+      "preferredLabel": {
+        "en": "ICT integration tester"
+      },
+      "uri": "http://data.europa.eu/esco/occupation/731f38f1-b08f-4dd5-a25e-f8627c038273"
+    },
+    {
+      "_links": {
+        "broaderOccupation": [
+          {
+            "uri": "http://data.europa.eu/esco/occupation/106f79e4-6264-45f1-9e7a-297435cd684b"
+          }
+        ],
+        "isInScheme": [
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/occupations"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/member-occupations"
+          }
+        ]
+      },
+      "alternativeLabel": {
+        "en": [
+          "user-friendliness tester",
+          "usability developer",
+          "usability testers",
+          "usability specialist"
+        ]
+      },
+      "className": "Occupation",
+      "preferredLabel": {
+        "en": "ICT usability tester"
+      },
+      "uri": "http://data.europa.eu/esco/occupation/5f50290d-f520-4a69-85c7-1390d2a4a8b6"
+    },
+    {
+      "_links": {
+        "broaderOccupation": [
+          {
+            "uri": "http://data.europa.eu/esco/occupation/7642cbcc-9839-47fb-b2cf-d4bb831d6c93"
+          }
+        ],
+        "isInScheme": [
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/occupations"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/member-occupations"
+          }
+        ]
+      },
+      "alternativeLabel": {
+        "en": [
+          "camera equipment operator",
+          "camerawoman",
+          "video camera operator",
+          "videographer",
+          "cameraman",
+          "remote head operator",
+          "camera crane operator",
+          "railcam operator",
+          "towercam operator",
+          "steadicam operator"
+        ]
+      },
+      "className": "Occupation",
+      "preferredLabel": {
+        "en": "camera operator"
+      },
+      "uri": "http://data.europa.eu/esco/occupation/6fed206a-ac4d-492b-a81a-5a3a0f2b67bc"
+    },
+    {
+      "_links": {
+        "broaderOccupation": [
+          {
+            "uri": "http://data.europa.eu/esco/occupation/7642cbcc-9839-47fb-b2cf-d4bb831d6c93"
+          }
+        ],
+        "isInScheme": [
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/member-occupations"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/occupations"
+          }
+        ]
+      },
+      "alternativeLabel": {
+        "en": [
+          "shotgun operator",
+          "TV boom operator",
+          "shotgun microphone operator",
+          "film boom operator",
+          "production sound mixer assistant",
+          "sound equipment technician",
+          "boom holder"
+        ]
+      },
+      "className": "Occupation",
+      "preferredLabel": {
+        "en": "boom operator"
+      },
+      "uri": "http://data.europa.eu/esco/occupation/4d102082-8d43-4c59-81ab-08a7509f3c40"
+    },
+    {
+      "_links": {
+        "broaderOccupation": [
+          {
+            "uri": "http://data.europa.eu/esco/occupation/7642cbcc-9839-47fb-b2cf-d4bb831d6c93"
+          }
+        ],
+        "isInScheme": [
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/occupations"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/member-occupations"
+          }
+        ]
+      },
+      "alternativeLabel": {
+        "en": [
+          "audio engineer & sound artist",
+          "sound designer & engineer",
+          "sound designer and composer",
+          "sound engineer and designer",
+          "sound designer & audio engineer",
+          "sound designer & music composer",
+          "music composer and sound designer",
+          "composer and sound designer",
+          "music composer & sound designer",
+          "audio engineer and sound artist",
+          "music and sound artist",
+          "composer & sound designer",
+          "sound designer & composer",
+          "sound designer and audio engineer",
+          "sound engineer & designer",
+          "audio designer",
+          "audio engineer and sound designer",
+          "sound designer and engineer",
+          "sound designer and music composer",
+          "sound artist and audio engineer"
+        ]
+      },
+      "className": "Occupation",
+      "preferredLabel": {
+        "en": "sound designer"
+      },
+      "uri": "http://data.europa.eu/esco/occupation/790c8dca-f624-4bdc-ac16-27bc13ead188"
+    },
+    {
+      "_links": {
+        "broaderOccupation": [
+          {
+            "uri": "http://data.europa.eu/esco/occupation/7642cbcc-9839-47fb-b2cf-d4bb831d6c93"
+          }
+        ],
+        "isInScheme": [
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/member-occupations"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/occupations"
+          }
+        ]
+      },
+      "alternativeLabel": {
+        "en": [
+          "visual and graphic operator",
+          "video projection technician",
+          "projection operator",
+          "video projection operator",
+          "live video operator",
+          "video and graphics technician",
+          "visual projection operator",
+          "visuals operator",
+          "video operator",
+          "video and graphics operator"
+        ]
+      },
+      "className": "Occupation",
+      "preferredLabel": {
+        "en": "performance video operator"
+      },
+      "uri": "http://data.europa.eu/esco/occupation/061f56c6-36eb-4aa7-b5ef-98b7a569da1c"
+    },
+    {
+      "_links": {
+        "broaderOccupation": [
+          {
+            "uri": "http://data.europa.eu/esco/occupation/7642cbcc-9839-47fb-b2cf-d4bb831d6c93"
+          }
+        ],
+        "isInScheme": [
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/occupations"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/member-occupations"
+          }
+        ]
+      },
+      "alternativeLabel": {
+        "en": [
+          "sound mixer",
+          "audio operator",
+          "audio board operator",
+          "sound board operator",
+          "sound audio technician",
+          "sound board technician"
+        ]
+      },
+      "className": "Occupation",
+      "preferredLabel": {
+        "en": "sound operator"
+      },
+      "uri": "http://data.europa.eu/esco/occupation/0da2ee5c-b480-498f-97a8-a292a0f4c54c"
+    },
+    {
+      "_links": {
+        "broaderOccupation": [
+          {
+            "uri": "http://data.europa.eu/esco/occupation/7642cbcc-9839-47fb-b2cf-d4bb831d6c93"
+          }
+        ],
+        "isInScheme": [
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/occupations"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/member-occupations"
+          }
+        ]
+      },
+      "alternativeLabel": {
+        "en": [
+          "audio mastering engineer",
+          "digital mastering technician",
+          "mixing and mastering engineer",
+          "mastering technician",
+          "mastering engineer",
+          "mixing & mastering sound engineer",
+          "audio mastering operator"
+        ]
+      },
+      "className": "Occupation",
+      "preferredLabel": {
+        "en": "sound mastering engineer"
+      },
+      "uri": "http://data.europa.eu/esco/occupation/239707a0-4754-4f4b-80b6-6b1ef5657aed"
+    },
+    {
+      "_links": {
+        "broaderOccupation": [
+          {
+            "uri": "http://data.europa.eu/esco/occupation/7642cbcc-9839-47fb-b2cf-d4bb831d6c93"
+          }
+        ],
+        "isInScheme": [
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/occupations"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/member-occupations"
+          }
+        ]
+      },
+      "alternativeLabel": {
+        "en": [
+          "dubbing manager",
+          "music supervisor",
+          "foley artist",
+          "music editor",
+          "foley editor",
+          "sound designer",
+          "ADR editor",
+          "audio editor",
+          "automatic dialogue replacement editor",
+          "dialogue editor"
+        ]
+      },
+      "className": "Occupation",
+      "preferredLabel": {
+        "en": "sound editor"
+      },
+      "uri": "http://data.europa.eu/esco/occupation/36095ccd-c62d-4f1f-8af7-1fd10618b044"
+    },
+    {
+      "_links": {
+        "broaderOccupation": [
+          {
+            "uri": "http://data.europa.eu/esco/occupation/7642cbcc-9839-47fb-b2cf-d4bb831d6c93"
+          }
+        ],
+        "isInScheme": [
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/member-occupations"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/occupations"
+          }
+        ]
+      },
+      "alternativeLabel": {
+        "en": [
+          "film projectionist",
+          "booth operator",
+          "cinema projectionist",
+          "projection operator",
+          "projection technician",
+          "projector booth operator",
+          "projector operator",
+          "movie projector operator",
+          "digital cinema projectionist"
+        ]
+      },
+      "className": "Occupation",
+      "preferredLabel": {
+        "en": "projectionist"
+      },
+      "uri": "http://data.europa.eu/esco/occupation/dce6a68c-8a05-4c26-85d4-6fbc43e7d822"
+    },
+    {
+      "_links": {
+        "broaderOccupation": [
+          {
+            "uri": "http://data.europa.eu/esco/occupation/7642cbcc-9839-47fb-b2cf-d4bb831d6c93"
+          }
+        ],
+        "isInScheme": [
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/occupations"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/member-occupations"
+          }
+        ]
+      },
+      "alternativeLabel": {
+        "en": [
+          "equipment technician",
+          "lighting hire equipment technician",
+          "rental equipment performance technician",
+          "rental equipment performance engineer",
+          "load cell hire technician",
+          "special effects hire equipment technician",
+          "venue technician (rental equipment)",
+          "sound equipment hire technician",
+          "performance rental engineer",
+          "performance rental monitor",
+          "venue performance monitor",
+          "weight report technician",
+          "equipment hire technician"
+        ]
+      },
+      "className": "Occupation",
+      "preferredLabel": {
+        "en": "performance rental technician"
+      },
+      "uri": "http://data.europa.eu/esco/occupation/47e4135b-95d1-4462-920c-afcbd7c4d9be"
+    },
+    {
+      "_links": {
+        "broaderOccupation": [
+          {
+            "uri": "http://data.europa.eu/esco/occupation/7642cbcc-9839-47fb-b2cf-d4bb831d6c93"
+          }
+        ],
+        "isInScheme": [
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/member-occupations"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/occupations"
+          }
+        ]
+      },
+      "alternativeLabel": {
+        "en": [
+          "audio visual specialist",
+          "graphics/video technician",
+          "audio-video technician",
+          "visuals technician",
+          "audio visual technician",
+          "image technician",
+          "audio-visual specialist",
+          "audio/visual technician",
+          "audio-video specialist",
+          "video conference technician",
+          "video/graphics technician",
+          "AV technician",
+          "audio video specialist"
+        ]
+      },
+      "className": "Occupation",
+      "preferredLabel": {
+        "en": "video technician"
+      },
+      "uri": "http://data.europa.eu/esco/occupation/a59feab2-9bc9-4b25-97cf-995998164502"
+    },
+    {
+      "_links": {
+        "broaderOccupation": [
+          {
+            "uri": "http://data.europa.eu/esco/occupation/7642cbcc-9839-47fb-b2cf-d4bb831d6c93"
+          }
+        ],
+        "isInScheme": [
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/member-occupations"
+          },
+          {
+            "uri": "http://data.europa.eu/esco/concept-scheme/occupations"
+          }
+        ]
+      },
+      "alternativeLabel": {
+        "en": [
+          "sound mixer",
+          "sounds technician",
+          "recording sound technician",
+          "audio post-production technician",
+          "recording audio technician",
+          "recording studio sound technician",
+          "recording engineer",
+          "recording sound engineer",
+          "studio sound engineer",
+          "recording studio audio engineer",
+          "re-recording mixer",
+          "studio technician",
+          "special effects sound technician",
+          "recording technician",
+          "audio editor",
+          "audio restorer"
+        ]
+      },
+      "className": "Occupation",
+      "preferredLabel": {
+        "en": "recording studio technician"
+      },
+      "uri": "http://data.europa.eu/esco/occupation/aa50ae49-1e40-4ba9-959f-22a11ff172b4"
+    }
+  ],
+  "roots": [
+    "http://data.europa.eu/esco/isco/C25",
+    "http://data.europa.eu/esco/isco/C35"
+  ],
+  "selectedVersion": "v1.2.1",
+  "snapshot_format": 3
+}

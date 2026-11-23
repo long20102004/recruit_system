@@ -7,23 +7,26 @@
     <link rel="stylesheet" href="../assets/css/main.css" />
   </head>
   <body>
-    <div class="demo-banner">Module 1 · <span>CV và PII cần bảo vệ ở bản production</span></div>
     <header class="site-header" data-header></header>
 
     <main class="page">
       <header class="page-head">
-        <h1>Ứng viên & CV đã phân tích</h1>
-        <p>Xem hồ sơ dạng thẻ + JSON schema — giống trang quản lý ứng viên trên job board.</p>
+        <h1>Ứng viên & hồ sơ</h1>
+        <p>Xem thông tin đã nộp, kỹ năng và mức phù hợp với tin tuyển dụng.</p>
       </header>
 
       <section class="grid-2">
         <article class="panel">
-          <h2>Hồ sơ</h2>
+          <h2>Hồ sơ ứng viên</h2>
           <div class="kv" id="profile"></div>
+          <div class="split-actions">
+            <a class="btn btn-primary btn-sm" href="matching.html">Xem ghép với tin</a>
+            <a class="btn btn-ghost btn-sm" href="interviews.html">Kết quả phỏng vấn</a>
+          </div>
         </article>
         <article class="panel">
-          <h2>JSON trích xuất (schema mẫu)</h2>
-          <pre id="jsonView" style="margin:0;padding:1rem;background:#0f172a;color:#e2e8f0;border-radius:14px;overflow:auto;font-size:.82rem;line-height:1.45;max-height:420px"></pre>
+          <h2>Chi tiết nghề nghiệp</h2>
+          <div id="detail"></div>
         </article>
       </section>
     </main>
@@ -35,32 +38,48 @@
       HireLens.renderHeader("candidates", "recruiter");
       const c = HireLensMock.candidate;
       const cv = HireLensMock.extractedCv;
+
       document.getElementById("profile").innerHTML = `
         <div class="kv-row"><label>Ứng viên</label><div><strong>${c.name}</strong><br>${c.email}<br><span class="muted">${c.city}</span></div></div>
-        <div class="kv-row"><label>File</label><div>${cv.sourceFile}</div></div>
+        <div class="kv-row"><label>Vị trí quan tâm</label><div>${c.title}</div></div>
+        <div class="kv-row"><label>File CV</label><div>${cv.sourceFile}</div></div>
         <div class="kv-row"><label>Trạng thái</label><div><span class="chip warn">${cv.status}</span></div></div>
+        <div class="kv-row"><label>Độ đầy đủ</label><div><strong>${HireLens.pct(cv.confidence)}%</strong></div></div>
         <div class="kv-row"><label>Kỹ năng</label><div>${cv.skills.map((s) => `<span class="chip ok">${s}</span>`).join("")}</div></div>
-        <div class="kv-row"><label>Dự án</label><div>${cv.projects.map((p) => p.name).join(", ")}</div></div>
       `;
-      document.getElementById("jsonView").textContent = JSON.stringify(
-        {
-          contact: cv.contact,
-          summary: cv.summary,
-          education: cv.education,
-          experience: cv.experience,
-          projects: cv.projects,
-          skills: cv.skills,
-          languages: cv.languages,
-          certificates: cv.certificates,
-          meta: {
-            confidence: cv.confidence,
-            modelVersion: HireLensMock.meta.modelVersions.ner,
-            demo: true,
-          },
-        },
-        null,
-        2
-      );
+
+      document.getElementById("detail").innerHTML = `
+        <p style="margin:0 0 .75rem"><strong>Tóm tắt</strong><br>${cv.summary}</p>
+        <p style="margin:0 0 .5rem"><strong>Học vấn</strong></p>
+        <ul style="margin:0 0 1rem;padding-left:1.1rem;color:var(--muted)">
+          ${cv.education.map((e) => `<li>${e.degree} — ${e.school} (${e.period})</li>`).join("")}
+        </ul>
+        <p style="margin:0 0 .5rem"><strong>Kinh nghiệm</strong></p>
+        ${cv.experience
+          .map(
+            (e) => `
+          <div style="margin-bottom:.85rem">
+            <strong>${e.title}</strong> · ${e.organization}<br />
+            <span class="muted">${e.period}</span>
+            <ul style="margin:.35rem 0 0;padding-left:1.1rem;color:var(--muted)">
+              ${e.bullets.map((b) => `<li>${b}</li>`).join("")}
+            </ul>
+          </div>`
+          )
+          .join("")}
+        <p style="margin:0 0 .5rem"><strong>Dự án</strong></p>
+        ${cv.projects
+          .map(
+            (p) => `
+          <div style="margin-bottom:.5rem">
+            <strong>${p.name}</strong>
+            <p class="muted" style="margin:.25rem 0">${p.description}</p>
+            <div>${p.skills.map((s) => `<span class="chip">${s}</span>`).join("")}</div>
+          </div>`
+          )
+          .join("")}
+        <p style="margin:1rem 0 0" class="hint">Ngôn ngữ: ${cv.languages.join(" · ")} · Chứng chỉ: ${cv.certificates.join(", ")}</p>
+      `;
     </script>
   </body>
 </html>

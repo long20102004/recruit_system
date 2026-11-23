@@ -1,0 +1,7 @@
+# Local microservice configuration
+.env
+
+# Runtime databases, uploads, model caches and Docker storage
+/data/
+
+/AI.zip

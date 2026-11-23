@@ -1,0 +1,35 @@
+{
+  "candidate": {
+    "skills": [
+      "ReactJS",
+      "JS",
+      "NodeJS",
+      "Mongo",
+      "REST"
+    ],
+    "experience_years": 2,
+    "job_titles": [
+      "Frontend Developer"
+    ],
+    "education": {
+      "degree": "Đại học",
+      "major": "Công nghệ thông tin"
+    },
+    "certificates": [],
+    "raw_context": "Tôi là Frontend Developer với 2 năm kinh nghiệm, xây dựng Single Page Application với ReactJS và JavaScript. Có kinh nghiệm làm việc với RESTful API."
+  },
+  "jd": {
+    "required_skills": [
+      "React",
+      "JavaScript",
+      "Node.js",
+      "MongoDB",
+      "REST API"
+    ],
+    "min_experience_years": 2,
+    "required_title": "Frontend Developer",
+    "education_requirement": "Cử nhân CNTT trở lên",
+    "context": "Tìm kiếm Frontend Developer có kinh nghiệm React, làm việc trong team nhỏ."
+  },
+  "_note": "Kiểm tra chuẩn hoá ReactJS, JS, NodeJS, Mongo và REST."
+}

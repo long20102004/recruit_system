@@ -1,4 +1,4 @@
-/* HireLens — editorial job list, thesis prototype */
+/* HireLens */
 @import url("https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Fraunces:opsz,wght@9..144,500;9..144,650;9..144,700&display=swap");
 
 :root {
@@ -632,6 +632,19 @@ h3,
   transform: none;
 }
 
+.entry-roles {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.75rem;
+  margin: 0 0 1.25rem;
+}
+
+.entry-roles .role-option {
+  background: var(--surface);
+  border-color: var(--brand);
+  padding: 1rem 1.1rem;
+}
+
 .field {
   display: grid;
   gap: 0.35rem;
@@ -804,6 +817,73 @@ h3,
   border-color: transparent;
 }
 
+.cv-skill-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem 0.8rem;
+}
+
+.field .cv-skill-list {
+  margin-top: 0.15rem;
+}
+
+.cv-profile {
+  display: grid;
+  gap: 1.15rem;
+  max-width: 42rem;
+}
+
+.cv-profile h2 {
+  margin-bottom: 0.25rem;
+}
+
+.cv-profile .contact {
+  margin: 0;
+  color: var(--muted);
+}
+
+.cv-profile section h3 {
+  font-size: 0.95rem;
+  margin-bottom: 0.35rem;
+}
+
+.cv-profile section p {
+  margin: 0;
+  white-space: pre-wrap;
+}
+
+.cv-lines {
+  margin: 0.15rem 0 0;
+  padding-left: 1.2rem;
+  display: grid;
+  gap: 0.45rem;
+}
+
+.cv-lines li {
+  padding-left: 0.1rem;
+}
+
+.job-detail {
+  display: grid;
+  gap: 1.15rem;
+  max-width: 42rem;
+}
+
+.job-detail .meta {
+  margin: 0;
+  color: var(--muted);
+}
+
+.job-detail section h3 {
+  font-size: 0.95rem;
+  margin-bottom: 0.35rem;
+}
+
+.job-detail section p {
+  margin: 0;
+  white-space: pre-wrap;
+}
+
 .kv {
   display: grid;
   gap: 0.7rem;
@@ -838,6 +918,12 @@ h3,
 
 .match-item:last-child {
   border-bottom: none;
+}
+
+.match-gap {
+  margin: 0.65rem 0 0;
+  color: var(--muted);
+  font-size: 0.9rem;
 }
 
 .progress {
@@ -984,6 +1070,7 @@ pre {
   .search-bar,
   .layout-feed,
   .auth-panel,
+  .entry-roles,
   .grid-2,
   .grid-3,
   .job-card {

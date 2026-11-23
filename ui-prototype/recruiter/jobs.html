@@ -7,35 +7,59 @@
     <link rel="stylesheet" href="../assets/css/main.css" />
   </head>
   <body>
-    <div class="demo-banner">Module 2 · Job · <span>Form demo, lưu trên trình duyệt</span></div>
     <header class="site-header" data-header></header>
 
     <main class="page">
       <header class="page-head">
         <h1>Đăng & quản lý tin tuyển dụng</h1>
-        <p>Tin sẽ xuất hiện trên feed việc làm (khu vực / mức lương / tag Hot – Gần bạn).</p>
+        <p>Đăng vị trí, yêu cầu và kỹ năng. Tin sẽ hiện trên trang tìm việc của ứng viên.</p>
       </header>
 
       <section class="grid-2">
         <article class="panel">
-          <h2>Danh sách tin</h2>
+          <h2>Tin đang mở</h2>
           <div class="job-list" id="jobList"></div>
         </article>
 
         <article class="panel">
-          <h2>Đăng tin mới (demo)</h2>
+          <h2>Đăng vị trí mới</h2>
           <form id="jobForm">
             <div class="field">
-              <label for="title">Tiêu đề</label>
-              <input id="title" required placeholder="VD: Junior Backend Developer" />
+              <label for="title">Vị trí / tiêu đề tin</label>
+              <input id="title" required placeholder="VD: Junior Backend Developer (Java)" />
             </div>
             <div class="field">
               <label for="company">Công ty</label>
               <input id="company" required placeholder="Tên công ty" />
             </div>
             <div class="field">
+              <label for="level">Cấp bậc</label>
+              <select id="level">
+                <option>Intern</option>
+                <option selected>Fresher</option>
+                <option>Junior</option>
+                <option>Mid</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="workType">Hình thức</label>
+              <select id="workType">
+                <option>Tại văn phòng</option>
+                <option selected>Hybrid</option>
+                <option>Remote</option>
+              </select>
+            </div>
+            <div class="field">
               <label for="location">Địa điểm</label>
               <input id="location" placeholder="Quận 1, TP.HCM" value="Quận 1, TP.HCM" />
+            </div>
+            <div class="field">
+              <label for="city">Thành phố (lọc)</label>
+              <select id="city">
+                <option selected>TP. Hồ Chí Minh</option>
+                <option>Hà Nội</option>
+                <option>Remote</option>
+              </select>
             </div>
             <div class="field">
               <label for="salary">Mức lương</label>
@@ -43,13 +67,21 @@
             </div>
             <div class="field">
               <label for="required">Kỹ năng bắt buộc (phẩy)</label>
-              <input id="required" placeholder="Java, Spring Boot, PostgreSQL" />
+              <input id="required" required placeholder="Java, Spring Boot, PostgreSQL" />
             </div>
             <div class="field">
-              <label for="desc">Mô tả</label>
-              <textarea id="desc" rows="4" placeholder="Mô tả công việc…"></textarea>
+              <label for="preferred">Kỹ năng ưu tiên (phẩy)</label>
+              <input id="preferred" placeholder="Docker, Git" />
             </div>
-            <button class="btn btn-primary btn-block" type="submit">Đăng tin demo</button>
+            <div class="field">
+              <label for="requirements">Yêu cầu ứng viên</label>
+              <textarea id="requirements" rows="3" placeholder="VD: Sinh viên năm cuối CNTT, nắm OOP và SQL cơ bản…"></textarea>
+            </div>
+            <div class="field">
+              <label for="desc">Mô tả công việc</label>
+              <textarea id="desc" rows="4" required placeholder="Mô tả công việc, trách nhiệm…"></textarea>
+            </div>
+            <button class="btn btn-primary btn-block" type="submit">Đăng tin</button>
           </form>
         </article>
       </section>
@@ -61,42 +93,57 @@
       HireLens.setRole("recruiter");
       HireLens.renderHeader("jobs", "recruiter");
 
+      const recruiter = HireLensMock.recruiter;
+      document.getElementById("company").value = recruiter.company;
+
+      function splitSkills(raw) {
+        return (raw || "")
+          .split(",")
+          .map((s) => s.trim())
+          .filter(Boolean);
+      }
+
       function renderJobs() {
-        document.getElementById("jobList").innerHTML = HireLensMock.jobs
+        document.getElementById("jobList").innerHTML = HireLens.getJobs()
           .map((j, i) => HireLens.renderJobCard(j, { delay: i * 30 }))
           .join("");
       }
 
       document.getElementById("jobForm").addEventListener("submit", (e) => {
         e.preventDefault();
-        const required = document
-          .getElementById("required")
-          .value.split(",")
-          .map((s) => s.trim())
-          .filter(Boolean);
-        HireLensMock.jobs.unshift({
+        const company = document.getElementById("company").value.trim();
+        const required = splitSkills(document.getElementById("required").value);
+        const preferred = splitSkills(document.getElementById("preferred").value);
+        const color =
+          HireLens.LOGO_COLORS[Math.floor(Math.random() * HireLens.LOGO_COLORS.length)];
+
+        HireLens.addJob({
           id: "job-" + Date.now(),
           title: document.getElementById("title").value.trim(),
-          company: document.getElementById("company").value.trim(),
+          company,
           location: document.getElementById("location").value.trim(),
-          city: "TP. Hồ Chí Minh",
-          workType: "Hybrid",
-          level: "Junior",
+          city: document.getElementById("city").value,
+          workType: document.getElementById("workType").value,
+          level: document.getElementById("level").value,
           salary: document.getElementById("salary").value.trim() || "Thỏa thuận",
           postedAgo: "Vừa xong",
           distanceKm: 2.0,
           hot: true,
-          nearYou: true,
-          logo: "NW",
-          logoColor: "#059669",
+          nearYou: document.getElementById("city").value === "TP. Hồ Chí Minh",
+          logo: HireLens.logoFromCompany(company),
+          logoColor: color,
           requiredSkills: required.length ? required : ["Java"],
-          preferredSkills: [],
-          minYears: 0,
+          preferredSkills: preferred,
+          minYears: document.getElementById("level").value === "Intern" ? 0 : 1,
           description: document.getElementById("desc").value.trim(),
+          requirements: document.getElementById("requirements").value.trim(),
         });
+
         e.target.reset();
+        document.getElementById("company").value = recruiter.company;
+        document.getElementById("location").value = "Quận 1, TP.HCM";
         renderJobs();
-        HireLens.toast("Đã đăng tin minh họa — sẽ thấy ở trang Việc làm");
+        HireLens.toast("Đã đăng tin — ứng viên sẽ thấy trên trang tìm việc");
       });
 
       renderJobs();

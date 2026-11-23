@@ -1,0 +1,941 @@
+id,question_id,rank_target,answer,human_score,human_covered_keys,notes
+a001,sb-01,intern,"Spring Boot là framework dựa trên Spring giúp làm ứng dụng Java nhanh hơn nhờ auto-configuration và starter. Có embedded Tomcat nên chạy được bằng jar, thường dùng làm REST API.",8.5,based_on_spring;auto_config;starter_embedded;use_case,good
+a002,sb-01,intern,"Spring Boot giúp giảm cấu hình so với Spring thường, có starter dependencies và tự cấu hình nhiều thứ.",7.0,based_on_spring;auto_config;starter_embedded,missing use_case
+a003,sb-01,intern,"Spring Boot là công cụ để code Java web nhanh, có Tomcat sẵn trong project.",5.0,starter_embedded;use_case,partial
+a004,sb-01,intern,Spring Boot là ngôn ngữ lập trình mới thay cho Java.,1.5,,wrong
+a005,sb-01,fresher,"Spring Boot xây trên Spring Framework, dùng convention over configuration và auto-configuration để giảm XML. Starter giúp thêm dependency theo mục đích, phù hợp microservice và REST.",9.0,based_on_spring;auto_config;starter_embedded;use_case,excellent
+a006,sb-01,fresher,Nó giống Spring nhưng dễ hơn vì ít phải cấu hình.,4.5,based_on_spring;auto_config,thin
+a007,sb-01,intern,"Spring là framework, Spring Boot thêm auto config và embedded server để deploy đơn giản hơn, hay dùng cho API.",8.0,based_on_spring;auto_config;starter_embedded;use_case,good paraphrase
+a008,sb-01,fresher,Ưu điểm chính là hot reload và giao diện admin.,2.5,,off topic
+a009,sb-01,intern,"Spring Boot dựa trên Spring, giảm cấu hình thủ công nhờ auto-configuration.",6.5,based_on_spring;auto_config,no starter
+a010,sb-01,fresher,Framework Java phổ biến để dựng backend nhanh với starter và jar độc lập.,6.0,starter_embedded;use_case,no spring link clear
+a011,sb-01,intern,Spring Boot giúp tạo project nhanh trên start.spring.io thôi.,3.0,,too shallow
+a012,sb-01,fresher,"So với Spring truyền thống, Boot bớt XML, có auto-configuration, starter và embedded server; hay làm REST hoặc microservice.",9.5,based_on_spring;auto_config;starter_embedded;use_case,near reference
+a013,sb-02,intern,"@SpringBootApplication gắn trên class main để khởi động app. Nó gồm @EnableAutoConfiguration và @ComponentScan, ngoài ra còn @SpringBootConfiguration.",9.0,entry_point;composite;enable_auto;component_scan,excellent
+a014,sb-02,intern,"Annotation này để chạy Spring Boot, nó quét component và bật auto configuration.",7.0,entry_point;enable_auto;component_scan,missing composite name
+a015,sb-02,fresher,"Là annotation tổng hợp gồm EnableAutoConfiguration, ComponentScan và SpringBootConfiguration, đặt ở main.",8.5,entry_point;composite;enable_auto;component_scan,good
+a016,sb-02,intern,Dùng để đánh dấu controller REST.,1.0,,confused with RestController
+a017,sb-02,fresher,"Nó thay cho việc viết nhiều annotation, giúp auto config và scan bean khi start ứng dụng.",6.5,composite;enable_auto;component_scan;entry_point,ok
+a018,sb-02,intern,@SpringBootApplication chỉ để enable auto configuration.,4.0,enable_auto,incomplete
+a019,sb-02,fresher,Đặt trên main class. Bên trong có @ComponentScan để quét package và @EnableAutoConfiguration.,8.0,entry_point;enable_auto;component_scan,good
+a020,sb-02,intern,"Không biết gồm annotation nào, chỉ biết phải có để chạy.",2.0,entry_point,very weak
+a021,sb-02,fresher,Composite annotation: SpringBootConfiguration + EnableAutoConfiguration + ComponentScan; là entry point của ứng dụng Boot.,9.5,entry_point;composite;enable_auto;component_scan,excellent
+a022,sb-02,intern,Annotation để scan mọi class trong project Java.,3.5,component_scan,partial wrong scope
+a023,sb-03,intern,"Dependency Injection là IoC: Spring inject dependency thay vì tự new. Hay dùng constructor injection, cũng có setter và @Autowired trên field. Giúp dễ test và giảm coupling.",9.0,ioc_idea;constructor;other_ways;benefit,excellent
+a024,sb-03,fresher,DI nghĩa là Spring tiêm bean vào class. Phổ biến nhất là constructor injection và @Autowired.,7.5,ioc_idea;constructor;other_ways,thin benefit
+a025,sb-03,intern,Là cách dùng @Autowired để lấy object.,4.5,other_ways,shallow
+a026,sb-03,fresher,Không tự new mà để container quản lý và tiêm vào. Constructor injection được khuyến nghị vì rõ dependency bắt buộc; còn setter và field injection.,9.0,ioc_idea;constructor;other_ways;benefit,excellent
+a027,sb-03,intern,DI giúp code đẹp hơn.,2.5,,no substance
+a028,sb-03,fresher,"Inversion of Control: framework tạo dependency. Có constructor, setter, field injection.",8.0,ioc_idea;constructor;other_ways,good
+a029,sb-03,intern,Chỉ dùng được với @Bean thôi.,2.0,,wrong
+a030,sb-03,fresher,Spring inject qua constructor để dễ unit test và loose coupling; cũng hỗ trợ setter và field kèm @Autowired.,8.5,ioc_idea;constructor;other_ways;benefit,good
+a031,sb-03,intern,"Dependency Injection là design pattern để truyền phụ thuộc từ ngoài vào, Spring hỗ trợ qua IoC container.",7.0,ioc_idea;benefit,no injection styles
+a032,sb-03,fresher,Field injection nhanh nhưng khó test; nên dùng constructor injection.,6.0,constructor;other_ways;benefit,missing ioc definition
+a033,sb-04,intern,"@RestController gồm @Controller và @ResponseBody nên trả JSON cho REST. @Controller thường trả view. @RequestMapping map URL chung, @GetMapping cho HTTP GET.",9.5,rest_eq;controller_view;request_mapping;get_mapping,excellent
+a034,sb-04,fresher,"RestController dùng cho API trả JSON, Controller cho trang HTML. GetMapping là viết tắt RequestMapping method GET.",8.0,rest_eq;controller_view;get_mapping;request_mapping,good
+a035,sb-04,intern,"Hai cái giống nhau, chỉ khác tên.",1.5,,wrong
+a036,sb-04,fresher,"@RestController có @ResponseBody nên không trả view. RequestMapping gắn path, GetMapping/PostMapping theo method.",8.5,rest_eq;controller_view;request_mapping;get_mapping,good
+a037,sb-04,intern,Dùng RestController khi làm REST API. GetMapping để lấy dữ liệu.,5.5,rest_eq;get_mapping,incomplete
+a038,sb-04,fresher,Controller trả Thymeleaf view; RestController trả JSON vì có ResponseBody. RequestMapping là annotation tổng quát hơn GetMapping.,9.0,rest_eq;controller_view;request_mapping;get_mapping,excellent
+a039,sb-04,intern,@GetMapping thay thế hoàn toàn @RequestMapping trong mọi trường hợp.,3.0,get_mapping,misleading
+a040,sb-04,fresher,RestController = Controller + ResponseBody. GetMapping rõ HTTP method hơn RequestMapping chung.,8.0,rest_eq;get_mapping;request_mapping,no view mention
+a041,sb-04,intern,Annotation để tạo API và map đường dẫn GET/POST.,4.5,request_mapping;get_mapping,vague
+a042,sb-04,fresher,"Khi cần JSON dùng RestController; khi render HTML dùng Controller. RequestMapping có thể set method, còn GetMapping chỉ GET.",9.0,rest_eq;controller_view;request_mapping;get_mapping,excellent
+a043,sb-05,fresher,"Spring Data JPA giảm boilerplate trên JPA/Hibernate. Kế thừa JpaRepository là có CRUD, pagination; có thể đặt tên method findBy... hoặc dùng @Query.",9.5,reduce_boilerplate;crud;interface_repo;query_method,excellent
+a044,sb-05,fresher,JpaRepository cung cấp sẵn hàm save find delete. Chỉ cần tạo interface.,7.0,crud;interface_repo,partial
+a045,sb-05,intern,Là thư viện để viết SQL nhanh hơn.,3.5,reduce_boilerplate,vague wrong-ish
+a046,sb-05,fresher,Giúp thao tác database mà ít code. Interface extends JpaRepository có CRUD và query method theo tên.,8.5,reduce_boilerplate;crud;interface_repo;query_method,good
+a047,sb-05,fresher,Dùng @Repository và viết mọi câu SQL bằng tay vẫn bắt buộc.,2.0,,wrong
+a048,sb-05,fresher,"Spring Data JPA dựa Hibernate/JPA, giảm code DAO. JpaRepository cho CRUD; thêm @Query khi cần JPQL.",9.0,reduce_boilerplate;crud;interface_repo;query_method,excellent
+a049,sb-05,intern,Có hàm findAll và save sẵn nên đỡ viết.,5.0,crud,thin
+a050,sb-05,fresher,"Khai báo interface repository kế thừa JpaRepository để có CRUD và tìm theo tên method, giảm boilerplate truy cập DB.",8.5,reduce_boilerplate;crud;interface_repo;query_method,good
+a051,sb-05,fresher,Chỉ dùng được với MySQL.,1.5,,wrong
+a052,sb-05,fresher,"Spring Data JPA abstraction trên JPA: tạo repo interface, có sẵn CRUD, hỗ trợ paging và derived query.",9.0,reduce_boilerplate;crud;interface_repo;query_method,excellent
+a053,java-01,intern,"Java có 4 tính chất OOP: đóng gói (encapsulation) ẩn data, kế thừa (inheritance) tái sử dụng, đa hình (polymorphism) override/overload, trừu tượng (abstraction) qua abstract/interface.",9.0,encapsulation;inheritance;polymorphism;abstraction,excellent
+a054,java-01,fresher,"OOP gồm encapsulation, inheritance, polymorphism và abstraction.",7.0,encapsulation;inheritance;polymorphism;abstraction,thin defs
+a055,java-01,intern,Có kế thừa và đóng gói thôi.,3.5,encapsulation;inheritance,incomplete
+a056,java-01,fresher,Encapsulation dùng private/getter-setter; inheritance extends; polymorphism override; abstraction interface/abstract class.,9.5,encapsulation;inheritance;polymorphism;abstraction,excellent
+a057,java-01,intern,OOP là lập trình hướng đối tượng với class và object.,2.0,,too shallow
+a058,java-01,fresher,"Đóng gói, kế thừa, đa hình; abstraction giúp ẩn chi tiết triển khai.",8.0,encapsulation;inheritance;polymorphism;abstraction,good
+a059,java-01,intern,Polymorphism là overload còn inheritance là extends class cha.,4.5,inheritance;polymorphism,partial
+a060,java-01,fresher,"Bốn tính chất: encapsulation, inheritance, polymorphism, abstraction — giúp code tái sử dụng và dễ bảo trì.",8.5,encapsulation;inheritance;polymorphism;abstraction,good
+a061,java-02,intern,"List có thứ tự cho trùng như ArrayList; Set không trùng như HashSet; Map là key-value như HashMap. List dùng khi cần index, Set khi unique, Map khi tra cứu theo key.",9.5,list;set;map;usecase,excellent
+a062,java-02,fresher,"List cho phép trùng, Set không trùng, Map lưu cặp khóa-giá trị.",7.5,list;set;map,no usecase
+a063,java-02,intern,ArrayList và HashMap thôi.,3.0,list;map,incomplete
+a064,java-02,fresher,"Dùng List khi cần thứ tự, Set để loại trùng, Map để lookup theo key nhanh.",8.5,list;set;map;usecase,good
+a065,java-02,intern,Set và List giống nhau.,1.5,,wrong
+a066,java-02,fresher,List: ArrayList có order; Set: HashSet unique; Map: HashMap key-value không trùng key.,9.0,list;set;map,good
+a067,java-02,intern,Map dùng để lưu danh sách object.,3.5,map,confused
+a068,java-02,fresher,Khi cần danh sách có thứ tự dùng List; tập phần tử duy nhất dùng Set; ánh xạ id->object dùng Map.,9.0,list;set;map;usecase,excellent
+a069,sql-01,intern,"INNER JOIN chỉ lấy dòng khớp cả hai bảng; LEFT JOIN giữ hết bảng trái, cột phải NULL nếu không khớp. Dùng INNER khi chỉ cần quan hệ có thật, LEFT khi cần đủ bản ghi chính.",9.5,inner;left;when,excellent
+a070,sql-01,fresher,"Inner là giao hai bảng, left lấy hết bên trái.",7.0,inner;left,thin when
+a071,sql-01,intern,LEFT và INNER giống nhau.,1.5,,wrong
+a072,sql-01,fresher,INNER chỉ matching rows; LEFT giữ left table kể cả không match (NULL). Ví dụ user không có order vẫn hiện với LEFT.,9.0,inner;left;when,excellent
+a073,sql-01,intern,JOIN để nối bảng theo khóa ngoại.,4.0,,too general
+a074,sql-01,fresher,Khi cần đủ khách hàng kể cả chưa mua hàng thì LEFT; chỉ khách đã mua thì INNER.,8.5,inner;left;when,good
+a075,sql-01,intern,LEFT JOIN nhanh hơn INNER.,2.5,left,wrong claim
+a076,sql-01,fresher,INNER trả giao; LEFT trả left + match. Chọn tùy có cần giữ bản ghi không khớp hay không.,8.5,inner;left;when,good
+a077,sql-02,fresher,Index tăng tốc WHERE/JOIN. Nên tạo trên cột lọc nhiều; tránh index thừa vì chậm ghi và tốn dung lượng.,9.5,purpose;when_yes;when_no,excellent
+a078,sql-02,intern,Index giúp query nhanh hơn.,5.5,purpose,thin
+a079,sql-02,fresher,Nên index mọi cột để nhanh.,2.0,,wrong
+a080,sql-02,intern,Dùng cho cột hay search; không index lung tung vì insert/update chậm.,8.5,purpose;when_yes;when_no,good
+a081,sql-02,fresher,Index giống primary key.,3.5,purpose,confused
+a082,sql-02,intern,Tăng tốc đọc trên WHERE/JOIN; cột selectivity cao thì có lợi; bảng nhỏ hoặc ghi nhiều thì cân nhắc.,9.0,purpose;when_yes;when_no,excellent
+a083,sql-02,fresher,Chỉ dùng với SELECT.,4.0,purpose,partial wrong
+a084,sql-02,intern,Index hỗ trợ tìm kiếm nhanh nhưng làm chậm ghi nếu tạo quá nhiều.,8.0,purpose;when_no,good
+a085,http-01,intern,"GET lấy dữ liệu, POST tạo mới, PUT cập nhật, DELETE xóa tài nguyên trong REST.",9.5,get;post;put;delete,excellent
+a086,http-01,fresher,"GET để xem, POST để gửi form.",5.0,get;post,incomplete
+a087,http-01,intern,PUT và POST giống nhau.,2.5,post;put,wrong
+a088,http-01,fresher,"GET đọc, POST create, PUT update/replace, DELETE remove. REST gắn method với resource.",9.0,get;post;put;delete,excellent
+a089,http-01,intern,DELETE nguy hiểm nên ít dùng.,3.0,delete,off
+a090,http-01,fresher,GET không nên đổi state; POST tạo; PUT cập nhật; DELETE xóa.,9.0,get;post;put;delete,good
+a091,http-01,intern,Chỉ có GET và POST quan trọng.,4.0,get;post,incomplete
+a092,http-01,fresher,Bốn method cơ bản: GET/POST/PUT/DELETE tương ứng CRUD trên API.,8.5,get;post;put;delete,good
+a093,fe-01,intern,"HTML dựng cấu trúc nội dung, CSS tạo giao diện/layout, JavaScript xử lý tương tác và DOM/API. Tách ba lớp dễ bảo trì.",9.5,html;css;js;separation,excellent
+a094,fe-01,fresher,"HTML khung trang, CSS màu sắc, JS làm động.",7.0,html;css;js,ok thin
+a095,fe-01,intern,"HTML và CSS thôi, JS không cần.",2.0,html;css,wrong
+a096,fe-01,fresher,"HTML semantic structure, CSS style/responsive, JS events và gọi API.",9.0,html;css;js,excellent
+a097,fe-01,intern,CSS để viết logic.,2.5,css,wrong
+a098,fe-01,fresher,"Ba tầng: cấu trúc (HTML), trình bày (CSS), hành vi (JS).",8.5,html;css;js;separation,good
+a099,fe-01,intern,JavaScript thay được HTML.,1.5,,wrong
+a100,fe-01,fresher,"HTML nội dung, CSS giao diện, JS tương tác người dùng.",8.0,html;css;js,good
+a101,fe-02,fresher,"Component là khối UI tái sử dụng. Props từ cha xuống (read-only); state nội bộ, đổi thì re-render. Props cấu hình, state cho tương tác.",9.5,component;props;state;when,excellent
+a102,fe-02,intern,State và props giống nhau.,2.0,,wrong
+a103,fe-02,fresher,Props truyền data xuống; state quản lý data trong component.,7.5,props;state,thin component
+a104,fe-02,intern,Component là function trả về UI; props không sửa trong con; state dùng useState.,9.0,component;props;state,excellent
+a105,fe-02,fresher,React chỉ có props.,3.0,props,incomplete
+a106,fe-02,intern,Component tái sử dụng UI. Props input từ ngoài; state thay đổi nội bộ gây render lại.,8.5,component;props;state;when,good
+a107,fe-02,fresher,State global còn props local.,3.5,props;state,confused
+a108,fe-02,intern,Dùng props khi data từ parent; dùng state khi UI tự thay đổi theo click/input.,8.5,component;props;state;when,good
+a109,qa-01,intern,"Test case là kịch bản kiểm thử gồm precondition, steps, input, expected result; cần rõ ràng và bám requirement.",9.5,definition;steps_data;expected;quality,excellent
+a110,qa-01,fresher,Test case là bước test phần mềm.,5.0,definition,thin
+a111,qa-01,intern,Chỉ cần expected result.,3.0,expected,incomplete
+a112,qa-01,fresher,"Gồm title, precondition, steps, test data, expected; viết để người khác làm lại được.",9.0,definition;steps_data;expected;quality,excellent
+a113,qa-01,intern,Test case là bug report.,1.5,,wrong
+a114,qa-01,fresher,"Một test case tốt có bước thực hiện, dữ liệu và kết quả mong đợi.",7.5,steps_data;expected,ok
+a115,qa-01,intern,"Cần id, steps, expected result, môi trường nếu cần.",8.0,definition;steps_data;expected,good
+a116,qa-01,fresher,"Test case mô tả cách verify yêu cầu: preconditions, steps, expected outcome.",8.5,definition;steps_data;expected;quality,good
+a117,qa-02,intern,Black-box test theo yêu cầu/input-output không cần code; white-box dựa cấu trúc code/nhánh. Hai hướng bổ sung nhau.,9.5,black;white;complement,excellent
+a118,qa-02,fresher,"Black box không nhìn code, white box nhìn code.",7.0,black;white,thin
+a119,qa-02,intern,White-box chỉ dành cho tester thủ công UI.,2.5,,wrong
+a120,qa-02,fresher,Black-box: functional theo spec; white-box: unit/coverage theo code. Nên kết hợp.,9.0,black;white;complement,excellent
+a121,qa-02,intern,"Black box là tự động, white box là manual.",2.0,,wrong
+a122,qa-02,fresher,"Khác ở chỗ có cần hiểu code hay không; black theo nghiệp vụ, white theo logic cài đặt.",8.5,black;white;complement,good
+a123,qa-02,intern,Chỉ cần black-box là đủ.,4.0,black,incomplete
+a124,qa-02,fresher,Black-box không đọc source; white-box phân tích nhánh/vòng lặp trong code.,8.0,black;white,good
+a125,qa-03,intern,"Bug report cần môi trường, steps tái hiện, expected vs actual, severity và evidence. Regression là test lại sau thay đổi để không phá chức năng cũ.",9.5,repro;expected_actual;severity;regression,excellent
+a126,qa-03,fresher,Báo bug ghi mô tả và ảnh chụp.,4.5,severity,thin
+a127,qa-03,intern,Regression là test tính năng mới.,2.0,,wrong
+a128,qa-03,fresher,"Cần steps to reproduce, expected/actual, priority; regression kiểm tra không làm hỏng phần cũ sau fix/release.",9.0,repro;expected_actual;severity;regression,excellent
+a129,qa-03,intern,Chỉ cần nói bị lỗi là được.,1.5,,wrong
+a130,qa-03,fresher,"Bug report: tiêu đề, steps, actual/expected, log/screenshot. Regression: retest hệ thống sau change.",8.5,repro;expected_actual;severity;regression,good
+a131,qa-03,intern,Severity và bước tái hiện là quan trọng nhất; regression chạy lại test cũ.,8.0,repro;severity;regression,good
+a132,qa-03,fresher,Ghi rõ cách tái hiện và kết quả mong đợi; regression testing phát hiện lỗi hồi quy.,8.0,repro;expected_actual;regression,good
+a133,git-01,intern,"Commit lưu thay đổi; branch tách feature làm song song; merge gộp vào main, có thể conflict. Giúp teamwork.",9.5,commit;branch;merge,excellent
+a134,git-01,fresher,Git để lưu code.,3.0,,too shallow
+a135,git-01,intern,"Branch để làm việc riêng, merge để gộp; commit là lần lưu.",8.5,commit;branch;merge,good
+a136,git-01,fresher,Commit message quan trọng; dùng feature branch rồi tạo PR/merge.,8.5,commit;branch;merge,good
+a137,git-01,intern,Merge luôn xóa hết history.,2.0,merge,wrong
+a138,git-01,fresher,Commit snapshot; branch phát triển độc lập; merge kết hợp và xử lý conflict nếu có.,9.0,commit;branch;merge,excellent
+a139,git-01,intern,Chỉ cần commit lên main.,3.5,commit,bad practice
+a140,git-01,fresher,"Làm việc nhóm: mỗi người một branch, commit thường xuyên, merge qua review.",8.0,commit;branch;merge,good
+a141,cs-01,intern,"200 OK, 201 Created, 400 bad request, 401 chưa auth, 404 not found, 500 lỗi server. 2xx ok, 4xx client, 5xx server.",9.5,2xx;4xx;5xx,excellent
+a142,cs-01,fresher,"404 là không tìm thấy, 500 là lỗi server.",5.5,4xx;5xx,incomplete
+a143,cs-01,intern,200 là lỗi.,1.0,,wrong
+a144,cs-01,fresher,200/201 thành công; 400/401/404 lỗi client; 500 lỗi server.,9.0,2xx;4xx;5xx,excellent
+a145,cs-01,intern,401 và 404 giống nhau.,2.5,4xx,wrong
+a146,cs-01,fresher,"2xx success (200,201), 4xx client (400,401,404), 5xx server (500).",9.0,2xx;4xx;5xx,excellent
+a147,cs-01,intern,500 khi sai SQL Injection.,3.0,5xx,off
+a148,cs-01,fresher,200 OK lấy thành công; 201 tạo mới; 400 dữ liệu sai; 401 thiếu login; 404 sai URL; 500 bug server.,9.5,2xx;4xx;5xx,excellent
+a0149,sb-01,intern,"Spring Boot là framework dựa trên Spring, giúp tạo ứng dụng Java nhanh hơn nhờ auto-configuration, starter dependencies và embedded server. So với Spring truyền thống, Spring Boot giảm cấu hình XML/Java thủ công, có convention over configuration, dễ dựng REST API và chạy độc lập bằng jar.",9.0,based_on_spring;auto_config;starter_embedded;use_case,near-ref
+a0150,sb-01,fresher,"Spring Boot chính là framework dựa trên Spring, hỗ trợ tạo ứng dụng Java nhanh hơn nhờ auto-configuration, starter dependencies và embedded server. So với Spring truyền thống, Spring Boot giảm cấu hình XML/Java thủ công, có convention over configuration, dễ dựng REST API và chạy độc lập bằng jar.",9.5,based_on_spring;auto_config;starter_embedded;use_case,near-ref
+a0151,sb-01,intern,"Tóm lại: Spring Boot là framework dựa trên Spring, giúp tạo ứng dụng Java nhanh hơn nhờ auto-configuration, starter dependencies và embedded server. So với Spring truyền thống, Spring Boot giảm cấu hình XML/Java thủ công, có convention over configuration, dễ dựng REST API và chạy độc lập bằng jar.",9.0,based_on_spring;auto_config;starter_embedded;use_case,near-ref
+a0152,sb-01,fresher,"Về Dựa trên Spring Framework, cần nắm 'dựa trên spring'.. Về Auto-configuration / giảm cấu hình, cần nắm 'auto-configuration'.. Về Starter dependencies / embedded server, cần nắm 'starter'. Liên quan câu hỏi: Spring Boot là gì? Nêu ưu điểm chính so với Spring Framework…",7.5,based_on_spring;auto_config;starter_embedded,good-partial-last
+a0153,sb-01,intern,Dựa trên Spring Framework: dựa trên spring. Auto-configuration / giảm cấu hình (auto-configuration). Starter dependencies / embedded server (starter). Ứng dụng thực tế (REST/web/microservice) (rest),8.0,based_on_spring;auto_config;starter_embedded;use_case,good-structured
+a0154,sb-01,fresher,"Về Dựa trên Spring Framework, cần nắm 'dựa trên spring'.. Về Auto-configuration / giảm cấu hình, cần nắm 'auto-configuration'.",5.5,based_on_spring;auto_config,mid-half
+a0155,sb-01,intern,"Em biết sơ là dựa trên spring và auto-configuration, còn lại em chưa nhớ rõ.",6.0,based_on_spring;auto_config,mid-vague
+a0156,sb-01,fresher,"Em chỉ nhớ ý 'dựa trên spring', các ý khác chưa chắc.",4.5,based_on_spring,mid-one-key
+a0157,sb-02,intern,"@SpringBootApplication là annotation gắn trên class main, đánh dấu điểm khởi động ứng dụng Spring Boot. Nó gộp @SpringBootConfiguration, @EnableAutoConfiguration và @ComponentScan: cấu hình ứng dụng, bật auto-configuration và quét bean trong package hiện tại và package con.",9.0,entry_point;composite;enable_auto;component_scan,near-ref
+a0158,sb-02,fresher,"@SpringBootApplication chính là annotation gắn trên class main, đánh dấu điểm khởi động ứng dụng Spring Boot. Nó gộp @SpringBootConfiguration, @EnableAutoConfiguration và @ComponentScan: cấu hình ứng dụng, bật auto-configuration và quét bean trong package hiện tại và package con.",9.5,entry_point;composite;enable_auto;component_scan,near-ref
+a0159,sb-02,intern,"Tóm lại: @SpringBootApplication là annotation gắn trên class main, đánh dấu điểm khởi động ứng dụng Spring Boot. Nó gộp @SpringBootConfiguration, @EnableAutoConfiguration và @ComponentScan: cấu hình ứng dụng, bật auto-configuration và quét bean trong package hiện tại và package con.",9.0,entry_point;composite;enable_auto;component_scan,near-ref
+a0160,sb-02,fresher,"Về Điểm khởi động / class main, cần nắm 'main'.. Về Là annotation tổng hợp (composite), cần nắm 'gộp'.. Về @EnableAutoConfiguration, cần nắm 'enableautoconfiguration'. Liên quan câu hỏi: @SpringBootApplication làm gì? Nó gồm những annotation nào?…",7.5,entry_point;composite;enable_auto,good-partial-last
+a0161,sb-02,intern,Điểm khởi động / class main: main. Là annotation tổng hợp (composite) (gộp). @EnableAutoConfiguration (enableautoconfiguration). @ComponentScan (componentscan),8.0,entry_point;composite;enable_auto;component_scan,good-structured
+a0162,sb-02,fresher,"Về Điểm khởi động / class main, cần nắm 'main'.. Về Là annotation tổng hợp (composite), cần nắm 'gộp'.",5.5,entry_point;composite,mid-half
+a0163,sb-02,intern,"Em biết sơ là main và gộp, còn lại em chưa nhớ rõ.",6.0,entry_point;composite,mid-vague
+a0164,sb-02,fresher,"Em chỉ nhớ ý 'main', các ý khác chưa chắc.",4.5,entry_point,mid-one-key
+a0165,sb-02,intern,Em chưa học phần này nên không biết.,2.0,,wrong
+a0166,sb-02,fresher,Spring Boot là công nghệ không liên quan đến câu hỏi này.,1.5,,off-topic
+a0167,sb-03,intern,"Dependency Injection là nguyên lý IoC: Spring tạo và tiêm dependency vào bean thay vì class tự new. Cách phổ biến: constructor injection (khuyến nghị), setter injection và field injection bằng @Autowired. Constructor injection giúp bất biến, dễ test và rõ ràng về dependency bắt buộc.",9.0,ioc_idea;constructor;other_ways;benefit,near-ref
+a0168,sb-03,fresher,"Dependency Injection chính là nguyên lý IoC: Spring tạo và tiêm dependency vào bean thay vì class tự new. Cách phổ biến: constructor injection (khuyến nghị), setter injection và field injection bằng @Autowired. Constructor injection hỗ trợ bất biến, dễ test và rõ ràng về dependency bắt buộc.",9.5,ioc_idea;constructor;other_ways;benefit,near-ref
+a0169,sb-03,intern,"Tóm lại: Dependency Injection là nguyên lý IoC: Spring tạo và tiêm dependency vào bean thay vì class tự new. Cách phổ biến: constructor injection (khuyến nghị), setter injection và field injection bằng @Autowired. Constructor injection giúp bất biến, dễ test và rõ ràng về dependency bắt buộc.",9.0,ioc_idea;constructor;other_ways;benefit,near-ref
+a0170,sb-03,fresher,"Về Ý tưởng IoC / không tự new, cần nắm 'ioc'.. Về Constructor injection, cần nắm 'constructor'.. Về Setter / field / @Autowired, cần nắm 'setter'. Liên quan câu hỏi: Dependency Injection trong Spring là gì? Nêu cách tiêm phụ t…",7.5,ioc_idea;constructor;other_ways,good-partial-last
+a0171,sb-03,intern,Ý tưởng IoC / không tự new: ioc. Constructor injection (constructor). Setter / field / @Autowired (setter). Lợi ích (test / loose coupling) (dễ test),8.0,ioc_idea;constructor;other_ways;benefit,good-structured
+a0172,sb-03,fresher,"Về Ý tưởng IoC / không tự new, cần nắm 'ioc'.. Về Constructor injection, cần nắm 'constructor'.",5.5,ioc_idea;constructor,mid-half
+a0173,sb-03,intern,"Em biết sơ là ioc và constructor, còn lại em chưa nhớ rõ.",6.0,ioc_idea;constructor,mid-vague
+a0174,sb-03,fresher,"Em chỉ nhớ ý 'ioc', các ý khác chưa chắc.",4.5,ioc_idea,mid-one-key
+a0175,sb-03,intern,Em chưa học phần này nên không biết.,2.0,,wrong
+a0176,sb-03,fresher,Spring Core là công nghệ không liên quan đến câu hỏi này.,1.5,,off-topic
+a0177,sb-04,intern,"@RestController = @Controller + @ResponseBody, trả JSON/XML trực tiếp, phù hợp REST API. @Controller thường trả view (Thymeleaf). @RequestMapping map URL chung; @GetMapping/@PostMapping là biến thể theo HTTP method, ngắn gọn và rõ ràng hơn cho từng endpoint.",9.0,rest_eq;controller_view;request_mapping;get_mapping,near-ref
+a0178,sb-04,fresher,"@RestController = @Controller + @ResponseBody, trả JSON/XML trực tiếp, phù hợp REST API. @Controller thường trả view (Thymeleaf). @RequestMapping map URL chung; @GetMapping/@PostMapping chính là biến thể theo HTTP method, ngắn gọn và rõ ràng hơn cho từng endpoint.",9.5,rest_eq;controller_view;request_mapping;get_mapping,near-ref
+a0179,sb-04,intern,"Tóm lại: @RestController = @Controller + @ResponseBody, trả JSON/XML trực tiếp, phù hợp REST API. @Controller thường trả view (Thymeleaf). @RequestMapping map URL chung; @GetMapping/@PostMapping là biến thể theo HTTP method, ngắn gọn và rõ ràng hơn cho từng endpoint.",9.0,rest_eq;controller_view;request_mapping;get_mapping,near-ref
+a0180,sb-04,fresher,"Về @RestController = @Controller + @ResponseBody, cần nắm 'responsebody'.. Về @Controller thường trả view, cần nắm 'view'.. Về Hiểu @RequestMapping, cần nắm 'requestmapping'. Liên quan câu hỏi: @RestController khác gì @Controller? Khi nào dùng @RequestMa…",7.5,rest_eq;controller_view;request_mapping,good-partial-last
+a0181,sb-04,intern,@RestController = @Controller + @ResponseBody: responsebody. @Controller thường trả view (view). Hiểu @RequestMapping (requestmapping). @GetMapping / method-specific (getmapping),8.0,rest_eq;controller_view;request_mapping;get_mapping,good-structured
+a0182,sb-04,fresher,"Về @RestController = @Controller + @ResponseBody, cần nắm 'responsebody'.. Về @Controller thường trả view, cần nắm 'view'.",5.5,rest_eq;controller_view,mid-half
+a0183,sb-04,intern,"Em biết sơ là responsebody và view, còn lại em chưa nhớ rõ.",6.0,rest_eq;controller_view,mid-vague
+a0184,sb-04,fresher,"Em chỉ nhớ ý 'responsebody', các ý khác chưa chắc.",4.5,rest_eq,mid-one-key
+a0185,sb-04,intern,Đây là thuật toán sắp xếp nhanh.,2.0,,wrong
+a0186,sb-04,fresher,Spring Web là công nghệ không liên quan đến câu hỏi này.,1.5,,off-topic
+a0187,sb-05,fresher,"Spring Data JPA giảm boilerplate truy cập database trên JPA/Hibernate. Chỉ cần khai báo interface kế thừa JpaRepository để có sẵn CRUD, phân trang, và query method theo tên. Có thể thêm @Query khi cần JPQL/SQL tùy chỉnh.",9.0,reduce_boilerplate;crud;interface_repo;query_method,near-ref
+a0188,sb-05,fresher,"Tóm lại: Spring Data JPA giảm boilerplate truy cập database trên JPA/Hibernate. Chỉ cần khai báo interface kế thừa JpaRepository để có sẵn CRUD, phân trang, và query method theo tên. Có thể thêm @Query khi cần JPQL/SQL tùy chỉnh.",9.0,reduce_boilerplate;crud;interface_repo;query_method,near-ref
+a0189,sb-05,fresher,"Về Giảm code truy cập DB / dựa JPA, cần nắm 'giảm code'.. Về CRUD có sẵn, cần nắm 'crud'.. Về Interface kế thừa JpaRepository, cần nắm 'interface'. Liên quan câu hỏi: Spring Data JPA giúp gì? JpaRepository dùng để làm gì?…",7.5,reduce_boilerplate;crud;interface_repo,good-partial-last
+a0190,sb-05,fresher,Giảm code truy cập DB / dựa JPA: giảm code. CRUD có sẵn (crud). Interface kế thừa JpaRepository (interface). Query method / @Query (query),8.0,reduce_boilerplate;crud;interface_repo;query_method,good-structured
+a0191,sb-05,fresher,"Về Giảm code truy cập DB / dựa JPA, cần nắm 'giảm code'.. Về CRUD có sẵn, cần nắm 'crud'.",5.5,reduce_boilerplate;crud,mid-half
+a0192,sb-05,fresher,"Em biết sơ là giảm code và crud, còn lại em chưa nhớ rõ.",6.0,reduce_boilerplate;crud,mid-vague
+a0193,sb-05,fresher,"Em chỉ nhớ ý 'giảm code', các ý khác chưa chắc.",4.5,reduce_boilerplate,mid-one-key
+a0194,sb-05,fresher,"Chỉ cần Google là được, không cần hiểu khái niệm.",2.0,,wrong
+a0195,sb-05,fresher,Spring Data là công nghệ không liên quan đến câu hỏi này.,1.5,,off-topic
+a0196,sb-05,fresher,Hình như là liên quan JPA / Repository nhưng em không giải thích được chi tiết.,3.0,,shallow
+a0197,java-01,intern,"Bốn tính chất: Encapsulation (đóng gói, ẩn dữ liệu qua access modifier/getter-setter), Inheritance (kế thừa, tái sử dụng qua extends), Polymorphism (đa hình, override/overload), Abstraction (trừu tượng, abstract class/interface chỉ lộ hành vi cần thiết).",9.0,encapsulation;inheritance;polymorphism;abstraction,near-ref
+a0198,java-01,fresher,"Tóm lại: Bốn tính chất: Encapsulation (đóng gói, ẩn dữ liệu qua access modifier/getter-setter), Inheritance (kế thừa, tái sử dụng qua extends), Polymorphism (đa hình, override/overload), Abstraction (trừu tượng, abstract class/interface chỉ lộ hành vi cần thiết).",9.0,encapsulation;inheritance;polymorphism;abstraction,near-ref
+a0199,java-01,intern,"Về Encapsulation, cần nắm 'encapsulation'.. Về Inheritance, cần nắm 'inheritance'.. Về Polymorphism, cần nắm 'polymorphism'. Liên quan câu hỏi: Bốn tính chất OOP trong Java là gì? Nêu ngắn gọn từng ý.…",7.5,encapsulation;inheritance;polymorphism,good-partial-last
+a0200,java-01,fresher,Encapsulation: encapsulation. Inheritance (inheritance). Polymorphism (polymorphism). Abstraction (abstraction),8.0,encapsulation;inheritance;polymorphism;abstraction,good-structured
+a0201,java-01,intern,"Về Encapsulation, cần nắm 'encapsulation'.. Về Inheritance, cần nắm 'inheritance'.",5.5,encapsulation;inheritance,mid-half
+a0202,java-01,fresher,"Em biết sơ là encapsulation và inheritance, còn lại em chưa nhớ rõ.",6.0,encapsulation;inheritance,mid-vague
+a0203,java-01,intern,"Em chỉ nhớ ý 'encapsulation', các ý khác chưa chắc.",4.5,encapsulation,mid-one-key
+a0204,java-01,fresher,"Cái này giống nhau hết, không có khác biệt.",2.0,,wrong
+a0205,java-01,intern,Java OOP là công nghệ không liên quan đến câu hỏi này.,1.5,,off-topic
+a0206,java-01,fresher,Hình như là liên quan OOP basics nhưng em không giải thích được chi tiết.,3.0,,shallow
+a0207,java-01,intern,"Khác nhau ở tên gọi thôi, thực tế encapsulation dùng cho mọi trường hợp.",3.5,encapsulation,oversimplify
+a0208,java-01,fresher,"Theo hướng thực tế: Bốn tính chất: Encapsulation (đóng gói, ẩn dữ liệu qua access modifier/getter-setter), Inheritance (kế thừa, tái sử dụng qua extends), Polymorphism (đa hình, override/overload), Abstraction (trừu tượng, abstract class/interface chỉ lộ hành vi cần thiết).",8.5,encapsulation;inheritance;polymorphism;abstraction,practical
+a0209,java-02,intern,"List lưu phần tử có thứ tự, cho phép trùng (ArrayList/LinkedList). Set không cho trùng, thường không quan tâm thứ tự (HashSet) hoặc có thứ tự (TreeSet/LinkedHashSet). Map lưu cặp key-value, key không trùng (HashMap). Dùng List khi cần index/thứ tự; Set khi cần unique; Map khi tra cứu theo khóa.",9.0,list;set;map;usecase,near-ref
+a0210,java-02,fresher,"Tóm lại: List lưu phần tử có thứ tự, cho phép trùng (ArrayList/LinkedList). Set không cho trùng, thường không quan tâm thứ tự (HashSet) hoặc có thứ tự (TreeSet/LinkedHashSet). Map lưu cặp key-value, key không trùng (HashMap). Dùng List khi cần index/thứ tự; Set khi cần unique; Map khi tra cứu theo khóa.",9.0,list;set;map;usecase,near-ref
+a0211,java-02,intern,"Về List, cần nắm 'list'.. Về Set, cần nắm 'set'.. Về Map, cần nắm 'map'. Liên quan câu hỏi: List, Set, Map trong Java khác nhau thế nào? Cho ví dụ khi n…",7.5,list;set;map,good-partial-last
+a0212,java-02,fresher,"List: thứ tự, cho trùng: list. Set: không trùng (set). Map: key-value (map). Ví dụ khi dùng (khi nào)",8.0,list;set;map;usecase,good-structured
+a0213,java-02,intern,"Về List, cần nắm 'list'.. Về Set, cần nắm 'set'.",5.5,list;set,mid-half
+a0214,java-02,fresher,"Em biết sơ là list và set, còn lại em chưa nhớ rõ.",6.0,list;set,mid-vague
+a0215,java-02,intern,"Em chỉ nhớ ý 'list', các ý khác chưa chắc.",4.5,list,mid-one-key
+a0216,java-02,fresher,"Cái này giống nhau hết, không có khác biệt.",2.0,,wrong
+a0217,java-02,intern,Java là công nghệ không liên quan đến câu hỏi này.,1.5,,off-topic
+a0218,java-02,fresher,Hình như là liên quan Collections nhưng em không giải thích được chi tiết.,3.0,,shallow
+a0219,java-02,intern,"Khác nhau ở tên gọi thôi, thực tế list dùng cho mọi trường hợp.",3.5,list,oversimplify
+a0220,java-02,fresher,"Theo hướng thực tế: List lưu phần tử có thứ tự, cho phép trùng (ArrayList/LinkedList). Set không cho trùng, thường không quan tâm thứ tự (HashSet) hoặc có thứ tự (TreeSet/LinkedHashSet). Map lưu cặp key-value, key không trùng (HashMap). Dùng List khi cần index/thứ tự; Set khi cần unique; Map khi tra cứu theo khóa.",8.5,list;set;map;usecase,practical
+a0221,sql-01,intern,INNER JOIN chỉ trả về các dòng khớp điều kiện ở cả hai bảng. LEFT JOIN trả về tất cả dòng bảng bên trái và phần khớp ở bảng phải; nếu không khớp thì cột bảng phải là NULL. Dùng INNER khi chỉ cần bản ghi liên kết được; LEFT khi cần giữ đủ dữ liệu bảng chính kể cả chưa có quan hệ.,9.0,inner;left;when,near-ref
+a0222,sql-01,fresher,INNER JOIN chỉ trả về các dòng khớp điều kiện ở cả hai bảng. LEFT JOIN trả về tất cả dòng bảng bên trái và phần khớp ở bảng phải; nếu không khớp thì cột bảng phải chính là NULL. Dùng INNER khi chỉ cần bản ghi liên kết được; LEFT khi cần giữ đủ dữ liệu bảng chính kể cả chưa có quan hệ.,9.5,inner;left;when,near-ref
+a0223,sql-01,intern,Tóm lại: INNER JOIN chỉ trả về các dòng khớp điều kiện ở cả hai bảng. LEFT JOIN trả về tất cả dòng bảng bên trái và phần khớp ở bảng phải; nếu không khớp thì cột bảng phải là NULL. Dùng INNER khi chỉ cần bản ghi liên kết được; LEFT khi cần giữ đủ dữ liệu bảng chính kể cả chưa có quan hệ.,9.0,inner;left;when,near-ref
+a0224,sql-01,fresher,"Về INNER, cần nắm 'inner'.. Về LEFT, cần nắm 'left'. Liên quan câu hỏi: INNER JOIN và LEFT JOIN khác nhau thế nào?…",7.5,inner;left,good-partial-last
+a0225,sql-01,intern,INNER: chỉ dòng khớp cả hai: inner. LEFT: giữ bảng trái + NULL nếu thiếu (left). Khi nào dùng (khi nào),8.0,inner;left;when,good-structured
+a0226,sql-01,fresher,"Về INNER, cần nắm 'inner'.",5.5,inner,mid-half
+a0227,sql-01,intern,"Em biết sơ là inner và left, còn lại em chưa nhớ rõ.",6.0,inner;left,mid-vague
+a0228,sql-01,fresher,"Em chỉ nhớ ý 'inner', các ý khác chưa chắc.",4.5,inner,mid-one-key
+a0229,sql-01,intern,"Cái này giống nhau hết, không có khác biệt.",2.0,,wrong
+a0230,sql-01,fresher,SQL là công nghệ không liên quan đến câu hỏi này.,1.5,,off-topic
+a0231,sql-01,intern,Hình như là liên quan JOIN nhưng em không giải thích được chi tiết.,3.0,,shallow
+a0232,sql-01,fresher,"Khác nhau ở tên gọi thôi, thực tế inner dùng cho mọi trường hợp.",3.5,inner,oversimplify
+a0233,sql-02,intern,"Index giúp tăng tốc tìm kiếm/lọc/join trên cột thường dùng trong WHERE/JOIN. Nên tạo trên cột truy vấn nhiều, độ chọn lọc cao. Không nên index lung tung vì tốn dung lượng và làm chậm INSERT/UPDATE/DELETE; bảng nhỏ hoặc cột thay đổi liên tục ít hưởng lợi.",9.0,purpose;when_yes;when_no,near-ref
+a0234,sql-02,fresher,"Index hỗ trợ tăng tốc tìm kiếm/lọc/join trên cột thường dùng trong WHERE/JOIN. Nên tạo trên cột truy vấn nhiều, độ chọn lọc cao. Không nên index lung tung vì tốn dung lượng và làm chậm INSERT/UPDATE/DELETE; bảng nhỏ hoặc cột thay đổi liên tục ít hưởng lợi.",9.5,purpose;when_yes;when_no,near-ref
+a0235,sql-02,intern,"Tóm lại: Index giúp tăng tốc tìm kiếm/lọc/join trên cột thường dùng trong WHERE/JOIN. Nên tạo trên cột truy vấn nhiều, độ chọn lọc cao. Không nên index lung tung vì tốn dung lượng và làm chậm INSERT/UPDATE/DELETE; bảng nhỏ hoặc cột thay đổi liên tục ít hưởng lợi.",9.0,purpose;when_yes;when_no,near-ref
+a0236,sql-02,fresher,"Về Tăng tốc đọc / WHERE-JOIN, cần nắm 'tăng tốc'.. Về Khi nên tạo, cần nắm 'cột hay lọc'. Liên quan câu hỏi: Index trong database dùng để làm gì? Khi nào nên/không nên t…",7.5,purpose;when_yes,good-partial-last
+a0237,sql-02,intern,Tăng tốc đọc / WHERE-JOIN: tăng tốc. Khi nên tạo (cột hay lọc). Chi phí ghi / khi không nên (chậm ghi),8.0,purpose;when_yes;when_no,good-structured
+a0238,sql-02,fresher,"Về Tăng tốc đọc / WHERE-JOIN, cần nắm 'tăng tốc'.",5.5,purpose,mid-half
+a0239,sql-02,intern,"Em biết sơ là tăng tốc và cột hay lọc, còn lại em chưa nhớ rõ.",6.0,purpose;when_yes,mid-vague
+a0240,sql-02,fresher,"Em chỉ nhớ ý 'tăng tốc', các ý khác chưa chắc.",4.5,purpose,mid-one-key
+a0241,sql-02,intern,Đây là thuật toán sắp xếp nhanh.,2.0,,wrong
+a0242,sql-02,fresher,SQL là công nghệ không liên quan đến câu hỏi này.,1.5,,off-topic
+a0243,sql-02,intern,Hình như là liên quan Index basics nhưng em không giải thích được chi tiết.,3.0,,shallow
+a0244,sql-02,fresher,"Khác nhau ở tên gọi thôi, thực tế tăng tốc dùng cho mọi trường hợp.",3.5,purpose,oversimplify
+a0245,http-01,intern,"GET lấy dữ liệu (idempotent, không nên đổi state). POST tạo tài nguyên mới. PUT cập nhật/thay thế tài nguyên (thường idempotent). DELETE xóa tài nguyên. REST gắn method với hành động trên resource qua URL.",9.0,get;post;put;delete,near-ref
+a0246,http-01,fresher,"Tóm lại: GET lấy dữ liệu (idempotent, không nên đổi state). POST tạo tài nguyên mới. PUT cập nhật/thay thế tài nguyên (thường idempotent). DELETE xóa tài nguyên. REST gắn method với hành động trên resource qua URL.",9.0,get;post;put;delete,near-ref
+a0247,http-01,intern,"Về GET, cần nắm 'get'.. Về POST, cần nắm 'post'.. Về PUT, cần nắm 'put'. Liên quan câu hỏi: GET, POST, PUT, DELETE trong REST thường dùng để làm gì?…",7.5,get;post;put,good-partial-last
+a0248,http-01,fresher,GET: đọc: get. POST: tạo mới (post). PUT: cập nhật (put). DELETE: xóa (delete),8.0,get;post;put;delete,good-structured
+a0249,http-01,intern,"Về GET, cần nắm 'get'.. Về POST, cần nắm 'post'.",5.5,get;post,mid-half
+a0250,http-01,fresher,"Em biết sơ là get và post, còn lại em chưa nhớ rõ.",6.0,get;post,mid-vague
+a0251,http-01,intern,"Em chỉ nhớ ý 'get', các ý khác chưa chắc.",4.5,get,mid-one-key
+a0252,http-01,fresher,Em chưa học phần này nên không biết.,2.0,,wrong
+a0253,http-01,intern,HTTP / REST là công nghệ không liên quan đến câu hỏi này.,1.5,,off-topic
+a0254,http-01,fresher,Hình như là liên quan HTTP methods nhưng em không giải thích được chi tiết.,3.0,,shallow
+a0255,http-01,intern,"Khác nhau ở tên gọi thôi, thực tế get dùng cho mọi trường hợp.",3.5,get,oversimplify
+a0256,http-01,fresher,"Theo hướng thực tế: GET lấy dữ liệu (idempotent, không nên đổi state). POST tạo tài nguyên mới. PUT cập nhật/thay thế tài nguyên (thường idempotent). DELETE xóa tài nguyên. REST gắn method với hành động trên resource qua URL.",8.5,get;post;put;delete,practical
+a0257,fe-01,intern,"HTML cấu trúc nội dung (heading, form, semantic tags). CSS trình bày giao diện (layout, màu, responsive). JavaScript xử lý hành vi và tương tác (event, DOM, gọi API). Ba lớp tách riêng giúp bảo trì và làm việc nhóm rõ ràng.",9.0,html;css;js;separation,near-ref
+a0258,fe-01,fresher,"HTML cấu trúc nội dung (heading, form, semantic tags). CSS trình bày giao diện (layout, màu, responsive). JavaScript xử lý hành vi và tương tác (event, DOM, gọi API). Ba lớp tách riêng hỗ trợ bảo trì và làm việc nhóm rõ ràng.",9.5,html;css;js;separation,near-ref
+a0259,fe-01,intern,"Tóm lại: HTML cấu trúc nội dung (heading, form, semantic tags). CSS trình bày giao diện (layout, màu, responsive). JavaScript xử lý hành vi và tương tác (event, DOM, gọi API). Ba lớp tách riêng giúp bảo trì và làm việc nhóm rõ ràng.",9.0,html;css;js;separation,near-ref
+a0260,fe-01,fresher,"Về HTML, cần nắm 'html'.. Về CSS, cần nắm 'css'.. Về JS, cần nắm 'javascript'. Liên quan câu hỏi: HTML, CSS, JavaScript mỗi cái đảm nhận vai trò gì trong tran…",7.5,html;css;js,good-partial-last
+a0261,fe-01,intern,HTML: cấu trúc: html. CSS: giao diện (css). JS: hành vi / tương tác (javascript). Tách lớp / bảo trì (tách),8.0,html;css;js;separation,good-structured
+a0262,fe-01,fresher,"Về HTML, cần nắm 'html'.. Về CSS, cần nắm 'css'.",5.5,html;css,mid-half
+a0263,fe-01,intern,"Em biết sơ là html và css, còn lại em chưa nhớ rõ.",6.0,html;css,mid-vague
+a0264,fe-01,fresher,"Em chỉ nhớ ý 'html', các ý khác chưa chắc.",4.5,html,mid-one-key
+a0265,fe-01,intern,Đây là thuật toán sắp xếp nhanh.,2.0,,wrong
+a0266,fe-01,fresher,Web Frontend là công nghệ không liên quan đến câu hỏi này.,1.5,,off-topic
+a0267,fe-01,intern,Hình như là liên quan HTML CSS JS nhưng em không giải thích được chi tiết.,3.0,,shallow
+a0268,fe-01,fresher,"Khác nhau ở tên gọi thôi, thực tế html dùng cho mọi trường hợp.",3.5,html,oversimplify
+a0269,fe-02,intern,"Component là khối UI tái sử dụng, nhận dữ liệu và render giao diện. Props là dữ liệu truyền từ cha xuống, chỉ đọc trong component con. State là dữ liệu nội bộ component, thay đổi sẽ kích hoạt render lại. Dùng props để cấu hình; dùng state cho dữ liệu thay đổi theo tương tác người dùng.",9.0,component;props;state;when,near-ref
+a0270,fe-02,fresher,"Component chính là khối UI tái sử dụng, nhận dữ liệu và render giao diện. Props chính là dữ liệu truyền từ cha xuống, chỉ đọc trong component con. State chính là dữ liệu nội bộ component, thay đổi sẽ kích hoạt render lại. Dùng props để cấu hình; dùng state cho dữ liệu thay đổi theo tương tác người dùng.",9.5,component;props;state;when,near-ref
+a0271,fe-02,intern,"Tóm lại: Component là khối UI tái sử dụng, nhận dữ liệu và render giao diện. Props là dữ liệu truyền từ cha xuống, chỉ đọc trong component con. State là dữ liệu nội bộ component, thay đổi sẽ kích hoạt render lại. Dùng props để cấu hình; dùng state cho dữ liệu thay đổi theo tương tác người dùng.",9.0,component;props;state;when,near-ref
+a0272,fe-02,fresher,"Về Component, cần nắm 'component'.. Về Props, cần nắm 'props'.. Về State, cần nắm 'state'. Liên quan câu hỏi: Component trong React là gì? State khác props như thế nào?…",7.5,component;props;state,good-partial-last
+a0273,fe-02,intern,"Component: khối UI tái sử dụng: component. Props: từ cha, read-only (props). State: nội bộ, gây re-render (state). Khi dùng props vs state (khi nào)",8.0,component;props;state;when,good-structured
+a0274,fe-02,fresher,"Về Component, cần nắm 'component'.. Về Props, cần nắm 'props'.",5.5,component;props,mid-half
+a0275,fe-02,intern,"Em biết sơ là component và props, còn lại em chưa nhớ rõ.",6.0,component;props,mid-vague
+a0276,fe-02,fresher,"Em chỉ nhớ ý 'component', các ý khác chưa chắc.",4.5,component,mid-one-key
+a0277,fe-02,intern,Đây là thuật toán sắp xếp nhanh.,2.0,,wrong
+a0278,fe-02,fresher,React là công nghệ không liên quan đến câu hỏi này.,1.5,,off-topic
+a0279,fe-02,intern,Hình như là liên quan React basics nhưng em không giải thích được chi tiết.,3.0,,shallow
+a0280,fe-02,fresher,"Khác nhau ở tên gọi thôi, thực tế component dùng cho mọi trường hợp.",3.5,component,oversimplify
+a0281,qa-01,intern,"Test case là bộ bước kiểm thử có mục tiêu xác minh một yêu cầu/hành vi. Thường gồm: id/tiêu đề, precondition, bước thực hiện, dữ liệu đầu vào, kết quả mong đợi, và đôi khi postcondition/ưu tiên. Test case tốt rõ ràng, lặp lại được, độc lập và bám requirement.",9.0,definition;steps_data;expected;quality,near-ref
+a0282,qa-01,fresher,"Test case chính là bộ bước kiểm thử có mục tiêu xác minh một yêu cầu/hành vi. Thường gồm: id/tiêu đề, precondition, bước thực hiện, dữ liệu đầu vào, kết quả mong đợi, và đôi khi postcondition/ưu tiên. Test case tốt rõ ràng, lặp lại được, độc lập và bám requirement.",9.5,definition;steps_data;expected;quality,near-ref
+a0283,qa-01,intern,"Tóm lại: Test case là bộ bước kiểm thử có mục tiêu xác minh một yêu cầu/hành vi. Thường gồm: id/tiêu đề, precondition, bước thực hiện, dữ liệu đầu vào, kết quả mong đợi, và đôi khi postcondition/ưu tiên. Test case tốt rõ ràng, lặp lại được, độc lập và bám requirement.",9.0,definition;steps_data;expected;quality,near-ref
+a0284,qa-01,fresher,"Về Định nghĩa test case, cần nắm 'test case'.. Về Bước / dữ liệu / precondition, cần nắm 'bước'.. Về Expected result, cần nắm 'expected'. Liên quan câu hỏi: Test case là gì? Một test case tốt thường gồm những thành ph…",7.5,definition;steps_data;expected,good-partial-last
+a0285,qa-01,intern,Định nghĩa test case: test case. Bước / dữ liệu / precondition (bước). Expected result (expected). Tính rõ / lặp lại / bám yêu cầu (rõ ràng),8.0,definition;steps_data;expected;quality,good-structured
+a0286,qa-01,fresher,"Về Định nghĩa test case, cần nắm 'test case'.. Về Bước / dữ liệu / precondition, cần nắm 'bước'.",5.5,definition;steps_data,mid-half
+a0287,qa-01,intern,"Em biết sơ là test case và bước, còn lại em chưa nhớ rõ.",6.0,definition;steps_data,mid-vague
+a0288,qa-01,fresher,"Em chỉ nhớ ý 'test case', các ý khác chưa chắc.",4.5,definition,mid-one-key
+a0289,qa-01,intern,Dùng AI viết code thì không cần quan tâm.,2.0,,wrong
+a0290,qa-01,fresher,Software Testing là công nghệ không liên quan đến câu hỏi này.,1.5,,off-topic
+a0291,qa-01,intern,Hình như là liên quan Test case nhưng em không giải thích được chi tiết.,3.0,,shallow
+a0292,qa-01,fresher,"Khác nhau ở tên gọi thôi, thực tế test case dùng cho mọi trường hợp.",3.5,definition,oversimplify
+a0293,qa-02,intern,"Black-box kiểm thử dựa trên đầu vào/đầu ra và yêu cầu, không cần nhìn code (functional, UI, API theo spec). White-box dựa trên cấu trúc code (nhánh, vòng lặp, coverage), thường do developer hoặc người hiểu code. Hai hướng bổ sung nhau để tìm lỗi nghiệp vụ và lỗi logic cài đặt.",9.0,black;white;complement,near-ref
+a0294,qa-02,fresher,"Tóm lại: Black-box kiểm thử dựa trên đầu vào/đầu ra và yêu cầu, không cần nhìn code (functional, UI, API theo spec). White-box dựa trên cấu trúc code (nhánh, vòng lặp, coverage), thường do developer hoặc người hiểu code. Hai hướng bổ sung nhau để tìm lỗi nghiệp vụ và lỗi logic cài đặt.",9.0,black;white;complement,near-ref
+a0295,qa-02,intern,"Về Black-box, cần nắm 'black-box'.. Về White-box, cần nắm 'white-box'. Liên quan câu hỏi: Black-box testing và white-box testing khác nhau thế nào?…",7.5,black;white,good-partial-last
+a0296,qa-02,fresher,"Black-box: theo spec, không nhìn code: black-box. White-box: theo cấu trúc code (white-box). Bổ sung nhau (bổ sung)",8.0,black;white;complement,good-structured
+a0297,qa-02,intern,"Về Black-box, cần nắm 'black-box'.",5.5,black,mid-half
+a0298,qa-02,fresher,"Em biết sơ là black-box và white-box, còn lại em chưa nhớ rõ.",6.0,black;white,mid-vague
+a0299,qa-02,intern,"Em chỉ nhớ ý 'black-box', các ý khác chưa chắc.",4.5,black,mid-one-key
+a0300,qa-02,fresher,Em chưa học phần này nên không biết.,2.0,,wrong
+a0301,qa-02,intern,Software Testing là công nghệ không liên quan đến câu hỏi này.,1.5,,off-topic
+a0302,qa-02,fresher,Hình như là liên quan Black-box / White-box nhưng em không giải thích được chi tiết.,3.0,,shallow
+a0303,qa-02,intern,"Khác nhau ở tên gọi thôi, thực tế black-box dùng cho mọi trường hợp.",3.5,black,oversimplify
+a0304,qa-02,fresher,"Theo hướng thực tế: Black-box kiểm thử dựa trên đầu vào/đầu ra và yêu cầu, không cần nhìn code (functional, UI, API theo spec). White-box dựa trên cấu trúc code (nhánh, vòng lặp, coverage), thường do developer hoặc người hiểu code. Hai hướng bổ sung nhau để tìm lỗi nghiệp vụ và lỗi logic cài đặt.",8.5,black;white;complement,practical
+a0305,qa-03,intern,"Bug report tốt có: tiêu đề rõ, môi trường, bước tái hiện, dữ liệu, kết quả thực tế vs mong đợi, mức độ nghiêm trọng/ưu tiên, evidence (log/screenshot). Regression testing là kiểm tra lại hệ thống sau thay đổi để đảm bảo chức năng cũ không bị hỏng.",9.0,repro;expected_actual;severity;regression,near-ref
+a0306,qa-03,fresher,"Bug report tốt có: tiêu đề rõ, môi trường, bước tái hiện, dữ liệu, kết quả thực tế vs mong đợi, mức độ nghiêm trọng/ưu tiên, evidence (log/screenshot). Regression testing chính là kiểm tra lại hệ thống sau thay đổi để đảm bảo chức năng cũ không bị hỏng.",9.5,repro;expected_actual;severity;regression,near-ref
+a0307,qa-03,intern,"Tóm lại: Bug report tốt có: tiêu đề rõ, môi trường, bước tái hiện, dữ liệu, kết quả thực tế vs mong đợi, mức độ nghiêm trọng/ưu tiên, evidence (log/screenshot). Regression testing là kiểm tra lại hệ thống sau thay đổi để đảm bảo chức năng cũ không bị hỏng.",9.0,repro;expected_actual;severity;regression,near-ref
+a0308,qa-03,fresher,"Về Bước tái hiện / môi trường, cần nắm 'tái hiện'.. Về Expected vs actual, cần nắm 'expected'.. Về Severity / evidence, cần nắm 'severity'. Liên quan câu hỏi: Khi báo cáo bug, cần ghi những thông tin quan trọng nào? Reg…",7.5,repro;expected_actual;severity,good-partial-last
+a0309,qa-03,intern,Bước tái hiện / môi trường: tái hiện. Expected vs actual (expected). Severity / evidence (severity). Regression testing (regression),8.0,repro;expected_actual;severity;regression,good-structured
+a0310,qa-03,fresher,"Về Bước tái hiện / môi trường, cần nắm 'tái hiện'.. Về Expected vs actual, cần nắm 'expected'.",5.5,repro;expected_actual,mid-half
+a0311,qa-03,intern,"Em biết sơ là tái hiện và expected, còn lại em chưa nhớ rõ.",6.0,repro;expected_actual,mid-vague
+a0312,qa-03,fresher,"Em chỉ nhớ ý 'tái hiện', các ý khác chưa chắc.",4.5,repro,mid-one-key
+a0313,qa-03,intern,Dùng AI viết code thì không cần quan tâm.,2.0,,wrong
+a0314,qa-03,fresher,Software Testing là công nghệ không liên quan đến câu hỏi này.,1.5,,off-topic
+a0315,qa-03,intern,Hình như là liên quan Bug report / regression nhưng em không giải thích được chi tiết.,3.0,,shallow
+a0316,qa-03,fresher,"Khác nhau ở tên gọi thôi, thực tế tái hiện dùng cho mọi trường hợp.",3.5,repro,oversimplify
+a0317,git-01,intern,Commit lưu snapshot thay đổi kèm message. Branch tách dòng phát triển độc lập (feature/bugfix) để không ảnh hưởng main. Merge gộp thay đổi từ branch vào nhánh đích; có thể phát sinh conflict cần giải quyết. Quy trình này giúp cộng tác song song và theo dõi lịch sử.,9.0,commit;branch;merge,near-ref
+a0318,git-01,fresher,Commit lưu snapshot thay đổi kèm message. Branch tách dòng phát triển độc lập (feature/bugfix) để không ảnh hưởng main. Merge gộp thay đổi từ branch vào nhánh đích; có thể phát sinh conflict cần giải quyết. Quy trình này hỗ trợ cộng tác song song và theo dõi lịch sử.,9.5,commit;branch;merge,near-ref
+a0319,git-01,intern,Tóm lại: Commit lưu snapshot thay đổi kèm message. Branch tách dòng phát triển độc lập (feature/bugfix) để không ảnh hưởng main. Merge gộp thay đổi từ branch vào nhánh đích; có thể phát sinh conflict cần giải quyết. Quy trình này giúp cộng tác song song và theo dõi lịch sử.,9.0,commit;branch;merge,near-ref
+a0320,git-01,fresher,"Về Commit, cần nắm 'commit'.. Về Branch, cần nắm 'branch'. Liên quan câu hỏi: Git commit, branch và merge dùng để làm gì trong làm việc nh…",7.5,commit;branch,good-partial-last
+a0321,git-01,intern,Commit: lưu thay đổi: commit. Branch: tách nhánh làm việc (branch). Merge / conflict (merge),8.0,commit;branch;merge,good-structured
+a0322,git-01,fresher,"Về Commit, cần nắm 'commit'.",5.5,commit,mid-half
+a0323,git-01,intern,"Em biết sơ là commit và branch, còn lại em chưa nhớ rõ.",6.0,commit;branch,mid-vague
+a0324,git-01,fresher,"Em chỉ nhớ ý 'commit', các ý khác chưa chắc.",4.5,commit,mid-one-key
+a0325,git-01,intern,"Đó là phần cứng máy tính, không liên quan phần mềm.",2.0,,wrong
+a0326,git-01,fresher,Git là công nghệ không liên quan đến câu hỏi này.,1.5,,off-topic
+a0327,git-01,intern,Hình như là liên quan Git basics nhưng em không giải thích được chi tiết.,3.0,,shallow
+a0328,git-01,fresher,"Khác nhau ở tên gọi thôi, thực tế commit dùng cho mọi trường hợp.",3.5,commit,oversimplify
+a0329,cs-01,intern,"200 OK thành công. 201 Created tạo mới thành công. 400 Bad Request lỗi phía client (dữ liệu không hợp lệ). 401 Unauthorized chưa xác thực. 404 Not Found không tìm thấy tài nguyên. 500 Internal Server Error lỗi phía server. Nhóm 2xx thành công, 4xx lỗi client, 5xx lỗi server.",9.0,2xx;4xx;5xx,near-ref
+a0330,cs-01,fresher,"Tóm lại: 200 OK thành công. 201 Created tạo mới thành công. 400 Bad Request lỗi phía client (dữ liệu không hợp lệ). 401 Unauthorized chưa xác thực. 404 Not Found không tìm thấy tài nguyên. 500 Internal Server Error lỗi phía server. Nhóm 2xx thành công, 4xx lỗi client, 5xx lỗi server.",9.0,2xx;4xx;5xx,near-ref
+a0331,cs-01,intern,"Về 200/201 thành công, cần nắm '200'.. Về 400/401/404 lỗi client, cần nắm '400'. Liên quan câu hỏi: Mã HTTP 200, 201, 400, 401, 404, 500 thường nghĩa là gì?…",7.5,2xx;4xx,good-partial-last
+a0332,cs-01,fresher,200/201 thành công: 200. 400/401/404 lỗi client (400). 500 lỗi server (500),8.0,2xx;4xx;5xx,good-structured
+a0333,cs-01,intern,"Về 200/201 thành công, cần nắm '200'.",5.5,2xx,mid-half
+a0334,cs-01,fresher,"Em biết sơ là 200 và 400, còn lại em chưa nhớ rõ.",6.0,2xx;4xx,mid-vague
+a0335,cs-01,intern,"Em chỉ nhớ ý '200', các ý khác chưa chắc.",4.5,2xx,mid-one-key
+a0336,cs-01,fresher,Em chưa học phần này nên không biết.,2.0,,wrong
+a0337,cs-01,intern,CS Fundamentals là công nghệ không liên quan đến câu hỏi này.,1.5,,off-topic
+a0338,cs-01,fresher,Hình như là liên quan HTTP status nhưng em không giải thích được chi tiết.,3.0,,shallow
+a0339,cs-01,intern,"Khác nhau ở tên gọi thôi, thực tế 200 dùng cho mọi trường hợp.",3.5,2xx,oversimplify
+a0340,cs-01,fresher,"Theo hướng thực tế: 200 OK thành công. 201 Created tạo mới thành công. 400 Bad Request lỗi phía client (dữ liệu không hợp lệ). 401 Unauthorized chưa xác thực. 404 Not Found không tìm thấy tài nguyên. 500 Internal Server Error lỗi phía server. Nhóm 2xx thành công, 4xx lỗi client, 5xx lỗi server.",8.5,2xx;4xx;5xx,practical
+a0341,java-03,intern,"Checked exception bắt buộc xử lý hoặc khai báo throws lúc compile (IOException). Unchecked (RuntimeException và subclass) không bắt buộc try-catch (NullPointerException, IllegalArgumentException). Checked thường cho lỗi Recoverable bên ngoài; unchecked thường do bug logic.",9.0,checked;unchecked;when,near-ref
+a0342,java-03,fresher,"Tóm lại: Checked exception bắt buộc xử lý hoặc khai báo throws lúc compile (IOException). Unchecked (RuntimeException và subclass) không bắt buộc try-catch (NullPointerException, IllegalArgumentException). Checked thường cho lỗi Recoverable bên ngoài; unchecked thường do bug logic.",9.0,checked;unchecked;when,near-ref
+a0343,java-03,intern,"Về Checked, cần nắm 'checked'.. Về Unchecked / RuntimeException, cần nắm 'unchecked'. Liên quan câu hỏi: Checked exception và unchecked exception trong Java khác nha…",7.5,checked;unchecked,good-partial-last
+a0344,java-03,fresher,Checked: compile bắt buộc xử lý: checked. Unchecked / RuntimeException (unchecked). Khi nào dùng / ý nghĩa (recoverable),8.0,checked;unchecked;when,good-structured
+a0345,java-03,intern,"Về Checked, cần nắm 'checked'.",5.5,checked,mid-half
+a0346,java-03,fresher,"Em biết sơ là checked và unchecked, còn lại em chưa nhớ rõ.",6.0,checked;unchecked,mid-vague
+a0347,java-03,intern,"Em chỉ nhớ ý 'checked', các ý khác chưa chắc.",4.5,checked,mid-one-key
+a0348,java-03,fresher,Em chưa học phần này nên không biết.,2.0,,wrong
+a0349,java-03,intern,Java là công nghệ không liên quan đến câu hỏi này.,1.5,,off-topic
+a0350,java-03,fresher,Hình như là liên quan Exception nhưng em không giải thích được chi tiết.,3.0,,shallow
+a0351,java-03,intern,"Khác nhau ở tên gọi thôi, thực tế checked dùng cho mọi trường hợp.",3.5,checked,oversimplify
+a0352,java-03,fresher,"Theo hướng thực tế: Checked exception bắt buộc xử lý hoặc khai báo throws lúc compile (IOException). Unchecked (RuntimeException và subclass) không bắt buộc try-catch (NullPointerException, IllegalArgumentException). Checked thường cho lỗi Recoverable bên ngoài; unchecked thường do bug logic.",8.5,checked;unchecked;when,practical
+a0353,java-03,intern,Các ý chính: Checked: compile bắt buộc xử lý; Unchecked / RuntimeException; Khi nào dùng / ý nghĩa.,7.0,checked;unchecked;when,label-list
+a0354,java-03,fresher,Em hiểu Checked: compile bắt buộc xử lý nhờ hint 'checked'. Thêm Unchecked / RuntimeException.,6.5,checked;unchecked,two-points
+a0355,java-03,intern,Liên quan Exception: checked. Phần còn lại em trả lời chưa đủ.,5.0,checked,incomplete
+a0356,java-03,fresher,Theo em thì Java quan trọng với fresher.,4.0,,too-generic
+a0357,java-03,intern,Em trả lời sai: cái này chỉ dùng trên frontend React.,2.5,,wrong-domain
+a0358,java-03,fresher,"Checked exception bắt buộc xử lý hoặc khai báo throws lúc compile (IOException). Unchecked (RuntimeException và subclass) không bắt buộc try-catch (NullPointerException, IllegalArgumentException). Checked thường cho lỗi Recoverable bên ngoài; unchecked thường do bug logic. Đây là phần kiến thức intern/fresher nên nắm vững.",9.5,checked;unchecked;when,excellent-plus
+a0359,java-03,intern,checked → Checked: compile bắt buộc xử lý. unchecked → Unchecked / RuntimeException. recoverable → Khi nào dùng / ý nghĩa.,8.0,checked;unchecked;when,hint-walk
+a0360,java-03,fresher,"Checked exception bắt buộc xử lý hoặc khai báo throws lúc compile (IOException). Unchecked (RuntimeException và subclass) không bắt buộc try-catch (NullPointerException, IllegalArgumentException). Checked thường cho lỗi Recoverable bên ngoài; unchecked thường do bug logic. (cách diễn đạt thêm #20).",8.5,checked;unchecked;when,near-ref-var
+a0361,java-04,fresher,equals so sánh logic bằng nhau theo nghiệp vụ. hashCode dùng trong HashMap/HashSet. Hợp đồng Java: hai object equals thì phải cùng hashCode. Override một cái mà không cái kia gây lỗi chứa trùng hoặc không tìm thấy trong collection dựa hash.,9.0,equals;hashcode;contract,near-ref
+a0362,java-04,fresher,Tóm lại: equals so sánh logic bằng nhau theo nghiệp vụ. hashCode dùng trong HashMap/HashSet. Hợp đồng Java: hai object equals thì phải cùng hashCode. Override một cái mà không cái kia gây lỗi chứa trùng hoặc không tìm thấy trong collection dựa hash.,9.0,equals;hashcode;contract,near-ref
+a0363,java-04,fresher,"Về equals, cần nắm 'equals'.. Về hashCode, cần nắm 'hashcode'. Liên quan câu hỏi: Tại sao cần override equals() và hashCode() cùng nhau?…",7.5,equals;hashcode,good-partial-last
+a0364,java-04,fresher,equals: so sánh logic: equals. hashCode: HashMap/HashSet (hashcode). Hợp đồng equals-hashCode (cùng hash),8.0,equals;hashcode;contract,good-structured
+a0365,java-04,fresher,"Về equals, cần nắm 'equals'.",5.5,equals,mid-half
+a0366,java-04,fresher,"Em biết sơ là equals và hashcode, còn lại em chưa nhớ rõ.",6.0,equals;hashcode,mid-vague
+a0367,java-04,fresher,"Em chỉ nhớ ý 'equals', các ý khác chưa chắc.",4.5,equals,mid-one-key
+a0368,java-04,fresher,"Cái này giống nhau hết, không có khác biệt.",2.0,,wrong
+a0369,java-04,fresher,Java là công nghệ không liên quan đến câu hỏi này.,1.5,,off-topic
+a0370,java-04,fresher,Hình như là liên quan equals/hashCode nhưng em không giải thích được chi tiết.,3.0,,shallow
+a0371,java-04,fresher,"Khác nhau ở tên gọi thôi, thực tế equals dùng cho mọi trường hợp.",3.5,equals,oversimplify
+a0372,java-04,fresher,Theo hướng thực tế: equals so sánh logic bằng nhau theo nghiệp vụ. hashCode dùng trong HashMap/HashSet. Hợp đồng Java: hai object equals thì phải cùng hashCode. Override một cái mà không cái kia gây lỗi chứa trùng hoặc không tìm thấy trong collection dựa hash.,8.5,equals;hashcode;contract,practical
+a0373,java-04,fresher,Các ý chính: equals: so sánh logic; hashCode: HashMap/HashSet; Hợp đồng equals-hashCode.,7.0,equals;hashcode;contract,label-list
+a0374,java-04,fresher,Em hiểu equals: so sánh logic nhờ hint 'equals'. Thêm hashCode: HashMap/HashSet.,6.5,equals;hashcode,two-points
+a0375,java-04,fresher,Liên quan equals/hashCode: equals. Phần còn lại em trả lời chưa đủ.,5.0,equals,incomplete
+a0376,java-04,fresher,Theo em thì Java quan trọng với fresher.,4.0,,too-generic
+a0377,java-04,fresher,Em trả lời sai: cái này chỉ dùng trên frontend React.,2.5,,wrong-domain
+a0378,java-04,fresher,equals so sánh logic bằng nhau theo nghiệp vụ. hashCode dùng trong HashMap/HashSet. Hợp đồng Java: hai object equals thì phải cùng hashCode. Override một cái mà không cái kia gây lỗi chứa trùng hoặc không tìm thấy trong collection dựa hash. Đây là phần kiến thức intern/fresher nên nắm vững.,9.5,equals;hashcode;contract,excellent-plus
+a0379,java-04,fresher,equals → equals: so sánh logic. hashcode → hashCode: HashMap/HashSet. cùng hash → Hợp đồng equals-hashCode.,8.0,equals;hashcode;contract,hint-walk
+a0380,java-04,fresher,equals so sánh logic bằng nhau theo nghiệp vụ. hashCode dùng trong HashMap/HashSet. Hợp đồng Java: hai object equals thì phải cùng hashCode. Override một cái mà không cái kia gây lỗi chứa trùng hoặc không tìm thấy trong collection dựa hash. (cách diễn đạt thêm #20).,8.5,equals;hashcode;contract,near-ref-var
+a0381,java-05,intern,"String là immutable: mỗi thao tác nối tạo object mới. StringBuilder mutable, nối chuỗi hiệu quả trong vòng lặp. Dùng StringBuilder khi xây chuỗi động nhiều lần; String đủ khi chuỗi ít thay đổi hoặc cần thread-safe immutability.",9.0,immutable;mutable;when,near-ref
+a0382,java-05,fresher,"String chính là immutable: mỗi thao tác nối tạo object mới. StringBuilder mutable, nối chuỗi hiệu quả trong vòng lặp. Dùng StringBuilder khi xây chuỗi động nhiều lần; String đủ khi chuỗi ít thay đổi hoặc cần thread-safe immutability.",9.5,immutable;mutable;when,near-ref
+a0383,java-05,intern,"Tóm lại: String là immutable: mỗi thao tác nối tạo object mới. StringBuilder mutable, nối chuỗi hiệu quả trong vòng lặp. Dùng StringBuilder khi xây chuỗi động nhiều lần; String đủ khi chuỗi ít thay đổi hoặc cần thread-safe immutability.",9.0,immutable;mutable;when,near-ref
+a0384,java-05,fresher,"Về String immutable, cần nắm 'immutable'.. Về StringBuilder mutable / nhanh hơn, cần nắm 'stringbuilder'. Liên quan câu hỏi: String và StringBuilder khác nhau thế nào? Khi nào dùng Stri…",7.5,immutable;mutable,good-partial-last
+a0385,java-05,intern,String immutable: immutable. StringBuilder mutable / nhanh hơn (stringbuilder). Khi nào dùng (khi nào),8.0,immutable;mutable;when,good-structured
+a0386,java-05,fresher,"Về String immutable, cần nắm 'immutable'.",5.5,immutable,mid-half
+a0387,java-05,intern,"Em biết sơ là immutable và stringbuilder, còn lại em chưa nhớ rõ.",6.0,immutable;mutable,mid-vague
+a0388,java-05,fresher,"Em chỉ nhớ ý 'immutable', các ý khác chưa chắc.",4.5,immutable,mid-one-key
+a0389,java-05,intern,Dùng AI viết code thì không cần quan tâm.,2.0,,wrong
+a0390,java-05,fresher,Java là công nghệ không liên quan đến câu hỏi này.,1.5,,off-topic
+a0391,java-05,intern,Hình như là liên quan String vs StringBuilder nhưng em không giải thích được chi tiết.,3.0,,shallow
+a0392,java-05,fresher,"Khác nhau ở tên gọi thôi, thực tế immutable dùng cho mọi trường hợp.",3.5,immutable,oversimplify
+a0393,java-05,intern,"Theo hướng thực tế: String là immutable: mỗi thao tác nối tạo object mới. StringBuilder mutable, nối chuỗi hiệu quả trong vòng lặp. Dùng StringBuilder khi xây chuỗi động nhiều lần; String đủ khi chuỗi ít thay đổi hoặc cần thread-safe immutability.",8.5,immutable;mutable;when,practical
+a0394,java-05,fresher,Các ý chính: String immutable; StringBuilder mutable / nhanh hơn; Khi nào dùng.,7.0,immutable;mutable;when,label-list
+a0395,java-05,intern,Em hiểu String immutable nhờ hint 'immutable'. Thêm StringBuilder mutable / nhanh hơn.,6.5,immutable;mutable,two-points
+a0396,java-05,fresher,Liên quan String vs StringBuilder: immutable. Phần còn lại em trả lời chưa đủ.,5.0,immutable,incomplete
+a0397,java-05,intern,Theo em thì Java quan trọng với fresher.,4.0,,too-generic
+a0398,java-05,fresher,Em trả lời sai: cái này chỉ dùng trên frontend React.,2.5,,wrong-domain
+a0399,java-05,intern,"String là immutable: mỗi thao tác nối tạo object mới. StringBuilder mutable, nối chuỗi hiệu quả trong vòng lặp. Dùng StringBuilder khi xây chuỗi động nhiều lần; String đủ khi chuỗi ít thay đổi hoặc cần thread-safe immutability. Đây là phần kiến thức intern/fresher nên nắm vững.",9.5,immutable;mutable;when,excellent-plus
+a0400,java-05,fresher,immutable → String immutable. stringbuilder → StringBuilder mutable / nhanh hơn. khi nào → Khi nào dùng.,8.0,immutable;mutable;when,hint-walk
+a0401,sb-06,intern,"File cấu hình externalize settings: port server, datasource URL/username/password, logging level, profile. Có thể dùng .properties hoặc .yml. Ví dụ server.port=8080, spring.datasource.url=..., logging.level.root=INFO. Profile (dev/prod) giúp tách cấu hình môi trường.",9.0,purpose;examples;profile,near-ref
+a0402,sb-06,fresher,"File cấu hình externalize settings: port server, datasource URL/username/password, logging level, profile. Có thể dùng .properties hoặc .yml. Ví dụ server.port=8080, spring.datasource.url=..., logging.level.root=INFO. Profile (dev/prod) hỗ trợ tách cấu hình môi trường.",9.5,purpose;examples;profile,near-ref
+a0403,sb-06,intern,"Tóm lại: File cấu hình externalize settings: port server, datasource URL/username/password, logging level, profile. Có thể dùng .properties hoặc .yml. Ví dụ server.port=8080, spring.datasource.url=..., logging.level.root=INFO. Profile (dev/prod) giúp tách cấu hình môi trường.",9.0,purpose;examples;profile,near-ref
+a0404,sb-06,fresher,"Về Externalize cấu hình, cần nắm 'cấu hình'.. Về Ví dụ port/datasource/logging, cần nắm 'port'. Liên quan câu hỏi: application.properties / application.yml dùng để làm gì? Cho…",7.5,purpose;examples,good-partial-last
+a0405,sb-06,intern,Externalize cấu hình: cấu hình. Ví dụ port/datasource/logging (port). Profile môi trường (profile),8.0,purpose;examples;profile,good-structured
+a0406,sb-06,fresher,"Về Externalize cấu hình, cần nắm 'cấu hình'.",5.5,purpose,mid-half
+a0407,sb-06,intern,"Em biết sơ là cấu hình và port, còn lại em chưa nhớ rõ.",6.0,purpose;examples,mid-vague
+a0408,sb-06,fresher,"Em chỉ nhớ ý 'cấu hình', các ý khác chưa chắc.",4.5,purpose,mid-one-key
+a0409,sb-06,intern,Dùng AI viết code thì không cần quan tâm.,2.0,,wrong
+a0410,sb-06,fresher,Spring Boot là công nghệ không liên quan đến câu hỏi này.,1.5,,off-topic
+a0411,sb-06,intern,Hình như là liên quan application.properties nhưng em không giải thích được chi tiết.,3.0,,shallow
+a0412,sb-06,fresher,"Khác nhau ở tên gọi thôi, thực tế cấu hình dùng cho mọi trường hợp.",3.5,purpose,oversimplify
+a0413,sb-06,intern,"Theo hướng thực tế: File cấu hình externalize settings: port server, datasource URL/username/password, logging level, profile. Có thể dùng .properties hoặc .yml. Ví dụ server.port=8080, spring.datasource.url=..., logging.level.root=INFO. Profile (dev/prod) giúp tách cấu hình môi trường.",8.5,purpose;examples;profile,practical
+a0414,sb-06,fresher,Các ý chính: Externalize cấu hình; Ví dụ port/datasource/logging; Profile môi trường.,7.0,purpose;examples;profile,label-list
+a0415,sb-06,intern,Em hiểu Externalize cấu hình nhờ hint 'cấu hình'. Thêm Ví dụ port/datasource/logging.,6.5,purpose;examples,two-points
+a0416,sb-06,fresher,Liên quan application.properties: cấu hình. Phần còn lại em trả lời chưa đủ.,5.0,purpose,incomplete
+a0417,sb-06,intern,Theo em thì Spring Boot quan trọng với fresher.,4.0,,too-generic
+a0418,sb-06,fresher,Em trả lời sai: cái này chỉ dùng trên frontend React.,2.5,,wrong-domain
+a0419,sb-06,intern,"File cấu hình externalize settings: port server, datasource URL/username/password, logging level, profile. Có thể dùng .properties hoặc .yml. Ví dụ server.port=8080, spring.datasource.url=..., logging.level.root=INFO. Profile (dev/prod) giúp tách cấu hình môi trường. Đây là phần kiến thức intern/fresher nên nắm vững.",9.5,purpose;examples;profile,excellent-plus
+a0420,sb-06,fresher,cấu hình → Externalize cấu hình. port → Ví dụ port/datasource/logging. profile → Profile môi trường.,8.0,purpose;examples;profile,hint-walk
+a0421,sb-07,intern,"Cả ba đều là stereotype để Spring quét và tạo bean. @Component là generic. @Service đánh dấu lớp nghiệp vụ. @Repository đánh dấu lớp truy cập dữ liệu, còn giúp dịch persistence exception. Về kỹ thuật gần giống nhau; đặt đúng stereotype giúp đọc code và AOP/exception rõ hơn.",9.0,all_beans;service;repo;why,near-ref
+a0422,sb-07,fresher,"Cả ba đều chính là stereotype để Spring quét và tạo bean. @Component chính là generic. @Service đánh dấu lớp nghiệp vụ. @Repository đánh dấu lớp truy cập dữ liệu, còn hỗ trợ dịch persistence exception. Về kỹ thuật gần giống nhau; đặt đúng stereotype hỗ trợ đọc code và AOP/exception rõ hơn.",9.5,all_beans;service;repo;why,near-ref
+a0423,sb-07,intern,"Tóm lại: Cả ba đều là stereotype để Spring quét và tạo bean. @Component là generic. @Service đánh dấu lớp nghiệp vụ. @Repository đánh dấu lớp truy cập dữ liệu, còn giúp dịch persistence exception. Về kỹ thuật gần giống nhau; đặt đúng stereotype giúp đọc code và AOP/exception rõ hơn.",9.0,all_beans;service;repo;why,near-ref
+a0424,sb-07,fresher,"Về Đều tạo bean / stereotype, cần nắm 'bean'.. Về @Service, cần nắm 'service'.. Về @Repository, cần nắm 'repository'. Liên quan câu hỏi: @Component, @Service, @Repository khác nhau thế nào?…",7.5,all_beans;service;repo,good-partial-last
+a0425,sb-07,intern,Đều tạo bean / stereotype: bean. @Service: business (service). @Repository: data access (repository). Ý nghĩa phân tầng (tầng),8.0,all_beans;service;repo;why,good-structured
+a0426,sb-07,fresher,"Về Đều tạo bean / stereotype, cần nắm 'bean'.. Về @Service, cần nắm 'service'.",5.5,all_beans;service,mid-half
+a0427,sb-07,intern,"Em biết sơ là bean và service, còn lại em chưa nhớ rõ.",6.0,all_beans;service,mid-vague
+a0428,sb-07,fresher,"Em chỉ nhớ ý 'bean', các ý khác chưa chắc.",4.5,all_beans,mid-one-key
+a0429,sb-07,intern,Em chưa học phần này nên không biết.,2.0,,wrong
+a0430,sb-07,fresher,Spring là công nghệ không liên quan đến câu hỏi này.,1.5,,off-topic
+a0431,sb-07,intern,Hình như là liên quan Bean / Component nhưng em không giải thích được chi tiết.,3.0,,shallow
+a0432,sb-07,fresher,"Khác nhau ở tên gọi thôi, thực tế bean dùng cho mọi trường hợp.",3.5,all_beans,oversimplify
+a0433,sb-07,intern,"Theo hướng thực tế: Cả ba đều là stereotype để Spring quét và tạo bean. @Component là generic. @Service đánh dấu lớp nghiệp vụ. @Repository đánh dấu lớp truy cập dữ liệu, còn giúp dịch persistence exception. Về kỹ thuật gần giống nhau; đặt đúng stereotype giúp đọc code và AOP/exception rõ hơn.",8.5,all_beans;service;repo;why,practical
+a0434,sb-07,fresher,Các ý chính: Đều tạo bean / stereotype; @Service: business; @Repository: data access; Ý nghĩa phân tầng.,7.0,all_beans;service;repo;why,label-list
+a0435,sb-07,intern,Em hiểu Đều tạo bean / stereotype nhờ hint 'bean'. Thêm @Service: business.,6.5,all_beans;service,two-points
+a0436,sb-07,fresher,Liên quan Bean / Component: bean. Phần còn lại em trả lời chưa đủ.,5.0,all_beans,incomplete
+a0437,sb-07,intern,Theo em thì Spring quan trọng với fresher.,4.0,,too-generic
+a0438,sb-07,fresher,Em trả lời sai: cái này chỉ dùng trên frontend React.,2.5,,wrong-domain
+a0439,sb-07,intern,"Cả ba đều là stereotype để Spring quét và tạo bean. @Component là generic. @Service đánh dấu lớp nghiệp vụ. @Repository đánh dấu lớp truy cập dữ liệu, còn giúp dịch persistence exception. Về kỹ thuật gần giống nhau; đặt đúng stereotype giúp đọc code và AOP/exception rõ hơn. Đây là phần kiến thức intern/fresher nên nắm vững.",9.5,all_beans;service;repo;why,excellent-plus
+a0440,sb-07,fresher,bean → Đều tạo bean / stereotype. service → @Service: business. repository → @Repository: data access. tầng → Ý nghĩa phân tầng.,8.0,all_beans;service;repo;why,hint-walk
+a0441,sb-08,fresher,"DTO tách contract API khỏi schema DB, tránh lộ field nội bộ/quan hệ lazy, giảm vòng lặp JSON (bidirectional), cho phép shape khác Entity. Entity gắn persistence; DTO ổn định cho client. Mapping thủ công hoặc MapStruct.",9.0,decouple;security_lazy;shape,near-ref
+a0442,sb-08,fresher,"Tóm lại: DTO tách contract API khỏi schema DB, tránh lộ field nội bộ/quan hệ lazy, giảm vòng lặp JSON (bidirectional), cho phép shape khác Entity. Entity gắn persistence; DTO ổn định cho client. Mapping thủ công hoặc MapStruct.",9.0,decouple;security_lazy;shape,near-ref
+a0443,sb-08,fresher,"Về Tách API khỏi DB schema, cần nắm 'tách'.. Về Tránh lộ field / lazy load, cần nắm 'lazy'. Liên quan câu hỏi: Tại sao API thường trả DTO thay vì trả trực tiếp Entity JPA?…",7.5,decouple;security_lazy,good-partial-last
+a0444,sb-08,fresher,Tách API khỏi DB schema: tách. Tránh lộ field / lazy load (lazy). Shape phù hợp client (dto),8.0,decouple;security_lazy;shape,good-structured
+a0445,sb-08,fresher,"Về Tách API khỏi DB schema, cần nắm 'tách'.",5.5,decouple,mid-half
+a0446,sb-08,fresher,"Em biết sơ là tách và lazy, còn lại em chưa nhớ rõ.",6.0,decouple;security_lazy,mid-vague
+a0447,sb-08,fresher,"Em chỉ nhớ ý 'tách', các ý khác chưa chắc.",4.5,decouple,mid-one-key
+a0448,sb-08,fresher,Dùng AI viết code thì không cần quan tâm.,2.0,,wrong
+a0449,sb-08,fresher,Spring Web là công nghệ không liên quan đến câu hỏi này.,1.5,,off-topic
+a0450,sb-08,fresher,Hình như là liên quan DTO / Entity nhưng em không giải thích được chi tiết.,3.0,,shallow
+a0451,sb-08,fresher,"Khác nhau ở tên gọi thôi, thực tế tách dùng cho mọi trường hợp.",3.5,decouple,oversimplify
+a0452,sb-08,fresher,"Theo hướng thực tế: DTO tách contract API khỏi schema DB, tránh lộ field nội bộ/quan hệ lazy, giảm vòng lặp JSON (bidirectional), cho phép shape khác Entity. Entity gắn persistence; DTO ổn định cho client. Mapping thủ công hoặc MapStruct.",8.5,decouple;security_lazy;shape,practical
+a0453,sb-08,fresher,Các ý chính: Tách API khỏi DB schema; Tránh lộ field / lazy load; Shape phù hợp client.,7.0,decouple;security_lazy;shape,label-list
+a0454,sb-08,fresher,Em hiểu Tách API khỏi DB schema nhờ hint 'tách'. Thêm Tránh lộ field / lazy load.,6.5,decouple;security_lazy,two-points
+a0455,sb-08,fresher,Liên quan DTO / Entity: tách. Phần còn lại em trả lời chưa đủ.,5.0,decouple,incomplete
+a0456,sb-08,fresher,Theo em thì Spring Web quan trọng với fresher.,4.0,,too-generic
+a0457,sb-08,fresher,Em trả lời sai: cái này chỉ dùng trên frontend React.,2.5,,wrong-domain
+a0458,sb-08,fresher,"DTO tách contract API khỏi schema DB, tránh lộ field nội bộ/quan hệ lazy, giảm vòng lặp JSON (bidirectional), cho phép shape khác Entity. Entity gắn persistence; DTO ổn định cho client. Mapping thủ công hoặc MapStruct. Đây là phần kiến thức intern/fresher nên nắm vững.",9.5,decouple;security_lazy;shape,excellent-plus
+a0459,sb-08,fresher,tách → Tách API khỏi DB schema. lazy → Tránh lộ field / lazy load. dto → Shape phù hợp client.,8.0,decouple;security_lazy;shape,hint-walk
+a0460,sb-08,fresher,"DTO tách contract API khỏi schema DB, tránh lộ field nội bộ/quan hệ lazy, giảm vòng lặp JSON (bidirectional), cho phép shape khác Entity. Entity gắn persistence; DTO ổn định cho client. Mapping thủ công hoặc MapStruct. (cách diễn đạt thêm #20).",8.5,decouple;security_lazy;shape,near-ref-var
+a0461,sql-03,intern,"PRIMARY KEY định danh duy nhất mỗi dòng, thường NOT NULL và unique. FOREIGN KEY tham chiếu PK/unique của bảng khác để đảm bảo toàn vẹn tham chiếu: không tạo quan hệ tới bản ghi không tồn tại, hỗ trợ cascade khi cần.",9.0,pk;fk;integrity,near-ref
+a0462,sql-03,fresher,"Tóm lại: PRIMARY KEY định danh duy nhất mỗi dòng, thường NOT NULL và unique. FOREIGN KEY tham chiếu PK/unique của bảng khác để đảm bảo toàn vẹn tham chiếu: không tạo quan hệ tới bản ghi không tồn tại, hỗ trợ cascade khi cần.",9.0,pk;fk;integrity,near-ref
+a0463,sql-03,intern,"Về PK, cần nắm 'primary'.. Về FK, cần nắm 'foreign'. Liên quan câu hỏi: PRIMARY KEY và FOREIGN KEY dùng để làm gì?…",7.5,pk;fk,good-partial-last
+a0464,sql-03,fresher,PK: định danh unique: primary. FK: tham chiếu bảng khác (foreign). Toàn vẹn dữ liệu (toàn vẹn),8.0,pk;fk;integrity,good-structured
+a0465,sql-03,intern,"Về PK, cần nắm 'primary'.",5.5,pk,mid-half
+a0466,sql-03,fresher,"Em biết sơ là primary và foreign, còn lại em chưa nhớ rõ.",6.0,pk;fk,mid-vague
+a0467,sql-03,intern,"Em chỉ nhớ ý 'primary', các ý khác chưa chắc.",4.5,pk,mid-one-key
+a0468,sql-03,fresher,Đây là thuật toán sắp xếp nhanh.,2.0,,wrong
+a0469,sql-03,intern,SQL là công nghệ không liên quan đến câu hỏi này.,1.5,,off-topic
+a0470,sql-03,fresher,Hình như là liên quan PRIMARY / FOREIGN KEY nhưng em không giải thích được chi tiết.,3.0,,shallow
+a0471,sql-03,intern,"Khác nhau ở tên gọi thôi, thực tế primary dùng cho mọi trường hợp.",3.5,pk,oversimplify
+a0472,sql-03,fresher,"Theo hướng thực tế: PRIMARY KEY định danh duy nhất mỗi dòng, thường NOT NULL và unique. FOREIGN KEY tham chiếu PK/unique của bảng khác để đảm bảo toàn vẹn tham chiếu: không tạo quan hệ tới bản ghi không tồn tại, hỗ trợ cascade khi cần.",8.5,pk;fk;integrity,practical
+a0473,sql-03,intern,Các ý chính: PK: định danh unique; FK: tham chiếu bảng khác; Toàn vẹn dữ liệu.,7.0,pk;fk;integrity,label-list
+a0474,sql-03,fresher,Em hiểu PK: định danh unique nhờ hint 'primary'. Thêm FK: tham chiếu bảng khác.,6.5,pk;fk,two-points
+a0475,sql-03,intern,Liên quan PRIMARY / FOREIGN KEY: primary. Phần còn lại em trả lời chưa đủ.,5.0,pk,incomplete
+a0476,sql-03,fresher,Theo em thì SQL quan trọng với fresher.,4.0,,too-generic
+a0477,sql-03,intern,Em trả lời sai: cái này chỉ dùng trên frontend React.,2.5,,wrong-domain
+a0478,sql-03,fresher,"PRIMARY KEY định danh duy nhất mỗi dòng, thường NOT NULL và unique. FOREIGN KEY tham chiếu PK/unique của bảng khác để đảm bảo toàn vẹn tham chiếu: không tạo quan hệ tới bản ghi không tồn tại, hỗ trợ cascade khi cần. Đây là phần kiến thức intern/fresher nên nắm vững.",9.5,pk;fk;integrity,excellent-plus
+a0479,sql-03,intern,primary → PK: định danh unique. foreign → FK: tham chiếu bảng khác. toàn vẹn → Toàn vẹn dữ liệu.,8.0,pk;fk;integrity,hint-walk
+a0480,sql-03,fresher,"PRIMARY KEY định danh duy nhất mỗi dòng, thường NOT NULL và unique. FOREIGN KEY tham chiếu PK/unique của bảng khác để đảm bảo toàn vẹn tham chiếu: không tạo quan hệ tới bản ghi không tồn tại, hỗ trợ cascade khi cần. (cách diễn đạt thêm #20).",9.5,pk;fk;integrity,near-ref-var
+a0481,sql-04,intern,"GROUP BY gom nhóm dòng theo cột để dùng hàm tổng hợp (COUNT, SUM, AVG). WHERE lọc dòng trước khi gom nhóm; HAVING lọc sau khi gom (điều kiện trên aggregate). Ví dụ: đếm đơn theo khách, rồi HAVING COUNT(*) > 5.",9.0,groupby;where;having,near-ref
+a0482,sql-04,fresher,"Tóm lại: GROUP BY gom nhóm dòng theo cột để dùng hàm tổng hợp (COUNT, SUM, AVG). WHERE lọc dòng trước khi gom nhóm; HAVING lọc sau khi gom (điều kiện trên aggregate). Ví dụ: đếm đơn theo khách, rồi HAVING COUNT(*) > 5.",9.0,groupby;where;having,near-ref
+a0483,sql-04,intern,"Về GROUP BY + aggregate, cần nắm 'group by'.. Về WHERE lọc trước group, cần nắm 'where'. Liên quan câu hỏi: GROUP BY dùng khi nào? HAVING khác WHERE thế nào?…",7.5,groupby;where,good-partial-last
+a0484,sql-04,fresher,GROUP BY + aggregate: group by. WHERE lọc trước group (where). HAVING lọc sau aggregate (having),8.0,groupby;where;having,good-structured
+a0485,sql-04,intern,"Về GROUP BY + aggregate, cần nắm 'group by'.",5.5,groupby,mid-half
+a0486,sql-04,fresher,"Em biết sơ là group by và where, còn lại em chưa nhớ rõ.",6.0,groupby;where,mid-vague
+a0487,sql-04,intern,"Em chỉ nhớ ý 'group by', các ý khác chưa chắc.",4.5,groupby,mid-one-key
+a0488,sql-04,fresher,Đây là thuật toán sắp xếp nhanh.,2.0,,wrong
+a0489,sql-04,intern,SQL là công nghệ không liên quan đến câu hỏi này.,1.5,,off-topic
+a0490,sql-04,fresher,Hình như là liên quan GROUP BY / HAVING nhưng em không giải thích được chi tiết.,3.0,,shallow
+a0491,sql-04,intern,"Khác nhau ở tên gọi thôi, thực tế group by dùng cho mọi trường hợp.",3.5,groupby,oversimplify
+a0492,sql-04,fresher,"Theo hướng thực tế: GROUP BY gom nhóm dòng theo cột để dùng hàm tổng hợp (COUNT, SUM, AVG). WHERE lọc dòng trước khi gom nhóm; HAVING lọc sau khi gom (điều kiện trên aggregate). Ví dụ: đếm đơn theo khách, rồi HAVING COUNT(*) > 5.",8.5,groupby;where;having,practical
+a0493,sql-04,intern,Các ý chính: GROUP BY + aggregate; WHERE lọc trước group; HAVING lọc sau aggregate.,7.0,groupby;where;having,label-list
+a0494,sql-04,fresher,Em hiểu GROUP BY + aggregate nhờ hint 'group by'. Thêm WHERE lọc trước group.,6.5,groupby;where,two-points
+a0495,sql-04,intern,Liên quan GROUP BY / HAVING: group by. Phần còn lại em trả lời chưa đủ.,5.0,groupby,incomplete
+a0496,sql-04,fresher,Theo em thì SQL quan trọng với fresher.,4.0,,too-generic
+a0497,sql-04,intern,Em trả lời sai: cái này chỉ dùng trên frontend React.,2.5,,wrong-domain
+a0498,sql-04,fresher,"GROUP BY gom nhóm dòng theo cột để dùng hàm tổng hợp (COUNT, SUM, AVG). WHERE lọc dòng trước khi gom nhóm; HAVING lọc sau khi gom (điều kiện trên aggregate). Ví dụ: đếm đơn theo khách, rồi HAVING COUNT(*) > 5. Đây là phần kiến thức intern/fresher nên nắm vững.",9.5,groupby;where;having,excellent-plus
+a0499,sql-04,intern,group by → GROUP BY + aggregate. where → WHERE lọc trước group. having → HAVING lọc sau aggregate.,8.0,groupby;where;having,hint-walk
+a0500,sql-04,fresher,"GROUP BY gom nhóm dòng theo cột để dùng hàm tổng hợp (COUNT, SUM, AVG). WHERE lọc dòng trước khi gom nhóm; HAVING lọc sau khi gom (điều kiện trên aggregate). Ví dụ: đếm đơn theo khách, rồi HAVING COUNT(*) > 5. (cách diễn đạt thêm #20).",9.5,groupby;where;having,near-ref-var
+a0501,sql-05,fresher,"Transaction là nhóm thao tác xem như một đơn vị: thành công hết hoặc rollback. ACID: Atomicity (tất cả hoặc không), Consistency (DB nhất quán theo rule), Isolation (giao dịch song song ít ảnh hưởng lẫn), Durability (commit rồi bền vững).",9.0,tx;acid;example,near-ref
+a0502,sql-05,fresher,"Transaction chính là nhóm thao tác xem như một đơn vị: thành công hết hoặc rollback. ACID: Atomicity (tất cả hoặc không), Consistency (DB nhất quán theo rule), Isolation (giao dịch song song ít ảnh hưởng lẫn), Durability (commit rồi bền vững).",9.5,tx;acid;example,near-ref
+a0503,sql-05,fresher,"Tóm lại: Transaction là nhóm thao tác xem như một đơn vị: thành công hết hoặc rollback. ACID: Atomicity (tất cả hoặc không), Consistency (DB nhất quán theo rule), Isolation (giao dịch song song ít ảnh hưởng lẫn), Durability (commit rồi bền vững).",9.0,tx;acid;example,near-ref
+a0504,sql-05,fresher,"Về Định nghĩa transaction, cần nắm 'transaction'.. Về ACID đủ ý, cần nắm 'atomic'. Liên quan câu hỏi: Transaction trong database là gì? Nêu ngắn gọn ACID.…",7.5,tx;acid,good-partial-last
+a0505,sql-05,fresher,Định nghĩa transaction: transaction. ACID đủ ý (atomic). Hiểu áp dụng (chuyển tiền),8.0,tx;acid;example,good-structured
+a0506,sql-05,fresher,"Về Định nghĩa transaction, cần nắm 'transaction'.",5.5,tx,mid-half
+a0507,sql-05,fresher,"Em biết sơ là transaction và atomic, còn lại em chưa nhớ rõ.",6.0,tx;acid,mid-vague
+a0508,sql-05,fresher,"Em chỉ nhớ ý 'transaction', các ý khác chưa chắc.",4.5,tx,mid-one-key
+a0509,sql-05,fresher,"Đó là phần cứng máy tính, không liên quan phần mềm.",2.0,,wrong
+a0510,sql-05,fresher,SQL là công nghệ không liên quan đến câu hỏi này.,1.5,,off-topic
+a0511,sql-05,fresher,Hình như là liên quan Transaction ACID nhưng em không giải thích được chi tiết.,3.0,,shallow
+a0512,sql-05,fresher,"Khác nhau ở tên gọi thôi, thực tế transaction dùng cho mọi trường hợp.",3.5,tx,oversimplify
+a0513,sql-05,fresher,"Theo hướng thực tế: Transaction là nhóm thao tác xem như một đơn vị: thành công hết hoặc rollback. ACID: Atomicity (tất cả hoặc không), Consistency (DB nhất quán theo rule), Isolation (giao dịch song song ít ảnh hưởng lẫn), Durability (commit rồi bền vững).",8.5,tx;acid;example,practical
+a0514,sql-05,fresher,Các ý chính: Định nghĩa transaction; ACID đủ ý; Hiểu áp dụng.,7.0,tx;acid;example,label-list
+a0515,sql-05,fresher,Em hiểu Định nghĩa transaction nhờ hint 'transaction'. Thêm ACID đủ ý.,6.5,tx;acid,two-points
+a0516,sql-05,fresher,Liên quan Transaction ACID: transaction. Phần còn lại em trả lời chưa đủ.,5.0,tx,incomplete
+a0517,sql-05,fresher,Theo em thì SQL quan trọng với fresher.,4.0,,too-generic
+a0518,sql-05,fresher,Em trả lời sai: cái này chỉ dùng trên frontend React.,2.5,,wrong-domain
+a0519,sql-05,fresher,"Transaction là nhóm thao tác xem như một đơn vị: thành công hết hoặc rollback. ACID: Atomicity (tất cả hoặc không), Consistency (DB nhất quán theo rule), Isolation (giao dịch song song ít ảnh hưởng lẫn), Durability (commit rồi bền vững). Đây là phần kiến thức intern/fresher nên nắm vững.",9.5,tx;acid;example,excellent-plus
+a0520,sql-05,fresher,transaction → Định nghĩa transaction. atomic → ACID đủ ý. chuyển tiền → Hiểu áp dụng.,8.0,tx;acid;example,hint-walk
+a0521,http-02,fresher,"Idempotent: gọi nhiều lần cùng request cho kết quả giống như gọi một lần (về phía resource). GET, PUT, DELETE thường idempotent; POST thường không (mỗi lần có thể tạo thêm). Hữu ích khi retry mạng lỗi.",9.0,def;methods;why,near-ref
+a0522,http-02,fresher,"Tóm lại: Idempotent: gọi nhiều lần cùng request cho kết quả giống như gọi một lần (về phía resource). GET, PUT, DELETE thường idempotent; POST thường không (mỗi lần có thể tạo thêm). Hữu ích khi retry mạng lỗi.",9.0,def;methods;why,near-ref
+a0523,http-02,fresher,"Về Định nghĩa idempotent, cần nắm 'idempotent'.. Về GET/PUT/DELETE vs POST, cần nắm 'get'. Liên quan câu hỏi: Idempotent trong HTTP nghĩa là gì? Method nào thường idempot…",7.5,def;methods,good-partial-last
+a0524,http-02,fresher,Định nghĩa idempotent: idempotent. GET/PUT/DELETE vs POST (get). Retry / an toàn (retry),8.0,def;methods;why,good-structured
+a0525,http-02,fresher,"Về Định nghĩa idempotent, cần nắm 'idempotent'.",5.5,def,mid-half
+a0526,http-02,fresher,"Em biết sơ là idempotent và get, còn lại em chưa nhớ rõ.",6.0,def;methods,mid-vague
+a0527,http-02,fresher,"Em chỉ nhớ ý 'idempotent', các ý khác chưa chắc.",4.5,def,mid-one-key
+a0528,http-02,fresher,"Cái này giống nhau hết, không có khác biệt.",2.0,,wrong
+a0529,http-02,fresher,HTTP / REST là công nghệ không liên quan đến câu hỏi này.,1.5,,off-topic
+a0530,http-02,fresher,Hình như là liên quan Idempotent nhưng em không giải thích được chi tiết.,3.0,,shallow
+a0531,http-02,fresher,"Khác nhau ở tên gọi thôi, thực tế idempotent dùng cho mọi trường hợp.",3.5,def,oversimplify
+a0532,http-02,fresher,"Theo hướng thực tế: Idempotent: gọi nhiều lần cùng request cho kết quả giống như gọi một lần (về phía resource). GET, PUT, DELETE thường idempotent; POST thường không (mỗi lần có thể tạo thêm). Hữu ích khi retry mạng lỗi.",8.5,def;methods;why,practical
+a0533,http-02,fresher,Các ý chính: Định nghĩa idempotent; GET/PUT/DELETE vs POST; Retry / an toàn.,7.0,def;methods;why,label-list
+a0534,http-02,fresher,Em hiểu Định nghĩa idempotent nhờ hint 'idempotent'. Thêm GET/PUT/DELETE vs POST.,6.5,def;methods,two-points
+a0535,http-02,fresher,Liên quan Idempotent: idempotent. Phần còn lại em trả lời chưa đủ.,5.0,def,incomplete
+a0536,http-02,fresher,Theo em thì HTTP / REST quan trọng với fresher.,4.0,,too-generic
+a0537,http-02,fresher,Em trả lời sai: cái này chỉ dùng trên frontend React.,2.5,,wrong-domain
+a0538,http-02,fresher,"Idempotent: gọi nhiều lần cùng request cho kết quả giống như gọi một lần (về phía resource). GET, PUT, DELETE thường idempotent; POST thường không (mỗi lần có thể tạo thêm). Hữu ích khi retry mạng lỗi. Đây là phần kiến thức intern/fresher nên nắm vững.",9.5,def;methods;why,excellent-plus
+a0539,http-02,fresher,idempotent → Định nghĩa idempotent. get → GET/PUT/DELETE vs POST. retry → Retry / an toàn.,8.0,def;methods;why,hint-walk
+a0540,http-02,fresher,"Idempotent: gọi nhiều lần cùng request cho kết quả giống như gọi một lần (về phía resource). GET, PUT, DELETE thường idempotent; POST thường không (mỗi lần có thể tạo thêm). Hữu ích khi retry mạng lỗi. (cách diễn đạt thêm #20).",9.0,def;methods;why,near-ref-var
+a0541,http-03,intern,"Status code báo kết quả xử lý request (2xx/4xx/5xx). Header mang metadata: Content-Type, Authorization, Cache-Control, Set-Cookie. Client/server dựa vào status + header để xử lý đúng (parse JSON, gắn token, cache).",9.0,status;header;example,near-ref
+a0542,http-03,fresher,"Tóm lại: Status code báo kết quả xử lý request (2xx/4xx/5xx). Header mang metadata: Content-Type, Authorization, Cache-Control, Set-Cookie. Client/server dựa vào status + header để xử lý đúng (parse JSON, gắn token, cache).",9.0,status;header;example,near-ref
+a0543,http-03,intern,"Về Status, cần nắm 'status'.. Về Header, cần nắm 'header'. Liên quan câu hỏi: HTTP status code và header dùng để làm gì? Cho ví dụ header …",7.5,status;header,good-partial-last
+a0544,http-03,fresher,Status: kết quả request: status. Header: metadata (header). Ví dụ dùng (token),8.0,status;header;example,good-structured
+a0545,http-03,intern,"Về Status, cần nắm 'status'.",5.5,status,mid-half
+a0546,http-03,fresher,"Em biết sơ là status và header, còn lại em chưa nhớ rõ.",6.0,status;header,mid-vague
+a0547,http-03,intern,"Em chỉ nhớ ý 'status', các ý khác chưa chắc.",4.5,status,mid-one-key
+a0548,http-03,fresher,Dùng AI viết code thì không cần quan tâm.,2.0,,wrong
+a0549,http-03,intern,HTTP là công nghệ không liên quan đến câu hỏi này.,1.5,,off-topic
+a0550,http-03,fresher,Hình như là liên quan Status & headers nhưng em không giải thích được chi tiết.,3.0,,shallow
+a0551,http-03,intern,"Khác nhau ở tên gọi thôi, thực tế status dùng cho mọi trường hợp.",3.5,status,oversimplify
+a0552,http-03,fresher,"Theo hướng thực tế: Status code báo kết quả xử lý request (2xx/4xx/5xx). Header mang metadata: Content-Type, Authorization, Cache-Control, Set-Cookie. Client/server dựa vào status + header để xử lý đúng (parse JSON, gắn token, cache).",8.5,status;header;example,practical
+a0553,http-03,intern,Các ý chính: Status: kết quả request; Header: metadata; Ví dụ dùng.,7.0,status;header;example,label-list
+a0554,http-03,fresher,Em hiểu Status: kết quả request nhờ hint 'status'. Thêm Header: metadata.,6.5,status;header,two-points
+a0555,http-03,intern,Liên quan Status & headers: status. Phần còn lại em trả lời chưa đủ.,5.0,status,incomplete
+a0556,http-03,fresher,Theo em thì HTTP quan trọng với fresher.,4.0,,too-generic
+a0557,http-03,intern,Em trả lời sai: cái này chỉ dùng trên frontend React.,2.5,,wrong-domain
+a0558,http-03,fresher,"Status code báo kết quả xử lý request (2xx/4xx/5xx). Header mang metadata: Content-Type, Authorization, Cache-Control, Set-Cookie. Client/server dựa vào status + header để xử lý đúng (parse JSON, gắn token, cache). Đây là phần kiến thức intern/fresher nên nắm vững.",9.5,status;header;example,excellent-plus
+a0559,http-03,intern,status → Status: kết quả request. header → Header: metadata. token → Ví dụ dùng.,8.0,status;header;example,hint-walk
+a0560,http-03,fresher,"Status code báo kết quả xử lý request (2xx/4xx/5xx). Header mang metadata: Content-Type, Authorization, Cache-Control, Set-Cookie. Client/server dựa vào status + header để xử lý đúng (parse JSON, gắn token, cache). (cách diễn đạt thêm #20).",9.0,status;header;example,near-ref-var
+a0561,fe-03,intern,"var có function scope, có hoisting dễ gây lỗi. let/const có block scope. const không cho gán lại binding (object vẫn mutate được). Nên dùng const mặc định, let khi cần gán lại, tránh var trong code mới.",9.0,scope;const;practice,near-ref
+a0562,fe-03,fresher,"Tóm lại: var có function scope, có hoisting dễ gây lỗi. let/const có block scope. const không cho gán lại binding (object vẫn mutate được). Nên dùng const mặc định, let khi cần gán lại, tránh var trong code mới.",9.0,scope;const;practice,near-ref
+a0563,fe-03,intern,"Về var function vs let/const block, cần nắm 'scope'.. Về const không gán lại, cần nắm 'const'. Liên quan câu hỏi: var, let, const trong JavaScript khác nhau thế nào?…",7.5,scope;const,good-partial-last
+a0564,fe-03,fresher,var function vs let/const block: scope. const không gán lại (const). Best practice (nên dùng),8.0,scope;const;practice,good-structured
+a0565,fe-03,intern,"Về var function vs let/const block, cần nắm 'scope'.",5.5,scope,mid-half
+a0566,fe-03,fresher,"Em biết sơ là scope và const, còn lại em chưa nhớ rõ.",6.0,scope;const,mid-vague
+a0567,fe-03,intern,"Em chỉ nhớ ý 'scope', các ý khác chưa chắc.",4.5,scope,mid-one-key
+a0568,fe-03,fresher,"Chỉ dành cho quản lý dự án, lập trình viên không dùng.",2.0,,wrong
+a0569,fe-03,intern,JavaScript là công nghệ không liên quan đến câu hỏi này.,1.5,,off-topic
+a0570,fe-03,fresher,Hình như là liên quan var/let/const nhưng em không giải thích được chi tiết.,3.0,,shallow
+a0571,fe-03,intern,"Khác nhau ở tên gọi thôi, thực tế scope dùng cho mọi trường hợp.",3.5,scope,oversimplify
+a0572,fe-03,fresher,"Theo hướng thực tế: var có function scope, có hoisting dễ gây lỗi. let/const có block scope. const không cho gán lại binding (object vẫn mutate được). Nên dùng const mặc định, let khi cần gán lại, tránh var trong code mới.",8.5,scope;const;practice,practical
+a0573,fe-03,intern,Các ý chính: var function vs let/const block; const không gán lại; Best practice.,7.0,scope;const;practice,label-list
+a0574,fe-03,fresher,Em hiểu var function vs let/const block nhờ hint 'scope'. Thêm const không gán lại.,6.5,scope;const,two-points
+a0575,fe-03,intern,Liên quan var/let/const: scope. Phần còn lại em trả lời chưa đủ.,5.0,scope,incomplete
+a0576,fe-03,fresher,Theo em thì JavaScript quan trọng với fresher.,4.0,,too-generic
+a0577,fe-03,intern,Em trả lời sai: cái này chỉ dùng trên frontend React.,2.5,,wrong-domain
+a0578,fe-03,fresher,"var có function scope, có hoisting dễ gây lỗi. let/const có block scope. const không cho gán lại binding (object vẫn mutate được). Nên dùng const mặc định, let khi cần gán lại, tránh var trong code mới. Đây là phần kiến thức intern/fresher nên nắm vững.",9.5,scope;const;practice,excellent-plus
+a0579,fe-03,intern,scope → var function vs let/const block. const → const không gán lại. nên dùng → Best practice.,8.0,scope;const;practice,hint-walk
+a0580,fe-03,fresher,"var có function scope, có hoisting dễ gây lỗi. let/const có block scope. const không cho gán lại binding (object vẫn mutate được). Nên dùng const mặc định, let khi cần gán lại, tránh var trong code mới. (cách diễn đạt thêm #20).",8.5,scope;const;practice,near-ref-var
+a0581,fe-04,intern,"DOM là mô hình cây đại diện tài liệu HTML để JS đọc/sửa phần tử. Event listener đăng ký hàm chạy khi có sự kiện (click, submit, input). Giúp trang tương tác: validate form, gọi API, đổi UI khi user thao tác.",9.0,dom;event;usecase,near-ref
+a0582,fe-04,fresher,"DOM chính là mô hình cây đại diện tài liệu HTML để JS đọc/sửa phần tử. Event listener đăng ký hàm chạy khi có sự kiện (click, submit, input). Giúp trang tương tác: validate form, gọi API, đổi UI khi user thao tác.",9.5,dom;event;usecase,near-ref
+a0583,fe-04,intern,"Tóm lại: DOM là mô hình cây đại diện tài liệu HTML để JS đọc/sửa phần tử. Event listener đăng ký hàm chạy khi có sự kiện (click, submit, input). Giúp trang tương tác: validate form, gọi API, đổi UI khi user thao tác.",9.0,dom;event;usecase,near-ref
+a0584,fe-04,fresher,"Về DOM, cần nắm 'dom'.. Về Event listener, cần nắm 'event'. Liên quan câu hỏi: DOM là gì? Event listener dùng để làm gì?…",7.5,dom;event,good-partial-last
+a0585,fe-04,intern,DOM: cây HTML: dom. Event listener (event). Tương tác UI (form),8.0,dom;event;usecase,good-structured
+a0586,fe-04,fresher,"Về DOM, cần nắm 'dom'.",5.5,dom,mid-half
+a0587,fe-04,intern,"Em biết sơ là dom và event, còn lại em chưa nhớ rõ.",6.0,dom;event,mid-vague
+a0588,fe-04,fresher,"Em chỉ nhớ ý 'dom', các ý khác chưa chắc.",4.5,dom,mid-one-key
+a0589,fe-04,intern,"Chỉ dành cho quản lý dự án, lập trình viên không dùng.",2.0,,wrong
+a0590,fe-04,fresher,JavaScript là công nghệ không liên quan đến câu hỏi này.,1.5,,off-topic
+a0591,fe-04,intern,Hình như là liên quan DOM / Event nhưng em không giải thích được chi tiết.,3.0,,shallow
+a0592,fe-04,fresher,"Khác nhau ở tên gọi thôi, thực tế dom dùng cho mọi trường hợp.",3.5,dom,oversimplify
+a0593,fe-04,intern,"Theo hướng thực tế: DOM là mô hình cây đại diện tài liệu HTML để JS đọc/sửa phần tử. Event listener đăng ký hàm chạy khi có sự kiện (click, submit, input). Giúp trang tương tác: validate form, gọi API, đổi UI khi user thao tác.",8.5,dom;event;usecase,practical
+a0594,fe-04,fresher,Các ý chính: DOM: cây HTML; Event listener; Tương tác UI.,7.0,dom;event;usecase,label-list
+a0595,fe-04,intern,Em hiểu DOM: cây HTML nhờ hint 'dom'. Thêm Event listener.,6.5,dom;event,two-points
+a0596,fe-04,fresher,Liên quan DOM / Event: dom. Phần còn lại em trả lời chưa đủ.,5.0,dom,incomplete
+a0597,fe-04,intern,Theo em thì JavaScript quan trọng với fresher.,4.0,,too-generic
+a0598,fe-04,fresher,Em trả lời sai: cái này chỉ dùng trên frontend React.,2.5,,wrong-domain
+a0599,fe-04,intern,"DOM là mô hình cây đại diện tài liệu HTML để JS đọc/sửa phần tử. Event listener đăng ký hàm chạy khi có sự kiện (click, submit, input). Giúp trang tương tác: validate form, gọi API, đổi UI khi user thao tác. Đây là phần kiến thức intern/fresher nên nắm vững.",9.5,dom;event;usecase,excellent-plus
+a0600,fe-04,fresher,dom → DOM: cây HTML. event → Event listener. form → Tương tác UI.,8.0,dom;event;usecase,hint-walk
+a0601,fe-05,fresher,"useState lưu state local và kích hoạt re-render khi đổi. useEffect chạy side effect sau render: fetch API, subscribe, cập nhật document title; dependency array kiểm soát lần chạy. Không đặt side effect trực tiếp trong body render.",9.0,usestate;useeffect;deps,near-ref
+a0602,fe-05,fresher,"Tóm lại: useState lưu state local và kích hoạt re-render khi đổi. useEffect chạy side effect sau render: fetch API, subscribe, cập nhật document title; dependency array kiểm soát lần chạy. Không đặt side effect trực tiếp trong body render.",9.0,usestate;useeffect;deps,near-ref
+a0603,fe-05,fresher,"Về useState, cần nắm 'usestate'.. Về useEffect, cần nắm 'useeffect'. Liên quan câu hỏi: useState và useEffect trong React dùng khi nào?…",7.5,usestate;useeffect,good-partial-last
+a0604,fe-05,fresher,useState: state + re-render: usestate. useEffect: side effect (useeffect). Dependency array (dependency),8.0,usestate;useeffect;deps,good-structured
+a0605,fe-05,fresher,"Về useState, cần nắm 'usestate'.",5.5,usestate,mid-half
+a0606,fe-05,fresher,"Em biết sơ là usestate và useeffect, còn lại em chưa nhớ rõ.",6.0,usestate;useeffect,mid-vague
+a0607,fe-05,fresher,"Em chỉ nhớ ý 'usestate', các ý khác chưa chắc.",4.5,usestate,mid-one-key
+a0608,fe-05,fresher,"Chỉ dành cho quản lý dự án, lập trình viên không dùng.",2.0,,wrong
+a0609,fe-05,fresher,React là công nghệ không liên quan đến câu hỏi này.,1.5,,off-topic
+a0610,fe-05,fresher,Hình như là liên quan useEffect / hooks nhưng em không giải thích được chi tiết.,3.0,,shallow
+a0611,fe-05,fresher,"Khác nhau ở tên gọi thôi, thực tế usestate dùng cho mọi trường hợp.",3.5,usestate,oversimplify
+a0612,fe-05,fresher,"Theo hướng thực tế: useState lưu state local và kích hoạt re-render khi đổi. useEffect chạy side effect sau render: fetch API, subscribe, cập nhật document title; dependency array kiểm soát lần chạy. Không đặt side effect trực tiếp trong body render.",8.5,usestate;useeffect;deps,practical
+a0613,fe-05,fresher,Các ý chính: useState: state + re-render; useEffect: side effect; Dependency array.,7.0,usestate;useeffect;deps,label-list
+a0614,fe-05,fresher,Em hiểu useState: state + re-render nhờ hint 'usestate'. Thêm useEffect: side effect.,6.5,usestate;useeffect,two-points
+a0615,fe-05,fresher,Liên quan useEffect / hooks: usestate. Phần còn lại em trả lời chưa đủ.,5.0,usestate,incomplete
+a0616,fe-05,fresher,Theo em thì React quan trọng với fresher.,4.0,,too-generic
+a0617,fe-05,fresher,Em trả lời sai: cái này chỉ dùng trên frontend React.,2.5,,wrong-domain
+a0618,fe-05,fresher,"useState lưu state local và kích hoạt re-render khi đổi. useEffect chạy side effect sau render: fetch API, subscribe, cập nhật document title; dependency array kiểm soát lần chạy. Không đặt side effect trực tiếp trong body render. Đây là phần kiến thức intern/fresher nên nắm vững.",9.5,usestate;useeffect;deps,excellent-plus
+a0619,fe-05,fresher,usestate → useState: state + re-render. useeffect → useEffect: side effect. dependency → Dependency array.,8.0,usestate;useeffect;deps,hint-walk
+a0620,fe-05,fresher,"useState lưu state local và kích hoạt re-render khi đổi. useEffect chạy side effect sau render: fetch API, subscribe, cập nhật document title; dependency array kiểm soát lần chạy. Không đặt side effect trực tiếp trong body render. (cách diễn đạt thêm #20).",8.5,usestate;useeffect;deps,near-ref-var
+a0621,fe-06,intern,"Box model: content, padding, border, margin. Hiểu box model để tính kích thước layout đúng. Flexbox bố trí phần tử theo một chiều (row/column), căn chỉnh khoảng cách dễ dàng, phù hợp navbar, card hàng, căn giữa — giảm float/hack cũ.",9.0,box;flex;usecase,near-ref
+a0622,fe-06,fresher,"Tóm lại: Box model: content, padding, border, margin. Hiểu box model để tính kích thước layout đúng. Flexbox bố trí phần tử theo một chiều (row/column), căn chỉnh khoảng cách dễ dàng, phù hợp navbar, card hàng, căn giữa — giảm float/hack cũ.",9.0,box;flex;usecase,near-ref
+a0623,fe-06,intern,"Về content/padding/border/margin, cần nắm 'content'.. Về Flexbox layout 1 chiều, cần nắm 'flex'. Liên quan câu hỏi: CSS box model gồm gì? Flexbox giải quyết bài toán gì?…",7.5,box;flex,good-partial-last
+a0624,fe-06,fresher,content/padding/border/margin: content. Flexbox layout 1 chiều (flex). Navbar / căn chỉnh (navbar),8.0,box;flex;usecase,good-structured
+a0625,fe-06,intern,"Về content/padding/border/margin, cần nắm 'content'.",5.5,box,mid-half
+a0626,fe-06,fresher,"Em biết sơ là content và flex, còn lại em chưa nhớ rõ.",6.0,box;flex,mid-vague
+a0627,fe-06,intern,"Em chỉ nhớ ý 'content', các ý khác chưa chắc.",4.5,box,mid-one-key
+a0628,fe-06,fresher,Đây là thuật toán sắp xếp nhanh.,2.0,,wrong
+a0629,fe-06,intern,CSS là công nghệ không liên quan đến câu hỏi này.,1.5,,off-topic
+a0630,fe-06,fresher,Hình như là liên quan Box model / Flex nhưng em không giải thích được chi tiết.,3.0,,shallow
+a0631,fe-06,intern,"Khác nhau ở tên gọi thôi, thực tế content dùng cho mọi trường hợp.",3.5,box,oversimplify
+a0632,fe-06,fresher,"Theo hướng thực tế: Box model: content, padding, border, margin. Hiểu box model để tính kích thước layout đúng. Flexbox bố trí phần tử theo một chiều (row/column), căn chỉnh khoảng cách dễ dàng, phù hợp navbar, card hàng, căn giữa — giảm float/hack cũ.",8.5,box;flex;usecase,practical
+a0633,fe-06,intern,Các ý chính: content/padding/border/margin; Flexbox layout 1 chiều; Navbar / căn chỉnh.,7.0,box;flex;usecase,label-list
+a0634,fe-06,fresher,Em hiểu content/padding/border/margin nhờ hint 'content'. Thêm Flexbox layout 1 chiều.,6.5,box;flex,two-points
+a0635,fe-06,intern,Liên quan Box model / Flex: content. Phần còn lại em trả lời chưa đủ.,5.0,box,incomplete
+a0636,fe-06,fresher,Theo em thì CSS quan trọng với fresher.,4.0,,too-generic
+a0637,fe-06,intern,Em trả lời sai: cái này chỉ dùng trên frontend React.,2.5,,wrong-domain
+a0638,fe-06,fresher,"Box model: content, padding, border, margin. Hiểu box model để tính kích thước layout đúng. Flexbox bố trí phần tử theo một chiều (row/column), căn chỉnh khoảng cách dễ dàng, phù hợp navbar, card hàng, căn giữa — giảm float/hack cũ. Đây là phần kiến thức intern/fresher nên nắm vững.",9.5,box;flex;usecase,excellent-plus
+a0639,fe-06,intern,content → content/padding/border/margin. flex → Flexbox layout 1 chiều. navbar → Navbar / căn chỉnh.,8.0,box;flex;usecase,hint-walk
+a0640,fe-06,fresher,"Box model: content, padding, border, margin. Hiểu box model để tính kích thước layout đúng. Flexbox bố trí phần tử theo một chiều (row/column), căn chỉnh khoảng cách dễ dàng, phù hợp navbar, card hàng, căn giữa — giảm float/hack cũ. (cách diễn đạt thêm #20).",9.0,box;flex;usecase,near-ref-var
+a0641,qa-04,intern,"Unit test kiểm tra đơn vị nhỏ (hàm/class) isolat, nhanh. Integration test kiểm tra tương tác giữa module/API/DB. System/E2E kiểm tra toàn hệ theo luồng người dùng. Kim tự tháp: nhiều unit, ít hơn integration, ít E2E vì chậm/flaky.",9.0,unit;integration;system;pyramid,near-ref
+a0642,qa-04,fresher,"Tóm lại: Unit test kiểm tra đơn vị nhỏ (hàm/class) isolat, nhanh. Integration test kiểm tra tương tác giữa module/API/DB. System/E2E kiểm tra toàn hệ theo luồng người dùng. Kim tự tháp: nhiều unit, ít hơn integration, ít E2E vì chậm/flaky.",9.0,unit;integration;system;pyramid,near-ref
+a0643,qa-04,intern,"Về Unit, cần nắm 'unit'.. Về Integration, cần nắm 'integration'.. Về System/E2E, cần nắm 'system'. Liên quan câu hỏi: Unit test, integration test và system test khác nhau thế nào…",7.5,unit;integration;system,good-partial-last
+a0644,qa-04,fresher,Unit: đơn vị nhỏ: unit. Integration: giữa module (integration). System/E2E (system). Test pyramid (pyramid),8.0,unit;integration;system;pyramid,good-structured
+a0645,qa-04,intern,"Về Unit, cần nắm 'unit'.. Về Integration, cần nắm 'integration'.",5.5,unit;integration,mid-half
+a0646,qa-04,fresher,"Em biết sơ là unit và integration, còn lại em chưa nhớ rõ.",6.0,unit;integration,mid-vague
+a0647,qa-04,intern,"Em chỉ nhớ ý 'unit', các ý khác chưa chắc.",4.5,unit,mid-one-key
+a0648,qa-04,fresher,"Chỉ cần Google là được, không cần hiểu khái niệm.",2.0,,wrong
+a0649,qa-04,intern,Software Testing là công nghệ không liên quan đến câu hỏi này.,1.5,,off-topic
+a0650,qa-04,fresher,Hình như là liên quan Test levels nhưng em không giải thích được chi tiết.,3.0,,shallow
+a0651,qa-04,intern,"Khác nhau ở tên gọi thôi, thực tế unit dùng cho mọi trường hợp.",3.5,unit,oversimplify
+a0652,qa-04,fresher,"Theo hướng thực tế: Unit test kiểm tra đơn vị nhỏ (hàm/class) isolat, nhanh. Integration test kiểm tra tương tác giữa module/API/DB. System/E2E kiểm tra toàn hệ theo luồng người dùng. Kim tự tháp: nhiều unit, ít hơn integration, ít E2E vì chậm/flaky.",8.5,unit;integration;system;pyramid,practical
+a0653,qa-04,intern,Các ý chính: Unit: đơn vị nhỏ; Integration: giữa module; System/E2E; Test pyramid.,7.0,unit;integration;system;pyramid,label-list
+a0654,qa-04,fresher,Em hiểu Unit: đơn vị nhỏ nhờ hint 'unit'. Thêm Integration: giữa module.,6.5,unit;integration,two-points
+a0655,qa-04,intern,Liên quan Test levels: unit. Phần còn lại em trả lời chưa đủ.,5.0,unit,incomplete
+a0656,qa-04,fresher,Theo em thì Software Testing quan trọng với fresher.,4.0,,too-generic
+a0657,qa-04,intern,Em trả lời sai: cái này chỉ dùng trên frontend React.,2.5,,wrong-domain
+a0658,qa-04,fresher,"Unit test kiểm tra đơn vị nhỏ (hàm/class) isolat, nhanh. Integration test kiểm tra tương tác giữa module/API/DB. System/E2E kiểm tra toàn hệ theo luồng người dùng. Kim tự tháp: nhiều unit, ít hơn integration, ít E2E vì chậm/flaky. Đây là phần kiến thức intern/fresher nên nắm vững.",9.5,unit;integration;system;pyramid,excellent-plus
+a0659,qa-04,intern,unit → Unit: đơn vị nhỏ. integration → Integration: giữa module. system → System/E2E. pyramid → Test pyramid.,8.0,unit;integration;system;pyramid,hint-walk
+a0660,qa-04,fresher,"Unit test kiểm tra đơn vị nhỏ (hàm/class) isolat, nhanh. Integration test kiểm tra tương tác giữa module/API/DB. System/E2E kiểm tra toàn hệ theo luồng người dùng. Kim tự tháp: nhiều unit, ít hơn integration, ít E2E vì chậm/flaky. (cách diễn đạt thêm #20).",9.0,unit;integration;system;pyramid,near-ref-var
+a0661,qa-05,intern,"Equivalence partitioning chia input thành lớp tương đương, chọn đại diện mỗi lớp để giảm số case. Boundary value chọn giá trị biên (min, min±1, max) vì lỗi hay nằm ở biên. Hai kỹ thuật black-box bổ sung khi thiết kế test data.",9.0,ep;bva;why,near-ref
+a0662,qa-05,fresher,"Tóm lại: Equivalence partitioning chia input thành lớp tương đương, chọn đại diện mỗi lớp để giảm số case. Boundary value chọn giá trị biên (min, min±1, max) vì lỗi hay nằm ở biên. Hai kỹ thuật black-box bổ sung khi thiết kế test data.",9.0,ep;bva;why,near-ref
+a0663,qa-05,intern,"Về Equivalence partitioning, cần nắm 'equivalence'.. Về Boundary value, cần nắm 'boundary'. Liên quan câu hỏi: Equivalence partitioning và boundary value analysis là gì?…",7.5,ep;bva,good-partial-last
+a0664,qa-05,fresher,Equivalence partitioning: equivalence. Boundary value (boundary). Giảm case / bắt lỗi biên (giảm),8.0,ep;bva;why,good-structured
+a0665,qa-05,intern,"Về Equivalence partitioning, cần nắm 'equivalence'.",5.5,ep,mid-half
+a0666,qa-05,fresher,"Em biết sơ là equivalence và boundary, còn lại em chưa nhớ rõ.",6.0,ep;bva,mid-vague
+a0667,qa-05,intern,"Em chỉ nhớ ý 'equivalence', các ý khác chưa chắc.",4.5,ep,mid-one-key
+a0668,qa-05,fresher,"Cái này giống nhau hết, không có khác biệt.",2.0,,wrong
+a0669,qa-05,intern,Software Testing là công nghệ không liên quan đến câu hỏi này.,1.5,,off-topic
+a0670,qa-05,fresher,Hình như là liên quan Equivalence / Boundary nhưng em không giải thích được chi tiết.,3.0,,shallow
+a0671,qa-05,intern,"Khác nhau ở tên gọi thôi, thực tế equivalence dùng cho mọi trường hợp.",3.5,ep,oversimplify
+a0672,qa-05,fresher,"Theo hướng thực tế: Equivalence partitioning chia input thành lớp tương đương, chọn đại diện mỗi lớp để giảm số case. Boundary value chọn giá trị biên (min, min±1, max) vì lỗi hay nằm ở biên. Hai kỹ thuật black-box bổ sung khi thiết kế test data.",8.5,ep;bva;why,practical
+a0673,qa-05,intern,Các ý chính: Equivalence partitioning; Boundary value; Giảm case / bắt lỗi biên.,7.0,ep;bva;why,label-list
+a0674,qa-05,fresher,Em hiểu Equivalence partitioning nhờ hint 'equivalence'. Thêm Boundary value.,6.5,ep;bva,two-points
+a0675,qa-05,intern,Liên quan Equivalence / Boundary: equivalence. Phần còn lại em trả lời chưa đủ.,5.0,ep,incomplete
+a0676,qa-05,fresher,Theo em thì Software Testing quan trọng với fresher.,4.0,,too-generic
+a0677,qa-05,intern,Em trả lời sai: cái này chỉ dùng trên frontend React.,2.5,,wrong-domain
+a0678,qa-05,fresher,"Equivalence partitioning chia input thành lớp tương đương, chọn đại diện mỗi lớp để giảm số case. Boundary value chọn giá trị biên (min, min±1, max) vì lỗi hay nằm ở biên. Hai kỹ thuật black-box bổ sung khi thiết kế test data. Đây là phần kiến thức intern/fresher nên nắm vững.",9.5,ep;bva;why,excellent-plus
+a0679,qa-05,intern,equivalence → Equivalence partitioning. boundary → Boundary value. giảm → Giảm case / bắt lỗi biên.,8.0,ep;bva;why,hint-walk
+a0680,qa-05,fresher,"Equivalence partitioning chia input thành lớp tương đương, chọn đại diện mỗi lớp để giảm số case. Boundary value chọn giá trị biên (min, min±1, max) vì lỗi hay nằm ở biên. Hai kỹ thuật black-box bổ sung khi thiết kế test data. (cách diễn đạt thêm #20).",8.5,ep;bva;why,near-ref-var
+a0681,qa-06,intern,Severity đo mức ảnh hưởng kỹ thuật tới hệ thống (crash = high). Priority đo độ ưu tiên sửa theo nghiệp vụ/release (lỗi logo trang chủ có thể priority cao dù severity thấp). QA đề xuất severity; PO/PM thường quyết priority.,9.0,severity;priority;example,near-ref
+a0682,qa-06,fresher,Tóm lại: Severity đo mức ảnh hưởng kỹ thuật tới hệ thống (crash = high). Priority đo độ ưu tiên sửa theo nghiệp vụ/release (lỗi logo trang chủ có thể priority cao dù severity thấp). QA đề xuất severity; PO/PM thường quyết priority.,9.0,severity;priority;example,near-ref
+a0683,qa-06,intern,"Về Severity, cần nắm 'severity'.. Về Priority, cần nắm 'priority'. Liên quan câu hỏi: Severity và Priority của bug khác nhau thế nào?…",7.5,severity;priority,good-partial-last
+a0684,qa-06,fresher,Severity: ảnh hưởng kỹ thuật: severity. Priority: thứ tự sửa (priority). Ví dụ phân biệt (ví dụ),8.0,severity;priority;example,good-structured
+a0685,qa-06,intern,"Về Severity, cần nắm 'severity'.",5.5,severity,mid-half
+a0686,qa-06,fresher,"Em biết sơ là severity và priority, còn lại em chưa nhớ rõ.",6.0,severity;priority,mid-vague
+a0687,qa-06,intern,"Em chỉ nhớ ý 'severity', các ý khác chưa chắc.",4.5,severity,mid-one-key
+a0688,qa-06,fresher,"Chỉ dành cho quản lý dự án, lập trình viên không dùng.",2.0,,wrong
+a0689,qa-06,intern,Software Testing là công nghệ không liên quan đến câu hỏi này.,1.5,,off-topic
+a0690,qa-06,fresher,Hình như là liên quan Severity vs Priority nhưng em không giải thích được chi tiết.,3.0,,shallow
+a0691,qa-06,intern,"Khác nhau ở tên gọi thôi, thực tế severity dùng cho mọi trường hợp.",3.5,severity,oversimplify
+a0692,qa-06,fresher,Theo hướng thực tế: Severity đo mức ảnh hưởng kỹ thuật tới hệ thống (crash = high). Priority đo độ ưu tiên sửa theo nghiệp vụ/release (lỗi logo trang chủ có thể priority cao dù severity thấp). QA đề xuất severity; PO/PM thường quyết priority.,8.5,severity;priority;example,practical
+a0693,qa-06,intern,Các ý chính: Severity: ảnh hưởng kỹ thuật; Priority: thứ tự sửa; Ví dụ phân biệt.,7.0,severity;priority;example,label-list
+a0694,qa-06,fresher,Em hiểu Severity: ảnh hưởng kỹ thuật nhờ hint 'severity'. Thêm Priority: thứ tự sửa.,6.5,severity;priority,two-points
+a0695,qa-06,intern,Liên quan Severity vs Priority: severity. Phần còn lại em trả lời chưa đủ.,5.0,severity,incomplete
+a0696,qa-06,fresher,Theo em thì Software Testing quan trọng với fresher.,4.0,,too-generic
+a0697,qa-06,intern,Em trả lời sai: cái này chỉ dùng trên frontend React.,2.5,,wrong-domain
+a0698,qa-06,fresher,Severity đo mức ảnh hưởng kỹ thuật tới hệ thống (crash = high). Priority đo độ ưu tiên sửa theo nghiệp vụ/release (lỗi logo trang chủ có thể priority cao dù severity thấp). QA đề xuất severity; PO/PM thường quyết priority. Đây là phần kiến thức intern/fresher nên nắm vững.,9.5,severity;priority;example,excellent-plus
+a0699,qa-06,intern,severity → Severity: ảnh hưởng kỹ thuật. priority → Priority: thứ tự sửa. ví dụ → Ví dụ phân biệt.,8.0,severity;priority;example,hint-walk
+a0700,qa-06,fresher,Severity đo mức ảnh hưởng kỹ thuật tới hệ thống (crash = high). Priority đo độ ưu tiên sửa theo nghiệp vụ/release (lỗi logo trang chủ có thể priority cao dù severity thấp). QA đề xuất severity; PO/PM thường quyết priority. (cách diễn đạt thêm #20).,9.0,severity;priority;example,near-ref-var
+a0701,qa-07,fresher,"Kiểm tra status code, body schema/field, business rule, header (content-type/auth), lỗi input invalid, auth/unauthorized, performance cơ bản. Dùng Postman/curl hoặc automation. So expected vs actual và cover positive/negative cases.",9.0,status_body;neg_auth;tools,near-ref
+a0702,qa-07,fresher,"Tóm lại: Kiểm tra status code, body schema/field, business rule, header (content-type/auth), lỗi input invalid, auth/unauthorized, performance cơ bản. Dùng Postman/curl hoặc automation. So expected vs actual và cover positive/negative cases.",9.0,status_body;neg_auth;tools,near-ref
+a0703,qa-07,fresher,"Về Status + body/schema, cần nắm 'status'.. Về Negative / auth, cần nắm 'negative'. Liên quan câu hỏi: Khi test API REST, bạn thường kiểm tra những gì?…",7.5,status_body;neg_auth,good-partial-last
+a0704,qa-07,fresher,Status + body/schema: status. Negative / auth (negative). Tool / expected-actual (postman),8.0,status_body;neg_auth;tools,good-structured
+a0705,qa-07,fresher,"Về Status + body/schema, cần nắm 'status'.",5.5,status_body,mid-half
+a0706,qa-07,fresher,"Em biết sơ là status và negative, còn lại em chưa nhớ rõ.",6.0,status_body;neg_auth,mid-vague
+a0707,qa-07,fresher,"Em chỉ nhớ ý 'status', các ý khác chưa chắc.",4.5,status_body,mid-one-key
+a0708,qa-07,fresher,Em chưa học phần này nên không biết.,2.0,,wrong
+a0709,qa-07,fresher,API Testing là công nghệ không liên quan đến câu hỏi này.,1.5,,off-topic
+a0710,qa-07,fresher,Hình như là liên quan API test basics nhưng em không giải thích được chi tiết.,3.0,,shallow
+a0711,qa-07,fresher,"Khác nhau ở tên gọi thôi, thực tế status dùng cho mọi trường hợp.",3.5,status_body,oversimplify
+a0712,qa-07,fresher,"Theo hướng thực tế: Kiểm tra status code, body schema/field, business rule, header (content-type/auth), lỗi input invalid, auth/unauthorized, performance cơ bản. Dùng Postman/curl hoặc automation. So expected vs actual và cover positive/negative cases.",8.5,status_body;neg_auth;tools,practical
+a0713,qa-07,fresher,Các ý chính: Status + body/schema; Negative / auth; Tool / expected-actual.,7.0,status_body;neg_auth;tools,label-list
+a0714,qa-07,fresher,Em hiểu Status + body/schema nhờ hint 'status'. Thêm Negative / auth.,6.5,status_body;neg_auth,two-points
+a0715,qa-07,fresher,Liên quan API test basics: status. Phần còn lại em trả lời chưa đủ.,5.0,status_body,incomplete
+a0716,qa-07,fresher,Theo em thì API Testing quan trọng với fresher.,4.0,,too-generic
+a0717,qa-07,fresher,Em trả lời sai: cái này chỉ dùng trên frontend React.,2.5,,wrong-domain
+a0718,qa-07,fresher,"Kiểm tra status code, body schema/field, business rule, header (content-type/auth), lỗi input invalid, auth/unauthorized, performance cơ bản. Dùng Postman/curl hoặc automation. So expected vs actual và cover positive/negative cases. Đây là phần kiến thức intern/fresher nên nắm vững.",9.5,status_body;neg_auth;tools,excellent-plus
+a0719,qa-07,fresher,status → Status + body/schema. negative → Negative / auth. postman → Tool / expected-actual.,8.0,status_body;neg_auth;tools,hint-walk
+a0720,qa-07,fresher,"Kiểm tra status code, body schema/field, business rule, header (content-type/auth), lỗi input invalid, auth/unauthorized, performance cơ bản. Dùng Postman/curl hoặc automation. So expected vs actual và cover positive/negative cases. (cách diễn đạt thêm #20).",8.5,status_body;neg_auth;tools,near-ref-var
+a0721,git-02,intern,clone sao chép repo remote về máy lần đầu. pull lấy thay đổi mới từ remote về nhánh hiện tại (fetch+merge/rebase). push đẩy commit local lên remote để chia sẻ. Làm việc nhóm cần pull trước khi push để giảm conflict.,9.0,clone;pull;push,near-ref
+a0722,git-02,fresher,Tóm lại: clone sao chép repo remote về máy lần đầu. pull lấy thay đổi mới từ remote về nhánh hiện tại (fetch+merge/rebase). push đẩy commit local lên remote để chia sẻ. Làm việc nhóm cần pull trước khi push để giảm conflict.,9.0,clone;pull;push,near-ref
+a0723,git-02,intern,"Về clone, cần nắm 'clone'.. Về pull, cần nắm 'pull'. Liên quan câu hỏi: git clone, pull và push khác nhau thế nào?…",7.5,clone;pull,good-partial-last
+a0724,git-02,fresher,clone: copy repo: clone. pull: lấy về (pull). push: đẩy lên (push),8.0,clone;pull;push,good-structured
+a0725,git-02,intern,"Về clone, cần nắm 'clone'.",5.5,clone,mid-half
+a0726,git-02,fresher,"Em biết sơ là clone và pull, còn lại em chưa nhớ rõ.",6.0,clone;pull,mid-vague
+a0727,git-02,intern,"Em chỉ nhớ ý 'clone', các ý khác chưa chắc.",4.5,clone,mid-one-key
+a0728,git-02,fresher,"Đó là phần cứng máy tính, không liên quan phần mềm.",2.0,,wrong
+a0729,git-02,intern,Git là công nghệ không liên quan đến câu hỏi này.,1.5,,off-topic
+a0730,git-02,fresher,Hình như là liên quan pull / push / clone nhưng em không giải thích được chi tiết.,3.0,,shallow
+a0731,git-02,intern,"Khác nhau ở tên gọi thôi, thực tế clone dùng cho mọi trường hợp.",3.5,clone,oversimplify
+a0732,git-02,fresher,Theo hướng thực tế: clone sao chép repo remote về máy lần đầu. pull lấy thay đổi mới từ remote về nhánh hiện tại (fetch+merge/rebase). push đẩy commit local lên remote để chia sẻ. Làm việc nhóm cần pull trước khi push để giảm conflict.,8.5,clone;pull;push,practical
+a0733,git-02,intern,Các ý chính: clone: copy repo; pull: lấy về; push: đẩy lên.,7.0,clone;pull;push,label-list
+a0734,git-02,fresher,Em hiểu clone: copy repo nhờ hint 'clone'. Thêm pull: lấy về.,6.5,clone;pull,two-points
+a0735,git-02,intern,Liên quan pull / push / clone: clone. Phần còn lại em trả lời chưa đủ.,5.0,clone,incomplete
+a0736,git-02,fresher,Theo em thì Git quan trọng với fresher.,4.0,,too-generic
+a0737,git-02,intern,Em trả lời sai: cái này chỉ dùng trên frontend React.,2.5,,wrong-domain
+a0738,git-02,fresher,clone sao chép repo remote về máy lần đầu. pull lấy thay đổi mới từ remote về nhánh hiện tại (fetch+merge/rebase). push đẩy commit local lên remote để chia sẻ. Làm việc nhóm cần pull trước khi push để giảm conflict. Đây là phần kiến thức intern/fresher nên nắm vững.,9.5,clone;pull;push,excellent-plus
+a0739,git-02,intern,clone → clone: copy repo. pull → pull: lấy về. push → push: đẩy lên.,8.0,clone;pull;push,hint-walk
+a0740,git-02,fresher,clone sao chép repo remote về máy lần đầu. pull lấy thay đổi mới từ remote về nhánh hiện tại (fetch+merge/rebase). push đẩy commit local lên remote để chia sẻ. Làm việc nhóm cần pull trước khi push để giảm conflict. (cách diễn đạt thêm #20).,8.5,clone;pull;push,near-ref-var
+a0741,git-03,intern,"Conflict xảy ra khi hai nhánh sửa cùng chỗ và Git không tự gộp. Xử lý: mở file conflict, chọn/giữ đúng thay đổi, xóa marker, add và commit hoàn tất merge. Nên communicate, chia nhỏ PR, pull thường xuyên để giảm conflict.",9.0,what;resolve;prevent,near-ref
+a0742,git-03,fresher,"Tóm lại: Conflict xảy ra khi hai nhánh sửa cùng chỗ và Git không tự gộp. Xử lý: mở file conflict, chọn/giữ đúng thay đổi, xóa marker, add và commit hoàn tất merge. Nên communicate, chia nhỏ PR, pull thường xuyên để giảm conflict.",9.0,what;resolve;prevent,near-ref
+a0743,git-03,intern,"Về Conflict khi sửa cùng chỗ, cần nắm 'conflict'.. Về Sửa marker / add / commit, cần nắm 'marker'. Liên quan câu hỏi: Merge conflict là gì? Cách xử lý cơ bản?…",7.5,what;resolve,good-partial-last
+a0744,git-03,fresher,Conflict khi sửa cùng chỗ: conflict. Sửa marker / add / commit (marker). Giảm conflict (pull thường),8.0,what;resolve;prevent,good-structured
+a0745,git-03,intern,"Về Conflict khi sửa cùng chỗ, cần nắm 'conflict'.",5.5,what,mid-half
+a0746,git-03,fresher,"Em biết sơ là conflict và marker, còn lại em chưa nhớ rõ.",6.0,what;resolve,mid-vague
+a0747,git-03,intern,"Em chỉ nhớ ý 'conflict', các ý khác chưa chắc.",4.5,what,mid-one-key
+a0748,git-03,fresher,"Chỉ cần Google là được, không cần hiểu khái niệm.",2.0,,wrong
+a0749,git-03,intern,Git là công nghệ không liên quan đến câu hỏi này.,1.5,,off-topic
+a0750,git-03,fresher,Hình như là liên quan Conflict nhưng em không giải thích được chi tiết.,3.0,,shallow
+a0751,git-03,intern,"Khác nhau ở tên gọi thôi, thực tế conflict dùng cho mọi trường hợp.",3.5,what,oversimplify
+a0752,git-03,fresher,"Theo hướng thực tế: Conflict xảy ra khi hai nhánh sửa cùng chỗ và Git không tự gộp. Xử lý: mở file conflict, chọn/giữ đúng thay đổi, xóa marker, add và commit hoàn tất merge. Nên communicate, chia nhỏ PR, pull thường xuyên để giảm conflict.",8.5,what;resolve;prevent,practical
+a0753,git-03,intern,Các ý chính: Conflict khi sửa cùng chỗ; Sửa marker / add / commit; Giảm conflict.,7.0,what;resolve;prevent,label-list
+a0754,git-03,fresher,Em hiểu Conflict khi sửa cùng chỗ nhờ hint 'conflict'. Thêm Sửa marker / add / commit.,6.5,what;resolve,two-points
+a0755,git-03,intern,Liên quan Conflict: conflict. Phần còn lại em trả lời chưa đủ.,5.0,what,incomplete
+a0756,git-03,fresher,Theo em thì Git quan trọng với fresher.,4.0,,too-generic
+a0757,git-03,intern,Em trả lời sai: cái này chỉ dùng trên frontend React.,2.5,,wrong-domain
+a0758,git-03,fresher,"Conflict xảy ra khi hai nhánh sửa cùng chỗ và Git không tự gộp. Xử lý: mở file conflict, chọn/giữ đúng thay đổi, xóa marker, add và commit hoàn tất merge. Nên communicate, chia nhỏ PR, pull thường xuyên để giảm conflict. Đây là phần kiến thức intern/fresher nên nắm vững.",9.5,what;resolve;prevent,excellent-plus
+a0759,git-03,intern,conflict → Conflict khi sửa cùng chỗ. marker → Sửa marker / add / commit. pull thường → Giảm conflict.,8.0,what;resolve;prevent,hint-walk
+a0760,git-03,fresher,"Conflict xảy ra khi hai nhánh sửa cùng chỗ và Git không tự gộp. Xử lý: mở file conflict, chọn/giữ đúng thay đổi, xóa marker, add và commit hoàn tất merge. Nên communicate, chia nhỏ PR, pull thường xuyên để giảm conflict. (cách diễn đạt thêm #20).",9.0,what;resolve;prevent,near-ref-var
+a0761,cs-02,intern,"Thủ tục tổ chức theo hàm/procedure thao tác dữ liệu. OOP tổ chức theo object gồm data+behavior, dùng encapsulation/inheritance/polymorphism để mô hình hóa miền bài toán, tái sử dụng và mở rộng dễ hơn ở hệ lớn.",9.0,procedural;oop;benefit,near-ref
+a0762,cs-02,fresher,"Tóm lại: Thủ tục tổ chức theo hàm/procedure thao tác dữ liệu. OOP tổ chức theo object gồm data+behavior, dùng encapsulation/inheritance/polymorphism để mô hình hóa miền bài toán, tái sử dụng và mở rộng dễ hơn ở hệ lớn.",9.0,procedural;oop;benefit,near-ref
+a0763,cs-02,intern,"Về Thủ tục, cần nắm 'thủ tục'.. Về OOP, cần nắm 'object'. Liên quan câu hỏi: Lập trình hướng đối tượng khác lập trình thủ tục ở điểm nào?…",7.5,procedural;oop,good-partial-last
+a0764,cs-02,fresher,Thủ tục: hàm + dữ liệu tách: thủ tục. OOP: object data+behavior (object). Tái sử dụng / mở rộng (tái sử dụng),8.0,procedural;oop;benefit,good-structured
+a0765,cs-02,intern,"Về Thủ tục, cần nắm 'thủ tục'.",5.5,procedural,mid-half
+a0766,cs-02,fresher,"Em biết sơ là thủ tục và object, còn lại em chưa nhớ rõ.",6.0,procedural;oop,mid-vague
+a0767,cs-02,intern,"Em chỉ nhớ ý 'thủ tục', các ý khác chưa chắc.",4.5,procedural,mid-one-key
+a0768,cs-02,fresher,Dùng AI viết code thì không cần quan tâm.,2.0,,wrong
+a0769,cs-02,intern,CS Fundamentals là công nghệ không liên quan đến câu hỏi này.,1.5,,off-topic
+a0770,cs-02,fresher,Hình như là liên quan OOP vs Procedural nhưng em không giải thích được chi tiết.,3.0,,shallow
+a0771,cs-02,intern,"Khác nhau ở tên gọi thôi, thực tế thủ tục dùng cho mọi trường hợp.",3.5,procedural,oversimplify
+a0772,cs-02,fresher,"Theo hướng thực tế: Thủ tục tổ chức theo hàm/procedure thao tác dữ liệu. OOP tổ chức theo object gồm data+behavior, dùng encapsulation/inheritance/polymorphism để mô hình hóa miền bài toán, tái sử dụng và mở rộng dễ hơn ở hệ lớn.",8.5,procedural;oop;benefit,practical
+a0773,cs-02,intern,Các ý chính: Thủ tục: hàm + dữ liệu tách; OOP: object data+behavior; Tái sử dụng / mở rộng.,7.0,procedural;oop;benefit,label-list
+a0774,cs-02,fresher,Em hiểu Thủ tục: hàm + dữ liệu tách nhờ hint 'thủ tục'. Thêm OOP: object data+behavior.,6.5,procedural;oop,two-points
+a0775,cs-02,intern,Liên quan OOP vs Procedural: thủ tục. Phần còn lại em trả lời chưa đủ.,5.0,procedural,incomplete
+a0776,cs-02,fresher,Theo em thì CS Fundamentals quan trọng với fresher.,4.0,,too-generic
+a0777,cs-02,intern,Em trả lời sai: cái này chỉ dùng trên frontend React.,2.5,,wrong-domain
+a0778,cs-02,fresher,"Thủ tục tổ chức theo hàm/procedure thao tác dữ liệu. OOP tổ chức theo object gồm data+behavior, dùng encapsulation/inheritance/polymorphism để mô hình hóa miền bài toán, tái sử dụng và mở rộng dễ hơn ở hệ lớn. Đây là phần kiến thức intern/fresher nên nắm vững.",9.5,procedural;oop;benefit,excellent-plus
+a0779,cs-02,intern,thủ tục → Thủ tục: hàm + dữ liệu tách. object → OOP: object data+behavior. tái sử dụng → Tái sử dụng / mở rộng.,8.0,procedural;oop;benefit,hint-walk
+a0780,cs-02,fresher,"Thủ tục tổ chức theo hàm/procedure thao tác dữ liệu. OOP tổ chức theo object gồm data+behavior, dùng encapsulation/inheritance/polymorphism để mô hình hóa miền bài toán, tái sử dụng và mở rộng dễ hơn ở hệ lớn. (cách diễn đạt thêm #20).",9.0,procedural;oop;benefit,near-ref-var
+a0781,cs-03,intern,Big-O mô tả tăng thời gian theo kích thước input. O(1) gần như không đổi (truy cập mảng theo index). O(n) tuyến tính (duyệt list). O(n^2) lồng hai vòng duyệt. Giúp so thuật toán và ước lượng khi data lớn.,9.0,big_o;examples;why,near-ref
+a0782,cs-03,fresher,Tóm lại: Big-O mô tả tăng thời gian theo kích thước input. O(1) gần như không đổi (truy cập mảng theo index). O(n) tuyến tính (duyệt list). O(n^2) lồng hai vòng duyệt. Giúp so thuật toán và ước lượng khi data lớn.,9.0,big_o;examples;why,near-ref
+a0783,cs-03,intern,"Về Big-O theo input size, cần nắm 'big-o'.. Về Ví dụ O(1)/O(n)/O(n^2), cần nắm 'o(1)'. Liên quan câu hỏi: Độ phức tạp thời gian O(1), O(n), O(n^2) nghĩa là gì? Cho ví…",7.5,big_o;examples,good-partial-last
+a0784,cs-03,fresher,Big-O theo input size: big-o. Ví dụ O(1)/O(n)/O(n^2) (o(1)). So thuật toán (so sánh),8.0,big_o;examples;why,good-structured
+a0785,cs-03,intern,"Về Big-O theo input size, cần nắm 'big-o'.",5.5,big_o,mid-half
+a0786,cs-03,fresher,"Em biết sơ là big-o và o(1), còn lại em chưa nhớ rõ.",6.0,big_o;examples,mid-vague
+a0787,cs-03,intern,"Em chỉ nhớ ý 'big-o', các ý khác chưa chắc.",4.5,big_o,mid-one-key
+a0788,cs-03,fresher,"Chỉ dành cho quản lý dự án, lập trình viên không dùng.",2.0,,wrong
+a0789,cs-03,intern,CS Fundamentals là công nghệ không liên quan đến câu hỏi này.,1.5,,off-topic
+a0790,cs-03,fresher,Hình như là liên quan Time complexity nhưng em không giải thích được chi tiết.,3.0,,shallow
+a0791,cs-03,intern,"Khác nhau ở tên gọi thôi, thực tế big-o dùng cho mọi trường hợp.",3.5,big_o,oversimplify
+a0792,cs-03,fresher,Theo hướng thực tế: Big-O mô tả tăng thời gian theo kích thước input. O(1) gần như không đổi (truy cập mảng theo index). O(n) tuyến tính (duyệt list). O(n^2) lồng hai vòng duyệt. Giúp so thuật toán và ước lượng khi data lớn.,8.5,big_o;examples;why,practical
+a0793,cs-03,intern,Các ý chính: Big-O theo input size; Ví dụ O(1)/O(n)/O(n^2); So thuật toán.,7.0,big_o;examples;why,label-list
+a0794,cs-03,fresher,Em hiểu Big-O theo input size nhờ hint 'big-o'. Thêm Ví dụ O(1)/O(n)/O(n^2).,6.5,big_o;examples,two-points
+a0795,cs-03,intern,Liên quan Time complexity: big-o. Phần còn lại em trả lời chưa đủ.,5.0,big_o,incomplete
+a0796,cs-03,fresher,Theo em thì CS Fundamentals quan trọng với fresher.,4.0,,too-generic
+a0797,cs-03,intern,Em trả lời sai: cái này chỉ dùng trên frontend React.,2.5,,wrong-domain
+a0798,cs-03,fresher,Big-O mô tả tăng thời gian theo kích thước input. O(1) gần như không đổi (truy cập mảng theo index). O(n) tuyến tính (duyệt list). O(n^2) lồng hai vòng duyệt. Giúp so thuật toán và ước lượng khi data lớn. Đây là phần kiến thức intern/fresher nên nắm vững.,9.5,big_o;examples;why,excellent-plus
+a0799,cs-03,intern,big-o → Big-O theo input size. o(1) → Ví dụ O(1)/O(n)/O(n^2). so sánh → So thuật toán.,8.0,big_o;examples;why,hint-walk
+a0800,cs-03,fresher,Big-O mô tả tăng thời gian theo kích thước input. O(1) gần như không đổi (truy cập mảng theo index). O(n) tuyến tính (duyệt list). O(n^2) lồng hai vòng duyệt. Giúp so thuật toán và ước lượng khi data lớn. (cách diễn đạt thêm #20).,8.5,big_o;examples;why,near-ref-var
+a0801,cs-04,fresher,"TCP hướng kết nối, đảm bảo tin cậy/thứ tự (web HTTP, email). UDP không kết nối, nhanh hơn nhưng có thể mất gói (streaming, DNS, game realtime). Chọn TCP khi cần đủ dữ liệu; UDP khi ưu tiên độ trễ.",9.0,tcp;udp;when,near-ref
+a0802,cs-04,fresher,"Tóm lại: TCP hướng kết nối, đảm bảo tin cậy/thứ tự (web HTTP, email). UDP không kết nối, nhanh hơn nhưng có thể mất gói (streaming, DNS, game realtime). Chọn TCP khi cần đủ dữ liệu; UDP khi ưu tiên độ trễ.",9.0,tcp;udp;when,near-ref
+a0803,cs-04,fresher,"Về TCP, cần nắm 'tcp'.. Về UDP, cần nắm 'udp'. Liên quan câu hỏi: TCP và UDP khác nhau thế nào? Khi nào dùng từng loại?…",7.5,tcp;udp,good-partial-last
+a0804,cs-04,fresher,TCP: tin cậy / kết nối: tcp. UDP: nhanh / không đảm bảo (udp). Use case (http),8.0,tcp;udp;when,good-structured
+a0805,cs-04,fresher,"Về TCP, cần nắm 'tcp'.",5.5,tcp,mid-half
+a0806,cs-04,fresher,"Em biết sơ là tcp và udp, còn lại em chưa nhớ rõ.",6.0,tcp;udp,mid-vague
+a0807,cs-04,fresher,"Em chỉ nhớ ý 'tcp', các ý khác chưa chắc.",4.5,tcp,mid-one-key
+a0808,cs-04,fresher,Đây là thuật toán sắp xếp nhanh.,2.0,,wrong
+a0809,cs-04,fresher,Networking là công nghệ không liên quan đến câu hỏi này.,1.5,,off-topic
+a0810,cs-04,fresher,Hình như là liên quan TCP vs UDP nhưng em không giải thích được chi tiết.,3.0,,shallow
+a0811,cs-04,fresher,"Khác nhau ở tên gọi thôi, thực tế tcp dùng cho mọi trường hợp.",3.5,tcp,oversimplify
+a0812,cs-04,fresher,"Theo hướng thực tế: TCP hướng kết nối, đảm bảo tin cậy/thứ tự (web HTTP, email). UDP không kết nối, nhanh hơn nhưng có thể mất gói (streaming, DNS, game realtime). Chọn TCP khi cần đủ dữ liệu; UDP khi ưu tiên độ trễ.",8.5,tcp;udp;when,practical
+a0813,cs-04,fresher,Các ý chính: TCP: tin cậy / kết nối; UDP: nhanh / không đảm bảo; Use case.,7.0,tcp;udp;when,label-list
+a0814,cs-04,fresher,Em hiểu TCP: tin cậy / kết nối nhờ hint 'tcp'. Thêm UDP: nhanh / không đảm bảo.,6.5,tcp;udp,two-points
+a0815,cs-04,fresher,Liên quan TCP vs UDP: tcp. Phần còn lại em trả lời chưa đủ.,5.0,tcp,incomplete
+a0816,cs-04,fresher,Theo em thì Networking quan trọng với fresher.,4.0,,too-generic
+a0817,cs-04,fresher,Em trả lời sai: cái này chỉ dùng trên frontend React.,2.5,,wrong-domain
+a0818,cs-04,fresher,"TCP hướng kết nối, đảm bảo tin cậy/thứ tự (web HTTP, email). UDP không kết nối, nhanh hơn nhưng có thể mất gói (streaming, DNS, game realtime). Chọn TCP khi cần đủ dữ liệu; UDP khi ưu tiên độ trễ. Đây là phần kiến thức intern/fresher nên nắm vững.",9.5,tcp;udp;when,excellent-plus
+a0819,cs-04,fresher,tcp → TCP: tin cậy / kết nối. udp → UDP: nhanh / không đảm bảo. http → Use case.,8.0,tcp;udp;when,hint-walk
+a0820,cs-04,fresher,"TCP hướng kết nối, đảm bảo tin cậy/thứ tự (web HTTP, email). UDP không kết nối, nhanh hơn nhưng có thể mất gói (streaming, DNS, game realtime). Chọn TCP khi cần đủ dữ liệu; UDP khi ưu tiên độ trễ. (cách diễn đạt thêm #20).",9.0,tcp;udp;when,near-ref-var
+a0821,cs-05,intern,"Authentication xác minh danh tính (login, JWT, session) — bạn là ai. Authorization quyết định được phép làm gì (role, permission) — bạn được truy cập resource nào. Thường authn trước, rồi authz trên từng request.",9.0,authn;authz;order,near-ref
+a0822,cs-05,fresher,"Authentication xác minh danh tính (login, JWT, session) — bạn chính là ai. Authorization quyết định được phép làm gì (role, permission) — bạn được truy cập resource nào. Thường authn trước, rồi authz trên từng request.",9.5,authn;authz;order,near-ref
+a0823,cs-05,intern,"Tóm lại: Authentication xác minh danh tính (login, JWT, session) — bạn là ai. Authorization quyết định được phép làm gì (role, permission) — bạn được truy cập resource nào. Thường authn trước, rồi authz trên từng request.",9.0,authn;authz;order,near-ref
+a0824,cs-05,fresher,"Về Authentication, cần nắm 'authentication'.. Về Authorization, cần nắm 'authorization'. Liên quan câu hỏi: Authentication và Authorization khác nhau thế nào?…",7.5,authn;authz,good-partial-last
+a0825,cs-05,intern,Authentication: danh tính: authentication. Authorization: quyền (authorization). Thứ tự / ví dụ (trước),8.0,authn;authz;order,good-structured
+a0826,cs-05,fresher,"Về Authentication, cần nắm 'authentication'.",5.5,authn,mid-half
+a0827,cs-05,intern,"Em biết sơ là authentication và authorization, còn lại em chưa nhớ rõ.",6.0,authn;authz,mid-vague
+a0828,cs-05,fresher,"Em chỉ nhớ ý 'authentication', các ý khác chưa chắc.",4.5,authn,mid-one-key
+a0829,cs-05,intern,Dùng AI viết code thì không cần quan tâm.,2.0,,wrong
+a0830,cs-05,fresher,Security basics là công nghệ không liên quan đến câu hỏi này.,1.5,,off-topic
+a0831,cs-05,intern,Hình như là liên quan Auth vs Authz nhưng em không giải thích được chi tiết.,3.0,,shallow
+a0832,cs-05,fresher,"Khác nhau ở tên gọi thôi, thực tế authentication dùng cho mọi trường hợp.",3.5,authn,oversimplify
+a0833,cs-05,intern,"Theo hướng thực tế: Authentication xác minh danh tính (login, JWT, session) — bạn là ai. Authorization quyết định được phép làm gì (role, permission) — bạn được truy cập resource nào. Thường authn trước, rồi authz trên từng request.",8.5,authn;authz;order,practical
+a0834,cs-05,fresher,Các ý chính: Authentication: danh tính; Authorization: quyền; Thứ tự / ví dụ.,7.0,authn;authz;order,label-list
+a0835,cs-05,intern,Em hiểu Authentication: danh tính nhờ hint 'authentication'. Thêm Authorization: quyền.,6.5,authn;authz,two-points
+a0836,cs-05,fresher,Liên quan Auth vs Authz: authentication. Phần còn lại em trả lời chưa đủ.,5.0,authn,incomplete
+a0837,cs-05,intern,Theo em thì Security basics quan trọng với fresher.,4.0,,too-generic
+a0838,cs-05,fresher,Em trả lời sai: cái này chỉ dùng trên frontend React.,2.5,,wrong-domain
+a0839,cs-05,intern,"Authentication xác minh danh tính (login, JWT, session) — bạn là ai. Authorization quyết định được phép làm gì (role, permission) — bạn được truy cập resource nào. Thường authn trước, rồi authz trên từng request. Đây là phần kiến thức intern/fresher nên nắm vững.",9.5,authn;authz;order,excellent-plus
+a0840,cs-05,fresher,authentication → Authentication: danh tính. authorization → Authorization: quyền. trước → Thứ tự / ví dụ.,8.0,authn;authz;order,hint-walk
+a0841,devops-01,intern,"CI (Continuous Integration) tự động build/test khi code mới merge. CD (Continuous Delivery/Deployment) tự động đưa bản build sang staging/production theo pipeline. Giúp phát hiện lỗi sớm, giảm deploy tay, thống nhất môi trường.",9.0,ci;cd;benefit,near-ref
+a0842,devops-01,fresher,"Tóm lại: CI (Continuous Integration) tự động build/test khi code mới merge. CD (Continuous Delivery/Deployment) tự động đưa bản build sang staging/production theo pipeline. Giúp phát hiện lỗi sớm, giảm deploy tay, thống nhất môi trường.",9.0,ci;cd;benefit,near-ref
+a0843,devops-01,intern,"Về CI, cần nắm 'ci'.. Về CD, cần nắm 'cd'. Liên quan câu hỏi: CI/CD là gì? Lợi ích với team nhỏ?…",7.5,ci;cd,good-partial-last
+a0844,devops-01,fresher,CI: build/test tự động: ci. CD: deliver/deploy (cd). Lợi ích (sớm),8.0,ci;cd;benefit,good-structured
+a0845,devops-01,intern,"Về CI, cần nắm 'ci'.",5.5,ci,mid-half
+a0846,devops-01,fresher,"Em biết sơ là ci và cd, còn lại em chưa nhớ rõ.",6.0,ci;cd,mid-vague
+a0847,devops-01,intern,"Em chỉ nhớ ý 'ci', các ý khác chưa chắc.",4.5,ci,mid-one-key
+a0848,devops-01,fresher,Em chưa học phần này nên không biết.,2.0,,wrong
+a0849,devops-01,intern,DevOps basics là công nghệ không liên quan đến câu hỏi này.,1.5,,off-topic
+a0850,devops-01,fresher,Hình như là liên quan CI/CD intro nhưng em không giải thích được chi tiết.,3.0,,shallow
+a0851,devops-01,intern,"Khác nhau ở tên gọi thôi, thực tế ci dùng cho mọi trường hợp.",3.5,ci,oversimplify
+a0852,devops-01,fresher,"Theo hướng thực tế: CI (Continuous Integration) tự động build/test khi code mới merge. CD (Continuous Delivery/Deployment) tự động đưa bản build sang staging/production theo pipeline. Giúp phát hiện lỗi sớm, giảm deploy tay, thống nhất môi trường.",8.5,ci;cd;benefit,practical
+a0853,devops-01,intern,Các ý chính: CI: build/test tự động; CD: deliver/deploy; Lợi ích.,7.0,ci;cd;benefit,label-list
+a0854,devops-01,fresher,Em hiểu CI: build/test tự động nhờ hint 'ci'. Thêm CD: deliver/deploy.,6.5,ci;cd,two-points
+a0855,devops-01,intern,Liên quan CI/CD intro: ci. Phần còn lại em trả lời chưa đủ.,5.0,ci,incomplete
+a0856,devops-01,fresher,Theo em thì DevOps basics quan trọng với fresher.,4.0,,too-generic
+a0857,devops-01,intern,Em trả lời sai: cái này chỉ dùng trên frontend React.,2.5,,wrong-domain
+a0858,devops-01,fresher,"CI (Continuous Integration) tự động build/test khi code mới merge. CD (Continuous Delivery/Deployment) tự động đưa bản build sang staging/production theo pipeline. Giúp phát hiện lỗi sớm, giảm deploy tay, thống nhất môi trường. Đây là phần kiến thức intern/fresher nên nắm vững.",9.5,ci;cd;benefit,excellent-plus
+a0859,devops-01,intern,ci → CI: build/test tự động. cd → CD: deliver/deploy. sớm → Lợi ích.,8.0,ci;cd;benefit,hint-walk
+a0860,devops-01,fresher,"CI (Continuous Integration) tự động build/test khi code mới merge. CD (Continuous Delivery/Deployment) tự động đưa bản build sang staging/production theo pipeline. Giúp phát hiện lỗi sớm, giảm deploy tay, thống nhất môi trường. (cách diễn đạt thêm #20).",9.0,ci;cd;benefit,near-ref-var
+a0861,devops-02,intern,"Container đóng gói app + dependency theo image, chạy nhất quán trên máy dev/server. Nhẹ hơn VM vì chia sẻ kernel. Giảm lỗi “chạy được trên máy tôi”, dễ scale và cô lập dịch vụ. Dockerfile mô tả cách build image.",9.0,package;consistent;vs_vm,near-ref
+a0862,devops-02,fresher,"Tóm lại: Container đóng gói app + dependency theo image, chạy nhất quán trên máy dev/server. Nhẹ hơn VM vì chia sẻ kernel. Giảm lỗi “chạy được trên máy tôi”, dễ scale và cô lập dịch vụ. Dockerfile mô tả cách build image.",9.0,package;consistent;vs_vm,near-ref
+a0863,devops-02,intern,"Về Đóng gói app+dependency, cần nắm 'container'.. Về Nhất quán môi trường, cần nắm 'nhất quán'. Liên quan câu hỏi: Docker container giúp gì so với cài trực tiếp lên máy?…",7.5,package;consistent,good-partial-last
+a0864,devops-02,fresher,Đóng gói app+dependency: container. Nhất quán môi trường (nhất quán). Nhẹ hơn VM / isolate (vm),8.0,package;consistent;vs_vm,good-structured
+a0865,devops-02,intern,"Về Đóng gói app+dependency, cần nắm 'container'.",5.5,package,mid-half
+a0866,devops-02,fresher,"Em biết sơ là container và nhất quán, còn lại em chưa nhớ rõ.",6.0,package;consistent,mid-vague
+a0867,devops-02,intern,"Em chỉ nhớ ý 'container', các ý khác chưa chắc.",4.5,package,mid-one-key
+a0868,devops-02,fresher,Em chưa học phần này nên không biết.,2.0,,wrong
+a0869,devops-02,intern,DevOps basics là công nghệ không liên quan đến câu hỏi này.,1.5,,off-topic
+a0870,devops-02,fresher,Hình như là liên quan Docker intro nhưng em không giải thích được chi tiết.,3.0,,shallow
+a0871,devops-02,intern,"Khác nhau ở tên gọi thôi, thực tế container dùng cho mọi trường hợp.",3.5,package,oversimplify
+a0872,devops-02,fresher,"Theo hướng thực tế: Container đóng gói app + dependency theo image, chạy nhất quán trên máy dev/server. Nhẹ hơn VM vì chia sẻ kernel. Giảm lỗi “chạy được trên máy tôi”, dễ scale và cô lập dịch vụ. Dockerfile mô tả cách build image.",8.5,package;consistent;vs_vm,practical
+a0873,devops-02,intern,Các ý chính: Đóng gói app+dependency; Nhất quán môi trường; Nhẹ hơn VM / isolate.,7.0,package;consistent;vs_vm,label-list
+a0874,devops-02,fresher,Em hiểu Đóng gói app+dependency nhờ hint 'container'. Thêm Nhất quán môi trường.,6.5,package;consistent,two-points
+a0875,devops-02,intern,Liên quan Docker intro: container. Phần còn lại em trả lời chưa đủ.,5.0,package,incomplete
+a0876,devops-02,fresher,Theo em thì DevOps basics quan trọng với fresher.,4.0,,too-generic
+a0877,devops-02,intern,Em trả lời sai: cái này chỉ dùng trên frontend React.,2.5,,wrong-domain
+a0878,devops-02,fresher,"Container đóng gói app + dependency theo image, chạy nhất quán trên máy dev/server. Nhẹ hơn VM vì chia sẻ kernel. Giảm lỗi “chạy được trên máy tôi”, dễ scale và cô lập dịch vụ. Dockerfile mô tả cách build image. Đây là phần kiến thức intern/fresher nên nắm vững.",9.5,package;consistent;vs_vm,excellent-plus
+a0879,devops-02,intern,container → Đóng gói app+dependency. nhất quán → Nhất quán môi trường. vm → Nhẹ hơn VM / isolate.,8.0,package;consistent;vs_vm,hint-walk
+a0880,devops-02,fresher,"Container đóng gói app + dependency theo image, chạy nhất quán trên máy dev/server. Nhẹ hơn VM vì chia sẻ kernel. Giảm lỗi “chạy được trên máy tôi”, dễ scale và cô lập dịch vụ. Dockerfile mô tả cách build image. (cách diễn đạt thêm #20).",9.5,package;consistent;vs_vm,near-ref-var
+a0881,be-01,intern,"Dùng danh từ số nhiều cho resource, method HTTP thể hiện hành động: GET /users, GET /users/{id}, POST /users, PUT/PATCH /users/{id}, DELETE /users/{id}. Tránh động từ trong path; dùng query cho lọc/phân trang.",9.0,noun;methods;query,near-ref
+a0882,be-01,fresher,"Tóm lại: Dùng danh từ số nhiều cho resource, method HTTP thể hiện hành động: GET /users, GET /users/{id}, POST /users, PUT/PATCH /users/{id}, DELETE /users/{id}. Tránh động từ trong path; dùng query cho lọc/phân trang.",9.0,noun;methods;query,near-ref
+a0883,be-01,intern,"Về Resource danh từ, cần nắm 'resource'.. Về HTTP method CRUD, cần nắm 'get'. Liên quan câu hỏi: Thiết kế URL REST tốt thường như thế nào? Cho ví dụ CRUD use…",7.5,noun;methods,good-partial-last
+a0884,be-01,fresher,Resource danh từ: resource. HTTP method CRUD (get). Query filter/paging (query),8.0,noun;methods;query,good-structured
+a0885,be-01,intern,"Về Resource danh từ, cần nắm 'resource'.",5.5,noun,mid-half
+a0886,be-01,fresher,"Em biết sơ là resource và get, còn lại em chưa nhớ rõ.",6.0,noun;methods,mid-vague
+a0887,be-01,intern,"Em chỉ nhớ ý 'resource', các ý khác chưa chắc.",4.5,noun,mid-one-key
+a0888,be-01,fresher,"Chỉ cần Google là được, không cần hiểu khái niệm.",2.0,,wrong
+a0889,be-01,intern,API Design là công nghệ không liên quan đến câu hỏi này.,1.5,,off-topic
+a0890,be-01,fresher,Hình như là liên quan REST resource nhưng em không giải thích được chi tiết.,3.0,,shallow
+a0891,be-01,intern,"Khác nhau ở tên gọi thôi, thực tế resource dùng cho mọi trường hợp.",3.5,noun,oversimplify
+a0892,be-01,fresher,"Theo hướng thực tế: Dùng danh từ số nhiều cho resource, method HTTP thể hiện hành động: GET /users, GET /users/{id}, POST /users, PUT/PATCH /users/{id}, DELETE /users/{id}. Tránh động từ trong path; dùng query cho lọc/phân trang.",8.5,noun;methods;query,practical
+a0893,be-01,intern,Các ý chính: Resource danh từ; HTTP method CRUD; Query filter/paging.,7.0,noun;methods;query,label-list
+a0894,be-01,fresher,Em hiểu Resource danh từ nhờ hint 'resource'. Thêm HTTP method CRUD.,6.5,noun;methods,two-points
+a0895,be-01,intern,Liên quan REST resource: resource. Phần còn lại em trả lời chưa đủ.,5.0,noun,incomplete
+a0896,be-01,fresher,Theo em thì API Design quan trọng với fresher.,4.0,,too-generic
+a0897,be-01,intern,Em trả lời sai: cái này chỉ dùng trên frontend React.,2.5,,wrong-domain
+a0898,be-01,fresher,"Dùng danh từ số nhiều cho resource, method HTTP thể hiện hành động: GET /users, GET /users/{id}, POST /users, PUT/PATCH /users/{id}, DELETE /users/{id}. Tránh động từ trong path; dùng query cho lọc/phân trang. Đây là phần kiến thức intern/fresher nên nắm vững.",9.5,noun;methods;query,excellent-plus
+a0899,be-01,intern,resource → Resource danh từ. get → HTTP method CRUD. query → Query filter/paging.,8.0,noun;methods;query,hint-walk
+a0900,be-01,fresher,"Dùng danh từ số nhiều cho resource, method HTTP thể hiện hành động: GET /users, GET /users/{id}, POST /users, PUT/PATCH /users/{id}, DELETE /users/{id}. Tránh động từ trong path; dùng query cho lọc/phân trang. (cách diễn đạt thêm #20).",9.5,noun;methods;query,near-ref-var
+a0901,be-02,intern,"Client có thể bypass validate UI; backend phải bảo vệ DB và business rule. Kiểm tra null/format/range/permission. Trong Spring dùng @Valid, Bean Validation (@NotNull, @Email). Trả 400 kèm message rõ khi invalid.",9.0,why;what;how,near-ref
+a0902,be-02,fresher,"Tóm lại: Client có thể bypass validate UI; backend phải bảo vệ DB và business rule. Kiểm tra null/format/range/permission. Trong Spring dùng @Valid, Bean Validation (@NotNull, @Email). Trả 400 kèm message rõ khi invalid.",9.0,why;what;how,near-ref
+a0903,be-02,intern,"Về Bảo vệ / không tin client, cần nắm 'bypass'.. Về Null/format/rule, cần nắm 'null'. Liên quan câu hỏi: Tại sao cần validate dữ liệu đầu vào ở backend? Ví dụ cách l…",7.5,why;what,good-partial-last
+a0904,be-02,fresher,Bảo vệ / không tin client: bypass. Null/format/rule (null). Annotation / 400 (valid),8.0,why;what;how,good-structured
+a0905,be-02,intern,"Về Bảo vệ / không tin client, cần nắm 'bypass'.",5.5,why,mid-half
+a0906,be-02,fresher,"Em biết sơ là bypass và null, còn lại em chưa nhớ rõ.",6.0,why;what,mid-vague
+a0907,be-02,intern,"Em chỉ nhớ ý 'bypass', các ý khác chưa chắc.",4.5,why,mid-one-key
+a0908,be-02,fresher,Dùng AI viết code thì không cần quan tâm.,2.0,,wrong
+a0909,be-02,intern,Backend là công nghệ không liên quan đến câu hỏi này.,1.5,,off-topic
+a0910,be-02,fresher,Hình như là liên quan Validation nhưng em không giải thích được chi tiết.,3.0,,shallow
+a0911,be-02,intern,"Khác nhau ở tên gọi thôi, thực tế bypass dùng cho mọi trường hợp.",3.5,why,oversimplify
+a0912,be-02,fresher,"Theo hướng thực tế: Client có thể bypass validate UI; backend phải bảo vệ DB và business rule. Kiểm tra null/format/range/permission. Trong Spring dùng @Valid, Bean Validation (@NotNull, @Email). Trả 400 kèm message rõ khi invalid.",8.5,why;what;how,practical
+a0913,be-02,intern,Các ý chính: Bảo vệ / không tin client; Null/format/rule; Annotation / 400.,7.0,why;what;how,label-list
+a0914,be-02,fresher,Em hiểu Bảo vệ / không tin client nhờ hint 'bypass'. Thêm Null/format/rule.,6.5,why;what,two-points
+a0915,be-02,intern,Liên quan Validation: bypass. Phần còn lại em trả lời chưa đủ.,5.0,why,incomplete
+a0916,be-02,fresher,Theo em thì Backend quan trọng với fresher.,4.0,,too-generic
+a0917,be-02,intern,Em trả lời sai: cái này chỉ dùng trên frontend React.,2.5,,wrong-domain
+a0918,be-02,fresher,"Client có thể bypass validate UI; backend phải bảo vệ DB và business rule. Kiểm tra null/format/range/permission. Trong Spring dùng @Valid, Bean Validation (@NotNull, @Email). Trả 400 kèm message rõ khi invalid. Đây là phần kiến thức intern/fresher nên nắm vững.",9.5,why;what;how,excellent-plus
+a0919,be-02,intern,bypass → Bảo vệ / không tin client. null → Null/format/rule. valid → Annotation / 400.,8.0,why;what;how,hint-walk
+a0920,be-02,fresher,"Client có thể bypass validate UI; backend phải bảo vệ DB và business rule. Kiểm tra null/format/range/permission. Trong Spring dùng @Valid, Bean Validation (@NotNull, @Email). Trả 400 kèm message rõ khi invalid. (cách diễn đạt thêm #20).",9.0,why;what;how,near-ref-var
+a0921,be-03,intern,"Log giúp debug, audit, theo dõi lỗi production (level INFO/WARN/ERROR). Nên log request id, lỗi kèm stack cần thiết, sự kiện nghiệp vụ quan trọng. Tránh log mật khẩu/token/PII; không log quá mức gây ồn và lộ dữ liệu.",9.0,purpose;levels;sensitive,near-ref
+a0922,be-03,fresher,"Log hỗ trợ debug, audit, theo dõi lỗi production (level INFO/WARN/ERROR). Nên log request id, lỗi kèm stack cần thiết, sự kiện nghiệp vụ quan trọng. Tránh log mật khẩu/token/PII; không log quá mức gây ồn và lộ dữ liệu.",9.5,purpose;levels;sensitive,near-ref
+a0923,be-03,intern,"Tóm lại: Log giúp debug, audit, theo dõi lỗi production (level INFO/WARN/ERROR). Nên log request id, lỗi kèm stack cần thiết, sự kiện nghiệp vụ quan trọng. Tránh log mật khẩu/token/PII; không log quá mức gây ồn và lộ dữ liệu.",9.0,purpose;levels;sensitive,near-ref
+a0924,be-03,fresher,"Về Debug / monitor, cần nắm 'debug'.. Về Log level, cần nắm 'info'. Liên quan câu hỏi: Logging trong ứng dụng backend dùng để làm gì? Nên log gì / …",7.5,purpose;levels,good-partial-last
+a0925,be-03,intern,Debug / monitor: debug. Log level (info). Không log secret/PII (password),8.0,purpose;levels;sensitive,good-structured
+a0926,be-03,fresher,"Về Debug / monitor, cần nắm 'debug'.",5.5,purpose,mid-half
+a0927,be-03,intern,"Em biết sơ là debug và info, còn lại em chưa nhớ rõ.",6.0,purpose;levels,mid-vague
+a0928,be-03,fresher,"Em chỉ nhớ ý 'debug', các ý khác chưa chắc.",4.5,purpose,mid-one-key
+a0929,be-03,intern,Dùng AI viết code thì không cần quan tâm.,2.0,,wrong
+a0930,be-03,fresher,Backend là công nghệ không liên quan đến câu hỏi này.,1.5,,off-topic
+a0931,be-03,intern,Hình như là liên quan Logging nhưng em không giải thích được chi tiết.,3.0,,shallow
+a0932,be-03,fresher,"Khác nhau ở tên gọi thôi, thực tế debug dùng cho mọi trường hợp.",3.5,purpose,oversimplify
+a0933,be-03,intern,"Theo hướng thực tế: Log giúp debug, audit, theo dõi lỗi production (level INFO/WARN/ERROR). Nên log request id, lỗi kèm stack cần thiết, sự kiện nghiệp vụ quan trọng. Tránh log mật khẩu/token/PII; không log quá mức gây ồn và lộ dữ liệu.",8.5,purpose;levels;sensitive,practical
+a0934,be-03,fresher,Các ý chính: Debug / monitor; Log level; Không log secret/PII.,7.0,purpose;levels;sensitive,label-list
+a0935,be-03,intern,Em hiểu Debug / monitor nhờ hint 'debug'. Thêm Log level.,6.5,purpose;levels,two-points
+a0936,be-03,fresher,Liên quan Logging: debug. Phần còn lại em trả lời chưa đủ.,5.0,purpose,incomplete
+a0937,be-03,intern,Theo em thì Backend quan trọng với fresher.,4.0,,too-generic
+a0938,be-03,fresher,Em trả lời sai: cái này chỉ dùng trên frontend React.,2.5,,wrong-domain
+a0939,be-03,intern,"Log giúp debug, audit, theo dõi lỗi production (level INFO/WARN/ERROR). Nên log request id, lỗi kèm stack cần thiết, sự kiện nghiệp vụ quan trọng. Tránh log mật khẩu/token/PII; không log quá mức gây ồn và lộ dữ liệu. Đây là phần kiến thức intern/fresher nên nắm vững.",9.5,purpose;levels;sensitive,excellent-plus
+a0940,be-03,fresher,debug → Debug / monitor. info → Log level. password → Không log secret/PII.,8.0,purpose;levels;sensitive,hint-walk

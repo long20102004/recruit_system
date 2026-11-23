@@ -37,6 +37,8 @@ export interface Job {
   preferredSkills: string[];
   minYears: number;
   description: string;
+  requirements: string;
+  responsibilities: string;
 }
 
 export interface MatchResult {
@@ -97,6 +99,9 @@ export interface InterviewQuestion {
 }
 
 export interface InterviewEvaluation {
+  scoringMode?: string | null;
+  coverageScore?: number | null;
+  criterionResults?: {key: string; label: string; status: string; points: number; max_points: number; feedback: string}[];
   bertPrecision: number;
   bertRecall: number;
   bertF1: number;

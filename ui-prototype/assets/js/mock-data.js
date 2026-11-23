@@ -1,17 +1,15 @@
 /**
- * DỮ LIỆU MINH HỌA — chỉ dùng cho UI prototype.
- * Không phải dữ liệu production hay kết quả mô hình đã kiểm chứng.
+ * Dữ liệu minh họa cho prototype HireLens (chỉ dùng UI).
  */
 window.HireLensMock = {
   meta: {
-    notice: "Dữ liệu minh họa cho demo UI",
     userLocation: "Quận 1, TP. Hồ Chí Minh",
-    modelVersions: {
-      ner: "rule+ner-baseline-v0 (chưa deploy service)",
-      embedding: "sentence-transformer-planned-v0",
-      matching: "hybrid-baseline-v0 (TF-IDF + semantic stub)",
-      interview: "bertscore-mbert + linear-calibration-demo",
-    },
+  },
+
+  recruiter: {
+    company: "NovaTech",
+    name: "Trần Thu Hà",
+    email: "ha.tran@novatech.vn",
   },
 
   candidate: {
@@ -24,7 +22,7 @@ window.HireLensMock = {
   },
 
   extractedCv: {
-    status: "pending_review",
+    status: "Chờ xác nhận",
     confidence: 0.82,
     sourceFile: "CV_Nguyen_Minh_An.pdf",
     contact: {
@@ -55,15 +53,15 @@ window.HireLensMock = {
     ],
     projects: [
       {
-        name: "Hệ thống tuyển dụng thông minh",
-        description: "Áp dụng NER, Embedding, Learning-to-Rank và BERTScore.",
-        skills: ["Java", "Spring Boot", "Python", "NLP"],
+        name: "Hệ thống hỗ trợ tuyển dụng",
+        description: "Web app giúp sinh viên IT tìm việc và luyện phỏng vấn.",
+        skills: ["Java", "Spring Boot", "Python", "React"],
       },
     ],
     skills: ["Java", "Spring Boot", "PostgreSQL", "Python", "REST API", "Git"],
     languages: ["Tiếng Việt (bản ngữ)", "English (B1)"],
-    certificates: ["AWS Cloud Practitioner (minh họa)"],
-    missingFields: ["linkedin", "expected_salary"],
+    certificates: ["AWS Cloud Practitioner"],
+    missingFields: ["LinkedIn", "Mức lương mong muốn"],
   },
 
   jobs: [
@@ -87,6 +85,8 @@ window.HireLensMock = {
       minYears: 1,
       description:
         "Tham gia xây dựng microservice Java/Spring Boot, viết API và tối ưu truy vấn PostgreSQL.",
+      requirements:
+        "Tốt nghiệp hoặc năm cuối CNTT; nắm OOP, SQL cơ bản; ưu tiên đã thực tập Spring Boot.",
     },
     {
       id: "job-102",
@@ -107,7 +107,8 @@ window.HireLensMock = {
       preferredSkills: ["BERT", "FastAPI"],
       minYears: 0,
       description:
-        "Hỗ trợ pipeline trích xuất thông tin CV và đánh giá câu trả lời phỏng vấn bằng Transformer.",
+        "Hỗ trợ xây dựng công cụ phân tích CV và hỗ trợ đánh giá câu trả lời phỏng vấn.",
+      requirements: "Sinh viên năm 3–4; biết Python; quan tâm NLP là lợi thế.",
     },
     {
       id: "job-103",
@@ -128,6 +129,7 @@ window.HireLensMock = {
       preferredSkills: ["AWS"],
       minYears: 2,
       description: "Phát triển sản phẩm web end-to-end cho nền tảng HR.",
+      requirements: "Ít nhất 2 năm kinh nghiệm full-stack; thành thạo React và Node.js.",
     },
     {
       id: "job-104",
@@ -148,6 +150,7 @@ window.HireLensMock = {
       preferredSkills: ["Spring Boot"],
       minYears: 0,
       description: "Thực tập Java, tham gia dự án outsourcing và mentorship.",
+      requirements: "Sinh viên năm cuối; GPA khá; sẵn sàng full-time khi thực tập.",
     },
     {
       id: "job-105",
@@ -168,6 +171,7 @@ window.HireLensMock = {
       preferredSkills: ["Kafka", "Kubernetes"],
       minYears: 1,
       description: "Xây dựng dịch vụ backend cho sản phẩm game / social.",
+      requirements: "Có ít nhất 1 năm kinh nghiệm Spring Boot hoặc dự án cá nhân tương đương.",
     },
     {
       id: "job-106",
@@ -187,7 +191,8 @@ window.HireLensMock = {
       requiredSkills: ["Python", "Machine Learning", "SQL"],
       preferredSkills: ["NLP"],
       minYears: 0,
-      description: "Hỗ trợ các bài toán ranking, NLP và phân tích hành vi người dùng.",
+      description: "Hỗ trợ các bài toán ranking và phân tích hành vi người dùng.",
+      requirements: "Biết Python và SQL; đã học ML cơ bản.",
     },
   ],
 
@@ -196,62 +201,46 @@ window.HireLensMock = {
       jobId: "job-101",
       rank: 1,
       score: 0.86,
-      semanticSimilarity: 0.81,
-      tfidfSimilarity: 0.74,
-      skillOverlap: 0.92,
       matchedSkills: ["Java", "Spring Boot", "PostgreSQL", "REST API"],
       missingSkills: ["Docker"],
       reasons: [
         "Kỹ năng bắt buộc trùng 4/4",
-        "Kinh nghiệm backend Java phù hợp JD",
-        "Điểm semantic (stub) cao với mô tả công việc",
+        "Kinh nghiệm backend Java phù hợp mô tả công việc",
+        "Vị trí gần khu vực của bạn",
       ],
-      modelVersion: "hybrid-baseline-v0",
     },
     {
       jobId: "job-105",
       rank: 2,
       score: 0.79,
-      semanticSimilarity: 0.77,
-      tfidfSimilarity: 0.69,
-      skillOverlap: 0.75,
       matchedSkills: ["Java", "Spring Boot"],
       missingSkills: ["MySQL", "Redis"],
       reasons: [
         "Gần vị trí của bạn (~4 km)",
         "Stack Java/Spring trùng mạnh",
       ],
-      modelVersion: "hybrid-baseline-v0",
     },
     {
       jobId: "job-102",
       rank: 3,
       score: 0.71,
-      semanticSimilarity: 0.76,
-      tfidfSimilarity: 0.58,
-      skillOverlap: 0.67,
       matchedSkills: ["Python", "NLP"],
       missingSkills: ["PyTorch"],
       reasons: [
-        "Có dự án NLP/đồ án liên quan",
-        "Thiếu PyTorch trong CV đã trích xuất",
+        "Có dự án liên quan phân tích ngôn ngữ",
+        "Thiếu PyTorch trong hồ sơ",
       ],
-      modelVersion: "hybrid-baseline-v0",
     },
     {
       jobId: "job-103",
       rank: 4,
       score: 0.39,
-      semanticSimilarity: 0.48,
-      tfidfSimilarity: 0.33,
-      skillOverlap: 0.25,
       matchedSkills: ["PostgreSQL"],
       missingSkills: ["React", "Node.js", "TypeScript"],
       reasons: [
         "Thiếu nhiều kỹ năng frontend bắt buộc",
         "Hồ sơ thiên về backend hơn full-stack",
       ],
-      modelVersion: "hybrid-baseline-v0",
     },
   ],
 
@@ -290,8 +279,9 @@ window.HireLensMock = {
 
   interviewSession: {
     id: "sess-778",
-    status: "in_progress",
+    status: "Đang diễn ra",
     jobTitle: "Junior Backend Developer (Java)",
+    candidateName: "Nguyễn Minh An",
     currentIndex: 0,
     responses: [
       {
@@ -299,27 +289,34 @@ window.HireLensMock = {
         answer:
           "Java là ngôn ngữ lập trình hướng đối tượng được sử dụng để phát triển các ứng dụng backend.",
         evaluation: {
-          bertPrecision: 0.91,
-          bertRecall: 0.84,
-          bertF1: 0.87,
           predictedScore: 8.2,
-          scoreScale: "0–10 (đã hiệu chỉnh từ BERTScore, không quy đổi trực tiếp)",
           coveredPoints: ["Hướng đối tượng", "Ứng dụng backend"],
           missingPoints: ["Đa nền tảng"],
           comment:
             "Câu trả lời đúng trọng tâm nhưng chưa đề cập đặc tính đa nền tảng.",
-          modelVersion: "bertscore-mbert + linear-calibration-demo",
         },
       },
     ],
   },
 
-  scoreDefinitions: {
-    matchScore:
-      "Điểm phù hợp tổng hợp (0–1) = trọng số semantic + skill overlap + kinh nghiệm. Bản demo dùng stub có thể giải thích được, chưa phải Learning-to-Rank đã huấn luyện.",
-    bertscore:
-      "BERTScore đo tương đồng ngữ nghĩa với đáp án tham chiếu. Điểm phỏng vấn hiển thị đã qua bước hiệu chỉnh tuyến tính trên dữ liệu demo — không phải điểm tuyệt đối.",
-    cvConfidence:
-      "Độ tin cậy trích xuất ước lượng từ rule-based + NER baseline (minh họa).",
-  },
+  applications: [
+    {
+      id: "app-01",
+      candidateId: "cand-001",
+      candidateName: "Nguyễn Minh An",
+      jobId: "job-101",
+      status: "Đã nộp",
+      matchScore: 0.86,
+      appliedAt: "Hôm nay",
+    },
+    {
+      id: "app-02",
+      candidateId: "cand-001",
+      candidateName: "Nguyễn Minh An",
+      jobId: "job-105",
+      status: "Đang xem xét",
+      matchScore: 0.79,
+      appliedAt: "Hôm qua",
+    },
+  ],
 };

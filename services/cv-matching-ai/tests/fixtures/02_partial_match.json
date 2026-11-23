@@ -1,0 +1,27 @@
+{
+  "candidate": {
+    "name": "Bình",
+    "skills": [
+      "JavaScript",
+      "ReactJS"
+    ],
+    "experience_years": 2,
+    "job_titles": [
+      "Frontend Developer"
+    ],
+    "education": "Cử nhân",
+    "raw_context": "Phát triển giao diện web."
+  },
+  "jd": {
+    "title": "Frontend Developer",
+    "required_skills": [
+      "JavaScript",
+      "React",
+      "REST API"
+    ],
+    "min_experience_years": 3,
+    "required_title": "Frontend Developer",
+    "education": "Cử nhân",
+    "context": "Xây dựng giao diện web và REST API."
+  }
+}
