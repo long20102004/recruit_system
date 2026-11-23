@@ -1,0 +1,18 @@
+# Phien ban da chay qua test o env conda `cvmatch` (24/11/2026). torch cai rieng trong Dockerfile (cpu | cu*).
+fastapi==0.115.6
+starlette==0.41.3
+uvicorn==0.34.0
+pydantic==2.13.5
+PyYAML==6.0.3
+psycopg[binary]==3.3.9
+pgvector==0.5.1
+numpy==2.2.1
+scipy==1.17.1
+pyvi==0.1.1
+scikit-learn==1.9.1
+sklearn-crfsuite==0.5.0
+Jinja2==3.1.6
+transformers==4.57.6
+tokenizers==0.22.2
+safetensors==0.8.0
+huggingface_hub==0.36.2

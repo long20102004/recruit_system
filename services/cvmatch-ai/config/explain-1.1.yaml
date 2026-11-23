@@ -1,0 +1,15 @@
+# Tang 3 Explain. Thiet ke 08, 11 muc 1.4. explain-1.1 = mau tpl-1.1 (them B5, cap bac, unmapped_req - T15).
+version: explain-1.1
+mode: template            # template (P1) | llm (P2, tuy chon)
+lazy: true                # chi tao khi HR mo chi tiet
+template_version: tpl-1.1
+max_questions: 3          # mau; LLM: 2-4
+max_examples: 3           # so trach nhiem co bang chung dua lam vi du
+template_file: templates/explain-tpl-1.1.j2
+forbidden_file: patterns/explain_forbidden.txt
+band_labels:
+  high: "phù hợp cao"     # >= bands[0]
+  mid: "cân nhắc"         # >= bands[1]
+  low: "thấp"
+candidate_template_file: templates/explain-candidate-1.0.j2   # Luong D (08 muc 5)
+candidate_template_version: cand-1.0

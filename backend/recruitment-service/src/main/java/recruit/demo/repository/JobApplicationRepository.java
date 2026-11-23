@@ -33,4 +33,6 @@ public interface JobApplicationRepository extends JpaRepository<JobApplication, 
     List<JobApplication> findForRecruiterUser(@Param("userId") Integer userId);
 
     long countByJobCreatedById(Integer userId);
+
+    List<JobApplication> findByJobId(Integer jobId);
 }

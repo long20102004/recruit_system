@@ -1,0 +1,32 @@
+{
+ "jd_id": "E2E-FE",
+ "title": "Frontend Developer (React)",
+ "location": "Hà Nội",
+ "min_years": 2,
+ "skills": [
+  {
+   "name": "React",
+   "required": true,
+   "importance": "core"
+  },
+  {
+   "name": "TypeScript",
+   "required": true,
+   "importance": "medium"
+  },
+  {
+   "name": "JavaScript",
+   "required": true,
+   "importance": "core"
+  }
+ ],
+ "requirements": [
+  "Có kinh nghiệm làm việc với REST API"
+ ],
+ "responsibilities": [
+  "Xây dựng giao diện quản trị bằng React",
+  "Tối ưu tốc độ tải trang và trải nghiệm người dùng",
+  "Phát triển các component dùng chung"
+ ],
+ "status": "open"
+}

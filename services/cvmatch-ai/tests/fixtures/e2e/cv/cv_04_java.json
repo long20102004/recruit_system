@@ -1,0 +1,47 @@
+{
+ "full_name": "Ứng viên 04",
+ "email": "ungvien04@example.com",
+ "phone": "0900000004",
+ "location": "Hà Nội",
+ "summary": "Java Developer kinh nghiệm",
+ "skills": [
+  "Java",
+  "Spring Boot",
+  "PostgreSQL",
+  "Kafka",
+  "Docker",
+  "Redis"
+ ],
+ "experiences": [
+  {
+   "title": "Fresher Java Developer",
+   "company": "Công ty E",
+   "start": "2025-05",
+   "end": null,
+   "is_current": true,
+   "description": [
+    "Thiết kế cache Redis cho các API có tải cao",
+    "Thiết kế và phát triển REST API cho hệ thống thanh toán bằng Spring Boot",
+    "Xây dựng luồng xử lý sự kiện bất đồng bộ với Kafka cho đơn hàng",
+    "Viết unit test và integration test cho các service backend"
+   ],
+   "technologies": [
+    "Redis",
+    "PostgreSQL",
+    "Kafka"
+   ]
+  }
+ ],
+ "projects": [],
+ "education": [
+  {
+   "school": "Đại học Bách khoa",
+   "major": "Khoa học máy tính",
+   "end": "2024"
+  }
+ ],
+ "certificates": [],
+ "languages": [
+  "Tiếng Anh"
+ ]
+}

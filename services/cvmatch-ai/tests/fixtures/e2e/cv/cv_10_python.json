@@ -1,0 +1,53 @@
+{
+ "full_name": "Ứng viên 10",
+ "email": "ungvien10@example.com",
+ "phone": "0900000010",
+ "location": "Hà Nội",
+ "summary": "Python Developer kinh nghiệm",
+ "skills": [
+  "Python",
+  "Django"
+ ],
+ "experiences": [
+  {
+   "title": "Python Developer",
+   "company": "Công ty K",
+   "start": "2021-02",
+   "end": null,
+   "is_current": true,
+   "description": [
+    "Viết tác vụ nền xử lý dữ liệu với Celery và Redis",
+    "Tích hợp cổng thanh toán và dịch vụ gửi email cho khách hàng",
+    "Phát triển API quản lý đơn hàng bằng Django REST framework",
+    "Tối ưu truy vấn MySQL cho các báo cáo doanh thu hàng ngày"
+   ],
+   "technologies": [
+    "Redis",
+    "Django",
+    "MySQL"
+   ]
+  },
+  {
+   "title": "Python Developer",
+   "company": "Công ty K",
+   "start": "2018-03",
+   "end": "2020-12",
+   "description": [
+    "Phát triển API quản lý đơn hàng bằng Django REST framework",
+    "Viết tác vụ nền xử lý dữ liệu với Celery và Redis"
+   ]
+  }
+ ],
+ "projects": [],
+ "education": [
+  {
+   "school": "Đại học Bách khoa",
+   "major": "Khoa học máy tính",
+   "end": "2020"
+  }
+ ],
+ "certificates": [],
+ "languages": [
+  "Tiếng Anh"
+ ]
+}

@@ -1,0 +1,43 @@
+{
+ "full_name": "Ứng viên 25",
+ "email": "ungvien25@example.com",
+ "phone": "0900000025",
+ "location": "Hà Nội",
+ "summary": "Data Engineer kinh nghiệm",
+ "skills": [
+  "Python",
+  "SQL"
+ ],
+ "experiences": [
+  {
+   "title": "Junior Data Engineer",
+   "company": "Công ty Z",
+   "start": "2023-08",
+   "end": null,
+   "is_current": true,
+   "description": [
+    "Thiết kế kho dữ liệu và các bảng tổng hợp phục vụ báo cáo",
+    "Xử lý dữ liệu luồng thời gian thực với Kafka",
+    "Triển khai các job xử lý dữ liệu trên AWS",
+    "Xây dựng pipeline ETL xử lý hàng triệu bản ghi mỗi ngày bằng Python"
+   ],
+   "technologies": [
+    "PostgreSQL",
+    "AWS",
+    "Kafka"
+   ]
+  }
+ ],
+ "projects": [],
+ "education": [
+  {
+   "school": "Đại học Bách khoa",
+   "major": "Khoa học máy tính",
+   "end": "2022"
+  }
+ ],
+ "certificates": [],
+ "languages": [
+  "Tiếng Anh"
+ ]
+}

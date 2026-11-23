@@ -1,0 +1,53 @@
+{
+ "full_name": "Ứng viên 11",
+ "email": "ungvien11@example.com",
+ "phone": "0900000011",
+ "location": "Đà Nẵng",
+ "summary": "Frontend Developer nhiều năm kinh nghiệm",
+ "skills": [
+  "JavaScript",
+  "TypeScript",
+  "React"
+ ],
+ "experiences": [
+  {
+   "title": "Senior Frontend Developer",
+   "company": "Công ty L",
+   "start": "2017-03",
+   "end": null,
+   "is_current": true,
+   "description": [
+    "Phát triển thư viện component dùng chung cho nhiều dự án",
+    "Xây dựng giao diện trang quản trị bằng React và TypeScript",
+    "Tối ưu tốc độ tải trang, cải thiện điểm Lighthouse từ 60 lên 90"
+   ],
+   "technologies": [
+    "TypeScript",
+    "Git",
+    "React"
+   ]
+  },
+  {
+   "title": "Frontend Developer",
+   "company": "Công ty L",
+   "start": "2014-03",
+   "end": "2016-12",
+   "description": [
+    "Xây dựng giao diện trang quản trị bằng React và TypeScript",
+    "Kết nối giao diện với REST API và xử lý trạng thái bằng Redux"
+   ]
+  }
+ ],
+ "projects": [],
+ "education": [
+  {
+   "school": "Đại học Bách khoa",
+   "major": "Hệ thống thông tin",
+   "end": "2016"
+  }
+ ],
+ "certificates": [],
+ "languages": [
+  "Tiếng Anh"
+ ]
+}

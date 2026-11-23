@@ -1,0 +1,305 @@
+{"op": "same_as", "label": "Skill", "drop": "apache kafka", "keep": "kafka", "evidence": {"source_id": "G03", "page": 2, "quote": "same_as,apache kafka,kafka,cùng một công nghệ (dòng conflict của Stack Overflow)"}}
+{"op": "same_as", "label": "Skill", "drop": "apache spark", "keep": "spark", "evidence": {"source_id": "G03", "page": 3, "quote": "same_as,apache spark,spark,cùng một công nghệ"}}
+{"op": "same_as", "label": "Skill", "drop": "apache airflow", "keep": "airflow", "evidence": {"source_id": "G03", "page": 4, "quote": "same_as,apache airflow,airflow,cùng một công nghệ"}}
+{"op": "same_as", "label": "Skill", "drop": "tailwind", "keep": "tailwind css", "evidence": {"source_id": "G03", "page": 5, "quote": "same_as,tailwind,tailwind css,cùng một công nghệ"}}
+{"op": "same_as", "label": "Skill", "drop": "ec2", "keep": "amazon ec2", "evidence": {"source_id": "G03", "page": 6, "quote": "same_as,ec2,amazon ec2,cùng một công nghệ"}}
+{"op": "same_as", "label": "Skill", "drop": "gcp", "keep": "google cloud", "evidence": {"source_id": "G03", "page": 7, "quote": "same_as,gcp,google cloud,cùng một nhà cung cấp"}}
+{"op": "same_as", "label": "Skill", "drop": "databases", "keep": "database", "evidence": {"source_id": "G03", "page": 8, "quote": "same_as,databases,database,số ít/số nhiều"}}
+{"op": "same_as", "label": "Skill", "drop": "operating systems", "keep": "operating system", "evidence": {"source_id": "G03", "page": 9, "quote": "same_as,operating systems,operating system,số ít/số nhiều"}}
+{"op": "same_as", "label": "Skill", "drop": "domain driven design", "keep": "domain-driven design", "evidence": {"source_id": "G03", "page": 10, "quote": "same_as,domain driven design,domain-driven design,khác cách viết"}}
+{"op": "same_as", "label": "Skill", "drop": "jwt auth", "keep": "jwt", "evidence": {"source_id": "G03", "page": 11, "quote": "same_as,jwt auth,jwt,cùng một khái niệm"}}
+{"op": "same_as", "label": "Skill", "drop": "wlan", "keep": "wifi", "evidence": {"source_id": "G03", "page": 12, "quote": "same_as,wlan,wifi,WLAN và WiFi dùng như nhau trong JD"}}
+{"op": "same_as", "label": "Skill", "drop": "csp", "keep": "content security policy", "evidence": {"source_id": "G03", "page": 13, "quote": "same_as,csp,content security policy,viết tắt"}}
+{"op": "same_as", "label": "Skill", "drop": "tableu", "keep": "tableau", "evidence": {"source_id": "G03", "page": 14, "quote": "same_as,tableu,tableau,lỗi chính tả trong roadmap"}}
+{"op": "same_as", "label": "Skill", "drop": "power bi", "keep": "microsoft power bi", "evidence": {"source_id": "G03", "page": 15, "quote": "same_as,power bi,microsoft power bi,cùng một công cụ"}}
+{"op": "same_as", "label": "Skill", "drop": "event driven architecture", "keep": "event-driven architecture", "evidence": {"source_id": "G03", "page": 16, "quote": "same_as,event driven architecture,event-driven architecture,khác cách viết"}}
+{"op": "same_as", "label": "Skill", "drop": "microservices architecture", "keep": "microservices", "evidence": {"source_id": "G03", "page": 17, "quote": "same_as,microservices architecture,microservices,cùng một khái niệm"}}
+{"op": "same_as", "label": "Skill", "drop": "version control systems", "keep": "version control", "evidence": {"source_id": "G03", "page": 18, "quote": "same_as,version control systems,version control,cùng một khái niệm"}}
+{"op": "same_as", "label": "Skill", "drop": "version control system", "keep": "version control", "evidence": {"source_id": "G03", "page": 19, "quote": "same_as,version control system,version control,cùng một khái niệm"}}
+{"op": "same_as", "label": "Skill", "drop": "vlans", "keep": "vlan", "evidence": {"source_id": "G03", "page": 20, "quote": "same_as,vlans,vlan,số ít/số nhiều"}}
+{"op": "same_as", "label": "Skill", "drop": "acls", "keep": "acl", "evidence": {"source_id": "G03", "page": 21, "quote": "same_as,acls,acl,số ít/số nhiều"}}
+{"op": "same_as", "label": "Skill", "drop": "hypervisors", "keep": "hypervisor", "evidence": {"source_id": "G03", "page": 22, "quote": "same_as,hypervisors,hypervisor,số ít/số nhiều"}}
+{"op": "same_as", "label": "Skill", "drop": "subnet masks", "keep": "subnet mask", "evidence": {"source_id": "G03", "page": 23, "quote": "same_as,subnet masks,subnet mask,số ít/số nhiều"}}
+{"op": "same_as", "label": "Skill", "drop": "routers", "keep": "router", "evidence": {"source_id": "G03", "page": 24, "quote": "same_as,routers,router,số ít/số nhiều"}}
+{"op": "same_as", "label": "Skill", "drop": "switches", "keep": "switch", "evidence": {"source_id": "G03", "page": 25, "quote": "same_as,switches,switch,số ít/số nhiều"}}
+{"op": "same_as", "label": "Skill", "drop": "vpns", "keep": "vpn", "evidence": {"source_id": "G03", "page": 26, "quote": "same_as,vpns,vpn,số ít/số nhiều"}}
+{"op": "same_as", "label": "Skill", "drop": "owasp security risks", "keep": "owasp top 10", "evidence": {"source_id": "G03", "page": 27, "quote": "same_as,owasp security risks,owasp top 10,cùng một danh sách"}}
+{"op": "same_as", "label": "Skill", "drop": "owasp risks", "keep": "owasp top 10", "evidence": {"source_id": "G03", "page": 28, "quote": "same_as,owasp risks,owasp top 10,cùng một danh sách"}}
+{"op": "same_as", "label": "Skill", "drop": "embedding", "keep": "embeddings", "evidence": {"source_id": "G03", "page": 29, "quote": "same_as,embedding,embeddings,số ít/số nhiều"}}
+{"op": "same_as", "label": "Skill", "drop": "open ai assistant api", "keep": "openai assistant api", "evidence": {"source_id": "G03", "page": 30, "quote": "same_as,open ai assistant api,openai assistant api,khác cách viết"}}
+{"op": "same_as", "label": "Skill", "drop": "oauth 2.0", "keep": "oauth", "evidence": {"source_id": "G03", "page": 31, "quote": "same_as,oauth 2.0,oauth,JD không phân biệt phiên bản"}}
+{"op": "same_as", "label": "Skill", "drop": "netflow", "keep": "netflow / sflow", "evidence": {"source_id": "G03", "page": 32, "quote": "same_as,netflow,netflow / sflow,cùng một công nghệ"}}
+{"op": "same_as", "label": "Skill", "drop": "decision tree", "keep": "decision trees", "evidence": {"source_id": "G03", "page": 33, "quote": "same_as,decision tree,decision trees,số ít/số nhiều"}}
+{"op": "same_as", "label": "Skill", "drop": "decision tree learning", "keep": "decision trees", "evidence": {"source_id": "G03", "page": 34, "quote": "same_as,decision tree learning,decision trees,cùng một thuật toán"}}
+{"op": "same_as", "label": "Skill", "drop": "naive bayes classifier", "keep": "naive bayes", "evidence": {"source_id": "G03", "page": 35, "quote": "same_as,naive bayes classifier,naive bayes,cùng một thuật toán"}}
+{"op": "same_as", "label": "Skill", "drop": "virtual private cloud", "keep": "vpc", "evidence": {"source_id": "G03", "page": 36, "quote": "same_as,virtual private cloud,vpc,viết tắt"}}
+{"op": "same_as", "label": "Skill", "drop": "serverless computing", "keep": "serverless", "evidence": {"source_id": "G03", "page": 37, "quote": "same_as,serverless computing,serverless,cùng một khái niệm"}}
+{"op": "same_as", "label": "Skill", "drop": "shell/bash", "keep": "bash", "evidence": {"source_id": "G03", "page": 38, "quote": "same_as,shell/bash,bash,cùng một công cụ"}}
+{"op": "same_as", "label": "Skill", "drop": "tls", "keep": "ssl/tls", "evidence": {"source_id": "G03", "page": 39, "quote": "same_as,tls,ssl/tls,cùng một giao thức"}}
+{"op": "same_as", "label": "Skill", "drop": "ssl/tls basics", "keep": "ssl/tls", "evidence": {"source_id": "G03", "page": 40, "quote": "same_as,ssl/tls basics,ssl/tls,mục cơ bản của cùng kỹ năng"}}
+{"op": "same_as", "label": "Skill", "drop": "models on hugging face", "keep": "hugging face models", "evidence": {"source_id": "G03", "page": 41, "quote": "same_as,models on hugging face,hugging face models,khác cách viết"}}
+{"op": "same_as", "label": "Skill", "drop": "ci cd pipelines", "keep": "ci cd", "evidence": {"source_id": "G03", "page": 42, "quote": "same_as,ci cd pipelines,ci cd,cùng một khái niệm"}}
+{"op": "same_as", "label": "Skill", "drop": "rest", "keep": "restful apis", "evidence": {"source_id": "G03", "page": 43, "quote": "same_as,rest,restful apis,cùng một khái niệm trong JD"}}
+{"op": "same_as", "label": "Skill", "drop": "perfect", "keep": "prefect", "evidence": {"source_id": "G03", "page": 44, "quote": "same_as,perfect,prefect,roadmap viết sai tên công cụ Prefect"}}
+{"op": "same_as", "label": "Skill", "drop": "auth/authorization", "keep": "authorization", "evidence": {"source_id": "G03", "page": 45, "quote": "same_as,auth/authorization,authorization,cùng một khái niệm"}}
+{"op": "same_as", "label": "Skill", "drop": "vm", "keep": "virtual machines", "evidence": {"source_id": "G03", "page": 46, "quote": "same_as,vm,virtual machines,viết tắt"}}
+{"op": "same_as", "label": "Skill", "drop": "nmap basics", "keep": "nmap", "evidence": {"source_id": "G03", "page": 47, "quote": "same_as,nmap basics,nmap,mục cơ bản của cùng kỹ năng"}}
+{"op": "same_as", "label": "Skill", "drop": "wireshark basics", "keep": "wireshark", "evidence": {"source_id": "G03", "page": 48, "quote": "same_as,wireshark basics,wireshark,mục cơ bản của cùng kỹ năng"}}
+{"op": "same_as", "label": "Skill", "drop": "zero trust concepts", "keep": "zero trust", "evidence": {"source_id": "G03", "page": 49, "quote": "same_as,zero trust concepts,zero trust,cùng một khái niệm"}}
+{"op": "same_as", "label": "Skill", "drop": "zero trust core concepts", "keep": "zero trust", "evidence": {"source_id": "G03", "page": 50, "quote": "same_as,zero trust core concepts,zero trust,cùng một khái niệm"}}
+{"op": "same_as", "label": "Skill", "drop": "web security basics", "keep": "web security", "evidence": {"source_id": "G03", "page": 51, "quote": "same_as,web security basics,web security,mục cơ bản của cùng kỹ năng"}}
+{"op": "same_as", "label": "Skill", "drop": "distributed systems basics", "keep": "distributed systems", "evidence": {"source_id": "G03", "page": 52, "quote": "same_as,distributed systems basics,distributed systems,mục cơ bản của cùng kỹ năng"}}
+{"op": "same_as", "label": "Skill", "drop": "encryption basics", "keep": "encryption", "evidence": {"source_id": "G03", "page": 53, "quote": "same_as,encryption basics,encryption,mục cơ bản của cùng kỹ năng"}}
+{"op": "same_as", "label": "Skill", "drop": "bluetooth basics", "keep": "bluetooth", "evidence": {"source_id": "G03", "page": 54, "quote": "same_as,bluetooth basics,bluetooth,mục cơ bản của cùng kỹ năng"}}
+{"op": "same_as", "label": "Skill", "drop": "osi", "keep": "osi model", "evidence": {"source_id": "G03", "page": 55, "quote": "same_as,osi,osi model,cùng một mô hình"}}
+{"op": "same_as", "label": "Skill", "drop": "tcp/ip model", "keep": "tcp/ip", "evidence": {"source_id": "G03", "page": 56, "quote": "same_as,tcp/ip model,tcp/ip,cùng một mô hình"}}
+{"op": "same_as", "label": "Skill", "drop": "datawarehouse principles", "keep": "data warehouse", "evidence": {"source_id": "G03", "page": 57, "quote": "same_as,datawarehouse principles,data warehouse,cùng một khái niệm"}}
+{"op": "same_as", "label": "Skill", "drop": "descriptive analysis", "keep": "descriptive analytics", "evidence": {"source_id": "G03", "page": 58, "quote": "same_as,descriptive analysis,descriptive analytics,cùng một khái niệm"}}
+{"op": "same_as", "label": "Skill", "drop": "gof design patterns", "keep": "design patterns", "evidence": {"source_id": "G03", "page": 59, "quote": "same_as,gof design patterns,design patterns,cùng một khái niệm trong JD"}}
+{"op": "same_as", "label": "Skill", "drop": "agile model", "keep": "agile", "evidence": {"source_id": "G03", "page": 60, "quote": "same_as,agile model,agile,cùng một phương pháp"}}
+{"op": "reject", "label": "Skill", "ref": "if", "evidence": {"source_id": "G03", "page": 61, "quote": "reject,if,,không phải kỹ năng"}}
+{"op": "reject", "label": "Skill", "ref": "basics", "evidence": {"source_id": "G03", "page": 62, "quote": "reject,basics,,không phải kỹ năng"}}
+{"op": "reject", "label": "Skill", "ref": "simplifying things", "evidence": {"source_id": "G03", "page": 63, "quote": "reject,simplifying things,,không phải kỹ năng"}}
+{"op": "reject", "label": "Skill", "ref": "clear page of distractions", "evidence": {"source_id": "G03", "page": 64, "quote": "reject,clear page of distractions,,mẹo UX không phải kỹ năng"}}
+{"op": "reject", "label": "Skill", "ref": "collaborate with others", "evidence": {"source_id": "G03", "page": 65, "quote": "reject,collaborate with others,,không phải kỹ năng"}}
+{"op": "reject", "label": "Skill", "ref": "mindfulness to avoid acting on the cue", "evidence": {"source_id": "G03", "page": 66, "quote": "reject,mindfulness to avoid acting on the cue,,không phải kỹ năng"}}
+{"op": "reject", "label": "Skill", "ref": "adding end-user ids in prompts", "evidence": {"source_id": "G03", "page": 67, "quote": "reject,adding end-user ids in prompts,,mẹo thực hành không phải kỹ năng"}}
+{"op": "reject", "label": "Skill", "ref": "choosing the right technologies", "evidence": {"source_id": "G03", "page": 68, "quote": "reject,choosing the right technologies,,không phải kỹ năng"}}
+{"op": "reject", "label": "Skill", "ref": "making layouts", "evidence": {"source_id": "G03", "page": 69, "quote": "reject,making layouts,,không phải kỹ năng"}}
+{"op": "reject", "label": "Skill", "ref": "good layout rules", "evidence": {"source_id": "G03", "page": 70, "quote": "reject,good layout rules,,không phải kỹ năng"}}
+{"op": "reject", "label": "Skill", "ref": "common commands", "evidence": {"source_id": "G03", "page": 71, "quote": "reject,common commands,,không phải kỹ năng"}}
+{"op": "reject", "label": "Skill", "ref": "common ports", "evidence": {"source_id": "G03", "page": 72, "quote": "reject,common ports,,không phải kỹ năng"}}
+{"op": "reject", "label": "Skill", "ref": "common protocols", "evidence": {"source_id": "G03", "page": 73, "quote": "reject,common protocols,,không phải kỹ năng"}}
+{"op": "reject", "label": "Skill", "ref": "installation and configuration", "evidence": {"source_id": "G03", "page": 74, "quote": "reject,installation and configuration,,không phải kỹ năng"}}
+{"op": "reject", "label": "Skill", "ref": "estimate and evaluate", "evidence": {"source_id": "G03", "page": 75, "quote": "reject,estimate and evaluate,,không phải kỹ năng"}}
+{"op": "reject", "label": "Skill", "ref": "application", "evidence": {"source_id": "G03", "page": 76, "quote": "reject,application,,từ chung"}}
+{"op": "reject", "label": "Skill", "ref": "generation", "evidence": {"source_id": "G03", "page": 77, "quote": "reject,generation,,từ chung"}}
+{"op": "reject", "label": "Skill", "ref": "identification", "evidence": {"source_id": "G03", "page": 78, "quote": "reject,identification,,từ chung"}}
+{"op": "reject", "label": "Skill", "ref": "exploration", "evidence": {"source_id": "G03", "page": 79, "quote": "reject,exploration,,từ chung"}}
+{"op": "reject", "label": "Skill", "ref": "recovery", "evidence": {"source_id": "G03", "page": 80, "quote": "reject,recovery,,từ chung"}}
+{"op": "reject", "label": "Skill", "ref": "cleanup", "evidence": {"source_id": "G03", "page": 81, "quote": "reject,cleanup,,từ chung"}}
+{"op": "reject", "label": "Skill", "ref": "base", "evidence": {"source_id": "G03", "page": 82, "quote": "reject,base,,nhãn rác trong nhóm column dbs"}}
+{"op": "reject", "label": "Skill", "ref": "native", "evidence": {"source_id": "G03", "page": 83, "quote": "reject,native,,nhãn rác trong nhóm game engine"}}
+{"op": "reject", "label": "Skill", "ref": "column", "evidence": {"source_id": "G03", "page": 84, "quote": "reject,column,,từ chung"}}
+{"op": "reject", "label": "Skill", "ref": "collection", "evidence": {"source_id": "G03", "page": 85, "quote": "reject,collection,,từ chung"}}
+{"op": "reject", "label": "Skill", "ref": "cloud specific tools", "evidence": {"source_id": "G03", "page": 86, "quote": "reject,cloud specific tools,,không phải kỹ năng"}}
+{"op": "reject", "label": "Skill", "ref": "design and implementation", "evidence": {"source_id": "G03", "page": 87, "quote": "reject,design and implementation,,không phải kỹ năng"}}
+{"op": "reject", "label": "Skill", "ref": "design & architecture decisions", "evidence": {"source_id": "G03", "page": 88, "quote": "reject,design & architecture decisions,,không phải kỹ năng"}}
+{"op": "reject", "label": "Skill", "ref": "tech decisions", "evidence": {"source_id": "G03", "page": 89, "quote": "reject,tech decisions,,không phải kỹ năng"}}
+{"op": "reject", "label": "Skill", "ref": "operations knowledge", "evidence": {"source_id": "G03", "page": 90, "quote": "reject,operations knowledge,,không phải kỹ năng"}}
+{"op": "reject", "label": "Skill", "ref": "networking knowledge", "evidence": {"source_id": "G03", "page": 91, "quote": "reject,networking knowledge,,trùng networking fundamentals"}}
+{"op": "reject", "label": "Skill", "ref": "scripting knowledge", "evidence": {"source_id": "G03", "page": 92, "quote": "reject,scripting knowledge,,không phải kỹ năng"}}
+{"op": "ambiguous", "label": "Skill", "ref": "cat", "evidence": {"source_id": "G03", "page": 93, "quote": "ambiguous,cat,,lệnh Linux trùng từ thường"}}
+{"op": "ambiguous", "label": "Skill", "ref": "head", "evidence": {"source_id": "G03", "page": 94, "quote": "ambiguous,head,,lệnh Linux trùng từ thường"}}
+{"op": "ambiguous", "label": "Skill", "ref": "tail", "evidence": {"source_id": "G03", "page": 95, "quote": "ambiguous,tail,,lệnh Linux trùng từ thường"}}
+{"op": "ambiguous", "label": "Skill", "ref": "man", "evidence": {"source_id": "G03", "page": 96, "quote": "ambiguous,man,,lệnh Linux trùng từ thường"}}
+{"op": "ambiguous", "label": "Skill", "ref": "trim", "evidence": {"source_id": "G03", "page": 97, "quote": "ambiguous,trim,,hàm Excel trùng từ thường"}}
+{"op": "ambiguous", "label": "Skill", "ref": "sum", "evidence": {"source_id": "G03", "page": 98, "quote": "ambiguous,sum,,hàm Excel trùng từ thường"}}
+{"op": "ambiguous", "label": "Skill", "ref": "count", "evidence": {"source_id": "G03", "page": 99, "quote": "ambiguous,count,,hàm Excel trùng từ thường"}}
+{"op": "ambiguous", "label": "Skill", "ref": "concat", "evidence": {"source_id": "G03", "page": 100, "quote": "ambiguous,concat,,hàm Excel trùng từ thường"}}
+{"op": "ambiguous", "label": "Skill", "ref": "average", "evidence": {"source_id": "G03", "page": 101, "quote": "ambiguous,average,,từ thường"}}
+{"op": "ambiguous", "label": "Skill", "ref": "mean", "evidence": {"source_id": "G03", "page": 102, "quote": "ambiguous,mean,,từ thường"}}
+{"op": "ambiguous", "label": "Skill", "ref": "median", "evidence": {"source_id": "G03", "page": 103, "quote": "ambiguous,median,,từ thường"}}
+{"op": "ambiguous", "label": "Skill", "ref": "mode", "evidence": {"source_id": "G03", "page": 104, "quote": "ambiguous,mode,,từ thường"}}
+{"op": "ambiguous", "label": "Skill", "ref": "range", "evidence": {"source_id": "G03", "page": 105, "quote": "ambiguous,range,,từ thường"}}
+{"op": "ambiguous", "label": "Skill", "ref": "variance", "evidence": {"source_id": "G03", "page": 106, "quote": "ambiguous,variance,,từ thường"}}
+{"op": "ambiguous", "label": "Skill", "ref": "point", "evidence": {"source_id": "G03", "page": 107, "quote": "ambiguous,point,,từ thường"}}
+{"op": "ambiguous", "label": "Skill", "ref": "spot", "evidence": {"source_id": "G03", "page": 108, "quote": "ambiguous,spot,,từ thường"}}
+{"op": "ambiguous", "label": "Skill", "ref": "light", "evidence": {"source_id": "G03", "page": 109, "quote": "ambiguous,light,,từ thường"}}
+{"op": "ambiguous", "label": "Skill", "ref": "fog", "evidence": {"source_id": "G03", "page": 110, "quote": "ambiguous,fog,,từ thường"}}
+{"op": "ambiguous", "label": "Skill", "ref": "cube", "evidence": {"source_id": "G03", "page": 111, "quote": "ambiguous,cube,,từ thường"}}
+{"op": "ambiguous", "label": "Skill", "ref": "bump", "evidence": {"source_id": "G03", "page": 112, "quote": "ambiguous,bump,,từ thường"}}
+{"op": "ambiguous", "label": "Skill", "ref": "horizon", "evidence": {"source_id": "G03", "page": 113, "quote": "ambiguous,horizon,,từ thường"}}
+{"op": "ambiguous", "label": "Skill", "ref": "cascaded", "evidence": {"source_id": "G03", "page": 114, "quote": "ambiguous,cascaded,,từ thường"}}
+{"op": "ambiguous", "label": "Skill", "ref": "directional", "evidence": {"source_id": "G03", "page": 115, "quote": "ambiguous,directional,,từ thường"}}
+{"op": "ambiguous", "label": "Skill", "ref": "diffuse", "evidence": {"source_id": "G03", "page": 116, "quote": "ambiguous,diffuse,,từ thường"}}
+{"op": "ambiguous", "label": "Skill", "ref": "specular", "evidence": {"source_id": "G03", "page": 117, "quote": "ambiguous,specular,,từ thường"}}
+{"op": "ambiguous", "label": "Skill", "ref": "shadow", "evidence": {"source_id": "G03", "page": 118, "quote": "ambiguous,shadow,,từ thường"}}
+{"op": "ambiguous", "label": "Skill", "ref": "frame", "evidence": {"source_id": "G03", "page": 119, "quote": "ambiguous,frame,,từ thường"}}
+{"op": "ambiguous", "label": "Skill", "ref": "flow", "evidence": {"source_id": "G03", "page": 120, "quote": "ambiguous,flow,,từ thường"}}
+{"op": "ambiguous", "label": "Skill", "ref": "bus", "evidence": {"source_id": "G03", "page": 121, "quote": "ambiguous,bus,,từ thường"}}
+{"op": "ambiguous", "label": "Skill", "ref": "hub", "evidence": {"source_id": "G03", "page": 122, "quote": "ambiguous,hub,,từ thường"}}
+{"op": "ambiguous", "label": "Skill", "ref": "balance", "evidence": {"source_id": "G03", "page": 123, "quote": "ambiguous,balance,,từ thường"}}
+{"op": "ambiguous", "label": "Skill", "ref": "box", "evidence": {"source_id": "G03", "page": 124, "quote": "ambiguous,box,,từ thường"}}
+{"op": "ambiguous", "label": "Skill", "ref": "graph", "evidence": {"source_id": "G03", "page": 125, "quote": "ambiguous,graph,,từ thường"}}
+{"op": "ambiguous", "label": "Skill", "ref": "force", "evidence": {"source_id": "G03", "page": 126, "quote": "ambiguous,force,,từ thường"}}
+{"op": "ambiguous", "label": "Skill", "ref": "friction", "evidence": {"source_id": "G03", "page": 127, "quote": "ambiguous,friction,,từ thường"}}
+{"op": "ambiguous", "label": "Skill", "ref": "wave", "evidence": {"source_id": "G03", "page": 128, "quote": "ambiguous,wave,,từ thường"}}
+{"op": "ambiguous", "label": "Skill", "ref": "color", "evidence": {"source_id": "G03", "page": 129, "quote": "ambiguous,color,,từ thường"}}
+{"op": "ambiguous", "label": "Skill", "ref": "texture", "evidence": {"source_id": "G03", "page": 130, "quote": "ambiguous,texture,,từ thường"}}
+{"op": "ambiguous", "label": "Skill", "ref": "dialogs", "evidence": {"source_id": "G03", "page": 131, "quote": "ambiguous,dialogs,,từ thường"}}
+{"op": "ambiguous", "label": "Skill", "ref": "tabs", "evidence": {"source_id": "G03", "page": 132, "quote": "ambiguous,tabs,,từ thường"}}
+{"op": "ambiguous", "label": "Skill", "ref": "toast", "evidence": {"source_id": "G03", "page": 133, "quote": "ambiguous,toast,,từ thường"}}
+{"op": "ambiguous", "label": "Skill", "ref": "activity", "evidence": {"source_id": "G03", "page": 134, "quote": "ambiguous,activity,,từ thường"}}
+{"op": "ambiguous", "label": "Skill", "ref": "fragments", "evidence": {"source_id": "G03", "page": 135, "quote": "ambiguous,fragments,,từ thường"}}
+{"op": "ambiguous", "label": "Skill", "ref": "intent", "evidence": {"source_id": "G03", "page": 136, "quote": "ambiguous,intent,,từ thường"}}
+{"op": "ambiguous", "label": "Skill", "ref": "session", "evidence": {"source_id": "G03", "page": 137, "quote": "ambiguous,session,,từ thường"}}
+{"op": "ambiguous", "label": "Skill", "ref": "server", "evidence": {"source_id": "G03", "page": 138, "quote": "ambiguous,server,,từ thường"}}
+{"op": "ambiguous", "label": "Skill", "ref": "client", "evidence": {"source_id": "G03", "page": 139, "quote": "ambiguous,client,,từ thường"}}
+{"op": "ambiguous", "label": "Skill", "ref": "host", "evidence": {"source_id": "G03", "page": 140, "quote": "ambiguous,host,,từ thường"}}
+{"op": "ambiguous", "label": "Skill", "ref": "port", "evidence": {"source_id": "G03", "page": 141, "quote": "ambiguous,port,,từ thường"}}
+{"op": "ambiguous", "label": "Skill", "ref": "route", "evidence": {"source_id": "G03", "page": 142, "quote": "ambiguous,route,,từ thường"}}
+{"op": "ambiguous", "label": "Skill", "ref": "storage", "evidence": {"source_id": "G03", "page": 143, "quote": "ambiguous,storage,,từ thường"}}
+{"op": "ambiguous", "label": "Skill", "ref": "package", "evidence": {"source_id": "G03", "page": 144, "quote": "ambiguous,package,,từ thường"}}
+{"op": "ambiguous", "label": "Skill", "ref": "protocol", "evidence": {"source_id": "G03", "page": 145, "quote": "ambiguous,protocol,,từ thường"}}
+{"op": "ambiguous", "label": "Skill", "ref": "endpoint", "evidence": {"source_id": "G03", "page": 146, "quote": "ambiguous,endpoint,,từ thường"}}
+{"op": "ambiguous", "label": "Skill", "ref": "instance", "evidence": {"source_id": "G03", "page": 147, "quote": "ambiguous,instance,,từ thường"}}
+{"op": "ambiguous", "label": "Skill", "ref": "workload", "evidence": {"source_id": "G03", "page": 148, "quote": "ambiguous,workload,,từ thường"}}
+{"op": "ambiguous", "label": "Skill", "ref": "cluster", "evidence": {"source_id": "G03", "page": 149, "quote": "ambiguous,cluster,,từ thường"}}
+{"op": "ambiguous", "label": "Skill", "ref": "internet", "evidence": {"source_id": "G03", "page": 150, "quote": "ambiguous,internet,,từ thường"}}
+{"op": "ambiguous", "label": "Skill", "ref": "transport", "evidence": {"source_id": "G03", "page": 151, "quote": "ambiguous,transport,,từ thường"}}
+{"op": "ambiguous", "label": "Skill", "ref": "movement", "evidence": {"source_id": "G03", "page": 152, "quote": "ambiguous,movement,,từ thường"}}
+{"op": "ambiguous", "label": "Skill", "ref": "orientation", "evidence": {"source_id": "G03", "page": 153, "quote": "ambiguous,orientation,,từ thường"}}
+{"op": "ambiguous", "label": "Skill", "ref": "location", "evidence": {"source_id": "G03", "page": 154, "quote": "ambiguous,location,,từ thường"}}
+{"op": "ambiguous", "label": "Skill", "ref": "notifications", "evidence": {"source_id": "G03", "page": 155, "quote": "ambiguous,notifications,,từ thường"}}
+{"op": "ambiguous", "label": "Skill", "ref": "hybrid", "evidence": {"source_id": "G03", "page": 156, "quote": "ambiguous,hybrid,,từ thường"}}
+{"op": "ambiguous", "label": "Skill", "ref": "linear", "evidence": {"source_id": "G03", "page": 157, "quote": "ambiguous,linear,,từ thường"}}
+{"op": "ambiguous", "label": "Skill", "ref": "matrix", "evidence": {"source_id": "G03", "page": 158, "quote": "ambiguous,matrix,,từ thường"}}
+{"op": "ambiguous", "label": "Skill", "ref": "curve", "evidence": {"source_id": "G03", "page": 159, "quote": "ambiguous,curve,,từ thường"}}
+{"op": "ambiguous", "label": "Skill", "ref": "distribution", "evidence": {"source_id": "G03", "page": 160, "quote": "ambiguous,distribution,,từ thường"}}
+{"op": "ambiguous", "label": "Skill", "ref": "regression", "evidence": {"source_id": "G03", "page": 161, "quote": "ambiguous,regression,,trùng regression testing và hồi quy"}}
+{"op": "ambiguous", "label": "Skill", "ref": "inference", "evidence": {"source_id": "G03", "page": 162, "quote": "ambiguous,inference,,từ thường"}}
+{"op": "ambiguous", "label": "Skill", "ref": "mapping", "evidence": {"source_id": "G03", "page": 163, "quote": "ambiguous,mapping,,từ thường"}}
+{"op": "ambiguous", "label": "Skill", "ref": "office", "evidence": {"source_id": "G03", "page": 164, "quote": "ambiguous,office,,từ thường"}}
+{"op": "set", "label": "Skill", "ref": "action funnel", "fields": {"type": "concept"}, "evidence": {"source_id": "G03", "page": 165, "quote": "type,action funnel,concept,không phải công cụ"}}
+{"op": "set", "label": "Skill", "ref": "ai code editors", "fields": {"type": "concept"}, "evidence": {"source_id": "G03", "page": 166, "quote": "type,ai code editors,concept,nhóm công cụ chung"}}
+{"op": "set", "label": "Skill", "ref": "ai/ml services", "fields": {"type": "concept"}, "evidence": {"source_id": "G03", "page": 167, "quote": "type,ai/ml services,concept,nhóm dịch vụ chung"}}
+{"op": "set", "label": "Skill", "ref": "caching server", "fields": {"type": "concept"}, "evidence": {"source_id": "G03", "page": 168, "quote": "type,caching server,concept,không phải một công cụ cụ thể"}}
+{"op": "set", "label": "Skill", "ref": "certificates", "fields": {"type": "concept"}, "evidence": {"source_id": "G03", "page": 169, "quote": "type,certificates,concept,khái niệm"}}
+{"op": "set", "label": "Skill", "ref": "charting", "fields": {"type": "concept"}, "evidence": {"source_id": "G03", "page": 170, "quote": "type,charting,concept,khái niệm"}}
+{"op": "set", "label": "Skill", "ref": "cloud computing", "fields": {"type": "concept"}, "evidence": {"source_id": "G03", "page": 171, "quote": "type,cloud computing,concept,khái niệm"}}
+{"op": "set", "label": "Skill", "ref": "cloud providers", "fields": {"type": "concept"}, "evidence": {"source_id": "G03", "page": 172, "quote": "type,cloud providers,concept,nhóm chung"}}
+{"op": "set", "label": "Skill", "ref": "cluster management tools", "fields": {"type": "concept"}, "evidence": {"source_id": "G03", "page": 173, "quote": "type,cluster management tools,concept,nhóm công cụ chung"}}
+{"op": "set", "label": "Skill", "ref": "code completion tools", "fields": {"type": "concept"}, "evidence": {"source_id": "G03", "page": 174, "quote": "type,code completion tools,concept,nhóm công cụ chung"}}
+{"op": "set", "label": "Skill", "ref": "firewall", "fields": {"type": "concept"}, "evidence": {"source_id": "G03", "page": 175, "quote": "type,firewall,concept,khái niệm"}}
+{"op": "set", "label": "Skill", "ref": "hypervisor", "fields": {"type": "concept"}, "evidence": {"source_id": "G03", "page": 176, "quote": "type,hypervisor,concept,khái niệm"}}
+{"op": "set", "label": "Skill", "ref": "load balancer", "fields": {"type": "concept"}, "evidence": {"source_id": "G03", "page": 177, "quote": "type,load balancer,concept,khái niệm"}}
+{"op": "set", "label": "Skill", "ref": "load testing", "fields": {"type": "concept"}, "evidence": {"source_id": "G03", "page": 178, "quote": "type,load testing,concept,kỹ thuật kiểm thử"}}
+{"op": "set", "label": "Skill", "ref": "managed kubernetes", "fields": {"type": "concept"}, "evidence": {"source_id": "G03", "page": 179, "quote": "type,managed kubernetes,concept,nhóm dịch vụ chung"}}
+{"op": "set", "label": "Skill", "ref": "managed relational dbs", "fields": {"type": "concept"}, "evidence": {"source_id": "G03", "page": 180, "quote": "type,managed relational dbs,concept,nhóm dịch vụ chung"}}
+{"op": "set", "label": "Skill", "ref": "mlops", "fields": {"type": "concept"}, "evidence": {"source_id": "G03", "page": 181, "quote": "type,mlops,concept,khái niệm"}}
+{"op": "set", "label": "Skill", "ref": "mobile automation", "fields": {"type": "concept"}, "evidence": {"source_id": "G03", "page": 182, "quote": "type,mobile automation,concept,kỹ thuật kiểm thử"}}
+{"op": "set", "label": "Skill", "ref": "mocking apis", "fields": {"type": "concept"}, "evidence": {"source_id": "G03", "page": 183, "quote": "type,mocking apis,concept,kỹ thuật"}}
+{"op": "set", "label": "Skill", "ref": "model training & serving", "fields": {"type": "concept"}, "evidence": {"source_id": "G03", "page": 184, "quote": "type,model training & serving,concept,khái niệm"}}
+{"op": "set", "label": "Skill", "ref": "module bundlers", "fields": {"type": "concept"}, "evidence": {"source_id": "G03", "page": 185, "quote": "type,module bundlers,concept,nhóm công cụ chung"}}
+{"op": "set", "label": "Skill", "ref": "orms", "fields": {"type": "concept"}, "evidence": {"source_id": "G03", "page": 186, "quote": "type,orms,concept,nhóm công cụ chung"}}
+{"op": "set", "label": "Skill", "ref": "port scanner", "fields": {"type": "concept"}, "evidence": {"source_id": "G03", "page": 187, "quote": "type,port scanner,concept,nhóm công cụ chung"}}
+{"op": "set", "label": "Skill", "ref": "protocol analyzer", "fields": {"type": "concept"}, "evidence": {"source_id": "G03", "page": 188, "quote": "type,protocol analyzer,concept,nhóm công cụ chung"}}
+{"op": "set", "label": "Skill", "ref": "reverse proxy", "fields": {"type": "concept"}, "evidence": {"source_id": "G03", "page": 189, "quote": "type,reverse proxy,concept,khái niệm"}}
+{"op": "set", "label": "Skill", "ref": "router", "fields": {"type": "concept"}, "evidence": {"source_id": "G03", "page": 190, "quote": "type,router,concept,thiết bị chung"}}
+{"op": "set", "label": "Skill", "ref": "serverless platforms", "fields": {"type": "concept"}, "evidence": {"source_id": "G03", "page": 191, "quote": "type,serverless platforms,concept,nhóm dịch vụ chung"}}
+{"op": "set", "label": "Skill", "ref": "vector database", "fields": {"type": "concept"}, "evidence": {"source_id": "G03", "page": 192, "quote": "type,vector database,concept,khái niệm"}}
+{"op": "set", "label": "Skill", "ref": "vcs hosting", "fields": {"type": "concept"}, "evidence": {"source_id": "G03", "page": 193, "quote": "type,vcs hosting,concept,nhóm dịch vụ chung"}}
+{"op": "set", "label": "Skill", "ref": "css preprocessors", "fields": {"type": "concept"}, "evidence": {"source_id": "G03", "page": 194, "quote": "type,css preprocessors,concept,nhóm công cụ chung"}}
+{"op": "set", "label": "Skill", "ref": "cdn", "fields": {"type": "concept"}, "evidence": {"source_id": "G03", "page": 195, "quote": "type,cdn,concept,khái niệm"}}
+{"op": "set", "label": "Skill", "ref": "siem", "fields": {"type": "concept"}, "evidence": {"source_id": "G03", "page": 196, "quote": "type,siem,concept,khái niệm"}}
+{"op": "set", "label": "Skill", "ref": "edr", "fields": {"type": "concept"}, "evidence": {"source_id": "G03", "page": 197, "quote": "type,edr,concept,khái niệm"}}
+{"op": "set", "label": "Skill", "ref": "ids", "fields": {"type": "concept"}, "evidence": {"source_id": "G03", "page": 198, "quote": "type,ids,concept,khái niệm"}}
+{"op": "set", "label": "Skill", "ref": "ips", "fields": {"type": "concept"}, "evidence": {"source_id": "G03", "page": 199, "quote": "type,ips,concept,khái niệm"}}
+{"op": "set", "label": "Skill", "ref": "ids/ips", "fields": {"type": "concept"}, "evidence": {"source_id": "G03", "page": 200, "quote": "type,ids/ips,concept,khái niệm"}}
+{"op": "set", "label": "Skill", "ref": "dlp", "fields": {"type": "concept"}, "evidence": {"source_id": "G03", "page": 201, "quote": "type,dlp,concept,khái niệm"}}
+{"op": "set", "label": "Skill", "ref": "esb", "fields": {"type": "concept"}, "evidence": {"source_id": "G03", "page": 202, "quote": "type,esb,concept,khái niệm"}}
+{"op": "set", "label": "Skill", "ref": "faas", "fields": {"type": "concept"}, "evidence": {"source_id": "G03", "page": 203, "quote": "type,faas,concept,khái niệm"}}
+{"op": "set", "label": "Skill", "ref": "san", "fields": {"type": "concept"}, "evidence": {"source_id": "G03", "page": 204, "quote": "type,san,concept,khái niệm"}}
+{"op": "set", "label": "Skill", "ref": "sdn", "fields": {"type": "concept"}, "evidence": {"source_id": "G03", "page": 205, "quote": "type,sdn,concept,khái niệm"}}
+{"op": "set", "label": "Skill", "ref": "dmz", "fields": {"type": "concept"}, "evidence": {"source_id": "G03", "page": 206, "quote": "type,dmz,concept,khái niệm"}}
+{"op": "set", "label": "Skill", "ref": "nat", "fields": {"type": "concept"}, "evidence": {"source_id": "G03", "page": 207, "quote": "type,nat,concept,khái niệm"}}
+{"op": "set", "label": "Skill", "ref": "shader", "fields": {"type": "concept"}, "evidence": {"source_id": "G03", "page": 208, "quote": "type,shader,concept,khái niệm"}}
+{"op": "set", "label": "Skill", "ref": "websocket", "fields": {"type": "technology"}, "evidence": {"source_id": "G03", "page": 209, "quote": "type,websocket,technology,giao thức cụ thể"}}
+{"op": "set", "label": "Skill", "ref": "kerberos", "fields": {"type": "technology"}, "evidence": {"source_id": "G03", "page": 210, "quote": "type,kerberos,technology,giao thức cụ thể"}}
+{"op": "set", "label": "Skill", "ref": "ipsec", "fields": {"type": "technology"}, "evidence": {"source_id": "G03", "page": 211, "quote": "type,ipsec,technology,giao thức cụ thể"}}
+{"op": "set", "label": "Skill", "ref": "jetpack benchmark", "fields": {"type": "technology"}, "evidence": {"source_id": "G03", "page": 212, "quote": "type,jetpack benchmark,technology,thư viện cụ thể"}}
+{"op": "set", "label": "Skill", "ref": "workmanager", "fields": {"type": "technology"}, "evidence": {"source_id": "G03", "page": 213, "quote": "type,workmanager,technology,thư viện cụ thể"}}
+{"op": "drop_edge", "type": "IN_CATEGORY", "src": "gitops", "dst": "container orchestration", "evidence": {"source_id": "G03", "page": 214, "quote": "drop_category,gitops,container orchestration,GitOps là phương pháp không phải công cụ điều phối"}}
+{"op": "drop_edge", "type": "IN_CATEGORY", "src": "sql", "dst": "data visualisation libraries", "evidence": {"source_id": "G03", "page": 215, "quote": "drop_category,sql,data visualisation libraries,SQL không phải thư viện trực quan hóa"}}
+{"op": "drop_edge", "type": "IN_CATEGORY", "src": "pandas", "dst": "data visualisation libraries", "evidence": {"source_id": "G03", "page": 216, "quote": "drop_category,pandas,data visualisation libraries,pandas là thư viện xử lý dữ liệu"}}
+{"op": "drop_edge", "type": "IN_CATEGORY", "src": "dplyr", "dst": "data visualisation libraries", "evidence": {"source_id": "G03", "page": 217, "quote": "drop_category,dplyr,data visualisation libraries,dplyr là thư viện xử lý dữ liệu"}}
+{"op": "drop_edge", "type": "IN_CATEGORY", "src": "streamlit", "dst": "bi tools", "evidence": {"source_id": "G03", "page": 218, "quote": "drop_category,streamlit,bi tools,Streamlit là framework ứng dụng dữ liệu"}}
+{"op": "drop_edge", "type": "IN_CATEGORY", "src": "replication", "dst": "ai models", "evidence": {"source_id": "G03", "page": 219, "quote": "drop_category,replication,ai models,nhãn sai nhóm"}}
+{"op": "drop_edge", "type": "IN_CATEGORY", "src": "concave", "dst": "programming languages", "evidence": {"source_id": "G03", "page": 220, "quote": "drop_category,concave,programming languages,khái niệm vật lý game"}}
+{"op": "drop_edge", "type": "IN_CATEGORY", "src": "convex", "dst": "programming languages", "evidence": {"source_id": "G03", "page": 221, "quote": "drop_category,convex,programming languages,khái niệm vật lý game"}}
+{"op": "drop_edge", "type": "IN_CATEGORY", "src": "convex decomposition", "dst": "programming languages", "evidence": {"source_id": "G03", "page": 222, "quote": "drop_category,convex decomposition,programming languages,khái niệm vật lý game"}}
+{"op": "drop_edge", "type": "IN_CATEGORY", "src": "convex hull", "dst": "programming languages", "evidence": {"source_id": "G03", "page": 223, "quote": "drop_category,convex hull,programming languages,khái niệm vật lý game"}}
+{"op": "drop_edge", "type": "IN_CATEGORY", "src": "epa", "dst": "programming languages", "evidence": {"source_id": "G03", "page": 224, "quote": "drop_category,epa,programming languages,thuật toán va chạm"}}
+{"op": "drop_edge", "type": "IN_CATEGORY", "src": "gjk", "dst": "programming languages", "evidence": {"source_id": "G03", "page": 225, "quote": "drop_category,gjk,programming languages,thuật toán va chạm"}}
+{"op": "drop_edge", "type": "IN_CATEGORY", "src": "sat", "dst": "programming languages", "evidence": {"source_id": "G03", "page": 226, "quote": "drop_category,sat,programming languages,thuật toán va chạm"}}
+{"op": "drop_edge", "type": "IN_CATEGORY", "src": "google suite", "dst": "operating systems", "evidence": {"source_id": "G03", "page": 227, "quote": "drop_category,google suite,operating systems,bộ ứng dụng văn phòng"}}
+{"op": "drop_edge", "type": "IN_CATEGORY", "src": "icloud", "dst": "operating systems", "evidence": {"source_id": "G03", "page": 228, "quote": "drop_category,icloud,operating systems,dịch vụ lưu trữ"}}
+{"op": "drop_edge", "type": "IN_CATEGORY", "src": "office", "dst": "operating systems", "evidence": {"source_id": "G03", "page": 229, "quote": "drop_category,office,operating systems,bộ ứng dụng văn phòng"}}
+{"op": "drop_edge", "type": "IN_CATEGORY", "src": "kubernetes", "dst": "big data tools", "evidence": {"source_id": "G03", "page": 230, "quote": "drop_category,kubernetes,big data tools,không phải công cụ big data"}}
+{"op": "drop_edge", "type": "IN_CATEGORY", "src": "charting", "dst": "data manipulation libraries", "evidence": {"source_id": "G03", "page": 231, "quote": "drop_category,charting,data manipulation libraries,nhãn sai nhóm"}}
+{"op": "same_as", "label": "Skill", "drop": "vector databases", "keep": "vector database", "evidence": {"source_id": "G03", "page": 232, "quote": "same_as,vector databases,vector database,số nhiều của cùng khái niệm"}}
+{"op": "same_as", "label": "Skill", "drop": "soap api", "keep": "soap", "evidence": {"source_id": "G03", "page": 233, "quote": "same_as,soap api,soap,cùng một chuẩn API"}}
+{"op": "set", "label": "Skill", "ref": "any.run", "fields": {"display_name": "ANY.RUN"}, "evidence": {"source_id": "G03", "page": 234, "quote": "display,any.run,ANY.RUN,tên hiển thị đúng cách viết (giải thích của module match in nguyên tên)"}}
+{"op": "set", "label": "Skill", "ref": "arp", "fields": {"display_name": "ARP"}, "evidence": {"source_id": "G03", "page": 235, "quote": "display,arp,ARP,tên hiển thị đúng cách viết (giải thích của module match in nguyên tên)"}}
+{"op": "set", "label": "Skill", "ref": "esxi", "fields": {"display_name": "ESXi"}, "evidence": {"source_id": "G03", "page": 236, "quote": "display,esxi,ESXi,tên hiển thị đúng cách viết (giải thích của module match in nguyên tên)"}}
+{"op": "set", "label": "Skill", "ref": "file crud", "fields": {"display_name": "file CRUD"}, "evidence": {"source_id": "G03", "page": 237, "quote": "display,file crud,file CRUD,tên hiển thị đúng cách viết (giải thích của module match in nguyên tên)"}}
+{"op": "set", "label": "Skill", "ref": "influxdb", "fields": {"display_name": "InfluxDB"}, "evidence": {"source_id": "G03", "page": 238, "quote": "display,influxdb,InfluxDB,tên hiển thị đúng cách viết (giải thích của module match in nguyên tên)"}}
+{"op": "set", "label": "Skill", "ref": "ionic", "fields": {"display_name": "Ionic"}, "evidence": {"source_id": "G03", "page": 239, "quote": "display,ionic,Ionic,tên hiển thị đúng cách viết (giải thích của module match in nguyên tên)"}}
+{"op": "set", "label": "Skill", "ref": "iot", "fields": {"display_name": "IoT"}, "evidence": {"source_id": "G03", "page": 240, "quote": "display,iot,IoT,tên hiển thị đúng cách viết (giải thích của module match in nguyên tên)"}}
+{"op": "set", "label": "Skill", "ref": "ip", "fields": {"display_name": "IP"}, "evidence": {"source_id": "G03", "page": 241, "quote": "display,ip,IP,tên hiển thị đúng cách viết (giải thích của module match in nguyên tên)"}}
+{"op": "set", "label": "Skill", "ref": "ip address", "fields": {"display_name": "IP address"}, "evidence": {"source_id": "G03", "page": 242, "quote": "display,ip address,IP address,tên hiển thị đúng cách viết (giải thích của module match in nguyên tên)"}}
+{"op": "set", "label": "Skill", "ref": "ip addressing", "fields": {"display_name": "IP addressing"}, "evidence": {"source_id": "G03", "page": 243, "quote": "display,ip addressing,IP addressing,tên hiển thị đúng cách viết (giải thích của module match in nguyên tên)"}}
+{"op": "set", "label": "Skill", "ref": "ipam", "fields": {"display_name": "IPAM"}, "evidence": {"source_id": "G03", "page": 244, "quote": "display,ipam,IPAM,tên hiển thị đúng cách viết (giải thích của module match in nguyên tên)"}}
+{"op": "set", "label": "Skill", "ref": "ips", "fields": {"display_name": "IPS"}, "evidence": {"source_id": "G03", "page": 245, "quote": "display,ips,IPS,tên hiển thị đúng cách viết (giải thích của module match in nguyên tên)"}}
+{"op": "set", "label": "Skill", "ref": "ipsec", "fields": {"display_name": "IPsec"}, "evidence": {"source_id": "G03", "page": 246, "quote": "display,ipsec,IPsec,tên hiển thị đúng cách viết (giải thích của module match in nguyên tên)"}}
+{"op": "set", "label": "Skill", "ref": "ir lifecycle", "fields": {"display_name": "IR lifecycle"}, "evidence": {"source_id": "G03", "page": 247, "quote": "display,ir lifecycle,IR lifecycle,tên hiển thị đúng cách viết (giải thích của module match in nguyên tên)"}}
+{"op": "set", "label": "Skill", "ref": "iso", "fields": {"display_name": "ISO"}, "evidence": {"source_id": "G03", "page": 248, "quote": "display,iso,ISO,tên hiển thị đúng cách viết (giải thích của module match in nguyên tên)"}}
+{"op": "set", "label": "Skill", "ref": "iso 27001", "fields": {"display_name": "ISO 27001"}, "evidence": {"source_id": "G03", "page": 249, "quote": "display,iso 27001,ISO 27001,tên hiển thị đúng cách viết (giải thích của module match in nguyên tên)"}}
+{"op": "set", "label": "Skill", "ref": "istio", "fields": {"display_name": "Istio"}, "evidence": {"source_id": "G03", "page": 250, "quote": "display,istio,Istio,tên hiển thị đúng cách viết (giải thích của module match in nguyên tên)"}}
+{"op": "set", "label": "Skill", "ref": "itil", "fields": {"display_name": "ITIL"}, "evidence": {"source_id": "G03", "page": 251, "quote": "display,itil,ITIL,tên hiển thị đúng cách viết (giải thích của module match in nguyên tên)"}}
+{"op": "set", "label": "Skill", "ref": "jaeger", "fields": {"display_name": "Jaeger"}, "evidence": {"source_id": "G03", "page": 252, "quote": "display,jaeger,Jaeger,tên hiển thị đúng cách viết (giải thích của module match in nguyên tên)"}}
+{"op": "set", "label": "Skill", "ref": "jasmine", "fields": {"display_name": "Jasmine"}, "evidence": {"source_id": "G03", "page": 253, "quote": "display,jasmine,Jasmine,tên hiển thị đúng cách viết (giải thích của module match in nguyên tên)"}}
+{"op": "set", "label": "Skill", "ref": "java", "fields": {"display_name": "Java"}, "evidence": {"source_id": "G03", "page": 254, "quote": "display,java,Java,tên hiển thị đúng cách viết (giải thích của module match in nguyên tên)"}}
+{"op": "set", "label": "Skill", "ref": "java/kotlin/scala", "fields": {"display_name": "Java/Kotlin/Scala"}, "evidence": {"source_id": "G03", "page": 255, "quote": "display,java/kotlin/scala,Java/Kotlin/Scala,tên hiển thị đúng cách viết (giải thích của module match in nguyên tên)"}}
+{"op": "set", "label": "Skill", "ref": "javascript", "fields": {"display_name": "JavaScript"}, "evidence": {"source_id": "G03", "page": 256, "quote": "display,javascript,JavaScript,tên hiển thị đúng cách viết (giải thích của module match in nguyên tên)"}}
+{"op": "set", "label": "Skill", "ref": "jenkins", "fields": {"display_name": "Jenkins"}, "evidence": {"source_id": "G03", "page": 257, "quote": "display,jenkins,Jenkins,tên hiển thị đúng cách viết (giải thích của module match in nguyên tên)"}}
+{"op": "set", "label": "Skill", "ref": "jest", "fields": {"display_name": "Jest"}, "evidence": {"source_id": "G03", "page": 258, "quote": "display,jest,Jest,tên hiển thị đúng cách viết (giải thích của module match in nguyên tên)"}}
+{"op": "set", "label": "Skill", "ref": "jetpack benchmark", "fields": {"display_name": "Jetpack Benchmark"}, "evidence": {"source_id": "G03", "page": 259, "quote": "display,jetpack benchmark,Jetpack Benchmark,tên hiển thị đúng cách viết (giải thích của module match in nguyên tên)"}}
+{"op": "set", "label": "Skill", "ref": "jetpack compose", "fields": {"display_name": "Jetpack Compose"}, "evidence": {"source_id": "G03", "page": 260, "quote": "display,jetpack compose,Jetpack Compose,tên hiển thị đúng cách viết (giải thích của module match in nguyên tên)"}}
+{"op": "set", "label": "Skill", "ref": "jmeter", "fields": {"display_name": "JMeter"}, "evidence": {"source_id": "G03", "page": 261, "quote": "display,jmeter,JMeter,tên hiển thị đúng cách viết (giải thích của module match in nguyên tên)"}}
+{"op": "set", "label": "Skill", "ref": "nmap", "fields": {"display_name": "Nmap"}, "evidence": {"source_id": "G03", "page": 262, "quote": "display,nmap,Nmap,tên hiển thị đúng cách viết (giải thích của module match in nguyên tên)"}}
+{"op": "set", "label": "Skill", "ref": "node.js", "fields": {"display_name": "Node.js"}, "evidence": {"source_id": "G03", "page": 263, "quote": "display,node.js,Node.js,tên hiển thị đúng cách viết (giải thích của module match in nguyên tên)"}}
+{"op": "set", "label": "Skill", "ref": "p2p network", "fields": {"display_name": "P2P network"}, "evidence": {"source_id": "G03", "page": 264, "quote": "display,p2p network,P2P network,tên hiển thị đúng cách viết (giải thích của module match in nguyên tên)"}}
+{"op": "set", "label": "Skill", "ref": "papertrail", "fields": {"display_name": "Papertrail"}, "evidence": {"source_id": "G03", "page": 265, "quote": "display,papertrail,Papertrail,tên hiển thị đúng cách viết (giải thích của module match in nguyên tên)"}}
+{"op": "set", "label": "Skill", "ref": "parcel", "fields": {"display_name": "Parcel"}, "evidence": {"source_id": "G03", "page": 266, "quote": "display,parcel,Parcel,tên hiển thị đúng cách viết (giải thích của module match in nguyên tên)"}}
+{"op": "set", "label": "Skill", "ref": "parrotos", "fields": {"display_name": "Parrot OS"}, "evidence": {"source_id": "G03", "page": 267, "quote": "display,parrotos,Parrot OS,tên hiển thị đúng cách viết (giải thích của module match in nguyên tên)"}}
+{"op": "set", "label": "Skill", "ref": "pasta", "fields": {"display_name": "PASTA"}, "evidence": {"source_id": "G03", "page": 268, "quote": "display,pasta,PASTA,tên hiển thị đúng cách viết (giải thích của module match in nguyên tên)"}}
+{"op": "set", "label": "Skill", "ref": "pbr", "fields": {"display_name": "PBR"}, "evidence": {"source_id": "G03", "page": 269, "quote": "display,pbr,PBR,tên hiển thị đúng cách viết (giải thích của module match in nguyên tên)"}}
+{"op": "set", "label": "Skill", "ref": "pci dss", "fields": {"display_name": "PCI DSS"}, "evidence": {"source_id": "G03", "page": 270, "quote": "display,pci dss,PCI DSS,tên hiển thị đúng cách viết (giải thích của module match in nguyên tên)"}}
+{"op": "set", "label": "Skill", "ref": "php", "fields": {"display_name": "PHP"}, "evidence": {"source_id": "G03", "page": 271, "quote": "display,php,PHP,tên hiển thị đúng cách viết (giải thích của module match in nguyên tên)"}}
+{"op": "set", "label": "Skill", "ref": "picoctf", "fields": {"display_name": "picoCTF"}, "evidence": {"source_id": "G03", "page": 272, "quote": "display,picoctf,picoCTF,tên hiển thị đúng cách viết (giải thích của module match in nguyên tên)"}}
+{"op": "set", "label": "Skill", "ref": "pii", "fields": {"display_name": "PII"}, "evidence": {"source_id": "G03", "page": 273, "quote": "display,pii,PII,tên hiển thị đúng cách viết (giải thích của module match in nguyên tên)"}}
+{"op": "set", "label": "Skill", "ref": "pinecone", "fields": {"display_name": "Pinecone"}, "evidence": {"source_id": "G03", "page": 274, "quote": "display,pinecone,Pinecone,tên hiển thị đúng cách viết (giải thích của module match in nguyên tên)"}}
+{"op": "set", "label": "Skill", "ref": "pki", "fields": {"display_name": "PKI"}, "evidence": {"source_id": "G03", "page": 275, "quote": "display,pki,PKI,tên hiển thị đúng cách viết (giải thích của module match in nguyên tên)"}}
+{"op": "set", "label": "Skill", "ref": "pki design", "fields": {"display_name": "PKI design"}, "evidence": {"source_id": "G03", "page": 276, "quote": "display,pki design,PKI design,tên hiển thị đúng cách viết (giải thích của module match in nguyên tên)"}}
+{"op": "set", "label": "Skill", "ref": "playwright", "fields": {"display_name": "Playwright"}, "evidence": {"source_id": "G03", "page": 277, "quote": "display,playwright,Playwright,tên hiển thị đúng cách viết (giải thích của module match in nguyên tên)"}}
+{"op": "set", "label": "Skill", "ref": "pmi", "fields": {"display_name": "PMI"}, "evidence": {"source_id": "G03", "page": 278, "quote": "display,pmi,PMI,tên hiển thị đúng cách viết (giải thích của module match in nguyên tên)"}}
+{"op": "set", "label": "Skill", "ref": "pop3s", "fields": {"display_name": "POP3S"}, "evidence": {"source_id": "G03", "page": 279, "quote": "display,pop3s,POP3S,tên hiển thị đúng cách viết (giải thích của module match in nguyên tên)"}}
+{"op": "set", "label": "Skill", "ref": "react-router", "fields": {"display_name": "React Router"}, "evidence": {"source_id": "G03", "page": 280, "quote": "display,react-router,React Router,tên hiển thị đúng cách viết (giải thích của module match in nguyên tên)"}}
+{"op": "set", "label": "Skill", "ref": "urlvoid", "fields": {"display_name": "URLVoid"}, "evidence": {"source_id": "G03", "page": 281, "quote": "display,urlvoid,URLVoid,tên hiển thị đúng cách viết (giải thích của module match in nguyên tên)"}}
+{"op": "set", "label": "Skill", "ref": "virtualbox", "fields": {"display_name": "VirtualBox"}, "evidence": {"source_id": "G03", "page": 282, "quote": "display,virtualbox,VirtualBox,tên hiển thị đúng cách viết (giải thích của module match in nguyên tên)"}}
+{"op": "set", "label": "Skill", "ref": "virustotal", "fields": {"display_name": "VirusTotal"}, "evidence": {"source_id": "G03", "page": 283, "quote": "display,virustotal,VirusTotal,tên hiển thị đúng cách viết (giải thích của module match in nguyên tên)"}}
+{"op": "set", "label": "Skill", "ref": "vite", "fields": {"display_name": "Vite"}, "evidence": {"source_id": "G03", "page": 284, "quote": "display,vite,Vite,tên hiển thị đúng cách viết (giải thích của module match in nguyên tên)"}}
+{"op": "set", "label": "Skill", "ref": "vitest", "fields": {"display_name": "Vitest"}, "evidence": {"source_id": "G03", "page": 285, "quote": "display,vitest,Vitest,tên hiển thị đúng cách viết (giải thích của module match in nguyên tên)"}}
+{"op": "set", "label": "Skill", "ref": "vlan", "fields": {"display_name": "VLAN"}, "evidence": {"source_id": "G03", "page": 286, "quote": "display,vlan,VLAN,tên hiển thị đúng cách viết (giải thích của module match in nguyên tên)"}}
+{"op": "set", "label": "Skill", "ref": "vlan hopping", "fields": {"display_name": "VLAN hopping"}, "evidence": {"source_id": "G03", "page": 287, "quote": "display,vlan hopping,VLAN hopping,tên hiển thị đúng cách viết (giải thích của module match in nguyên tên)"}}
+{"op": "set", "label": "Skill", "ref": "vlans & vxlan", "fields": {"display_name": "VLANs & VXLAN"}, "evidence": {"source_id": "G03", "page": 288, "quote": "display,vlans & vxlan,VLANs & VXLAN,tên hiển thị đúng cách viết (giải thích của module match in nguyên tên)"}}
+{"op": "set", "label": "Skill", "ref": "vlookup / hlookup", "fields": {"display_name": "VLOOKUP / HLOOKUP"}, "evidence": {"source_id": "G03", "page": 289, "quote": "display,vlookup / hlookup,VLOOKUP / HLOOKUP,tên hiển thị đúng cách viết (giải thích của module match in nguyên tên)"}}
+{"op": "set", "label": "Skill", "ref": "vlsm", "fields": {"display_name": "VLSM"}, "evidence": {"source_id": "G03", "page": 290, "quote": "display,vlsm,VLSM,tên hiển thị đúng cách viết (giải thích của module match in nguyên tên)"}}
+{"op": "set", "label": "Skill", "ref": "vm migration, live migration", "fields": {"display_name": "VM migration, live migration"}, "evidence": {"source_id": "G03", "page": 291, "quote": "display,\"vm migration, live migration\",\"VM migration, live migration\",tên hiển thị đúng cách viết (giải thích của module match in nguyên tên)"}}
+{"op": "set", "label": "Skill", "ref": "vmware", "fields": {"display_name": "VMware"}, "evidence": {"source_id": "G03", "page": 292, "quote": "display,vmware,VMware,tên hiển thị đúng cách viết (giải thích của module match in nguyên tên)"}}
+{"op": "set", "label": "Skill", "ref": "vpc", "fields": {"display_name": "VPC"}, "evidence": {"source_id": "G03", "page": 293, "quote": "display,vpc,VPC,tên hiển thị đúng cách viết (giải thích của module match in nguyên tên)"}}
+{"op": "set", "label": "Skill", "ref": "vpn", "fields": {"display_name": "VPN"}, "evidence": {"source_id": "G03", "page": 294, "quote": "display,vpn,VPN,tên hiển thị đúng cách viết (giải thích của module match in nguyên tên)"}}
+{"op": "set", "label": "Skill", "ref": "vpn & direct connect", "fields": {"display_name": "VPN & Direct Connect"}, "evidence": {"source_id": "G03", "page": 295, "quote": "display,vpn & direct connect,VPN & Direct Connect,tên hiển thị đúng cách viết (giải thích của module match in nguyên tên)"}}
+{"op": "set", "label": "Skill", "ref": "vue.js", "fields": {"display_name": "Vue.js"}, "evidence": {"source_id": "G03", "page": 296, "quote": "display,vue.js,Vue.js,tên hiển thị đúng cách viết (giải thích của module match in nguyên tên)"}}
+{"op": "set", "label": "Skill", "ref": "vuepress", "fields": {"display_name": "VuePress"}, "evidence": {"source_id": "G03", "page": 297, "quote": "display,vuepress,VuePress,tên hiển thị đúng cách viết (giải thích của module match in nguyên tên)"}}
+{"op": "set", "label": "Skill", "ref": "vulkan", "fields": {"display_name": "Vulkan"}, "evidence": {"source_id": "G03", "page": 298, "quote": "display,vulkan,Vulkan,tên hiển thị đúng cách viết (giải thích của module match in nguyên tên)"}}
+{"op": "set", "label": "Skill", "ref": "vulkan ray tracing", "fields": {"display_name": "Vulkan ray tracing"}, "evidence": {"source_id": "G03", "page": 299, "quote": "display,vulkan ray tracing,Vulkan ray tracing,tên hiển thị đúng cách viết (giải thích của module match in nguyên tên)"}}
+{"op": "set", "label": "Skill", "ref": "vulnhub", "fields": {"display_name": "VulnHub"}, "evidence": {"source_id": "G03", "page": 300, "quote": "display,vulnhub,VulnHub,tên hiển thị đúng cách viết (giải thích của module match in nguyên tên)"}}
+{"op": "set", "label": "Skill", "ref": "wadcoms", "fields": {"display_name": "WADComs"}, "evidence": {"source_id": "G03", "page": 301, "quote": "display,wadcoms,WADComs,tên hiển thị đúng cách viết (giải thích của module match in nguyên tên)"}}
+{"op": "set", "label": "Skill", "ref": "wan", "fields": {"display_name": "WAN"}, "evidence": {"source_id": "G03", "page": 302, "quote": "display,wan,WAN,tên hiển thị đúng cách viết (giải thích của module match in nguyên tên)"}}
+{"op": "set", "label": "Skill", "ref": "weaviate", "fields": {"display_name": "Weaviate"}, "evidence": {"source_id": "G03", "page": 303, "quote": "display,weaviate,Weaviate,tên hiển thị đúng cách viết (giải thích của module match in nguyên tên)"}}
+{"op": "set", "label": "Skill", "ref": "web based attacks and owasp10", "fields": {"display_name": "Web-based attacks and OWASP Top 10"}, "evidence": {"source_id": "G03", "page": 304, "quote": "display,web based attacks and owasp10,Web-based attacks and OWASP Top 10,tên hiển thị đúng cách viết (giải thích của module match in nguyên tên)"}}
+{"op": "set", "label": "Skill", "ref": "winhex", "fields": {"display_name": "WinHex"}, "evidence": {"source_id": "G03", "page": 305, "quote": "display,winhex,WinHex,tên hiển thị đúng cách viết (giải thích của module match in nguyên tên)"}}
+{"op": "set", "label": "Skill", "ref": "wireshark", "fields": {"display_name": "Wireshark"}, "evidence": {"source_id": "G03", "page": 306, "quote": "display,wireshark,Wireshark,tên hiển thị đúng cách viết (giải thích của module match in nguyên tên)"}}

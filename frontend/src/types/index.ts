@@ -52,6 +52,12 @@ export interface MatchResult {
   missingSkills: string[];
   reasons: string[];
   modelVersion: string;
+  /** id kết quả ở server (để lấy giải thích). */
+  id?: number;
+  band?: "high" | "mid" | "low" | null;
+  capApplied?: boolean | null;
+  partialSkills?: string[];
+  hasExplanation?: boolean;
 }
 
 export interface Candidate {

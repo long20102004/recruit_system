@@ -1,0 +1,63 @@
+{
+ "full_name": "Ứng viên 30",
+ "email": "ungvien30@example.com",
+ "phone": "0900000030",
+ "location": "TP.HCM",
+ "summary": "QA Engineer kinh nghiệm",
+ "skills": [
+  "Java",
+  "SQL"
+ ],
+ "experiences": [
+  {
+   "title": "QA Engineer",
+   "company": "Công ty E",
+   "start": "2021-04",
+   "end": null,
+   "is_current": true,
+   "description": [
+    "Báo cáo lỗi và theo dõi chất lượng phát hành mỗi sprint",
+    "Viết kịch bản kiểm thử tự động cho ứng dụng web bằng Selenium"
+   ],
+   "technologies": [
+    "Git",
+    "SQL",
+    "Java"
+   ]
+  },
+  {
+   "title": "QA Engineer",
+   "company": "Công ty K",
+   "start": "2018-03",
+   "end": "2020-12",
+   "description": [
+    "Kiểm thử API và kiểm tra dữ liệu trong cơ sở dữ liệu bằng SQL",
+    "Viết kịch bản kiểm thử tự động cho ứng dụng web bằng Selenium"
+   ]
+  }
+ ],
+ "projects": [
+  {
+   "name": "Dự án cá nhân",
+   "kind": "personal",
+   "description": [
+    "Kiểm thử API và kiểm tra dữ liệu trong cơ sở dữ liệu bằng SQL"
+   ],
+   "technologies": [
+    "Java",
+    "SQL"
+   ]
+  }
+ ],
+ "education": [
+  {
+   "school": "Đại học Bách khoa",
+   "major": "Kỹ thuật phần mềm",
+   "end": "2020"
+  }
+ ],
+ "certificates": [],
+ "languages": [
+  "Tiếng Anh"
+ ]
+}

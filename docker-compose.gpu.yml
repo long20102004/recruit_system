@@ -1,0 +1,16 @@
+# GPU cho cvmatch-ai (NVIDIA Container Toolkit):
+#   docker compose -f docker-compose.yml -f docker-compose.gpu.yml --profile match up -d --build
+services:
+  cvmatch-ai:
+    build:
+      args:
+        TORCH_INDEX: https://download.pytorch.org/whl/cu130
+    environment:
+      CVMATCH_DEVICE: cuda
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: 1
+              capabilities: [gpu]

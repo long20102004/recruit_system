@@ -1,0 +1,55 @@
+{
+ "full_name": "Ứng viên 23",
+ "email": "ungvien23@example.com",
+ "phone": "0900000023",
+ "location": "Đà Nẵng",
+ "summary": "Data Engineer nhiều năm kinh nghiệm",
+ "skills": [
+  "Python",
+  "SQL",
+  "Kafka",
+  "AWS",
+  "PostgreSQL"
+ ],
+ "experiences": [
+  {
+   "title": "Senior Data Engineer",
+   "company": "Công ty X",
+   "start": "2017-06",
+   "end": null,
+   "is_current": true,
+   "description": [
+    "Thiết kế kho dữ liệu và các bảng tổng hợp phục vụ báo cáo",
+    "Xử lý dữ liệu luồng thời gian thực với Kafka",
+    "Xây dựng pipeline ETL xử lý hàng triệu bản ghi mỗi ngày bằng Python"
+   ],
+   "technologies": [
+    "Python",
+    "SQL",
+    "Kafka"
+   ]
+  },
+  {
+   "title": "Data Engineer",
+   "company": "Công ty N",
+   "start": "2014-03",
+   "end": "2016-12",
+   "description": [
+    "Thiết kế kho dữ liệu và các bảng tổng hợp phục vụ báo cáo",
+    "Xây dựng pipeline ETL xử lý hàng triệu bản ghi mỗi ngày bằng Python"
+   ]
+  }
+ ],
+ "projects": [],
+ "education": [
+  {
+   "school": "Đại học Bách khoa",
+   "major": "Hệ thống thông tin",
+   "end": "2016"
+  }
+ ],
+ "certificates": [],
+ "languages": [
+  "Tiếng Anh"
+ ]
+}

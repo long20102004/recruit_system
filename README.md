@@ -9,7 +9,8 @@ Hệ thống tuyển dụng: quản lý CV, đối sánh CV–JD và luyện ph�
 | `backend/interview-service/` | Phiên phỏng vấn, rubric và kết quả chấm |
 | `backend/common/` | Thư viện xác thực, DTO, HTTP; không chứa database dùng chung |
 | `services/cv-extraction-ai/` | Service trích xuất CV từ nhánh `hocnv/DO-06` |
-| `services/cv-matching-ai/` | Service matching từ nhánh `locnh/matchCV` |
+| `services/cvmatch-ai/` | Matching CV ↔ JD: Retrieve + Rerank BERTScore bge-m3 + giải thích (profile `match`) |
+| `tools/build_kb/` | Dựng Knowledge Base kỹ năng IT offline, phát hành snapshot cho `services/cvmatch-ai` |
 | `AI/` | Service chấm câu trả lời phỏng vấn |
 | `infra/gateway/` | Nginx gateway, cổng 8080 |
 | `frontend/` | React, Vite, TypeScript |
@@ -32,6 +33,16 @@ Frontend: `http://localhost:5173`. API Gateway: `http://localhost:8080/api`.
 # Đặt file model-v4-q4_k_m.gguf vào models/cv-extraction/ trước khi bật extraction.
 docker compose --profile ai --profile cv-ai up -d --build
 ```
+
+Matching CV ↔ JD dùng `services/cvmatch-ai` (Postgres + pgvector riêng, KB từ `tools/build_kb/out/snapshot`). Đặt
+`CVMATCH_HMAC_KEY` trong `.env`, rồi
+
+```bash
+docker compose --profile cv-ai --profile match up -d --build
+# GPU: docker compose -f docker-compose.yml -f docker-compose.gpu.yml --profile cv-ai --profile match up -d --build
+```
+
+Lần đầu `cvmatch-ai` tải bge-m3 (~2,3 GB). Chi tiết: [backend/README.md](backend/README.md) mục "Matching CV ↔ JD (cvmatch)".
 
 Trọng số Qwen không nằm trong Git. Có thể cấu hình `CV_EXTRACTION_URL` tới AI service đang chạy trên máy khác/Colab. Matching có model embedding riêng và tải model ở lần chạy đầu. Upload CV và matching báo lỗi khi AI chưa sẵn sàng, không trả dữ liệu mẫu.
 

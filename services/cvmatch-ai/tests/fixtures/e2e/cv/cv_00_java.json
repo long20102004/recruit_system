@@ -1,0 +1,44 @@
+{
+ "full_name": "Ứng viên 00",
+ "email": "ungvien00@example.com",
+ "phone": "0900000000",
+ "location": "TP.HCM",
+ "summary": "Java Developer kinh nghiệm",
+ "skills": [
+  "Java",
+  "Spring Boot",
+  "PostgreSQL"
+ ],
+ "experiences": [
+  {
+   "title": "Fresher Java Developer",
+   "company": "Công ty A",
+   "start": "2025-01",
+   "end": null,
+   "is_current": true,
+   "description": [
+    "Xây dựng luồng xử lý sự kiện bất đồng bộ với Kafka cho đơn hàng",
+    "Tối ưu hiệu năng truy vấn cơ sở dữ liệu PostgreSQL, giảm 40% thời gian phản hồi",
+    "Triển khai microservices lên Docker và Kubernetes",
+    "Thiết kế cache Redis cho các API có tải cao"
+   ],
+   "technologies": [
+    "Spring Boot",
+    "Redis",
+    "Docker"
+   ]
+  }
+ ],
+ "projects": [],
+ "education": [
+  {
+   "school": "Đại học Bách khoa",
+   "major": "Kỹ thuật phần mềm",
+   "end": "2024"
+  }
+ ],
+ "certificates": [],
+ "languages": [
+  "Tiếng Anh"
+ ]
+}

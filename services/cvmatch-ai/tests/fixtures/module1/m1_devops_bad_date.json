@@ -1,0 +1,42 @@
+{
+  "personal_info": {
+    "full_name": "Lê Giả Lập",
+    "email": "LE.GIA@Example.Test",
+    "phone": "0900000003",
+    "github_url": null
+  },
+  "objective": "Kỹ sư DevOps.",
+  "education": [
+    {
+      "school": "Học viện Công nghệ Bưu chính Viễn thông",
+      "major": "Mạng máy tính",
+      "start_year": "2014",
+      "end_year": "2018",
+      "gpa": null
+    }
+  ],
+  "experience": [
+    {
+      "company": "Công ty E",
+      "job_title": "DevOps Engineer",
+      "start_date": "giữa năm 2020",
+      "end_date": "2023",
+      "description": [
+        "Xây dựng CI/CD bằng Jenkins và GitLab CI",
+        "Quản lý hạ tầng AWS bằng Terraform"
+      ]
+    }
+  ],
+  "personal_projects": [],
+  "skills": [
+    "AWS",
+    "Terraform",
+    "Jenkins",
+    "Linux"
+  ],
+  "certificates": [
+    "AWS SAA"
+  ],
+  "honours": [],
+  "languages": []
+}

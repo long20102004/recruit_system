@@ -29,6 +29,17 @@ public class MatchingController {
         return matchingService.matchesForJob(jobId);
     }
 
+    @PostMapping("/jobs/{jobId}/refresh")
+    public List<MatchingDtos.MatchResponse> refreshForJob(@PathVariable Integer jobId,
+                                                          @RequestBody(required = false) MatchingDtos.RefreshJobRequest request) {
+        return matchingService.refreshForJob(jobId, request == null ? null : request.scope());
+    }
+
+    @GetMapping("/{matchId}/explanation")
+    public MatchingDtos.ExplanationResponse explanation(@PathVariable Integer matchId) {
+        return matchingService.explanation(matchId);
+    }
+
     @PostMapping("/run")
     public MatchingDtos.MatchResponse run(@RequestBody MatchingDtos.RunMatchingRequest request) {
         return matchingService.runMatching(request);

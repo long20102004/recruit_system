@@ -37,8 +37,14 @@ app:
     path: ${UPLOAD_PATH:./uploads}
   cv-extraction:
     base-url: ${CV_EXTRACTION_URL:http://localhost:8001}
-  cv-matching:
-    base-url: ${CV_MATCHING_URL:http://localhost:8002}
+  # Module match CV <-> JD (services/cvmatch-ai, plan I05/I06)
+  cvmatch:
+    base-url: ${CVMATCH_URL:http://localhost:8003}
+    service-token: ${SERVICE_TOKEN:hirelens-local-service-token-change-before-deploy}
+    read-timeout-ms: ${CVMATCH_READ_TIMEOUT_MS:120000}
+    sync:
+      enabled: ${CVMATCH_SYNC_ENABLED:true}
+      retry-interval-ms: ${CVMATCH_SYNC_RETRY_MS:60000}
   ai:
     base-url: ${AI_URL:http://localhost:8000}
     enabled: true

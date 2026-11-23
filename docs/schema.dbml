@@ -25,6 +25,34 @@ TableGroup viec_lam {
   job_skills
   job_applications
   matching_results
+  match_cv_link
+  match_jd_link
+}
+
+Table match_cv_link {
+  candidate_id int [pk, note: 'V6: đồng bộ CV sang cvmatch']
+  cv_id varchar(64) [note: 'cvmatch sinh']
+  cv_version int
+  content_hash varchar(64) [note: 'SHA-256 JSON đã gửi']
+  status varchar(16) [not null, note: 'PENDING | SYNCED | INVALID | FAILED | DELETED']
+  flags text
+  last_error text
+  attempts int [not null, default: 0]
+  synced_at datetime
+  updated_at datetime [not null]
+}
+
+Table match_jd_link {
+  job_id int [pk, note: 'V6: đồng bộ JD sang cvmatch']
+  jd_id varchar(64) [not null, unique, note: 'job-<id>']
+  jd_version int
+  content_hash varchar(64) [note: 'không tính status']
+  jd_status varchar(16) [note: 'open | draft | closed đã gửi']
+  status varchar(16) [not null]
+  last_error text
+  attempts int [not null, default: 0]
+  synced_at datetime
+  updated_at datetime [not null]
 }
 
 TableGroup phong_van {
@@ -173,6 +201,15 @@ Table matching_results {
   explanation text
   model_name varchar(120)
   model_version varchar(120)
+  engine varchar(16) [not null, default: 'legacy', note: 'legacy | cvmatch (V7)']
+  direction varchar(16) [note: 'cvmatch: jd_to_cv (recruiter) | cv_to_jd (ứng viên)']
+  band varchar(8) [note: 'high | mid | low']
+  cap_applied tinyint(1)
+  flags json
+  rank_position int
+  run_id varchar(64) [note: 'rerank run của cvmatch, để lấy giải thích']
+  cvmatch_cv_id varchar(64)
+  explanation_json json [note: 'giải thích cvmatch, lưu lần đầu lấy']
   created_at datetime [not null, default: `CURRENT_TIMESTAMP`]
 
   indexes {

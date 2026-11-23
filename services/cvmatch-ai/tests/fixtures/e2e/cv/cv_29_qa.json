@@ -1,0 +1,43 @@
+{
+ "full_name": "Ứng viên 29",
+ "email": "ungvien29@example.com",
+ "phone": "0900000029",
+ "location": "Đà Nẵng",
+ "summary": "QA Engineer kinh nghiệm",
+ "skills": [
+  "Java",
+  "SQL",
+  "Git"
+ ],
+ "experiences": [
+  {
+   "title": "Junior QA Engineer",
+   "company": "Công ty D",
+   "start": "2023-03",
+   "end": null,
+   "is_current": true,
+   "description": [
+    "Kiểm thử API và kiểm tra dữ liệu trong cơ sở dữ liệu bằng SQL",
+    "Báo cáo lỗi và theo dõi chất lượng phát hành mỗi sprint",
+    "Viết kịch bản kiểm thử tự động cho ứng dụng web bằng Selenium"
+   ],
+   "technologies": [
+    "Java",
+    "Git",
+    "SQL"
+   ]
+  }
+ ],
+ "projects": [],
+ "education": [
+  {
+   "school": "Đại học Bách khoa",
+   "major": "Hệ thống thông tin",
+   "end": "2022"
+  }
+ ],
+ "certificates": [],
+ "languages": [
+  "Tiếng Anh"
+ ]
+}

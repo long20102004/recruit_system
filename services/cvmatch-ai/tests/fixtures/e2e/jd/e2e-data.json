@@ -1,0 +1,22 @@
+{
+ "jd_id": "E2E-DATA",
+ "title": "Data Engineer",
+ "location": "TP.HCM",
+ "work_mode": "remote",
+ "min_years": 3,
+ "skills": [
+  "Python",
+  "SQL",
+  "Kafka",
+  "AWS"
+ ],
+ "requirements": [
+  "Kinh nghiệm xây dựng pipeline dữ liệu"
+ ],
+ "responsibilities": [
+  "Xây dựng pipeline ETL xử lý dữ liệu lớn",
+  "Xử lý dữ liệu luồng thời gian thực",
+  "Thiết kế kho dữ liệu phục vụ báo cáo"
+ ],
+ "status": "open"
+}

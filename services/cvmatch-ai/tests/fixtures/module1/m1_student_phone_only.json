@@ -1,0 +1,45 @@
+{
+  "personal_info": {
+    "full_name": "Trần Thị Mẫu",
+    "email": null,
+    "phone": "+84 912 000 002",
+    "github_url": null
+  },
+  "objective": "Sinh viên năm cuối tìm vị trí thực tập Data.",
+  "education": [
+    {
+      "school": "Đại học Kinh tế Quốc dân",
+      "major": "Hệ thống thông tin quản lý",
+      "start_year": "2022",
+      "end_year": null,
+      "gpa": "3.5"
+    }
+  ],
+  "experience": [],
+  "personal_projects": [
+    {
+      "name": "Phân tích doanh số",
+      "role": null,
+      "team_size": null,
+      "start_date": "09/2025",
+      "end_date": "12/2025",
+      "github_url": null,
+      "description": [
+        "Làm sạch dữ liệu bằng Pandas, vẽ biểu đồ bằng Power BI"
+      ],
+      "tech_stack": [
+        "Python",
+        "Pandas",
+        "Power BI"
+      ]
+    }
+  ],
+  "skills": [
+    "Python",
+    "SQL",
+    "Excel"
+  ],
+  "certificates": [],
+  "honours": [],
+  "languages": []
+}

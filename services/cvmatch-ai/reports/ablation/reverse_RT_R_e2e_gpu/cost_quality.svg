@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="640" height="420" font-family="sans-serif" font-size="11">
+<rect width="640" height="420" fill="white"/>
+<line x1="60" y1="370" x2="620" y2="370" stroke="#333"/>
+<line x1="60" y1="30" x2="60" y2="370" stroke="#333"/>
+<text x="340.0" y="408" text-anchor="middle">ms / truy vấn</text>
+<text x="14" y="200.0" transform="rotate(-90 14 200.0)" text-anchor="middle">recall@10</text>
+<text x="60" y="18">Chi phí – chất lượng (RT-R)</text>
+<text x="54" y="374.0" text-anchor="end">0.95</text>
+<text x="60.0" y="386" text-anchor="middle">0</text>
+<text x="54" y="289.00000000000034" text-anchor="end">0.96</text>
+<text x="200.0" y="386" text-anchor="middle">3</text>
+<text x="54" y="204.0" text-anchor="end">0.97</text>
+<text x="340.0" y="386" text-anchor="middle">6</text>
+<text x="54" y="118.99999999999962" text-anchor="end">0.99</text>
+<text x="480.0" y="386" text-anchor="middle">9</text>
+<text x="54" y="34.0" text-anchor="end">1.00</text>
+<text x="620.0" y="386" text-anchor="middle">12</text>
+<circle cx="531.9" cy="30.0" r="4" fill="#2c6fbb"/>
+<text x="537.9" y="24.0">RT-R-base</text>
+<circle cx="388.5" cy="30.0" r="4" fill="#c0392b"/>
+<text x="394.5" y="24.0">RT-R1-dense</text>
+<circle cx="569.1" cy="30.0" r="4" fill="#2c6fbb"/>
+<text x="575.1" y="24.0">RT-R1-bm25</text>
+<circle cx="394.9" cy="30.0" r="4" fill="#2c6fbb"/>
+<text x="400.9" y="24.0">RT-R2-full</text>
+<circle cx="543.3" cy="30.0" r="4" fill="#2c6fbb"/>
+<text x="549.3" y="24.0">RT-R3-0</text>
+<circle cx="420.2" cy="30.0" r="4" fill="#2c6fbb"/>
+<text x="426.2" y="24.0">RT-R3-2</text>
+<circle cx="426.7" cy="30.0" r="4" fill="#2c6fbb"/>
+<text x="432.7" y="24.0">RT-R3-5</text>
+<circle cx="425.9" cy="30.0" r="4" fill="#2c6fbb"/>
+<text x="431.9" y="24.0">RT-R4-noresp</text>
+<circle cx="433.7" cy="30.0" r="4" fill="#2c6fbb"/>
+<text x="439.7" y="24.0">RT-R5-minmax</text>
+<circle cx="474.4" cy="30.0" r="4" fill="#2c6fbb"/>
+<text x="480.4" y="24.0">RT-R5-rrf</text>
+<text x="616" y="42" text-anchor="end" fill="#c0392b">đỏ = biên Pareto</text>
+</svg>
