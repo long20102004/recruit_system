@@ -5,3 +5,45 @@
 /data/
 
 /AI.zip
+
+# Dữ liệu CV thật và dataset huấn luyện
+dataset/
+ai-service/data/
+
+# Model trọng số lớn và checkpoint huấn luyện
+*.gguf
+ai-service/merged_model/*
+!ai-service/merged_model/.gitkeep
+ai-service/checkpoint-*/*.safetensors
+
+# File tạm, cache và dependencies sinh ra tự động
+__pycache__/
+*.pyc
+.pytest_cache/
+.venv/
+node_modules/
+ai-service/kb/.cache/
+docs/_build/.plotenv/
+docs/_build/demo/render/
+docs/_build/package-lock.json
+docs/_build/demo/pdf*/
+*.log
+.~lock.*#
+
+# File cấu hình bảo mật và biến môi trường
+**/.env
+!**/*.env.example
+
+# Cấu hình IDE và trình soạn thảo cá nhân
+.idea/workspace.xml
+.idea/compiler.xml
+.idea/encodings.xml
+.idea/jarRepositories.xml
+.openidea/
+
+# Cấu hình agent / Spec Kit cá nhân
+AGENTS.md
+CLAUDE.md
+.specify/
+.opencode/
+
