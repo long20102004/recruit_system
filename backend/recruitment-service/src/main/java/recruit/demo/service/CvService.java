@@ -42,6 +42,7 @@ public class CvService {
     private final recruit.demo.service.cv.CvExtractionModule extractionModule;
     private final recruit.demo.service.cv.CvProfileMapper profileMapper;
     private final AppProperties appProperties;
+    private final org.springframework.context.ApplicationEventPublisher events;
 
     @Transactional(readOnly = true)
     public CvDtos.CvFormResponse mine() {
@@ -76,6 +77,7 @@ public class CvService {
             for (var entry : profileMapper.fields(extracted).entrySet()) {
                 if (settingService.cvFields().contains(entry.getKey())) replaceLines(candidate.getId(), entry.getKey(), entry.getValue());
             }
+            events.publishEvent(new recruit.demo.service.cvmatch.CvMatchEvents.CvChanged(candidate.getId()));
             return toForm(candidate.getId());
         } catch (IOException ex) {
             throw new ApiException(HttpStatus.INTERNAL_SERVER_ERROR, "Failed to store file");
@@ -105,6 +107,7 @@ public class CvService {
             syncProfile(candidate, field, lines);
         }
         put(candidate.getId(), PARSING_STATUS, "COMPLETED");
+        events.publishEvent(new recruit.demo.service.cvmatch.CvMatchEvents.CvChanged(candidate.getId()));
         return toForm(candidate.getId());
     }
 

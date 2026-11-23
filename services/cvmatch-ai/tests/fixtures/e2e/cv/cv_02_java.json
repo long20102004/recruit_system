@@ -1,0 +1,51 @@
+{
+ "full_name": "Ứng viên 02",
+ "email": "ungvien02@example.com",
+ "phone": "0900000002",
+ "location": "Đà Nẵng",
+ "summary": "Java Developer kinh nghiệm",
+ "skills": [
+  "Java",
+  "Spring Boot",
+  "PostgreSQL",
+  "Kafka",
+  "Docker"
+ ],
+ "experiences": [
+  {
+   "title": "Java Developer",
+   "company": "Công ty C",
+   "start": "2021-03",
+   "end": null,
+   "is_current": true,
+   "description": "Thiết kế cache Redis cho các API có tải cao. Triển khai microservices lên Docker và Kubernetes. Thiết kế và phát triển REST API cho hệ thống thanh toán bằng Spring Boot.",
+   "technologies": [
+    "PostgreSQL",
+    "Spring Boot",
+    "Java"
+   ]
+  },
+  {
+   "title": "Java Developer",
+   "company": "Công ty M",
+   "start": "2018-03",
+   "end": "2020-12",
+   "description": [
+    "Xây dựng luồng xử lý sự kiện bất đồng bộ với Kafka cho đơn hàng",
+    "Viết unit test và integration test cho các service backend"
+   ]
+  }
+ ],
+ "projects": [],
+ "education": [
+  {
+   "school": "Đại học Bách khoa",
+   "major": "Hệ thống thông tin",
+   "end": "2020"
+  }
+ ],
+ "certificates": [],
+ "languages": [
+  "Tiếng Anh"
+ ]
+}

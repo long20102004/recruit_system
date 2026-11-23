@@ -66,6 +66,11 @@ export function mapMatch(dto: MatchDto): MatchResult {
     missingSkills: dto.missingSkills ?? [],
     reasons: dto.reasons ?? [],
     modelVersion: dto.modelVersion ?? "",
+    id: dto.id,
+    band: dto.band ?? null,
+    capApplied: dto.capApplied ?? null,
+    partialSkills: dto.partialSkills ?? [],
+    hasExplanation: dto.hasExplanation ?? false,
   };
 }
 

@@ -1,0 +1,28 @@
+{
+  "personal_info": {
+    "full_name": null,
+    "email": null,
+    "phone": null,
+    "github_url": null
+  },
+  "objective": null,
+  "education": [],
+  "experience": [
+    {
+      "company": "Công ty D",
+      "job_title": "Tester",
+      "start_date": null,
+      "end_date": null,
+      "description": [
+        "Kiểm thử thủ công ứng dụng di động"
+      ]
+    }
+  ],
+  "personal_projects": [],
+  "skills": [
+    "Manual Testing"
+  ],
+  "certificates": [],
+  "honours": [],
+  "languages": []
+}

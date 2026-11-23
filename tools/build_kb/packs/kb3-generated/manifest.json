@@ -1,0 +1,117 @@
+{
+  "pack_id": "kb3-generated",
+  "kb_origin": "KB3",
+  "priority": 30,
+  "enabled": true,
+  "description": "KB3: tri thức do Claude sinh (trust = low) để lấp chỗ trống của KB1, KB2",
+  "sources": [
+    {
+      "source_id": "G01",
+      "type": "generated",
+      "title": "Kỹ năng bổ sung (framework / công cụ / kỹ năng mềm / chứng chỉ)",
+      "publisher": "Claude (claude-opus-5-5)",
+      "uri": "kb3/data/new_skills.csv",
+      "lang": "vi+en",
+      "trust": "low",
+      "license": "tự sinh; chưa đối chiếu nguồn",
+      "accessed": "2026-11-21",
+      "sha256": "0592a99bc32b5901d45dfec6cb72f06f08dffa4c0b463b13ec9ca0d36db37322"
+    },
+    {
+      "source_id": "G02",
+      "type": "generated",
+      "title": "Alias bổ sung cho kỹ năng đã có (tiếng Việt và biến thể)",
+      "publisher": "Claude (claude-opus-5-5)",
+      "uri": "kb3/data/skill_aliases.csv",
+      "lang": "vi+en",
+      "trust": "low",
+      "license": "tự sinh; chưa đối chiếu nguồn",
+      "accessed": "2026-11-21",
+      "sha256": "3bc016b4270303ef45b5f4b348e1f8d20d14d00972dbe4791fa065bef7a22148"
+    },
+    {
+      "source_id": "G03",
+      "type": "generated",
+      "title": "Sửa kỹ năng (gộp trùng / loại nhãn rác / đổi loại / alias dễ nhầm)",
+      "publisher": "Claude (claude-opus-5-5)",
+      "uri": "kb3/data/skill_fixes.csv",
+      "lang": "vi+en",
+      "trust": "low",
+      "license": "tự sinh; chưa đối chiếu nguồn",
+      "accessed": "2026-11-21",
+      "sha256": "dc82d0c8d109ffdb3b5b47cc6988e09dd16504c1e71852b3a0129ab3b4b20a66"
+    },
+    {
+      "source_id": "G04",
+      "type": "generated",
+      "title": "Quan hệ bổ sung giữa kỹ năng đã có",
+      "publisher": "Claude (claude-opus-5-5)",
+      "uri": "kb3/data/edges.csv",
+      "lang": "en",
+      "trust": "low",
+      "license": "tự sinh; chưa đối chiếu nguồn",
+      "accessed": "2026-11-21",
+      "sha256": "304bf394697a98fb22db77e2081018d3a3b39b46b3c494c4763d80acbbc9c4ac"
+    },
+    {
+      "source_id": "G05",
+      "type": "generated",
+      "title": "Nhóm kỹ năng và sibling_ok đề xuất",
+      "publisher": "Claude (claude-opus-5-5)",
+      "uri": "kb3/data/categories.csv",
+      "lang": "en",
+      "trust": "low",
+      "license": "tự sinh; chưa đối chiếu nguồn",
+      "accessed": "2026-11-21",
+      "sha256": "7502c36294d4eff3cd5b10b95c9db25a4fd1fcdbe12762c43d244b0f094a6773"
+    },
+    {
+      "source_id": "G06",
+      "type": "generated",
+      "title": "Chức danh và nhóm vai trò bổ sung",
+      "publisher": "Claude (claude-opus-5-5)",
+      "uri": "kb3/data/titles.csv",
+      "lang": "vi+en",
+      "trust": "low",
+      "license": "tự sinh; chưa đối chiếu nguồn",
+      "accessed": "2026-11-21",
+      "sha256": "c588a332d5ae3f8d2e5a434feef13c9e932d92a7d2abd384c708330d43f528ff"
+    },
+    {
+      "source_id": "G07",
+      "type": "generated",
+      "title": "Alias cấp bậc bổ sung",
+      "publisher": "Claude (claude-opus-5-5)",
+      "uri": "kb3/data/levels.csv",
+      "lang": "vi+en",
+      "trust": "low",
+      "license": "tự sinh; chưa đối chiếu nguồn",
+      "accessed": "2026-11-21",
+      "sha256": "b887235ec13f26e51a52a689420bb09dd64d7567f040b2c745d425a42ae4ca8a"
+    },
+    {
+      "source_id": "G08",
+      "type": "generated",
+      "title": "Ngành học bổ sung",
+      "publisher": "Claude (claude-opus-5-5)",
+      "uri": "kb3/data/majors.csv",
+      "lang": "vi+en",
+      "trust": "low",
+      "license": "tự sinh; cần đối chiếu Thông tư 09/2022/TT-BGDĐT",
+      "accessed": "2026-11-21",
+      "sha256": "360fe5c8c732bf8e7ba45321ab837d0285b8bc7fe0442ad8475f57cebc3d9e1a"
+    },
+    {
+      "source_id": "G09",
+      "type": "generated",
+      "title": "Ma trận khoảng cách nhóm vai trò (giả thuyết)",
+      "publisher": "Claude (claude-opus-5-5)",
+      "uri": "kb3/data/near.csv",
+      "lang": "vi+en",
+      "trust": "low",
+      "license": "tự sinh; 8 cặp đầu theo thiết kế 07 mục 5.6",
+      "accessed": "2026-11-21",
+      "sha256": "df9e664b214c4e6f9197524da2f540ce0ab29ef35cc8e7f131c630b0c2f80c17"
+    }
+  ]
+}

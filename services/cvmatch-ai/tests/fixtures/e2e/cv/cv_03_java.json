@@ -1,0 +1,55 @@
+{
+ "full_name": "Ứng viên 03",
+ "email": "ungvien03@example.com",
+ "phone": "0900000003",
+ "location": "TP.HCM",
+ "summary": "Java Developer nhiều năm kinh nghiệm",
+ "skills": [
+  "Java",
+  "Spring Boot",
+  "PostgreSQL",
+  "Kafka",
+  "Docker"
+ ],
+ "experiences": [
+  {
+   "title": "Senior Java Developer",
+   "company": "Công ty D",
+   "start": "2017-04",
+   "end": null,
+   "is_current": true,
+   "description": [
+    "Xây dựng luồng xử lý sự kiện bất đồng bộ với Kafka cho đơn hàng",
+    "Thiết kế cache Redis cho các API có tải cao",
+    "Tối ưu hiệu năng truy vấn cơ sở dữ liệu PostgreSQL, giảm 40% thời gian phản hồi"
+   ],
+   "technologies": [
+    "Kafka",
+    "Docker",
+    "Redis"
+   ]
+  },
+  {
+   "title": "Java Developer",
+   "company": "Công ty N",
+   "start": "2014-03",
+   "end": "2016-12",
+   "description": [
+    "Thiết kế cache Redis cho các API có tải cao",
+    "Xây dựng luồng xử lý sự kiện bất đồng bộ với Kafka cho đơn hàng"
+   ]
+  }
+ ],
+ "projects": [],
+ "education": [
+  {
+   "school": "Đại học Bách khoa",
+   "major": "Kỹ thuật phần mềm",
+   "end": "2016"
+  }
+ ],
+ "certificates": [],
+ "languages": [
+  "Tiếng Anh"
+ ]
+}

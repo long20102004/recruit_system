@@ -30,6 +30,34 @@ public interface MatchingResultRepository extends JpaRepository<MatchingResult, 
             """)
     List<MatchingResult> findByJobId(@Param("jobId") Integer jobId);
 
+    @Query("""
+            SELECT m FROM MatchingResult m
+            JOIN FETCH m.job j
+            JOIN FETCH j.company
+            JOIN FETCH m.candidate c
+            WHERE m.candidate.id = :candidateId AND m.engine = :engine
+              AND (:direction IS NULL OR m.direction = :direction)
+            ORDER BY m.overallScore DESC, m.createdAt DESC
+            """)
+    List<MatchingResult> findByCandidateAndEngine(@Param("candidateId") Integer candidateId,
+                                                  @Param("engine") String engine,
+                                                  @Param("direction") String direction);
+
+    @Query("""
+            SELECT m FROM MatchingResult m
+            JOIN FETCH m.candidate c
+            JOIN FETCH m.job j
+            JOIN FETCH j.company
+            WHERE m.job.id = :jobId AND m.engine = :engine
+              AND (:direction IS NULL OR m.direction = :direction)
+            ORDER BY m.overallScore DESC, m.createdAt DESC
+            """)
+    List<MatchingResult> findByJobAndEngine(@Param("jobId") Integer jobId, @Param("engine") String engine,
+                                            @Param("direction") String direction);
+
+    Optional<MatchingResult> findFirstByJobIdAndCandidateIdAndEngineAndDirection(Integer jobId, Integer candidateId,
+                                                                               String engine, String direction);
+
     Optional<MatchingResult> findFirstByJobIdAndCandidateIdAndModelNameAndModelVersionOrderByCreatedAtDesc(
             Integer jobId, Integer candidateId, String modelName, String modelVersion);
 }

@@ -11,7 +11,7 @@ mountpoint -q "$DATA_MOUNT" || { echo 'Mount DATA before continuing.' >&2; exit 
 case "$PROJECT_ROOT/" in "$DATA_MOUNT/"*) ;; *) echo 'Project must reside on DATA.' >&2; exit 1;; esac
 command -v rsync >/dev/null || { echo 'Install rsync first: sudo apt install rsync' >&2; exit 1; }
 STORAGE="$PROJECT_ROOT/data"
-mkdir -p "$STORAGE/runtime"/{mysql/identity,mysql/recruitment,mysql/interview,huggingface,uploads,interview-huggingface,interview-output}
+mkdir -p "$STORAGE/runtime"/{mysql/identity,mysql/recruitment,mysql/interview,uploads,interview-huggingface,interview-output,postgres/cvmatch,cvmatch-huggingface}
 DOCKER_TARGET="$STORAGE/docker-engine"
 CONTAINERD_TARGET="$STORAGE/containerd"
 DOCKER_SOURCE="$(python3 - <<'PY'

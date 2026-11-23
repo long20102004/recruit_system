@@ -1,0 +1,44 @@
+{
+ "full_name": "Ứng viên 17",
+ "email": "ungvien17@example.com",
+ "phone": "0900000017",
+ "location": "Đà Nẵng",
+ "summary": "Fullstack Developer kinh nghiệm",
+ "skills": [
+  "JavaScript",
+  "Node.js",
+  "React",
+  "PostgreSQL"
+ ],
+ "experiences": [
+  {
+   "title": "Junior Fullstack Developer",
+   "company": "Công ty R",
+   "start": "2023-09",
+   "end": null,
+   "is_current": true,
+   "description": [
+    "Thiết kế cơ sở dữ liệu PostgreSQL cho hệ thống đặt lịch",
+    "Đóng gói ứng dụng bằng Docker và cấu hình CI/CD với Jenkins",
+    "Xây dựng tính năng thông báo thời gian thực bằng WebSocket"
+   ],
+   "technologies": [
+    "PostgreSQL",
+    "Node.js",
+    "React"
+   ]
+  }
+ ],
+ "projects": [],
+ "education": [
+  {
+   "school": "Đại học Bách khoa",
+   "major": "Hệ thống thông tin",
+   "end": "2022"
+  }
+ ],
+ "certificates": [],
+ "languages": [
+  "Tiếng Anh"
+ ]
+}

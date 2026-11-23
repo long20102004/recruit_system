@@ -1,0 +1,59 @@
+{#- Mau giai thich cho UNG VIEN, chieu CV -> JD (thiet ke 08 muc 5), cand-1.0.
+    Khong hien diem so, khong hien diem feature tho, khong nhac ung vien khac.
+    Khong viet chu so truc tiep trong mau (EX4). Nhan "CV cua ban chua the hien ..." de goi y bo sung CV. -#}
+{%- set note_text = {
+    "no_diacritics": "CV gõ không dấu nên chưa đánh giá được phần mô tả công việc. Nên viết lại CV có dấu.",
+    "no_bullets": "CV chưa có mô tả công việc theo từng gạch đầu dòng: nên bổ sung để đánh giá chính xác hơn.",
+    "years_missing": "CV thiếu thời gian làm việc ở các mục kinh nghiệm: nên ghi rõ tháng/năm bắt đầu và kết thúc.",
+    "role_missing": "Chưa xác định được vai trò từ chức danh trong CV: nên ghi rõ chức danh.",
+    "location_mismatch": "Địa điểm làm việc của vị trí khác với địa điểm trong CV.",
+    "check_language": "Vị trí có yêu cầu ngoại ngữ: nên ghi rõ trình độ ngoại ngữ trong CV.",
+    "low_data_quality": "CV còn thiếu nhiều thông tin: nên bổ sung để được gợi ý chính xác hơn.",
+    "has_negation_bullets": "Một số câu trong CV mang nghĩa phủ định, nên viết rõ việc đã làm.",
+    "unmapped_req": "Vị trí có kỹ năng bắt buộc chưa nằm trong danh mục kỹ năng của hệ thống.",
+} -%}
+Mức phù hợp với vị trí này: {{ band_label }}.
+{%- if cap_applied %} Điểm bị giới hạn vì CV chưa thể hiện đủ kỹ năng bắt buộc của vị trí.{% endif %}
+
+
+CV của bạn đã thể hiện
+{% if skills.met %}
+• Kỹ năng bắt buộc: {{ skills.met | join(", ") }}.
+{% endif %}
+{% if skills.partial %}
+• Kỹ năng gần với yêu cầu: {% for p in skills.partial %}{{ p.found }} (gần với {{ p.required }}){{ ", " if not loop.last }}{% endfor %}.
+{% endif %}
+{% for e in resp.examples %}
+• "{{ e.resp_text }}" ← "{{ e.evidence_text }}"
+{% endfor %}
+{% for e in req.examples %}
+• "{{ e.req_text }}" ← "{{ e.evidence_text }}"
+{% endfor %}
+{% if not skills.met and not skills.partial and not resp.examples and not req.examples %}
+• Chưa thấy điểm nào khớp rõ với vị trí này.
+{% endif %}
+
+Để phù hợp hơn với vị trí này, CV của bạn chưa thể hiện:
+{% if skills.missing %}
+• Kỹ năng: {{ skills.missing | join(", ") }}.
+{% endif %}
+{% for g in resp.gaps %}
+{% if g.level == "partial" %}
+• Kinh nghiệm "{{ g.resp_text }}"{% if g.missing_words %} (còn thiếu phần: {{ g.missing_words | join(", ") }}){% endif %}.
+{% else %}
+• Kinh nghiệm "{{ g.resp_text }}".
+{% endif %}
+{% endfor %}
+{% for g in req.gaps %}
+• Yêu cầu "{{ g.req_text }}".
+{% endfor %}
+{% if not skills.missing and not resp.gaps and not req.gaps %}
+• Không có mục nào nổi bật.
+{% endif %}
+{% if notes %}
+
+Lưu ý
+{% for n in notes %}
+• {{ note_text[n] }}
+{% endfor %}
+{% endif %}

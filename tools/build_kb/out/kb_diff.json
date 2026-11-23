@@ -1,0 +1,727 @@
+{
+  "summary": {
+    "nodes": {
+      "added": {},
+      "removed": {},
+      "changed": {
+        "Skill": 73,
+        "Source": 4
+      },
+      "changed_fields": {
+        "display_name": 73,
+        "sha256": 4
+      }
+    },
+    "edges": {
+      "added": {},
+      "removed": {},
+      "changed": {},
+      "changed_fields": {}
+    }
+  },
+  "nodes": {
+    "added": [],
+    "removed": [],
+    "changed": [
+      {
+        "id": [
+          "Skill",
+          "any.run"
+        ],
+        "fields": [
+          "display_name"
+        ]
+      },
+      {
+        "id": [
+          "Skill",
+          "arp"
+        ],
+        "fields": [
+          "display_name"
+        ]
+      },
+      {
+        "id": [
+          "Skill",
+          "esxi"
+        ],
+        "fields": [
+          "display_name"
+        ]
+      },
+      {
+        "id": [
+          "Skill",
+          "file crud"
+        ],
+        "fields": [
+          "display_name"
+        ]
+      },
+      {
+        "id": [
+          "Skill",
+          "influxdb"
+        ],
+        "fields": [
+          "display_name"
+        ]
+      },
+      {
+        "id": [
+          "Skill",
+          "ionic"
+        ],
+        "fields": [
+          "display_name"
+        ]
+      },
+      {
+        "id": [
+          "Skill",
+          "iot"
+        ],
+        "fields": [
+          "display_name"
+        ]
+      },
+      {
+        "id": [
+          "Skill",
+          "ip address"
+        ],
+        "fields": [
+          "display_name"
+        ]
+      },
+      {
+        "id": [
+          "Skill",
+          "ip addressing"
+        ],
+        "fields": [
+          "display_name"
+        ]
+      },
+      {
+        "id": [
+          "Skill",
+          "ip"
+        ],
+        "fields": [
+          "display_name"
+        ]
+      },
+      {
+        "id": [
+          "Skill",
+          "ipam"
+        ],
+        "fields": [
+          "display_name"
+        ]
+      },
+      {
+        "id": [
+          "Skill",
+          "ips"
+        ],
+        "fields": [
+          "display_name"
+        ]
+      },
+      {
+        "id": [
+          "Skill",
+          "ipsec"
+        ],
+        "fields": [
+          "display_name"
+        ]
+      },
+      {
+        "id": [
+          "Skill",
+          "ir lifecycle"
+        ],
+        "fields": [
+          "display_name"
+        ]
+      },
+      {
+        "id": [
+          "Skill",
+          "iso 27001"
+        ],
+        "fields": [
+          "display_name"
+        ]
+      },
+      {
+        "id": [
+          "Skill",
+          "iso"
+        ],
+        "fields": [
+          "display_name"
+        ]
+      },
+      {
+        "id": [
+          "Skill",
+          "istio"
+        ],
+        "fields": [
+          "display_name"
+        ]
+      },
+      {
+        "id": [
+          "Skill",
+          "itil"
+        ],
+        "fields": [
+          "display_name"
+        ]
+      },
+      {
+        "id": [
+          "Skill",
+          "jaeger"
+        ],
+        "fields": [
+          "display_name"
+        ]
+      },
+      {
+        "id": [
+          "Skill",
+          "jasmine"
+        ],
+        "fields": [
+          "display_name"
+        ]
+      },
+      {
+        "id": [
+          "Skill",
+          "java"
+        ],
+        "fields": [
+          "display_name"
+        ]
+      },
+      {
+        "id": [
+          "Skill",
+          "java/kotlin/scala"
+        ],
+        "fields": [
+          "display_name"
+        ]
+      },
+      {
+        "id": [
+          "Skill",
+          "javascript"
+        ],
+        "fields": [
+          "display_name"
+        ]
+      },
+      {
+        "id": [
+          "Skill",
+          "jenkins"
+        ],
+        "fields": [
+          "display_name"
+        ]
+      },
+      {
+        "id": [
+          "Skill",
+          "jest"
+        ],
+        "fields": [
+          "display_name"
+        ]
+      },
+      {
+        "id": [
+          "Skill",
+          "jetpack benchmark"
+        ],
+        "fields": [
+          "display_name"
+        ]
+      },
+      {
+        "id": [
+          "Skill",
+          "jetpack compose"
+        ],
+        "fields": [
+          "display_name"
+        ]
+      },
+      {
+        "id": [
+          "Skill",
+          "jmeter"
+        ],
+        "fields": [
+          "display_name"
+        ]
+      },
+      {
+        "id": [
+          "Skill",
+          "nmap"
+        ],
+        "fields": [
+          "display_name"
+        ]
+      },
+      {
+        "id": [
+          "Skill",
+          "node.js"
+        ],
+        "fields": [
+          "display_name"
+        ]
+      },
+      {
+        "id": [
+          "Skill",
+          "p2p network"
+        ],
+        "fields": [
+          "display_name"
+        ]
+      },
+      {
+        "id": [
+          "Skill",
+          "papertrail"
+        ],
+        "fields": [
+          "display_name"
+        ]
+      },
+      {
+        "id": [
+          "Skill",
+          "parcel"
+        ],
+        "fields": [
+          "display_name"
+        ]
+      },
+      {
+        "id": [
+          "Skill",
+          "parrotos"
+        ],
+        "fields": [
+          "display_name"
+        ]
+      },
+      {
+        "id": [
+          "Skill",
+          "pasta"
+        ],
+        "fields": [
+          "display_name"
+        ]
+      },
+      {
+        "id": [
+          "Skill",
+          "pbr"
+        ],
+        "fields": [
+          "display_name"
+        ]
+      },
+      {
+        "id": [
+          "Skill",
+          "pci dss"
+        ],
+        "fields": [
+          "display_name"
+        ]
+      },
+      {
+        "id": [
+          "Skill",
+          "php"
+        ],
+        "fields": [
+          "display_name"
+        ]
+      },
+      {
+        "id": [
+          "Skill",
+          "picoctf"
+        ],
+        "fields": [
+          "display_name"
+        ]
+      },
+      {
+        "id": [
+          "Skill",
+          "pii"
+        ],
+        "fields": [
+          "display_name"
+        ]
+      },
+      {
+        "id": [
+          "Skill",
+          "pinecone"
+        ],
+        "fields": [
+          "display_name"
+        ]
+      },
+      {
+        "id": [
+          "Skill",
+          "pki design"
+        ],
+        "fields": [
+          "display_name"
+        ]
+      },
+      {
+        "id": [
+          "Skill",
+          "pki"
+        ],
+        "fields": [
+          "display_name"
+        ]
+      },
+      {
+        "id": [
+          "Skill",
+          "playwright"
+        ],
+        "fields": [
+          "display_name"
+        ]
+      },
+      {
+        "id": [
+          "Skill",
+          "pmi"
+        ],
+        "fields": [
+          "display_name"
+        ]
+      },
+      {
+        "id": [
+          "Skill",
+          "pop3s"
+        ],
+        "fields": [
+          "display_name"
+        ]
+      },
+      {
+        "id": [
+          "Skill",
+          "react-router"
+        ],
+        "fields": [
+          "display_name"
+        ]
+      },
+      {
+        "id": [
+          "Skill",
+          "urlvoid"
+        ],
+        "fields": [
+          "display_name"
+        ]
+      },
+      {
+        "id": [
+          "Skill",
+          "virtualbox"
+        ],
+        "fields": [
+          "display_name"
+        ]
+      },
+      {
+        "id": [
+          "Skill",
+          "virustotal"
+        ],
+        "fields": [
+          "display_name"
+        ]
+      },
+      {
+        "id": [
+          "Skill",
+          "vite"
+        ],
+        "fields": [
+          "display_name"
+        ]
+      },
+      {
+        "id": [
+          "Skill",
+          "vitest"
+        ],
+        "fields": [
+          "display_name"
+        ]
+      },
+      {
+        "id": [
+          "Skill",
+          "vlan hopping"
+        ],
+        "fields": [
+          "display_name"
+        ]
+      },
+      {
+        "id": [
+          "Skill",
+          "vlan"
+        ],
+        "fields": [
+          "display_name"
+        ]
+      },
+      {
+        "id": [
+          "Skill",
+          "vlans & vxlan"
+        ],
+        "fields": [
+          "display_name"
+        ]
+      },
+      {
+        "id": [
+          "Skill",
+          "vlookup / hlookup"
+        ],
+        "fields": [
+          "display_name"
+        ]
+      },
+      {
+        "id": [
+          "Skill",
+          "vlsm"
+        ],
+        "fields": [
+          "display_name"
+        ]
+      },
+      {
+        "id": [
+          "Skill",
+          "vm migration, live migration"
+        ],
+        "fields": [
+          "display_name"
+        ]
+      },
+      {
+        "id": [
+          "Skill",
+          "vmware"
+        ],
+        "fields": [
+          "display_name"
+        ]
+      },
+      {
+        "id": [
+          "Skill",
+          "vpc"
+        ],
+        "fields": [
+          "display_name"
+        ]
+      },
+      {
+        "id": [
+          "Skill",
+          "vpn & direct connect"
+        ],
+        "fields": [
+          "display_name"
+        ]
+      },
+      {
+        "id": [
+          "Skill",
+          "vpn"
+        ],
+        "fields": [
+          "display_name"
+        ]
+      },
+      {
+        "id": [
+          "Skill",
+          "vue.js"
+        ],
+        "fields": [
+          "display_name"
+        ]
+      },
+      {
+        "id": [
+          "Skill",
+          "vuepress"
+        ],
+        "fields": [
+          "display_name"
+        ]
+      },
+      {
+        "id": [
+          "Skill",
+          "vulkan ray tracing"
+        ],
+        "fields": [
+          "display_name"
+        ]
+      },
+      {
+        "id": [
+          "Skill",
+          "vulkan"
+        ],
+        "fields": [
+          "display_name"
+        ]
+      },
+      {
+        "id": [
+          "Skill",
+          "vulnhub"
+        ],
+        "fields": [
+          "display_name"
+        ]
+      },
+      {
+        "id": [
+          "Skill",
+          "wadcoms"
+        ],
+        "fields": [
+          "display_name"
+        ]
+      },
+      {
+        "id": [
+          "Skill",
+          "wan"
+        ],
+        "fields": [
+          "display_name"
+        ]
+      },
+      {
+        "id": [
+          "Skill",
+          "weaviate"
+        ],
+        "fields": [
+          "display_name"
+        ]
+      },
+      {
+        "id": [
+          "Skill",
+          "web based attacks and owasp10"
+        ],
+        "fields": [
+          "display_name"
+        ]
+      },
+      {
+        "id": [
+          "Skill",
+          "winhex"
+        ],
+        "fields": [
+          "display_name"
+        ]
+      },
+      {
+        "id": [
+          "Skill",
+          "wireshark"
+        ],
+        "fields": [
+          "display_name"
+        ]
+      },
+      {
+        "id": [
+          "Source",
+          "G03"
+        ],
+        "fields": [
+          "sha256"
+        ]
+      },
+      {
+        "id": [
+          "Source",
+          "G04"
+        ],
+        "fields": [
+          "sha256"
+        ]
+      },
+      {
+        "id": [
+          "Source",
+          "G05"
+        ],
+        "fields": [
+          "sha256"
+        ]
+      },
+      {
+        "id": [
+          "Source",
+          "G09"
+        ],
+        "fields": [
+          "sha256"
+        ]
+      }
+    ]
+  },
+  "edges": {
+    "added": [],
+    "removed": [],
+    "changed": []
+  },
+  "empty": false
+}

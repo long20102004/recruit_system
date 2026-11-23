@@ -26,6 +26,7 @@ export { UploadZone } from "./UploadZone";
 export { ScoreRing } from "./ScoreRing";
 export { ProgressBar } from "./ProgressBar";
 export { MatchItem, MatchBadge } from "./MatchItem";
+export { MatchExplain, BandBadge } from "./MatchExplain";
 export { Toast } from "./Toast";
 export { Kv, KvRow } from "./Kv";
 export { Chat, ChatBubble } from "./ChatBubble";

@@ -1,0 +1,54 @@
+{
+ "full_name": "Ứng viên 06",
+ "email": "ungvien06@example.com",
+ "phone": "0900000006",
+ "location": "TP.HCM",
+ "summary": "Java Developer kinh nghiệm",
+ "skills": [
+  "Java",
+  "Spring Boot",
+  "PostgreSQL",
+  "Kafka",
+  "Docker"
+ ],
+ "experiences": [
+  {
+   "title": "Java Developer",
+   "company": "Công ty G",
+   "start": "2021-07",
+   "end": null,
+   "is_current": true,
+   "description": [
+    "Thiet ke va phat trien REST API cho he thong thanh toan bang Spring Boot",
+    "Toi uu truy van co so du lieu PostgreSQL cho bao cao"
+   ],
+   "technologies": [
+    "Docker",
+    "PostgreSQL",
+    "Kafka"
+   ]
+  },
+  {
+   "title": "Java Developer",
+   "company": "Công ty Q",
+   "start": "2018-03",
+   "end": "2020-12",
+   "description": [
+    "Tối ưu hiệu năng truy vấn cơ sở dữ liệu PostgreSQL, giảm 40% thời gian phản hồi",
+    "Triển khai microservices lên Docker và Kubernetes"
+   ]
+  }
+ ],
+ "projects": [],
+ "education": [
+  {
+   "school": "Đại học Bách khoa",
+   "major": "Kỹ thuật phần mềm",
+   "end": "2020"
+  }
+ ],
+ "certificates": [],
+ "languages": [
+  "Tiếng Anh"
+ ]
+}

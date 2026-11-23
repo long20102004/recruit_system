@@ -28,6 +28,7 @@ public class JobService {
     private final JobSkillRepository jobSkillRepository;
     private final SkillRepository skillRepository;
     private final RecruiterProfileRepository recruiterProfileRepository;
+    private final org.springframework.context.ApplicationEventPublisher events;
 
     @Transactional(readOnly = true)
     public List<JobDtos.JobResponse> list(String keyword, String city, String status) {
@@ -59,6 +60,8 @@ public class JobService {
                 .createdById(principal.getId())
                 .title(request.title().trim())
                 .description(request.description())
+                .requirements(blankToNull(request.requirements()))
+                .responsibilities(blankToNull(request.responsibilities()))
                 .employmentType(request.workType())
                 .workLocation(firstNonBlank(request.location(), request.city()))
                 .salaryMin(null)
@@ -72,6 +75,7 @@ public class JobService {
         jobRepository.save(job);
         attachSkills(job, request.requiredSkills(), true);
         attachSkills(job, request.preferredSkills(), false);
+        events.publishEvent(new recruit.demo.service.cvmatch.CvMatchEvents.JobChanged(job.getId()));
         return toResponse(job);
     }
 
@@ -87,6 +91,7 @@ public class JobService {
         if (status == JobStatus.PUBLISHED && job.getPostedAt() == null) {
             job.setPostedAt(LocalDateTime.now());
         }
+        events.publishEvent(new recruit.demo.service.cvmatch.CvMatchEvents.JobChanged(job.getId()));
         return toResponse(job);
     }
 

@@ -32,6 +32,8 @@ export function RecruiterJobsPage() {
     required: "",
     preferred: "",
     description: "",
+    requirements: "",
+    responsibilities: "",
   });
 
   async function load() {
@@ -63,9 +65,11 @@ export function RecruiterJobsPage() {
           .split(",")
           .map((s) => s.trim())
           .filter(Boolean),
+        requirements: form.requirements,
+        responsibilities: form.responsibilities,
       });
       toast("Đã đăng tin tuyển dụng");
-      setForm((f) => ({ ...f, title: "", description: "" }));
+      setForm((f) => ({ ...f, title: "", description: "", requirements: "", responsibilities: "" }));
       await load();
     } catch (err) {
       toast(err instanceof Error ? err.message : "Đăng tin thất bại");
@@ -187,6 +191,27 @@ export function RecruiterJobsPage() {
                   placeholder="Mô tả trách nhiệm, yêu cầu và quyền lợi"
                 />
               </Field>
+              <Field label="Trách nhiệm công việc (mỗi dòng một ý)">
+                <TextTextarea
+                  rows={4}
+                  value={form.responsibilities}
+                  onChange={(e) =>
+                    setForm({ ...form, responsibilities: e.target.value })
+                  }
+                  placeholder={"Phát triển REST API bằng Spring Boot\nTối ưu truy vấn cơ sở dữ liệu"}
+                />
+              </Field>
+              <Field label="Yêu cầu ứng viên (mỗi dòng một ý)">
+                <TextTextarea
+                  rows={3}
+                  value={form.requirements}
+                  onChange={(e) =>
+                    setForm({ ...form, requirements: e.target.value })
+                  }
+                  placeholder={"Ít nhất 1 năm kinh nghiệm Java\nHiểu biết về Docker"}
+                />
+              </Field>
+              <p className="muted">Mỗi dòng một ý giúp ghép hồ sơ chính xác hơn.</p>
               <Button variant="primary" block type="submit" disabled={busy}>
                 {busy ? "Đang đăng…" : "Đăng tin"}
               </Button>

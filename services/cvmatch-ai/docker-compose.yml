@@ -1,0 +1,18 @@
+# Postgres rieng cho dev / test cua cvmatch (stack day du: docker-compose.yml o goc repo, profile match).
+# Giu ten project cu "cvmatch" de dung lai volume cvmatch_cvmatch_pg sau khi chuyen thu muc.
+name: cvmatch
+services:
+  postgres:
+    image: pgvector/pgvector:pg16
+    container_name: cvmatch-postgres
+    environment:
+      POSTGRES_USER: cvmatch
+      POSTGRES_PASSWORD: cvmatch
+      POSTGRES_DB: cvmatch
+    ports:
+      - "5433:5432"
+    volumes:
+      - cvmatch_pg:/var/lib/postgresql/data
+
+volumes:
+  cvmatch_pg:

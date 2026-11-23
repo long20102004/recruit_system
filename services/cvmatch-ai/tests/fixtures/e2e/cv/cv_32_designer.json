@@ -1,0 +1,38 @@
+{
+ "full_name": "Ứng viên 32",
+ "email": "ungvien32@example.com",
+ "phone": "0900000032",
+ "location": "Đà Nẵng",
+ "summary": "Graphic Designer kinh nghiệm",
+ "skills": [
+  "Photoshop"
+ ],
+ "experiences": [
+  {
+   "title": "Fresher Graphic Designer",
+   "company": "Công ty G",
+   "start": "2025-06",
+   "end": null,
+   "is_current": true,
+   "description": [
+    "Chỉnh sửa ảnh sản phẩm bằng Photoshop cho trang thương mại điện tử",
+    "Thiết kế banner quảng cáo và ấn phẩm truyền thông"
+   ],
+   "technologies": [
+    "Photoshop"
+   ]
+  }
+ ],
+ "projects": [],
+ "education": [
+  {
+   "school": "Đại học Bách khoa",
+   "major": "Thiết kế đồ hoạ",
+   "end": "2024"
+  }
+ ],
+ "certificates": [],
+ "languages": [
+  "Tiếng Anh"
+ ]
+}

@@ -1,0 +1,2244 @@
+{
+  "url_db": "user=cvmatch password=cvmatch dbname=cvmatch_e2e_20261123_152218 host=127.0.0.1 port=5433",
+  "versions": {
+    "ontology_version": "kb-2026-11-21-4",
+    "pipeline_version": "prep-1.1",
+    "embed_model": "bge-m3@5617a9f61b",
+    "bertscore_config": "bge-m3@5617a9f61b/L24/noidf/norescale/2048/mask1/alias1/text_raw/fp32",
+    "rerank_config_version": "rr-1.0"
+  },
+  "fake_encoder": false,
+  "timings": {
+    "migrate_s": 0.2925,
+    "kb_import_s": 0.2189,
+    "services.load_encoder_s": 16.2002,
+    "services.index_build_s": 0.0088,
+    "services.jd_index_build_s": 0.0075,
+    "ingest_cv_s": 7.0151,
+    "ingest_jd_s": 0.681
+  },
+  "memory": {
+    "rss_mb": 1465.9,
+    "gpu_max_allocated_mb": 2299.3,
+    "index_mb": {
+      "doc": 0.06640625,
+      "bullet": 0.263671875,
+      "skill": 0.001888275146484375,
+      "bm25": 0.010906219482421875
+    }
+  },
+  "cv_status": {
+    "ok": 34
+  },
+  "cv_problems": [],
+  "jd_status": [
+    {
+      "source": "tests\\fixtures\\e2e\\jd\\e2e-data.json",
+      "jd_id": "E2E-DATA",
+      "status": "ok",
+      "version": 1
+    },
+    {
+      "source": "tests\\fixtures\\e2e\\jd\\e2e-fe.json",
+      "jd_id": "E2E-FE",
+      "status": "ok",
+      "version": 1
+    },
+    {
+      "source": "tests\\fixtures\\e2e\\jd\\e2e-java.json",
+      "jd_id": "E2E-JAVA",
+      "status": "ok",
+      "version": 1
+    }
+  ],
+  "cv_sources": {
+    "531fe323-b24d-433e-bb33-f7128c09dd99": "cv_00_java.json",
+    "360b3669-5477-4711-a6fe-9b4593011763": "cv_01_java.json",
+    "348d9116-fef0-4709-91bd-83a65cb1f526": "cv_02_java.json",
+    "6aaef5b6-0fa4-423a-98c7-c7921434de41": "cv_03_java.json",
+    "7a6105ce-4db7-4e52-aaa9-b9bb471a6b4e": "cv_04_java.json",
+    "579d7f0c-e80f-4ef1-be0e-6050acec0062": "cv_05_java.json",
+    "be8c808e-5122-4c88-be85-5fbce6db7f77": "cv_06_java.json",
+    "30b25ff5-9256-493f-9a39-21c6780a1fc6": "cv_07_python.json",
+    "9693a2ca-fac9-41f9-a8f4-6ca1679b258c": "cv_08_python.json",
+    "3fa413b7-c10a-44bc-ba9f-0bb38dc91ec4": "cv_09_python.json",
+    "e48a7695-39bd-4370-baaf-8985a035fb00": "cv_10_python.json",
+    "e462df1f-4114-4b5e-9c5c-55b451cc8566": "cv_11_frontend.json",
+    "875bc510-a5e8-49c4-b957-e0bc09198346": "cv_12_frontend.json",
+    "809ed20a-0e27-4cde-91ed-9b9ce54affe7": "cv_13_frontend.json",
+    "a5ff9858-2048-4d09-898e-5f0ef56b65e6": "cv_14_frontend.json",
+    "7107f5cb-c88b-4af1-ba8f-861ab23c723a": "cv_15_frontend.json",
+    "84f06706-005a-4123-8a1a-289d96d6ebf5": "cv_16_fullstack.json",
+    "5d218116-6bbe-4a19-be43-6c3bcc987e05": "cv_17_fullstack.json",
+    "907d7afe-14d4-4f6a-a359-e78ee7242b82": "cv_18_fullstack.json",
+    "55d75f0f-6216-4b39-b12d-949abef5cbd6": "cv_19_mobile.json",
+    "5a0f5f44-f2c4-4710-b222-4af8d1afb14c": "cv_20_mobile.json",
+    "f37b5530-fbfa-4e5a-874c-971f6c56f5e5": "cv_21_mobile.json",
+    "0a788183-e4bc-4001-b239-46dab8e01a5f": "cv_22_data.json",
+    "b7b7d0a8-f54c-46c7-9f08-56a352bf8bd1": "cv_23_data.json",
+    "23e61732-08bf-4f4e-8d71-456b042b9197": "cv_24_data.json",
+    "6f20b2b6-76ba-4005-85c2-84ccc7cd9a61": "cv_25_data.json",
+    "1706cf15-b997-498c-9b5c-b2960ecd844d": "cv_26_devops.json",
+    "66677c36-2b52-4c50-a610-a23fd9506042": "cv_27_devops.json",
+    "e5840a57-b777-41b3-9b0a-bb1b816401b0": "cv_28_devops.json",
+    "b2b5b2ea-d384-44c6-be69-f07f775d15a3": "cv_29_qa.json",
+    "cefd48da-ad6d-4423-b0f0-2d7829966b78": "cv_30_qa.json",
+    "c24dec46-ac59-46a2-a5a6-526f4f6cdba6": "cv_31_qa.json",
+    "454c4abd-f3cf-4d02-a7e0-d7ff1f988fc3": "cv_32_designer.json",
+    "ba139ddb-2efb-4c5e-81aa-6f6b3a777575": "cv_33_designer.json"
+  },
+  "runs": [
+    {
+      "jd_id": "E2E-DATA",
+      "jd_version": 1,
+      "status": "ok",
+      "jd_warnings": [
+        {
+          "code": "short_query",
+          "message": "Văn bản truy vấn chỉ 47 từ: chất lượng match thấp"
+        }
+      ],
+      "run_id": "8fb3e178-d6e1-4d1b-8878-89de0d7b4866",
+      "retrieve_run_id": "9a06bc37-9056-499e-86b0-e4a0bd05a8d8",
+      "n_pool": 34,
+      "warnings": [],
+      "timings": {
+        "retrieve_s": 0.0437,
+        "rerank_s": 0.5887,
+        "rerank.rr1_load_s": 0.0179,
+        "rerank.rr2_b4_bertscore_s": 0.5129,
+        "rerank.rr3_b4_align_s": 0.0297,
+        "rerank.rr3_rules_s": 0.0013,
+        "rerank.total_s": 0.5691,
+        "explain_top_s": 0.2144
+      },
+      "rerank_top": [
+        {
+          "cv_id": "0a788183-e4bc-4001-b239-46dab8e01a5f",
+          "rank": 1,
+          "score": 94,
+          "band": "high",
+          "cap_applied": false,
+          "flags": []
+        },
+        {
+          "cv_id": "6f20b2b6-76ba-4005-85c2-84ccc7cd9a61",
+          "rank": 2,
+          "score": 94,
+          "band": "high",
+          "cap_applied": false,
+          "flags": []
+        },
+        {
+          "cv_id": "b7b7d0a8-f54c-46c7-9f08-56a352bf8bd1",
+          "rank": 3,
+          "score": 92,
+          "band": "high",
+          "cap_applied": false,
+          "flags": []
+        },
+        {
+          "cv_id": "23e61732-08bf-4f4e-8d71-456b042b9197",
+          "rank": 4,
+          "score": 79,
+          "band": "mid",
+          "cap_applied": false,
+          "flags": []
+        },
+        {
+          "cv_id": "348d9116-fef0-4709-91bd-83a65cb1f526",
+          "rank": 5,
+          "score": 25,
+          "band": "low",
+          "cap_applied": false,
+          "flags": []
+        },
+        {
+          "cv_id": "531fe323-b24d-433e-bb33-f7128c09dd99",
+          "rank": 6,
+          "score": 25,
+          "band": "low",
+          "cap_applied": false,
+          "flags": []
+        },
+        {
+          "cv_id": "6aaef5b6-0fa4-423a-98c7-c7921434de41",
+          "rank": 7,
+          "score": 25,
+          "band": "low",
+          "cap_applied": false,
+          "flags": []
+        },
+        {
+          "cv_id": "7a6105ce-4db7-4e52-aaa9-b9bb471a6b4e",
+          "rank": 8,
+          "score": 25,
+          "band": "low",
+          "cap_applied": false,
+          "flags": []
+        },
+        {
+          "cv_id": "30b25ff5-9256-493f-9a39-21c6780a1fc6",
+          "rank": 9,
+          "score": 22,
+          "band": "low",
+          "cap_applied": false,
+          "flags": []
+        },
+        {
+          "cv_id": "9693a2ca-fac9-41f9-a8f4-6ca1679b258c",
+          "rank": 10,
+          "score": 22,
+          "band": "low",
+          "cap_applied": false,
+          "flags": []
+        },
+        {
+          "cv_id": "66677c36-2b52-4c50-a610-a23fd9506042",
+          "rank": 11,
+          "score": 21,
+          "band": "low",
+          "cap_applied": false,
+          "flags": []
+        },
+        {
+          "cv_id": "1706cf15-b997-498c-9b5c-b2960ecd844d",
+          "rank": 12,
+          "score": 20,
+          "band": "low",
+          "cap_applied": false,
+          "flags": []
+        },
+        {
+          "cv_id": "e5840a57-b777-41b3-9b0a-bb1b816401b0",
+          "rank": 13,
+          "score": 20,
+          "band": "low",
+          "cap_applied": false,
+          "flags": []
+        },
+        {
+          "cv_id": "3fa413b7-c10a-44bc-ba9f-0bb38dc91ec4",
+          "rank": 14,
+          "score": 20,
+          "band": "low",
+          "cap_applied": false,
+          "flags": []
+        },
+        {
+          "cv_id": "e48a7695-39bd-4370-baaf-8985a035fb00",
+          "rank": 15,
+          "score": 20,
+          "band": "low",
+          "cap_applied": false,
+          "flags": []
+        },
+        {
+          "cv_id": "579d7f0c-e80f-4ef1-be0e-6050acec0062",
+          "rank": 16,
+          "score": 18,
+          "band": "low",
+          "cap_applied": false,
+          "flags": []
+        },
+        {
+          "cv_id": "b2b5b2ea-d384-44c6-be69-f07f775d15a3",
+          "rank": 17,
+          "score": 18,
+          "band": "low",
+          "cap_applied": false,
+          "flags": []
+        },
+        {
+          "cv_id": "c24dec46-ac59-46a2-a5a6-526f4f6cdba6",
+          "rank": 18,
+          "score": 18,
+          "band": "low",
+          "cap_applied": false,
+          "flags": []
+        },
+        {
+          "cv_id": "cefd48da-ad6d-4423-b0f0-2d7829966b78",
+          "rank": 19,
+          "score": 18,
+          "band": "low",
+          "cap_applied": false,
+          "flags": []
+        },
+        {
+          "cv_id": "be8c808e-5122-4c88-be85-5fbce6db7f77",
+          "rank": 20,
+          "score": 18,
+          "band": "low",
+          "cap_applied": false,
+          "flags": []
+        },
+        {
+          "cv_id": "360b3669-5477-4711-a6fe-9b4593011763",
+          "rank": 21,
+          "score": 15,
+          "band": "low",
+          "cap_applied": false,
+          "flags": []
+        },
+        {
+          "cv_id": "5d218116-6bbe-4a19-be43-6c3bcc987e05",
+          "rank": 22,
+          "score": 15,
+          "band": "low",
+          "cap_applied": false,
+          "flags": []
+        },
+        {
+          "cv_id": "84f06706-005a-4123-8a1a-289d96d6ebf5",
+          "rank": 23,
+          "score": 15,
+          "band": "low",
+          "cap_applied": false,
+          "flags": []
+        },
+        {
+          "cv_id": "7107f5cb-c88b-4af1-ba8f-861ab23c723a",
+          "rank": 24,
+          "score": 8,
+          "band": "low",
+          "cap_applied": false,
+          "flags": []
+        },
+        {
+          "cv_id": "809ed20a-0e27-4cde-91ed-9b9ce54affe7",
+          "rank": 25,
+          "score": 8,
+          "band": "low",
+          "cap_applied": false,
+          "flags": []
+        },
+        {
+          "cv_id": "875bc510-a5e8-49c4-b957-e0bc09198346",
+          "rank": 26,
+          "score": 8,
+          "band": "low",
+          "cap_applied": false,
+          "flags": []
+        },
+        {
+          "cv_id": "a5ff9858-2048-4d09-898e-5f0ef56b65e6",
+          "rank": 27,
+          "score": 8,
+          "band": "low",
+          "cap_applied": false,
+          "flags": []
+        },
+        {
+          "cv_id": "e462df1f-4114-4b5e-9c5c-55b451cc8566",
+          "rank": 28,
+          "score": 8,
+          "band": "low",
+          "cap_applied": false,
+          "flags": []
+        },
+        {
+          "cv_id": "907d7afe-14d4-4f6a-a359-e78ee7242b82",
+          "rank": 29,
+          "score": 8,
+          "band": "low",
+          "cap_applied": false,
+          "flags": []
+        },
+        {
+          "cv_id": "5a0f5f44-f2c4-4710-b222-4af8d1afb14c",
+          "rank": 30,
+          "score": 7,
+          "band": "low",
+          "cap_applied": false,
+          "flags": []
+        }
+      ],
+      "retrieve_top": [
+        {
+          "cv_id": "0a788183-e4bc-4001-b239-46dab8e01a5f",
+          "rank": 1,
+          "fused": 0.9999666213989258,
+          "s": {
+            "dense": 0.880518913269043,
+            "bm25": 44.48797607421875,
+            "skill": 0.8999999761581421,
+            "resp": 0.8601370453834534
+          },
+          "rerank_rank": 1,
+          "rerank_score": 94
+        },
+        {
+          "cv_id": "b7b7d0a8-f54c-46c7-9f08-56a352bf8bd1",
+          "rank": 2,
+          "fused": 0.9655966758728027,
+          "s": {
+            "dense": 0.8655655980110168,
+            "bm25": 44.4937744140625,
+            "skill": 0.8499999642372131,
+            "resp": 0.8450372219085693
+          },
+          "rerank_rank": 3,
+          "rerank_score": 92
+        },
+        {
+          "cv_id": "6f20b2b6-76ba-4005-85c2-84ccc7cd9a61",
+          "rank": 3,
+          "fused": 0.9187718033790588,
+          "s": {
+            "dense": 0.8323007822036743,
+            "bm25": 42.949710845947266,
+            "skill": 0.8999999761581421,
+            "resp": 0.8024236559867859
+          },
+          "rerank_rank": 2,
+          "rerank_score": 94
+        },
+        {
+          "cv_id": "23e61732-08bf-4f4e-8d71-456b042b9197",
+          "rank": 4,
+          "fused": 0.8622726202011108,
+          "s": {
+            "dense": 0.8440927863121033,
+            "bm25": 40.910545349121094,
+            "skill": 0.699999988079071,
+            "resp": 0.8064900040626526
+          },
+          "rerank_rank": 4,
+          "rerank_score": 79
+        },
+        {
+          "cv_id": "66677c36-2b52-4c50-a610-a23fd9506042",
+          "rank": 5,
+          "fused": 0.3093908131122589,
+          "s": {
+            "dense": 0.6669785976409912,
+            "bm25": 15.095651626586914,
+            "skill": 0.25,
+            "resp": 0.5748578310012817
+          },
+          "rerank_rank": 11,
+          "rerank_score": 21
+        },
+        {
+          "cv_id": "c24dec46-ac59-46a2-a5a6-526f4f6cdba6",
+          "rank": 6,
+          "fused": 0.2943649888038635,
+          "s": {
+            "dense": 0.6645758152008057,
+            "bm25": 10.1983642578125,
+            "skill": 0.25,
+            "resp": 0.5964977145195007
+          },
+          "rerank_rank": 18,
+          "rerank_score": 18
+        },
+        {
+          "cv_id": "cefd48da-ad6d-4423-b0f0-2d7829966b78",
+          "rank": 7,
+          "fused": 0.284017950296402,
+          "s": {
+            "dense": 0.6490377187728882,
+            "bm25": 10.236610412597656,
+            "skill": 0.25,
+            "resp": 0.5964977145195007
+          },
+          "rerank_rank": 19,
+          "rerank_score": 18
+        },
+        {
+          "cv_id": "1706cf15-b997-498c-9b5c-b2960ecd844d",
+          "rank": 8,
+          "fused": 0.28137606382369995,
+          "s": {
+            "dense": 0.6497051119804382,
+            "bm25": 12.04820442199707,
+            "skill": 0.25,
+            "resp": 0.576742947101593
+          },
+          "rerank_rank": 12,
+          "rerank_score": 20
+        },
+        {
+          "cv_id": "b2b5b2ea-d384-44c6-be69-f07f775d15a3",
+          "rank": 9,
+          "fused": 0.24895736575126648,
+          "s": {
+            "dense": 0.6428555846214294,
+            "bm25": 9.840485572814941,
+            "skill": 0.25,
+            "resp": 0.5547894835472107
+          },
+          "rerank_rank": 17,
+          "rerank_score": 18
+        },
+        {
+          "cv_id": "30b25ff5-9256-493f-9a39-21c6780a1fc6",
+          "rank": 10,
+          "fused": 0.2459719479084015,
+          "s": {
+            "dense": 0.6429493427276611,
+            "bm25": 10.029271125793457,
+            "skill": 0.20000000298023224,
+            "resp": 0.5690241456031799
+          },
+          "rerank_rank": 9,
+          "rerank_score": 22
+        },
+        {
+          "cv_id": "6aaef5b6-0fa4-423a-98c7-c7921434de41",
+          "rank": 11,
+          "fused": 0.2392829805612564,
+          "s": {
+            "dense": 0.5974724292755127,
+            "bm25": 10.985365867614746,
+            "skill": 0.25,
+            "resp": 0.5760919451713562
+          },
+          "rerank_rank": 7,
+          "rerank_score": 25
+        },
+        {
+          "cv_id": "e5840a57-b777-41b3-9b0a-bb1b816401b0",
+          "rank": 12,
+          "fused": 0.23664115369319916,
+          "s": {
+            "dense": 0.6241597533226013,
+            "bm25": 10.979804992675781,
+            "skill": 0.25,
+            "resp": 0.5457895994186401
+          },
+          "rerank_rank": 13,
+          "rerank_score": 20
+        },
+        {
+          "cv_id": "348d9116-fef0-4709-91bd-83a65cb1f526",
+          "rank": 13,
+          "fused": 0.23290495574474335,
+          "s": {
+            "dense": 0.6100689172744751,
+            "bm25": 6.395800590515137,
+            "skill": 0.25,
+            "resp": 0.5928767323493958
+          },
+          "rerank_rank": 5,
+          "rerank_score": 25
+        },
+        {
+          "cv_id": "e48a7695-39bd-4370-baaf-8985a035fb00",
+          "rank": 14,
+          "fused": 0.22031790018081665,
+          "s": {
+            "dense": 0.6297130584716797,
+            "bm25": 10.273848533630371,
+            "skill": 0.15000000596046448,
+            "resp": 0.5629338026046753
+          },
+          "rerank_rank": 15,
+          "rerank_score": 20
+        },
+        {
+          "cv_id": "9693a2ca-fac9-41f9-a8f4-6ca1679b258c",
+          "rank": 15,
+          "fused": 0.2159700244665146,
+          "s": {
+            "dense": 0.6278253793716431,
+            "bm25": 9.842923164367676,
+            "skill": 0.20000000298023224,
+            "resp": 0.5418123006820679
+          },
+          "rerank_rank": 10,
+          "rerank_score": 22
+        },
+        {
+          "cv_id": "3fa413b7-c10a-44bc-ba9f-0bb38dc91ec4",
+          "rank": 16,
+          "fused": 0.1998826265335083,
+          "s": {
+            "dense": 0.6160098314285278,
+            "bm25": 9.404129981994629,
+            "skill": 0.15000000596046448,
+            "resp": 0.554023027420044
+          },
+          "rerank_rank": 14,
+          "rerank_score": 20
+        },
+        {
+          "cv_id": "531fe323-b24d-433e-bb33-f7128c09dd99",
+          "rank": 17,
+          "fused": 0.1986551135778427,
+          "s": {
+            "dense": 0.5811203718185425,
+            "bm25": 9.548932075500488,
+            "skill": 0.25,
+            "resp": 0.5451024174690247
+          },
+          "rerank_rank": 6,
+          "rerank_score": 25
+        },
+        {
+          "cv_id": "7a6105ce-4db7-4e52-aaa9-b9bb471a6b4e",
+          "rank": 18,
+          "fused": 0.17553216218948364,
+          "s": {
+            "dense": 0.569553017616272,
+            "bm25": 6.901117324829102,
+            "skill": 0.25,
+            "resp": 0.5451024174690247
+          },
+          "rerank_rank": 8,
+          "rerank_score": 25
+        },
+        {
+          "cv_id": "be8c808e-5122-4c88-be85-5fbce6db7f77",
+          "rank": 19,
+          "fused": 0.17262551188468933,
+          "s": {
+            "dense": 0.5875889658927917,
+            "bm25": 5.731714725494385,
+            "skill": 0.20000000298023224,
+            "resp": 0.5530632138252258
+          },
+          "rerank_rank": 20,
+          "rerank_score": 18
+        },
+        {
+          "cv_id": "579d7f0c-e80f-4ef1-be0e-6050acec0062",
+          "rank": 20,
+          "fused": 0.16611406207084656,
+          "s": {
+            "dense": 0.6199620962142944,
+            "bm25": 2.861003875732422,
+            "skill": 0.15000000596046448,
+            "resp": null
+          },
+          "rerank_rank": 16,
+          "rerank_score": 18
+        },
+        {
+          "cv_id": "5d218116-6bbe-4a19-be43-6c3bcc987e05",
+          "rank": 21,
+          "fused": 0.1468944251537323,
+          "s": {
+            "dense": 0.5742951035499573,
+            "bm25": 8.267868041992188,
+            "skill": 0.0,
+            "resp": 0.5884644389152527
+          },
+          "rerank_rank": 22,
+          "rerank_score": 15
+        },
+        {
+          "cv_id": "360b3669-5477-4711-a6fe-9b4593011763",
+          "rank": 22,
+          "fused": 0.12466219067573547,
+          "s": {
+            "dense": 0.5778565406799316,
+            "bm25": 6.364847183227539,
+            "skill": 0.15000000596046448,
+            "resp": 0.5076625943183899
+          },
+          "rerank_rank": 21,
+          "rerank_score": 15
+        },
+        {
+          "cv_id": "907d7afe-14d4-4f6a-a359-e78ee7242b82",
+          "rank": 23,
+          "fused": 0.11799130588769913,
+          "s": {
+            "dense": 0.5643049478530884,
+            "bm25": 3.4292349815368652,
+            "skill": 0.0,
+            "resp": 0.5968868732452393
+          },
+          "rerank_rank": 29,
+          "rerank_score": 8
+        },
+        {
+          "cv_id": "e462df1f-4114-4b5e-9c5c-55b451cc8566",
+          "rank": 24,
+          "fused": 0.08376888930797577,
+          "s": {
+            "dense": 0.5723252296447754,
+            "bm25": 3.601771116256714,
+            "skill": 0.0,
+            "resp": 0.5375205874443054
+          },
+          "rerank_rank": 28,
+          "rerank_score": 8
+        },
+        {
+          "cv_id": "84f06706-005a-4123-8a1a-289d96d6ebf5",
+          "rank": 25,
+          "fused": 0.06253905594348907,
+          "s": {
+            "dense": 0.5389196872711182,
+            "bm25": 4.472749710083008,
+            "skill": 0.0,
+            "resp": 0.5323691368103027
+          },
+          "rerank_rank": 23,
+          "rerank_score": 15
+        },
+        {
+          "cv_id": "a5ff9858-2048-4d09-898e-5f0ef56b65e6",
+          "rank": 26,
+          "fused": 0.062288910150527954,
+          "s": {
+            "dense": 0.5322540402412415,
+            "bm25": 3.4901256561279297,
+            "skill": 0.0,
+            "resp": 0.5468851923942566
+          },
+          "rerank_rank": 27,
+          "rerank_score": 8
+        },
+        {
+          "cv_id": "7107f5cb-c88b-4af1-ba8f-861ab23c723a",
+          "rank": 27,
+          "fused": 0.05299081653356552,
+          "s": {
+            "dense": 0.5337889790534973,
+            "bm25": 1.695181965827942,
+            "skill": 0.0,
+            "resp": 0.5468851923942566
+          },
+          "rerank_rank": 24,
+          "rerank_score": 8
+        },
+        {
+          "cv_id": "809ed20a-0e27-4cde-91ed-9b9ce54affe7",
+          "rank": 28,
+          "fused": 0.04218924045562744,
+          "s": {
+            "dense": 0.5318909883499146,
+            "bm25": 2.997429370880127,
+            "skill": 0.0,
+            "resp": 0.5220504403114319
+          },
+          "rerank_rank": 25,
+          "rerank_score": 8
+        },
+        {
+          "cv_id": "55d75f0f-6216-4b39-b12d-949abef5cbd6",
+          "rank": 29,
+          "fused": 0.038091085851192474,
+          "s": {
+            "dense": 0.5303902626037598,
+            "bm25": 1.3287670612335205,
+            "skill": 0.0,
+            "resp": 0.5315921306610107
+          },
+          "rerank_rank": null,
+          "rerank_score": null
+        },
+        {
+          "cv_id": "875bc510-a5e8-49c4-b957-e0bc09198346",
+          "rank": 30,
+          "fused": 0.029030393809080124,
+          "s": {
+            "dense": 0.5304003953933716,
+            "bm25": 2.0134105682373047,
+            "skill": 0.0,
+            "resp": 0.51259845495224
+          },
+          "rerank_rank": 26,
+          "rerank_score": 8
+        }
+      ],
+      "explanations": [
+        {
+          "cv_id": "0a788183-e4bc-4001-b239-46dab8e01a5f",
+          "score": 94,
+          "band": "high",
+          "text": "Điểm 94/100 (phù hợp cao, điểm xếp hạng tương đối).\n\nĐiểm mạnh\n• Kỹ năng bắt buộc: có 4/4 (AWS, Kafka, Python, SQL).\n• Việc đã làm: 3/3 trách nhiệm có bằng chứng. Ví dụ:\n  – \"Xây dựng pipeline ETL xử lý dữ liệu lớn\" ← \"Xây dựng pipeline ETL xử lý hàng triệu bản ghi mỗi ngày bằng Python\"  (khớp: Xây dựng, pipeline, ETL, xử lý; chưa thấy phần: dữ liệu lớn, dữ liệu lớn)\n  – \"Xử lý dữ liệu luồng thời gian thực\" ← \"Xử lý dữ liệu luồng thời gian thực với Kafka\"  (khớp: Xử lý, dữ liệu, luồng, thời gian, thực)\n  – \"Thiết kế kho dữ liệu phục vụ báo cáo\" ← \"Thiết kế kho dữ liệu và các bảng tổng hợp phục vụ báo cáo\"  (khớp: Thiết kế, kho dữ liệu, kho dữ liệu, phục vụ, báo cáo)\n• Kinh nghiệm liên quan: 8,3 năm, nhóm Data.\n\nChưa thấy bằng chứng\n• Không có mục nào nổi bật.\n"
+        },
+        {
+          "cv_id": "6f20b2b6-76ba-4005-85c2-84ccc7cd9a61",
+          "score": 94,
+          "band": "high",
+          "text": "Điểm 94/100 (phù hợp cao, điểm xếp hạng tương đối).\n\nĐiểm mạnh\n• Kỹ năng bắt buộc: có 4/4 (AWS, Kafka, Python, SQL).\n• Việc đã làm: 3/3 trách nhiệm có bằng chứng. Ví dụ:\n  – \"Xây dựng pipeline ETL xử lý dữ liệu lớn\" ← \"Xây dựng pipeline ETL xử lý hàng triệu bản ghi mỗi ngày bằng Python\"  (khớp: Xây dựng, pipeline, ETL, xử lý; chưa thấy phần: dữ liệu lớn, dữ liệu lớn)\n  – \"Xử lý dữ liệu luồng thời gian thực\" ← \"Xử lý dữ liệu luồng thời gian thực với Kafka\"  (khớp: Xử lý, dữ liệu, luồng, thời gian, thực)\n  – \"Thiết kế kho dữ liệu phục vụ báo cáo\" ← \"Thiết kế kho dữ liệu và các bảng tổng hợp phục vụ báo cáo\"  (khớp: Thiết kế, kho dữ liệu, kho dữ liệu, phục vụ, báo cáo)\n• Kinh nghiệm liên quan: 3,2 năm, nhóm Data.\n\nChưa thấy bằng chứng\n• Không có mục nào nổi bật.\n"
+        },
+        {
+          "cv_id": "b7b7d0a8-f54c-46c7-9f08-56a352bf8bd1",
+          "score": 92,
+          "band": "high",
+          "text": "Điểm 92/100 (phù hợp cao, điểm xếp hạng tương đối).\n\nĐiểm mạnh\n• Kỹ năng bắt buộc: có 4/4 (AWS, Kafka, Python, SQL).\n• Việc đã làm: 3/3 trách nhiệm có bằng chứng. Ví dụ:\n  – \"Xây dựng pipeline ETL xử lý dữ liệu lớn\" ← \"Xây dựng pipeline ETL xử lý hàng triệu bản ghi mỗi ngày bằng Python\"  (khớp: Xây dựng, pipeline, ETL, xử lý; chưa thấy phần: dữ liệu lớn, dữ liệu lớn)\n  – \"Xử lý dữ liệu luồng thời gian thực\" ← \"Xử lý dữ liệu luồng thời gian thực với Kafka\"  (khớp: Xử lý, dữ liệu, luồng, thời gian, thực)\n  – \"Thiết kế kho dữ liệu phục vụ báo cáo\" ← \"Thiết kế kho dữ liệu và các bảng tổng hợp phục vụ báo cáo\"  (khớp: Thiết kế, kho dữ liệu, kho dữ liệu, phục vụ, báo cáo)\n• Kinh nghiệm liên quan: 12,2 năm, nhóm Data.\n\nChưa thấy bằng chứng\n• Không có mục nào nổi bật.\n"
+        },
+        {
+          "cv_id": "23e61732-08bf-4f4e-8d71-456b042b9197",
+          "score": 79,
+          "band": "mid",
+          "text": "Điểm 79/100 (cân nhắc, điểm xếp hạng tương đối).\n\nĐiểm mạnh\n• Kỹ năng bắt buộc: có 3/4 (Kafka, Python, SQL).\n• Việc đã làm: 3/3 trách nhiệm có bằng chứng. Ví dụ:\n  – \"Xây dựng pipeline ETL xử lý dữ liệu lớn\" ← \"Xây dựng pipeline ETL xử lý hàng triệu bản ghi mỗi ngày bằng Python\"  (khớp: Xây dựng, pipeline, ETL, xử lý; chưa thấy phần: dữ liệu lớn, dữ liệu lớn)\n  – \"Xử lý dữ liệu luồng thời gian thực\" ← \"Xử lý dữ liệu luồng thời gian thực với Kafka\"  (khớp: Xử lý, dữ liệu, luồng, thời gian, thực)\n  – \"Thiết kế kho dữ liệu phục vụ báo cáo\" ← \"Thiết kế kho dữ liệu và các bảng tổng hợp phục vụ báo cáo\"  (khớp: Thiết kế, kho dữ liệu, kho dữ liệu, phục vụ, báo cáo)\n• Kinh nghiệm liên quan: 1,3 năm, nhóm Data.\n\nChưa thấy bằng chứng\n• Kỹ năng: chưa thấy bằng chứng về AWS trong CV.\n\nGợi ý câu hỏi phỏng vấn\n• Anh/chị đã từng làm việc với AWS chưa? Hãy kể một ví dụ cụ thể.\n"
+        },
+        {
+          "cv_id": "348d9116-fef0-4709-91bd-83a65cb1f526",
+          "score": 25,
+          "band": "low",
+          "text": "Điểm 25/100 (thấp, điểm xếp hạng tương đối).\n\nĐiểm mạnh\n• Kỹ năng bắt buộc: có 1/4 (Kafka).\n• Kỹ năng liên quan: PostgreSQL (gần với SQL).\n• Việc đã làm: 0/3 trách nhiệm có bằng chứng.\n• Kinh nghiệm liên quan: 0 năm, nhóm Backend.\n\nChưa thấy bằng chứng\n• Kỹ năng: chưa thấy bằng chứng về AWS, Python trong CV.\n• Trách nhiệm: chưa thấy bằng chứng về \"Xây dựng pipeline ETL xử lý dữ liệu lớn\" trong CV.\n• Trách nhiệm: \"Xử lý dữ liệu luồng thời gian thực\" mới có bằng chứng một phần (chưa thấy phần: dữ liệu, thời gian, thực).\n• Trách nhiệm: \"Thiết kế kho dữ liệu phục vụ báo cáo\" mới có bằng chứng một phần (chưa thấy phần: kho dữ liệu, kho dữ liệu, phục vụ, báo cáo).\n\nGợi ý câu hỏi phỏng vấn\n• Anh/chị đã từng xử lý dữ liệu luồng thời gian thực chưa? Hãy kể một ví dụ cụ thể.\n• Anh/chị đã từng thiết kế kho dữ liệu phục vụ báo cáo chưa? Hãy kể một ví dụ cụ thể.\n• Anh/chị đã từng xây dựng pipeline ETL xử lý dữ liệu lớn chưa? Hãy kể một ví dụ cụ thể.\n"
+        }
+      ]
+    },
+    {
+      "jd_id": "E2E-FE",
+      "jd_version": 1,
+      "status": "ok",
+      "jd_warnings": [
+        {
+          "code": "short_query",
+          "message": "Văn bản truy vấn chỉ 47 từ: chất lượng match thấp"
+        }
+      ],
+      "run_id": "bdb9f97e-4d7f-48ba-a0d0-e10c141a35c0",
+      "retrieve_run_id": "c7ce4e5c-b8bc-4c04-80f0-6adb99e4ed3e",
+      "n_pool": 34,
+      "warnings": [],
+      "timings": {
+        "retrieve_s": 0.0258,
+        "rerank_s": 0.1364,
+        "rerank.rr1_load_s": 0.016,
+        "rerank.rr2_b4_bertscore_s": 0.0592,
+        "rerank.rr3_b4_align_s": 0.0346,
+        "rerank.rr3_rules_s": 0.0014,
+        "rerank.total_s": 0.1147,
+        "explain_top_s": 0.2025
+      },
+      "rerank_top": [
+        {
+          "cv_id": "809ed20a-0e27-4cde-91ed-9b9ce54affe7",
+          "rank": 1,
+          "score": 92,
+          "band": "high",
+          "cap_applied": false,
+          "flags": []
+        },
+        {
+          "cv_id": "a5ff9858-2048-4d09-898e-5f0ef56b65e6",
+          "rank": 2,
+          "score": 92,
+          "band": "high",
+          "cap_applied": false,
+          "flags": [
+            "location_mismatch"
+          ]
+        },
+        {
+          "cv_id": "e462df1f-4114-4b5e-9c5c-55b451cc8566",
+          "rank": 3,
+          "score": 90,
+          "band": "high",
+          "cap_applied": false,
+          "flags": [
+            "location_mismatch"
+          ]
+        },
+        {
+          "cv_id": "7107f5cb-c88b-4af1-ba8f-861ab23c723a",
+          "rank": 4,
+          "score": 81,
+          "band": "high",
+          "cap_applied": false,
+          "flags": [
+            "location_mismatch"
+          ]
+        },
+        {
+          "cv_id": "875bc510-a5e8-49c4-b957-e0bc09198346",
+          "rank": 5,
+          "score": 72,
+          "band": "mid",
+          "cap_applied": false,
+          "flags": [
+            "location_mismatch"
+          ]
+        },
+        {
+          "cv_id": "907d7afe-14d4-4f6a-a359-e78ee7242b82",
+          "rank": 6,
+          "score": 68,
+          "band": "mid",
+          "cap_applied": false,
+          "flags": [
+            "location_mismatch"
+          ]
+        },
+        {
+          "cv_id": "84f06706-005a-4123-8a1a-289d96d6ebf5",
+          "rank": 7,
+          "score": 56,
+          "band": "low",
+          "cap_applied": false,
+          "flags": []
+        },
+        {
+          "cv_id": "5d218116-6bbe-4a19-be43-6c3bcc987e05",
+          "rank": 8,
+          "score": 49,
+          "band": "low",
+          "cap_applied": false,
+          "flags": [
+            "location_mismatch"
+          ]
+        },
+        {
+          "cv_id": "55d75f0f-6216-4b39-b12d-949abef5cbd6",
+          "rank": 9,
+          "score": 17,
+          "band": "low",
+          "cap_applied": false,
+          "flags": []
+        },
+        {
+          "cv_id": "f37b5530-fbfa-4e5a-874c-971f6c56f5e5",
+          "rank": 10,
+          "score": 17,
+          "band": "low",
+          "cap_applied": false,
+          "flags": [
+            "location_mismatch"
+          ]
+        },
+        {
+          "cv_id": "7a6105ce-4db7-4e52-aaa9-b9bb471a6b4e",
+          "rank": 11,
+          "score": 17,
+          "band": "low",
+          "cap_applied": false,
+          "flags": []
+        },
+        {
+          "cv_id": "5a0f5f44-f2c4-4710-b222-4af8d1afb14c",
+          "rank": 12,
+          "score": 16,
+          "band": "low",
+          "cap_applied": false,
+          "flags": [
+            "location_mismatch"
+          ]
+        },
+        {
+          "cv_id": "348d9116-fef0-4709-91bd-83a65cb1f526",
+          "rank": 13,
+          "score": 16,
+          "band": "low",
+          "cap_applied": false,
+          "flags": [
+            "location_mismatch"
+          ]
+        },
+        {
+          "cv_id": "be8c808e-5122-4c88-be85-5fbce6db7f77",
+          "rank": 14,
+          "score": 15,
+          "band": "low",
+          "cap_applied": false,
+          "flags": [
+            "location_mismatch"
+          ]
+        },
+        {
+          "cv_id": "579d7f0c-e80f-4ef1-be0e-6050acec0062",
+          "rank": 15,
+          "score": 13,
+          "band": "low",
+          "cap_applied": false,
+          "flags": [
+            "location_mismatch"
+          ]
+        },
+        {
+          "cv_id": "30b25ff5-9256-493f-9a39-21c6780a1fc6",
+          "rank": 16,
+          "score": 13,
+          "band": "low",
+          "cap_applied": false,
+          "flags": []
+        },
+        {
+          "cv_id": "3fa413b7-c10a-44bc-ba9f-0bb38dc91ec4",
+          "rank": 17,
+          "score": 13,
+          "band": "low",
+          "cap_applied": false,
+          "flags": [
+            "location_mismatch"
+          ]
+        },
+        {
+          "cv_id": "9693a2ca-fac9-41f9-a8f4-6ca1679b258c",
+          "rank": 18,
+          "score": 13,
+          "band": "low",
+          "cap_applied": false,
+          "flags": [
+            "location_mismatch"
+          ]
+        },
+        {
+          "cv_id": "e48a7695-39bd-4370-baaf-8985a035fb00",
+          "rank": 19,
+          "score": 13,
+          "band": "low",
+          "cap_applied": false,
+          "flags": []
+        },
+        {
+          "cv_id": "531fe323-b24d-433e-bb33-f7128c09dd99",
+          "rank": 20,
+          "score": 13,
+          "band": "low",
+          "cap_applied": false,
+          "flags": [
+            "location_mismatch"
+          ]
+        },
+        {
+          "cv_id": "b2b5b2ea-d384-44c6-be69-f07f775d15a3",
+          "rank": 21,
+          "score": 13,
+          "band": "low",
+          "cap_applied": false,
+          "flags": [
+            "location_mismatch"
+          ]
+        },
+        {
+          "cv_id": "c24dec46-ac59-46a2-a5a6-526f4f6cdba6",
+          "rank": 22,
+          "score": 13,
+          "band": "low",
+          "cap_applied": false,
+          "flags": []
+        },
+        {
+          "cv_id": "cefd48da-ad6d-4423-b0f0-2d7829966b78",
+          "rank": 23,
+          "score": 13,
+          "band": "low",
+          "cap_applied": false,
+          "flags": [
+            "location_mismatch"
+          ]
+        },
+        {
+          "cv_id": "6aaef5b6-0fa4-423a-98c7-c7921434de41",
+          "rank": 24,
+          "score": 13,
+          "band": "low",
+          "cap_applied": false,
+          "flags": [
+            "location_mismatch"
+          ]
+        },
+        {
+          "cv_id": "360b3669-5477-4711-a6fe-9b4593011763",
+          "rank": 25,
+          "score": 11,
+          "band": "low",
+          "cap_applied": false,
+          "flags": []
+        },
+        {
+          "cv_id": "66677c36-2b52-4c50-a610-a23fd9506042",
+          "rank": 26,
+          "score": 11,
+          "band": "low",
+          "cap_applied": false,
+          "flags": [
+            "location_mismatch"
+          ]
+        },
+        {
+          "cv_id": "454c4abd-f3cf-4d02-a7e0-d7ff1f988fc3",
+          "rank": 27,
+          "score": 10,
+          "band": "low",
+          "cap_applied": false,
+          "flags": [
+            "location_mismatch"
+          ]
+        },
+        {
+          "cv_id": "ba139ddb-2efb-4c5e-81aa-6f6b3a777575",
+          "rank": 28,
+          "score": 10,
+          "band": "low",
+          "cap_applied": false,
+          "flags": [
+            "location_mismatch"
+          ]
+        },
+        {
+          "cv_id": "1706cf15-b997-498c-9b5c-b2960ecd844d",
+          "rank": 29,
+          "score": 8,
+          "band": "low",
+          "cap_applied": false,
+          "flags": [
+            "location_mismatch"
+          ]
+        },
+        {
+          "cv_id": "e5840a57-b777-41b3-9b0a-bb1b816401b0",
+          "rank": 30,
+          "score": 8,
+          "band": "low",
+          "cap_applied": false,
+          "flags": []
+        }
+      ],
+      "retrieve_top": [
+        {
+          "cv_id": "a5ff9858-2048-4d09-898e-5f0ef56b65e6",
+          "rank": 1,
+          "fused": 0.9872024059295654,
+          "s": {
+            "dense": 0.8557658195495605,
+            "bm25": 40.67965316772461,
+            "skill": 0.9259259104728699,
+            "resp": 0.8065237998962402
+          },
+          "rerank_rank": 2,
+          "rerank_score": 92
+        },
+        {
+          "cv_id": "809ed20a-0e27-4cde-91ed-9b9ce54affe7",
+          "rank": 2,
+          "fused": 0.962485671043396,
+          "s": {
+            "dense": 0.8441450595855713,
+            "bm25": 42.83531188964844,
+            "skill": 0.9259259104728699,
+            "resp": 0.7685683369636536
+          },
+          "rerank_rank": 1,
+          "rerank_score": 92
+        },
+        {
+          "cv_id": "e462df1f-4114-4b5e-9c5c-55b451cc8566",
+          "rank": 3,
+          "fused": 0.9386070966720581,
+          "s": {
+            "dense": 0.8316595554351807,
+            "bm25": 41.86296463012695,
+            "skill": 0.8518518209457397,
+            "resp": 0.7839406132698059
+          },
+          "rerank_rank": 3,
+          "rerank_score": 90
+        },
+        {
+          "cv_id": "7107f5cb-c88b-4af1-ba8f-861ab23c723a",
+          "rank": 4,
+          "fused": 0.8248023986816406,
+          "s": {
+            "dense": 0.7886862754821777,
+            "bm25": 37.468448638916016,
+            "skill": 0.7481481432914734,
+            "resp": 0.7487165927886963
+          },
+          "rerank_rank": 4,
+          "rerank_score": 81
+        },
+        {
+          "cv_id": "875bc510-a5e8-49c4-b957-e0bc09198346",
+          "rank": 5,
+          "fused": 0.8022735118865967,
+          "s": {
+            "dense": 0.8393569588661194,
+            "bm25": 33.05949401855469,
+            "skill": 0.7259259223937988,
+            "resp": 0.709393322467804
+          },
+          "rerank_rank": 5,
+          "rerank_score": 72
+        },
+        {
+          "cv_id": "907d7afe-14d4-4f6a-a359-e78ee7242b82",
+          "rank": 6,
+          "fused": 0.5938509106636047,
+          "s": {
+            "dense": 0.739441990852356,
+            "bm25": 17.895803451538086,
+            "skill": 0.6666666269302368,
+            "resp": 0.6759862899780273
+          },
+          "rerank_rank": 6,
+          "rerank_score": 68
+        },
+        {
+          "cv_id": "84f06706-005a-4123-8a1a-289d96d6ebf5",
+          "rank": 7,
+          "fused": 0.5476133823394775,
+          "s": {
+            "dense": 0.7174234390258789,
+            "bm25": 18.674291610717773,
+            "skill": 0.5925925970077515,
+            "resp": 0.657589316368103
+          },
+          "rerank_rank": 7,
+          "rerank_score": 56
+        },
+        {
+          "cv_id": "5d218116-6bbe-4a19-be43-6c3bcc987e05",
+          "rank": 8,
+          "fused": 0.39816832542419434,
+          "s": {
+            "dense": 0.6953552961349487,
+            "bm25": 12.912840843200684,
+            "skill": 0.5185185670852661,
+            "resp": 0.5535758137702942
+          },
+          "rerank_rank": 8,
+          "rerank_score": 49
+        },
+        {
+          "cv_id": "348d9116-fef0-4709-91bd-83a65cb1f526",
+          "rank": 9,
+          "fused": 0.289385586977005,
+          "s": {
+            "dense": 0.6962651014328003,
+            "bm25": 9.096278190612793,
+            "skill": 0.0,
+            "resp": 0.624326765537262
+          },
+          "rerank_rank": 13,
+          "rerank_score": 16
+        },
+        {
+          "cv_id": "7a6105ce-4db7-4e52-aaa9-b9bb471a6b4e",
+          "rank": 10,
+          "fused": 0.25523245334625244,
+          "s": {
+            "dense": 0.678054690361023,
+            "bm25": 9.439600944519043,
+            "skill": 0.0,
+            "resp": 0.5949148535728455
+          },
+          "rerank_rank": 11,
+          "rerank_score": 17
+        },
+        {
+          "cv_id": "55d75f0f-6216-4b39-b12d-949abef5cbd6",
+          "rank": 11,
+          "fused": 0.2257532775402069,
+          "s": {
+            "dense": 0.6389094591140747,
+            "bm25": 5.048618316650391,
+            "skill": 0.0,
+            "resp": 0.6306704878807068
+          },
+          "rerank_rank": 9,
+          "rerank_score": 17
+        },
+        {
+          "cv_id": "e48a7695-39bd-4370-baaf-8985a035fb00",
+          "rank": 12,
+          "fused": 0.22209647297859192,
+          "s": {
+            "dense": 0.6737187504768372,
+            "bm25": 5.567155838012695,
+            "skill": 0.0,
+            "resp": 0.5858771800994873
+          },
+          "rerank_rank": 19,
+          "rerank_score": 13
+        },
+        {
+          "cv_id": "9693a2ca-fac9-41f9-a8f4-6ca1679b258c",
+          "rank": 13,
+          "fused": 0.21923887729644775,
+          "s": {
+            "dense": 0.6821516752243042,
+            "bm25": 5.247584342956543,
+            "skill": 0.0,
+            "resp": 0.5759187340736389
+          },
+          "rerank_rank": 18,
+          "rerank_score": 13
+        },
+        {
+          "cv_id": "5a0f5f44-f2c4-4710-b222-4af8d1afb14c",
+          "rank": 14,
+          "fused": 0.2183157354593277,
+          "s": {
+            "dense": 0.6541846394538879,
+            "bm25": 5.425297260284424,
+            "skill": 0.0,
+            "resp": 0.6020746827125549
+          },
+          "rerank_rank": 12,
+          "rerank_score": 16
+        },
+        {
+          "cv_id": "f37b5530-fbfa-4e5a-874c-971f6c56f5e5",
+          "rank": 15,
+          "fused": 0.2160378396511078,
+          "s": {
+            "dense": 0.6516022682189941,
+            "bm25": 5.260000705718994,
+            "skill": 0.0,
+            "resp": 0.6030076146125793
+          },
+          "rerank_rank": 10,
+          "rerank_score": 17
+        },
+        {
+          "cv_id": "6aaef5b6-0fa4-423a-98c7-c7921434de41",
+          "rank": 16,
+          "fused": 0.20024949312210083,
+          "s": {
+            "dense": 0.6207132339477539,
+            "bm25": 8.949990272521973,
+            "skill": 0.0,
+            "resp": 0.5846459865570068
+          },
+          "rerank_rank": 24,
+          "rerank_score": 13
+        },
+        {
+          "cv_id": "3fa413b7-c10a-44bc-ba9f-0bb38dc91ec4",
+          "rank": 17,
+          "fused": 0.1966613084077835,
+          "s": {
+            "dense": 0.645980179309845,
+            "bm25": 5.077918529510498,
+            "skill": 0.0,
+            "resp": 0.5844503045082092
+          },
+          "rerank_rank": 17,
+          "rerank_score": 13
+        },
+        {
+          "cv_id": "531fe323-b24d-433e-bb33-f7128c09dd99",
+          "rank": 18,
+          "fused": 0.19226735830307007,
+          "s": {
+            "dense": 0.6410567164421082,
+            "bm25": 7.3561553955078125,
+            "skill": 0.0,
+            "resp": 0.5656746029853821
+          },
+          "rerank_rank": 20,
+          "rerank_score": 13
+        },
+        {
+          "cv_id": "be8c808e-5122-4c88-be85-5fbce6db7f77",
+          "rank": 19,
+          "fused": 0.19083280861377716,
+          "s": {
+            "dense": 0.6638383865356445,
+            "bm25": 5.446812152862549,
+            "skill": 0.0,
+            "resp": 0.555398166179657
+          },
+          "rerank_rank": 14,
+          "rerank_score": 15
+        },
+        {
+          "cv_id": "30b25ff5-9256-493f-9a39-21c6780a1fc6",
+          "rank": 20,
+          "fused": 0.1778574287891388,
+          "s": {
+            "dense": 0.6251068115234375,
+            "bm25": 4.63651180267334,
+            "skill": 0.0,
+            "resp": 0.5844025611877441
+          },
+          "rerank_rank": 16,
+          "rerank_score": 13
+        },
+        {
+          "cv_id": "66677c36-2b52-4c50-a610-a23fd9506042",
+          "rank": 21,
+          "fused": 0.1477925330400467,
+          "s": {
+            "dense": 0.5933035612106323,
+            "bm25": 3.529785633087158,
+            "skill": 0.0,
+            "resp": 0.5858771800994873
+          },
+          "rerank_rank": 26,
+          "rerank_score": 11
+        },
+        {
+          "cv_id": "360b3669-5477-4711-a6fe-9b4593011763",
+          "rank": 22,
+          "fused": 0.13217857480049133,
+          "s": {
+            "dense": 0.6331253051757812,
+            "bm25": 1.6604361534118652,
+            "skill": 0.0,
+            "resp": 0.538877010345459
+          },
+          "rerank_rank": 25,
+          "rerank_score": 11
+        },
+        {
+          "cv_id": "0a788183-e4bc-4001-b239-46dab8e01a5f",
+          "rank": 23,
+          "fused": 0.12367570400238037,
+          "s": {
+            "dense": 0.5762278437614441,
+            "bm25": 3.0798122882843018,
+            "skill": 0.0,
+            "resp": 0.5749184489250183
+          },
+          "rerank_rank": null,
+          "rerank_score": null
+        },
+        {
+          "cv_id": "6f20b2b6-76ba-4005-85c2-84ccc7cd9a61",
+          "rank": 24,
+          "fused": 0.11844271421432495,
+          "s": {
+            "dense": 0.588202953338623,
+            "bm25": 2.9942195415496826,
+            "skill": 0.0,
+            "resp": 0.5563047528266907
+          },
+          "rerank_rank": null,
+          "rerank_score": null
+        },
+        {
+          "cv_id": "579d7f0c-e80f-4ef1-be0e-6050acec0062",
+          "rank": 25,
+          "fused": 0.11677838116884232,
+          "s": {
+            "dense": 0.645815372467041,
+            "bm25": 0.724593997001648,
+            "skill": 0.0,
+            "resp": null
+          },
+          "rerank_rank": 15,
+          "rerank_score": 13
+        },
+        {
+          "cv_id": "c24dec46-ac59-46a2-a5a6-526f4f6cdba6",
+          "rank": 26,
+          "fused": 0.1099877879023552,
+          "s": {
+            "dense": 0.5926334261894226,
+            "bm25": 0.8708651065826416,
+            "skill": 0.0,
+            "resp": 0.557267427444458
+          },
+          "rerank_rank": 22,
+          "rerank_score": 13
+        },
+        {
+          "cv_id": "cefd48da-ad6d-4423-b0f0-2d7829966b78",
+          "rank": 27,
+          "fused": 0.10788002610206604,
+          "s": {
+            "dense": 0.5898088812828064,
+            "bm25": 0.868906557559967,
+            "skill": 0.0,
+            "resp": 0.5573857426643372
+          },
+          "rerank_rank": 23,
+          "rerank_score": 13
+        },
+        {
+          "cv_id": "454c4abd-f3cf-4d02-a7e0-d7ff1f988fc3",
+          "rank": 28,
+          "fused": 0.10227019339799881,
+          "s": {
+            "dense": 0.5925493240356445,
+            "bm25": 2.418198823928833,
+            "skill": 0.0,
+            "resp": 0.5348615646362305
+          },
+          "rerank_rank": 27,
+          "rerank_score": 10
+        },
+        {
+          "cv_id": "b2b5b2ea-d384-44c6-be69-f07f775d15a3",
+          "rank": 29,
+          "fused": 0.10185287892818451,
+          "s": {
+            "dense": 0.5855926275253296,
+            "bm25": 0.7504444122314453,
+            "skill": 0.0,
+            "resp": 0.5546417236328125
+          },
+          "rerank_rank": 21,
+          "rerank_score": 13
+        },
+        {
+          "cv_id": "ba139ddb-2efb-4c5e-81aa-6f6b3a777575",
+          "rank": 30,
+          "fused": 0.10166733711957932,
+          "s": {
+            "dense": 0.5862371921539307,
+            "bm25": 2.418199062347412,
+            "skill": 0.0,
+            "resp": 0.5405568480491638
+          },
+          "rerank_rank": 28,
+          "rerank_score": 10
+        }
+      ],
+      "explanations": [
+        {
+          "cv_id": "809ed20a-0e27-4cde-91ed-9b9ce54affe7",
+          "score": 92,
+          "band": "high",
+          "text": "Điểm 92/100 (phù hợp cao, điểm xếp hạng tương đối).\n\nĐiểm mạnh\n• Kỹ năng bắt buộc: có 3/3 (javascript, React, TypeScript).\n• Việc đã làm: 3/3 trách nhiệm có bằng chứng. Ví dụ:\n  – \"Xây dựng giao diện quản trị bằng React\" ← \"Xây dựng giao diện trang quản trị bằng React và TypeScript\"  (khớp: Xây dựng, giao diện, quản trị, React)\n  – \"Tối ưu tốc độ tải trang và trải nghiệm người dùng\" ← \"Tối ưu tốc độ tải trang, cải thiện điểm Lighthouse từ 60 lên 90\"  (khớp: Tối ưu, tốc độ, tải, trang; chưa thấy phần: trải, nghiệm, người, dùng)\n  – \"Phát triển các component dùng chung\" ← \"Phát triển thư viện component dùng chung cho nhiều dự án\"  (khớp: Phát triển, component, dùng, chung)\n• Kinh nghiệm liên quan: 3,5 năm, nhóm Frontend.\n\nChưa thấy bằng chứng\n• Không có mục nào nổi bật.\n"
+        },
+        {
+          "cv_id": "a5ff9858-2048-4d09-898e-5f0ef56b65e6",
+          "score": 92,
+          "band": "high",
+          "text": "Điểm 92/100 (phù hợp cao, điểm xếp hạng tương đối).\n\nĐiểm mạnh\n• Kỹ năng bắt buộc: có 3/3 (javascript, React, TypeScript).\n• Việc đã làm: 3/3 trách nhiệm có bằng chứng. Ví dụ:\n  – \"Xây dựng giao diện quản trị bằng React\" ← \"Xây dựng giao diện trang quản trị bằng React và TypeScript\"  (khớp: Xây dựng, giao diện, quản trị, React)\n  – \"Tối ưu tốc độ tải trang và trải nghiệm người dùng\" ← \"Tối ưu tốc độ tải trang, cải thiện điểm Lighthouse từ 60 lên 90\"  (khớp: Tối ưu, tốc độ, tải, trang; chưa thấy phần: trải, nghiệm, người, dùng)\n  – \"Phát triển các component dùng chung\" ← \"Phát triển thư viện component dùng chung cho nhiều dự án\"  (khớp: Phát triển, component, dùng, chung)\n• Kinh nghiệm liên quan: 8,2 năm, nhóm Frontend.\n\nChưa thấy bằng chứng\n• Không có mục nào nổi bật.\n\nLưu ý\n• Địa điểm làm việc khác với JD.\n"
+        },
+        {
+          "cv_id": "e462df1f-4114-4b5e-9c5c-55b451cc8566",
+          "score": 90,
+          "band": "high",
+          "text": "Điểm 90/100 (phù hợp cao, điểm xếp hạng tương đối).\n\nĐiểm mạnh\n• Kỹ năng bắt buộc: có 3/3 (javascript, React, TypeScript).\n• Việc đã làm: 3/3 trách nhiệm có bằng chứng. Ví dụ:\n  – \"Xây dựng giao diện quản trị bằng React\" ← \"Xây dựng giao diện trang quản trị bằng React và TypeScript\"  (khớp: Xây dựng, giao diện, quản trị, React)\n  – \"Tối ưu tốc độ tải trang và trải nghiệm người dùng\" ← \"Tối ưu tốc độ tải trang, cải thiện điểm Lighthouse từ 60 lên 90\"  (khớp: Tối ưu, tốc độ, tải, trang; chưa thấy phần: trải, nghiệm, người, dùng)\n  – \"Phát triển các component dùng chung\" ← \"Phát triển thư viện component dùng chung cho nhiều dự án\"  (khớp: Phát triển, component, dùng, chung)\n• Kinh nghiệm liên quan: 12,5 năm, nhóm Frontend.\n\nChưa thấy bằng chứng\n• Không có mục nào nổi bật.\n\nLưu ý\n• Địa điểm làm việc khác với JD.\n"
+        },
+        {
+          "cv_id": "7107f5cb-c88b-4af1-ba8f-861ab23c723a",
+          "score": 81,
+          "band": "high",
+          "text": "Điểm 81/100 (phù hợp cao, điểm xếp hạng tương đối).\n\nĐiểm mạnh\n• Kỹ năng bắt buộc: có 3/3 (javascript, React, TypeScript).\n• Việc đã làm: 2/3 trách nhiệm có bằng chứng. Ví dụ:\n  – \"Tối ưu tốc độ tải trang và trải nghiệm người dùng\" ← \"Tối ưu tốc độ tải trang, cải thiện điểm Lighthouse từ 60 lên 90\"  (khớp: Tối ưu, tốc độ, tải, trang; chưa thấy phần: trải, nghiệm, người, dùng)\n  – \"Phát triển các component dùng chung\" ← \"Phát triển thư viện component dùng chung cho nhiều dự án\"  (khớp: Phát triển, component, dùng, chung)\n• Kinh nghiệm liên quan: 12,2 năm, nhóm Frontend.\n\nChưa thấy bằng chứng\n• Trách nhiệm: \"Xây dựng giao diện quản trị bằng React\" mới có bằng chứng một phần (chưa thấy phần: Xây dựng, quản trị, React).\n\nLưu ý\n• Địa điểm làm việc khác với JD.\n\nGợi ý câu hỏi phỏng vấn\n• Anh/chị đã từng xây dựng giao diện quản trị bằng React chưa? Hãy kể một ví dụ cụ thể.\n"
+        },
+        {
+          "cv_id": "875bc510-a5e8-49c4-b957-e0bc09198346",
+          "score": 72,
+          "band": "mid",
+          "text": "Điểm 72/100 (cân nhắc, điểm xếp hạng tương đối).\n\nĐiểm mạnh\n• Kỹ năng bắt buộc: có 3/3 (javascript, React, TypeScript).\n• Việc đã làm: 1/3 trách nhiệm có bằng chứng. Ví dụ:\n  – \"Phát triển các component dùng chung\" ← \"Phát triển thư viện component dùng chung cho nhiều dự án\"  (khớp: Phát triển, component, dùng, chung)\n• Kinh nghiệm liên quan: 1,6 năm, nhóm Frontend.\n\nChưa thấy bằng chứng\n• Trách nhiệm: \"Xây dựng giao diện quản trị bằng React\" mới có bằng chứng một phần (chưa thấy phần: Xây dựng, quản trị, React).\n• Trách nhiệm: \"Tối ưu tốc độ tải trang và trải nghiệm người dùng\" mới có bằng chứng một phần (chưa thấy phần: Tối ưu, tốc độ, tải, trang, trải, nghiệm, người, dùng).\n\nLưu ý\n• Địa điểm làm việc khác với JD.\n\nGợi ý câu hỏi phỏng vấn\n• Anh/chị đã từng xây dựng giao diện quản trị bằng React chưa? Hãy kể một ví dụ cụ thể.\n• Anh/chị đã từng tối ưu tốc độ tải trang và trải nghiệm người dùng chưa? Hãy kể một ví dụ cụ thể.\n"
+        }
+      ]
+    },
+    {
+      "jd_id": "E2E-JAVA",
+      "jd_version": 1,
+      "status": "ok",
+      "jd_warnings": [],
+      "run_id": "45ad329f-2c0f-48f2-bb3f-82d3d2559ddc",
+      "retrieve_run_id": "ffc83ead-47eb-4457-8a0c-6d1e27bcda3e",
+      "n_pool": 34,
+      "warnings": [],
+      "timings": {
+        "retrieve_s": 0.0288,
+        "rerank_s": 0.1366,
+        "rerank.rr1_load_s": 0.0181,
+        "rerank.rr2_b4_bertscore_s": 0.0559,
+        "rerank.rr3_b4_align_s": 0.0391,
+        "rerank.rr3_rules_s": 0.0018,
+        "rerank.total_s": 0.1183,
+        "explain_top_s": 0.1632
+      },
+      "rerank_top": [
+        {
+          "cv_id": "348d9116-fef0-4709-91bd-83a65cb1f526",
+          "rank": 1,
+          "score": 85,
+          "band": "high",
+          "cap_applied": false,
+          "flags": [
+            "location_mismatch"
+          ]
+        },
+        {
+          "cv_id": "6aaef5b6-0fa4-423a-98c7-c7921434de41",
+          "rank": 2,
+          "score": 82,
+          "band": "high",
+          "cap_applied": false,
+          "flags": []
+        },
+        {
+          "cv_id": "531fe323-b24d-433e-bb33-f7128c09dd99",
+          "rank": 3,
+          "score": 78,
+          "band": "mid",
+          "cap_applied": false,
+          "flags": []
+        },
+        {
+          "cv_id": "be8c808e-5122-4c88-be85-5fbce6db7f77",
+          "rank": 4,
+          "score": 74,
+          "band": "mid",
+          "cap_applied": false,
+          "flags": []
+        },
+        {
+          "cv_id": "7a6105ce-4db7-4e52-aaa9-b9bb471a6b4e",
+          "rank": 5,
+          "score": 74,
+          "band": "mid",
+          "cap_applied": false,
+          "flags": [
+            "location_mismatch"
+          ]
+        },
+        {
+          "cv_id": "360b3669-5477-4711-a6fe-9b4593011763",
+          "rank": 6,
+          "score": 67,
+          "band": "mid",
+          "cap_applied": false,
+          "flags": [
+            "location_mismatch"
+          ]
+        },
+        {
+          "cv_id": "579d7f0c-e80f-4ef1-be0e-6050acec0062",
+          "rank": 7,
+          "score": 62,
+          "band": "mid",
+          "cap_applied": false,
+          "flags": [
+            "location_mismatch"
+          ]
+        },
+        {
+          "cv_id": "30b25ff5-9256-493f-9a39-21c6780a1fc6",
+          "rank": 8,
+          "score": 48,
+          "band": "low",
+          "cap_applied": false,
+          "flags": [
+            "location_mismatch"
+          ]
+        },
+        {
+          "cv_id": "e48a7695-39bd-4370-baaf-8985a035fb00",
+          "rank": 9,
+          "score": 48,
+          "band": "low",
+          "cap_applied": false,
+          "flags": [
+            "location_mismatch"
+          ]
+        },
+        {
+          "cv_id": "3fa413b7-c10a-44bc-ba9f-0bb38dc91ec4",
+          "rank": 10,
+          "score": 48,
+          "band": "low",
+          "cap_applied": false,
+          "flags": []
+        },
+        {
+          "cv_id": "907d7afe-14d4-4f6a-a359-e78ee7242b82",
+          "rank": 11,
+          "score": 45,
+          "band": "low",
+          "cap_applied": false,
+          "flags": []
+        },
+        {
+          "cv_id": "9693a2ca-fac9-41f9-a8f4-6ca1679b258c",
+          "rank": 12,
+          "score": 39,
+          "band": "low",
+          "cap_applied": false,
+          "flags": [
+            "location_mismatch"
+          ]
+        },
+        {
+          "cv_id": "5d218116-6bbe-4a19-be43-6c3bcc987e05",
+          "rank": 13,
+          "score": 34,
+          "band": "low",
+          "cap_applied": false,
+          "flags": [
+            "location_mismatch"
+          ]
+        },
+        {
+          "cv_id": "66677c36-2b52-4c50-a610-a23fd9506042",
+          "rank": 14,
+          "score": 29,
+          "band": "low",
+          "cap_applied": false,
+          "flags": []
+        },
+        {
+          "cv_id": "84f06706-005a-4123-8a1a-289d96d6ebf5",
+          "rank": 15,
+          "score": 28,
+          "band": "low",
+          "cap_applied": false,
+          "flags": [
+            "location_mismatch"
+          ]
+        },
+        {
+          "cv_id": "55d75f0f-6216-4b39-b12d-949abef5cbd6",
+          "rank": 16,
+          "score": 27,
+          "band": "low",
+          "cap_applied": false,
+          "flags": [
+            "location_mismatch"
+          ]
+        },
+        {
+          "cv_id": "f37b5530-fbfa-4e5a-874c-971f6c56f5e5",
+          "rank": 17,
+          "score": 27,
+          "band": "low",
+          "cap_applied": false,
+          "flags": []
+        },
+        {
+          "cv_id": "b2b5b2ea-d384-44c6-be69-f07f775d15a3",
+          "rank": 18,
+          "score": 25,
+          "band": "low",
+          "cap_applied": false,
+          "flags": [
+            "location_mismatch"
+          ]
+        },
+        {
+          "cv_id": "c24dec46-ac59-46a2-a5a6-526f4f6cdba6",
+          "rank": 19,
+          "score": 25,
+          "band": "low",
+          "cap_applied": false,
+          "flags": [
+            "location_mismatch"
+          ]
+        },
+        {
+          "cv_id": "cefd48da-ad6d-4423-b0f0-2d7829966b78",
+          "rank": 20,
+          "score": 25,
+          "band": "low",
+          "cap_applied": false,
+          "flags": []
+        },
+        {
+          "cv_id": "6f20b2b6-76ba-4005-85c2-84ccc7cd9a61",
+          "rank": 21,
+          "score": 21,
+          "band": "low",
+          "cap_applied": false,
+          "flags": [
+            "location_mismatch"
+          ]
+        },
+        {
+          "cv_id": "5a0f5f44-f2c4-4710-b222-4af8d1afb14c",
+          "rank": 22,
+          "score": 21,
+          "band": "low",
+          "cap_applied": false,
+          "flags": [
+            "location_mismatch"
+          ]
+        },
+        {
+          "cv_id": "b7b7d0a8-f54c-46c7-9f08-56a352bf8bd1",
+          "rank": 23,
+          "score": 19,
+          "band": "low",
+          "cap_applied": false,
+          "flags": [
+            "location_mismatch"
+          ]
+        },
+        {
+          "cv_id": "7107f5cb-c88b-4af1-ba8f-861ab23c723a",
+          "rank": 24,
+          "score": 15,
+          "band": "low",
+          "cap_applied": false,
+          "flags": []
+        },
+        {
+          "cv_id": "809ed20a-0e27-4cde-91ed-9b9ce54affe7",
+          "rank": 25,
+          "score": 15,
+          "band": "low",
+          "cap_applied": false,
+          "flags": [
+            "location_mismatch"
+          ]
+        },
+        {
+          "cv_id": "a5ff9858-2048-4d09-898e-5f0ef56b65e6",
+          "rank": 26,
+          "score": 15,
+          "band": "low",
+          "cap_applied": false,
+          "flags": [
+            "location_mismatch"
+          ]
+        },
+        {
+          "cv_id": "e462df1f-4114-4b5e-9c5c-55b451cc8566",
+          "rank": 27,
+          "score": 15,
+          "band": "low",
+          "cap_applied": false,
+          "flags": [
+            "location_mismatch"
+          ]
+        },
+        {
+          "cv_id": "0a788183-e4bc-4001-b239-46dab8e01a5f",
+          "rank": 28,
+          "score": 14,
+          "band": "low",
+          "cap_applied": false,
+          "flags": [
+            "location_mismatch"
+          ]
+        },
+        {
+          "cv_id": "23e61732-08bf-4f4e-8d71-456b042b9197",
+          "rank": 29,
+          "score": 14,
+          "band": "low",
+          "cap_applied": false,
+          "flags": []
+        },
+        {
+          "cv_id": "1706cf15-b997-498c-9b5c-b2960ecd844d",
+          "rank": 30,
+          "score": 12,
+          "band": "low",
+          "cap_applied": false,
+          "flags": [
+            "location_mismatch"
+          ]
+        }
+      ],
+      "retrieve_top": [
+        {
+          "cv_id": "348d9116-fef0-4709-91bd-83a65cb1f526",
+          "rank": 1,
+          "fused": 0.9580874443054199,
+          "s": {
+            "dense": 0.7724083662033081,
+            "bm25": 38.88361358642578,
+            "skill": 0.8740741014480591,
+            "resp": 0.7400622367858887
+          },
+          "rerank_rank": 1,
+          "rerank_score": 85
+        },
+        {
+          "cv_id": "6aaef5b6-0fa4-423a-98c7-c7921434de41",
+          "rank": 2,
+          "fused": 0.9201846122741699,
+          "s": {
+            "dense": 0.7436978816986084,
+            "bm25": 38.763431549072266,
+            "skill": 0.7037037014961243,
+            "resp": 0.7912702560424805
+          },
+          "rerank_rank": 2,
+          "rerank_score": 82
+        },
+        {
+          "cv_id": "531fe323-b24d-433e-bb33-f7128c09dd99",
+          "rank": 3,
+          "fused": 0.8594162464141846,
+          "s": {
+            "dense": 0.7272757291793823,
+            "bm25": 37.32551193237305,
+            "skill": 0.7777777314186096,
+            "resp": 0.7244126796722412
+          },
+          "rerank_rank": 3,
+          "rerank_score": 78
+        },
+        {
+          "cv_id": "7a6105ce-4db7-4e52-aaa9-b9bb471a6b4e",
+          "rank": 4,
+          "fused": 0.8577375411987305,
+          "s": {
+            "dense": 0.733625590801239,
+            "bm25": 36.42585754394531,
+            "skill": 0.800000011920929,
+            "resp": 0.7140082716941833
+          },
+          "rerank_rank": 5,
+          "rerank_score": 74
+        },
+        {
+          "cv_id": "be8c808e-5122-4c88-be85-5fbce6db7f77",
+          "rank": 5,
+          "fused": 0.7430236339569092,
+          "s": {
+            "dense": 0.7360953092575073,
+            "bm25": 27.759235382080078,
+            "skill": 0.8518518209457397,
+            "resp": 0.625653088092804
+          },
+          "rerank_rank": 4,
+          "rerank_score": 74
+        },
+        {
+          "cv_id": "579d7f0c-e80f-4ef1-be0e-6050acec0062",
+          "rank": 6,
+          "fused": 0.7227099537849426,
+          "s": {
+            "dense": 0.7424167394638062,
+            "bm25": 19.475114822387695,
+            "skill": 0.7259259223937988,
+            "resp": null
+          },
+          "rerank_rank": 7,
+          "rerank_score": 62
+        },
+        {
+          "cv_id": "360b3669-5477-4711-a6fe-9b4593011763",
+          "rank": 7,
+          "fused": 0.7138874530792236,
+          "s": {
+            "dense": 0.7377392649650574,
+            "bm25": 27.628528594970703,
+            "skill": 0.7777777314186096,
+            "resp": 0.6149260401725769
+          },
+          "rerank_rank": 6,
+          "rerank_score": 67
+        },
+        {
+          "cv_id": "55d75f0f-6216-4b39-b12d-949abef5cbd6",
+          "rank": 8,
+          "fused": 0.49753206968307495,
+          "s": {
+            "dense": 0.7008897066116333,
+            "bm25": 13.574348449707031,
+            "skill": 0.29629629850387573,
+            "resp": 0.6848297715187073
+          },
+          "rerank_rank": 16,
+          "rerank_score": 27
+        },
+        {
+          "cv_id": "c24dec46-ac59-46a2-a5a6-526f4f6cdba6",
+          "rank": 9,
+          "fused": 0.4422930181026459,
+          "s": {
+            "dense": 0.7008823156356812,
+            "bm25": 10.71744155883789,
+            "skill": 0.29629629850387573,
+            "resp": 0.6414461731910706
+          },
+          "rerank_rank": 19,
+          "rerank_score": 25
+        },
+        {
+          "cv_id": "30b25ff5-9256-493f-9a39-21c6780a1fc6",
+          "rank": 10,
+          "fused": 0.42797309160232544,
+          "s": {
+            "dense": 0.6862733364105225,
+            "bm25": 15.010018348693848,
+            "skill": 0.0,
+            "resp": 0.710095226764679
+          },
+          "rerank_rank": 8,
+          "rerank_score": 48
+        },
+        {
+          "cv_id": "e462df1f-4114-4b5e-9c5c-55b451cc8566",
+          "rank": 11,
+          "fused": 0.4263700544834137,
+          "s": {
+            "dense": 0.7525167465209961,
+            "bm25": 8.852502822875977,
+            "skill": 0.0,
+            "resp": 0.6747787594795227
+          },
+          "rerank_rank": 27,
+          "rerank_score": 15
+        },
+        {
+          "cv_id": "7107f5cb-c88b-4af1-ba8f-861ab23c723a",
+          "rank": 12,
+          "fused": 0.40297290682792664,
+          "s": {
+            "dense": 0.7540426254272461,
+            "bm25": 7.446386337280273,
+            "skill": 0.0,
+            "resp": 0.6560879349708557
+          },
+          "rerank_rank": 24,
+          "rerank_score": 15
+        },
+        {
+          "cv_id": "b7b7d0a8-f54c-46c7-9f08-56a352bf8bd1",
+          "rank": 13,
+          "fused": 0.39572808146476746,
+          "s": {
+            "dense": 0.6638302803039551,
+            "bm25": 15.290445327758789,
+            "skill": 0.15555556118488312,
+            "resp": 0.6428720355033875
+          },
+          "rerank_rank": 23,
+          "rerank_score": 19
+        },
+        {
+          "cv_id": "f37b5530-fbfa-4e5a-874c-971f6c56f5e5",
+          "rank": 14,
+          "fused": 0.3880828619003296,
+          "s": {
+            "dense": 0.6542209982872009,
+            "bm25": 10.334287643432617,
+            "skill": 0.29629629850387573,
+            "resp": 0.6385255455970764
+          },
+          "rerank_rank": 17,
+          "rerank_score": 27
+        },
+        {
+          "cv_id": "5d218116-6bbe-4a19-be43-6c3bcc987e05",
+          "rank": 15,
+          "fused": 0.3871500492095947,
+          "s": {
+            "dense": 0.6844769716262817,
+            "bm25": 9.63088321685791,
+            "skill": 0.25925925374031067,
+            "resp": 0.6173041462898254
+          },
+          "rerank_rank": 13,
+          "rerank_score": 34
+        },
+        {
+          "cv_id": "3fa413b7-c10a-44bc-ba9f-0bb38dc91ec4",
+          "rank": 16,
+          "fused": 0.372502863407135,
+          "s": {
+            "dense": 0.6725668907165527,
+            "bm25": 12.755975723266602,
+            "skill": 0.0,
+            "resp": 0.6789829730987549
+          },
+          "rerank_rank": 10,
+          "rerank_score": 48
+        },
+        {
+          "cv_id": "907d7afe-14d4-4f6a-a359-e78ee7242b82",
+          "rank": 17,
+          "fused": 0.37044641375541687,
+          "s": {
+            "dense": 0.6777172088623047,
+            "bm25": 9.949560165405273,
+            "skill": 0.25925925374031067,
+            "resp": 0.6029118299484253
+          },
+          "rerank_rank": 11,
+          "rerank_score": 45
+        },
+        {
+          "cv_id": "b2b5b2ea-d384-44c6-be69-f07f775d15a3",
+          "rank": 18,
+          "fused": 0.3656051456928253,
+          "s": {
+            "dense": 0.6649888157844543,
+            "bm25": 8.450908660888672,
+            "skill": 0.29629629850387573,
+            "resp": 0.6130837798118591
+          },
+          "rerank_rank": 18,
+          "rerank_score": 25
+        },
+        {
+          "cv_id": "6f20b2b6-76ba-4005-85c2-84ccc7cd9a61",
+          "rank": 19,
+          "fused": 0.3508633077144623,
+          "s": {
+            "dense": 0.6600847840309143,
+            "bm25": 11.404767990112305,
+            "skill": 0.2074074000120163,
+            "resp": 0.6075343489646912
+          },
+          "rerank_rank": 21,
+          "rerank_score": 21
+        },
+        {
+          "cv_id": "809ed20a-0e27-4cde-91ed-9b9ce54affe7",
+          "rank": 20,
+          "fused": 0.3434147536754608,
+          "s": {
+            "dense": 0.7229170799255371,
+            "bm25": 5.211267948150635,
+            "skill": 0.0,
+            "resp": 0.6422501802444458
+          },
+          "rerank_rank": 25,
+          "rerank_score": 15
+        },
+        {
+          "cv_id": "e48a7695-39bd-4370-baaf-8985a035fb00",
+          "rank": 21,
+          "fused": 0.32182177901268005,
+          "s": {
+            "dense": 0.6326263546943665,
+            "bm25": 13.117116928100586,
+            "skill": 0.0,
+            "resp": 0.6654426455497742
+          },
+          "rerank_rank": 9,
+          "rerank_score": 48
+        },
+        {
+          "cv_id": "cefd48da-ad6d-4423-b0f0-2d7829966b78",
+          "rank": 22,
+          "fused": 0.3192320466041565,
+          "s": {
+            "dense": 0.6371005177497864,
+            "bm25": 8.066868782043457,
+            "skill": 0.29629629850387573,
+            "resp": 0.5955738425254822
+          },
+          "rerank_rank": 20,
+          "rerank_score": 25
+        },
+        {
+          "cv_id": "a5ff9858-2048-4d09-898e-5f0ef56b65e6",
+          "rank": 23,
+          "fused": 0.30620071291923523,
+          "s": {
+            "dense": 0.69114089012146,
+            "bm25": 5.529995441436768,
+            "skill": 0.0,
+            "resp": 0.6350090503692627
+          },
+          "rerank_rank": 26,
+          "rerank_score": 15
+        },
+        {
+          "cv_id": "9693a2ca-fac9-41f9-a8f4-6ca1679b258c",
+          "rank": 24,
+          "fused": 0.28145450353622437,
+          "s": {
+            "dense": 0.6335465312004089,
+            "bm25": 12.337576866149902,
+            "skill": 0.0,
+            "resp": 0.6215129494667053
+          },
+          "rerank_rank": 12,
+          "rerank_score": 39
+        },
+        {
+          "cv_id": "66677c36-2b52-4c50-a610-a23fd9506042",
+          "rank": 25,
+          "fused": 0.2784539461135864,
+          "s": {
+            "dense": 0.6614047288894653,
+            "bm25": 12.287839889526367,
+            "skill": 0.0,
+            "resp": 0.5823965668678284
+          },
+          "rerank_rank": 14,
+          "rerank_score": 29
+        },
+        {
+          "cv_id": "875bc510-a5e8-49c4-b957-e0bc09198346",
+          "rank": 26,
+          "fused": 0.2653992176055908,
+          "s": {
+            "dense": 0.6996362209320068,
+            "bm25": 3.5979809761047363,
+            "skill": 0.0,
+            "resp": 0.5905158519744873
+          },
+          "rerank_rank": null,
+          "rerank_score": null
+        },
+        {
+          "cv_id": "84f06706-005a-4123-8a1a-289d96d6ebf5",
+          "rank": 27,
+          "fused": 0.24858349561691284,
+          "s": {
+            "dense": 0.6366915702819824,
+            "bm25": 5.72067928314209,
+            "skill": 0.2074074000120163,
+            "resp": 0.5606347918510437
+          },
+          "rerank_rank": 15,
+          "rerank_score": 28
+        },
+        {
+          "cv_id": "5a0f5f44-f2c4-4710-b222-4af8d1afb14c",
+          "rank": 28,
+          "fused": 0.24648571014404297,
+          "s": {
+            "dense": 0.6184724569320679,
+            "bm25": 9.285615921020508,
+            "skill": 0.2222222238779068,
+            "resp": 0.5462844967842102
+          },
+          "rerank_rank": 22,
+          "rerank_score": 21
+        },
+        {
+          "cv_id": "0a788183-e4bc-4001-b239-46dab8e01a5f",
+          "rank": 29,
+          "fused": 0.21323034167289734,
+          "s": {
+            "dense": 0.606570303440094,
+            "bm25": 9.814807891845703,
+            "skill": 0.0,
+            "resp": 0.594170868396759
+          },
+          "rerank_rank": 28,
+          "rerank_score": 14
+        },
+        {
+          "cv_id": "23e61732-08bf-4f4e-8d71-456b042b9197",
+          "rank": 30,
+          "fused": 0.18989306688308716,
+          "s": {
+            "dense": 0.608048677444458,
+            "bm25": 9.450555801391602,
+            "skill": 0.0,
+            "resp": 0.566826581954956
+          },
+          "rerank_rank": 29,
+          "rerank_score": 14
+        }
+      ],
+      "explanations": [
+        {
+          "cv_id": "348d9116-fef0-4709-91bd-83a65cb1f526",
+          "score": 85,
+          "band": "high",
+          "text": "Điểm 85/100 (phù hợp cao, điểm xếp hạng tương đối).\n\nĐiểm mạnh\n• Kỹ năng bắt buộc: có 3/3 (java, Spring Boot, PostgreSQL).\n• Việc đã làm: 2/3 trách nhiệm có bằng chứng. Ví dụ:\n  – \"Thiết kế và phát triển API cho hệ thống thanh toán\" ← \"Thiết kế và phát triển REST API cho hệ thống thanh toán bằng Spring Boot.\"  (khớp: Thiết kế, phát triển, API, hệ thống, thanh toán)\n  – \"Xây dựng luồng xử lý sự kiện bất đồng bộ cho đơn hàng\" ← \"Xây dựng luồng xử lý sự kiện bất đồng bộ với Kafka cho đơn hàng\"  (khớp: Xây dựng, luồng, xử lý sự kiện, bất đồng bộ, đơn, hàng)\n• Kinh nghiệm liên quan: 8,5 năm, nhóm Backend.\n\nChưa thấy bằng chứng\n• Trách nhiệm: chưa thấy bằng chứng về \"Tối ưu hiệu năng truy vấn cơ sở dữ liệu\" trong CV.\n\nLưu ý\n• Địa điểm làm việc khác với JD.\n\nGợi ý câu hỏi phỏng vấn\n• Anh/chị đã từng tối ưu hiệu năng truy vấn cơ sở dữ liệu chưa? Hãy kể một ví dụ cụ thể.\n"
+        },
+        {
+          "cv_id": "6aaef5b6-0fa4-423a-98c7-c7921434de41",
+          "score": 82,
+          "band": "high",
+          "text": "Điểm 82/100 (phù hợp cao, điểm xếp hạng tương đối).\n\nĐiểm mạnh\n• Kỹ năng bắt buộc: có 3/3 (java, Spring Boot, PostgreSQL).\n• Việc đã làm: 2/3 trách nhiệm có bằng chứng. Ví dụ:\n  – \"Tối ưu hiệu năng truy vấn cơ sở dữ liệu\" ← \"Tối ưu hiệu năng truy vấn cơ sở dữ liệu PostgreSQL, giảm 40% thời gian phản hồi\"  (khớp: Tối ưu, hiệu năng, truy, vấn, cơ sở dữ liệu)\n  – \"Xây dựng luồng xử lý sự kiện bất đồng bộ cho đơn hàng\" ← \"Xây dựng luồng xử lý sự kiện bất đồng bộ với Kafka cho đơn hàng\"  (khớp: Xây dựng, luồng, xử lý sự kiện, bất đồng bộ, đơn, hàng)\n• Kinh nghiệm liên quan: 12,4 năm, nhóm Backend.\n\nChưa thấy bằng chứng\n• Trách nhiệm: \"Thiết kế và phát triển API cho hệ thống thanh toán\" mới có bằng chứng một phần (chưa thấy phần: phát triển, hệ thống, thanh toán).\n\nGợi ý câu hỏi phỏng vấn\n• Anh/chị đã từng thiết kế và phát triển API cho hệ thống thanh toán chưa? Hãy kể một ví dụ cụ thể.\n"
+        },
+        {
+          "cv_id": "531fe323-b24d-433e-bb33-f7128c09dd99",
+          "score": 78,
+          "band": "mid",
+          "text": "Điểm 78/100 (cân nhắc, điểm xếp hạng tương đối).\n\nĐiểm mạnh\n• Kỹ năng bắt buộc: có 3/3 (java, Spring Boot, PostgreSQL).\n• Việc đã làm: 2/3 trách nhiệm có bằng chứng. Ví dụ:\n  – \"Tối ưu hiệu năng truy vấn cơ sở dữ liệu\" ← \"Tối ưu hiệu năng truy vấn cơ sở dữ liệu PostgreSQL, giảm 40% thời gian phản hồi\"  (khớp: Tối ưu, hiệu năng, truy, vấn, cơ sở dữ liệu)\n  – \"Xây dựng luồng xử lý sự kiện bất đồng bộ cho đơn hàng\" ← \"Xây dựng luồng xử lý sự kiện bất đồng bộ với Kafka cho đơn hàng\"  (khớp: Xây dựng, luồng, xử lý sự kiện, bất đồng bộ, đơn, hàng)\n• Kinh nghiệm liên quan: 1,8 năm, nhóm Backend.\n\nChưa thấy bằng chứng\n• Trách nhiệm: \"Thiết kế và phát triển API cho hệ thống thanh toán\" mới có bằng chứng một phần (chưa thấy phần: phát triển, hệ thống, thanh toán).\n\nGợi ý câu hỏi phỏng vấn\n• Anh/chị đã từng thiết kế và phát triển API cho hệ thống thanh toán chưa? Hãy kể một ví dụ cụ thể.\n"
+        },
+        {
+          "cv_id": "be8c808e-5122-4c88-be85-5fbce6db7f77",
+          "score": 74,
+          "band": "mid",
+          "text": "Điểm 74/100 (cân nhắc, điểm xếp hạng tương đối).\n\nĐiểm mạnh\n• Kỹ năng bắt buộc: có 3/3 (java, Spring Boot, PostgreSQL).\n• Việc đã làm: 1/3 trách nhiệm có bằng chứng. Ví dụ:\n  – \"Tối ưu hiệu năng truy vấn cơ sở dữ liệu\" ← \"Tối ưu hiệu năng truy vấn cơ sở dữ liệu PostgreSQL, giảm 40% thời gian phản hồi\"  (khớp: Tối ưu, hiệu năng, truy, vấn, cơ sở dữ liệu)\n• Kinh nghiệm liên quan: 8,2 năm, nhóm Backend.\n\nChưa thấy bằng chứng\n• Trách nhiệm: chưa thấy bằng chứng về \"Thiết kế và phát triển API cho hệ thống thanh toán\" trong CV.\n• Trách nhiệm: chưa thấy bằng chứng về \"Xây dựng luồng xử lý sự kiện bất đồng bộ cho đơn hàng\" trong CV.\n\nGợi ý câu hỏi phỏng vấn\n• Anh/chị đã từng thiết kế và phát triển API cho hệ thống thanh toán chưa? Hãy kể một ví dụ cụ thể.\n• Anh/chị đã từng xây dựng luồng xử lý sự kiện bất đồng bộ cho đơn hàng chưa? Hãy kể một ví dụ cụ thể.\n"
+        },
+        {
+          "cv_id": "7a6105ce-4db7-4e52-aaa9-b9bb471a6b4e",
+          "score": 74,
+          "band": "mid",
+          "text": "Điểm 74/100 (cân nhắc, điểm xếp hạng tương đối).\n\nĐiểm mạnh\n• Kỹ năng bắt buộc: có 3/3 (java, Spring Boot, PostgreSQL).\n• Việc đã làm: 2/3 trách nhiệm có bằng chứng. Ví dụ:\n  – \"Thiết kế và phát triển API cho hệ thống thanh toán\" ← \"Thiết kế và phát triển REST API cho hệ thống thanh toán bằng Spring Boot\"  (khớp: Thiết kế, phát triển, API, hệ thống, thanh toán)\n  – \"Xây dựng luồng xử lý sự kiện bất đồng bộ cho đơn hàng\" ← \"Xây dựng luồng xử lý sự kiện bất đồng bộ với Kafka cho đơn hàng\"  (khớp: Xây dựng, luồng, xử lý sự kiện, bất đồng bộ, đơn, hàng)\n• Kinh nghiệm liên quan: 1,5 năm, nhóm Backend.\n\nChưa thấy bằng chứng\n• Trách nhiệm: chưa thấy bằng chứng về \"Tối ưu hiệu năng truy vấn cơ sở dữ liệu\" trong CV.\n\nLưu ý\n• Địa điểm làm việc khác với JD.\n\nGợi ý câu hỏi phỏng vấn\n• Anh/chị đã từng tối ưu hiệu năng truy vấn cơ sở dữ liệu chưa? Hãy kể một ví dụ cụ thể.\n"
+        }
+      ]
+    }
+  ],
+  "log": "D:\\MyProjects\\recruit_system\\ai\\cvmatch\\reports\\e2e\\20261123-152218\\run.jsonl",
+  "dir": "reports\\e2e\\20261123-152218"
+}

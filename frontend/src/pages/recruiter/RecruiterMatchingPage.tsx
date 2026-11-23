@@ -1,9 +1,11 @@
 import { useEffect, useState } from "react";
 import {
+  BandBadge,
   Button,
   Chip,
   EmptyNote,
   Field,
+  MatchExplain,
   Page,
   PageHead,
   Panel,
@@ -11,7 +13,6 @@ import {
   TextSelect,
 } from "../../components/common";
 import {
-  applicationsApi,
   jobsApi,
   matchingApi,
   type JobDto,
@@ -49,15 +50,10 @@ export function RecruiterMatchingPage() {
     if (!jobId) return;
     setBusy(true);
     try {
-      const applicants = (await applicationsApi.recruiter()).filter(
-        (a) => a.jobId === Number(jobId),
-      );
-      const candidateIds = [...new Set(applicants.map((a) => a.candidateId))];
-      for (const candidateId of candidateIds) {
-        await matchingApi.run(Number(jobId), candidateId);
-      }
-      setMatches(await matchingApi.forJob(Number(jobId)));
-      toast("Đã cập nhật xếp hạng ứng viên");
+      // một lần gọi xếp hạng mọi ứng viên đã nộp đơn
+      const ranked = await matchingApi.refreshJob(Number(jobId));
+      setMatches(ranked);
+      toast(ranked.length ? "Đã cập nhật xếp hạng ứng viên" : "Chưa có ứng viên nộp đơn có CV đã phân tích");
     } catch (e) {
       toast(e instanceof Error ? e.message : "Không xếp hạng được. Thử lại.");
     } finally {
@@ -109,12 +105,22 @@ export function RecruiterMatchingPage() {
               >
                 <div>
                   <h3 style={{ margin: "0 0 .35rem" }}>
-                    {m.candidateName} · {pct(Number(m.overallScore))}%
+                    {m.rankPosition ? `#${m.rankPosition} · ` : ""}
+                    {m.candidateName} · {pct(Number(m.overallScore))}%{" "}
+                    {m.band ? <BandBadge band={m.band} /> : null}
                   </h3>
+                  {m.capApplied ? (
+                    <p className="muted">Điểm bị giới hạn: thiếu kỹ năng bắt buộc.</p>
+                  ) : null}
                   <div className="job-tags">
                     {(m.matchedSkills ?? []).map((s) => (
                       <Chip key={s} tone="ok">
                         {s}
+                      </Chip>
+                    ))}
+                    {(m.partialSkills ?? []).map((s) => (
+                      <Chip key={`p-${s}`} tone="near">
+                        Gần đúng: {s}
                       </Chip>
                     ))}
                     {(m.missingSkills ?? []).map((s) => (
@@ -123,9 +129,13 @@ export function RecruiterMatchingPage() {
                       </Chip>
                     ))}
                   </div>
-                  <p className="muted">
-                    {(m.reasons ?? []).join(" · ") || "—"}
-                  </p>
+                  {m.band ? (
+                    <MatchExplain matchId={m.id} />
+                  ) : (
+                    <p className="muted">
+                      {(m.reasons ?? []).join(" · ") || "—"}
+                    </p>
+                  )}
                 </div>
               </article>
             ))

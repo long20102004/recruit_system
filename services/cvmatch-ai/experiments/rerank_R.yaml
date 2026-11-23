@@ -1,0 +1,103 @@
+# Thi nghiem Rerank (thiet ke 09 muc 4.3). Moc R-A0 = top N theo `fused` cua Retrieve.
+# P1 = rr-1.0 (A1 = s_skill, B4, B1, B2). Ablation cong don theo thu tu + R-E13 luoi trong so.
+name: R-E
+direction: jd_to_cv
+stage: rerank
+reference: P1
+relevant_min_grade: 1
+K: 200
+N: 30
+configs:
+  - id: R-A0
+    desc: top 30 theo fused cua Retrieve (khong rerank)
+    mode: retrieve_only
+  - id: P1
+    desc: rr-1.0 (A1=s_skill, B4, B1, B2)
+  - id: R-E1
+    desc: + A1, A2 qua KB
+    overrides: {rerank: {features_enabled: [A1, A2, B4, B1, B2], a1: {use_kb_rel: true}}}
+  - id: R-E2-cos
+    desc: B4 = cosine cau hieu chuan (thay BERTScore)
+    overrides: {rerank: {b4: {engine: cosine}}}
+  - id: R-E3
+    desc: chia S1/S3; Precision/F1
+    todo: "engine Rerank chi co S2 + Recall; S1/S3, P/F1 moi co o golden (eval golden)"
+  - id: R-E4-L16
+    desc: BERTScore layer 16
+    overrides: {bertscore: {layer: 16}}
+  - id: R-E4-L20
+    desc: BERTScore layer 20
+    overrides: {bertscore: {layer: 20}}
+  - id: R-E5-label
+    desc: lo/hi theo nhan (cvmatch eval calibrate)
+    todo: "chay eval calibrate tren tap 300 cap roi dien lo/hi vao day"
+  - id: R-E6-off
+    desc: tat he so phu dinh / hoc tap
+    overrides: {rerank: {b4: {m_negation: 1.0, m_coursework: 1.0}}}
+  - id: R-E6-drop
+    desc: loai han gach phu dinh / hoc tap
+    overrides: {rerank: {b4: {m_negation: 0.0, m_coursework: 0.0}}}
+  - id: R-E7
+    desc: trach nhiem chung chung trong so 0,3
+    overrides: {rerank: {b4: {generic_weight: 0.3}}}
+  - id: R-E8-nomask
+    desc: tat che so
+    overrides: {bertscore: {mask_numbers: false}}
+  - id: R-E8-noalias
+    desc: tat doi alias
+    overrides: {bertscore: {canonicalize_aliases: false}}
+  - id: R-E9
+    desc: + B5 (yeu cau dang chu)
+    overrides: {rerank: {features_enabled: [A1, B4, B5, B1, B2]}}
+  - id: R-E10
+    desc: c_j = max(BERTScore, cosine cau)
+    overrides: {rerank: {b4: {engine: max}}}
+  - id: R-E11-noB1
+    desc: bo B1
+    overrides: {rerank: {features_enabled: [A1, B4, B2]}}
+  - id: R-E11-noB2
+    desc: bo B2
+    overrides: {rerank: {features_enabled: [A1, B4, B1]}}
+  - id: R-E11-nopen
+    desc: B2 tat phat thua
+    overrides: {rerank: {b2: {overqual_penalty: false}}}
+  - id: R-E11-B3
+    desc: + B3 (xem rho(B2, B3) trong log)
+    overrides: {rerank: {features_enabled: [A1, B4, B1, B2, B3]}}
+  - id: R-E11-C1
+    desc: + C1
+    overrides: {rerank: {features_enabled: [A1, B4, B1, B2, C1]}}
+  - id: R-E12-nogate
+    desc: khong cong must-have
+    overrides: {rerank: {gate: {thresholds: [0.0, 0.0]}}}
+  - id: R-E12-hard
+    desc: cong cung (loai CV thieu ky nang bat buoc)
+    todo: "gate_cap chi nhan 50/70/100 trong hop dong; cong cung can them muc 0"
+  - id: R-E12-drop
+    desc: thieu phia CV -> bo feature
+    overrides: {rerank: {missing: {cv_side_policy: drop}}}
+  - id: R-E12-zero
+    desc: thieu phia CV -> 0
+    overrides: {rerank: {missing: {cv_side_policy: zero}}}
+  - id: R-E13-equal
+    desc: trong so bang nhau
+    overrides: {rerank: {weights: {A1: 0.125, A2: 0.125, B4: 0.125, B5: 0.125, B1: 0.125, B2: 0.125, B3: 0.125, C1: 0.125}}}
+  - id: R-E14
+    desc: IDF bat
+    todo: "engine BERTScore chua co IDF (bertscore.idf chi la khoa cache)"
+  - id: P2-full
+    desc: rr-1.1 du 8 feature (T15)
+    overrides:
+      rerank: {version: rr-1.1, features_enabled: [A1, A2, B4, B5, B1, B2, B3, C1], a1: {use_kb_rel: true}}
+  - id: R-X1
+    desc: cross-encoder bge-reranker-v2-m3
+    todo: "backend thay recall_matrix chua lam (T17)"
+  - id: R-X4
+    desc: + RR5 LLM kiem chung vung bien
+    todo: "RR5 chua lam (T17)"
+# R-E13 luoi tho: {A, B4+B5, B1-B3, C} x {0; 0,5; 1; 1,5} tren nen du 8 feature (255 cau hinh) - bat khi can:
+# grid:
+#   id_prefix: R-E13
+#   base_overrides: {rerank: {features_enabled: [A1, A2, B4, B5, B1, B2, B3, C1], a1: {use_kb_rel: true}}}
+#   groups: {A: [A1, A2], B45: [B4, B5], B13: [B1, B2, B3], C: [C1]}
+#   multipliers: [0, 0.5, 1, 1.5]

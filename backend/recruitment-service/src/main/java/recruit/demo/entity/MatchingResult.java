@@ -62,6 +62,39 @@ public class MatchingResult {
     @Column(name = "model_version")
     private String modelVersion;
 
+    /** cvmatch; 'legacy' = dong cua dich vu cv-matching-ai cu (da go), khong con hien. */
+    @Builder.Default
+    @Column(nullable = false, length = 16)
+    private String engine = "legacy";
+
+    /** cvmatch: jd_to_cv (recruiter) | cv_to_jd (ung vien). */
+    @Column(length = 16)
+    private String direction;
+
+    @Column(length = 8)
+    private String band;
+
+    @Column(name = "cap_applied")
+    private Boolean capApplied;
+
+    @JdbcTypeCode(SqlTypes.JSON)
+    @Column(columnDefinition = "json")
+    private List<String> flags;
+
+    @Column(name = "rank_position")
+    private Integer rankPosition;
+
+    @Column(name = "run_id", length = 64)
+    private String runId;
+
+    @Column(name = "cvmatch_cv_id", length = 64)
+    private String cvmatchCvId;
+
+    /** sections cua giai thich cvmatch (luu lan dau lay). */
+    @Column(name = "explanation_json", columnDefinition = "json")
+    @JdbcTypeCode(SqlTypes.JSON)
+    private java.util.Map<String, Object> explanationJson;
+
     @CreationTimestamp
     @Column(name = "created_at", nullable = false, updatable = false)
     private LocalDateTime createdAt;

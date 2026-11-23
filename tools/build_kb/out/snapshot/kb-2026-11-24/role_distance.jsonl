@@ -1,0 +1,182 @@
+{"group_a": "AI/ML", "group_b": "Business", "m": 0.2, "method": "hypothesis"}
+{"group_a": "AI/ML", "group_b": "Design", "m": 0.1, "method": "hypothesis"}
+{"group_a": "AI/ML", "group_b": "DevOps", "m": 0.2, "method": "hypothesis"}
+{"group_a": "AI/ML", "group_b": "Embedded", "m": 0.2, "method": "hypothesis"}
+{"group_a": "AI/ML", "group_b": "Game", "m": 0.2, "method": "hypothesis"}
+{"group_a": "AI/ML", "group_b": "IT Support", "m": 0.1, "method": "hypothesis"}
+{"group_a": "AI/ML", "group_b": "QA", "m": 0.1, "method": "hypothesis"}
+{"group_a": "AI/ML", "group_b": "Security", "m": 0.1, "method": "hypothesis"}
+{"group_a": "Backend", "group_b": "AI/ML", "m": 0.3, "method": "hypothesis"}
+{"group_a": "Backend", "group_b": "Business", "m": 0.1, "method": "hypothesis"}
+{"group_a": "Backend", "group_b": "Data", "m": 0.4, "method": "hypothesis"}
+{"group_a": "Backend", "group_b": "Design", "m": 0.0, "method": "hypothesis"}
+{"group_a": "Backend", "group_b": "DevOps", "m": 0.4, "method": "hypothesis"}
+{"group_a": "Backend", "group_b": "Embedded", "m": 0.3, "method": "hypothesis"}
+{"group_a": "Backend", "group_b": "Frontend", "m": 0.3, "method": "hypothesis"}
+{"group_a": "Backend", "group_b": "Fullstack", "m": 0.8, "method": "hypothesis"}
+{"group_a": "Backend", "group_b": "Game", "m": 0.2, "method": "hypothesis"}
+{"group_a": "Backend", "group_b": "IT Support", "m": 0.2, "method": "hypothesis"}
+{"group_a": "Backend", "group_b": "Mobile", "m": 0.2, "method": "hypothesis"}
+{"group_a": "Backend", "group_b": "QA", "m": 0.2, "method": "hypothesis"}
+{"group_a": "Backend", "group_b": "Security", "m": 0.2, "method": "hypothesis"}
+{"group_a": "Business", "group_b": "IT Support", "m": 0.2, "method": "hypothesis"}
+{"group_a": "Data", "group_b": "AI/ML", "m": 0.6, "method": "hypothesis"}
+{"group_a": "Data", "group_b": "Business", "m": 0.3, "method": "hypothesis"}
+{"group_a": "Data", "group_b": "Design", "m": 0.1, "method": "hypothesis"}
+{"group_a": "Data", "group_b": "DevOps", "m": 0.3, "method": "hypothesis"}
+{"group_a": "Data", "group_b": "Embedded", "m": 0.1, "method": "hypothesis"}
+{"group_a": "Data", "group_b": "Game", "m": 0.1, "method": "hypothesis"}
+{"group_a": "Data", "group_b": "IT Support", "m": 0.1, "method": "hypothesis"}
+{"group_a": "Data", "group_b": "QA", "m": 0.2, "method": "hypothesis"}
+{"group_a": "Data", "group_b": "Security", "m": 0.1, "method": "hypothesis"}
+{"group_a": "Design", "group_b": "Business", "m": 0.2, "method": "hypothesis"}
+{"group_a": "Design", "group_b": "IT Support", "m": 0.0, "method": "hypothesis"}
+{"group_a": "DevOps", "group_b": "Business", "m": 0.1, "method": "hypothesis"}
+{"group_a": "DevOps", "group_b": "Design", "m": 0.0, "method": "hypothesis"}
+{"group_a": "DevOps", "group_b": "Embedded", "m": 0.1, "method": "hypothesis"}
+{"group_a": "DevOps", "group_b": "Game", "m": 0.1, "method": "hypothesis"}
+{"group_a": "DevOps", "group_b": "IT Support", "m": 0.5, "method": "hypothesis"}
+{"group_a": "DevOps", "group_b": "QA", "m": 0.3, "method": "hypothesis"}
+{"group_a": "DevOps", "group_b": "Security", "m": 0.5, "method": "hypothesis"}
+{"group_a": "Embedded", "group_b": "Business", "m": 0.0, "method": "hypothesis"}
+{"group_a": "Embedded", "group_b": "Design", "m": 0.0, "method": "hypothesis"}
+{"group_a": "Embedded", "group_b": "Game", "m": 0.2, "method": "hypothesis"}
+{"group_a": "Embedded", "group_b": "IT Support", "m": 0.1, "method": "hypothesis"}
+{"group_a": "Frontend", "group_b": "AI/ML", "m": 0.1, "method": "hypothesis"}
+{"group_a": "Frontend", "group_b": "Business", "m": 0.1, "method": "hypothesis"}
+{"group_a": "Frontend", "group_b": "Data", "m": 0.1, "method": "hypothesis"}
+{"group_a": "Frontend", "group_b": "Design", "m": 0.4, "method": "hypothesis"}
+{"group_a": "Frontend", "group_b": "DevOps", "m": 0.1, "method": "hypothesis"}
+{"group_a": "Frontend", "group_b": "Embedded", "m": 0.0, "method": "hypothesis"}
+{"group_a": "Frontend", "group_b": "Fullstack", "m": 0.8, "method": "hypothesis"}
+{"group_a": "Frontend", "group_b": "Game", "m": 0.3, "method": "hypothesis"}
+{"group_a": "Frontend", "group_b": "IT Support", "m": 0.1, "method": "hypothesis"}
+{"group_a": "Frontend", "group_b": "Mobile", "m": 0.4, "method": "hypothesis"}
+{"group_a": "Frontend", "group_b": "QA", "m": 0.2, "method": "hypothesis"}
+{"group_a": "Frontend", "group_b": "Security", "m": 0.1, "method": "hypothesis"}
+{"group_a": "Fullstack", "group_b": "AI/ML", "m": 0.2, "method": "hypothesis"}
+{"group_a": "Fullstack", "group_b": "Business", "m": 0.1, "method": "hypothesis"}
+{"group_a": "Fullstack", "group_b": "Data", "m": 0.3, "method": "hypothesis"}
+{"group_a": "Fullstack", "group_b": "Design", "m": 0.3, "method": "hypothesis"}
+{"group_a": "Fullstack", "group_b": "DevOps", "m": 0.3, "method": "hypothesis"}
+{"group_a": "Fullstack", "group_b": "Embedded", "m": 0.1, "method": "hypothesis"}
+{"group_a": "Fullstack", "group_b": "Game", "m": 0.2, "method": "hypothesis"}
+{"group_a": "Fullstack", "group_b": "IT Support", "m": 0.2, "method": "hypothesis"}
+{"group_a": "Fullstack", "group_b": "Mobile", "m": 0.3, "method": "hypothesis"}
+{"group_a": "Fullstack", "group_b": "QA", "m": 0.2, "method": "hypothesis"}
+{"group_a": "Fullstack", "group_b": "Security", "m": 0.2, "method": "hypothesis"}
+{"group_a": "Game", "group_b": "Business", "m": 0.0, "method": "hypothesis"}
+{"group_a": "Game", "group_b": "Design", "m": 0.3, "method": "hypothesis"}
+{"group_a": "Game", "group_b": "IT Support", "m": 0.0, "method": "hypothesis"}
+{"group_a": "Mobile", "group_b": "AI/ML", "m": 0.1, "method": "hypothesis"}
+{"group_a": "Mobile", "group_b": "Business", "m": 0.1, "method": "hypothesis"}
+{"group_a": "Mobile", "group_b": "Data", "m": 0.1, "method": "hypothesis"}
+{"group_a": "Mobile", "group_b": "Design", "m": 0.2, "method": "hypothesis"}
+{"group_a": "Mobile", "group_b": "DevOps", "m": 0.1, "method": "hypothesis"}
+{"group_a": "Mobile", "group_b": "Embedded", "m": 0.2, "method": "hypothesis"}
+{"group_a": "Mobile", "group_b": "Game", "m": 0.3, "method": "hypothesis"}
+{"group_a": "Mobile", "group_b": "IT Support", "m": 0.1, "method": "hypothesis"}
+{"group_a": "Mobile", "group_b": "QA", "m": 0.2, "method": "hypothesis"}
+{"group_a": "Mobile", "group_b": "Security", "m": 0.1, "method": "hypothesis"}
+{"group_a": "QA", "group_b": "Business", "m": 0.3, "method": "hypothesis"}
+{"group_a": "QA", "group_b": "Design", "m": 0.1, "method": "hypothesis"}
+{"group_a": "QA", "group_b": "Embedded", "m": 0.1, "method": "hypothesis"}
+{"group_a": "QA", "group_b": "Game", "m": 0.2, "method": "hypothesis"}
+{"group_a": "QA", "group_b": "IT Support", "m": 0.2, "method": "hypothesis"}
+{"group_a": "QA", "group_b": "Security", "m": 0.3, "method": "hypothesis"}
+{"group_a": "Security", "group_b": "Business", "m": 0.1, "method": "hypothesis"}
+{"group_a": "Security", "group_b": "Design", "m": 0.0, "method": "hypothesis"}
+{"group_a": "Security", "group_b": "Embedded", "m": 0.2, "method": "hypothesis"}
+{"group_a": "Security", "group_b": "Game", "m": 0.0, "method": "hypothesis"}
+{"group_a": "Security", "group_b": "IT Support", "m": 0.3, "method": "hypothesis"}
+{"group_a": "Backend", "group_b": "Frontend", "m": 0.118, "method": "computed"}
+{"group_a": "Backend", "group_b": "Fullstack", "m": 0.15, "method": "computed"}
+{"group_a": "Backend", "group_b": "Mobile", "m": 0.058, "method": "computed"}
+{"group_a": "Backend", "group_b": "Data", "m": 0.129, "method": "computed"}
+{"group_a": "Backend", "group_b": "AI/ML", "m": 0.04, "method": "computed"}
+{"group_a": "Backend", "group_b": "DevOps", "m": 0.092, "method": "computed"}
+{"group_a": "Backend", "group_b": "QA", "m": 0.118, "method": "computed"}
+{"group_a": "Backend", "group_b": "Security", "m": 0.05, "method": "computed"}
+{"group_a": "Backend", "group_b": "Embedded", "m": 0.028, "method": "computed"}
+{"group_a": "Backend", "group_b": "Game", "m": 0.015, "method": "computed"}
+{"group_a": "Backend", "group_b": "Design", "m": 0.0, "method": "computed"}
+{"group_a": "Backend", "group_b": "Business", "m": 0.024, "method": "computed"}
+{"group_a": "Backend", "group_b": "IT Support", "m": 0.016, "method": "computed"}
+{"group_a": "Frontend", "group_b": "Fullstack", "m": 0.198, "method": "computed"}
+{"group_a": "Frontend", "group_b": "Mobile", "m": 0.079, "method": "computed"}
+{"group_a": "Frontend", "group_b": "Data", "m": 0.016, "method": "computed"}
+{"group_a": "Frontend", "group_b": "AI/ML", "m": 0.023, "method": "computed"}
+{"group_a": "Frontend", "group_b": "DevOps", "m": 0.044, "method": "computed"}
+{"group_a": "Frontend", "group_b": "QA", "m": 0.092, "method": "computed"}
+{"group_a": "Frontend", "group_b": "Security", "m": 0.01, "method": "computed"}
+{"group_a": "Frontend", "group_b": "Embedded", "m": 0.0, "method": "computed"}
+{"group_a": "Frontend", "group_b": "Game", "m": 0.008, "method": "computed"}
+{"group_a": "Frontend", "group_b": "Design", "m": 0.044, "method": "computed"}
+{"group_a": "Frontend", "group_b": "Business", "m": 0.0, "method": "computed"}
+{"group_a": "Frontend", "group_b": "IT Support", "m": 0.008, "method": "computed"}
+{"group_a": "Fullstack", "group_b": "Mobile", "m": 0.043, "method": "computed"}
+{"group_a": "Fullstack", "group_b": "Data", "m": 0.109, "method": "computed"}
+{"group_a": "Fullstack", "group_b": "AI/ML", "m": 0.05, "method": "computed"}
+{"group_a": "Fullstack", "group_b": "DevOps", "m": 0.082, "method": "computed"}
+{"group_a": "Fullstack", "group_b": "QA", "m": 0.025, "method": "computed"}
+{"group_a": "Fullstack", "group_b": "Security", "m": 0.049, "method": "computed"}
+{"group_a": "Fullstack", "group_b": "Embedded", "m": 0.023, "method": "computed"}
+{"group_a": "Fullstack", "group_b": "Game", "m": 0.013, "method": "computed"}
+{"group_a": "Fullstack", "group_b": "Design", "m": 0.0, "method": "computed"}
+{"group_a": "Fullstack", "group_b": "Business", "m": 0.02, "method": "computed"}
+{"group_a": "Fullstack", "group_b": "IT Support", "m": 0.0, "method": "computed"}
+{"group_a": "Mobile", "group_b": "Data", "m": 0.018, "method": "computed"}
+{"group_a": "Mobile", "group_b": "AI/ML", "m": 0.025, "method": "computed"}
+{"group_a": "Mobile", "group_b": "DevOps", "m": 0.036, "method": "computed"}
+{"group_a": "Mobile", "group_b": "QA", "m": 0.058, "method": "computed"}
+{"group_a": "Mobile", "group_b": "Security", "m": 0.005, "method": "computed"}
+{"group_a": "Mobile", "group_b": "Embedded", "m": 0.015, "method": "computed"}
+{"group_a": "Mobile", "group_b": "Game", "m": 0.0, "method": "computed"}
+{"group_a": "Mobile", "group_b": "Design", "m": 0.0, "method": "computed"}
+{"group_a": "Mobile", "group_b": "Business", "m": 0.0, "method": "computed"}
+{"group_a": "Mobile", "group_b": "IT Support", "m": 0.009, "method": "computed"}
+{"group_a": "Data", "group_b": "AI/ML", "m": 0.104, "method": "computed"}
+{"group_a": "Data", "group_b": "DevOps", "m": 0.061, "method": "computed"}
+{"group_a": "Data", "group_b": "QA", "m": 0.058, "method": "computed"}
+{"group_a": "Data", "group_b": "Security", "m": 0.031, "method": "computed"}
+{"group_a": "Data", "group_b": "Embedded", "m": 0.019, "method": "computed"}
+{"group_a": "Data", "group_b": "Game", "m": 0.026, "method": "computed"}
+{"group_a": "Data", "group_b": "Design", "m": 0.0, "method": "computed"}
+{"group_a": "Data", "group_b": "Business", "m": 0.05, "method": "computed"}
+{"group_a": "Data", "group_b": "IT Support", "m": 0.011, "method": "computed"}
+{"group_a": "AI/ML", "group_b": "DevOps", "m": 0.042, "method": "computed"}
+{"group_a": "AI/ML", "group_b": "QA", "m": 0.029, "method": "computed"}
+{"group_a": "AI/ML", "group_b": "Security", "m": 0.028, "method": "computed"}
+{"group_a": "AI/ML", "group_b": "Embedded", "m": 0.027, "method": "computed"}
+{"group_a": "AI/ML", "group_b": "Game", "m": 0.015, "method": "computed"}
+{"group_a": "AI/ML", "group_b": "Design", "m": 0.0, "method": "computed"}
+{"group_a": "AI/ML", "group_b": "Business", "m": 0.0, "method": "computed"}
+{"group_a": "AI/ML", "group_b": "IT Support", "m": 0.0, "method": "computed"}
+{"group_a": "DevOps", "group_b": "QA", "m": 0.079, "method": "computed"}
+{"group_a": "DevOps", "group_b": "Security", "m": 0.323, "method": "computed"}
+{"group_a": "DevOps", "group_b": "Embedded", "m": 0.01, "method": "computed"}
+{"group_a": "DevOps", "group_b": "Game", "m": 0.011, "method": "computed"}
+{"group_a": "DevOps", "group_b": "Design", "m": 0.0, "method": "computed"}
+{"group_a": "DevOps", "group_b": "Business", "m": 0.0, "method": "computed"}
+{"group_a": "DevOps", "group_b": "IT Support", "m": 0.104, "method": "computed"}
+{"group_a": "QA", "group_b": "Security", "m": 0.019, "method": "computed"}
+{"group_a": "QA", "group_b": "Embedded", "m": 0.0, "method": "computed"}
+{"group_a": "QA", "group_b": "Game", "m": 0.0, "method": "computed"}
+{"group_a": "QA", "group_b": "Design", "m": 0.0, "method": "computed"}
+{"group_a": "QA", "group_b": "Business", "m": 0.069, "method": "computed"}
+{"group_a": "QA", "group_b": "IT Support", "m": 0.0, "method": "computed"}
+{"group_a": "Security", "group_b": "Embedded", "m": 0.035, "method": "computed"}
+{"group_a": "Security", "group_b": "Game", "m": 0.014, "method": "computed"}
+{"group_a": "Security", "group_b": "Design", "m": 0.0, "method": "computed"}
+{"group_a": "Security", "group_b": "Business", "m": 0.015, "method": "computed"}
+{"group_a": "Security", "group_b": "IT Support", "m": 0.202, "method": "computed"}
+{"group_a": "Embedded", "group_b": "Game", "m": 0.041, "method": "computed"}
+{"group_a": "Embedded", "group_b": "Design", "m": 0.0, "method": "computed"}
+{"group_a": "Embedded", "group_b": "Business", "m": 0.0, "method": "computed"}
+{"group_a": "Embedded", "group_b": "IT Support", "m": 0.028, "method": "computed"}
+{"group_a": "Game", "group_b": "Design", "m": 0.053, "method": "computed"}
+{"group_a": "Game", "group_b": "Business", "m": 0.0, "method": "computed"}
+{"group_a": "Game", "group_b": "IT Support", "m": 0.0, "method": "computed"}
+{"group_a": "Design", "group_b": "Business", "m": 0.083, "method": "computed"}
+{"group_a": "Design", "group_b": "IT Support", "m": 0.0, "method": "computed"}
+{"group_a": "Business", "group_b": "IT Support", "m": 0.012, "method": "computed"}

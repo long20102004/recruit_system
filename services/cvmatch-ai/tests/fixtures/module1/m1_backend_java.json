@@ -1,0 +1,111 @@
+{
+  "personal_info": {
+    "full_name": "Nguyễn Văn Giả",
+    "email": "gia.backend@example.test",
+    "phone": "0900000001",
+    "github_url": "https://github.com/example-gia"
+  },
+  "objective": "Lập trình viên backend 4 năm kinh nghiệm Java, Spring Boot, muốn phát triển hệ thống lớn.",
+  "education": [
+    {
+      "school": "Đại học Bách khoa Hà Nội",
+      "major": "Khoa học máy tính",
+      "start_year": "2015",
+      "end_year": "2019",
+      "gpa": "3.2/4"
+    }
+  ],
+  "experience": [
+    {
+      "company": "Công ty Phần mềm A",
+      "job_title": "Backend Developer",
+      "start_date": "03/2022",
+      "end_date": null,
+      "description": [
+        "Thiết kế REST API bằng Spring Boot cho hệ thống thanh toán",
+        "Tối ưu truy vấn PostgreSQL, giảm 40% thời gian phản hồi",
+        "Triển khai dịch vụ bằng Docker và Kubernetes"
+      ]
+    },
+    {
+      "company": "Công ty B",
+      "job_title": "Java Developer",
+      "start_date": "T7/2019",
+      "end_date": "02/2022",
+      "description": [
+        "Phát triển module quản lý đơn hàng bằng Java, Hibernate",
+        "Viết unit test với JUnit"
+      ]
+    }
+  ],
+  "personal_projects": [
+    {
+      "name": "Hệ thống đặt vé",
+      "role": "Backend",
+      "team_size": 4,
+      "start_date": "2021",
+      "end_date": "2021",
+      "github_url": null,
+      "description": [
+        "Xây dựng API đặt vé, xử lý đồng thời bằng Redis lock"
+      ],
+      "tech_stack": [
+        "Java",
+        "Spring Boot",
+        "Redis",
+        "MySQL"
+      ]
+    }
+  ],
+  "skills": [
+    "Java",
+    "Spring Boot",
+    "PostgreSQL",
+    "Docker",
+    "Kubernetes",
+    "Redis",
+    "Git"
+  ],
+  "certificates": [
+    "Oracle Certified Professional Java SE 11"
+  ],
+  "honours": [],
+  "languages": [
+    {
+      "language": "Tiếng Anh",
+      "note": "TOEIC 750"
+    }
+  ],
+  "skills_normalized": [
+    {
+      "id": 1,
+      "name": "Java",
+      "surface": "java"
+    }
+  ],
+  "implied_skills": [
+    {
+      "id": 9,
+      "name": "JVM",
+      "category": "Runtime",
+      "via": [
+        {
+          "from": "Java",
+          "rel": "REQUIRES"
+        }
+      ]
+    }
+  ],
+  "skills_detected": [
+    "Docker"
+  ],
+  "related_skills": [
+    {
+      "name": "Kotlin",
+      "weight": 0.4
+    }
+  ],
+  "flags": [
+    "kg_ok"
+  ]
+}

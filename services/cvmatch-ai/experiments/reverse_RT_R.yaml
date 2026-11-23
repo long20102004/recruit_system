@@ -1,0 +1,39 @@
+# Thi nghiem Luong D (CV -> JD), thiet ke 09 muc 3.3. Nhan rieng: query_id = cv_id, item_id = jd_id.
+# Chi so: Recall@10/20/50 (+ CV te nhat). Kiem them thien lech: top co toan JD ngan / it ky nang khong.
+name: RT-R
+direction: cv_to_jd
+stage: retrieve
+reference: RT-R-base
+relevant_min_grade: 1
+recall_ks: [10, 20, 50]
+main_metric: recall@10
+configs:
+  - id: RT-R-base
+    desc: mac dinh (4 view, condensed_cv, min_imp_sum 3, RRF khi < 10 JD)
+  - id: RT-R1-dense
+    desc: Dense mot minh
+    overrides: {retrieve: {views_enabled: [dense]}}
+  - id: RT-R1-bm25
+    desc: BM25 mot minh
+    overrides: {retrieve: {views_enabled: [bm25]}}
+  - id: RT-R2-full
+    desc: BM25 voi full_cv
+    overrides: {retrieve: {reverse: {bm25_query_mode: full_cv}}}
+  - id: RT-R3-0
+    desc: view ky nang khong co mau so toi thieu
+    overrides: {retrieve: {reverse: {skill: {min_imp_sum: 0.0}}}}
+  - id: RT-R3-2
+    desc: min_imp_sum = 2
+    overrides: {retrieve: {reverse: {skill: {min_imp_sum: 2.0}}}}
+  - id: RT-R3-5
+    desc: min_imp_sum = 5
+    overrides: {retrieve: {reverse: {skill: {min_imp_sum: 5.0}}}}
+  - id: RT-R4-noresp
+    desc: bo view trach nhiem
+    overrides: {retrieve: {views_enabled: [dense, bm25, skill]}}
+  - id: RT-R5-minmax
+    desc: luon min-max (khong doi sang RRF khi kho nho)
+    overrides: {retrieve: {reverse: {min_pool_minmax: 0}}}
+  - id: RT-R5-rrf
+    desc: luon RRF
+    overrides: {retrieve: {fusion: rrf}}

@@ -9,7 +9,8 @@ Backend được tách theo nghiệp vụ thành ba ứng dụng Spring Boot. M�
 | Recruitment Service | 8082 | Hồ sơ CV, công ty, tin tuyển dụng, ứng tuyển, kết quả matching |
 | Interview Service | 8083 | Câu hỏi, rubric, phiên phỏng vấn, câu trả lời, kết quả chấm |
 | CV Extraction AI | 8001 | Qwen3, KB/KG; mã từ `hocnv/DO-06@920d109` |
-| CV Matching AI | 8002 | Graph + embedding + scoring; mã từ `locnh/matchCV@1983b20` |
+| cvmatch AI | 8003 | `services/cvmatch-ai`: Retrieve + Rerank BERTScore bge-m3 + Explain (profile `match`) |
+| cvmatch DB | 5433 | Postgres 16 + pgvector, dữ liệu dẫn xuất của cvmatch (dựng lại được từ Recruitment DB) |
 | Interview AI | 8000 | Dịch vụ chấm phỏng vấn hiện có tại `AI/` |
 
 ```mermaid
@@ -25,7 +26,9 @@ flowchart TD
     Interview -->|HTTP: xác thực người dùng| Identity
     Interview -->|HTTP: ngữ cảnh ứng viên và việc làm| Recruitment
     Recruitment --> Extract[CV Extraction AI :8001]
-    Recruitment --> Match[CV Matching AI :8002]
+    Recruitment -->|HTTP + X-Service-Token| CvMatch[cvmatch AI :8003]
+    CvMatch --> CvMatchDB[(cvmatch DB Postgres)]
+    KB[tools/build_kb snapshot] -.->|mount read-only| CvMatch
     Interview --> Score[Interview AI :8000]
 ```
 
@@ -64,9 +67,9 @@ docker compose --profile ai up -d --build
 docker compose --profile ai --profile cv-ai up -d --build
 ```
 
-File GGUF không có trong Git. Cấu hình tích hợp hiện chọn v4 theo checkpoint mới ở commit 31e8a1d. Cần GGUF v4 đúng phiên bản; các kết quả đánh giá v3/v4 trước đó vẫn là số liệu riêng của từng phiên bản. Bộ cài trích xuất dùng llama.cpp CPU; GPU cần image riêng có CUDA. Matching tải Sentence Transformer ở lần đầu sử dụng; có volume cache để không tải lại. Khi model embedding không tải được, code kế thừa dùng hash dự phòng và ghi log; không dùng kết quả đó để báo cáo chất lượng semantic. `MATCHMAKING_EMBEDDING_BACKEND=hash` chỉ phục vụ kiểm thử offline.
+File GGUF không có trong Git. Cấu hình tích hợp hiện chọn v4 theo checkpoint mới ở commit 31e8a1d. Cần GGUF v4 đúng phiên bản; các kết quả đánh giá v3/v4 trước đó vẫn là số liệu riêng của từng phiên bản. Bộ cài trích xuất dùng llama.cpp CPU; GPU cần image riêng có CUDA. Matching (`cvmatch-ai`, profile `match`) tải bge-m3 (~2,3 GB) ở lần đầu vào volume `cvmatch_model_cache`.
 
-Có thể dùng AI chạy trên máy khác/Colab bằng cách đặt `CV_EXTRACTION_URL`, `CV_MATCHING_URL` trong `.env` rồi tạo lại Recruitment Service:
+Có thể dùng AI chạy trên máy khác/Colab bằng cách đặt `CV_EXTRACTION_URL`, `CVMATCH_URL` trong `.env` rồi tạo lại Recruitment Service:
 
 ```bash
 docker compose up -d --force-recreate recruitment-service
@@ -109,11 +112,36 @@ Cấu hình mặc định dùng MySQL local cổng 3307, 3308, 3309. Nếu chạ
 Trong Recruitment có hai module riêng:
 
 - `service/cv/CvExtractionModule`: PDFBox đọc PDF theo bố cục (mã từ DO-06), gọi `/api/v1/extract-cv`, chuyển kết quả thành các trường CV để sửa trên giao diện. Lưu thêm `extracted_profile` để giữ học vấn/kinh nghiệm có cấu trúc.
-- `service/matching/CvMatchingModule`: gọi `/match/no-llm` của Matching AI, lưu điểm thật và kỹ năng khớp/thiếu. Chuyển điểm 0–100 của AI thành 0–1 theo hợp đồng frontend hiện tại.
+- `service/cvmatch/*`: đồng bộ CV/JD sang `cvmatch-ai` và gọi matching (mục "Matching CV ↔ JD (cvmatch)").
 
 Matching AI có adapter cho schema Module 1: lấy tên từ `personal_info`, chức danh từ `experience[]`, số năm làm việc từ khoảng thời gian và không đếm trùng các tháng chồng lấn. Không suy đoán bằng cấp chỉ dựa vào tên trường. Sửa tiêu đề kinh nghiệm trên form được ưu tiên; số năm vẫn lấy từ ngày tháng trong bản trích xuất vì form hiện tại không có trường sửa ngày. Xoá hết kinh nghiệm sẽ đưa số năm về 0. Kết quả batch được sắp lại theo điểm matching.
 
 Chưa bổ sung OCR cho PDF scan, chưa thay công thức trọng số của nhánh matching bằng XGBoost, và chưa thay KB của DO-06 bằng phiên bản trong báo cáo Chương 4 riêng.
+
+## Matching CV ↔ JD (cvmatch)
+
+Module `services/cvmatch-ai` đã thay hẳn dịch vụ `cv-matching-ai` cũ (đã gỡ; dòng cũ trong `matching_results` giữ
+`engine = 'legacy'` và không còn hiện). Kế hoạch và ghi chú bàn giao: `plan/` (I01–I09).
+
+- **Dữ liệu:** Recruitment DB là nguồn sự thật. Sau khi lưu CV (`upload`, `confirm`) hoặc job (`create`, đổi trạng thái),
+  `service/cvmatch/CvMatchSync` gửi sang cvmatch **sau commit, chạy nền**: CV = `extracted_profile` của Module 1 + các mục
+  đã sửa trên form + email tài khoản; JD = bảng `jobs`/`job_skills`, `jd_id = job-<id>`. Trạng thái ở `match_cv_link`,
+  `match_jd_link` (`SYNCED`, `FAILED` → thử lại mỗi phút có backoff, `INVALID` → chờ dữ liệu đổi).
+- **Matching:** ứng viên "Phù hợp với tôi" = một lần gọi Luồng D cho mọi job đang mở; recruiter "Ghép hồ sơ" =
+  `POST /api/matching/jobs/{id}/refresh` (ứng viên đã nộp đơn; `{"scope":"pool"}` cả kho, chỉ ADMIN); giải thích
+  `GET /api/matching/{id}/explanation` (ứng viên không thấy điểm). Kết quả lưu ở `matching_results` với
+  `engine = 'cvmatch'`, `direction = jd_to_cv | cv_to_jd`, `band`, `rank_position`, `run_id`.
+- **Vận hành:** dựng lại cvmatch DB (lần đầu bật, đổi `CVMATCH_HMAC_KEY`, đổi KB / model, mất volume):
+
+  ```bash
+  curl -X POST -H "X-Service-Token: $SERVICE_TOKEN" "http://127.0.0.1:8082/internal/cvmatch/backfill?scope=all"
+  ```
+
+  Scheduler sẽ gửi lại toàn bộ (job trước, CV sau). `CVMATCH_SYNC_ENABLED=false` tắt đồng bộ (stack không bật `match`).
+- **Đổi KB:** phát hành snapshot ở `tools/build_kb` (`release_check.py`), đặt `CVMATCH_ONTOLOGY_VERSION`, khởi động lại
+  `cvmatch-ai` (tự nạp snapshot), rồi backfill như trên.
+- **Kiểm tra:** `python3 backend/scripts/smoke-stack.py` (thêm `--cv <pdf>` để chạy cả Qwen; `--no-matching` nếu không bật `match`).
+  Hợp đồng API: `services/cvmatch-ai/openapi.json`; test hợp đồng với cvmatch thật: đặt `CVMATCH_IT_URL` rồi `./mvnw test`.
 
 ## Giao tiếp và xác thực
 
@@ -159,9 +187,8 @@ cd backend
 ```
 
 ```bash
-cd services/cv-matching-ai
-MATCHMAKING_EMBEDDING_BACKEND=hash python -m pytest
-python -m unittest discover -s tests -p test_extraction_adapter.py
+cd services/cvmatch-ai
+python -m pytest -q        # can Postgres (docker compose up -d trong services/cvmatch-ai)
 ```
 
 Chạy kiểm tra đầu cuối qua gateway sau khi các AI sẵn sàng:
@@ -170,7 +197,7 @@ Chạy kiểm tra đầu cuối qua gateway sau khi các AI sẵn sàng:
 python3 backend/scripts/smoke-stack.py
 ```
 
-Để kiểm tra hai mô hình thật, chạy `python3 backend/scripts/smoke-stack.py --cv /absolute/path/CV.pdf`. Script kiểm tra Qwen theo `--model-version` (mặc định v4) và Sentence Transformer đã nạp, upload PDF vào tài khoản ứng viên demo (thay CV hiện có), xác nhận hồ sơ, chạy matching một JD và kiểm tra kết quả đã lưu. Không truyền `--cv` thì chỉ kiểm tra đăng nhập, việc làm, form và phiên phỏng vấn. Compose yêu cầu embedding thật và dừng startup nếu không tải được model, không âm thầm dùng hash. Các endpoint `/health` phản ánh service đang chạy; health của extraction chỉ thành công khi model đã được nạp.
+Để kiểm tra hai mô hình thật, chạy `python3 backend/scripts/smoke-stack.py --cv /absolute/path/CV.pdf`. Script kiểm tra Qwen theo `--model-version` (mặc định v4) và `/health` của cvmatch (`--cvmatch-url`, cảnh báo nếu là FakeEncoder), upload PDF vào tài khoản ứng viên demo (thay CV hiện có), xác nhận hồ sơ, rồi kiểm tra matching: "Phù hợp với tôi" + giải thích ứng viên, nộp đơn, recruiter xếp hạng + giải thích HR. Không truyền `--cv` thì dùng CV đang có của ứng viên demo; `--no-matching` bỏ phần matching. Các endpoint `/health` phản ánh service đang chạy; health của extraction chỉ thành công khi model đã được nạp.
 
 ## Module 3 v2
 
