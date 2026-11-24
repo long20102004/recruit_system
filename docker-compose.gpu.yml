@@ -1,6 +1,23 @@
-# GPU cho cvmatch-ai (NVIDIA Container Toolkit):
+# GPU cho cvmatch-ai và cv-extraction-ai (NVIDIA Container Toolkit / Docker Desktop + WSL2):
 #   docker compose -f docker-compose.yml -f docker-compose.gpu.yml --profile match up -d --build
+#   docker compose -f docker-compose.yml -f docker-compose.gpu.yml --profile cv-ai up -d --build
 services:
+  cv-extraction-ai:
+    build:
+      dockerfile: Dockerfile.gpu
+      args:
+        CUDA_ARCH: ${CV_CUDA_ARCH:-75}
+    environment:
+      N_GPU_LAYERS: ${CV_N_GPU_LAYERS:-99}
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: 1
+              capabilities: [gpu]
+
+
   cvmatch-ai:
     build:
       args:

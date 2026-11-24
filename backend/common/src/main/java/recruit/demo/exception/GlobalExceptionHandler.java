@@ -9,6 +9,7 @@ import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 import recruit.demo.dto.ErrorResponse;
+import recruit.demo.dto.BaseResponse;
 
 import java.util.stream.Collectors;
 
@@ -18,6 +19,27 @@ public class GlobalExceptionHandler {
     @ExceptionHandler(ApiException.class)
     public ResponseEntity<ErrorResponse> handleApi(ApiException ex) {
         return ResponseEntity.status(ex.getStatus()).body(new ErrorResponse(ex.getMessage()));
+    }
+
+    @ExceptionHandler(BusinessException.class)
+    public ResponseEntity<BaseResponse<Object>> handleBusiness(BusinessException ex) {
+        return ResponseEntity.status(resolveHttpStatus(ex.getCode()))
+                .body(BaseResponse.builder()
+                        .code(ex.getCode())
+                        .message(ex.getMessage())
+                        .data(ex.getData())
+                        .build());
+    }
+
+    /** Mã có trong {@link ErrorCode} dùng status gắn sẵn; mã tự do là HTTP status hợp lệ thì giữ nguyên, còn lại 500. */
+    static HttpStatus resolveHttpStatus(Long code) {
+        ErrorCode known = ErrorCode.fromCode(code);
+        if (known != null) return known.getHttpStatus();
+        if (code != null && code >= 400 && code < 600) {
+            HttpStatus status = HttpStatus.resolve(code.intValue());
+            if (status != null) return status;
+        }
+        return HttpStatus.INTERNAL_SERVER_ERROR;
     }
 
     @ExceptionHandler(BadCredentialsException.class)

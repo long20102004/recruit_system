@@ -7,25 +7,34 @@ interface UploadZoneProps {
   accept?: string;
   onFile?: (file: File) => void;
   className?: string;
+  /** Khoá vùng tải (vd đang xử lý file trước): không mở hộp chọn, bỏ qua kéo thả. */
+  disabled?: boolean;
+  children?: ReactNode;
 }
 
 export function UploadZone({
   title = "Kéo thả CV PDF vào đây",
-  hint = "Chỉ nhận file PDF · tối đa 5MB",
+  hint = "Chỉ nhận file PDF · tối đa 10 MB",
   accept = ".pdf",
   onFile,
   className,
+  disabled = false,
+  children,
 }: UploadZoneProps) {
   const inputRef = useRef<HTMLInputElement>(null);
 
+  function open() {
+    if (!disabled) inputRef.current?.click();
+  }
+
   function handleFiles(files: FileList | null) {
     const file = files?.[0];
-    if (file) onFile?.(file);
+    if (file && !disabled) onFile?.(file);
   }
 
   function onDragOver(e: DragEvent) {
     e.preventDefault();
-    e.currentTarget.classList.add("dragover");
+    if (!disabled) e.currentTarget.classList.add("dragover");
   }
 
   function onDragLeave(e: DragEvent) {
@@ -40,12 +49,16 @@ export function UploadZone({
 
   return (
     <div
-      className={classNames("upload-zone", className)}
-      tabIndex={0}
+      className={classNames("upload-zone", disabled && "disabled", className)}
+      tabIndex={disabled ? -1 : 0}
       role="button"
-      onClick={() => inputRef.current?.click()}
+      aria-disabled={disabled}
+      onClick={open}
       onKeyDown={(e) => {
-        if (e.key === "Enter" || e.key === " ") inputRef.current?.click();
+        if (e.key === "Enter" || e.key === " ") {
+          e.preventDefault();
+          open();
+        }
       }}
       onDragOver={onDragOver}
       onDragLeave={onDragLeave}
@@ -53,12 +66,16 @@ export function UploadZone({
     >
       <strong>{title}</strong>
       <p className="muted">{hint}</p>
+      {children}
       <input
         ref={inputRef}
         type="file"
         accept={accept}
         hidden
-        onChange={(e) => handleFiles(e.target.files)}
+        onChange={(e) => {
+          handleFiles(e.target.files);
+          e.target.value = "";
+        }}
       />
     </div>
   );

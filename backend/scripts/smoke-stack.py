@@ -17,7 +17,7 @@ from urllib.request import Request, urlopen
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--url', default='http://localhost:8080')
-    parser.add_argument('--model-version', default='v4', choices=['v3', 'v4', 'v5'])
+    parser.add_argument('--model-version', default='v4', choices=['v4'])
     parser.add_argument('--cv', type=Path, help='PDF to upload to the demo candidate account (replaces its CV)')
     parser.add_argument('--extraction-url', default='http://localhost:8001')
     parser.add_argument('--cvmatch-url', default='http://localhost:8003')

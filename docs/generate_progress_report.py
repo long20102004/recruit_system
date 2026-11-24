@@ -21,8 +21,8 @@ OUT = ROOT / "docs" / "Bao_cao_tien_do_HireLens.docx"
 
 
 def load_stats() -> dict:
-    qpath = ROOT / "AI" / "data" / "questions.json"
-    apath = ROOT / "AI" / "data" / "answers.csv"
+    qpath = ROOT / "ai-service" / "interview" / "service" / "data" / "questions.json"
+    apath = ROOT / "ai-service" / "interview" / "service" / "data" / "answers.csv"
     bundle = json.loads(qpath.read_text(encoding="utf-8"))
     questions = bundle["questions"]
     tracks = Counter(q.get("track") or "khac" for q in questions)
