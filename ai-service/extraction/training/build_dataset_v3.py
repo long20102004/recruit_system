@@ -154,7 +154,7 @@ def main(argv: list[str] | None = None) -> None:
     ap = argparse.ArgumentParser(description=__doc__.splitlines()[0])
     ap.add_argument("--data", default="data")
     ap.add_argument("--out", default="data/retrain_v3")
-    ap.add_argument("--tokenizer", default="checkpoint-250/tokenizer.json")
+    ap.add_argument("--tokenizer", default="checkpoint-v4/tokenizer.json")
     ap.add_argument("--max-len", type=int, default=4096)
     print(json.dumps(build(ap.parse_args(argv)), ensure_ascii=False, indent=2))
 

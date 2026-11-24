@@ -61,8 +61,8 @@ def resolve_gguf_path(configured: str) -> tuple[str | None, str | None]:
 
 
 def resolve_versioned_gguf_path(configured: str, version: str) -> tuple[str | None, str | None]:
-    """Never label the sole v3 GGUF as v4 when the configured v4 file is missing."""
-    if version != "v1" and not os.path.isfile(configured):
+    """Never label another version's GGUF as the configured one when it is missing."""
+    if not os.path.isfile(configured):
         return None, f"Missing exact GGUF for {version}: {configured}; refusing another version"
     return resolve_gguf_path(configured)
 
@@ -170,7 +170,7 @@ def _load_transformers():
     lora_abs = _resolve(lora_path)
 
     # Only pair the known bundled adapters with their corresponding prompts.
-    known_adapters = {"v1": "./checkpoint-250", "v4": "./checkpoint-v4"}
+    known_adapters = {"v4": "./checkpoint-v4"}
     for version, path in known_adapters.items():
         if os.path.realpath(lora_abs) != os.path.realpath(_resolve(path)) or _cfg.PROMPT_VERSION == version:
             continue

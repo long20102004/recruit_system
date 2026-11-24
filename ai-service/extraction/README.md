@@ -8,25 +8,23 @@ Dịch vụ trích xuất thông tin CV (CV Parsing) ứng dụng Mô hình Ngô
 
 ```
 ai-service/extraction/
-├── checkpoint-250/             # Trọng số LoRA adapter (~78MB, đã có sẵn trong repo)
+├── checkpoint-v4/              # LoRA adapter của model v4 (~78MB, có trong repo)
 │   ├── adapter_config.json
 │   ├── adapter_model.safetensors
 │   ├── chat_template.jinja
 │   ├── tokenizer.json
 │   └── tokenizer_config.json
-├── merged_model/               # Thư mục chứa file GGUF lượng tử hóa (tùy chọn)
+├── merged_model/               # GGUF lượng tử hóa: model-v4-q4_k_m.gguf (gitignore)
 │   └── .gitkeep
-├── fine_tune_qwen3-1.7B.ipynb  # Notebook huấn luyện LoRA v1 (cũ)
-├── training/                   # build_dataset.py + retrain_qwen3_v2.ipynb (v2, feature 006)
-├── run_on_colab.ipynb          # Notebook chạy thử nghiệm inference trên Google Colab
-├── run_v6.1_on_colab.ipynb     # Notebook chạy inference model retrain_v6.1 GGUF trên Colab T4 + Tunnel
+├── training/                   # builder dataset v3/v4/v5 (cho lần train sau) + retrain_qwen3_v2.ipynb
+├── serve_on_colab_gpu.ipynb    # Chạy API trên Colab T4 (llama.cpp bắt buộc CUDA) + Cloudflare tunnel
 ├── main.py                     # Entry point (shim): `uvicorn main:app`
 ├── app/
 │   ├── main.py                 # Khởi tạo FastAPI, include router, load model khi startup
 │   ├── api/routes.py           # /health, /api/v1/extract-cv
 │   ├── core/                   # config.py (env), logging.py
 │   ├── schemas/cv.py           # CVRequest, CVResponse
-│   ├── services/               # model_loader, prompt (v1), prompt_v2, generator
+│   ├── services/               # model_loader, prompt_v3 (prompt của model v4), generator, loop_guard, continuation
 │   └── utils/                  # text.py (clean_cv_text), json_parse.py (extract_json)
 ├── kb/                         # seed KB, script build KB, seed/extensions (skill hệ thống)
 ├── eval/                       # đánh giá ngoại tuyến / ablation
@@ -77,24 +75,24 @@ cd ai-service/extraction
 Copy-Item .env.example .env
 ```
 
-Trong `.env`, sửa các biến điều khiển engine/model: `MODEL_ENGINE` (`transformers` hoặc `llama_cpp`), `PROMPT_VERSION` (`v1`–`v5`) và `GGUF_MODEL_PATH` (cho `llama_cpp`) hoặc `LORA_PATH` (cho `transformers`), rồi chạy service:
+Trong `.env`, sửa các biến điều khiển engine/model: `MODEL_ENGINE` (`transformers` hoặc `llama_cpp`), `PROMPT_VERSION` (chỉ `v4`) và `GGUF_MODEL_PATH` (cho `llama_cpp`) hoặc `LORA_PATH` (cho `transformers`), rồi chạy service:
 
 ```bash
 python main.py
 ```
 
-Lưu ý: biến môi trường hệ điều hành luôn ưu tiên hơn giá trị trong `.env` (ví dụ `PROMPT_VERSION=v2 python main.py` sẽ đè `PROMPT_VERSION` trong `.env`); sau khi đổi `.env` cần khởi động lại service để giá trị mới có hiệu lực.
+Lưu ý: biến môi trường hệ điều hành luôn ưu tiên hơn giá trị trong `.env` (ví dụ `MODEL_ENGINE=llama_cpp python main.py` sẽ đè `MODEL_ENGINE` trong `.env`); sau khi đổi `.env` cần khởi động lại service để giá trị mới có hiệu lực.
 
 | Biến | Mặc định | Mô tả |
 |---|---|---|
 | `BASE_MODEL_NAME` | `unsloth/Qwen3-1.7B` | Base model cho `transformers` + LoRA (có thể được thay bằng base khai trong adapter) |
 | `MODEL_ENGINE` | `transformers` | Chọn `transformers` (LoRA) hoặc `llama_cpp` (GGUF) |
-| `LORA_PATH` | `./checkpoint-v4` (v4), `./checkpoint-250` (v1), không đặt (v2/v3/v5) | Thư mục adapter tương ứng prompt; các phiên bản không có mặc định cần chỉ định adapter |
-| `GGUF_MODEL_PATH` | `./merged_model/model-v4-q4_k_m.gguf` (v4) | Mặc định v1: `model.gguf`; v2/v3/v5: `model-v2-q4_k_m.gguf` / `model-v3-q4_k_m.gguf` / `model-v5-q4_k_m.gguf`, đều trong `./merged_model/` |
+| `LORA_PATH` | `./checkpoint-v4` | Thư mục adapter LoRA của v4 (engine `transformers`) |
+| `GGUF_MODEL_PATH` | `./merged_model/model-v4-q4_k_m.gguf` | File GGUF của v4 (engine `llama_cpp`) |
 | `CONTEXT_TOKENS` | `8192` | Context window; nếu chưa set thì fallback sang `MAX_INPUT_TOKENS` |
 | `MAX_INPUT_TOKENS` | `8192` | Giá trị fallback cũ của `CONTEXT_TOKENS` |
-| `PROMPT_VERSION` | `v4` | Chọn phiên bản `v1`–`v5`; prompt và trọng số phải cùng phiên bản |
-| `MAX_NEW_TOKENS` | `1500` (v1), `2048` (v2–v5) | Giới hạn số token sinh ra cho mỗi request |
+| `PROMPT_VERSION` | `v4` | Chỉ nhận `v4` (prompt v3 + trọng số v4); bản model sau này sẽ thêm giá trị mới |
+| `MAX_NEW_TOKENS` | `2048` | Giới hạn số token sinh ra cho mỗi request |
 | `LOOP_MAX_STRING_CHARS` | `2000` | Chặn lặp: dừng sinh khi một chuỗi JSON dài hơn ngưỡng này (feature 008) |
 | `LOOP_MAX_REPEATS` | `3` | Chặn lặp: dừng sinh khi cùng một chuỗi (≥ 15 ký tự) lặp lại ngần này lần trong cùng một danh sách |
 | `QUEUE_WAIT_SECONDS` | `30` | Thời gian tối đa chờ hàng đợi trước khi trả `503` "bận" |
@@ -121,7 +119,7 @@ python -m pytest -q
 Dịch vụ chọn một trong **2 cơ chế suy luận** qua `MODEL_ENGINE`. Đường dẫn `LORA_PATH` và `GGUF_MODEL_PATH` tương đối được tính từ thư mục `ai-service/extraction`, không phụ thuộc thư mục chạy lệnh.
 
 ### 🔹 Cách 1: LoRA v4 qua transformers (mặc định)
-- Chuẩn bị adapter v4 tại `checkpoint-v4/`; base model có thể được tải từ Hugging Face. Không dùng adapter v1 `checkpoint-250/` với prompt v4.
+- Chuẩn bị adapter v4 tại `checkpoint-v4/`; base model có thể được tải từ Hugging Face.
 - Chạy từ `ai-service/extraction` (các biến dưới đây cũng là mặc định):
   ```bash
   PROMPT_VERSION=v4 MODEL_ENGINE=transformers LORA_PATH=./checkpoint-v4 python main.py
@@ -270,10 +268,7 @@ Bộ công cụ đánh giá ngoại tuyến (`ai-service/extraction/eval/`) ph�
 
 ### Dữ liệu đánh giá
 Dữ liệu được lưu tại thư mục `ai-service/extraction/data/` (đã cấu hình trong `.gitignore`, tải về từ Google Drive dự án):
-- `train.jsonl` (395 mẫu), `val.jsonl` (99 mẫu).
-- **Lưu ý đối soát**:
-  - Model v1 (`checkpoint-250` hoặc `merged_model/model.gguf`) **bắt buộc** đánh giá trên `val.jsonl`.
-  - Model v2 phải đánh giá trên `val_v2.jsonl` (do tập `train_v2` có trùng lặp với `val.jsonl` của v1).
+- `val.jsonl` (99 mẫu CV tổng hợp); CV thật: `retrain_v6.1/test_real.jsonl` (50 CV, thước đo chính).
 - **Tập hoán đổi thực thể (`val_swap.jsonl`)**: Sinh từ `val.jsonl` bằng cách thay thế tên công ty và trường học bằng các tên hư cấu hoàn toàn chưa từng xuất hiện trong tập huấn luyện (giữ nguyên các tên có độ dài $\le 3$ ký tự). Tập này dùng để kiểm tra mô hình thực sự đọc hiểu ngữ cảnh CV hay chỉ ghi nhớ thuộc lòng thực thể đã thấy khi huấn luyện.
 
 ### Chỉ số đánh giá (Metrics)
@@ -414,36 +409,20 @@ export KB_TEST_DSN="postgresql://postgres:postgres@localhost:5433/recruit_kb_tes
 pytest -m kb_db
 ```
 
-## 🧠 Model v3 (feature 007/008)
+## 🧠 Model v4 (đang dùng)
 
-Tải GGUF v3 về `merged_model/model-v3-q4_k_m.gguf` (file trên Drive dự án, ~1,1 GB) rồi chạy service như thường:
+Chỉ còn một model: **v4** = prompt v3 (`app/services/prompt_v3.py`) + trọng số train trên text tách theo cột (feature 013). Các bản v1/v2/v3/v5 và v6.1 đã bỏ: v6.1 kém v4 khi đo trên CV thật (xem `specs/` / báo cáo).
+
+Chạy local bằng GGUF (~1,1 GB, file trên Drive dự án):
 ```bash
-gdown 1mqmolAF-4nJXg1db89oHAYZKYlZ3CUcq -O merged_model/model-v3-q4_k_m.gguf
-PROMPT_VERSION=v3 MODEL_ENGINE=llama_cpp uvicorn main:app --port 8000
+python -m gdown 1mKd0SmhnUKpJTXkH3xQs0puEwYgqFQWn -O merged_model/model-v4-q4_k_m.gguf
+MODEL_ENGINE=llama_cpp uvicorn main:app --port 8000      # PROMPT_VERSION mặc định v4
 ```
-Serving v3 có thêm (feature 008): chặn vòng lặp khi sinh, ghép lại JSON bị đóng ngoặc sớm, và trả `502` khi model không trả về JSON có nội dung. Response chỉ gồm các trường trích từ CV; các trường KB/KG chỉ có khi `KG_ENABLED=true`. Kết quả trên 20 CV thật: `specs/008-serving-robustness-v3/results.md`.
+Chạy trên Colab GPU: `serve_on_colab_gpu.ipynb` (Run all, gửi URL ở cell [6]).
 
-Retrain v3: `python -m training.build_dataset_v3` → upload `data/retrain_v3/` lên `MyDrive/cv-analysis-service/retrain_v3/` → `training/retrain_qwen3_v2.ipynb` với `RUN_NAME="v3"` (mặc định `EVAL="real"`: chỉ chấm 20 CV thật; `SERVE=True`: mở API + tunnel sau khi xuất GGUF).
+Serving gồm chặn vòng lặp, sinh nối tiếp khi JSON bị cắt, ghép JSON đóng ngoặc sớm, hậu kiểm grounding, chuẩn hoá KB và KG (ẩn trừ khi `?include=kg`); `?include=raw` trả thêm `raw_profile` (trước chuẩn hoá KB) để đánh giá.
 
-## 🔁 Retrain v2 (feature 006)
-
-Model v2 dùng **một prompt duy nhất** cho cả train và serve: `app/services/prompt_v2.py` (~430 token, có khối `<think></think>` rỗng). Sửa prompt này thì phải build lại dataset và train lại.
-
-1. Build dataset (CV ở `data/`, không commit):
-   ```bash
-   python -m training.build_dataset            # -> data/retrain_v2/
-   python -m training.build_dataset --hints    # biến thể D (gợi ý kỹ năng từ KB) -> data/retrain_v2_hints/
-   ```
-   `summary.json` ghi số mẫu, số nhãn bị loại vì không có trong CV, số token (chỉ số đếm).
-2. Upload thư mục `data/retrain_v2/` lên Drive `MyDrive/cv-analysis-service/retrain_v2/`.
-3. Mở `training/retrain_qwen3_v2.ipynb` trên Colab (T4) → Run all. Notebook train (loss chỉ trên JSON), chấm điểm val/val_swap bằng `eval.report` và in bảng so với v1, rồi xuất GGUF lên Drive.
-4. Serve model v2 (`PROMPT_VERSION=v2`): tải `finetune_output_v2/gguf_gguf/Qwen3-1.7B.Q4_K_M.gguf` từ Drive dự án về `merged_model/model-v2-q4_k_m.gguf`:
-   ```bash
-   gdown 1X4A2sVFDWbtIIP6hwjjJuiA3Sb-mjrUY -O merged_model/model-v2-q4_k_m.gguf
-    PROMPT_VERSION=v2 MODEL_ENGINE=llama_cpp uvicorn main:app --port 8000
-   ```
-   Model cũ: `PROMPT_VERSION=v1` (file `merged_model/model.gguf`).
-   Chạy trên Colab GPU thay vì local: `run_on_colab.ipynb`.
+Train bản kế tiếp (v7): builder `training/build_dataset_v4.py` / `build_dataset_v5.py` + `training/retrain_qwen3_v2.ipynb`; dataset CV thật hiện có ở `data/retrain_v6.1/` (gitignore).
 
 ---
 
@@ -465,8 +444,8 @@ Các test serving, postprocess và KG được giữ từ nhánh gốc. Cài th�
 
 ### Cập nhật checkpoint v4
 
-Đã đồng bộ checkpoint LoRA `checkpoint-v4/` từ `hocnv/DO-06@31e8a1d` (thay cho checkpoint-250). Commit này không thay đổi serving pipeline Python. Compose hiện chọn v4; đặt `ai-service/models/cv-extraction/model-v4-q4_k_m.gguf` trước khi chạy. File GGUF v3 được giữ nguyên và không tự dùng thay cho v4.
+Đã đồng bộ checkpoint LoRA `checkpoint-v4/` từ `hocnv/DO-06@31e8a1d` (thay cho checkpoint-250). Commit này không thay đổi serving pipeline Python. Compose hiện chọn v4; đặt `ai-service/models/cv-extraction/model-v4-q4_k_m.gguf` trước khi chạy.
 
-GGUF v4 được notebook của nhánh gốc khai báo tại https://drive.google.com/file/d/1mKd0SmhnUKpJTXkH3xQs0puEwYgqFQWn/view (quyền truy cập chưa được kiểm chứng trong phiên này).
+GGUF v4 được notebook của nhánh gốc khai báo tại https://drive.google.com/file/d/1mKd0SmhnUKpJTXkH3xQs0puEwYgqFQWn/view (công khai, tải được bằng `gdown`).
 
 LoRA v4 không phải GGUF: nếu chạy trực tiếp adapter cần Qwen nền và `torch`, `transformers`, `peft`, `accelerate`, đặt `PROMPT_VERSION=v4 LORA_PATH=./checkpoint-v4`. Image mặc định chỉ cài đường GGUF để tránh tăng RAM và thời gian build. Không chỉ đổi tên trọng số v3 thành v4.

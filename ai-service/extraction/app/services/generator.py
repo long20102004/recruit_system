@@ -8,8 +8,7 @@ from app.core.errors import InputTooLongError, ModelBusyError
 from app.core.logging import logger
 from app.services.model_loader import state
 from app.services.loop_guard import LoopGuard, salvage
-from app.services.prompt import build_prompt_gguf
-from app.services import prompt_v2, prompt_v3
+from app.services import prompt_v3
 from app.services.continuation import merge_outputs, plan_continuation
 from app.utils.json_parse import extract_json
 
@@ -27,11 +26,7 @@ class GenerationResult:
 
 
 def build_prompt(cv_text: str) -> str:
-    if config.PROMPT_VERSION in ("v3", "v4", "v5"):  # v4, v5 = prompt v3, retrained models
-        return prompt_v3.render_prompt(cv_text)
-    if config.PROMPT_VERSION == "v2":
-        return prompt_v2.render_prompt(cv_text)
-    return build_prompt_gguf(cv_text)
+    return prompt_v3.render_prompt(cv_text)
 
 
 def count_prompt_tokens(prompt: str) -> int:
@@ -228,7 +223,7 @@ def generate_cv_result(cv_text: str) -> GenerationResult:
 
         if state.engine == "llama_cpp":
             return _generate_llama(
-                prompt, continue_output=config.CONTINUATION_ENABLED and config.PROMPT_VERSION != "v1",
+                prompt, continue_output=config.CONTINUATION_ENABLED,
             )
         return _generate_transformers(prompt)
     finally:

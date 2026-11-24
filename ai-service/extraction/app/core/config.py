@@ -12,29 +12,19 @@ load_dotenv(BASE_DIR / ".env", override=False)
 
 BASE_MODEL_NAME = os.getenv("BASE_MODEL_NAME", "unsloth/Qwen3-1.7B")
 
-# v4 is the default for the bundled LoRA adapter.
 # v4 (feature 013) = prompt v3 + the model retrained on column-aware (layout) text.
-# v5 (feature 014) = prompt v3 + the model retrained on dataset v5 (many short jobs, students, layout L15).
 PROMPT_VERSION = os.getenv("PROMPT_VERSION", "v4").strip().lower()
-if PROMPT_VERSION not in {"v1", "v2", "v3", "v4", "v5"}:
-    raise ValueError("PROMPT_VERSION must be 'v1', 'v2', 'v3', 'v4' or 'v5'")
+if PROMPT_VERSION not in {"v4"}:
+    raise ValueError("PROMPT_VERSION must be 'v4'")
 
 # Each prompt version has its own model file: the prompt and the weights must match.
 DEFAULT_GGUF = {
-    "v1": "./merged_model/model.gguf",
-    "v2": "./merged_model/model-v2-q4_k_m.gguf",
-    "v3": "./merged_model/model-v3-q4_k_m.gguf",
     "v4": "./merged_model/model-v4-q4_k_m.gguf",
-    "v5": "./merged_model/model-v5-q4_k_m.gguf",
 }
 GGUF_MODEL_PATH = os.getenv("GGUF_MODEL_PATH", DEFAULT_GGUF[PROMPT_VERSION])
 
 DEFAULT_LORA = {
-    "v1": "./checkpoint-250",
-    "v2": None,
-    "v3": None,
     "v4": "./checkpoint-v4",
-    "v5": None,
 }
 LORA_PATH = os.getenv("LORA_PATH", DEFAULT_LORA[PROMPT_VERSION])
 
@@ -43,7 +33,7 @@ LORA_PATH = os.getenv("LORA_PATH", DEFAULT_LORA[PROMPT_VERSION])
 MODEL_ENGINE = os.getenv("MODEL_ENGINE", "transformers").strip().lower()
 
 
-MAX_NEW_TOKENS = int(os.getenv("MAX_NEW_TOKENS", "1500" if PROMPT_VERSION == "v1" else "2048"))
+MAX_NEW_TOKENS = int(os.getenv("MAX_NEW_TOKENS", "2048"))
 LOOP_MAX_STRING_CHARS = int(os.getenv("LOOP_MAX_STRING_CHARS", "2000"))
 LOOP_MAX_REPEATS = int(os.getenv("LOOP_MAX_REPEATS", "3"))
 CONTINUATION_ENABLED: bool = (

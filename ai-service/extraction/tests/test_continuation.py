@@ -95,7 +95,7 @@ def test_merge_outputs_only_fills_missing_or_empty():
 @pytest.fixture
 def tail_engine(fake_engine, monkeypatch):
     monkeypatch.setattr(config, "CONTINUATION_ENABLED", True)
-    monkeypatch.setattr(config, "PROMPT_VERSION", "v3")
+    monkeypatch.setattr(config, "PROMPT_VERSION", "v4")
     fake_engine.outputs = [json.dumps(profile_through("personal_projects")),
                            '["Python"],"certificates":[],"honours":[],"languages":[]}']
     return fake_engine
@@ -108,9 +108,8 @@ def test_generate_continues_once(tail_engine):
     assert tail_engine.calls == 2
 
 
-@pytest.mark.parametrize("version", ["v2", "v3"])
-def test_continuation_prompt_and_token_budget(tail_engine, monkeypatch, version):
-    monkeypatch.setattr(config, "PROMPT_VERSION", version)
+def test_continuation_prompt_and_token_budget(tail_engine, monkeypatch):
+    monkeypatch.setattr(config, "PROMPT_VERSION", "v4")
     calls = []
     original = tail_engine.__class__.__call__
 
@@ -129,10 +128,9 @@ def test_continuation_prompt_and_token_budget(tail_engine, monkeypatch, version)
     assert calls[1][1]["stream"] is True
 
 
-@pytest.mark.parametrize("enabled,version", [(False, "v3"), (True, "v1")])
-def test_disabled_or_v1_does_not_continue(tail_engine, monkeypatch, enabled, version):
-    monkeypatch.setattr(config, "CONTINUATION_ENABLED", enabled)
-    monkeypatch.setattr(config, "PROMPT_VERSION", version)
+def test_disabled_does_not_continue(tail_engine, monkeypatch):
+    monkeypatch.setattr(config, "CONTINUATION_ENABLED", False)
+    monkeypatch.setattr(config, "PROMPT_VERSION", "v4")
     result = generator.generate_cv_result("Synthetic CV")
     assert tail_engine.calls == 1
     assert not result.continued

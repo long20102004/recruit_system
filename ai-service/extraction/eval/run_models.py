@@ -1,9 +1,9 @@
 """Run one GGUF model over evaluation splits through the serving code (feature 010).
 
-    python -m eval.run_models --gguf merged_model/model-v3-q4_k_m.gguf --prompt-version v3 \
-        --split test_real=data/retrain_v3/test_real.jsonl --out data/runs/v3 [--n-gpu-layers -1]
+    python -m eval.run_models --gguf merged_model/model-v4-q4_k_m.gguf --prompt-version v4 \
+        --split test_real=data/retrain_v4/test_real.jsonl --out data/runs/v4 [--n-gpu-layers -1]
 
-Same path as the API: prompt of the given version, llama.cpp greedy, loop guard, JSON parse with
+Same path as the API: the v4 prompt, llama.cpp greedy, loop guard, JSON parse with
 fragment merge (feature 008). Post-processing is NOT applied here: the scoring harness applies it
 (variant B). Writes <out>/<split>/predictions.jsonl in the eval.predict format; resumable.
 stdout: counts only (no CV content).
@@ -22,7 +22,7 @@ from pathlib import Path
 def main(argv: list[str] | None = None) -> None:
     ap = argparse.ArgumentParser(description=__doc__.splitlines()[0])
     ap.add_argument("--gguf", required=True)
-    ap.add_argument("--prompt-version", required=True, choices=["v1", "v2", "v3"])
+    ap.add_argument("--prompt-version", default="v4", choices=["v4"])
     ap.add_argument("--split", action="append", required=True, help="name=path.jsonl (repeatable)")
     ap.add_argument("--out", required=True)
     ap.add_argument("--n-gpu-layers", type=int, default=0)

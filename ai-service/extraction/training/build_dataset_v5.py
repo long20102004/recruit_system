@@ -24,7 +24,7 @@ def main(argv: list[str] | None = None) -> None:
     ap = argparse.ArgumentParser(description=__doc__.splitlines()[0])
     ap.add_argument("--data", default="data")
     ap.add_argument("--out", default="data/retrain_v5")
-    ap.add_argument("--tokenizer", default="checkpoint-250/tokenizer.json")
+    ap.add_argument("--tokenizer", default="checkpoint-v4/tokenizer.json")
     ap.add_argument("--max-len", type=int, default=4096)
     ap.add_argument("--real-swaps", type=int, default=3)
     ap.add_argument("--extra-generated", nargs="*", default=["synth_v5/rv", "synth_v5/r15"])

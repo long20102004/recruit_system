@@ -1,16 +1,24 @@
-"""Prompt v3 (feature 007): shared by the v3 dataset builder and serving with PROMPT_VERSION=v3.
+"""Prompt v3: single source of truth for training and serving (PROMPT_VERSION=v4).
 
-Same chat format and target as v2 (``prompt_v2``); only the system prompt changes, with the
-label conventions found on real CVs: spoken languages only, skills from every sub-group without
-group labels, company name only, content of two-column PDFs put back together.
+Serving v4 uses this prompt with the layout-aware model; the system prompt keeps the label
+conventions found on real CVs: spoken languages only, skills from every sub-group without group
+labels, company name only, content of two-column PDFs put back together.
 Any change here requires rebuilding the dataset and retraining.
 """
 
 from __future__ import annotations
 
-from typing import Iterable
+import json
+from typing import Any, Iterable
 
-from app.services.prompt_v2 import ASSISTANT_PREFIX, END_OF_TURN, render_target  # noqa: F401  (same target format)
+# Qwen3 non-thinking turn: the empty think block is part of the prompt, not of the target.
+ASSISTANT_PREFIX = "<|im_start|>assistant\n<think>\n\n</think>\n\n"
+END_OF_TURN = "<|im_end|>"
+
+# Key order of the target JSON (matches the silver labels).
+TOP_KEYS = ("personal_info", "objective", "education", "experience", "personal_projects",
+            "skills", "certificates", "honours", "languages")
+
 
 SYSTEM_PROMPT = """Trích xuất CV thành MỘT object JSON đúng schema bên dưới.
 - Chỉ dùng thông tin có trong CV. Chép nguyên văn: không dịch, không tóm tắt, không sửa chính tả, không thêm. Thiếu: trường đơn → null, danh sách → [].
@@ -30,3 +38,9 @@ def render_prompt(cv_text: str, candidate_skills: Iterable[str] | None = None) -
     return (f"<|im_start|>system\n{SYSTEM_PROMPT}{END_OF_TURN}\n"
             f"<|im_start|>user\n{cv_text.strip()}{END_OF_TURN}\n"
             f"{ASSISTANT_PREFIX}")
+
+
+def render_target(profile: dict[str, Any]) -> str:
+    """Compact JSON of a full-schema profile plus the end-of-turn token."""
+    ordered = {k: profile[k] for k in TOP_KEYS if k in profile}
+    return json.dumps(ordered, ensure_ascii=False, separators=(",", ":")) + END_OF_TURN

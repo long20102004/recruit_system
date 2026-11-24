@@ -85,10 +85,10 @@ def test_config_defaults():
 
 
 def test_config_override():
-    result = config_subprocess(PROMPT_VERSION=" V1 ", MODEL_ENGINE=" LLAMA_CPP ",
+    result = config_subprocess(PROMPT_VERSION=" V4 ", MODEL_ENGINE=" LLAMA_CPP ",
                                LORA_PATH="custom/lora", GGUF_MODEL_PATH="custom/model.gguf")
     assert result.returncode == 0, result.stderr
-    assert json.loads(result.stdout) == ["v1", "llama_cpp", "custom/lora", "custom/model.gguf", 1500]
+    assert json.loads(result.stdout) == ["v4", "llama_cpp", "custom/lora", "custom/model.gguf", 2048]
 
 
 def test_invalid_prompt_version():
@@ -158,11 +158,11 @@ def test_explicit_missing_gguf_does_not_autoselect(monkeypatch, tmp_path):
         model_loader.load_model()
 
 
-@pytest.mark.parametrize("version,path", [("v4", "./checkpoint-250"), ("v1", "./checkpoint-v4")])
-def test_bundled_adapter_version_mismatch(monkeypatch, version, path):
-    monkeypatch.setattr(config, "PROMPT_VERSION", version)
-    monkeypatch.setattr(config, "LORA_PATH", path)
-    with pytest.raises(RuntimeError, match="không tương thích"):
+def test_bundled_v4_adapter_is_accepted(monkeypatch, tmp_path):
+    monkeypatch.setattr(config, "BASE_DIR", tmp_path)
+    monkeypatch.setattr(config, "PROMPT_VERSION", "v4")
+    monkeypatch.setattr(config, "LORA_PATH", "./checkpoint-v4")
+    with pytest.raises(RuntimeError, match="LoRA checkpoint"):
         model_loader._load_transformers()
 
 
@@ -182,10 +182,10 @@ def test_lora_relative_path_resolved_from_service(monkeypatch, tmp_path):
 
 ENV_FILE_TEXT = """
 MODEL_ENGINE=llama_cpp
-PROMPT_VERSION=v2
+PROMPT_VERSION=v4
 LORA_PATH=./custom-lora
 MAX_NEW_TOKENS=1200
-GGUF_MODEL_PATH=./merged_model/model-v2.gguf
+GGUF_MODEL_PATH=./merged_model/model-v4.gguf
 """
 
 CONFIG_DUMP_CODE = (
@@ -207,25 +207,25 @@ def test_env_file_loaded_before_os_getenv(tmp_path):
     assert result.returncode == 0, result.stderr
     # Giá trị của .env được nạp trước os.getenv, neo vào project chứa config.py
     # dù cwd khác.
-    assert json.loads(result.stdout) == ["llama_cpp", "v2", "./custom-lora",
-                                         "./merged_model/model-v2.gguf", 1200]
+    assert json.loads(result.stdout) == ["llama_cpp", "v4", "./custom-lora",
+                                         "./merged_model/model-v4.gguf", 1200]
 
 
 def test_os_env_overrides_env_file(tmp_path):
     project = make_env_project(tmp_path, ENV_FILE_TEXT)
     # OS env phải ghi đè .env (override=False), các key còn lại lấy từ .env.
     result = run_cwd_isolated(project, _cwd_dir(tmp_path), CONFIG_DUMP_CODE,
-                              MODEL_ENGINE="transformers", PROMPT_VERSION="v1")
+                              MODEL_ENGINE="transformers", PROMPT_VERSION="v4")
     assert result.returncode == 0, result.stderr
-    assert json.loads(result.stdout) == ["transformers", "v1", "./custom-lora",
-                                         "./merged_model/model-v2.gguf", 1200]
+    assert json.loads(result.stdout) == ["transformers", "v4", "./custom-lora",
+                                         "./merged_model/model-v4.gguf", 1200]
 
 
 @pytest.mark.parametrize("mode", ["missing", "existing"])
 def test_env_gguf_path_reaches_loader_without_autoselect(tmp_path, mode):
     env_text = ENV_FILE_TEXT
     if mode == "missing":
-        env_text = env_text.replace("model-v2.gguf", "missing.gguf")
+        env_text = env_text.replace("model-v4.gguf", "missing.gguf")
     project = make_env_project(tmp_path, env_text)
     merged = project / "merged_model"
     merged.mkdir()
@@ -233,7 +233,7 @@ def test_env_gguf_path_reaches_loader_without_autoselect(tmp_path, mode):
     if mode == "existing":
         # .env trỏ trực tiếp tới file này; stub ghi lại kwargs rồi lỗi,
         # nhờ đó biết loader nhận đúng explicit path mà không nạp model thật.
-        (merged / "model-v2.gguf").touch()
+        (merged / "model-v4.gguf").touch()
         log = tmp_path / "stub_record.json"
     else:
         # Path từ .env thiếu; một decoy *.gguf cạnh đó không được autoselect thay.
@@ -246,7 +246,7 @@ def test_env_gguf_path_reaches_loader_without_autoselect(tmp_path, mode):
         assert result.returncode != 0
         assert "GGUF" in result.stderr
         record = json.loads(log.read_text())
-        assert record["model_path"] == str(merged / "model-v2.gguf")
+        assert record["model_path"] == str(merged / "model-v4.gguf")
     else:
         assert result.returncode != 0
         assert "Không tìm thấy file GGUF được chỉ định" in result.stderr
