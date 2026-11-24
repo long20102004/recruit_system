@@ -137,7 +137,7 @@ docker compose --profile cv-ai --profile match --profile ai up -d --build
 
 | Profile | Module | Lưu ý |
 |---|---|---|
-| `cv-ai` | M1 · Trích xuất CV | Cần file GGUF ở bước 3.3. Image chạy llama.cpp trên **CPU**: mỗi CV ~30–60 s. Muốn nhanh hơn dùng Colab GPU (mục 5.1) |
+| `cv-ai` | M1 · Trích xuất CV | Cần file GGUF ở bước 3.3. Image mặc định chạy llama.cpp trên **CPU**: mỗi CV ~30–60 s. Có NVIDIA GPU: thêm `-f docker-compose.yml -f docker-compose.gpu.yml` (image CUDA, mặc định build cho sm_75 = GTX 16xx/RTX 20xx; GPU khác đặt `CV_CUDA_ARCH`, thiếu VRAM giảm `CV_N_GPU_LAYERS`). Không có GPU: Colab (mục 5.1) |
 | `match` | M2 · Matching | Cần `CVMATCH_HMAC_KEY`. Lần đầu tải bge-m3 (~2,3 GB), service có thể mất tới ~10 phút mới healthy. Có NVIDIA GPU: thêm `-f docker-compose.yml -f docker-compose.gpu.yml` |
 | `ai` | M3 · Chấm phỏng vấn | Lần đầu tải model BERT từ Hugging Face |
 
@@ -243,7 +243,8 @@ npm run lint
 | `docker compose up` báo lỗi mount `no such file or directory` | Chưa đổi `STORAGE_ROOT` hoặc chưa tạo thư mục con (mục 3.1–3.2) |
 | Upload CV báo "AI chưa sẵn sàng" | Chưa bật profile `cv-ai` và chưa đặt `CV_EXTRACTION_URL`; hoặc M1 chưa nạp xong model (`/health` của :8001) |
 | M1 không healthy, log báo không tìm thấy GGUF | Sai tên/đường dẫn file: phải là `ai-service/models/cv-extraction/model-v4-q4_k_m.gguf` |
-| Mỗi CV mất > 1 phút | M1 đang chạy CPU (bình thường với Docker). Dùng Colab GPU (mục 5.1) |
+| Mỗi CV mất > 1 phút | M1 đang chạy CPU (image mặc định). Có NVIDIA GPU: bật kèm `docker-compose.gpu.yml`; không có: Colab GPU (mục 5.1) |
+| M1 bản GPU lỗi `out of memory` khi nạp model | GPU thiếu VRAM: đặt `CV_N_GPU_LAYERS` nhỏ hơn trong `.env` (vd 20; llama.cpp báo 29 layer) rồi tạo lại container |
 | `cvmatch-ai` dừng ngay khi khởi động | `CVMATCH_HMAC_KEY` trống trong `.env` |
 | `cvmatch-ai` lâu chưa healthy | Lần đầu đang tải bge-m3 (~2,3 GB), chờ tối đa ~10 phút |
 | Matching không thấy CV/JD cũ | Chạy lệnh backfill ở mục 5 |

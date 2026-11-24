@@ -1,0 +1,33 @@
+# Image M1 chạy llama.cpp trên NVIDIA GPU (CUDA). Dùng qua docker-compose.gpu.yml.
+# CUDA_ARCH: compute capability của GPU, bỏ dấu chấm (GTX 1650/16xx/20xx = 75, 30xx = 86, 40xx = 89).
+ARG CUDA_VERSION=12.4.1
+
+FROM nvidia/cuda:${CUDA_VERSION}-devel-ubuntu22.04 AS build
+ARG CUDA_ARCH=75
+RUN apt-get update && apt-get install -y --no-install-recommends \
+        python3 python3-venv python3-dev build-essential cmake git \
+    && rm -rf /var/lib/apt/lists/*
+RUN python3 -m venv /opt/venv
+ENV PATH=/opt/venv/bin:$PATH
+# Lúc build không có driver: link với stub libcuda của CUDA toolkit
+RUN ln -s /usr/local/cuda/lib64/stubs/libcuda.so /usr/local/cuda/lib64/stubs/libcuda.so.1
+ENV LD_LIBRARY_PATH=/usr/local/cuda/lib64/stubs:$LD_LIBRARY_PATH
+RUN CMAKE_ARGS="-DGGML_CUDA=on -DCMAKE_CUDA_ARCHITECTURES=${CUDA_ARCH}" \
+    pip install --no-cache-dir llama-cpp-python
+COPY requirements.txt ./
+RUN pip install --no-cache-dir -r requirements.txt
+
+FROM nvidia/cuda:${CUDA_VERSION}-runtime-ubuntu22.04
+RUN apt-get update && apt-get install -y --no-install-recommends python3 libgomp1 \
+    && rm -rf /var/lib/apt/lists/*
+COPY --from=build /opt/venv /opt/venv
+ENV PATH=/opt/venv/bin:$PATH \
+    MODEL_ENGINE=llama_cpp \
+    N_GPU_LAYERS=99
+WORKDIR /app
+COPY app ./app
+COPY kb ./kb
+COPY main.py ./
+RUN mkdir -p merged_model
+EXPOSE 8000
+CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8000"]

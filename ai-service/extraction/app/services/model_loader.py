@@ -146,7 +146,7 @@ def _load_llama_cpp():
             model_path=gguf_path,
             n_ctx=CONTEXT_TOKENS,
             n_threads=6,
-            n_gpu_layers=99,      # Offload 100% layers lên GPU
+            n_gpu_layers=_cfg.N_GPU_LAYERS,  # mặc định 99 = offload toàn bộ lên GPU
             verbose=True
         )
         state.llm = llm
