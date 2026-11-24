@@ -1,0 +1,7 @@
+# Chạy LoRA bằng Transformers, train và eval (máy local / Colab)
+-r requirements.txt
+torch
+transformers
+peft
+accelerate
+gguf

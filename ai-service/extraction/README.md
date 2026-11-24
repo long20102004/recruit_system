@@ -7,7 +7,7 @@ Dịch vụ trích xuất thông tin CV (CV Parsing) ứng dụng Mô hình Ngô
 ## 📂 Cấu trúc thư mục
 
 ```
-ai-service/
+ai-service/extraction/
 ├── checkpoint-250/             # Trọng số LoRA adapter (~78MB, đã có sẵn trong repo)
 │   ├── adapter_config.json
 │   ├── adapter_model.safetensors
@@ -28,7 +28,11 @@ ai-service/
 │   ├── schemas/cv.py           # CVRequest, CVResponse
 │   ├── services/               # model_loader, prompt (v1), prompt_v2, generator
 │   └── utils/                  # text.py (clean_cv_text), json_parse.py (extract_json)
-├── requirements.txt            # Danh sách thư viện Python cần thiết
+├── kb/                         # seed KB, script build KB, seed/extensions (skill hệ thống)
+├── eval/                       # đánh giá ngoại tuyến / ablation
+├── Dockerfile                  # image serving (GGUF, MODEL_ENGINE=llama_cpp)
+├── requirements.txt            # thư viện serving (Docker)
+├── requirements-train.txt      # thêm torch/transformers/peft cho LoRA, train, eval
 └── README.md
 ```
 
@@ -43,7 +47,7 @@ ai-service/
 
 ### 2. Thiết lập môi trường ảo
 ```bash
-cd ai-service
+cd ai-service/extraction
 
 # Tạo môi trường ảo
 python3 -m venv .venv
@@ -55,21 +59,21 @@ source .venv/bin/activate
 # .venv\Scripts\activate
 
 # Cài đặt các thư viện phụ thuộc
-pip install -r requirements.txt
+pip install -r requirements-train.txt   # chỉ serving GGUF: requirements.txt
 ```
 
 ### 3. Biến môi trường (tùy chọn, tất cả có giá trị mặc định)
 
-Service tự nạp file `.env` ngay trong thư mục `ai-service/` khi khởi động và đọc các biến môi trường sau đó nếu chưa có giá trị nào. Copy file mẫu rồi sửa trong `.env`:
+Service tự nạp file `.env` ngay trong thư mục `ai-service/extraction/` khi khởi động và đọc các biến môi trường sau đó nếu chưa có giá trị nào. Copy file mẫu rồi sửa trong `.env`:
 
 ```bash
-cd ai-service
+cd ai-service/extraction
 cp .env.example .env
 ```
 
 PowerShell (Windows):
 ```powershell
-cd ai-service
+cd ai-service/extraction
 Copy-Item .env.example .env
 ```
 
@@ -105,7 +109,7 @@ Lưu ý: biến môi trường hệ điều hành luôn ưu tiên hơn giá tr�
 ## 🧪 Chạy Test
 
 ```bash
-cd ai-service
+cd ai-service/extraction
 pip install -r requirements-dev.txt
 python -m pytest -q
 ```
@@ -114,11 +118,11 @@ python -m pytest -q
 
 ## ⚙️ Các Chế Độ Chạy Inference
 
-Dịch vụ chọn một trong **2 cơ chế suy luận** qua `MODEL_ENGINE`. Đường dẫn `LORA_PATH` và `GGUF_MODEL_PATH` tương đối được tính từ thư mục `ai-service`, không phụ thuộc thư mục chạy lệnh.
+Dịch vụ chọn một trong **2 cơ chế suy luận** qua `MODEL_ENGINE`. Đường dẫn `LORA_PATH` và `GGUF_MODEL_PATH` tương đối được tính từ thư mục `ai-service/extraction`, không phụ thuộc thư mục chạy lệnh.
 
 ### 🔹 Cách 1: LoRA v4 qua transformers (mặc định)
 - Chuẩn bị adapter v4 tại `checkpoint-v4/`; base model có thể được tải từ Hugging Face. Không dùng adapter v1 `checkpoint-250/` với prompt v4.
-- Chạy từ `ai-service` (các biến dưới đây cũng là mặc định):
+- Chạy từ `ai-service/extraction` (các biến dưới đây cũng là mặc định):
   ```bash
   PROMPT_VERSION=v4 MODEL_ENGINE=transformers LORA_PATH=./checkpoint-v4 python main.py
   ```
@@ -137,7 +141,7 @@ Dịch vụ chọn một trong **2 cơ chế suy luận** qua `MODEL_ENGINE`. Đ
   # Nếu dùng GPU NVIDIA (CUDA):
   CMAKE_ARGS="-DGGML_CUDA=on" pip install llama-cpp-python
   ```
-- Chuẩn bị GGUF v4 tại `merged_model/model-v4-q4_k_m.gguf`, rồi chạy từ `ai-service`:
+- Chuẩn bị GGUF v4 tại `merged_model/model-v4-q4_k_m.gguf`, rồi chạy từ `ai-service/extraction`:
   ```bash
   PROMPT_VERSION=v4 MODEL_ENGINE=llama_cpp GGUF_MODEL_PATH=./merged_model/model-v4-q4_k_m.gguf python main.py
   ```
@@ -259,13 +263,13 @@ Tầng làm giàu đồ thị tri thức (`enrich`) chạy sau tầng hậu ki�
 
 ## 📊 Đánh giá (Evaluation / Ablation)
 
-Bộ công cụ đánh giá ngoại tuyến (`ai-service/eval/`) phục vụ đo lường chất lượng mô hình và ablation study so sánh giữa:
+Bộ công cụ đánh giá ngoại tuyến (`ai-service/extraction/eval/`) phục vụ đo lường chất lượng mô hình và ablation study so sánh giữa:
 - **Biến thể A**: Mô hình thuần (Model-only raw output).
 - **Biến thể B**: Mô hình kết hợp tầng hậu kiểm (`postprocess`), áp dụng offline trên cùng output của A.
 - **Biến thể C**: Mô hình kết hợp hậu kiểm và tầng làm giàu tri thức KG (`enrich`).
 
 ### Dữ liệu đánh giá
-Dữ liệu được lưu tại thư mục `ai-service/data/` (đã cấu hình trong `.gitignore`, tải về từ Google Drive dự án):
+Dữ liệu được lưu tại thư mục `ai-service/extraction/data/` (đã cấu hình trong `.gitignore`, tải về từ Google Drive dự án):
 - `train.jsonl` (395 mẫu), `val.jsonl` (99 mẫu).
 - **Lưu ý đối soát**:
   - Model v1 (`checkpoint-250` hoặc `merged_model/model.gguf`) **bắt buộc** đánh giá trên `val.jsonl`.
@@ -284,7 +288,7 @@ Báo cáo chỉ chứa số liệu tổng hợp (aggregate), tuyệt đối khô
 ### Hướng dẫn chạy
 
 ```bash
-cd ai-service
+cd ai-service/extraction
 
 # 1. Sinh tập kiểm thử hư cấu entity-swapped (kết quả ghi vào data/val_swap.jsonl)
 python -m eval.swap --val data/val.jsonl --train data/train.jsonl --out data/val_swap.jsonl --seed 42
@@ -352,7 +356,7 @@ KB chỉ được dựng từ nguồn công khai có giấy phép mở; mỗi d�
 | Wikipedia tiếng Việt (rev. 75654510) | CC BY-SA 4.0 | Tên chính thức trường |
 
 ```bash
-cd ai-service
+cd ai-service/extraction
 python -m kb.fetch_sources            # tải snapshot -> kb/sources/ + MANIFEST.json (dùng cache; --refresh để tải lại)
 python -m kb.build_external           # offline: kb/sources/ -> kb/seed/*.csv + SOURCES.md
 ```
@@ -367,7 +371,7 @@ python -m kb.build_external           # offline: kb/sources/ -> kb/seed/*.csv + 
   ```bash
   cp infra/kg/.env.example infra/kg/.env    # đặt NEO4J_PASSWORD
   docker compose -f infra/kg/docker-compose.yml --env-file infra/kg/.env up -d
-  cd ai-service && set -a && . ../infra/kg/.env && set +a
+  cd ai-service/extraction && set -a && . ../../infra/kg/.env && set +a
   python -m kb.neo4j_load --uri bolt://localhost:7687 --user neo4j --password-env NEO4J_PASSWORD --reset
   NEO4J_URI=bolt://localhost:7687 uvicorn main:app --port 8000   # service đọc KB từ Neo4j
   ```
@@ -375,7 +379,7 @@ python -m kb.build_external           # offline: kb/sources/ -> kb/seed/*.csv + 
 
 ### 4. Nạp dữ liệu vào DB (Load)
 ```bash
-cd ai-service
+cd ai-service/extraction
 python -m kb.load --dsn $KB_DSN
 ```
 *Script đảm bảo tính idempotent (chạy nhiều lần không trùng lặp) và kiểm tra toàn vẹn dữ liệu (integrity check) sau khi nạp.*
@@ -397,13 +401,13 @@ result = linker.link("ReactJS")
 
 ### 6. Đo lường chất lượng linking (Measure)
 ```bash
-cd ai-service
+cd ai-service/extraction
 python -m kb.measure --split data/clean/val.jsonl --seed kb/seed --out data/runs/kb [--dsn $KB_DSN]
 ```
 
 ### 7. Chạy kiểm thử tích hợp DB
 ```bash
-cd ai-service
+cd ai-service/extraction
 # Chỉ định KB_TEST_DSN trỏ tới DB test riêng biệt recruit_kb_test
 # CẢNH BÁO: Bộ test sẽ TRUNCATE toàn bộ bảng dữ liệu, tuyệt đối KHÔNG trỏ vào DB thật!
 export KB_TEST_DSN="postgresql://postgres:postgres@localhost:5433/recruit_kb_test"
@@ -440,3 +444,29 @@ Model v2 dùng **một prompt duy nhất** cho cả train và serve: `app/servic
    ```
    Model cũ: `PROMPT_VERSION=v1` (file `merged_model/model.gguf`).
    Chạy trên Colab GPU thay vì local: `run_on_colab.ipynb`.
+
+---
+
+## 🐳 Serving bằng Docker (service `cv-extraction-ai`)
+
+Serving code được lấy từ `origin/hocnv/DO-06`, commit `31e8a1d` tại thời điểm tách microservice. Giữ pipeline Qwen3-1.7B, sinh nối tiếp, grounding và KB/KG; dùng seed CSV khi không cấu hình Neo4j/PostgreSQL. Mã PDFBox đọc bố cục nằm trong `backend/recruitment-service/.../extraction/pdf`.
+
+API: `POST /api/v1/extract-cv` với `{"cv_text":"..."}`, trả `{"data":{...}}`. Recruitment đọc PDF rồi gọi endpoint này. Health: `GET /health`.
+
+Cài Python 3.11+, `pip install -r requirements.txt`, đặt `model-v4-q4_k_m.gguf` trong `merged_model/`, rồi chạy:
+
+```bash
+PROMPT_VERSION=v4 uvicorn main:app --host 0.0.0.0 --port 8001
+```
+
+Docker Compose dùng cổng host 8001 và mount trọng số tại `ai-service/models/cv-extraction/`. Image mặc định chỉ cài đường GGUF/llama.cpp CPU; nếu dùng Transformers/LoRA hoặc GPU cần cài dependencies và cấu hình tương ứng. Không kèm trọng số hoặc dữ liệu CV cá nhân.
+
+Các test serving, postprocess và KG được giữ từ nhánh gốc. Cài thêm `pytest` và `httpx`, sau đó chạy `python -m pytest`. Các công cụ training/eval và test phụ thuộc dữ liệu CV thật không thuộc bản serving này.
+
+### Cập nhật checkpoint v4
+
+Đã đồng bộ checkpoint LoRA `checkpoint-v4/` từ `hocnv/DO-06@31e8a1d` (thay cho checkpoint-250). Commit này không thay đổi serving pipeline Python. Compose hiện chọn v4; đặt `ai-service/models/cv-extraction/model-v4-q4_k_m.gguf` trước khi chạy. File GGUF v3 được giữ nguyên và không tự dùng thay cho v4.
+
+GGUF v4 được notebook của nhánh gốc khai báo tại https://drive.google.com/file/d/1mKd0SmhnUKpJTXkH3xQs0puEwYgqFQWn/view (quyền truy cập chưa được kiểm chứng trong phiên này).
+
+LoRA v4 không phải GGUF: nếu chạy trực tiếp adapter cần Qwen nền và `torch`, `transformers`, `peft`, `accelerate`, đặt `PROMPT_VERSION=v4 LORA_PATH=./checkpoint-v4`. Image mặc định chỉ cài đường GGUF để tránh tăng RAM và thời gian build. Không chỉ đổi tên trọng số v3 thành v4.

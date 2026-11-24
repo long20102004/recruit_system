@@ -60,6 +60,13 @@ def resolve_gguf_path(configured: str) -> tuple[str | None, str | None]:
     return None, "Có nhiều file GGUF, hãy đặt GGUF_MODEL_PATH"
 
 
+def resolve_versioned_gguf_path(configured: str, version: str) -> tuple[str | None, str | None]:
+    """Never label the sole v3 GGUF as v4 when the configured v4 file is missing."""
+    if version != "v1" and not os.path.isfile(configured):
+        return None, f"Missing exact GGUF for {version}: {configured}; refusing another version"
+    return resolve_gguf_path(configured)
+
+
 def _adapter_base(lora_path: str) -> str | None:
     """Đọc base model thật từ adapter_config.json.
 
@@ -124,7 +131,7 @@ def _load_llama_cpp():
     configured = _resolve(_cfg.GGUF_MODEL_PATH)
     if "GGUF_MODEL_PATH" in os.environ and not os.path.isfile(configured):
         raise RuntimeError(f"Không tìm thấy file GGUF được chỉ định: {configured}")
-    gguf_path, reason = resolve_gguf_path(configured)
+    gguf_path, reason = resolve_versioned_gguf_path(configured, _cfg.PROMPT_VERSION)
     if not gguf_path:
         raise RuntimeError(f"Không thể nạp GGUF ({configured}): {reason}")
 

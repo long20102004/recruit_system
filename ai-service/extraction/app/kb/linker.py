@@ -118,6 +118,9 @@ class SkillLinker:
                     if surface:
                         surfaces[surface.casefold().strip()] = sid
 
+        from app.kb.extension import merge_extension
+
+        merge_extension(seed_path, skills, aliases, surfaces)
         return cls(skills=skills, aliases=aliases, surfaces=surfaces)
 
     @classmethod

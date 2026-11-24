@@ -1,8 +1,0 @@
-fastapi
-uvicorn
-pydantic
-llama-cpp-python
-json-repair
-rapidfuzz
-psycopg[binary]
-neo4j>=5.20

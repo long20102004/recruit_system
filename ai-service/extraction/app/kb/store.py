@@ -73,6 +73,10 @@ class KnowledgeBase:
                 category = row.get("category", "").strip()
                 skills[sid] = (name, category)
 
+        from app.kb.extension import merge_extension
+
+        merge_extension(seed_path, skills, edges=edges)
+
         edges_csv = seed_path / "skill_edges.csv"
         if edges_csv.exists():
             with edges_csv.open("r", encoding="utf-8-sig") as f:
