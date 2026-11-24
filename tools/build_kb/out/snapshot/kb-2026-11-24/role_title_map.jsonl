@@ -1,0 +1,729 @@
+{"kind": "title", "alias": "asp.net developer", "role_group": "Backend"}
+{"kind": "title", "alias": "lap trinh vien c#", "role_group": "Backend"}
+{"kind": "title", "alias": ".net developer", "role_group": "Backend"}
+{"kind": "title", "alias": "lap trinh vien .net", "role_group": "Backend"}
+{"kind": "title", "alias": "lập trình viên .net", "role_group": "Backend"}
+{"kind": "title", "alias": "c# developer", "role_group": "Backend"}
+{"kind": "title", "alias": "dotnet developer", "role_group": "Backend"}
+{"kind": "title", "alias": "lập trình viên c#", "role_group": "Backend"}
+{"kind": "title", "alias": "ai engineer", "role_group": "AI/ML"}
+{"kind": "title", "alias": "kỹ sư ai / machine learning", "role_group": "AI/ML"}
+{"kind": "title", "alias": "ky su ai", "role_group": "AI/ML"}
+{"kind": "title", "alias": "machine learning engineer", "role_group": "AI/ML"}
+{"kind": "title", "alias": "ai / machine learning engineer", "role_group": "AI/ML"}
+{"kind": "title", "alias": "ky su machine learning", "role_group": "AI/ML"}
+{"kind": "title", "alias": "ky su ai / machine learning", "role_group": "AI/ML"}
+{"kind": "title", "alias": "kỹ sư machine learning", "role_group": "AI/ML"}
+{"kind": "title", "alias": "ml engineer", "role_group": "AI/ML"}
+{"kind": "title", "alias": "kỹ sư ai", "role_group": "AI/ML"}
+{"kind": "title", "alias": "ai architect", "role_group": "AI/ML"}
+{"kind": "title", "alias": "kiến trúc sư ai", "role_group": "AI/ML"}
+{"kind": "title", "alias": "kien truc su ai", "role_group": "AI/ML"}
+{"kind": "title", "alias": "nghiên cứu viên ai", "role_group": "AI/ML"}
+{"kind": "title", "alias": "nghien cuu vien ai", "role_group": "AI/ML"}
+{"kind": "title", "alias": "ai researcher", "role_group": "AI/ML"}
+{"kind": "title", "alias": "analytics engineer", "role_group": "Data"}
+{"kind": "title", "alias": "ky su analytics", "role_group": "Data"}
+{"kind": "title", "alias": "kỹ sư analytics", "role_group": "Data"}
+{"kind": "title", "alias": "lập trình viên android", "role_group": "Mobile"}
+{"kind": "title", "alias": "android developer", "role_group": "Mobile"}
+{"kind": "title", "alias": "lap trinh vien android", "role_group": "Mobile"}
+{"kind": "title", "alias": "android engineer", "role_group": "Mobile"}
+{"kind": "title", "alias": "kotlin developer", "role_group": "Mobile"}
+{"kind": "title", "alias": "lập trình viên angular", "role_group": "Frontend"}
+{"kind": "title", "alias": "lap trinh vien angular", "role_group": "Frontend"}
+{"kind": "title", "alias": "angular developer", "role_group": "Frontend"}
+{"kind": "title", "alias": "appsec engineer", "role_group": "Security"}
+{"kind": "title", "alias": "kỹ sư an ninh ứng dụng", "role_group": "Security"}
+{"kind": "title", "alias": "application security engineer", "role_group": "Security"}
+{"kind": "title", "alias": "ky su an ninh ung dung", "role_group": "Security"}
+{"kind": "title", "alias": "automation qa", "role_group": "QA"}
+{"kind": "title", "alias": "kiểm thử tự động", "role_group": "QA"}
+{"kind": "title", "alias": "automation tester", "role_group": "QA"}
+{"kind": "title", "alias": "automation test engineer", "role_group": "QA"}
+{"kind": "title", "alias": "kiem thu tu dong", "role_group": "QA"}
+{"kind": "title", "alias": "qa automation", "role_group": "QA"}
+{"kind": "title", "alias": "kỹ sư backend", "role_group": "Backend"}
+{"kind": "title", "alias": "lập trình viên backend", "role_group": "Backend"}
+{"kind": "title", "alias": "backend engineer", "role_group": "Backend"}
+{"kind": "title", "alias": "lap trinh vien backend", "role_group": "Backend"}
+{"kind": "title", "alias": "back-end developer", "role_group": "Backend"}
+{"kind": "title", "alias": "ky su backend", "role_group": "Backend"}
+{"kind": "title", "alias": "backend developer", "role_group": "Backend"}
+{"kind": "title", "alias": "lap trinh vien he thong ngan hang & tai chinh", "role_group": "Backend"}
+{"kind": "title", "alias": "lập trình viên hệ thống ngân hàng & tài chính", "role_group": "Backend"}
+{"kind": "title", "alias": "banking & financial systems developer", "role_group": "Backend"}
+{"kind": "title", "alias": "bi analyst / bi developer", "role_group": "Data"}
+{"kind": "title", "alias": "chuyên viên phân tích bi", "role_group": "Data"}
+{"kind": "title", "alias": "bi developer", "role_group": "Data"}
+{"kind": "title", "alias": "chuyen vien phan tich bi", "role_group": "Data"}
+{"kind": "title", "alias": "bi analyst", "role_group": "Data"}
+{"kind": "title", "alias": "lập trình viên bi", "role_group": "Data"}
+{"kind": "title", "alias": "phân tích bi / lập trình viên bi", "role_group": "Data"}
+{"kind": "title", "alias": "lap trinh vien bi", "role_group": "Data"}
+{"kind": "title", "alias": "phan tich bi / lap trinh vien bi", "role_group": "Data"}
+{"kind": "title", "alias": "ky su du lieu lon", "role_group": "Data"}
+{"kind": "title", "alias": "kỹ sư dữ liệu lớn", "role_group": "Data"}
+{"kind": "title", "alias": "big data engineer", "role_group": "Data"}
+{"kind": "title", "alias": "kiến trúc sư blockchain", "role_group": "Backend"}
+{"kind": "title", "alias": "blockchain architect", "role_group": "Backend"}
+{"kind": "title", "alias": "kien truc su blockchain", "role_group": "Backend"}
+{"kind": "title", "alias": "blockchain developer", "role_group": "Backend"}
+{"kind": "title", "alias": "blockchain engineer", "role_group": "Backend"}
+{"kind": "title", "alias": "web3 developer", "role_group": "Backend"}
+{"kind": "title", "alias": "lập trình viên web3", "role_group": "Backend"}
+{"kind": "title", "alias": "lap trinh vien blockchain", "role_group": "Backend"}
+{"kind": "title", "alias": "lap trinh vien web3", "role_group": "Backend"}
+{"kind": "title", "alias": "lập trình viên blockchain", "role_group": "Backend"}
+{"kind": "title", "alias": "ky su cau noi", "role_group": "Business"}
+{"kind": "title", "alias": "kỹ sư cầu nối nhật bản", "role_group": "Business"}
+{"kind": "title", "alias": "bridge system engineer (brse)", "role_group": "Business"}
+{"kind": "title", "alias": "ky su cau noi (brse)", "role_group": "Business"}
+{"kind": "title", "alias": "kỹ sư cầu nối", "role_group": "Business"}
+{"kind": "title", "alias": "ky su cau noi nhat ban", "role_group": "Business"}
+{"kind": "title", "alias": "kỹ sư cầu nối (brse)", "role_group": "Business"}
+{"kind": "title", "alias": "bridge se", "role_group": "Business"}
+{"kind": "title", "alias": "bridge system engineer", "role_group": "Business"}
+{"kind": "title", "alias": "brse", "role_group": "Business"}
+{"kind": "title", "alias": "it business analyst", "role_group": "Business"}
+{"kind": "title", "alias": "chuyên viên phân tích nghiệp vụ", "role_group": "Business"}
+{"kind": "title", "alias": "chuyên viên ba", "role_group": "Business"}
+{"kind": "title", "alias": "phân tích nghiệp vụ", "role_group": "Business"}
+{"kind": "title", "alias": "chuyen vien ba", "role_group": "Business"}
+{"kind": "title", "alias": "business analyst", "role_group": "Business"}
+{"kind": "title", "alias": "chuyen vien phan tich nghiep vu", "role_group": "Business"}
+{"kind": "title", "alias": "phan tich nghiep vu", "role_group": "Business"}
+{"kind": "title", "alias": "lập trình viên c++", "role_group": "Backend"}
+{"kind": "title", "alias": "c/c++ developer", "role_group": "Backend"}
+{"kind": "title", "alias": "lap trinh vien c++", "role_group": "Backend"}
+{"kind": "title", "alias": "c++ developer", "role_group": "Backend"}
+{"kind": "title", "alias": "giám đốc công nghệ", "role_group": "Business"}
+{"kind": "title", "alias": "giam doc cong nghe", "role_group": "Business"}
+{"kind": "title", "alias": "c-level executive", "role_group": "Business"}
+{"kind": "title", "alias": "cấp điều hành (cto, cio, ciso, cdo)", "role_group": "Business"}
+{"kind": "title", "alias": "cdo", "role_group": "Business"}
+{"kind": "title", "alias": "cto", "role_group": "Business"}
+{"kind": "title", "alias": "c-level", "role_group": "Business"}
+{"kind": "title", "alias": "c-level (cto, cio, ciso, cdo)", "role_group": "Business"}
+{"kind": "title", "alias": "cap dieu hanh", "role_group": "Business"}
+{"kind": "title", "alias": "cio", "role_group": "Business"}
+{"kind": "title", "alias": "chief technology officer", "role_group": "Business"}
+{"kind": "title", "alias": "cap dieu hanh (cto, cio, ciso, cdo)", "role_group": "Business"}
+{"kind": "title", "alias": "ciso", "role_group": "Business"}
+{"kind": "title", "alias": "cấp điều hành", "role_group": "Business"}
+{"kind": "title", "alias": "cloud architect", "role_group": "DevOps"}
+{"kind": "title", "alias": "kiến trúc sư cloud", "role_group": "DevOps"}
+{"kind": "title", "alias": "kiến trúc sư đám mây", "role_group": "DevOps"}
+{"kind": "title", "alias": "kien truc su dam may", "role_group": "DevOps"}
+{"kind": "title", "alias": "kien truc su cloud", "role_group": "DevOps"}
+{"kind": "title", "alias": "cloud engineer", "role_group": "DevOps"}
+{"kind": "title", "alias": "ky su dam may", "role_group": "DevOps"}
+{"kind": "title", "alias": "kỹ sư đám mây", "role_group": "DevOps"}
+{"kind": "title", "alias": "chuyen vien tuan thu", "role_group": "Security"}
+{"kind": "title", "alias": "compliance officer / analyst", "role_group": "Security"}
+{"kind": "title", "alias": "chuyên viên tuân thủ", "role_group": "Security"}
+{"kind": "title", "alias": "compliance officer", "role_group": "Security"}
+{"kind": "title", "alias": "compliance analyst", "role_group": "Security"}
+{"kind": "title", "alias": "ky su thi giac may tinh", "role_group": "AI/ML"}
+{"kind": "title", "alias": "kỹ sư thị giác máy tính", "role_group": "AI/ML"}
+{"kind": "title", "alias": "computer vision engineer", "role_group": "AI/ML"}
+{"kind": "title", "alias": "data analyst", "role_group": "Data"}
+{"kind": "title", "alias": "chuyen vien phan tich du lieu", "role_group": "Data"}
+{"kind": "title", "alias": "chuyên viên phân tích dữ liệu", "role_group": "Data"}
+{"kind": "title", "alias": "phân tích dữ liệu", "role_group": "Data"}
+{"kind": "title", "alias": "phan tich du lieu", "role_group": "Data"}
+{"kind": "title", "alias": "kien truc su du lieu", "role_group": "Data"}
+{"kind": "title", "alias": "kiến trúc sư dữ liệu", "role_group": "Data"}
+{"kind": "title", "alias": "data architect", "role_group": "Data"}
+{"kind": "title", "alias": "data engineer", "role_group": "Data"}
+{"kind": "title", "alias": "ky su du lieu", "role_group": "Data"}
+{"kind": "title", "alias": "kỹ sư dữ liệu", "role_group": "Data"}
+{"kind": "title", "alias": "data governance specialist", "role_group": "Data"}
+{"kind": "title", "alias": "chuyên gia quản trị dữ liệu", "role_group": "Data"}
+{"kind": "title", "alias": "chuyen gia quan tri du lieu", "role_group": "Data"}
+{"kind": "title", "alias": "nha khoa hoc du lieu", "role_group": "Data"}
+{"kind": "title", "alias": "nhà khoa học dữ liệu", "role_group": "Data"}
+{"kind": "title", "alias": "data scientist", "role_group": "Data"}
+{"kind": "title", "alias": "data steward / data quality analyst", "role_group": "Data"}
+{"kind": "title", "alias": "nguoi quan ly du lieu / nha phan tich chat luong du lieu", "role_group": "Data"}
+{"kind": "title", "alias": "data quality analyst", "role_group": "Data"}
+{"kind": "title", "alias": "người quản lý dữ liệu / nhà phân tích chất lượng dữ liệu", "role_group": "Data"}
+{"kind": "title", "alias": "data steward", "role_group": "Data"}
+{"kind": "title", "alias": "data visualization specialist", "role_group": "Data"}
+{"kind": "title", "alias": "chuyen vien truc quan hoa du lieu", "role_group": "Data"}
+{"kind": "title", "alias": "chuyên viên trực quan hóa dữ liệu", "role_group": "Data"}
+{"kind": "title", "alias": "dba", "role_group": "Data"}
+{"kind": "title", "alias": "database administrator", "role_group": "Data"}
+{"kind": "title", "alias": "quan tri vien co so du lieu", "role_group": "Data"}
+{"kind": "title", "alias": "quản trị viên cơ sở dữ liệu", "role_group": "Data"}
+{"kind": "title", "alias": "kỹ sư cơ sở dữ liệu", "role_group": "Data"}
+{"kind": "title", "alias": "ky su co so du lieu", "role_group": "Data"}
+{"kind": "title", "alias": "database engineer", "role_group": "Data"}
+{"kind": "title", "alias": "ky su dataops / mlops", "role_group": "Data"}
+{"kind": "title", "alias": "kỹ sư mlops", "role_group": "Data"}
+{"kind": "title", "alias": "dataops engineer", "role_group": "Data"}
+{"kind": "title", "alias": "ky su mlops", "role_group": "Data"}
+{"kind": "title", "alias": "kỹ sư dataops / mlops", "role_group": "Data"}
+{"kind": "title", "alias": "kỹ sư dataops", "role_group": "Data"}
+{"kind": "title", "alias": "dataops / mlops engineer", "role_group": "Data"}
+{"kind": "title", "alias": "mlops engineer", "role_group": "Data"}
+{"kind": "title", "alias": "ky su dataops", "role_group": "Data"}
+{"kind": "title", "alias": "desktop application developer", "role_group": "Backend"}
+{"kind": "title", "alias": "wpf developer", "role_group": "Backend"}
+{"kind": "title", "alias": "lập trình viên ứng dụng desktop", "role_group": "Backend"}
+{"kind": "title", "alias": "desktop developer", "role_group": "Backend"}
+{"kind": "title", "alias": "winforms developer", "role_group": "Backend"}
+{"kind": "title", "alias": "lap trinh vien ung dung desktop", "role_group": "Backend"}
+{"kind": "title", "alias": "devops engineer", "role_group": "DevOps"}
+{"kind": "title", "alias": "ky su devops", "role_group": "DevOps"}
+{"kind": "title", "alias": "kỹ sư devops", "role_group": "DevOps"}
+{"kind": "title", "alias": "devsecops engineer", "role_group": "DevOps"}
+{"kind": "title", "alias": "kỹ sư devsecops", "role_group": "DevOps"}
+{"kind": "title", "alias": "ky su devsecops", "role_group": "DevOps"}
+{"kind": "title", "alias": "kỹ sư edge computing", "role_group": "Embedded"}
+{"kind": "title", "alias": "edge computing engineer", "role_group": "Embedded"}
+{"kind": "title", "alias": "ky su edge computing", "role_group": "Embedded"}
+{"kind": "title", "alias": "embedded engineer", "role_group": "Embedded"}
+{"kind": "title", "alias": "ky su phan mem nhung", "role_group": "Embedded"}
+{"kind": "title", "alias": "ky su nhung", "role_group": "Embedded"}
+{"kind": "title", "alias": "embedded c developer", "role_group": "Embedded"}
+{"kind": "title", "alias": "kỹ sư embedded", "role_group": "Embedded"}
+{"kind": "title", "alias": "ky su embedded", "role_group": "Embedded"}
+{"kind": "title", "alias": "kỹ sư nhúng", "role_group": "Embedded"}
+{"kind": "title", "alias": "lap trinh vien nhung", "role_group": "Embedded"}
+{"kind": "title", "alias": "kỹ sư phần mềm nhúng", "role_group": "Embedded"}
+{"kind": "title", "alias": "embedded developer", "role_group": "Embedded"}
+{"kind": "title", "alias": "lập trình viên nhúng", "role_group": "Embedded"}
+{"kind": "title", "alias": "embedded software engineer", "role_group": "Embedded"}
+{"kind": "title", "alias": "engineering manager", "role_group": "Business"}
+{"kind": "title", "alias": "head of engineering", "role_group": "Business"}
+{"kind": "title", "alias": "quan ly ky thuat", "role_group": "Business"}
+{"kind": "title", "alias": "quản lý kỹ thuật", "role_group": "Business"}
+{"kind": "title", "alias": "tư vấn viên ứng dụng doanh nghiệp (crm / hcm / scm và các giải pháp khác)", "role_group": "Business"}
+{"kind": "title", "alias": "enterprise application consultant", "role_group": "Business"}
+{"kind": "title", "alias": "tu van vien ung dung doanh nghiep (crm / hcm / scm va cac giai phap khac)", "role_group": "Business"}
+{"kind": "title", "alias": "enterprise application consultant (crm / hcm / scm and other enterprise solutions)", "role_group": "Business"}
+{"kind": "title", "alias": "crm developer", "role_group": "Backend"}
+{"kind": "title", "alias": "lập trình viên ứng dụng doanh nghiệp (crm)", "role_group": "Backend"}
+{"kind": "title", "alias": "enterprise application developer", "role_group": "Backend"}
+{"kind": "title", "alias": "enterprise application developer (crm)", "role_group": "Backend"}
+{"kind": "title", "alias": "lap trinh vien ung dung doanh nghiep (crm)", "role_group": "Backend"}
+{"kind": "title", "alias": "kien truc su doanh nghiep", "role_group": "Backend"}
+{"kind": "title", "alias": "kiến trúc sư doanh nghiệp", "role_group": "Backend"}
+{"kind": "title", "alias": "enterprise architect", "role_group": "Backend"}
+{"kind": "title", "alias": "erp consultant", "role_group": "Business"}
+{"kind": "title", "alias": "tu van vien erp", "role_group": "Business"}
+{"kind": "title", "alias": "odoo consultant", "role_group": "Business"}
+{"kind": "title", "alias": "sap consultant", "role_group": "Business"}
+{"kind": "title", "alias": "tư vấn triển khai erp", "role_group": "Business"}
+{"kind": "title", "alias": "tư vấn viên erp", "role_group": "Business"}
+{"kind": "title", "alias": "tu van trien khai erp", "role_group": "Business"}
+{"kind": "title", "alias": "odoo developer", "role_group": "Backend"}
+{"kind": "title", "alias": "lập trình viên erp", "role_group": "Backend"}
+{"kind": "title", "alias": "erp developer", "role_group": "Backend"}
+{"kind": "title", "alias": "lap trinh vien erp", "role_group": "Backend"}
+{"kind": "title", "alias": "abap developer", "role_group": "Backend"}
+{"kind": "title", "alias": "sap abap developer", "role_group": "Backend"}
+{"kind": "title", "alias": "hỗ trợ field", "role_group": "IT Support"}
+{"kind": "title", "alias": "field support", "role_group": "IT Support"}
+{"kind": "title", "alias": "kỹ thuật viên hiện trường", "role_group": "IT Support"}
+{"kind": "title", "alias": "ho tro field", "role_group": "IT Support"}
+{"kind": "title", "alias": "ky thuat vien hien truong", "role_group": "IT Support"}
+{"kind": "title", "alias": "lap trinh vien firmware", "role_group": "Embedded"}
+{"kind": "title", "alias": "firmware developer", "role_group": "Embedded"}
+{"kind": "title", "alias": "firmware engineer", "role_group": "Embedded"}
+{"kind": "title", "alias": "lập trình viên firmware", "role_group": "Embedded"}
+{"kind": "title", "alias": "ky su firmware", "role_group": "Embedded"}
+{"kind": "title", "alias": "kỹ sư firmware", "role_group": "Embedded"}
+{"kind": "title", "alias": "lap trinh vien flutter", "role_group": "Mobile"}
+{"kind": "title", "alias": "lập trình viên flutter", "role_group": "Mobile"}
+{"kind": "title", "alias": "flutter developer", "role_group": "Mobile"}
+{"kind": "title", "alias": "kỹ sư frontend", "role_group": "Frontend"}
+{"kind": "title", "alias": "lập trình viên frontend", "role_group": "Frontend"}
+{"kind": "title", "alias": "front-end developer", "role_group": "Frontend"}
+{"kind": "title", "alias": "frontend engineer", "role_group": "Frontend"}
+{"kind": "title", "alias": "frontend developer", "role_group": "Frontend"}
+{"kind": "title", "alias": "lap trinh vien frontend", "role_group": "Frontend"}
+{"kind": "title", "alias": "ky su frontend", "role_group": "Frontend"}
+{"kind": "title", "alias": "full-stack developer", "role_group": "Fullstack"}
+{"kind": "title", "alias": "fullstack engineer", "role_group": "Fullstack"}
+{"kind": "title", "alias": "fullstack developer", "role_group": "Fullstack"}
+{"kind": "title", "alias": "full stack developer", "role_group": "Fullstack"}
+{"kind": "title", "alias": "ky su fullstack", "role_group": "Fullstack"}
+{"kind": "title", "alias": "lập trình viên fullstack", "role_group": "Fullstack"}
+{"kind": "title", "alias": "lap trinh vien fullstack", "role_group": "Fullstack"}
+{"kind": "title", "alias": "kỹ sư fullstack", "role_group": "Fullstack"}
+{"kind": "title", "alias": "hoa si game", "role_group": "Game"}
+{"kind": "title", "alias": "2d artist", "role_group": "Game"}
+{"kind": "title", "alias": "concept artist", "role_group": "Game"}
+{"kind": "title", "alias": "3d artist", "role_group": "Game"}
+{"kind": "title", "alias": "game artist", "role_group": "Game"}
+{"kind": "title", "alias": "họa sĩ game", "role_group": "Game"}
+{"kind": "title", "alias": "thiet ke game", "role_group": "Game"}
+{"kind": "title", "alias": "level designer", "role_group": "Game"}
+{"kind": "title", "alias": "game designer", "role_group": "Game"}
+{"kind": "title", "alias": "nhà thiết kế game", "role_group": "Game"}
+{"kind": "title", "alias": "thiết kế game", "role_group": "Game"}
+{"kind": "title", "alias": "nha thiet ke game", "role_group": "Game"}
+{"kind": "title", "alias": "lap trinh vien game", "role_group": "Game"}
+{"kind": "title", "alias": "lap trinh vien unity", "role_group": "Game"}
+{"kind": "title", "alias": "unreal developer", "role_group": "Game"}
+{"kind": "title", "alias": "lập trình viên game", "role_group": "Game"}
+{"kind": "title", "alias": "game developer", "role_group": "Game"}
+{"kind": "title", "alias": "lập trình viên unity", "role_group": "Game"}
+{"kind": "title", "alias": "cocos developer", "role_group": "Game"}
+{"kind": "title", "alias": "game programmer", "role_group": "Game"}
+{"kind": "title", "alias": "unity developer", "role_group": "Game"}
+{"kind": "title", "alias": "sản xuất / giám đốc game", "role_group": "Game"}
+{"kind": "title", "alias": "giám đốc game", "role_group": "Game"}
+{"kind": "title", "alias": "game producer", "role_group": "Game"}
+{"kind": "title", "alias": "game producer / director", "role_group": "Game"}
+{"kind": "title", "alias": "giam doc game", "role_group": "Game"}
+{"kind": "title", "alias": "nhà sản xuất game", "role_group": "Game"}
+{"kind": "title", "alias": "nha san xuat game", "role_group": "Game"}
+{"kind": "title", "alias": "san xuat / giam doc game", "role_group": "Game"}
+{"kind": "title", "alias": "game director", "role_group": "Game"}
+{"kind": "title", "alias": "game qa", "role_group": "QA"}
+{"kind": "title", "alias": "game tester", "role_group": "QA"}
+{"kind": "title", "alias": "kiểm thử game", "role_group": "QA"}
+{"kind": "title", "alias": "kiem thu game", "role_group": "QA"}
+{"kind": "title", "alias": "lap trinh vien golang", "role_group": "Backend"}
+{"kind": "title", "alias": "go developer", "role_group": "Backend"}
+{"kind": "title", "alias": "golang developer", "role_group": "Backend"}
+{"kind": "title", "alias": "lập trình viên golang", "role_group": "Backend"}
+{"kind": "title", "alias": "chuyên gia grc", "role_group": "Security"}
+{"kind": "title", "alias": "grc specialist", "role_group": "Security"}
+{"kind": "title", "alias": "chuyen gia grc", "role_group": "Security"}
+{"kind": "title", "alias": "kỹ sư tích hợp phần cứng-phần mềm", "role_group": "Embedded"}
+{"kind": "title", "alias": "hardware-software integration engineer", "role_group": "Embedded"}
+{"kind": "title", "alias": "ky su tich hop phan cung-phan mem", "role_group": "Embedded"}
+{"kind": "title", "alias": "integration developer", "role_group": "Backend"}
+{"kind": "title", "alias": "lap trinh vien he thong integration & legacy", "role_group": "Backend"}
+{"kind": "title", "alias": "integration & legacy systems developer", "role_group": "Backend"}
+{"kind": "title", "alias": "lập trình viên hệ thống integration & legacy", "role_group": "Backend"}
+{"kind": "title", "alias": "ios developer", "role_group": "Mobile"}
+{"kind": "title", "alias": "ios engineer", "role_group": "Mobile"}
+{"kind": "title", "alias": "lập trình viên ios", "role_group": "Mobile"}
+{"kind": "title", "alias": "lap trinh vien ios", "role_group": "Mobile"}
+{"kind": "title", "alias": "swift developer", "role_group": "Mobile"}
+{"kind": "title", "alias": "iot application developer", "role_group": "Embedded"}
+{"kind": "title", "alias": "kỹ sư iot", "role_group": "Embedded"}
+{"kind": "title", "alias": "ky su iot", "role_group": "Embedded"}
+{"kind": "title", "alias": "lập trình viên ứng dụng iot", "role_group": "Embedded"}
+{"kind": "title", "alias": "lap trinh vien ung dung iot", "role_group": "Embedded"}
+{"kind": "title", "alias": "iot developer", "role_group": "Embedded"}
+{"kind": "title", "alias": "quan tri vien cntt", "role_group": "IT Support"}
+{"kind": "title", "alias": "quan tri he thong cntt", "role_group": "IT Support"}
+{"kind": "title", "alias": "quản trị hệ thống cntt", "role_group": "IT Support"}
+{"kind": "title", "alias": "quản trị viên cntt", "role_group": "IT Support"}
+{"kind": "title", "alias": "it administrator", "role_group": "IT Support"}
+{"kind": "title", "alias": "quan ly rui ro cntt", "role_group": "Security"}
+{"kind": "title", "alias": "it auditor / it risk manager", "role_group": "Security"}
+{"kind": "title", "alias": "it auditor", "role_group": "Security"}
+{"kind": "title", "alias": "kiem toan vien cntt", "role_group": "Security"}
+{"kind": "title", "alias": "kiem toan vien cntt / quan ly rui ro cntt", "role_group": "Security"}
+{"kind": "title", "alias": "it risk manager", "role_group": "Security"}
+{"kind": "title", "alias": "quản lý rủi ro cntt", "role_group": "Security"}
+{"kind": "title", "alias": "kiểm toán viên cntt / quản lý rủi ro cntt", "role_group": "Security"}
+{"kind": "title", "alias": "kiểm toán viên cntt", "role_group": "Security"}
+{"kind": "title", "alias": "it communicator", "role_group": "Business"}
+{"kind": "title", "alias": "chuyên viên giao tiếp kỹ thuật", "role_group": "Business"}
+{"kind": "title", "alias": "chuyen vien giao tiep ky thuat", "role_group": "Business"}
+{"kind": "title", "alias": "bien phien dich it", "role_group": "Business"}
+{"kind": "title", "alias": "biên phiên dịch it", "role_group": "Business"}
+{"kind": "title", "alias": "comtor", "role_group": "Business"}
+{"kind": "title", "alias": "phiên dịch it", "role_group": "Business"}
+{"kind": "title", "alias": "phien dich it", "role_group": "Business"}
+{"kind": "title", "alias": "it consultant", "role_group": "Business"}
+{"kind": "title", "alias": "tu van vien cntt", "role_group": "Business"}
+{"kind": "title", "alias": "tư vấn viên cntt", "role_group": "Business"}
+{"kind": "title", "alias": "tong dai ho tro cntt", "role_group": "IT Support"}
+{"kind": "title", "alias": "helpdesk", "role_group": "IT Support"}
+{"kind": "title", "alias": "tổng đài hỗ trợ cntt", "role_group": "IT Support"}
+{"kind": "title", "alias": "it helpdesk", "role_group": "IT Support"}
+{"kind": "title", "alias": "nhân viên helpdesk", "role_group": "IT Support"}
+{"kind": "title", "alias": "help desk", "role_group": "IT Support"}
+{"kind": "title", "alias": "nhan vien helpdesk", "role_group": "IT Support"}
+{"kind": "title", "alias": "trưởng phòng cntt", "role_group": "Business"}
+{"kind": "title", "alias": "truong phong it", "role_group": "Business"}
+{"kind": "title", "alias": "quản lý cntt", "role_group": "Business"}
+{"kind": "title", "alias": "truong phong cntt", "role_group": "Business"}
+{"kind": "title", "alias": "it manager", "role_group": "Business"}
+{"kind": "title", "alias": "quan ly cntt", "role_group": "Business"}
+{"kind": "title", "alias": "trưởng phòng it", "role_group": "Business"}
+{"kind": "title", "alias": "ho tro cntt", "role_group": "IT Support"}
+{"kind": "title", "alias": "nhân viên it", "role_group": "IT Support"}
+{"kind": "title", "alias": "it support", "role_group": "IT Support"}
+{"kind": "title", "alias": "ky thuat vien it", "role_group": "IT Support"}
+{"kind": "title", "alias": "nhan vien ho tro ky thuat", "role_group": "IT Support"}
+{"kind": "title", "alias": "nhan vien it", "role_group": "IT Support"}
+{"kind": "title", "alias": "kỹ thuật viên it", "role_group": "IT Support"}
+{"kind": "title", "alias": "nhân viên hỗ trợ kỹ thuật", "role_group": "IT Support"}
+{"kind": "title", "alias": "hỗ trợ cntt", "role_group": "IT Support"}
+{"kind": "title", "alias": "it support engineer", "role_group": "IT Support"}
+{"kind": "title", "alias": "java engineer", "role_group": "Backend"}
+{"kind": "title", "alias": "java backend developer", "role_group": "Backend"}
+{"kind": "title", "alias": "java developer", "role_group": "Backend"}
+{"kind": "title", "alias": "ky su java", "role_group": "Backend"}
+{"kind": "title", "alias": "kỹ sư java", "role_group": "Backend"}
+{"kind": "title", "alias": "lập trình viên java", "role_group": "Backend"}
+{"kind": "title", "alias": "java dev", "role_group": "Backend"}
+{"kind": "title", "alias": "lap trinh vien java", "role_group": "Backend"}
+{"kind": "title", "alias": "ai application engineer", "role_group": "AI/ML"}
+{"kind": "title", "alias": "ky su llm", "role_group": "AI/ML"}
+{"kind": "title", "alias": "generative ai engineer", "role_group": "AI/ML"}
+{"kind": "title", "alias": "llm engineer", "role_group": "AI/ML"}
+{"kind": "title", "alias": "kỹ sư llm", "role_group": "AI/ML"}
+{"kind": "title", "alias": "genai engineer", "role_group": "AI/ML"}
+{"kind": "title", "alias": "power apps developer", "role_group": "Fullstack"}
+{"kind": "title", "alias": "no-code developer", "role_group": "Fullstack"}
+{"kind": "title", "alias": "outsystems developer", "role_group": "Fullstack"}
+{"kind": "title", "alias": "low-code developer", "role_group": "Fullstack"}
+{"kind": "title", "alias": "low-code/no-code developer", "role_group": "Fullstack"}
+{"kind": "title", "alias": "lập trình viên low-code/no-code", "role_group": "Fullstack"}
+{"kind": "title", "alias": "lap trinh vien low-code/no-code", "role_group": "Fullstack"}
+{"kind": "title", "alias": "manual qa", "role_group": "QA"}
+{"kind": "title", "alias": "manual tester", "role_group": "QA"}
+{"kind": "title", "alias": "kiem thu thu cong", "role_group": "QA"}
+{"kind": "title", "alias": "kiểm thử thủ công", "role_group": "QA"}
+{"kind": "title", "alias": "mobile application developer", "role_group": "Mobile"}
+{"kind": "title", "alias": "lap trinh vien ung dung di dong", "role_group": "Mobile"}
+{"kind": "title", "alias": "lập trình viên mobile", "role_group": "Mobile"}
+{"kind": "title", "alias": "lap trinh vien mobile", "role_group": "Mobile"}
+{"kind": "title", "alias": "lập trình viên ứng dụng di động", "role_group": "Mobile"}
+{"kind": "title", "alias": "mobile engineer", "role_group": "Mobile"}
+{"kind": "title", "alias": "mobile developer", "role_group": "Mobile"}
+{"kind": "title", "alias": "thiet ke chuyen dong", "role_group": "Design"}
+{"kind": "title", "alias": "thiết kế chuyển động", "role_group": "Design"}
+{"kind": "title", "alias": "thiet ke motion", "role_group": "Design"}
+{"kind": "title", "alias": "motion designer", "role_group": "Design"}
+{"kind": "title", "alias": "thiết kế motion", "role_group": "Design"}
+{"kind": "title", "alias": "motion graphic designer", "role_group": "Design"}
+{"kind": "title", "alias": "network engineer", "role_group": "DevOps"}
+{"kind": "title", "alias": "ky su mang", "role_group": "DevOps"}
+{"kind": "title", "alias": "ky su quan tri mang", "role_group": "DevOps"}
+{"kind": "title", "alias": "quản trị mạng", "role_group": "DevOps"}
+{"kind": "title", "alias": "network administrator", "role_group": "DevOps"}
+{"kind": "title", "alias": "quan tri mang", "role_group": "DevOps"}
+{"kind": "title", "alias": "kỹ sư quản trị mạng", "role_group": "DevOps"}
+{"kind": "title", "alias": "kỹ sư mạng", "role_group": "DevOps"}
+{"kind": "title", "alias": "kỹ sư xử lý ngôn ngữ tự nhiên", "role_group": "AI/ML"}
+{"kind": "title", "alias": "nlp engineer", "role_group": "AI/ML"}
+{"kind": "title", "alias": "ky su xu ly ngon ngu tu nhien", "role_group": "AI/ML"}
+{"kind": "title", "alias": "node developer", "role_group": "Backend"}
+{"kind": "title", "alias": "lap trinh vien nodejs", "role_group": "Backend"}
+{"kind": "title", "alias": "node.js developer", "role_group": "Backend"}
+{"kind": "title", "alias": "nestjs developer", "role_group": "Backend"}
+{"kind": "title", "alias": "lập trình viên nodejs", "role_group": "Backend"}
+{"kind": "title", "alias": "nodejs developer", "role_group": "Backend"}
+{"kind": "title", "alias": "performance / load tester", "role_group": "QA"}
+{"kind": "title", "alias": "kiem thu hieu nang", "role_group": "QA"}
+{"kind": "title", "alias": "kiểm thử hiệu suất", "role_group": "QA"}
+{"kind": "title", "alias": "kiểm thử hiệu năng", "role_group": "QA"}
+{"kind": "title", "alias": "kiem thu hieu suat", "role_group": "QA"}
+{"kind": "title", "alias": "performance tester", "role_group": "QA"}
+{"kind": "title", "alias": "load tester", "role_group": "QA"}
+{"kind": "title", "alias": "kiểm thử hiệu suất / hiệu năng", "role_group": "QA"}
+{"kind": "title", "alias": "kiem thu hieu suat / hieu nang", "role_group": "QA"}
+{"kind": "title", "alias": "lập trình viên php", "role_group": "Backend"}
+{"kind": "title", "alias": "lap trinh vien php", "role_group": "Backend"}
+{"kind": "title", "alias": "laravel developer", "role_group": "Backend"}
+{"kind": "title", "alias": "php dev", "role_group": "Backend"}
+{"kind": "title", "alias": "php developer", "role_group": "Backend"}
+{"kind": "title", "alias": "php engineer", "role_group": "Backend"}
+{"kind": "title", "alias": "kỹ sư nền tảng", "role_group": "DevOps"}
+{"kind": "title", "alias": "platform engineer", "role_group": "DevOps"}
+{"kind": "title", "alias": "ky su nen tang", "role_group": "DevOps"}
+{"kind": "title", "alias": "presales engineer", "role_group": "Business"}
+{"kind": "title", "alias": "pre-sales engineer", "role_group": "Business"}
+{"kind": "title", "alias": "kỹ sư bán hàng kỹ thuật", "role_group": "Business"}
+{"kind": "title", "alias": "ky su ban hang ky thuat", "role_group": "Business"}
+{"kind": "title", "alias": "presales", "role_group": "Business"}
+{"kind": "title", "alias": "chuyên viên pqa", "role_group": "QA"}
+{"kind": "title", "alias": "process quality assurance", "role_group": "QA"}
+{"kind": "title", "alias": "process quality assurance (pqa)", "role_group": "QA"}
+{"kind": "title", "alias": "chuyen vien pqa", "role_group": "QA"}
+{"kind": "title", "alias": "pqa", "role_group": "QA"}
+{"kind": "title", "alias": "product analyst", "role_group": "Business"}
+{"kind": "title", "alias": "chuyen vien phan tich san pham", "role_group": "Business"}
+{"kind": "title", "alias": "chuyên viên phân tích sản phẩm", "role_group": "Business"}
+{"kind": "title", "alias": "product designer", "role_group": "Design"}
+{"kind": "title", "alias": "thiet ke san pham", "role_group": "Design"}
+{"kind": "title", "alias": "thiết kế sản phẩm", "role_group": "Design"}
+{"kind": "title", "alias": "product manager", "role_group": "Business"}
+{"kind": "title", "alias": "quan ly san pham", "role_group": "Business"}
+{"kind": "title", "alias": "quản lý sản phẩm", "role_group": "Business"}
+{"kind": "title", "alias": "product owner", "role_group": "Business"}
+{"kind": "title", "alias": "chuyen vien phat trien san pham", "role_group": "Business"}
+{"kind": "title", "alias": "chuyên viên phát triển sản phẩm", "role_group": "Business"}
+{"kind": "title", "alias": "quan ly chuong trinh", "role_group": "Business"}
+{"kind": "title", "alias": "quan ly chuong trinh / pmo", "role_group": "Business"}
+{"kind": "title", "alias": "pmo", "role_group": "Business"}
+{"kind": "title", "alias": "program manager / pmo", "role_group": "Business"}
+{"kind": "title", "alias": "quản lý chương trình", "role_group": "Business"}
+{"kind": "title", "alias": "quản lý chương trình / pmo", "role_group": "Business"}
+{"kind": "title", "alias": "program manager", "role_group": "Business"}
+{"kind": "title", "alias": "quan ly du an", "role_group": "Business"}
+{"kind": "title", "alias": "quan ly du an phan mem", "role_group": "Business"}
+{"kind": "title", "alias": "quan ly du an it", "role_group": "Business"}
+{"kind": "title", "alias": "project manager", "role_group": "Business"}
+{"kind": "title", "alias": "it project manager", "role_group": "Business"}
+{"kind": "title", "alias": "quản lý dự án it", "role_group": "Business"}
+{"kind": "title", "alias": "quản lý dự án phần mềm", "role_group": "Business"}
+{"kind": "title", "alias": "quản lý dự án", "role_group": "Business"}
+{"kind": "title", "alias": "prompt engineer", "role_group": "AI/ML"}
+{"kind": "title", "alias": "django developer", "role_group": "Backend"}
+{"kind": "title", "alias": "lập trình viên python", "role_group": "Backend"}
+{"kind": "title", "alias": "python developer", "role_group": "Backend"}
+{"kind": "title", "alias": "python engineer", "role_group": "Backend"}
+{"kind": "title", "alias": "lap trinh vien python", "role_group": "Backend"}
+{"kind": "title", "alias": "tester", "role_group": "QA"}
+{"kind": "title", "alias": "nhan vien kiem thu", "role_group": "QA"}
+{"kind": "title", "alias": "nhân viên kiểm thử", "role_group": "QA"}
+{"kind": "title", "alias": "kiểm thử viên", "role_group": "QA"}
+{"kind": "title", "alias": "qa/qc engineer", "role_group": "QA"}
+{"kind": "title", "alias": "qa tester", "role_group": "QA"}
+{"kind": "title", "alias": "qc tester", "role_group": "QA"}
+{"kind": "title", "alias": "software tester", "role_group": "QA"}
+{"kind": "title", "alias": "kiem thu vien", "role_group": "QA"}
+{"kind": "title", "alias": "qc engineer", "role_group": "QA"}
+{"kind": "title", "alias": "qa engineer", "role_group": "QA"}
+{"kind": "title", "alias": "react native developer", "role_group": "Mobile"}
+{"kind": "title", "alias": "lap trinh vien react native", "role_group": "Mobile"}
+{"kind": "title", "alias": "lập trình viên react native", "role_group": "Mobile"}
+{"kind": "title", "alias": "reactjs developer", "role_group": "Frontend"}
+{"kind": "title", "alias": "lap trinh vien reactjs", "role_group": "Frontend"}
+{"kind": "title", "alias": "reactjs engineer", "role_group": "Frontend"}
+{"kind": "title", "alias": "lập trình viên reactjs", "role_group": "Frontend"}
+{"kind": "title", "alias": "react developer", "role_group": "Frontend"}
+{"kind": "title", "alias": "ky su real-time systems", "role_group": "Embedded"}
+{"kind": "title", "alias": "kỹ sư real-time systems", "role_group": "Embedded"}
+{"kind": "title", "alias": "real-time systems engineer", "role_group": "Embedded"}
+{"kind": "title", "alias": "release manager", "role_group": "DevOps"}
+{"kind": "title", "alias": "quản lý phiên bản", "role_group": "DevOps"}
+{"kind": "title", "alias": "quan ly phien ban", "role_group": "DevOps"}
+{"kind": "title", "alias": "ky su phan mem robot", "role_group": "Embedded"}
+{"kind": "title", "alias": "robotics software engineer", "role_group": "Embedded"}
+{"kind": "title", "alias": "kỹ sư phần mềm robot", "role_group": "Embedded"}
+{"kind": "title", "alias": "ros developer", "role_group": "Embedded"}
+{"kind": "title", "alias": "kỹ sư rpa", "role_group": "Backend"}
+{"kind": "title", "alias": "ky su rpa (tu dong hoa quy trinh robot)", "role_group": "Backend"}
+{"kind": "title", "alias": "uipath developer", "role_group": "Backend"}
+{"kind": "title", "alias": "rpa engineer", "role_group": "Backend"}
+{"kind": "title", "alias": "ky su rpa", "role_group": "Backend"}
+{"kind": "title", "alias": "rpa developer", "role_group": "Backend"}
+{"kind": "title", "alias": "kỹ sư rpa (tự động hóa quy trình robot)", "role_group": "Backend"}
+{"kind": "title", "alias": "ruby on rails developer", "role_group": "Backend"}
+{"kind": "title", "alias": "ruby developer", "role_group": "Backend"}
+{"kind": "title", "alias": "rails developer", "role_group": "Backend"}
+{"kind": "title", "alias": "salesforce developer", "role_group": "Backend"}
+{"kind": "title", "alias": "lập trình viên salesforce", "role_group": "Backend"}
+{"kind": "title", "alias": "lap trinh vien salesforce", "role_group": "Backend"}
+{"kind": "title", "alias": "agile coach", "role_group": "Business"}
+{"kind": "title", "alias": "scrum master", "role_group": "Business"}
+{"kind": "title", "alias": "scrum master / agile coach", "role_group": "Business"}
+{"kind": "title", "alias": "tư vấn viên an ninh", "role_group": "Security"}
+{"kind": "title", "alias": "tu van vien an ninh", "role_group": "Security"}
+{"kind": "title", "alias": "security consultant", "role_group": "Security"}
+{"kind": "title", "alias": "ky su an ninh", "role_group": "Security"}
+{"kind": "title", "alias": "security engineer", "role_group": "Security"}
+{"kind": "title", "alias": "kỹ sư an ninh", "role_group": "Security"}
+{"kind": "title", "alias": "ky su bao mat", "role_group": "Security"}
+{"kind": "title", "alias": "kỹ sư bảo mật", "role_group": "Security"}
+{"kind": "title", "alias": "kiem thu an ninh / kiem thu xam nhap", "role_group": "Security"}
+{"kind": "title", "alias": "kiem thu xam nhap", "role_group": "Security"}
+{"kind": "title", "alias": "pentester", "role_group": "Security"}
+{"kind": "title", "alias": "security tester", "role_group": "Security"}
+{"kind": "title", "alias": "kiểm thử xâm nhập", "role_group": "Security"}
+{"kind": "title", "alias": "kiểm thử an ninh / kiểm thử xâm nhập", "role_group": "Security"}
+{"kind": "title", "alias": "kiem thu an ninh", "role_group": "Security"}
+{"kind": "title", "alias": "security tester / penetration tester", "role_group": "Security"}
+{"kind": "title", "alias": "kiểm thử an ninh", "role_group": "Security"}
+{"kind": "title", "alias": "penetration tester", "role_group": "Security"}
+{"kind": "title", "alias": "site reliability engineer", "role_group": "DevOps"}
+{"kind": "title", "alias": "kỹ sư đảm bảo độ tin cậy trang web (sre)", "role_group": "DevOps"}
+{"kind": "title", "alias": "ky su sre", "role_group": "DevOps"}
+{"kind": "title", "alias": "site reliability engineer (sre)", "role_group": "DevOps"}
+{"kind": "title", "alias": "sre", "role_group": "DevOps"}
+{"kind": "title", "alias": "kỹ sư sre", "role_group": "DevOps"}
+{"kind": "title", "alias": "ky su dam bao do tin cay trang web (sre)", "role_group": "DevOps"}
+{"kind": "title", "alias": "lập trình viên smart contract", "role_group": "Backend"}
+{"kind": "title", "alias": "solidity developer", "role_group": "Backend"}
+{"kind": "title", "alias": "smart contract developer", "role_group": "Backend"}
+{"kind": "title", "alias": "lap trinh vien smart contract", "role_group": "Backend"}
+{"kind": "title", "alias": "soc analyst", "role_group": "Security"}
+{"kind": "title", "alias": "chuyen vien giam sat an ninh mang", "role_group": "Security"}
+{"kind": "title", "alias": "chuyen vien soc", "role_group": "Security"}
+{"kind": "title", "alias": "chuyên viên soc", "role_group": "Security"}
+{"kind": "title", "alias": "chuyên viên giám sát an ninh mạng", "role_group": "Security"}
+{"kind": "title", "alias": "security analyst", "role_group": "Security"}
+{"kind": "title", "alias": "lập trình viên phần mềm", "role_group": "Backend"}
+{"kind": "title", "alias": "software developer", "role_group": "Backend"}
+{"kind": "title", "alias": "ky su phan mem", "role_group": "Backend"}
+{"kind": "title", "alias": "kỹ sư phần mềm", "role_group": "Backend"}
+{"kind": "title", "alias": "software engineer", "role_group": "Backend"}
+{"kind": "title", "alias": "lap trinh vien phan mem", "role_group": "Backend"}
+{"kind": "title", "alias": "kỹ sư phần mềm kiểm thử (sdet)", "role_group": "QA"}
+{"kind": "title", "alias": "sdet", "role_group": "QA"}
+{"kind": "title", "alias": "software engineer in test", "role_group": "QA"}
+{"kind": "title", "alias": "ky su phan mem kiem thu (sdet)", "role_group": "QA"}
+{"kind": "title", "alias": "software engineer in test (sdet)", "role_group": "QA"}
+{"kind": "title", "alias": "kiến trúc sư phần mềm/kỹ thuật", "role_group": "Backend"}
+{"kind": "title", "alias": "kien truc su phan mem", "role_group": "Backend"}
+{"kind": "title", "alias": "software/technical architect", "role_group": "Backend"}
+{"kind": "title", "alias": "technical architect", "role_group": "Backend"}
+{"kind": "title", "alias": "software architect", "role_group": "Backend"}
+{"kind": "title", "alias": "kiến trúc sư phần mềm", "role_group": "Backend"}
+{"kind": "title", "alias": "kien truc su ky thuat", "role_group": "Backend"}
+{"kind": "title", "alias": "kien truc su phan mem/ky thuat", "role_group": "Backend"}
+{"kind": "title", "alias": "kiến trúc sư kỹ thuật", "role_group": "Backend"}
+{"kind": "title", "alias": "kiến trúc sư giải pháp", "role_group": "Backend"}
+{"kind": "title", "alias": "cloud solution architect", "role_group": "Backend"}
+{"kind": "title", "alias": "kien truc su giai phap", "role_group": "Backend"}
+{"kind": "title", "alias": "solutions architect", "role_group": "Backend"}
+{"kind": "title", "alias": "solution architect", "role_group": "Backend"}
+{"kind": "title", "alias": "kỹ sư sysops", "role_group": "DevOps"}
+{"kind": "title", "alias": "ky su sysops", "role_group": "DevOps"}
+{"kind": "title", "alias": "sysops engineer", "role_group": "DevOps"}
+{"kind": "title", "alias": "quản trị viên hệ thống", "role_group": "DevOps"}
+{"kind": "title", "alias": "systems engineer", "role_group": "DevOps"}
+{"kind": "title", "alias": "systems engineer / administrator", "role_group": "DevOps"}
+{"kind": "title", "alias": "sysadmin", "role_group": "DevOps"}
+{"kind": "title", "alias": "ky su he thong / quan tri vien", "role_group": "DevOps"}
+{"kind": "title", "alias": "kỹ sư hệ thống", "role_group": "DevOps"}
+{"kind": "title", "alias": "kỹ sư hệ thống / quản trị viên", "role_group": "DevOps"}
+{"kind": "title", "alias": "quan tri vien he thong", "role_group": "DevOps"}
+{"kind": "title", "alias": "system engineer", "role_group": "DevOps"}
+{"kind": "title", "alias": "ky su he thong", "role_group": "DevOps"}
+{"kind": "title", "alias": "system administrator", "role_group": "DevOps"}
+{"kind": "title", "alias": "quản lý khách hàng kỹ thuật", "role_group": "Business"}
+{"kind": "title", "alias": "quan ly khach hang ky thuat", "role_group": "Business"}
+{"kind": "title", "alias": "technical account manager", "role_group": "Business"}
+{"kind": "title", "alias": "tu van vien ky thuat", "role_group": "Business"}
+{"kind": "title", "alias": "technical consultant", "role_group": "Business"}
+{"kind": "title", "alias": "tư vấn viên kỹ thuật", "role_group": "Business"}
+{"kind": "title", "alias": "ho tro khach hang ky thuat", "role_group": "IT Support"}
+{"kind": "title", "alias": "customer support engineer", "role_group": "IT Support"}
+{"kind": "title", "alias": "hỗ trợ khách hàng kỹ thuật", "role_group": "IT Support"}
+{"kind": "title", "alias": "technical customer support", "role_group": "IT Support"}
+{"kind": "title", "alias": "technical writer", "role_group": "Business"}
+{"kind": "title", "alias": "người viết tài liệu kỹ thuật", "role_group": "Business"}
+{"kind": "title", "alias": "ky su viet tai lieu", "role_group": "Business"}
+{"kind": "title", "alias": "nguoi viet tai lieu ky thuat", "role_group": "Business"}
+{"kind": "title", "alias": "kỹ sư viết tài liệu", "role_group": "Business"}
+{"kind": "title", "alias": "test coordinator", "role_group": "QA"}
+{"kind": "title", "alias": "dieu phoi vien kiem thu", "role_group": "QA"}
+{"kind": "title", "alias": "test coordinator / qaqc coordinator", "role_group": "QA"}
+{"kind": "title", "alias": "điều phối viên kiểm thử", "role_group": "QA"}
+{"kind": "title", "alias": "qaqc coordinator", "role_group": "QA"}
+{"kind": "title", "alias": "nghien cuu vien ux", "role_group": "Design"}
+{"kind": "title", "alias": "ux researcher", "role_group": "Design"}
+{"kind": "title", "alias": "nghiên cứu viên ux", "role_group": "Design"}
+{"kind": "title", "alias": "thiet ke ux/ui", "role_group": "Design"}
+{"kind": "title", "alias": "thiet ke ui/ux", "role_group": "Design"}
+{"kind": "title", "alias": "ui/ux designer", "role_group": "Design"}
+{"kind": "title", "alias": "thiết kế ui/ux", "role_group": "Design"}
+{"kind": "title", "alias": "ui designer", "role_group": "Design"}
+{"kind": "title", "alias": "ux/ui designer", "role_group": "Design"}
+{"kind": "title", "alias": "app designer", "role_group": "Design"}
+{"kind": "title", "alias": "thiết kế ux/ui", "role_group": "Design"}
+{"kind": "title", "alias": "uiux designer", "role_group": "Design"}
+{"kind": "title", "alias": "thiết kế web", "role_group": "Design"}
+{"kind": "title", "alias": "thiet ke web", "role_group": "Design"}
+{"kind": "title", "alias": "ui ux designer", "role_group": "Design"}
+{"kind": "title", "alias": "ux designer", "role_group": "Design"}
+{"kind": "title", "alias": "web designer", "role_group": "Design"}
+{"kind": "title", "alias": "phó chủ tịch", "role_group": "Business"}
+{"kind": "title", "alias": "vice president", "role_group": "Business"}
+{"kind": "title", "alias": "pho chu tich / giam doc", "role_group": "Business"}
+{"kind": "title", "alias": "pho chu tich", "role_group": "Business"}
+{"kind": "title", "alias": "vice president / director", "role_group": "Business"}
+{"kind": "title", "alias": "phó chủ tịch / giám đốc", "role_group": "Business"}
+{"kind": "title", "alias": "graphic designer", "role_group": "Design"}
+{"kind": "title", "alias": "visual / graphic designer", "role_group": "Design"}
+{"kind": "title", "alias": "thiết kế đồ họa", "role_group": "Design"}
+{"kind": "title", "alias": "thiet ke do hoa", "role_group": "Design"}
+{"kind": "title", "alias": "thiet ke hinh anh / do hoa", "role_group": "Design"}
+{"kind": "title", "alias": "thiết kế hình ảnh / đồ họa", "role_group": "Design"}
+{"kind": "title", "alias": "visual designer", "role_group": "Design"}
+{"kind": "title", "alias": "vr/ar game developer", "role_group": "Game"}
+{"kind": "title", "alias": "xr developer", "role_group": "Game"}
+{"kind": "title", "alias": "lap trinh vien game vr/ar", "role_group": "Game"}
+{"kind": "title", "alias": "lập trình viên game vr/ar", "role_group": "Game"}
+{"kind": "title", "alias": "ar/vr developer", "role_group": "Game"}
+{"kind": "title", "alias": "lập trình viên vuejs", "role_group": "Frontend"}
+{"kind": "title", "alias": "lap trinh vien vuejs", "role_group": "Frontend"}
+{"kind": "title", "alias": "vue developer", "role_group": "Frontend"}
+{"kind": "title", "alias": "vuejs developer", "role_group": "Frontend"}
+{"kind": "title", "alias": "lập trình viên web", "role_group": "Fullstack"}
+{"kind": "title", "alias": "web developer", "role_group": "Fullstack"}
+{"kind": "title", "alias": "lap trinh vien web", "role_group": "Fullstack"}
+{"kind": "title", "alias": "web programmer", "role_group": "Fullstack"}
+{"kind": "title", "alias": "lap trinh vien wordpress", "role_group": "Fullstack"}
+{"kind": "title", "alias": "shopify developer", "role_group": "Fullstack"}
+{"kind": "title", "alias": "magento developer", "role_group": "Fullstack"}
+{"kind": "title", "alias": "wordpress developer", "role_group": "Fullstack"}
+{"kind": "title", "alias": "lập trình viên wordpress", "role_group": "Fullstack"}
+{"kind": "level", "alias": "entry level", "level_rank": 1}
+{"kind": "level", "alias": "entry-level", "level_rank": 1}
+{"kind": "level", "alias": "fresh graduate", "level_rank": 1}
+{"kind": "level", "alias": "fresher", "level_rank": 1}
+{"kind": "level", "alias": "graduate", "level_rank": 1}
+{"kind": "level", "alias": "moi ra truong", "level_rank": 1}
+{"kind": "level", "alias": "moi tot nghiep", "level_rank": 1}
+{"kind": "level", "alias": "mới ra trường", "level_rank": 1}
+{"kind": "level", "alias": "mới tốt nghiệp", "level_rank": 1}
+{"kind": "level", "alias": "new graduate", "level_rank": 1}
+{"kind": "level", "alias": "sinh vien moi ra truong", "level_rank": 1}
+{"kind": "level", "alias": "sinh vien moi tot nghiep", "level_rank": 1}
+{"kind": "level", "alias": "sinh viên mới ra trường", "level_rank": 1}
+{"kind": "level", "alias": "sinh viên mới tốt nghiệp", "level_rank": 1}
+{"kind": "level", "alias": "intern", "level_rank": 0}
+{"kind": "level", "alias": "internship", "level_rank": 0}
+{"kind": "level", "alias": "internship program", "level_rank": 0}
+{"kind": "level", "alias": "sinh vien thuc tap", "level_rank": 0}
+{"kind": "level", "alias": "sinh viên thực tập", "level_rank": 0}
+{"kind": "level", "alias": "thuc tap", "level_rank": 0}
+{"kind": "level", "alias": "thuc tap sinh", "level_rank": 0}
+{"kind": "level", "alias": "thuc tap sinh it", "level_rank": 0}
+{"kind": "level", "alias": "thực tập", "level_rank": 0}
+{"kind": "level", "alias": "thực tập sinh", "level_rank": 0}
+{"kind": "level", "alias": "thực tập sinh it", "level_rank": 0}
+{"kind": "level", "alias": "trainee", "level_rank": 0}
+{"kind": "level", "alias": "associate", "level_rank": 2}
+{"kind": "level", "alias": "jr", "level_rank": 2}
+{"kind": "level", "alias": "jr.", "level_rank": 2}
+{"kind": "level", "alias": "junior", "level_rank": 2}
+{"kind": "level", "alias": "junior developer", "level_rank": 2}
+{"kind": "level", "alias": "engineering lead", "level_rank": 5}
+{"kind": "level", "alias": "lead", "level_rank": 5}
+{"kind": "level", "alias": "leader", "level_rank": 5}
+{"kind": "level", "alias": "quan ly nhom", "level_rank": 5}
+{"kind": "level", "alias": "quản lý nhóm", "level_rank": 5}
+{"kind": "level", "alias": "team lead", "level_rank": 5}
+{"kind": "level", "alias": "team leader", "level_rank": 5}
+{"kind": "level", "alias": "tech lead", "level_rank": 5}
+{"kind": "level", "alias": "technical lead", "level_rank": 5}
+{"kind": "level", "alias": "technical leader", "level_rank": 5}
+{"kind": "level", "alias": "truong nhom", "level_rank": 5}
+{"kind": "level", "alias": "truong nhom ky thuat", "level_rank": 5}
+{"kind": "level", "alias": "trưởng nhóm", "level_rank": 5}
+{"kind": "level", "alias": "trưởng nhóm kỹ thuật", "level_rank": 5}
+{"kind": "level", "alias": "intermediate", "level_rank": 3}
+{"kind": "level", "alias": "mid", "level_rank": 3}
+{"kind": "level", "alias": "mid level", "level_rank": 3}
+{"kind": "level", "alias": "mid-level", "level_rank": 3}
+{"kind": "level", "alias": "mid-senior", "level_rank": 3}
+{"kind": "level", "alias": "middle", "level_rank": 3}
+{"kind": "level", "alias": "middle developer", "level_rank": 3}
+{"kind": "level", "alias": "middle level", "level_rank": 3}
+{"kind": "level", "alias": "cao cap", "level_rank": 4}
+{"kind": "level", "alias": "cao cấp", "level_rank": 4}
+{"kind": "level", "alias": "chuyen vien cao cap", "level_rank": 4}
+{"kind": "level", "alias": "chuyên viên cao cấp", "level_rank": 4}
+{"kind": "level", "alias": "senior", "level_rank": 4}
+{"kind": "level", "alias": "senior developer", "level_rank": 4}
+{"kind": "level", "alias": "senior engineer", "level_rank": 4}
+{"kind": "level", "alias": "snr", "level_rank": 4}
+{"kind": "level", "alias": "sr", "level_rank": 4}
+{"kind": "level", "alias": "sr.", "level_rank": 4}

@@ -1,0 +1,87 @@
+{#- Mau giai thich xac dinh tpl-1.1 (thiet ke 08 muc 3; tpl-1.0 + B5 yeu cau dang chu, cap bac B3, unmapped_req). Moi so va trich dan do code dien.
+    Khong viet chu so truc tiep trong mau (EX4 kiem bang regex tren ban render da che du lieu).
+    Cach viet co dinh: "chua thay bang chung ve X trong CV", khong viet "ung vien khong co X". -#}
+{%- set flag_label = {"has_negation": "(câu có phủ định, cần xác minh)", "is_coursework": "(mô tả học tập)"} -%}
+{%- set note_text = {
+    "cap_applied": "Điểm bị giới hạn do chưa đủ kỹ năng bắt buộc.",
+    "low_data_quality": "CV thiếu nhiều dữ liệu, nên xem tay.",
+    "no_diacritics": "CV gõ không dấu: chưa chấm phần việc đã làm, dùng mức trung vị của nhóm ứng viên.",
+    "no_bullets": "CV không có gạch mô tả công việc: chưa chấm phần việc đã làm, dùng mức trung vị của nhóm ứng viên.",
+    "years_missing": "CV thiếu ngày tháng kinh nghiệm: số năm dùng mức trung vị của nhóm ứng viên.",
+    "role_missing": "Chưa xác định được nhóm vai trò từ CV.",
+    "has_negation_bullets": "CV có câu mang nghĩa phủ định, đã giảm trọng số khi chấm.",
+    "location_mismatch": "Địa điểm làm việc khác với JD.",
+    "check_language": "JD có yêu cầu ngoại ngữ: cần kiểm tra riêng.",
+    "unmapped_req": "JD có kỹ năng bắt buộc chưa có trong danh mục kỹ năng: không tính vào điểm kỹ năng, nên xem tay.",
+} -%}
+Điểm {{ score }}/{{ scale }} ({{ band_label }}, điểm xếp hạng tương đối).
+{%- if cap_applied %} Điểm bị giới hạn vì mới đáp ứng {{ a1_pct }}% kỹ năng bắt buộc.{% endif %}
+
+
+Điểm mạnh
+{% if skills.met %}
+• Kỹ năng bắt buộc: có {{ skills.n_met }}/{{ skills.n_req }}{% if skills.met %} ({{ skills.met | join(", ") }}){% endif %}.
+{% endif %}
+{% if skills.partial %}
+• Kỹ năng liên quan: {% for p in skills.partial %}{{ p.found }} (gần với {{ p.required }}){{ ", " if not loop.last }}{% endfor %}.
+{% endif %}
+{% if resp.reason == "ok" %}
+• Việc đã làm: {{ resp.n_met }}/{{ resp.n_total }} trách nhiệm có bằng chứng.{% if resp.examples %} Ví dụ:{% endif %}
+
+{% for e in resp.examples %}
+  – "{{ e.resp_text }}" ← "{{ e.evidence_text }}"{% for f in e.flags %} {{ flag_label[f] }}{% endfor %}{% if e.matched %}  (khớp: {{ e.matched | join(", ") }}{% if e.missing %}; chưa thấy phần: {{ e.missing | join(", ") }}{% endif %}){% endif %}
+
+{% endfor %}
+{% elif resp.reason == "cv_side" %}
+• Việc đã làm: thiếu dữ liệu trong CV, chưa chấm được.
+{% endif %}
+{% if req.n_total and req.examples %}
+• Yêu cầu chuyên môn: {{ req.n_met }}/{{ req.n_total }} có bằng chứng. Ví dụ:
+
+{% for e in req.examples %}
+  – "{{ e.req_text }}" ← "{{ e.evidence_text }}"{% for f in e.flags %} {{ flag_label[f] }}{% endfor %}{% if e.matched %}  (khớp: {{ e.matched | join(", ") }}){% endif %}
+
+{% endfor %}
+{% endif %}
+{% if experience.level_cv is not none and experience.level_jd is not none %}
+• Cấp bậc ước lượng: {{ experience.level_cv }} (JD cần {{ experience.level_jd }}).
+{% endif %}
+{% if experience.years is not none %}
+• Kinh nghiệm liên quan: {{ experience.years }} năm{% if experience.role_group %}, nhóm {{ experience.role_group }}{% endif %}.
+{% endif %}
+
+Chưa thấy bằng chứng
+{% if skills.missing %}
+• Kỹ năng: chưa thấy bằng chứng về {{ skills.missing | join(", ") }} trong CV.
+{% endif %}
+{% for g in resp.gaps %}
+{% if g.level == "partial" %}
+• Trách nhiệm: "{{ g.resp_text }}" mới có bằng chứng một phần{% if g.missing_words %} (chưa thấy phần: {{ g.missing_words | join(", ") }}){% endif %}.
+{% else %}
+• Trách nhiệm: chưa thấy bằng chứng về "{{ g.resp_text }}" trong CV.
+{% endif %}
+{% endfor %}
+{% for g in req.gaps %}
+• Yêu cầu: chưa thấy bằng chứng về "{{ g.req_text }}" trong CV.
+{% endfor %}
+{% if not skills.missing and not resp.gaps and not req.gaps %}
+• Không có mục nào nổi bật.
+{% endif %}
+{% if notes %}
+
+Lưu ý
+{% for n in notes %}
+• {{ note_text[n] }}
+{% endfor %}
+{% endif %}
+{% if questions %}
+
+Gợi ý câu hỏi phỏng vấn
+{% for q in questions %}
+{% if q.kind == "skill" %}
+• Anh/chị đã từng làm việc với {{ q.text }} chưa? Hãy kể một ví dụ cụ thể.
+{% else %}
+• Anh/chị đã từng {{ q.text }} chưa? Hãy kể một ví dụ cụ thể.
+{% endif %}
+{% endfor %}
+{% endif %}

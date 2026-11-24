@@ -1,0 +1,46 @@
+{
+ "full_name": "Ứng viên 28",
+ "email": "ungvien28@example.com",
+ "phone": "0900000028",
+ "location": "Hà Nội",
+ "summary": "DevOps Engineer kinh nghiệm",
+ "skills": [
+  "Docker",
+  "Kubernetes",
+  "AWS",
+  "Jenkins",
+  "CI/CD"
+ ],
+ "experiences": [
+  {
+   "title": "Fresher DevOps Engineer",
+   "company": "Công ty C",
+   "start": "2025-02",
+   "end": null,
+   "is_current": true,
+   "description": [
+    "Tự động hoá hạ tầng AWS bằng Terraform",
+    "Vận hành cụm Kubernetes cho hơn 50 microservices",
+    "Xây dựng pipeline CI/CD bằng Jenkins cho toàn bộ dự án",
+    "Giám sát hệ thống và cảnh báo sự cố bằng Prometheus và Grafana"
+   ],
+   "technologies": [
+    "Docker",
+    "Git",
+    "AWS"
+   ]
+  }
+ ],
+ "projects": [],
+ "education": [
+  {
+   "school": "Đại học Bách khoa",
+   "major": "Khoa học máy tính",
+   "end": "2024"
+  }
+ ],
+ "certificates": [],
+ "languages": [
+  "Tiếng Anh"
+ ]
+}

@@ -1,0 +1,72 @@
+{
+  "nodes": {
+    "Skill": 1742,
+    "Category": 331,
+    "JobTitle": 124,
+    "Level": 6,
+    "Major": 60,
+    "Source": 30
+  },
+  "edges": {
+    "EVIDENCED_BY": 2066,
+    "IN_CATEGORY": 1684,
+    "MAPS_TO": 135,
+    "NEAR": 182,
+    "PARENT_OF": 348,
+    "USED_IN": 2133
+  },
+  "node_status": {
+    "accepted": 2231,
+    "rejected": 32
+  },
+  "edge_status": {
+    "accepted": 6473,
+    "rejected": 75
+  },
+  "accepted_by": {
+    "nodes": {
+      "provisional": 514,
+      "rule": 1717
+    },
+    "edges": {
+      "provisional": 4772,
+      "rule": 1701
+    }
+  },
+  "review": {},
+  "resolved_by_alias": [],
+  "info": {
+    "new_Skill": 1803,
+    "new_Category": 331,
+    "new_JobTitle": 124,
+    "new_Major": 60,
+    "new_Level": 6,
+    "same_as": 61,
+    "reject": 32,
+    "ambiguous": 72,
+    "set": 122,
+    "drop_edge": 18
+  },
+  "job_titles_without_role_group": 0,
+  "version": "kb-2026-11-24",
+  "diff": {
+    "nodes": {
+      "added": {},
+      "removed": {},
+      "changed": {
+        "Skill": 73,
+        "Source": 4
+      },
+      "changed_fields": {
+        "display_name": 73,
+        "sha256": 4
+      }
+    },
+    "edges": {
+      "added": {},
+      "removed": {},
+      "changed": {},
+      "changed_fields": {}
+    }
+  }
+}

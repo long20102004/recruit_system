@@ -1,0 +1,38 @@
+{
+ "full_name": "Ứng viên 33",
+ "email": "ungvien33@example.com",
+ "phone": "0900000033",
+ "location": "TP.HCM",
+ "summary": "Graphic Designer kinh nghiệm",
+ "skills": [
+  "Photoshop"
+ ],
+ "experiences": [
+  {
+   "title": "Junior Graphic Designer",
+   "company": "Công ty H",
+   "start": "2023-07",
+   "end": null,
+   "is_current": true,
+   "description": [
+    "Thiết kế banner quảng cáo và ấn phẩm truyền thông",
+    "Chỉnh sửa ảnh sản phẩm bằng Photoshop cho trang thương mại điện tử"
+   ],
+   "technologies": [
+    "Photoshop"
+   ]
+  }
+ ],
+ "projects": [],
+ "education": [
+  {
+   "school": "Đại học Bách khoa",
+   "major": "Thiết kế đồ hoạ",
+   "end": "2022"
+  }
+ ],
+ "certificates": [],
+ "languages": [
+  "Tiếng Anh"
+ ]
+}

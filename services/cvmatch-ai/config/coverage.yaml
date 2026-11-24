@@ -1,0 +1,23 @@
+# Nguong bat feature theo do phu Module 1 (thiet ke 11 muc 2.1). Moi gia tri la (UL).
+# `cvmatch eval coverage` doc file nay; khong thuoc active.yaml vi khong anh huong ket qua match.
+version: coverage-1.0
+
+thresholds:
+  cv_exp_dated: 0.80        # >= 1 muc kinh nghiem du title + start + (end | is_current)  -> B1, B2, B3
+  cv_has_bullet: 0.80       # >= 1 gach (sau tach, >= bullet.min_words tu)              -> B4, B5
+  cv_edu_major_end: 0.70    # >= 1 muc hoc van co major + end                           -> C1, B3 (tran Fresher)
+  cv_item_kind: 0.70        # phan biet job / du an                                     -> B2
+  jd_responsibilities: 0.90 # JD co responsibilities                                    -> B4 (thieu -> null phia JD)
+
+# Feature -> cac dong phai dat. Dong khong co nguong (vd jd_min_years) chi ghi nhan.
+features:
+  A1: []
+  A2: []
+  B1: [cv_exp_dated]
+  B2: [cv_exp_dated, cv_item_kind]
+  B3: [cv_exp_dated, cv_edu_major_end]
+  B4: [cv_has_bullet, jd_responsibilities]
+  B5: [cv_has_bullet]
+  C1: [cv_edu_major_end]
+
+top_date_formats: 10

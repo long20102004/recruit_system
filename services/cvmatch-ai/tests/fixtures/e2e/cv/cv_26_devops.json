@@ -1,0 +1,55 @@
+{
+ "full_name": "Ứng viên 26",
+ "email": "ungvien26@example.com",
+ "phone": "0900000026",
+ "location": "Đà Nẵng",
+ "summary": "DevOps Engineer kinh nghiệm",
+ "skills": [
+  "Docker",
+  "Kubernetes",
+  "AWS",
+  "Jenkins"
+ ],
+ "experiences": [
+  {
+   "title": "DevOps Engineer",
+   "company": "Công ty A",
+   "start": "2021-09",
+   "end": null,
+   "is_current": true,
+   "description": [
+    "Vận hành cụm Kubernetes cho hơn 50 microservices",
+    "Tự động hoá hạ tầng AWS bằng Terraform",
+    "Giám sát hệ thống và cảnh báo sự cố bằng Prometheus và Grafana",
+    "Xây dựng pipeline CI/CD bằng Jenkins cho toàn bộ dự án"
+   ],
+   "technologies": [
+    "CI/CD",
+    "Jenkins",
+    "AWS"
+   ]
+  },
+  {
+   "title": "DevOps Engineer",
+   "company": "Công ty Q",
+   "start": "2018-03",
+   "end": "2020-12",
+   "description": [
+    "Xây dựng pipeline CI/CD bằng Jenkins cho toàn bộ dự án",
+    "Giám sát hệ thống và cảnh báo sự cố bằng Prometheus và Grafana"
+   ]
+  }
+ ],
+ "projects": [],
+ "education": [
+  {
+   "school": "Đại học Bách khoa",
+   "major": "Hệ thống thông tin",
+   "end": "2020"
+  }
+ ],
+ "certificates": [],
+ "languages": [
+  "Tiếng Anh"
+ ]
+}

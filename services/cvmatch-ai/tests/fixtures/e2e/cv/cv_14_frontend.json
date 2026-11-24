@@ -1,0 +1,56 @@
+{
+ "full_name": "Ứng viên 14",
+ "email": "ungvien14@example.com",
+ "phone": "0900000014",
+ "location": "Đà Nẵng",
+ "summary": "Frontend Developer kinh nghiệm",
+ "skills": [
+  "JavaScript",
+  "TypeScript",
+  "React",
+  "Vue.js",
+  "Git"
+ ],
+ "experiences": [
+  {
+   "title": "Frontend Developer",
+   "company": "Công ty O",
+   "start": "2021-06",
+   "end": null,
+   "is_current": true,
+   "description": [
+    "Xây dựng giao diện trang quản trị bằng React và TypeScript",
+    "Tối ưu tốc độ tải trang, cải thiện điểm Lighthouse từ 60 lên 90",
+    "Phát triển thư viện component dùng chung cho nhiều dự án",
+    "Kết nối giao diện với REST API và xử lý trạng thái bằng Redux"
+   ],
+   "technologies": [
+    "JavaScript",
+    "React",
+    "TypeScript"
+   ]
+  },
+  {
+   "title": "Frontend Developer",
+   "company": "Công ty O",
+   "start": "2018-03",
+   "end": "2020-12",
+   "description": [
+    "Tối ưu tốc độ tải trang, cải thiện điểm Lighthouse từ 60 lên 90",
+    "Kết nối giao diện với REST API và xử lý trạng thái bằng Redux"
+   ]
+  }
+ ],
+ "projects": [],
+ "education": [
+  {
+   "school": "Đại học Bách khoa",
+   "major": "Hệ thống thông tin",
+   "end": "2020"
+  }
+ ],
+ "certificates": [],
+ "languages": [
+  "Tiếng Anh"
+ ]
+}

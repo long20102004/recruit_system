@@ -9,4 +9,5 @@ public interface CvDataRepository extends JpaRepository<CvData, Integer> {
     List<CvData> findByCandidateId(Integer candidateId);
 
     List<CvData> findByCandidateIdAndFieldOrderByIdAsc(Integer candidateId, String field);
+    List<CvData> findByFieldAndValue(String field, String value);
 }

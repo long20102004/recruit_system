@@ -25,8 +25,31 @@ public final class MatchingDtos {
             List<String> reasons,
             String modelVersion,
             Integer rankPosition,
-            LocalDateTime createdAt
+            LocalDateTime createdAt,
+            /** cvmatch: high | mid | low (null voi engine legacy). */
+            String band,
+            /** diem bi chan tran vi thieu ky nang bat buoc (cvmatch). */
+            Boolean capApplied,
+            String engine,
+            boolean hasExplanation,
+            List<String> partialSkills
     ) {
+    }
+
+    /** Giai thich cua mot ket qua cvmatch (lay luoi, luu lai). */
+    public record ExplanationResponse(
+            Integer matchId,
+            String audience,
+            String band,
+            String bandLabel,
+            Integer score,
+            Boolean capApplied,
+            String text,
+            Object sections
+    ) {
+    }
+
+    public record RefreshJobRequest(String scope) {
     }
 
     public record RunMatchingRequest(Integer jobId, Integer candidateId) {

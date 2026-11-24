@@ -1,0 +1,1964 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "cvmatch",
+    "description": "Match CV ↔ JD (Tầng 0–3). Luồng: POST /cv, POST /jd → POST /match/jd/{jd_id} → GET /match/{run_id}/cv/{cv_id}/explain.",
+    "version": "0.1.0"
+  },
+  "paths": {
+    "/cv": {
+      "post": {
+        "tags": [
+          "cv"
+        ],
+        "summary": "Post Cv",
+        "description": "Luong A cho MOT CV (dong bo). `duplicate` -> tra cv_id da co.",
+        "operationId": "post_cv_cv_post",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "additionalProperties": true,
+                "type": "object",
+                "title": "Cv",
+                "description": "CV JSON (dau ra Module 1)"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CvIngestResult"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Unprocessable Entity",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CvIngestResult"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CvIngestResult"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/cv/batch": {
+      "post": {
+        "tags": [
+          "cv"
+        ],
+        "summary": "Post Cv Batch",
+        "description": "Nap CV theo lo. `background=true` (mac dinh) -> 202 + job; ket qua o `GET /jobs/{id}`.",
+        "operationId": "post_cv_batch_cv_batch_post",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CvBatchIn"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CvBatchOut"
+                }
+              }
+            }
+          },
+          "202": {
+            "description": "Accepted",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/JobOut"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/cv/{cv_id}": {
+      "delete": {
+        "tags": [
+          "cv"
+        ],
+        "summary": "Del Cv",
+        "operationId": "del_cv_cv__cv_id__delete",
+        "parameters": [
+          {
+            "name": "cv_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Cv Id"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CvDeleteOut"
+                }
+              }
+            }
+          },
+          "404": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorOut"
+                }
+              }
+            },
+            "description": "Not Found"
+          },
+          "409": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorOut"
+                }
+              }
+            },
+            "description": "Conflict"
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/jd": {
+      "post": {
+        "tags": [
+          "jd"
+        ],
+        "summary": "Post Jd",
+        "description": "Luong B. Noi dung khong doi -> `unchanged` (giu version).",
+        "operationId": "post_jd_jd_post",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "additionalProperties": true,
+                "type": "object",
+                "title": "Jd",
+                "description": "JD JSON (dau ra Module 1)"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/JdIngestResult"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Unprocessable Entity",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/JdIngestResult"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/JdIngestResult"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/jd/{jd_id}/status": {
+      "patch": {
+        "tags": [
+          "jd"
+        ],
+        "summary": "Patch Jd Status",
+        "operationId": "patch_jd_status_jd__jd_id__status_patch",
+        "parameters": [
+          {
+            "name": "jd_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Jd Id"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/JdStatusIn"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/JdStatusOut"
+                }
+              }
+            }
+          },
+          "404": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorOut"
+                }
+              }
+            },
+            "description": "Not Found"
+          },
+          "409": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorOut"
+                }
+              }
+            },
+            "description": "Conflict"
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/match/jd/{jd_id}": {
+      "post": {
+        "tags": [
+          "match"
+        ],
+        "summary": "Match Jd",
+        "description": "Retrieve (top K) -> Rerank (top N). `background=true` -> 202 + job.",
+        "operationId": "match_jd_match_jd__jd_id__post",
+        "parameters": [
+          {
+            "name": "jd_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Jd Id"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "anyOf": [
+                  {
+                    "$ref": "#/components/schemas/MatchIn"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ],
+                "title": "Body"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/MatchOut"
+                }
+              }
+            }
+          },
+          "202": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/JobOut"
+                }
+              }
+            },
+            "description": "Accepted"
+          },
+          "404": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorOut"
+                }
+              }
+            },
+            "description": "Not Found"
+          },
+          "409": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorOut"
+                }
+              }
+            },
+            "description": "Conflict"
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/match/{run_id}/cv/{cv_id}/explain": {
+      "get": {
+        "tags": [
+          "match"
+        ],
+        "summary": "Get Explain",
+        "description": "Explain luoi (mau xac dinh, cache theo facts + template_version).",
+        "operationId": "get_explain_match__run_id__cv__cv_id__explain_get",
+        "parameters": [
+          {
+            "name": "run_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Run Id"
+            }
+          },
+          {
+            "name": "cv_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Cv Id"
+            }
+          },
+          {
+            "name": "force",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "boolean",
+              "default": false,
+              "title": "Force"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ExplainOut"
+                }
+              }
+            }
+          },
+          "404": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorOut"
+                }
+              }
+            },
+            "description": "Not Found"
+          },
+          "409": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorOut"
+                }
+              }
+            },
+            "description": "Conflict"
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/match/cv:preview": {
+      "post": {
+        "tags": [
+          "match-cv"
+        ],
+        "summary": "Match Cv Preview",
+        "description": "CV tam: Luong A -> D -> giai thich ngay; KHONG luu CV, log match/rerank sau khi tra.",
+        "operationId": "match_cv_preview_match_cv_preview_post",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/PreviewIn"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PreviewOut"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/match/cv/{cv_id}": {
+      "post": {
+        "tags": [
+          "match-cv"
+        ],
+        "summary": "Match Cv",
+        "description": "Luong D: CV da co trong kho -> top N JD dang mo (kiem lai status luc tra).",
+        "operationId": "match_cv_match_cv__cv_id__post",
+        "parameters": [
+          {
+            "name": "cv_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Cv Id"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "anyOf": [
+                  {
+                    "$ref": "#/components/schemas/MatchCvIn"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ],
+                "title": "Body"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/MatchCvOut"
+                }
+              }
+            }
+          },
+          "202": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/JobOut"
+                }
+              }
+            },
+            "description": "Accepted"
+          },
+          "404": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorOut"
+                }
+              }
+            },
+            "description": "Not Found"
+          },
+          "409": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorOut"
+                }
+              }
+            },
+            "description": "Conflict"
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/match/{run_id}/jd/{jd_id}/explain": {
+      "get": {
+        "tags": [
+          "match-cv"
+        ],
+        "summary": "Get Explain Candidate",
+        "description": "Giai thich huong ung vien (08 muc 5): khong diem so, nhan \"CV cua ban chua the hien ...\".",
+        "operationId": "get_explain_candidate_match__run_id__jd__jd_id__explain_get",
+        "parameters": [
+          {
+            "name": "run_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Run Id"
+            }
+          },
+          {
+            "name": "jd_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Jd Id"
+            }
+          },
+          {
+            "name": "force",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "boolean",
+              "default": false,
+              "title": "Force"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ExplainOut"
+                }
+              }
+            }
+          },
+          "404": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorOut"
+                }
+              }
+            },
+            "description": "Not Found"
+          },
+          "409": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorOut"
+                }
+              }
+            },
+            "description": "Conflict"
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/jobs/{job_id}": {
+      "get": {
+        "tags": [
+          "jobs"
+        ],
+        "summary": "Get Job",
+        "operationId": "get_job_jobs__job_id__get",
+        "parameters": [
+          {
+            "name": "job_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Job Id"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/JobOut"
+                }
+              }
+            }
+          },
+          "404": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorOut"
+                }
+              }
+            },
+            "description": "Not Found"
+          },
+          "409": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorOut"
+                }
+              }
+            },
+            "description": "Conflict"
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/health": {
+      "get": {
+        "tags": [
+          "health"
+        ],
+        "summary": "Health",
+        "operationId": "health_health_get",
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HealthOut"
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "Service Unavailable",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HealthOut"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "CvBatchIn": {
+        "properties": {
+          "items": {
+            "items": {
+              "additionalProperties": true,
+              "type": "object"
+            },
+            "type": "array",
+            "minItems": 1,
+            "title": "Items",
+            "description": "cac CV JSON (dau ra Module 1)"
+          },
+          "background": {
+            "type": "boolean",
+            "title": "Background",
+            "description": "true -> tra job_id, xem GET /jobs/{id}",
+            "default": true
+          }
+        },
+        "type": "object",
+        "required": [
+          "items"
+        ],
+        "title": "CvBatchIn"
+      },
+      "CvBatchOut": {
+        "properties": {
+          "results": {
+            "items": {
+              "$ref": "#/components/schemas/CvIngestResult"
+            },
+            "type": "array",
+            "title": "Results"
+          }
+        },
+        "type": "object",
+        "required": [
+          "results"
+        ],
+        "title": "CvBatchOut"
+      },
+      "CvDeleteOut": {
+        "properties": {
+          "cv_id": {
+            "type": "string",
+            "title": "Cv Id"
+          },
+          "deleted": {
+            "type": "boolean",
+            "title": "Deleted"
+          }
+        },
+        "type": "object",
+        "required": [
+          "cv_id",
+          "deleted"
+        ],
+        "title": "CvDeleteOut"
+      },
+      "CvIngestResult": {
+        "properties": {
+          "source": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Source"
+          },
+          "status": {
+            "type": "string",
+            "enum": [
+              "ok",
+              "duplicate",
+              "invalid",
+              "failed"
+            ],
+            "title": "Status"
+          },
+          "cv_id": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Cv Id",
+            "description": "ok: cv_id moi; duplicate: cv_id da co"
+          },
+          "version": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Version"
+          },
+          "flags": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Flags",
+            "description": "vd low_content, no_diacritics, date_unparsed"
+          },
+          "detail": {
+            "additionalProperties": true,
+            "type": "object",
+            "title": "Detail",
+            "description": "invalid: errors; failed: error"
+          }
+        },
+        "additionalProperties": true,
+        "type": "object",
+        "required": [
+          "status"
+        ],
+        "title": "CvIngestResult"
+      },
+      "ErrorOut": {
+        "properties": {
+          "detail": {
+            "type": "string",
+            "title": "Detail"
+          }
+        },
+        "type": "object",
+        "required": [
+          "detail"
+        ],
+        "title": "ErrorOut"
+      },
+      "ExplainOut": {
+        "properties": {
+          "mode": {
+            "type": "string",
+            "title": "Mode"
+          },
+          "template_version": {
+            "type": "string",
+            "title": "Template Version"
+          },
+          "cv_id": {
+            "type": "string",
+            "title": "Cv Id"
+          },
+          "score": {
+            "type": "integer",
+            "title": "Score"
+          },
+          "band": {
+            "type": "string",
+            "title": "Band"
+          },
+          "band_label": {
+            "type": "string",
+            "title": "Band Label"
+          },
+          "cap_applied": {
+            "type": "boolean",
+            "title": "Cap Applied"
+          },
+          "text": {
+            "type": "string",
+            "title": "Text"
+          },
+          "sections": {
+            "additionalProperties": true,
+            "type": "object",
+            "title": "Sections"
+          },
+          "cache_key": {
+            "type": "string",
+            "title": "Cache Key"
+          }
+        },
+        "additionalProperties": true,
+        "type": "object",
+        "required": [
+          "mode",
+          "template_version",
+          "cv_id",
+          "score",
+          "band",
+          "band_label",
+          "cap_applied",
+          "text",
+          "sections",
+          "cache_key"
+        ],
+        "title": "ExplainOut"
+      },
+      "HTTPValidationError": {
+        "properties": {
+          "detail": {
+            "items": {
+              "$ref": "#/components/schemas/ValidationError"
+            },
+            "type": "array",
+            "title": "Detail"
+          }
+        },
+        "type": "object",
+        "title": "HTTPValidationError"
+      },
+      "HardFilters": {
+        "properties": {
+          "location": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Location",
+            "description": "vd 'TP.HCM'; CV thieu dia diem duoc cho qua"
+          },
+          "min_years": {
+            "anyOf": [
+              {
+                "type": "number",
+                "minimum": 0.0
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Min Years"
+          },
+          "allow_remote": {
+            "type": "boolean",
+            "title": "Allow Remote",
+            "default": true
+          }
+        },
+        "type": "object",
+        "title": "HardFilters"
+      },
+      "HealthOut": {
+        "properties": {
+          "status": {
+            "type": "string",
+            "title": "Status",
+            "description": "ok | degraded (DB loi -> HTTP 503)"
+          },
+          "db": {
+            "type": "string",
+            "title": "Db",
+            "default": "ok"
+          },
+          "versions": {
+            "additionalProperties": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "type": "object",
+            "title": "Versions"
+          },
+          "config_files": {
+            "additionalProperties": {
+              "type": "string"
+            },
+            "type": "object",
+            "title": "Config Files"
+          },
+          "config_hash": {
+            "type": "string",
+            "title": "Config Hash"
+          },
+          "encoder": {
+            "type": "string",
+            "title": "Encoder"
+          },
+          "n_cv": {
+            "type": "integer",
+            "title": "N Cv"
+          },
+          "n_jd_open": {
+            "type": "integer",
+            "title": "N Jd Open",
+            "default": 0
+          },
+          "index_memory_mb": {
+            "additionalProperties": {
+              "type": "number"
+            },
+            "type": "object",
+            "title": "Index Memory Mb"
+          }
+        },
+        "additionalProperties": true,
+        "type": "object",
+        "required": [
+          "status",
+          "versions",
+          "config_files",
+          "config_hash",
+          "encoder",
+          "n_cv",
+          "index_memory_mb"
+        ],
+        "title": "HealthOut"
+      },
+      "JdIngestResult": {
+        "properties": {
+          "source": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Source"
+          },
+          "status": {
+            "type": "string",
+            "enum": [
+              "ok",
+              "unchanged",
+              "invalid",
+              "failed"
+            ],
+            "title": "Status"
+          },
+          "jd_id": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Jd Id"
+          },
+          "version": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Version"
+          },
+          "warnings": {
+            "items": {
+              "additionalProperties": true,
+              "type": "object"
+            },
+            "type": "array",
+            "title": "Warnings"
+          },
+          "detail": {
+            "additionalProperties": true,
+            "type": "object",
+            "title": "Detail"
+          }
+        },
+        "additionalProperties": true,
+        "type": "object",
+        "required": [
+          "status"
+        ],
+        "title": "JdIngestResult"
+      },
+      "JdStatusIn": {
+        "properties": {
+          "status": {
+            "type": "string",
+            "enum": [
+              "open",
+              "draft",
+              "closed",
+              "expired"
+            ],
+            "title": "Status"
+          }
+        },
+        "type": "object",
+        "required": [
+          "status"
+        ],
+        "title": "JdStatusIn"
+      },
+      "JdStatusOut": {
+        "properties": {
+          "jd_id": {
+            "type": "string",
+            "title": "Jd Id"
+          },
+          "version": {
+            "type": "integer",
+            "title": "Version"
+          },
+          "status": {
+            "type": "string",
+            "enum": [
+              "open",
+              "draft",
+              "closed",
+              "expired"
+            ],
+            "title": "Status"
+          }
+        },
+        "type": "object",
+        "required": [
+          "jd_id",
+          "version",
+          "status"
+        ],
+        "title": "JdStatusOut"
+      },
+      "JobOut": {
+        "properties": {
+          "job_id": {
+            "type": "string",
+            "title": "Job Id"
+          },
+          "kind": {
+            "type": "string",
+            "title": "Kind"
+          },
+          "status": {
+            "type": "string",
+            "enum": [
+              "queued",
+              "running",
+              "done",
+              "failed"
+            ],
+            "title": "Status"
+          },
+          "created_at": {
+            "type": "string",
+            "title": "Created At"
+          },
+          "finished_at": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Finished At"
+          },
+          "result": {
+            "title": "Result"
+          },
+          "error": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Error"
+          }
+        },
+        "type": "object",
+        "required": [
+          "job_id",
+          "kind",
+          "status",
+          "created_at"
+        ],
+        "title": "JobOut"
+      },
+      "MatchCvIn": {
+        "properties": {
+          "K": {
+            "anyOf": [
+              {
+                "type": "integer",
+                "maximum": 500.0,
+                "minimum": 1.0
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "K",
+            "description": "mac dinh min(reverse.K_max, so JD mo)"
+          },
+          "N": {
+            "anyOf": [
+              {
+                "type": "integer",
+                "maximum": 100.0,
+                "minimum": 1.0
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "N",
+            "description": "mac dinh rerank.reverse_N (10)"
+          },
+          "hard_filters": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/ReverseFilters"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "exclude_jd_ids": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Exclude Jd Ids"
+          },
+          "include_jd_ids": {
+            "anyOf": [
+              {
+                "items": {
+                  "type": "string"
+                },
+                "type": "array"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Include Jd Ids",
+            "description": "chi xet cac JD nay; null = moi JD dang mo"
+          },
+          "views": {
+            "anyOf": [
+              {
+                "items": {
+                  "type": "string",
+                  "enum": [
+                    "dense",
+                    "bm25",
+                    "skill",
+                    "resp"
+                  ]
+                },
+                "type": "array"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Views"
+          },
+          "ref_ym": {
+            "anyOf": [
+              {
+                "type": "string",
+                "pattern": "^\\d{4}-\\d{2}$"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Ref Ym"
+          },
+          "background": {
+            "type": "boolean",
+            "title": "Background",
+            "default": false
+          }
+        },
+        "type": "object",
+        "title": "MatchCvIn"
+      },
+      "MatchCvItem": {
+        "properties": {
+          "features": {
+            "additionalProperties": {
+              "anyOf": [
+                {
+                  "type": "number"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "type": "object",
+            "title": "Features",
+            "description": "A1, A2, B1-B5, C1 trong [0,1]; null = tat hoac thieu du lieu"
+          },
+          "skills": {
+            "$ref": "#/components/schemas/SkillSummary"
+          },
+          "jd_id": {
+            "type": "string",
+            "title": "Jd Id"
+          },
+          "jd_version": {
+            "type": "integer",
+            "title": "Jd Version"
+          },
+          "rank": {
+            "type": "integer",
+            "title": "Rank"
+          },
+          "score": {
+            "type": "integer",
+            "maximum": 100.0,
+            "minimum": 0.0,
+            "title": "Score"
+          },
+          "band": {
+            "type": "string",
+            "enum": [
+              "high",
+              "mid",
+              "low"
+            ],
+            "title": "Band"
+          },
+          "cap_applied": {
+            "type": "boolean",
+            "title": "Cap Applied"
+          },
+          "flags": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Flags"
+          }
+        },
+        "type": "object",
+        "required": [
+          "jd_id",
+          "jd_version",
+          "rank",
+          "score",
+          "band",
+          "cap_applied",
+          "flags"
+        ],
+        "title": "MatchCvItem"
+      },
+      "MatchCvOut": {
+        "properties": {
+          "run_id": {
+            "type": "string",
+            "title": "Run Id",
+            "description": "rerank run - dung cho GET /match/{run_id}/jd/{jd_id}/explain"
+          },
+          "retrieve_run_id": {
+            "type": "string",
+            "title": "Retrieve Run Id"
+          },
+          "cv_id": {
+            "type": "string",
+            "title": "Cv Id"
+          },
+          "n_pool": {
+            "type": "integer",
+            "title": "N Pool"
+          },
+          "items": {
+            "items": {
+              "$ref": "#/components/schemas/MatchCvItem"
+            },
+            "type": "array",
+            "title": "Items"
+          },
+          "warnings": {
+            "items": {
+              "additionalProperties": true,
+              "type": "object"
+            },
+            "type": "array",
+            "title": "Warnings"
+          },
+          "timings": {
+            "additionalProperties": {
+              "type": "number"
+            },
+            "type": "object",
+            "title": "Timings"
+          }
+        },
+        "type": "object",
+        "required": [
+          "run_id",
+          "retrieve_run_id",
+          "cv_id",
+          "n_pool",
+          "items",
+          "warnings",
+          "timings"
+        ],
+        "title": "MatchCvOut"
+      },
+      "MatchIn": {
+        "properties": {
+          "K": {
+            "anyOf": [
+              {
+                "type": "integer",
+                "maximum": 5000.0,
+                "minimum": 1.0
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "K",
+            "description": "so CV Retrieve giu lai (mac dinh retrieve.K)"
+          },
+          "N": {
+            "anyOf": [
+              {
+                "type": "integer",
+                "maximum": 500.0,
+                "minimum": 1.0
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "N",
+            "description": "so CV tra ve sau Rerank (mac dinh rerank.N)"
+          },
+          "hard_filters": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/HardFilters"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "exclude_cv_ids": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Exclude Cv Ids",
+            "description": "vd CV da phong van"
+          },
+          "include_cv_ids": {
+            "anyOf": [
+              {
+                "items": {
+                  "type": "string"
+                },
+                "type": "array"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Include Cv Ids",
+            "description": "chi xet cac CV nay (vd ung vien da nop don); null = ca kho. Diem phu thuoc pool (chuan hoa min-max, pool_median) nen pool nho cho diem khac pool lon"
+          },
+          "views": {
+            "anyOf": [
+              {
+                "items": {
+                  "type": "string",
+                  "enum": [
+                    "dense",
+                    "bm25",
+                    "skill",
+                    "resp"
+                  ]
+                },
+                "type": "array"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Views",
+            "description": "mac dinh retrieve.views_enabled"
+          },
+          "ref_ym": {
+            "anyOf": [
+              {
+                "type": "string",
+                "pattern": "^\\d{4}-\\d{2}$"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Ref Ym",
+            "description": "thang tham chieu B1 (mac dinh thang nay)"
+          },
+          "background": {
+            "type": "boolean",
+            "title": "Background",
+            "default": false
+          }
+        },
+        "type": "object",
+        "title": "MatchIn"
+      },
+      "MatchItem": {
+        "properties": {
+          "features": {
+            "additionalProperties": {
+              "anyOf": [
+                {
+                  "type": "number"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "type": "object",
+            "title": "Features",
+            "description": "A1, A2, B1-B5, C1 trong [0,1]; null = tat hoac thieu du lieu"
+          },
+          "skills": {
+            "$ref": "#/components/schemas/SkillSummary"
+          },
+          "cv_id": {
+            "type": "string",
+            "title": "Cv Id"
+          },
+          "rank": {
+            "type": "integer",
+            "title": "Rank"
+          },
+          "score": {
+            "type": "integer",
+            "maximum": 100.0,
+            "minimum": 0.0,
+            "title": "Score"
+          },
+          "band": {
+            "type": "string",
+            "enum": [
+              "high",
+              "mid",
+              "low"
+            ],
+            "title": "Band"
+          },
+          "cap_applied": {
+            "type": "boolean",
+            "title": "Cap Applied"
+          },
+          "flags": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Flags"
+          }
+        },
+        "type": "object",
+        "required": [
+          "cv_id",
+          "rank",
+          "score",
+          "band",
+          "cap_applied",
+          "flags"
+        ],
+        "title": "MatchItem"
+      },
+      "MatchOut": {
+        "properties": {
+          "run_id": {
+            "type": "string",
+            "title": "Run Id",
+            "description": "rerank run - dung cho GET /match/{run_id}/cv/{cv_id}/explain"
+          },
+          "retrieve_run_id": {
+            "type": "string",
+            "title": "Retrieve Run Id"
+          },
+          "jd_id": {
+            "type": "string",
+            "title": "Jd Id"
+          },
+          "jd_version": {
+            "type": "integer",
+            "title": "Jd Version"
+          },
+          "n_pool": {
+            "type": "integer",
+            "title": "N Pool"
+          },
+          "items": {
+            "items": {
+              "$ref": "#/components/schemas/MatchItem"
+            },
+            "type": "array",
+            "title": "Items"
+          },
+          "warnings": {
+            "items": {
+              "additionalProperties": true,
+              "type": "object"
+            },
+            "type": "array",
+            "title": "Warnings"
+          },
+          "timings": {
+            "additionalProperties": {
+              "type": "number"
+            },
+            "type": "object",
+            "title": "Timings"
+          }
+        },
+        "type": "object",
+        "required": [
+          "run_id",
+          "retrieve_run_id",
+          "jd_id",
+          "jd_version",
+          "n_pool",
+          "items",
+          "warnings",
+          "timings"
+        ],
+        "title": "MatchOut"
+      },
+      "PreviewExplain": {
+        "properties": {
+          "jd_id": {
+            "type": "string",
+            "title": "Jd Id"
+          },
+          "band": {
+            "type": "string",
+            "title": "Band"
+          },
+          "band_label": {
+            "type": "string",
+            "title": "Band Label"
+          },
+          "text": {
+            "type": "string",
+            "title": "Text"
+          }
+        },
+        "type": "object",
+        "required": [
+          "jd_id",
+          "band",
+          "band_label",
+          "text"
+        ],
+        "title": "PreviewExplain"
+      },
+      "PreviewIn": {
+        "properties": {
+          "cv": {
+            "additionalProperties": true,
+            "type": "object",
+            "title": "Cv",
+            "description": "CV JSON tam: KHONG luu lai sau khi tra ket qua"
+          },
+          "N": {
+            "anyOf": [
+              {
+                "type": "integer",
+                "maximum": 100.0,
+                "minimum": 1.0
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "N"
+          },
+          "hard_filters": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/ReverseFilters"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "ref_ym": {
+            "anyOf": [
+              {
+                "type": "string",
+                "pattern": "^\\d{4}-\\d{2}$"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Ref Ym"
+          },
+          "n_explain": {
+            "anyOf": [
+              {
+                "type": "integer",
+                "maximum": 100.0,
+                "minimum": 0.0
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "N Explain",
+            "description": "so JD kem giai thich (mac dinh: tat ca)"
+          }
+        },
+        "type": "object",
+        "required": [
+          "cv"
+        ],
+        "title": "PreviewIn"
+      },
+      "PreviewOut": {
+        "properties": {
+          "status": {
+            "type": "string",
+            "title": "Status"
+          },
+          "items": {
+            "items": {
+              "$ref": "#/components/schemas/MatchCvItem"
+            },
+            "type": "array",
+            "title": "Items"
+          },
+          "explanations": {
+            "items": {
+              "$ref": "#/components/schemas/PreviewExplain"
+            },
+            "type": "array",
+            "title": "Explanations"
+          },
+          "warnings": {
+            "items": {
+              "additionalProperties": true,
+              "type": "object"
+            },
+            "type": "array",
+            "title": "Warnings"
+          },
+          "detail": {
+            "additionalProperties": true,
+            "type": "object",
+            "title": "Detail"
+          }
+        },
+        "type": "object",
+        "required": [
+          "status"
+        ],
+        "title": "PreviewOut"
+      },
+      "ReverseFilters": {
+        "properties": {
+          "location": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Location",
+            "description": "JD khac dia diem (va khong remote) bi loai; JD thieu -> cho qua"
+          },
+          "work_mode": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Work Mode"
+          }
+        },
+        "type": "object",
+        "title": "ReverseFilters"
+      },
+      "SkillSummary": {
+        "properties": {
+          "met": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Met",
+            "description": "ky nang JD can, CV co"
+          },
+          "partial": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Partial",
+            "description": "ky nang JD can, CV co ky nang gan (cha/con/anh em)"
+          },
+          "missing": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Missing",
+            "description": "ky nang bat buoc chua thay trong CV"
+          }
+        },
+        "type": "object",
+        "title": "SkillSummary"
+      },
+      "ValidationError": {
+        "properties": {
+          "loc": {
+            "items": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "integer"
+                }
+              ]
+            },
+            "type": "array",
+            "title": "Location"
+          },
+          "msg": {
+            "type": "string",
+            "title": "Message"
+          },
+          "type": {
+            "type": "string",
+            "title": "Error Type"
+          }
+        },
+        "type": "object",
+        "required": [
+          "loc",
+          "msg",
+          "type"
+        ],
+        "title": "ValidationError"
+      }
+    }
+  }
+}

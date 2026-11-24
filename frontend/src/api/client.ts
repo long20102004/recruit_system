@@ -120,6 +120,15 @@ export const matchingApi = {
       method: "POST",
       body: JSON.stringify({ jobId, candidateId }),
     }),
+  /** cvmatch: xếp hạng lại ứng viên của một job (mặc định: ứng viên đã nộp đơn). */
+  refreshJob: (jobId: number, scope?: "applicants" | "pool") =>
+    api<MatchDto[]>(`/matching/jobs/${jobId}/refresh`, {
+      method: "POST",
+      body: JSON.stringify({ scope }),
+    }),
+  /** cvmatch: giải thích của một kết quả (lấy lười, lưu lại phía server). */
+  explanation: (matchId: number) =>
+    api<ExplanationDto>(`/matching/${matchId}/explanation`),
 };
 
 export const interviewsApi = {
@@ -202,6 +211,10 @@ export interface CreateJobBody {
   status?: string;
   requiredSkills?: string[];
   preferredSkills?: string[];
+  /** Mỗi dòng một yêu cầu. */
+  requirements?: string;
+  /** Mỗi dòng một trách nhiệm (giúp ghép hồ sơ chính xác hơn). */
+  responsibilities?: string;
 }
 
 export interface ApplicationDto {
@@ -246,6 +259,26 @@ export interface MatchDto {
   modelVersion: string | null;
   rankPosition: number | null;
   createdAt: string;
+  /** cvmatch: high | mid | low; null với engine cũ. */
+  band?: MatchBand | null;
+  capApplied?: boolean | null;
+  engine?: string;
+  hasExplanation?: boolean;
+  partialSkills?: string[];
+}
+
+export type MatchBand = "high" | "mid" | "low";
+
+export interface ExplanationDto {
+  matchId: number;
+  audience: "hr" | "candidate";
+  band: MatchBand | null;
+  bandLabel: string | null;
+  /** null với ứng viên (giải thích hướng ứng viên không hiện điểm). */
+  score: number | null;
+  capApplied: boolean | null;
+  text: string;
+  sections: Record<string, unknown> | null;
 }
 
 export interface QuestionDto {

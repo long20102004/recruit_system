@@ -1,0 +1,44 @@
+{
+ "full_name": "Ứng viên 01",
+ "email": "ungvien01@example.com",
+ "phone": "0900000001",
+ "location": "Hà Nội",
+ "summary": "Java Developer kinh nghiệm",
+ "skills": [
+  "Java",
+  "Spring Boot",
+  "PostgreSQL",
+  "Kafka",
+  "Docker"
+ ],
+ "experiences": [
+  {
+   "title": "Junior Java Developer",
+   "company": "Công ty B",
+   "start": "2023-02",
+   "end": null,
+   "is_current": true,
+   "description": [
+    "Triển khai microservices lên Docker và Kubernetes",
+    "Tối ưu hiệu năng truy vấn cơ sở dữ liệu PostgreSQL, giảm 40% thời gian phản hồi"
+   ],
+   "technologies": [
+    "Redis",
+    "PostgreSQL",
+    "Java"
+   ]
+  }
+ ],
+ "projects": [],
+ "education": [
+  {
+   "school": "Đại học Bách khoa",
+   "major": "Khoa học máy tính",
+   "end": "2022"
+  }
+ ],
+ "certificates": [],
+ "languages": [
+  "Tiếng Anh"
+ ]
+}

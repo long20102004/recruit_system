@@ -1,0 +1,20 @@
+# B3: tin hieu pham vi trong gach -> level_cv +1 bac (thiet ke 07 muc 5.6). Moi dong mot cum (da chuan hoa,
+# so khop tren van ban chu thuong co dau / khong dau). Can nguoi duy tri.
+dẫn dắt
+trưởng nhóm
+quản lý nhóm
+lãnh đạo nhóm
+thiết kế hệ thống
+thiết kế kiến trúc
+kiến trúc hệ thống
+hướng dẫn thành viên
+đào tạo thành viên
+kèm cặp
+mentor
+mentoring
+led a team
+lead a team
+team lead
+tech lead
+system design
+architected

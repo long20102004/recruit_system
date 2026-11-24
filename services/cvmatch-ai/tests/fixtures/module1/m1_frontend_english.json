@@ -1,0 +1,48 @@
+{
+  "personal_info": {
+    "full_name": "Fake Person",
+    "email": "fake.fe@example.test",
+    "phone": null,
+    "github_url": null
+  },
+  "objective": "Frontend engineer focused on React and TypeScript.",
+  "education": [
+    {
+      "school": "University of Information Technology",
+      "major": "Software Engineering",
+      "start_year": "2018",
+      "end_year": "2022",
+      "gpa": null
+    }
+  ],
+  "experience": [
+    {
+      "company": "Startup C",
+      "job_title": "Frontend Developer",
+      "start_date": "Mar 2022",
+      "end_date": "Present",
+      "description": [
+        "Built dashboard UI with React, Redux and TypeScript",
+        "Improved Lighthouse score from 60 to 92"
+      ]
+    }
+  ],
+  "personal_projects": [],
+  "skills": [
+    "ReactJS",
+    "TypeScript",
+    "HTML",
+    "CSS",
+    "Tailwind"
+  ],
+  "certificates": [],
+  "honours": [
+    "Top 10 Hackathon 2021"
+  ],
+  "languages": [
+    {
+      "language": "English",
+      "note": "IELTS 7.0"
+    }
+  ]
+}

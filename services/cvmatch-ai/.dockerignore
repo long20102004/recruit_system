@@ -1,0 +1,13 @@
+**/__pycache__
+**/*.pyc
+*.egg-info
+src/*.egg-info
+.pytest_cache
+.venv
+.env
+data
+reports
+tests
+experiments
+var
+docker-compose.yml

@@ -1,0 +1,1279 @@
+{
+  "plan": "R-E",
+  "reference": "P1",
+  "queries": [
+    "E2E-DATA",
+    "E2E-FE",
+    "E2E-JAVA"
+  ],
+  "results": [
+    {
+      "id": "R-A0",
+      "summary": {
+        "ndcg@10": {
+          "mean": 0.94211454933247,
+          "worst": 0.8785025223209489,
+          "worst_query": "E2E-DATA",
+          "n": 3,
+          "by_group": {
+            "Backend": 0.9478411256764614,
+            "Data": 0.8785025223209489,
+            "Frontend": 1.0
+          }
+        },
+        "recall@30": {
+          "mean": 1.0,
+          "worst": 1.0,
+          "worst_query": "E2E-DATA",
+          "n": 3,
+          "by_group": {
+            "Backend": 1.0,
+            "Data": 1.0,
+            "Frontend": 1.0
+          }
+        },
+        "recall@30_norm": {
+          "mean": 1.0,
+          "worst": 1.0,
+          "worst_query": "E2E-DATA",
+          "n": 3,
+          "by_group": {
+            "Backend": 1.0,
+            "Data": 1.0,
+            "Frontend": 1.0
+          }
+        }
+      },
+      "time_ms": {
+        "mean": 15.892033333329891,
+        "p95": 18.1229899997561
+      },
+      "unjudged": 0.0,
+      "todo": null,
+      "error": null,
+      "config_hash": "4212311a9cd2caf2b431e0e057e59e896d716a38ecb5dbecc6cc02ae944a6aa7"
+    },
+    {
+      "id": "P1",
+      "summary": {
+        "ndcg@10": {
+          "mean": 0.970555914160855,
+          "worst": 0.911667742482565,
+          "worst_query": "E2E-DATA",
+          "n": 3,
+          "by_group": {
+            "Backend": 1.0,
+            "Data": 0.911667742482565,
+            "Frontend": 1.0
+          }
+        },
+        "recall@30": {
+          "mean": 1.0,
+          "worst": 1.0,
+          "worst_query": "E2E-DATA",
+          "n": 3,
+          "by_group": {
+            "Backend": 1.0,
+            "Data": 1.0,
+            "Frontend": 1.0
+          }
+        },
+        "recall@30_norm": {
+          "mean": 1.0,
+          "worst": 1.0,
+          "worst_query": "E2E-DATA",
+          "n": 3,
+          "by_group": {
+            "Backend": 1.0,
+            "Data": 1.0,
+            "Frontend": 1.0
+          }
+        }
+      },
+      "time_ms": {
+        "mean": 328.9138999998613,
+        "p95": 665.2245600002061
+      },
+      "unjudged": 0.0,
+      "todo": null,
+      "error": null,
+      "config_hash": "4212311a9cd2caf2b431e0e057e59e896d716a38ecb5dbecc6cc02ae944a6aa7"
+    },
+    {
+      "id": "R-E1",
+      "summary": {
+        "ndcg@10": {
+          "mean": 0.970555914160855,
+          "worst": 0.911667742482565,
+          "worst_query": "E2E-DATA",
+          "n": 3,
+          "by_group": {
+            "Backend": 1.0,
+            "Data": 0.911667742482565,
+            "Frontend": 1.0
+          }
+        },
+        "recall@30": {
+          "mean": 1.0,
+          "worst": 1.0,
+          "worst_query": "E2E-DATA",
+          "n": 3,
+          "by_group": {
+            "Backend": 1.0,
+            "Data": 1.0,
+            "Frontend": 1.0
+          }
+        },
+        "recall@30_norm": {
+          "mean": 1.0,
+          "worst": 1.0,
+          "worst_query": "E2E-DATA",
+          "n": 3,
+          "by_group": {
+            "Backend": 1.0,
+            "Data": 1.0,
+            "Frontend": 1.0
+          }
+        }
+      },
+      "time_ms": {
+        "mean": 84.59180000045308,
+        "p95": 91.37189000048238
+      },
+      "unjudged": 0.0,
+      "todo": null,
+      "error": null,
+      "config_hash": "7102d8e6e0e8dfc99eb533cd9918f87441ce871ca108ab3721beb5ebf1eb974a"
+    },
+    {
+      "id": "R-E2-cos",
+      "summary": {
+        "ndcg@10": {
+          "mean": 0.9488851781664884,
+          "worst": 0.8466555344994654,
+          "worst_query": "E2E-DATA",
+          "n": 3,
+          "by_group": {
+            "Backend": 1.0,
+            "Data": 0.8466555344994654,
+            "Frontend": 1.0
+          }
+        },
+        "recall@30": {
+          "mean": 1.0,
+          "worst": 1.0,
+          "worst_query": "E2E-DATA",
+          "n": 3,
+          "by_group": {
+            "Backend": 1.0,
+            "Data": 1.0,
+            "Frontend": 1.0
+          }
+        },
+        "recall@30_norm": {
+          "mean": 1.0,
+          "worst": 1.0,
+          "worst_query": "E2E-DATA",
+          "n": 3,
+          "by_group": {
+            "Backend": 1.0,
+            "Data": 1.0,
+            "Frontend": 1.0
+          }
+        }
+      },
+      "time_ms": {
+        "mean": 44.72269999981412,
+        "p95": 46.43914999960543
+      },
+      "unjudged": 0.0,
+      "todo": null,
+      "error": null,
+      "config_hash": "fe9eb1d68452478224cfc111b04cab26f2975eafa10b65068616ca9be3c3a7d7"
+    },
+    {
+      "id": "R-E3",
+      "summary": {},
+      "time_ms": {},
+      "unjudged": null,
+      "todo": "engine Rerank chi co S2 + Recall; S1/S3, P/F1 moi co o golden (eval golden)",
+      "error": null,
+      "config_hash": null
+    },
+    {
+      "id": "R-E4-L16",
+      "summary": {
+        "ndcg@10": {
+          "mean": 0.9595008407736496,
+          "worst": 0.8785025223209489,
+          "worst_query": "E2E-DATA",
+          "n": 3,
+          "by_group": {
+            "Backend": 1.0,
+            "Data": 0.8785025223209489,
+            "Frontend": 1.0
+          }
+        },
+        "recall@30": {
+          "mean": 1.0,
+          "worst": 1.0,
+          "worst_query": "E2E-DATA",
+          "n": 3,
+          "by_group": {
+            "Backend": 1.0,
+            "Data": 1.0,
+            "Frontend": 1.0
+          }
+        },
+        "recall@30_norm": {
+          "mean": 1.0,
+          "worst": 1.0,
+          "worst_query": "E2E-DATA",
+          "n": 3,
+          "by_group": {
+            "Backend": 1.0,
+            "Data": 1.0,
+            "Frontend": 1.0
+          }
+        }
+      },
+      "time_ms": {
+        "mean": 238.35683333315197,
+        "p95": 423.2651799994528
+      },
+      "unjudged": 0.0,
+      "todo": null,
+      "error": null,
+      "config_hash": "a056f0ee11628d94a634916cbd0920fe62628ab7214927b0478838a4374e6967"
+    },
+    {
+      "id": "R-E4-L20",
+      "summary": {
+        "ndcg@10": {
+          "mean": 0.9595008407736496,
+          "worst": 0.8785025223209489,
+          "worst_query": "E2E-DATA",
+          "n": 3,
+          "by_group": {
+            "Backend": 1.0,
+            "Data": 0.8785025223209489,
+            "Frontend": 1.0
+          }
+        },
+        "recall@30": {
+          "mean": 1.0,
+          "worst": 1.0,
+          "worst_query": "E2E-DATA",
+          "n": 3,
+          "by_group": {
+            "Backend": 1.0,
+            "Data": 1.0,
+            "Frontend": 1.0
+          }
+        },
+        "recall@30_norm": {
+          "mean": 1.0,
+          "worst": 1.0,
+          "worst_query": "E2E-DATA",
+          "n": 3,
+          "by_group": {
+            "Backend": 1.0,
+            "Data": 1.0,
+            "Frontend": 1.0
+          }
+        }
+      },
+      "time_ms": {
+        "mean": 254.14269999995062,
+        "p95": 496.8025400000442
+      },
+      "unjudged": 0.0,
+      "todo": null,
+      "error": null,
+      "config_hash": "7bd294d63a49149be83d7ea9366eafa3042e71f8a324557ec96398b1298414d4"
+    },
+    {
+      "id": "R-E5-label",
+      "summary": {},
+      "time_ms": {},
+      "unjudged": null,
+      "todo": "chay eval calibrate tren tap 300 cap roi dien lo/hi vao day",
+      "error": null,
+      "config_hash": null
+    },
+    {
+      "id": "R-E6-off",
+      "summary": {
+        "ndcg@10": {
+          "mean": 0.970555914160855,
+          "worst": 0.911667742482565,
+          "worst_query": "E2E-DATA",
+          "n": 3,
+          "by_group": {
+            "Backend": 1.0,
+            "Data": 0.911667742482565,
+            "Frontend": 1.0
+          }
+        },
+        "recall@30": {
+          "mean": 1.0,
+          "worst": 1.0,
+          "worst_query": "E2E-DATA",
+          "n": 3,
+          "by_group": {
+            "Backend": 1.0,
+            "Data": 1.0,
+            "Frontend": 1.0
+          }
+        },
+        "recall@30_norm": {
+          "mean": 1.0,
+          "worst": 1.0,
+          "worst_query": "E2E-DATA",
+          "n": 3,
+          "by_group": {
+            "Backend": 1.0,
+            "Data": 1.0,
+            "Frontend": 1.0
+          }
+        }
+      },
+      "time_ms": {
+        "mean": 75.61599999977868,
+        "p95": 77.11320999987947
+      },
+      "unjudged": 0.0,
+      "todo": null,
+      "error": null,
+      "config_hash": "701f6bc916cf7245ddb197c67629b468900aa0b93573ebdb78a7243088d68ddf"
+    },
+    {
+      "id": "R-E6-drop",
+      "summary": {
+        "ndcg@10": {
+          "mean": 0.970555914160855,
+          "worst": 0.911667742482565,
+          "worst_query": "E2E-DATA",
+          "n": 3,
+          "by_group": {
+            "Backend": 1.0,
+            "Data": 0.911667742482565,
+            "Frontend": 1.0
+          }
+        },
+        "recall@30": {
+          "mean": 1.0,
+          "worst": 1.0,
+          "worst_query": "E2E-DATA",
+          "n": 3,
+          "by_group": {
+            "Backend": 1.0,
+            "Data": 1.0,
+            "Frontend": 1.0
+          }
+        },
+        "recall@30_norm": {
+          "mean": 1.0,
+          "worst": 1.0,
+          "worst_query": "E2E-DATA",
+          "n": 3,
+          "by_group": {
+            "Backend": 1.0,
+            "Data": 1.0,
+            "Frontend": 1.0
+          }
+        }
+      },
+      "time_ms": {
+        "mean": 79.11806666682726,
+        "p95": 80.93974000057642
+      },
+      "unjudged": 0.0,
+      "todo": null,
+      "error": null,
+      "config_hash": "958e6fd053fa7acac7ccc93285f3563efec58343ee1dfe27a27660fafec714de"
+    },
+    {
+      "id": "R-E7",
+      "summary": {
+        "ndcg@10": {
+          "mean": 0.970555914160855,
+          "worst": 0.911667742482565,
+          "worst_query": "E2E-DATA",
+          "n": 3,
+          "by_group": {
+            "Backend": 1.0,
+            "Data": 0.911667742482565,
+            "Frontend": 1.0
+          }
+        },
+        "recall@30": {
+          "mean": 1.0,
+          "worst": 1.0,
+          "worst_query": "E2E-DATA",
+          "n": 3,
+          "by_group": {
+            "Backend": 1.0,
+            "Data": 1.0,
+            "Frontend": 1.0
+          }
+        },
+        "recall@30_norm": {
+          "mean": 1.0,
+          "worst": 1.0,
+          "worst_query": "E2E-DATA",
+          "n": 3,
+          "by_group": {
+            "Backend": 1.0,
+            "Data": 1.0,
+            "Frontend": 1.0
+          }
+        }
+      },
+      "time_ms": {
+        "mean": 98.71423333303635,
+        "p95": 142.9193199997826
+      },
+      "unjudged": 0.0,
+      "todo": null,
+      "error": null,
+      "config_hash": "c8b13de6cfd020a6956512544c9b2b60535502138cf54c160dfd7d3e70ed6897"
+    },
+    {
+      "id": "R-E8-nomask",
+      "summary": {
+        "ndcg@10": {
+          "mean": 0.970555914160855,
+          "worst": 0.911667742482565,
+          "worst_query": "E2E-DATA",
+          "n": 3,
+          "by_group": {
+            "Backend": 1.0,
+            "Data": 0.911667742482565,
+            "Frontend": 1.0
+          }
+        },
+        "recall@30": {
+          "mean": 1.0,
+          "worst": 1.0,
+          "worst_query": "E2E-DATA",
+          "n": 3,
+          "by_group": {
+            "Backend": 1.0,
+            "Data": 1.0,
+            "Frontend": 1.0
+          }
+        },
+        "recall@30_norm": {
+          "mean": 1.0,
+          "worst": 1.0,
+          "worst_query": "E2E-DATA",
+          "n": 3,
+          "by_group": {
+            "Backend": 1.0,
+            "Data": 1.0,
+            "Frontend": 1.0
+          }
+        }
+      },
+      "time_ms": {
+        "mean": 269.1805666666672,
+        "p95": 489.3109399998138
+      },
+      "unjudged": 0.0,
+      "todo": null,
+      "error": null,
+      "config_hash": "94b0425a962dccde37af8d3cec08ef528b46ffb65033703ab328387dc7ba613e"
+    },
+    {
+      "id": "R-E8-noalias",
+      "summary": {
+        "ndcg@10": {
+          "mean": 0.970555914160855,
+          "worst": 0.911667742482565,
+          "worst_query": "E2E-DATA",
+          "n": 3,
+          "by_group": {
+            "Backend": 1.0,
+            "Data": 0.911667742482565,
+            "Frontend": 1.0
+          }
+        },
+        "recall@30": {
+          "mean": 1.0,
+          "worst": 1.0,
+          "worst_query": "E2E-DATA",
+          "n": 3,
+          "by_group": {
+            "Backend": 1.0,
+            "Data": 1.0,
+            "Frontend": 1.0
+          }
+        },
+        "recall@30_norm": {
+          "mean": 1.0,
+          "worst": 1.0,
+          "worst_query": "E2E-DATA",
+          "n": 3,
+          "by_group": {
+            "Backend": 1.0,
+            "Data": 1.0,
+            "Frontend": 1.0
+          }
+        }
+      },
+      "time_ms": {
+        "mean": 258.4629666665326,
+        "p95": 486.4513499997883
+      },
+      "unjudged": 0.0,
+      "todo": null,
+      "error": null,
+      "config_hash": "97b1cfc6d450d74c3ccb4b487475d9e40522a4de52b7b311209dbae822e48239"
+    },
+    {
+      "id": "R-E9",
+      "summary": {
+        "ndcg@10": {
+          "mean": 0.960470360421365,
+          "worst": 0.8814110812640951,
+          "worst_query": "E2E-DATA",
+          "n": 3,
+          "by_group": {
+            "Backend": 1.0,
+            "Data": 0.8814110812640951,
+            "Frontend": 1.0
+          }
+        },
+        "recall@30": {
+          "mean": 1.0,
+          "worst": 1.0,
+          "worst_query": "E2E-DATA",
+          "n": 3,
+          "by_group": {
+            "Backend": 1.0,
+            "Data": 1.0,
+            "Frontend": 1.0
+          }
+        },
+        "recall@30_norm": {
+          "mean": 1.0,
+          "worst": 1.0,
+          "worst_query": "E2E-DATA",
+          "n": 3,
+          "by_group": {
+            "Backend": 1.0,
+            "Data": 1.0,
+            "Frontend": 1.0
+          }
+        }
+      },
+      "time_ms": {
+        "mean": 172.88706666658982,
+        "p95": 231.57368000001952
+      },
+      "unjudged": 0.0,
+      "todo": null,
+      "error": null,
+      "config_hash": "6b1c9cb5e15440c86232909cb2cfb7d5ab6c7805da736a12d07c7abf5f3c84c5"
+    },
+    {
+      "id": "R-E10",
+      "summary": {
+        "ndcg@10": {
+          "mean": 0.9595008407736496,
+          "worst": 0.8785025223209489,
+          "worst_query": "E2E-DATA",
+          "n": 3,
+          "by_group": {
+            "Backend": 1.0,
+            "Data": 0.8785025223209489,
+            "Frontend": 1.0
+          }
+        },
+        "recall@30": {
+          "mean": 1.0,
+          "worst": 1.0,
+          "worst_query": "E2E-DATA",
+          "n": 3,
+          "by_group": {
+            "Backend": 1.0,
+            "Data": 1.0,
+            "Frontend": 1.0
+          }
+        },
+        "recall@30_norm": {
+          "mean": 1.0,
+          "worst": 1.0,
+          "worst_query": "E2E-DATA",
+          "n": 3,
+          "by_group": {
+            "Backend": 1.0,
+            "Data": 1.0,
+            "Frontend": 1.0
+          }
+        }
+      },
+      "time_ms": {
+        "mean": 80.76210000005328,
+        "p95": 83.11629999980141
+      },
+      "unjudged": 0.0,
+      "todo": null,
+      "error": null,
+      "config_hash": "3a73721d99c9177dfce6e6c5952dd04be22acfb2799b53c9f4df0ce6f882ec5c"
+    },
+    {
+      "id": "R-E11-noB1",
+      "summary": {
+        "ndcg@10": {
+          "mean": 0.9595008407736496,
+          "worst": 0.8785025223209489,
+          "worst_query": "E2E-DATA",
+          "n": 3,
+          "by_group": {
+            "Backend": 1.0,
+            "Data": 0.8785025223209489,
+            "Frontend": 1.0
+          }
+        },
+        "recall@30": {
+          "mean": 1.0,
+          "worst": 1.0,
+          "worst_query": "E2E-DATA",
+          "n": 3,
+          "by_group": {
+            "Backend": 1.0,
+            "Data": 1.0,
+            "Frontend": 1.0
+          }
+        },
+        "recall@30_norm": {
+          "mean": 1.0,
+          "worst": 1.0,
+          "worst_query": "E2E-DATA",
+          "n": 3,
+          "by_group": {
+            "Backend": 1.0,
+            "Data": 1.0,
+            "Frontend": 1.0
+          }
+        }
+      },
+      "time_ms": {
+        "mean": 78.10283333371142,
+        "p95": 80.14152000023387
+      },
+      "unjudged": 0.0,
+      "todo": null,
+      "error": null,
+      "config_hash": "adb9194cb327e3591bf2fb9d2df548d94671bfa519d7b7bae62e6048c8f4aee1"
+    },
+    {
+      "id": "R-E11-noB2",
+      "summary": {
+        "ndcg@10": {
+          "mean": 0.970555914160855,
+          "worst": 0.911667742482565,
+          "worst_query": "E2E-DATA",
+          "n": 3,
+          "by_group": {
+            "Backend": 1.0,
+            "Data": 0.911667742482565,
+            "Frontend": 1.0
+          }
+        },
+        "recall@30": {
+          "mean": 1.0,
+          "worst": 1.0,
+          "worst_query": "E2E-DATA",
+          "n": 3,
+          "by_group": {
+            "Backend": 1.0,
+            "Data": 1.0,
+            "Frontend": 1.0
+          }
+        },
+        "recall@30_norm": {
+          "mean": 1.0,
+          "worst": 1.0,
+          "worst_query": "E2E-DATA",
+          "n": 3,
+          "by_group": {
+            "Backend": 1.0,
+            "Data": 1.0,
+            "Frontend": 1.0
+          }
+        }
+      },
+      "time_ms": {
+        "mean": 76.17050000014085,
+        "p95": 80.30775000061112
+      },
+      "unjudged": 0.0,
+      "todo": null,
+      "error": null,
+      "config_hash": "a549dc0eae615ec26d351a8e6d72ee821fc185137b1bd8eea478189bcb0fd3bf"
+    },
+    {
+      "id": "R-E11-nopen",
+      "summary": {
+        "ndcg@10": {
+          "mean": 0.970555914160855,
+          "worst": 0.911667742482565,
+          "worst_query": "E2E-DATA",
+          "n": 3,
+          "by_group": {
+            "Backend": 1.0,
+            "Data": 0.911667742482565,
+            "Frontend": 1.0
+          }
+        },
+        "recall@30": {
+          "mean": 1.0,
+          "worst": 1.0,
+          "worst_query": "E2E-DATA",
+          "n": 3,
+          "by_group": {
+            "Backend": 1.0,
+            "Data": 1.0,
+            "Frontend": 1.0
+          }
+        },
+        "recall@30_norm": {
+          "mean": 1.0,
+          "worst": 1.0,
+          "worst_query": "E2E-DATA",
+          "n": 3,
+          "by_group": {
+            "Backend": 1.0,
+            "Data": 1.0,
+            "Frontend": 1.0
+          }
+        }
+      },
+      "time_ms": {
+        "mean": 88.9975999998569,
+        "p95": 98.95704000009573
+      },
+      "unjudged": 0.0,
+      "todo": null,
+      "error": null,
+      "config_hash": "54f1d8bd8f46599a81d67f9bd2245d7b85eac83fc3eee2a306cb36c9d97ce2e3"
+    },
+    {
+      "id": "R-E11-B3",
+      "summary": {
+        "ndcg@10": {
+          "mean": 0.970555914160855,
+          "worst": 0.911667742482565,
+          "worst_query": "E2E-DATA",
+          "n": 3,
+          "by_group": {
+            "Backend": 1.0,
+            "Data": 0.911667742482565,
+            "Frontend": 1.0
+          }
+        },
+        "recall@30": {
+          "mean": 1.0,
+          "worst": 1.0,
+          "worst_query": "E2E-DATA",
+          "n": 3,
+          "by_group": {
+            "Backend": 1.0,
+            "Data": 1.0,
+            "Frontend": 1.0
+          }
+        },
+        "recall@30_norm": {
+          "mean": 1.0,
+          "worst": 1.0,
+          "worst_query": "E2E-DATA",
+          "n": 3,
+          "by_group": {
+            "Backend": 1.0,
+            "Data": 1.0,
+            "Frontend": 1.0
+          }
+        }
+      },
+      "time_ms": {
+        "mean": 86.92026666661452,
+        "p95": 96.150960000341
+      },
+      "unjudged": 0.0,
+      "todo": null,
+      "error": null,
+      "config_hash": "94c7b7503b3cdd14340b0a0970df6ab05f0c9fbd55a9acb1ee9f682854740b37"
+    },
+    {
+      "id": "R-E11-C1",
+      "summary": {
+        "ndcg@10": {
+          "mean": 0.970555914160855,
+          "worst": 0.911667742482565,
+          "worst_query": "E2E-DATA",
+          "n": 3,
+          "by_group": {
+            "Backend": 1.0,
+            "Data": 0.911667742482565,
+            "Frontend": 1.0
+          }
+        },
+        "recall@30": {
+          "mean": 1.0,
+          "worst": 1.0,
+          "worst_query": "E2E-DATA",
+          "n": 3,
+          "by_group": {
+            "Backend": 1.0,
+            "Data": 1.0,
+            "Frontend": 1.0
+          }
+        },
+        "recall@30_norm": {
+          "mean": 1.0,
+          "worst": 1.0,
+          "worst_query": "E2E-DATA",
+          "n": 3,
+          "by_group": {
+            "Backend": 1.0,
+            "Data": 1.0,
+            "Frontend": 1.0
+          }
+        }
+      },
+      "time_ms": {
+        "mean": 74.24583333340706,
+        "p95": 78.73945999981515
+      },
+      "unjudged": 0.0,
+      "todo": null,
+      "error": null,
+      "config_hash": "1858fca4b7e62fe676df5f616ea175ffcddab8c8a72a82122d150d545600cfc8"
+    },
+    {
+      "id": "R-E12-nogate",
+      "summary": {
+        "ndcg@10": {
+          "mean": 0.970555914160855,
+          "worst": 0.911667742482565,
+          "worst_query": "E2E-DATA",
+          "n": 3,
+          "by_group": {
+            "Backend": 1.0,
+            "Data": 0.911667742482565,
+            "Frontend": 1.0
+          }
+        },
+        "recall@30": {
+          "mean": 1.0,
+          "worst": 1.0,
+          "worst_query": "E2E-DATA",
+          "n": 3,
+          "by_group": {
+            "Backend": 1.0,
+            "Data": 1.0,
+            "Frontend": 1.0
+          }
+        },
+        "recall@30_norm": {
+          "mean": 1.0,
+          "worst": 1.0,
+          "worst_query": "E2E-DATA",
+          "n": 3,
+          "by_group": {
+            "Backend": 1.0,
+            "Data": 1.0,
+            "Frontend": 1.0
+          }
+        }
+      },
+      "time_ms": {
+        "mean": 76.8357666668938,
+        "p95": 80.03315000014481
+      },
+      "unjudged": 0.0,
+      "todo": null,
+      "error": null,
+      "config_hash": "53a9c945d3bc8c0e01ce5c564cf617cc81c8aab8a53257cb3dd1a203081eb8de"
+    },
+    {
+      "id": "R-E12-hard",
+      "summary": {},
+      "time_ms": {},
+      "unjudged": null,
+      "todo": "gate_cap chi nhan 50/70/100 trong hop dong; cong cung can them muc 0",
+      "error": null,
+      "config_hash": null
+    },
+    {
+      "id": "R-E12-drop",
+      "summary": {
+        "ndcg@10": {
+          "mean": 0.970555914160855,
+          "worst": 0.911667742482565,
+          "worst_query": "E2E-DATA",
+          "n": 3,
+          "by_group": {
+            "Backend": 1.0,
+            "Data": 0.911667742482565,
+            "Frontend": 1.0
+          }
+        },
+        "recall@30": {
+          "mean": 1.0,
+          "worst": 1.0,
+          "worst_query": "E2E-DATA",
+          "n": 3,
+          "by_group": {
+            "Backend": 1.0,
+            "Data": 1.0,
+            "Frontend": 1.0
+          }
+        },
+        "recall@30_norm": {
+          "mean": 1.0,
+          "worst": 1.0,
+          "worst_query": "E2E-DATA",
+          "n": 3,
+          "by_group": {
+            "Backend": 1.0,
+            "Data": 1.0,
+            "Frontend": 1.0
+          }
+        }
+      },
+      "time_ms": {
+        "mean": 77.29346666656056,
+        "p95": 79.70106999973723
+      },
+      "unjudged": 0.0,
+      "todo": null,
+      "error": null,
+      "config_hash": "8267da4b2369a2cccf5f0fc57d68c9a6a3afc9ca58454a47ff1dfa8edb5a0b94"
+    },
+    {
+      "id": "R-E12-zero",
+      "summary": {
+        "ndcg@10": {
+          "mean": 0.970555914160855,
+          "worst": 0.911667742482565,
+          "worst_query": "E2E-DATA",
+          "n": 3,
+          "by_group": {
+            "Backend": 1.0,
+            "Data": 0.911667742482565,
+            "Frontend": 1.0
+          }
+        },
+        "recall@30": {
+          "mean": 1.0,
+          "worst": 1.0,
+          "worst_query": "E2E-DATA",
+          "n": 3,
+          "by_group": {
+            "Backend": 1.0,
+            "Data": 1.0,
+            "Frontend": 1.0
+          }
+        },
+        "recall@30_norm": {
+          "mean": 1.0,
+          "worst": 1.0,
+          "worst_query": "E2E-DATA",
+          "n": 3,
+          "by_group": {
+            "Backend": 1.0,
+            "Data": 1.0,
+            "Frontend": 1.0
+          }
+        }
+      },
+      "time_ms": {
+        "mean": 77.74526666677654,
+        "p95": 80.00836999972307
+      },
+      "unjudged": 0.0,
+      "todo": null,
+      "error": null,
+      "config_hash": "4e5f7d80f7d5fae48de9f13641ede62f90d0bd2e96f85a582e20af3fe3d05781"
+    },
+    {
+      "id": "R-E13-equal",
+      "summary": {
+        "ndcg@10": {
+          "mean": 0.970555914160855,
+          "worst": 0.911667742482565,
+          "worst_query": "E2E-DATA",
+          "n": 3,
+          "by_group": {
+            "Backend": 1.0,
+            "Data": 0.911667742482565,
+            "Frontend": 1.0
+          }
+        },
+        "recall@30": {
+          "mean": 1.0,
+          "worst": 1.0,
+          "worst_query": "E2E-DATA",
+          "n": 3,
+          "by_group": {
+            "Backend": 1.0,
+            "Data": 1.0,
+            "Frontend": 1.0
+          }
+        },
+        "recall@30_norm": {
+          "mean": 1.0,
+          "worst": 1.0,
+          "worst_query": "E2E-DATA",
+          "n": 3,
+          "by_group": {
+            "Backend": 1.0,
+            "Data": 1.0,
+            "Frontend": 1.0
+          }
+        }
+      },
+      "time_ms": {
+        "mean": 74.95873333330867,
+        "p95": 78.6299000003055
+      },
+      "unjudged": 0.0,
+      "todo": null,
+      "error": null,
+      "config_hash": "0ec7cb468f1767a94442080bc5d9cc6051d8a8ba12b649faeff995b76bd07d91"
+    },
+    {
+      "id": "R-E14",
+      "summary": {},
+      "time_ms": {},
+      "unjudged": null,
+      "todo": "engine BERTScore chua co IDF (bertscore.idf chi la khoa cache)",
+      "error": null,
+      "config_hash": null
+    },
+    {
+      "id": "P2-full",
+      "summary": {
+        "ndcg@10": {
+          "mean": 0.960470360421365,
+          "worst": 0.8814110812640951,
+          "worst_query": "E2E-DATA",
+          "n": 3,
+          "by_group": {
+            "Backend": 1.0,
+            "Data": 0.8814110812640951,
+            "Frontend": 1.0
+          }
+        },
+        "recall@30": {
+          "mean": 1.0,
+          "worst": 1.0,
+          "worst_query": "E2E-DATA",
+          "n": 3,
+          "by_group": {
+            "Backend": 1.0,
+            "Data": 1.0,
+            "Frontend": 1.0
+          }
+        },
+        "recall@30_norm": {
+          "mean": 1.0,
+          "worst": 1.0,
+          "worst_query": "E2E-DATA",
+          "n": 3,
+          "by_group": {
+            "Backend": 1.0,
+            "Data": 1.0,
+            "Frontend": 1.0
+          }
+        }
+      },
+      "time_ms": {
+        "mean": 106.77786666656175,
+        "p95": 109.69918999944639
+      },
+      "unjudged": 0.0,
+      "todo": null,
+      "error": null,
+      "config_hash": "dc6aeb46cf046f3e900d09a067f33c44cb79cf0b071b9e461fdf0d578626a31b"
+    },
+    {
+      "id": "R-X1",
+      "summary": {},
+      "time_ms": {},
+      "unjudged": null,
+      "todo": "backend thay recall_matrix chua lam (T17)",
+      "error": null,
+      "config_hash": null
+    },
+    {
+      "id": "R-X4",
+      "summary": {},
+      "time_ms": {},
+      "unjudged": null,
+      "todo": "RR5 chua lam (T17)",
+      "error": null,
+      "config_hash": null
+    }
+  ],
+  "bootstrap": {
+    "R-A0": {
+      "diff": -0.028441364828384885,
+      "lo": -0.05215887432353861,
+      "hi": 0.0,
+      "n": 3,
+      "significant": false
+    },
+    "R-E1": {
+      "diff": 0.0,
+      "lo": 0.0,
+      "hi": 0.0,
+      "n": 3,
+      "significant": false
+    },
+    "R-E2-cos": {
+      "diff": -0.02167073599436653,
+      "lo": -0.06501220798309959,
+      "hi": 0.0,
+      "n": 3,
+      "significant": false
+    },
+    "R-E4-L16": {
+      "diff": -0.01105507338720535,
+      "lo": -0.03316522016161605,
+      "hi": 0.0,
+      "n": 3,
+      "significant": false
+    },
+    "R-E4-L20": {
+      "diff": -0.01105507338720535,
+      "lo": -0.03316522016161605,
+      "hi": 0.0,
+      "n": 3,
+      "significant": false
+    },
+    "R-E6-off": {
+      "diff": 0.0,
+      "lo": 0.0,
+      "hi": 0.0,
+      "n": 3,
+      "significant": false
+    },
+    "R-E6-drop": {
+      "diff": 0.0,
+      "lo": 0.0,
+      "hi": 0.0,
+      "n": 3,
+      "significant": false
+    },
+    "R-E7": {
+      "diff": 0.0,
+      "lo": 0.0,
+      "hi": 0.0,
+      "n": 3,
+      "significant": false
+    },
+    "R-E8-nomask": {
+      "diff": 0.0,
+      "lo": 0.0,
+      "hi": 0.0,
+      "n": 3,
+      "significant": false
+    },
+    "R-E8-noalias": {
+      "diff": 0.0,
+      "lo": 0.0,
+      "hi": 0.0,
+      "n": 3,
+      "significant": false
+    },
+    "R-E9": {
+      "diff": -0.010085553739489975,
+      "lo": -0.030256661218469927,
+      "hi": 0.0,
+      "n": 3,
+      "significant": false
+    },
+    "R-E10": {
+      "diff": -0.01105507338720535,
+      "lo": -0.03316522016161605,
+      "hi": 0.0,
+      "n": 3,
+      "significant": false
+    },
+    "R-E11-noB1": {
+      "diff": -0.01105507338720535,
+      "lo": -0.03316522016161605,
+      "hi": 0.0,
+      "n": 3,
+      "significant": false
+    },
+    "R-E11-noB2": {
+      "diff": 0.0,
+      "lo": 0.0,
+      "hi": 0.0,
+      "n": 3,
+      "significant": false
+    },
+    "R-E11-nopen": {
+      "diff": 0.0,
+      "lo": 0.0,
+      "hi": 0.0,
+      "n": 3,
+      "significant": false
+    },
+    "R-E11-B3": {
+      "diff": 0.0,
+      "lo": 0.0,
+      "hi": 0.0,
+      "n": 3,
+      "significant": false
+    },
+    "R-E11-C1": {
+      "diff": 0.0,
+      "lo": 0.0,
+      "hi": 0.0,
+      "n": 3,
+      "significant": false
+    },
+    "R-E12-nogate": {
+      "diff": 0.0,
+      "lo": 0.0,
+      "hi": 0.0,
+      "n": 3,
+      "significant": false
+    },
+    "R-E12-drop": {
+      "diff": 0.0,
+      "lo": 0.0,
+      "hi": 0.0,
+      "n": 3,
+      "significant": false
+    },
+    "R-E12-zero": {
+      "diff": 0.0,
+      "lo": 0.0,
+      "hi": 0.0,
+      "n": 3,
+      "significant": false
+    },
+    "R-E13-equal": {
+      "diff": 0.0,
+      "lo": 0.0,
+      "hi": 0.0,
+      "n": 3,
+      "significant": false
+    },
+    "P2-full": {
+      "diff": -0.010085553739489975,
+      "lo": -0.030256661218469927,
+      "hi": 0.0,
+      "n": 3,
+      "significant": false
+    }
+  }
+}

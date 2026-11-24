@@ -1,0 +1,42 @@
+{
+ "full_name": "Ứng viên 20",
+ "email": "ungvien20@example.com",
+ "phone": "0900000020",
+ "location": "Đà Nẵng",
+ "summary": "Android Developer kinh nghiệm",
+ "skills": [
+  "Kotlin",
+  "Java",
+  "Git"
+ ],
+ "experiences": [
+  {
+   "title": "Fresher Android Developer",
+   "company": "Công ty U",
+   "start": "mùa xuân năm ngoái",
+   "end": null,
+   "is_current": true,
+   "description": [
+    "Phát triển ứng dụng Android bán hàng bằng Kotlin",
+    "Tối ưu bộ nhớ và thời gian khởi động ứng dụng di động"
+   ],
+   "technologies": [
+    "Git",
+    "Kotlin",
+    "REST API"
+   ]
+  }
+ ],
+ "projects": [],
+ "education": [
+  {
+   "school": "Đại học Bách khoa",
+   "major": "Hệ thống thông tin",
+   "end": "2024"
+  }
+ ],
+ "certificates": [],
+ "languages": [
+  "Tiếng Anh"
+ ]
+}

@@ -1,0 +1,43 @@
+{
+ "full_name": "Ứng viên 24",
+ "email": "ungvien24@example.com",
+ "phone": "0900000024",
+ "location": "TP.HCM",
+ "summary": "Data Engineer kinh nghiệm",
+ "skills": [
+  "Python",
+  "SQL",
+  "Kafka"
+ ],
+ "experiences": [
+  {
+   "title": "Fresher Data Engineer",
+   "company": "Công ty Y",
+   "start": "2025-07",
+   "end": null,
+   "is_current": true,
+   "description": [
+    "Xây dựng pipeline ETL xử lý hàng triệu bản ghi mỗi ngày bằng Python",
+    "Thiết kế kho dữ liệu và các bảng tổng hợp phục vụ báo cáo",
+    "Xử lý dữ liệu luồng thời gian thực với Kafka"
+   ],
+   "technologies": [
+    "SQL",
+    "Python",
+    "Kafka"
+   ]
+  }
+ ],
+ "projects": [],
+ "education": [
+  {
+   "school": "Đại học Bách khoa",
+   "major": "Kỹ thuật phần mềm",
+   "end": "2024"
+  }
+ ],
+ "certificates": [],
+ "languages": [
+  "Tiếng Anh"
+ ]
+}

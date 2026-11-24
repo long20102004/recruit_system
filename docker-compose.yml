@@ -92,7 +92,6 @@ services:
       AI_MODE: ${INTERVIEW_SCORING_MODE:-bertscore}
       AI_READ_TIMEOUT_MS: 180000
       CV_EXTRACTION_URL: ${CV_EXTRACTION_URL:-http://cv-extraction-ai:8000}
-      CV_MATCHING_URL: ${CV_MATCHING_URL:-http://cv-matching-ai:8000}
       CORS_ORIGINS: ${CORS_ORIGINS:-http://localhost:5173}
     ports:
       - "127.0.0.1:8081:8081"
@@ -127,7 +126,8 @@ services:
       AI_MODE: ${INTERVIEW_SCORING_MODE:-bertscore}
       AI_READ_TIMEOUT_MS: 180000
       CV_EXTRACTION_URL: ${CV_EXTRACTION_URL:-http://cv-extraction-ai:8000}
-      CV_MATCHING_URL: ${CV_MATCHING_URL:-http://cv-matching-ai:8000}
+      CVMATCH_URL: ${CVMATCH_URL:-http://cvmatch-ai:8000}
+      CVMATCH_SYNC_ENABLED: ${CVMATCH_SYNC_ENABLED:-true}
       CORS_ORIGINS: ${CORS_ORIGINS:-http://localhost:5173}
     ports:
       - "127.0.0.1:8082:8082"
@@ -166,7 +166,6 @@ services:
       AI_MODE: ${INTERVIEW_SCORING_MODE:-bertscore}
       AI_READ_TIMEOUT_MS: 180000
       CV_EXTRACTION_URL: ${CV_EXTRACTION_URL:-http://cv-extraction-ai:8000}
-      CV_MATCHING_URL: ${CV_MATCHING_URL:-http://cv-matching-ai:8000}
       CORS_ORIGINS: ${CORS_ORIGINS:-http://localhost:5173}
     ports:
       - "127.0.0.1:8083:8083"
@@ -241,18 +240,58 @@ services:
     ports:
       - "127.0.0.1:8001:8000"
 
-  cv-matching-ai:
-    profiles: [cv-ai]
-    build:
-      context: ./services/cv-matching-ai
+
+  # Module match CV <-> JD (services/cvmatch-ai) + KB snapshot (tools/build_kb). Bat: --profile match.
+  cvmatch-db:
+    profiles: [match]
+    image: pgvector/pgvector:pg16
     environment:
-      MATCHMAKING_REQUIRE_MODEL: "true"
-      EMBEDDING_MODEL: sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2
-      MATCHMAKING_EMBEDDING_BACKEND: ${MATCHMAKING_EMBEDDING_BACKEND:-sentence-transformers}
-    volumes:
-      - matching_model_cache:/root/.cache/huggingface
+      POSTGRES_DB: cvmatch
+      POSTGRES_USER: cvmatch
+      POSTGRES_PASSWORD: ${CVMATCH_DB_PASSWORD:-cvmatch-local}
     ports:
-      - "127.0.0.1:8002:8000"
+      - "127.0.0.1:${CVMATCH_DB_PORT:-5433}:5432"
+    volumes:
+      - cvmatch_pg_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U cvmatch -d cvmatch"]
+      interval: 5s
+      timeout: 5s
+      retries: 30
+
+  cvmatch-ai:
+    profiles: [match]
+    build:
+      context: ./services/cvmatch-ai
+      args:
+        TORCH_INDEX: ${CVMATCH_TORCH_INDEX:-https://download.pytorch.org/whl/cpu}
+    environment:
+      CVMATCH_ENV: prod
+      CVMATCH_DB_URL: postgresql://cvmatch:${CVMATCH_DB_PASSWORD:-cvmatch-local}@cvmatch-db:5432/cvmatch
+      CVMATCH_HMAC_KEY: ${CVMATCH_HMAC_KEY:-}   # bat buoc khi bat profile match (bootstrap bao loi neu trong)
+      CVMATCH_SERVICE_TOKEN: ${SERVICE_TOKEN:-hirelens-local-service-token-change-before-deploy}
+      CVMATCH_DEVICE: ${CVMATCH_DEVICE:-cpu}
+      CVMATCH_KB_DIR: /kb
+      CVMATCH_ONTOLOGY_VERSION: ${CVMATCH_ONTOLOGY_VERSION:-}
+      HF_HOME: /root/.cache/huggingface
+      OMP_NUM_THREADS: ${CVMATCH_THREADS:-4}
+      TOKENIZERS_PARALLELISM: "false"
+    cpus: ${CVMATCH_CPUS:-4}
+    mem_limit: 6g
+    volumes:
+      - ./tools/build_kb/out/snapshot:/kb:ro
+      - cvmatch_model_cache:/root/.cache/huggingface
+    ports:
+      - "127.0.0.1:8003:8000"
+    depends_on:
+      cvmatch-db:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://127.0.0.1:8000/health', timeout=5)"]
+      interval: 15s
+      timeout: 10s
+      retries: 10
+      start_period: 600s
 
 volumes:
   hirelens_mysql_data:
@@ -274,12 +313,6 @@ volumes:
       type: none
       o: bind
       device: ${STORAGE_ROOT:-/run/media/long/DATA/project/DO_AN/recruit_system/data/runtime}/mysql/interview
-  matching_model_cache:
-    driver: local
-    driver_opts:
-      type: none
-      o: bind
-      device: ${STORAGE_ROOT:-/run/media/long/DATA/project/DO_AN/recruit_system/data/runtime}/huggingface
   recruitment_uploads:
     driver: local
     driver_opts:
@@ -298,3 +331,15 @@ volumes:
       type: none
       o: bind
       device: ${STORAGE_ROOT:-/run/media/long/DATA/project/DO_AN/recruit_system/data/runtime}/interview-output
+  cvmatch_pg_data:
+    driver: local
+    driver_opts:
+      type: none
+      o: bind
+      device: ${STORAGE_ROOT:-/run/media/long/DATA/project/DO_AN/recruit_system/data/runtime}/postgres/cvmatch
+  cvmatch_model_cache:
+    driver: local
+    driver_opts:
+      type: none
+      o: bind
+      device: ${STORAGE_ROOT:-/run/media/long/DATA/project/DO_AN/recruit_system/data/runtime}/cvmatch-huggingface

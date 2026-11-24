@@ -1,0 +1,40 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "cvmatch"
+version = "0.1.0"
+description = "Module match CV <-> JD (Tang 0-3): tien xu ly, retrieve, rerank BERTScore, explain"
+requires-python = ">=3.11"
+dependencies = [
+    "pydantic>=2.6",
+    "pyyaml>=6.0",
+    "psycopg[binary]>=3.1",
+    "pgvector>=0.3",
+    "numpy>=1.26",
+    "pyvi>=0.1.1",
+    "jinja2>=3.1",
+    "scipy>=1.11",
+    "fastapi>=0.110",
+    "uvicorn>=0.29",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=8", "httpx>=0.27", "psutil>=5.9"]
+gpu = ["torch>=2.1", "transformers>=4.40"]
+
+[project.scripts]
+cvmatch = "cvmatch.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+markers = [
+    "gpu: can GPU va model that (bo qua mac dinh, chay bang -m gpu)",
+    "db: can PostgreSQL that (CVMATCH_DB_URL)",
+    "live: goi API demo dang chay (cvmatch demo serve), chay bang -m live",
+]
+addopts = "-m 'not gpu and not live'"

@@ -1,0 +1,504 @@
+{
+  "plan": "RT-E",
+  "reference": "RT-E4",
+  "queries": [
+    "E2E-DATA",
+    "E2E-FE",
+    "E2E-JAVA"
+  ],
+  "results": [
+    {
+      "id": "RT-E1-bm25",
+      "summary": {
+        "recall@50": {
+          "mean": 1.0,
+          "worst": 1.0,
+          "worst_query": "E2E-DATA",
+          "n": 3,
+          "by_group": {}
+        },
+        "recall@100": {
+          "mean": 1.0,
+          "worst": 1.0,
+          "worst_query": "E2E-DATA",
+          "n": 3,
+          "by_group": {}
+        },
+        "recall@200": {
+          "mean": 1.0,
+          "worst": 1.0,
+          "worst_query": "E2E-DATA",
+          "n": 3,
+          "by_group": {}
+        },
+        "recall@300": {
+          "mean": 1.0,
+          "worst": 1.0,
+          "worst_query": "E2E-DATA",
+          "n": 3,
+          "by_group": {}
+        }
+      },
+      "time_ms": {
+        "mean": 13.729833333551747,
+        "p95": 17.19847000003938
+      },
+      "unjudged": 0.0,
+      "todo": null,
+      "error": null,
+      "config_hash": "806f74381911a15542c684bb05bca338e071d9cd030c5be5ff22c77af4edbaeb"
+    },
+    {
+      "id": "RT-E1-dense",
+      "summary": {
+        "recall@50": {
+          "mean": 1.0,
+          "worst": 1.0,
+          "worst_query": "E2E-DATA",
+          "n": 3,
+          "by_group": {}
+        },
+        "recall@100": {
+          "mean": 1.0,
+          "worst": 1.0,
+          "worst_query": "E2E-DATA",
+          "n": 3,
+          "by_group": {}
+        },
+        "recall@200": {
+          "mean": 1.0,
+          "worst": 1.0,
+          "worst_query": "E2E-DATA",
+          "n": 3,
+          "by_group": {}
+        },
+        "recall@300": {
+          "mean": 1.0,
+          "worst": 1.0,
+          "worst_query": "E2E-DATA",
+          "n": 3,
+          "by_group": {}
+        }
+      },
+      "time_ms": {
+        "mean": 13.869666666626776,
+        "p95": 15.018229999623145
+      },
+      "unjudged": 0.0,
+      "todo": null,
+      "error": null,
+      "config_hash": "9f993260e2f3ab8af3114a1c3041e359c79952bfc3d738c96b85b1b807544e8e"
+    },
+    {
+      "id": "RT-E2-sum",
+      "summary": {
+        "recall@50": {
+          "mean": 1.0,
+          "worst": 1.0,
+          "worst_query": "E2E-DATA",
+          "n": 3,
+          "by_group": {}
+        },
+        "recall@100": {
+          "mean": 1.0,
+          "worst": 1.0,
+          "worst_query": "E2E-DATA",
+          "n": 3,
+          "by_group": {}
+        },
+        "recall@200": {
+          "mean": 1.0,
+          "worst": 1.0,
+          "worst_query": "E2E-DATA",
+          "n": 3,
+          "by_group": {}
+        },
+        "recall@300": {
+          "mean": 1.0,
+          "worst": 1.0,
+          "worst_query": "E2E-DATA",
+          "n": 3,
+          "by_group": {}
+        }
+      },
+      "time_ms": {
+        "mean": 9.66583333320159,
+        "p95": 11.171259999628091
+      },
+      "unjudged": 0.0,
+      "todo": null,
+      "error": null,
+      "config_hash": "fa37583aa198d0b149a6ac19f0d125f2094ed6da76a77a92ed7707fba5e785a1"
+    },
+    {
+      "id": "RT-E2-rrf",
+      "summary": {
+        "recall@50": {
+          "mean": 1.0,
+          "worst": 1.0,
+          "worst_query": "E2E-DATA",
+          "n": 3,
+          "by_group": {}
+        },
+        "recall@100": {
+          "mean": 1.0,
+          "worst": 1.0,
+          "worst_query": "E2E-DATA",
+          "n": 3,
+          "by_group": {}
+        },
+        "recall@200": {
+          "mean": 1.0,
+          "worst": 1.0,
+          "worst_query": "E2E-DATA",
+          "n": 3,
+          "by_group": {}
+        },
+        "recall@300": {
+          "mean": 1.0,
+          "worst": 1.0,
+          "worst_query": "E2E-DATA",
+          "n": 3,
+          "by_group": {}
+        }
+      },
+      "time_ms": {
+        "mean": 10.333900000053594,
+        "p95": 11.003070000424486
+      },
+      "unjudged": 0.0,
+      "todo": null,
+      "error": null,
+      "config_hash": "a396dbe4b37dcd820dff954d9d81d1b09707b906a73b003bcfbf706fa3ed3a6f"
+    },
+    {
+      "id": "RT-E2-rrfw",
+      "summary": {
+        "recall@50": {
+          "mean": 1.0,
+          "worst": 1.0,
+          "worst_query": "E2E-DATA",
+          "n": 3,
+          "by_group": {}
+        },
+        "recall@100": {
+          "mean": 1.0,
+          "worst": 1.0,
+          "worst_query": "E2E-DATA",
+          "n": 3,
+          "by_group": {}
+        },
+        "recall@200": {
+          "mean": 1.0,
+          "worst": 1.0,
+          "worst_query": "E2E-DATA",
+          "n": 3,
+          "by_group": {}
+        },
+        "recall@300": {
+          "mean": 1.0,
+          "worst": 1.0,
+          "worst_query": "E2E-DATA",
+          "n": 3,
+          "by_group": {}
+        }
+      },
+      "time_ms": {
+        "mean": 9.97033333320966,
+        "p95": 10.83037999978842
+      },
+      "unjudged": 0.0,
+      "todo": null,
+      "error": null,
+      "config_hash": "53b29d1f8afbf714512732f80b0cb189a52bbc8a97096def2063fc1857aa1e26"
+    },
+    {
+      "id": "RT-E3",
+      "summary": {
+        "recall@50": {
+          "mean": 1.0,
+          "worst": 1.0,
+          "worst_query": "E2E-DATA",
+          "n": 3,
+          "by_group": {}
+        },
+        "recall@100": {
+          "mean": 1.0,
+          "worst": 1.0,
+          "worst_query": "E2E-DATA",
+          "n": 3,
+          "by_group": {}
+        },
+        "recall@200": {
+          "mean": 1.0,
+          "worst": 1.0,
+          "worst_query": "E2E-DATA",
+          "n": 3,
+          "by_group": {}
+        },
+        "recall@300": {
+          "mean": 1.0,
+          "worst": 1.0,
+          "worst_query": "E2E-DATA",
+          "n": 3,
+          "by_group": {}
+        }
+      },
+      "time_ms": {
+        "mean": 11.565499999960593,
+        "p95": 12.020620000384952
+      },
+      "unjudged": 0.0,
+      "todo": null,
+      "error": null,
+      "config_hash": "368c981aebb8d0408010d8014cfc33ff7960beb34d53113b250fb1983cb760e5"
+    },
+    {
+      "id": "RT-E4",
+      "summary": {
+        "recall@50": {
+          "mean": 1.0,
+          "worst": 1.0,
+          "worst_query": "E2E-DATA",
+          "n": 3,
+          "by_group": {}
+        },
+        "recall@100": {
+          "mean": 1.0,
+          "worst": 1.0,
+          "worst_query": "E2E-DATA",
+          "n": 3,
+          "by_group": {}
+        },
+        "recall@200": {
+          "mean": 1.0,
+          "worst": 1.0,
+          "worst_query": "E2E-DATA",
+          "n": 3,
+          "by_group": {}
+        },
+        "recall@300": {
+          "mean": 1.0,
+          "worst": 1.0,
+          "worst_query": "E2E-DATA",
+          "n": 3,
+          "by_group": {}
+        }
+      },
+      "time_ms": {
+        "mean": 13.45979999981258,
+        "p95": 14.07493999977305
+      },
+      "unjudged": 0.0,
+      "todo": null,
+      "error": null,
+      "config_hash": "4212311a9cd2caf2b431e0e057e59e896d716a38ecb5dbecc6cc02ae944a6aa7"
+    },
+    {
+      "id": "RT-E4-cal",
+      "summary": {
+        "recall@50": {
+          "mean": 1.0,
+          "worst": 1.0,
+          "worst_query": "E2E-DATA",
+          "n": 3,
+          "by_group": {}
+        },
+        "recall@100": {
+          "mean": 1.0,
+          "worst": 1.0,
+          "worst_query": "E2E-DATA",
+          "n": 3,
+          "by_group": {}
+        },
+        "recall@200": {
+          "mean": 1.0,
+          "worst": 1.0,
+          "worst_query": "E2E-DATA",
+          "n": 3,
+          "by_group": {}
+        },
+        "recall@300": {
+          "mean": 1.0,
+          "worst": 1.0,
+          "worst_query": "E2E-DATA",
+          "n": 3,
+          "by_group": {}
+        }
+      },
+      "time_ms": {
+        "mean": 13.383066666695717,
+        "p95": 14.387999999780732
+      },
+      "unjudged": 0.0,
+      "todo": null,
+      "error": null,
+      "config_hash": "b2339f1903d09f9205dbdcdcc4f982a8d1316d068a01db1ba7df37981bbc4d13"
+    },
+    {
+      "id": "RT-E5",
+      "summary": {
+        "recall@50": {
+          "mean": 1.0,
+          "worst": 1.0,
+          "worst_query": "E2E-DATA",
+          "n": 3,
+          "by_group": {}
+        },
+        "recall@100": {
+          "mean": 1.0,
+          "worst": 1.0,
+          "worst_query": "E2E-DATA",
+          "n": 3,
+          "by_group": {}
+        },
+        "recall@200": {
+          "mean": 1.0,
+          "worst": 1.0,
+          "worst_query": "E2E-DATA",
+          "n": 3,
+          "by_group": {}
+        },
+        "recall@300": {
+          "mean": 1.0,
+          "worst": 1.0,
+          "worst_query": "E2E-DATA",
+          "n": 3,
+          "by_group": {}
+        }
+      },
+      "time_ms": {
+        "mean": 36.59749999981917,
+        "p95": 75.12823999968532
+      },
+      "unjudged": 0.0,
+      "todo": null,
+      "error": null,
+      "config_hash": "e34f2edb03a94de423f04a9b3dab0472c666e9f73ffadf353af11c4eca611c8a"
+    },
+    {
+      "id": "RT-E6",
+      "summary": {
+        "recall@50": {
+          "mean": 1.0,
+          "worst": 1.0,
+          "worst_query": "E2E-DATA",
+          "n": 3,
+          "by_group": {}
+        },
+        "recall@100": {
+          "mean": 1.0,
+          "worst": 1.0,
+          "worst_query": "E2E-DATA",
+          "n": 3,
+          "by_group": {}
+        },
+        "recall@200": {
+          "mean": 1.0,
+          "worst": 1.0,
+          "worst_query": "E2E-DATA",
+          "n": 3,
+          "by_group": {}
+        },
+        "recall@300": {
+          "mean": 1.0,
+          "worst": 1.0,
+          "worst_query": "E2E-DATA",
+          "n": 3,
+          "by_group": {}
+        }
+      },
+      "time_ms": {
+        "mean": 14.298366666480433,
+        "p95": 14.999889999671723
+      },
+      "unjudged": 0.0,
+      "todo": null,
+      "error": null,
+      "config_hash": "585379d48cf116b376ca5f830e566f5eedf813c2f39cc48e53ca38a8d1936b71"
+    },
+    {
+      "id": "RT-E7",
+      "summary": {},
+      "time_ms": {},
+      "unjudged": null,
+      "todo": "doi models.embed -> phai nap lai kho (cvmatch reprocess cv --from A10) vao DB rieng roi chay ke hoach tren DB do",
+      "error": null,
+      "config_hash": null
+    },
+    {
+      "id": "RT-E8",
+      "summary": {},
+      "time_ms": {},
+      "unjudged": null,
+      "todo": "view sparse chua lam (cv_vector.sparse da luu)",
+      "error": null,
+      "config_hash": null
+    }
+  ],
+  "bootstrap": {
+    "RT-E1-bm25": {
+      "diff": 0.0,
+      "lo": 0.0,
+      "hi": 0.0,
+      "n": 3,
+      "significant": false
+    },
+    "RT-E1-dense": {
+      "diff": 0.0,
+      "lo": 0.0,
+      "hi": 0.0,
+      "n": 3,
+      "significant": false
+    },
+    "RT-E2-sum": {
+      "diff": 0.0,
+      "lo": 0.0,
+      "hi": 0.0,
+      "n": 3,
+      "significant": false
+    },
+    "RT-E2-rrf": {
+      "diff": 0.0,
+      "lo": 0.0,
+      "hi": 0.0,
+      "n": 3,
+      "significant": false
+    },
+    "RT-E2-rrfw": {
+      "diff": 0.0,
+      "lo": 0.0,
+      "hi": 0.0,
+      "n": 3,
+      "significant": false
+    },
+    "RT-E3": {
+      "diff": 0.0,
+      "lo": 0.0,
+      "hi": 0.0,
+      "n": 3,
+      "significant": false
+    },
+    "RT-E4-cal": {
+      "diff": 0.0,
+      "lo": 0.0,
+      "hi": 0.0,
+      "n": 3,
+      "significant": false
+    },
+    "RT-E5": {
+      "diff": 0.0,
+      "lo": 0.0,
+      "hi": 0.0,
+      "n": 3,
+      "significant": false
+    },
+    "RT-E6": {
+      "diff": 0.0,
+      "lo": 0.0,
+      "hi": 0.0,
+      "n": 3,
+      "significant": false
+    }
+  }
+}

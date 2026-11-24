@@ -47,3 +47,7 @@ CLAUDE.md
 .specify/
 .opencode/
 
+# Từ develop
+.vscode
+.idea
+plan/

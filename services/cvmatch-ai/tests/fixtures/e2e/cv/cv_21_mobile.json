@@ -1,0 +1,42 @@
+{
+ "full_name": "Ứng viên 21",
+ "email": "ungvien21@example.com",
+ "phone": "0900000021",
+ "location": "TP.HCM",
+ "summary": "Android Developer kinh nghiệm",
+ "skills": [
+  "Kotlin",
+  "Java"
+ ],
+ "experiences": [
+  {
+   "title": "Junior Android Developer",
+   "company": "Công ty V",
+   "start": "2023-04",
+   "end": null,
+   "is_current": true,
+   "description": [
+    "Tối ưu bộ nhớ và thời gian khởi động ứng dụng di động",
+    "Tích hợp thanh toán trong ứng dụng và đẩy thông báo",
+    "Phát triển ứng dụng Android bán hàng bằng Kotlin"
+   ],
+   "technologies": [
+    "Kotlin",
+    "Java",
+    "REST API"
+   ]
+  }
+ ],
+ "projects": [],
+ "education": [
+  {
+   "school": "Đại học Bách khoa",
+   "major": "Kỹ thuật phần mềm",
+   "end": "2022"
+  }
+ ],
+ "certificates": [],
+ "languages": [
+  "Tiếng Anh"
+ ]
+}

@@ -1,0 +1,47 @@
+# Thi nghiem Retrieve Luong C (thiet ke 09 muc 3.2). Chay: cvmatch eval ablation experiments/retrieve_RT.yaml ...
+# Moi cau hinh la phan ghi de len config dang dung (active.yaml).
+name: RT-E
+direction: jd_to_cv
+stage: retrieve
+reference: RT-E4
+relevant_min_grade: 1
+K: 300                       # lay du de tinh Recall@300
+recall_ks: [50, 100, 200, 300]
+configs:
+  - id: RT-E1-bm25
+    desc: BM25 mot minh
+    overrides: {retrieve: {views_enabled: [bm25]}}
+  - id: RT-E1-dense
+    desc: Dense mot minh
+    overrides: {retrieve: {views_enabled: [dense]}}
+  - id: RT-E2-sum
+    desc: BM25 + Dense, cong diem minmax
+    overrides: {retrieve: {views_enabled: [dense, bm25], fusion: score_sum}}
+  - id: RT-E2-rrf
+    desc: BM25 + Dense, RRF
+    overrides: {retrieve: {views_enabled: [dense, bm25], fusion: rrf}}
+  - id: RT-E2-rrfw
+    desc: BM25 + Dense, RRF co trong so (dense 1,5)
+    overrides: {retrieve: {views_enabled: [dense, bm25], fusion: rrf, rrf_weighted: true,
+                           view_weights: {dense: 1.5, bm25: 1.0, skill: 1.0, resp: 1.0}}}
+  - id: RT-E3
+    desc: RT-E2 + view ky nang
+    overrides: {retrieve: {views_enabled: [dense, bm25, skill]}}
+  - id: RT-E4
+    desc: RT-E3 + view trach nhiem (cau hinh mac dinh)
+    overrides: {retrieve: {views_enabled: [dense, bm25, skill, resp]}}
+  - id: RT-E4-cal
+    desc: RT-E4, view trach nhiem hieu chuan lo/hi (T15)
+    overrides: {retrieve: {resp_calib: {lo: 0.55, hi: 0.85}}}
+  - id: RT-E5
+    desc: BM25 truy van chi chuc danh + ky nang
+    overrides: {retrieve: {bm25: {query_mode: title_skills}}}
+  - id: RT-E6
+    desc: DBSF thay min-max
+    overrides: {retrieve: {normalization: dbsf}}
+  - id: RT-E7
+    desc: model dense khac (multilingual-e5, Qwen3-Embedding, Vietnamese_Embedding_v2)
+    todo: "doi models.embed -> phai nap lai kho (cvmatch reprocess cv --from A10) vao DB rieng roi chay ke hoach tren DB do"
+  - id: RT-E8
+    desc: them bge-m3 sparse vao view BM25
+    todo: "view sparse chua lam (cv_vector.sparse da luu)"

@@ -1,0 +1,43 @@
+{
+ "full_name": "Ứng viên 16",
+ "email": "ungvien16@example.com",
+ "phone": "0900000016",
+ "location": "Hà Nội",
+ "summary": "Fullstack Developer kinh nghiệm",
+ "skills": [
+  "JavaScript",
+  "Node.js",
+  "React"
+ ],
+ "experiences": [
+  {
+   "title": "Fresher Fullstack Developer",
+   "company": "Công ty Q",
+   "start": "2025-08",
+   "end": null,
+   "is_current": true,
+   "description": [
+    "Xây dựng tính năng thông báo thời gian thực bằng WebSocket",
+    "Đóng gói ứng dụng bằng Docker và cấu hình CI/CD với Jenkins",
+    "Phát triển API bằng Node.js và giao diện quản trị bằng React"
+   ],
+   "technologies": [
+    "React",
+    "PostgreSQL",
+    "Docker"
+   ]
+  }
+ ],
+ "projects": [],
+ "education": [
+  {
+   "school": "Đại học Bách khoa",
+   "major": "Khoa học máy tính",
+   "end": "2024"
+  }
+ ],
+ "certificates": [],
+ "languages": [
+  "Tiếng Anh"
+ ]
+}
