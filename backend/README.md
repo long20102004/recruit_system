@@ -9,9 +9,9 @@ Backend được tách theo nghiệp vụ thành ba ứng dụng Spring Boot. M�
 | Recruitment Service | 8082 | Hồ sơ CV, công ty, tin tuyển dụng, ứng tuyển, kết quả matching |
 | Interview Service | 8083 | Câu hỏi, rubric, phiên phỏng vấn, câu trả lời, kết quả chấm |
 | CV Extraction AI | 8001 | Qwen3, KB/KG; mã từ `hocnv/DO-06@920d109` |
-| cvmatch AI | 8003 | `services/cvmatch-ai`: Retrieve + Rerank BERTScore bge-m3 + Explain (profile `match`) |
+| cvmatch AI | 8003 | `ai-service/matching/service`: Retrieve + Rerank BERTScore bge-m3 + Explain (profile `match`) |
 | cvmatch DB | 5433 | Postgres 16 + pgvector, dữ liệu dẫn xuất của cvmatch (dựng lại được từ Recruitment DB) |
-| Interview AI | 8000 | Dịch vụ chấm phỏng vấn hiện có tại `AI/` |
+| Interview AI | 8000 | Dịch vụ chấm phỏng vấn hiện có tại `ai-service/interview/service/` |
 
 ```mermaid
 flowchart TD
@@ -28,13 +28,13 @@ flowchart TD
     Recruitment --> Extract[CV Extraction AI :8001]
     Recruitment -->|HTTP + X-Service-Token| CvMatch[cvmatch AI :8003]
     CvMatch --> CvMatchDB[(cvmatch DB Postgres)]
-    KB[tools/build_kb snapshot] -.->|mount read-only| CvMatch
+    KB[ai-service/matching/kb-builder snapshot] -.->|mount read-only| CvMatch
     Interview --> Score[Interview AI :8000]
 ```
 
 ## Lưu dữ liệu trên ổ DATA
 
-Database, PDF upload và cache Hugging Face của dự án được gắn vào `data/runtime/` trên ổ DATA (biến `STORAGE_ROOT`). File Qwen tiếp tục nằm ở `models/cv-extraction/` cũng trên DATA. Các thư mục runtime đã được tạo sẵn và không đưa vào Git.
+Database, PDF upload và cache Hugging Face của dự án được gắn vào `data/runtime/` trên ổ DATA (biến `STORAGE_ROOT`). File Qwen tiếp tục nằm ở `ai-service/models/cv-extraction/` cũng trên DATA. Các thư mục runtime đã được tạo sẵn và không đưa vào Git.
 
 Để cả image/build cache của Docker và containerd nằm trên DATA, sau khi cài Docker/rsync chạy từ thư mục gốc:
 
@@ -61,7 +61,7 @@ Lệnh này chạy gateway, ba service Java và ba database mới. API vẫn là
 docker compose --profile ai up -d --build
 ```
 
-Để chạy cả hai AI về CV, đặt **đúng** file `model-v4-q4_k_m.gguf` vào `models/cv-extraction/`, rồi:
+Để chạy cả hai AI về CV, đặt **đúng** file `model-v4-q4_k_m.gguf` vào `ai-service/models/cv-extraction/`, rồi:
 
 ```bash
 docker compose --profile ai --profile cv-ai up -d --build
@@ -120,7 +120,7 @@ Chưa bổ sung OCR cho PDF scan, chưa thay công thức trọng số của nh�
 
 ## Matching CV ↔ JD (cvmatch)
 
-Module `services/cvmatch-ai` đã thay hẳn dịch vụ `cv-matching-ai` cũ (đã gỡ; dòng cũ trong `matching_results` giữ
+Module `ai-service/matching/service` đã thay hẳn dịch vụ `cv-matching-ai` cũ (đã gỡ; dòng cũ trong `matching_results` giữ
 `engine = 'legacy'` và không còn hiện). Kế hoạch và ghi chú bàn giao: `plan/` (I01–I09).
 
 - **Dữ liệu:** Recruitment DB là nguồn sự thật. Sau khi lưu CV (`upload`, `confirm`) hoặc job (`create`, đổi trạng thái),
@@ -138,10 +138,10 @@ Module `services/cvmatch-ai` đã thay hẳn dịch vụ `cv-matching-ai` cũ (�
   ```
 
   Scheduler sẽ gửi lại toàn bộ (job trước, CV sau). `CVMATCH_SYNC_ENABLED=false` tắt đồng bộ (stack không bật `match`).
-- **Đổi KB:** phát hành snapshot ở `tools/build_kb` (`release_check.py`), đặt `CVMATCH_ONTOLOGY_VERSION`, khởi động lại
+- **Đổi KB:** phát hành snapshot ở `ai-service/matching/kb-builder` (`release_check.py`), đặt `CVMATCH_ONTOLOGY_VERSION`, khởi động lại
   `cvmatch-ai` (tự nạp snapshot), rồi backfill như trên.
 - **Kiểm tra:** `python3 backend/scripts/smoke-stack.py` (thêm `--cv <pdf>` để chạy cả Qwen; `--no-matching` nếu không bật `match`).
-  Hợp đồng API: `services/cvmatch-ai/openapi.json`; test hợp đồng với cvmatch thật: đặt `CVMATCH_IT_URL` rồi `./mvnw test`.
+  Hợp đồng API: `ai-service/matching/service/openapi.json`; test hợp đồng với cvmatch thật: đặt `CVMATCH_IT_URL` rồi `./mvnw test`.
 
 ## Giao tiếp và xác thực
 
@@ -187,8 +187,8 @@ cd backend
 ```
 
 ```bash
-cd services/cvmatch-ai
-python -m pytest -q        # can Postgres (docker compose up -d trong services/cvmatch-ai)
+cd ai-service/matching/service
+python -m pytest -q        # can Postgres (docker compose up -d trong ai-service/matching/service)
 ```
 
 Chạy kiểm tra đầu cuối qua gateway sau khi các AI sẵn sàng:

@@ -3,3 +3,12 @@ __pycache__
 tests
 merged_model
 *.gguf
+# Build context là cả project M1: không gửi data CV, bí mật, checkpoint và code train
+.env
+data
+checkpoint-*
+training
+eval
+*.ipynb
+kb/.cache
+.pytest_cache

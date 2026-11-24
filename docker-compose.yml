@@ -200,7 +200,7 @@ services:
   interview-ai:
     profiles: [ai]
     build:
-      context: ./AI
+      context: ./ai-service/interview/service
     environment:
       HIRELENS_MODE: ${INTERVIEW_SCORING_MODE:-bertscore}
       HIRELENS_DEVICE: cpu
@@ -217,7 +217,7 @@ services:
     volumes:
       - interview_model_cache:/root/.cache/huggingface
       - interview_ai_output:/app/output/module3-v2
-      - ./AI/output/bert_finetuned_self/model:/app/output/bert_finetuned_self/model:ro
+      - ./ai-service/interview/service/output/bert_finetuned_self/model:/app/output/bert_finetuned_self/model:ro
     healthcheck:
       test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://localhost:8000/health', timeout=5)"]
       interval: 15s
@@ -230,18 +230,18 @@ services:
   cv-extraction-ai:
     profiles: [cv-ai]
     build:
-      context: ./services/cv-extraction-ai
+      context: ./ai-service/extraction
     environment:
       PROMPT_VERSION: ${CV_MODEL_VERSION:-v4}
       GGUF_MODEL_PATH: /app/merged_model/model-${CV_MODEL_VERSION:-v4}-q4_k_m.gguf
       KG_ENABLED: "true"
     volumes:
-      - ./models/cv-extraction:/app/merged_model:ro
+      - ./ai-service/models/cv-extraction:/app/merged_model:ro
     ports:
       - "127.0.0.1:8001:8000"
 
 
-  # Module match CV <-> JD (services/cvmatch-ai) + KB snapshot (tools/build_kb). Bat: --profile match.
+  # Module match CV <-> JD (ai-service/matching/service) + KB snapshot (ai-service/matching/kb-builder). Bat: --profile match.
   cvmatch-db:
     profiles: [match]
     image: pgvector/pgvector:pg16
@@ -262,7 +262,7 @@ services:
   cvmatch-ai:
     profiles: [match]
     build:
-      context: ./services/cvmatch-ai
+      context: ./ai-service/matching/service
       args:
         TORCH_INDEX: ${CVMATCH_TORCH_INDEX:-https://download.pytorch.org/whl/cpu}
     environment:
@@ -279,7 +279,7 @@ services:
     cpus: ${CVMATCH_CPUS:-4}
     mem_limit: 6g
     volumes:
-      - ./tools/build_kb/out/snapshot:/kb:ro
+      - ./ai-service/matching/kb-builder/out/snapshot:/kb:ro
       - cvmatch_model_cache:/root/.cache/huggingface
     ports:
       - "127.0.0.1:8003:8000"

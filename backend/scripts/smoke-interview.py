@@ -28,7 +28,7 @@ else:
     if a.mode=='bertscore':assert health['model_loaded']
 token=call('POST','/api/auth/login',{'email':'candidate@hirelens.local','password':'demo1234'})['token']
 session=call('POST','/api/interviews/sessions',{'questionCount':3},token)
-bank=json.loads((Path(__file__).resolve().parents[2]/'AI/data/interview_bank_v2.json').read_text())
+bank=json.loads((Path(__file__).resolve().parents[2]/'ai-service/interview/service/data/interview_bank_v2.json').read_text())
 by_text={q['question']:q for q in bank['questions']}
 for q in session['questions']:
     sample=by_text[q['questionText']]['reference_answer']

@@ -55,7 +55,7 @@ def main():
         if domain == 'interview':
             # The legacy import clears seeded rows. Recreate the current practice bank with new IDs
             # after historical questions/sessions have been restored; never renumber old questions.
-            seed = Path(__file__).resolve().parents[2] / 'AI/data/interview_bank_v2_seed.sql'
+            seed = Path(__file__).resolve().parents[2] / 'ai-service/interview/service/data/interview_bank_v2_seed.sql'
             if seed.exists(): statements.append(seed.read_text(encoding='utf-8'))
         statements.append('COMMIT;')
         target = root / f'{domain}.sql'
