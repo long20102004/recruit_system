@@ -1,0 +1,10 @@
+# Serving (Docker image): GGUF qua llama.cpp
+fastapi
+uvicorn
+python-dotenv
+pydantic
+llama-cpp-python
+json-repair
+rapidfuzz
+psycopg[binary]
+neo4j>=5.20

@@ -8,13 +8,13 @@
 
 # Dữ liệu CV thật và dataset huấn luyện
 dataset/
-ai-service/data/
+ai-service/extraction/data/
 
 # Model trọng số lớn và checkpoint huấn luyện
 *.gguf
-ai-service/merged_model/*
-!ai-service/merged_model/.gitkeep
-ai-service/checkpoint-*/*.safetensors
+ai-service/extraction/merged_model/*
+!ai-service/extraction/merged_model/.gitkeep
+ai-service/extraction/checkpoint-*/*.safetensors
 
 # File tạm, cache và dependencies sinh ra tự động
 __pycache__/
@@ -22,7 +22,7 @@ __pycache__/
 .pytest_cache/
 .venv/
 node_modules/
-ai-service/kb/.cache/
+ai-service/extraction/kb/.cache/
 docs/_build/.plotenv/
 docs/_build/demo/render/
 docs/_build/package-lock.json

@@ -17,11 +17,11 @@
 | Nhãn | `target_score`, `label_source=synthetic_rubric`; không phải điểm người chấm |
 | Provenance | `review_status=needs_expert_review`, `source=synthetic-ai-v2` |
 
-Nguồn tạo có thể chạy lại: `AI/scripts/build_interview_bank.py`. Đầu ra:
+Nguồn tạo có thể chạy lại: `ai-service/interview/service/scripts/build_interview_bank.py`. Đầu ra:
 
-- `AI/data/interview_bank_v2.json`: bản chuẩn cho câu hỏi/rubric.
-- `AI/data/interview_answers_v2.csv`: ví dụ và điểm mục tiêu.
-- `AI/data/interview_bank_v2_seed.sql`: seed bổ sung, dùng khi chuyển dữ liệu cũ.
+- `ai-service/interview/service/data/interview_bank_v2.json`: bản chuẩn cho câu hỏi/rubric.
+- `ai-service/interview/service/data/interview_answers_v2.csv`: ví dụ và điểm mục tiêu.
+- `ai-service/interview/service/data/interview_bank_v2_seed.sql`: seed bổ sung, dùng khi chuyển dữ liệu cũ.
 - `backend/interview-service/src/main/resources/db/migration/V4__interview_bank_and_assessment.sql`: schema và seed Flyway.
 
 Không thay thế các file dữ liệu cũ, không xóa câu hỏi hoặc lịch sử cũ. Sau khi migration V4 đã được áp dụng, việc thay nội dung ngân hàng phải dùng migration mới; không sửa checksum V4 trên database đã chạy.
@@ -148,7 +148,7 @@ Vào trang luyện phỏng vấn, bấm bắt đầu, trả lời từng câu, x
 Chạy AI local, cần Python có PyTorch và thư viện BERTScore:
 
 ```bash
-cd AI
+cd ai-service/interview/service
 pip install torch --index-url https://download.pytorch.org/whl/cpu
 pip install -r requirements-interview.txt
 HIRELENS_MODE=bertscore python -m src.bootstrap
@@ -157,7 +157,7 @@ HIRELENS_MODE=bertscore python -m src.bootstrap
 Test offline không nạp neural model:
 
 ```bash
-cd AI
+cd ai-service/interview/service
 .venv/bin/python -m unittest discover -s tests -p test_module3.py
 ```
 
