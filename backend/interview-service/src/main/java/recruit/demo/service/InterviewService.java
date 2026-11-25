@@ -30,9 +30,7 @@ public class InterviewService {
     private final EvaluationResultRepository evaluationResultRepository;
     private final AiScoringClient aiScoringClient;
     private final QuestionSelectionService questionSelection;
-    private final recruit.demo.client.ServiceHttpClient serviceHttp;
-    @org.springframework.beans.factory.annotation.Value("${app.services.recruitment-url}")
-    private String recruitmentUrl;
+    private final recruit.demo.client.RecruitmentServiceClient recruitmentClient;
 
     @Transactional(readOnly = true)
     public List<InterviewDtos.QuestionResponse> listQuestions() {
@@ -45,10 +43,8 @@ public class InterviewService {
     public InterviewDtos.SessionResponse createSession(InterviewDtos.CreateSessionRequest request) {
         SecurityUtils.requireRole(Role.CANDIDATE);
         UserPrincipal principal = SecurityUtils.currentUser();
-        String url = recruitmentUrl + "/internal/interview-context?userId=" + principal.getId();
-        if (request != null && request.jobId() != null) url += "&jobId=" + request.jobId();
-        if (request != null && request.applicationId() != null) url += "&applicationId=" + request.applicationId();
-        var context = serviceHttp.get(url, recruit.demo.dto.ServiceDtos.InterviewContext.class);
+        var context = recruitmentClient.interviewContext(principal.getId(),
+                request != null ? request.jobId() : null, request != null ? request.applicationId() : null);
 
         int count = request != null && request.questionCount() != null ? request.questionCount() : 6;
         if (count < 1 || count > 12) throw new ApiException(HttpStatus.BAD_REQUEST, "Question count must be 1-12");
