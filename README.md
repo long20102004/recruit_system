@@ -212,7 +212,7 @@ java -jar interview-service/target/interview-service-0.0.1-SNAPSHOT.jar      # t
 java -jar api-gateway/target/api-gateway-0.0.1-SNAPSHOT.jar                  # terminal 4, :8080
 ```
 
-Cấu hình mặc định trỏ tới MySQL local 3307/3308/3309, Redis 6380, Mailpit SMTP 1025, nên không cần đặt biến môi trường. Gateway mặc định chuyển tới `localhost:8081/8082/8083` (đổi bằng `IDENTITY_URL`, `RECRUITMENT_URL`, `INTERVIEW_URL`), nên frontend `npm run dev` gọi `:8080` như bình thường. Bảng định tuyến nằm trong `backend/api-gateway/src/main/resources/application.yml`; thêm API mới với tiền tố mới thì phải thêm route ở đây. Cần JDK 17 hoặc 21; JDK 25 làm Lombok lỗi khi build sạch. Recruitment Service đọc `CV_EXTRACTION_URL` (mặc định trong code: `http://localhost:8001`) và `CVMATCH_URL` để gọi AI.
+Cấu hình mặc định trỏ tới MySQL local 3307/3308/3309, Redis 6380, Mailpit SMTP 1025, nên không cần đặt biến môi trường. Muốn đổi (ví dụ gửi mail thật qua Gmail) thì ghi vào file `.env` ở gốc repo, mẫu trong `.env.microservices.example`: các service Java tự đọc file này (`spring.config.import`), biến môi trường thật vẫn được ưu tiên hơn. Gateway mặc định chuyển tới `localhost:8081/8082/8083` (đổi bằng `IDENTITY_URL`, `RECRUITMENT_URL`, `INTERVIEW_URL`), nên frontend `npm run dev` gọi `:8080` như bình thường. Bảng định tuyến nằm trong `backend/api-gateway/src/main/resources/application.yml`; thêm API mới với tiền tố mới thì phải thêm route ở đây. Cần JDK 17 hoặc 21; JDK 25 làm Lombok lỗi khi build sạch. Recruitment Service đọc `CV_EXTRACTION_URL` (mặc định trong code: `http://localhost:8001`) và `CVMATCH_URL` để gọi AI.
 
 ### Module 1 · Trích xuất CV
 

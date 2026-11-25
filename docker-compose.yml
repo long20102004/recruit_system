@@ -121,6 +121,7 @@ services:
       MAIL_SMTP_AUTH: ${MAIL_SMTP_AUTH:-false}
       MAIL_STARTTLS: ${MAIL_STARTTLS:-false}
       APP_FRONTEND_URL: ${APP_FRONTEND_URL:-http://localhost:5173}
+      MAIL_FROM: ${MAIL_FROM:-HireLens <no-reply@hirelens.local>}
     ports:
       - "127.0.0.1:8081:8081"
     depends_on:
