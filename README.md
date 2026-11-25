@@ -10,7 +10,7 @@ Tài liệu này hướng dẫn **chạy toàn bộ hệ thống trên máy loca
 
 ```mermaid
 flowchart LR
-    FE[Frontend React :5173] -->|/api| GW[API Gateway Nginx :8080]
+    FE[Frontend React :5173] -->|/api| GW[API Gateway Spring Cloud :8080]
     GW --> ID[Identity :8081]
     GW --> RC[Recruitment :8082]
     GW --> IV[Interview :8083]
@@ -21,16 +21,20 @@ flowchart LR
     RC -->|CV/JD| M2[M2 · Matching :8003]
     M2 --> M2DB[(Postgres pgvector :5433)]
     IV -->|câu trả lời| M3[M3 · Chấm phỏng vấn :8000]
+    ID & RC & IV --> RD[(Redis: khoá đăng nhập, token, cache user)]
+    ID -->|SMTP| MP[Mailpit :8025]
 ```
 
 | Thành phần | Thư mục | Cổng local | Chạy khi |
 |---|---|---|---|
 | Frontend (React, Vite) | `frontend/` | 5173 | luôn |
-| API Gateway (Nginx) | `infra/gateway/` | 8080 | luôn |
+| API Gateway (Spring Cloud Gateway): định tuyến `/api` tới 3 service | `backend/api-gateway/` | 8080 | luôn |
 | Identity Service: tài khoản, JWT | `backend/identity-service/` | 8081 | luôn |
 | Recruitment Service: CV, việc làm, ứng tuyển, gọi M1/M2 | `backend/recruitment-service/` | 8082 | luôn |
 | Interview Service: phiên phỏng vấn, chấm | `backend/interview-service/` | 8083 | luôn |
 | 3 MySQL (mỗi service một database) | – | 3307 / 3308 / 3309 | luôn |
+| Redis: khoá tạm đăng nhập, token xác thực / đặt lại mật khẩu, cache user cho cả 3 service | – | 6380 | luôn |
+| Mailpit: hộp thư dev nhận mail xác thực và quên mật khẩu | – | 8025 (giao diện), 1025 (SMTP) | luôn |
 | **M1 · Trích xuất CV** (Qwen3-1.7B v4, llama.cpp) | `ai-service/extraction/` | 8001 | profile `cv-ai` |
 | **M2 · Matching CV ↔ JD** (bge-m3) + Postgres | `ai-service/matching/service/` | 8003, 5433 | profile `match` |
 | **M3 · Chấm câu trả lời phỏng vấn** | `ai-service/interview/service/` | 8000 | profile `ai` |
@@ -122,6 +126,8 @@ Mở `http://localhost:5173`. Tài khoản có sẵn (mật khẩu `demo1234`):
 | Nhà tuyển dụng | `recruiter@hirelens.local` |
 | Quản trị | `admin@hirelens.local` |
 
+Tài khoản mới phải **xác thực email** trước khi đăng nhập: mở hộp thư dev tại `http://localhost:8025` và bấm link. Mail quên mật khẩu cũng vào đây. Đăng nhập sai 5 lần liên tiếp thì email đó bị khoá 15 phút. Admin khoá / mở khoá tài khoản qua `PATCH /api/admin/users/{id}/lock|unlock` (chưa có giao diện). Chi tiết: `specs/003-auth-flow/`.
+
 Ở bước này đăng nhập, tạo việc làm, quản lý tài khoản đã dùng được. Tải CV, matching và chấm phỏng vấn sẽ báo lỗi **"AI chưa sẵn sàng"** cho đến khi bật các service AI ở bước 5 (hệ thống không trả dữ liệu mẫu).
 
 ---
@@ -196,15 +202,17 @@ curl -s -X POST http://127.0.0.1:8001/api/v1/extract-cv \
 ### Backend Java
 
 ```bash
-docker compose up -d identity-db recruitment-db interview-db
+# DB, Redis, Mailpit chạy trong Docker
+docker compose up -d identity-db recruitment-db interview-db redis mailpit
 cd backend
 JAVA_HOME=<JDK 17 hoặc 21> ./mvnw clean package
 java -jar identity-service/target/identity-service-0.0.1-SNAPSHOT.jar        # terminal 1, :8081
 java -jar recruitment-service/target/recruitment-service-0.0.1-SNAPSHOT.jar  # terminal 2, :8082
 java -jar interview-service/target/interview-service-0.0.1-SNAPSHOT.jar      # terminal 3, :8083
+java -jar api-gateway/target/api-gateway-0.0.1-SNAPSHOT.jar                  # terminal 4, :8080
 ```
 
-Cấu hình mặc định trỏ tới MySQL local 3307/3308/3309. Gateway Nginx đi kèm trỏ theo tên container của Compose, nên khi chạy Java ngoài Docker hãy gọi thẳng cổng từng service (hoặc sửa `infra/gateway/nginx.conf`). Recruitment Service đọc `CV_EXTRACTION_URL` (mặc định trong code: `http://localhost:8001`) và `CVMATCH_URL` để gọi AI.
+Cấu hình mặc định trỏ tới MySQL local 3307/3308/3309, Redis 6380, Mailpit SMTP 1025, nên không cần đặt biến môi trường. Muốn đổi (ví dụ gửi mail thật qua Gmail) thì ghi vào file `.env` ở gốc repo, mẫu trong `.env.microservices.example`: các service Java tự đọc file này (`spring.config.import`), biến môi trường thật vẫn được ưu tiên hơn. Gateway mặc định chuyển tới `localhost:8081/8082/8083` (đổi bằng `IDENTITY_URL`, `RECRUITMENT_URL`, `INTERVIEW_URL`), nên frontend `npm run dev` gọi `:8080` như bình thường. Bảng định tuyến nằm trong `backend/api-gateway/src/main/resources/application.yml`; thêm API mới với tiền tố mới thì phải thêm route ở đây. Cần JDK 17 hoặc 21; JDK 25 làm Lombok lỗi khi build sạch. Recruitment Service đọc `CV_EXTRACTION_URL` (mặc định trong code: `http://localhost:8001`) và `CVMATCH_URL` để gọi AI.
 
 ### Module 1 · Trích xuất CV
 

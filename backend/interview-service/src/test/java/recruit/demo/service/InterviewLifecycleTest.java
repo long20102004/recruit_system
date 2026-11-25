@@ -5,7 +5,7 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import recruit.demo.entity.*;
 import recruit.demo.repository.*;
 import recruit.demo.dto.*;
-import recruit.demo.client.ServiceHttpClient;
+import recruit.demo.client.RecruitmentServiceClient;
 import recruit.demo.exception.ApiException;
 import recruit.demo.security.UserPrincipal;
 import java.math.BigDecimal;
@@ -21,7 +21,7 @@ class InterviewLifecycleTest {
     private final InterviewResponseRepository responses=mock(InterviewResponseRepository.class);
     private final EvaluationResultRepository evaluations=mock(EvaluationResultRepository.class);
     private final AiScoringClient ai=mock(AiScoringClient.class);
-    private final ServiceHttpClient http=mock(ServiceHttpClient.class);
+    private final RecruitmentServiceClient http=mock(RecruitmentServiceClient.class);
     private InterviewService service() { return new InterviewService(questions,rubrics,sessions,items,responses,evaluations,ai,new QuestionSelectionService(),http); }
     private void authenticate() {
         var user=new UserPrincipal(10,"test@example.com","","Test",Role.CANDIDATE,UserStatus.ACTIVE);
@@ -67,7 +67,7 @@ class InterviewLifecycleTest {
     @Test void duplicateExplicitQuestionsAreRejected() {
         authenticate();try {
             var context=new ServiceDtos.InterviewContext(1,10,null,null,null,List.of(),List.of(),"Junior",null);
-            when(http.get(anyString(),eq(ServiceDtos.InterviewContext.class))).thenReturn(context);
+            when(http.interviewContext(anyInt(),any(),any())).thenReturn(context);
             assertEquals(400,assertThrows(ApiException.class,()->service().createSession(new InterviewDtos.CreateSessionRequest(null,null,List.of(2,2),null))).getStatus().value());
             verify(sessions,never()).save(any());
         } finally { SecurityContextHolder.clearContext(); }

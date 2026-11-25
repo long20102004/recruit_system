@@ -3,6 +3,13 @@ server:
 spring:
   application:
     name: recruitment-service
+  # Đọc biến từ file .env ở gốc repo khi chạy trên máy (IDE / java -jar). Biến môi trường thật vẫn được ưu tiên.
+  # Thử theo thư mục làm việc: gốc repo, backend/, backend/<module>/. Thiếu file thì bỏ qua.
+  config:
+    import:
+      - optional:file:.env[.properties]
+      - optional:file:../.env[.properties]
+      - optional:file:../../.env[.properties]
   datasource:
     url: ${DB_URL:jdbc:mysql://localhost:3308/hirelens_recruitment?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=Asia/Ho_Chi_Minh&characterEncoding=UTF-8}
     username: ${DB_USERNAME:hirelens}
@@ -16,6 +23,12 @@ spring:
       hibernate.jdbc.time_zone: Asia/Ho_Chi_Minh
   flyway:
     locations: classpath:db/migration
+  data:
+    redis:
+      host: ${REDIS_HOST:localhost}
+      port: ${REDIS_PORT:6380}
+      timeout: 500ms
+      connect-timeout: 500ms
   servlet:
     multipart:
       max-file-size: 10MB

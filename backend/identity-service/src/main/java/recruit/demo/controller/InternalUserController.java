@@ -7,11 +7,13 @@ import recruit.demo.dto.ServiceDtos.*;
 import recruit.demo.entity.User;
 import recruit.demo.exception.ApiException;
 import recruit.demo.repository.UserRepository;
+import recruit.demo.security.UserSnapshotCache;
 @RestController
 @RequestMapping("/internal/users")
 @RequiredArgsConstructor
 public class InternalUserController {
     private final UserRepository users;
+    private final UserSnapshotCache userCache;
     @GetMapping("/{id}")
     public UserSnapshot get(@PathVariable Integer id) { return snapshot(require(id)); }
     @PatchMapping("/{id}")
@@ -20,11 +22,14 @@ public class InternalUserController {
         User user = require(id);
         if (update.fullName() != null && !update.fullName().isBlank()) user.setFullName(update.fullName());
         if (update.phone() != null) user.setPhone(update.phone());
-        return snapshot(users.save(user));
+        UserSnapshot saved = snapshot(users.save(user));
+        userCache.evict(id);
+        return saved;
     }
     private User require(Integer id) { return users.findById(id)
         .orElseThrow(() -> new ApiException(HttpStatus.NOT_FOUND, "User not found")); }
     private UserSnapshot snapshot(User u) {
-        return new UserSnapshot(u.getId(), u.getFullName(), u.getEmail(), u.getPhone(), u.getRole(), u.getStatus());
+        return new UserSnapshot(u.getId(), u.getFullName(), u.getEmail(), u.getPhone(), u.getRole(), u.getStatus(),
+            u.sessionsValidAfterEpochSeconds());
     }
 }

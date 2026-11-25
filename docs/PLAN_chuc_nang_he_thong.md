@@ -21,7 +21,7 @@ Thành phần đi kèm (không tính là module nghiệp vụ):
 
 | Thành phần | Vai trò | Module gọi |
 |---|---|---|
-| `backend/common` | Security, JWT, service token, `RemotePrincipalLookup`, `ServiceHttpClient` | Cả 3 |
+| `backend/common` | Security, JWT, service token, `RemotePrincipalLookup`, Feign client gọi giữa service (`IdentityServiceClient`, `RecruitmentServiceClient`, `InterviewServiceClient`) | Cả 3 |
 | `infra/gateway` (Nginx :8080) | Định tuyến `/api/auth` → identity; `/api/jobs\|cvs\|applications\|matching\|dashboard` → recruitment; `/api/interviews` → interview | — |
 | `services/cv-extraction-ai` | Trích xuất CV (Qwen3-1.7B LoRA) — AI Module 1 | recruitment |
 | `services/cv-matching-ai` | Đối sánh CV–JD (`/match/no-llm`) — AI Module 2 | recruitment |
@@ -51,13 +51,13 @@ Thành phần đi kèm (không tính là module nghiệp vụ):
 
 ### 2.1. Giao tiếp giữa các service: sync hay message broker?
 
-**Hiện trạng:** toàn bộ là REST đồng bộ, qua `ServiceHttpClient` tự viết trong `backend/common` (dùng `java.net.http` + `SERVICE_TOKEN`). Chưa dùng OpenFeign.
+**Hiện trạng:** toàn bộ là REST đồng bộ. Gọi giữa các service Java dùng Spring Cloud OpenFeign (client khai báo trong `backend/common/.../client`, kèm `SERVICE_TOKEN`); gọi sang service AI vẫn dùng client HTTP riêng của từng module.
 
 **Quyết định đề xuất: kết hợp, không dùng 100% sync.** Quy tắc chọn:
 
 | Loại tương tác | Cách giao tiếp | Lý do |
 |---|---|---|
-| **Truy vấn** cần câu trả lời ngay để xử lý tiếp | **Sync REST** (giữ `ServiceHttpClient`, hoặc chuyển sang OpenFeign) | Bên gọi cần dữ liệu ngay mới đi tiếp được |
+| **Truy vấn** cần câu trả lời ngay để xử lý tiếp | **Sync REST** (OpenFeign) | Bên gọi cần dữ liệu ngay mới đi tiếp được |
 | **Sự kiện** "việc X đã xảy ra", bên phát không cần chờ kết quả | **Async qua message broker** | Gửi thông báo/email chậm hay lỗi cũng không làm hỏng giao dịch chính. Thêm bên nhận mới mà không phải sửa bên phát |
 
 Áp dụng cụ thể:
@@ -107,7 +107,7 @@ Phương án này chỉ chấp nhận được nếu nhóm thiếu thời gian.
 - Publish **sau khi transaction commit** (`@TransactionalEventListener(phase = AFTER_COMMIT)`), để không phát sự kiện cho dữ liệu đã bị rollback. Outbox table là P2.
 - Bên nhận phải **idempotent**: mỗi sự kiện mang `eventId`, notification-service lưu `eventId` đã xử lý để bỏ qua bản trùng.
 - Định dạng sự kiện chung đặt ở `backend/common` (`event/` package): `eventId`, `type`, `occurredAt`, `actorId`, `payload`.
-- Về OpenFeign: không bắt buộc. `ServiceHttpClient` đang chạy ổn. Chỉ chuyển sang Feign nếu cả nhóm thống nhất; khi đó làm một task riêng (INF-04) để không trộn hai kiểu gọi.
+- Về OpenFeign: đã chuyển các lời gọi giữa service Java sang Feign (INF-04). Client gọi AI (`AiJsonClient`, `HttpCvMatchClient`, `AiScoringClient`) giữ nguyên.
 
 ## 3. Danh sách chức năng chi tiết
 
@@ -246,7 +246,7 @@ Phương án này chỉ chấp nhận được nếu nhóm thiếu thời gian.
 | INF-01 | Thêm RabbitMQ vào `docker-compose.yml` (có management UI) | ❌ | Theo quyết định ở mục 2.1 | P1 | S |
 | INF-02 | Thư viện sự kiện trong `backend/common`: `DomainEvent`, `EventPublisher` (publish AFTER_COMMIT), cấu hình exchange / queue / DLQ | ❌ | Làm **trước** EV-01 và NT-01 | P1 | M |
 | INF-03 | Lưu file bằng MinIO thay cho ổ đĩa local (CV, logo, giấy phép kinh doanh) | ❌ | Tùy chọn | P2 | M |
-| INF-04 | Chuyển `ServiceHttpClient` sang OpenFeign | ❌ | Chỉ làm khi nhóm thống nhất | P2 | M |
+| INF-04 | Chuyển `ServiceHttpClient` sang OpenFeign | ✅ | Đã làm cho gọi giữa service Java; client gọi AI chưa đổi | — | — |
 | INF-05 | Đưa role/status vào JWT hoặc cache `RemotePrincipalLookup` để giảm gọi identity | ❌ | Quan trọng hơn khi có 4 service | P2 | S |
 | INF-06 | Chấm câu trả lời phỏng vấn chạy nền: nộp câu trả lời → `PENDING` → `@Async` gọi AI → FE poll kết quả | ❌ | Thuộc interview-service; tránh request treo 180 giây | P2 | M |
 | INF-07 | Trích xuất CV chạy nền: upload → `PROCESSING` → `@Async` gọi AI → FE poll `parsing_status` | ❌ | Thuộc recruitment-service; dùng enum CV đã có | P2 | M |

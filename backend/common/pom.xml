@@ -16,6 +16,21 @@
 			<artifactId>spring-boot-starter-validation</artifactId>
 		</dependency>
 		<dependency>
+			<!-- Gọi giữa các service Java (IdentityServiceClient, RecruitmentServiceClient, InterviewServiceClient) -->
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-starter-openfeign</artifactId>
+		</dependency>
+		<dependency>
+			<!-- Feign client dùng java.net.http: hỗ trợ PATCH (HttpURLConnection mặc định thì không) -->
+			<groupId>io.github.openfeign</groupId>
+			<artifactId>feign-java11</artifactId>
+		</dependency>
+		<dependency>
+			<!-- Cache tóm tắt người dùng và dữ liệu auth có TTL (specs/003-auth-flow) -->
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-data-redis</artifactId>
+		</dependency>
+		<dependency>
 			<!-- Page/Pageable cho PageResponse; các service đã có qua spring-data-jpa -->
 			<groupId>org.springframework.data</groupId>
 			<artifactId>spring-data-commons</artifactId>

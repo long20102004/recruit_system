@@ -17,9 +17,7 @@ public class DashboardService {
 
     private final JobRepository jobRepository;
     private final JobApplicationRepository applicationRepository;
-    private final recruit.demo.client.ServiceHttpClient serviceHttp;
-    @org.springframework.beans.factory.annotation.Value("${app.services.interview-url}")
-    private String interviewUrl;
+    private final recruit.demo.client.InterviewServiceClient interviewClient;
 
     @Transactional(readOnly = true)
     public DashboardDtos.RecruiterStatsResponse recruiterStats() {
@@ -28,7 +26,7 @@ public class DashboardService {
 
         long openJobs = jobRepository.countByStatusAndCreatedById(JobStatus.PUBLISHED, principal.getId());
         long applications = applicationRepository.countByJobCreatedById(principal.getId());
-        long questions = serviceHttp.get(interviewUrl + "/internal/interviews/question-count", recruit.demo.dto.ServiceDtos.QuestionCount.class).count();
+        long questions = interviewClient.questionCount().count();
         return new DashboardDtos.RecruiterStatsResponse(openJobs, applications, questions);
     }
 }

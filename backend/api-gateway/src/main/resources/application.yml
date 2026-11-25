@@ -1,0 +1,42 @@
+server:
+  port: ${SERVER_PORT:8080}
+
+spring:
+  application:
+    name: api-gateway
+  # Đọc biến từ file .env ở gốc repo khi chạy trên máy (IDE / java -jar). Biến môi trường thật vẫn được ưu tiên.
+  # Thử theo thư mục làm việc: gốc repo, backend/, backend/<module>/. Thiếu file thì bỏ qua.
+  config:
+    import:
+      - optional:file:.env[.properties]
+      - optional:file:../.env[.properties]
+      - optional:file:../../.env[.properties]
+  servlet:
+    multipart:
+      # Không tự parse multipart ở gateway: body upload CV được chuyển nguyên vẹn tới recruitment-service.
+      enabled: false
+  http:
+    clients:
+      connect-timeout: 3s
+      # Lời gọi AI (trích xuất CV, chấm phỏng vấn) có thể tới 180 giây.
+      read-timeout: 240s
+  cloud:
+    gateway:
+      server:
+        webmvc:
+          # Định tuyến theo URL cấu hình (không dùng service discovery).
+          # Chạy trên máy: mặc định localhost; trong Docker compose đặt tên container qua biến môi trường.
+          # Đường dẫn không khớp route nào (gồm /internal/**) trả 404.
+          routes:
+            - id: identity
+              uri: ${IDENTITY_URL:http://localhost:8081}
+              predicates:
+                - Path=/api/auth/**,/api/admin/users/**
+            - id: interview
+              uri: ${INTERVIEW_URL:http://localhost:8083}
+              predicates:
+                - Path=/api/interviews/**
+            - id: recruitment
+              uri: ${RECRUITMENT_URL:http://localhost:8082}
+              predicates:
+                - Path=/api/jobs/**,/api/cvs/**,/api/applications/**,/api/matching/**,/api/dashboard/**

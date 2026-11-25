@@ -19,10 +19,24 @@ public class UserPrincipal implements UserDetails {
     private final String fullName;
     private final Role role;
     private final UserStatus status;
+    /** Epoch giây; JWT có iat nhỏ hơn bị từ chối. Null = không giới hạn. */
+    private final Long sessionsValidAfter;
 
     public UserPrincipal(Integer id, String email, String password, String fullName, Role role, UserStatus status) {
+        this(id, email, password, fullName, role, status, null);
+    }
+
+    public UserPrincipal(Integer id, String email, String password, String fullName, Role role, UserStatus status,
+                         Long sessionsValidAfter) {
         this.id = id; this.email = email; this.password = password;
         this.fullName = fullName; this.role = role; this.status = status;
+        this.sessionsValidAfter = sessionsValidAfter;
+    }
+
+    /** Token phát hành trước mốc vô hiệu phiên thì không còn hợp lệ. */
+    public boolean acceptsTokenIssuedAt(java.util.Date issuedAt) {
+        if (sessionsValidAfter == null) return true;
+        return issuedAt != null && issuedAt.getTime() / 1000 >= sessionsValidAfter;
     }
 
     @Override

@@ -45,6 +45,20 @@ public class User {
     @Builder.Default
     private UserStatus status = UserStatus.ACTIVE;
 
+    /** NULL = chưa xác thực email. */
+    @Column(name = "email_verified_at")
+    private LocalDateTime emailVerifiedAt;
+
+    @Column(name = "locked_reason", length = 500)
+    private String lockedReason;
+
+    @Column(name = "locked_at")
+    private LocalDateTime lockedAt;
+
+    /** JWT có iat trước mốc này bị từ chối ở mọi service. */
+    @Column(name = "sessions_valid_after")
+    private LocalDateTime sessionsValidAfter;
+
     @CreationTimestamp
     @Column(name = "created_at", nullable = false, updatable = false)
     private LocalDateTime createdAt;
@@ -52,4 +66,19 @@ public class User {
     @UpdateTimestamp
     @Column(name = "updated_at", nullable = false)
     private LocalDateTime updatedAt;
+
+    public boolean emailVerified() {
+        return emailVerifiedAt != null;
+    }
+
+    /** Mốc vô hiệu phiên dạng epoch giây (so với JWT iat); null nếu chưa đặt. */
+    public Long sessionsValidAfterEpochSeconds() {
+        return sessionsValidAfter == null ? null
+                : sessionsValidAfter.atZone(java.time.ZoneId.systemDefault()).toEpochSecond();
+    }
+
+    /** Vô hiệu mọi JWT đã phát hành tới thời điểm hiện tại. */
+    public void invalidateSessions() {
+        sessionsValidAfter = LocalDateTime.now().withNano(0);
+    }
 }
