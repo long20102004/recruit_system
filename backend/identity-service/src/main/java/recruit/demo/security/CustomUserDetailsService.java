@@ -23,7 +23,8 @@ public class CustomUserDetailsService implements UserDetailsService, PrincipalLo
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         return userRepository.findByEmailIgnoreCase(username)
-                .map(u -> new UserPrincipal(u.getId(), u.getEmail(), u.getPasswordHash(), u.getFullName(), u.getRole(), u.getStatus()))
+                .map(u -> new UserPrincipal(u.getId(), u.getEmail(), u.getPasswordHash(), u.getFullName(), u.getRole(), u.getStatus(),
+                        u.sessionsValidAfterEpochSeconds()))
                 .orElseThrow(() -> new UsernameNotFoundException("User not found: " + username));
     }
 }

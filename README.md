@@ -21,6 +21,8 @@ flowchart LR
     RC -->|CV/JD| M2[M2 · Matching :8003]
     M2 --> M2DB[(Postgres pgvector :5433)]
     IV -->|câu trả lời| M3[M3 · Chấm phỏng vấn :8000]
+    ID & RC & IV --> RD[(Redis: khoá đăng nhập, token, cache user)]
+    ID -->|SMTP| MP[Mailpit :8025]
 ```
 
 | Thành phần | Thư mục | Cổng local | Chạy khi |
@@ -31,6 +33,8 @@ flowchart LR
 | Recruitment Service: CV, việc làm, ứng tuyển, gọi M1/M2 | `backend/recruitment-service/` | 8082 | luôn |
 | Interview Service: phiên phỏng vấn, chấm | `backend/interview-service/` | 8083 | luôn |
 | 3 MySQL (mỗi service một database) | – | 3307 / 3308 / 3309 | luôn |
+| Redis: khoá tạm đăng nhập, token xác thực / đặt lại mật khẩu, cache user cho cả 3 service | – | 6380 | luôn |
+| Mailpit: hộp thư dev nhận mail xác thực và quên mật khẩu | – | 8025 (giao diện), 1025 (SMTP) | luôn |
 | **M1 · Trích xuất CV** (Qwen3-1.7B v4, llama.cpp) | `ai-service/extraction/` | 8001 | profile `cv-ai` |
 | **M2 · Matching CV ↔ JD** (bge-m3) + Postgres | `ai-service/matching/service/` | 8003, 5433 | profile `match` |
 | **M3 · Chấm câu trả lời phỏng vấn** | `ai-service/interview/service/` | 8000 | profile `ai` |
@@ -122,6 +126,8 @@ Mở `http://localhost:5173`. Tài khoản có sẵn (mật khẩu `demo1234`):
 | Nhà tuyển dụng | `recruiter@hirelens.local` |
 | Quản trị | `admin@hirelens.local` |
 
+Tài khoản mới phải **xác thực email** trước khi đăng nhập: mở hộp thư dev tại `http://localhost:8025` và bấm link. Mail quên mật khẩu cũng vào đây. Đăng nhập sai 5 lần liên tiếp thì email đó bị khoá 15 phút. Admin khoá / mở khoá tài khoản qua `PATCH /api/admin/users/{id}/lock|unlock` (chưa có giao diện). Chi tiết: `specs/003-auth-flow/`.
+
 Ở bước này đăng nhập, tạo việc làm, quản lý tài khoản đã dùng được. Tải CV, matching và chấm phỏng vấn sẽ báo lỗi **"AI chưa sẵn sàng"** cho đến khi bật các service AI ở bước 5 (hệ thống không trả dữ liệu mẫu).
 
 ---
@@ -196,7 +202,7 @@ curl -s -X POST http://127.0.0.1:8001/api/v1/extract-cv \
 ### Backend Java
 
 ```bash
-docker compose up -d identity-db recruitment-db interview-db
+docker compose up -d identity-db recruitment-db interview-db redis mailpit
 cd backend
 JAVA_HOME=<JDK 17 hoặc 21> ./mvnw clean package
 java -jar identity-service/target/identity-service-0.0.1-SNAPSHOT.jar        # terminal 1, :8081

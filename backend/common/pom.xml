@@ -16,6 +16,11 @@
 			<artifactId>spring-boot-starter-validation</artifactId>
 		</dependency>
 		<dependency>
+			<!-- Cache tóm tắt người dùng và dữ liệu auth có TTL (specs/003-auth-flow) -->
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-data-redis</artifactId>
+		</dependency>
+		<dependency>
 			<!-- Page/Pageable cho PageResponse; các service đã có qua spring-data-jpa -->
 			<groupId>org.springframework.data</groupId>
 			<artifactId>spring-data-commons</artifactId>

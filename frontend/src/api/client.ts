@@ -13,19 +13,47 @@ export function setToken(token: string | null) {
 
 export class ApiError extends Error {
   status: number;
+  /** Mã lỗi nghiệp vụ từ backend (ví dụ 2003 chưa xác thực email), nếu có. */
+  code?: number;
+  data?: Record<string, unknown> | null;
 
-  constructor(status: number, message: string) {
+  constructor(
+    status: number,
+    message: string,
+    code?: number,
+    data?: Record<string, unknown> | null
+  ) {
     super(message);
     this.status = status;
+    this.code = code;
+    this.data = data;
   }
 }
 
-async function parseError(res: Response): Promise<string> {
+/** Mã lỗi auth (specs/003-auth-flow, contracts/auth-api.md). */
+export const AuthErrorCode = {
+  INVALID_CREDENTIALS: 2001,
+  EMAIL_NOT_VERIFIED: 2003,
+  LOGIN_TEMPORARILY_LOCKED: 2004,
+  ACCOUNT_LOCKED: 2005,
+  INVALID_LINK_TOKEN: 2006,
+} as const;
+
+async function parseError(res: Response): Promise<ApiError> {
   try {
-    const data = (await res.json()) as { message?: string };
-    return data.message ?? res.statusText;
+    const data = (await res.json()) as {
+      message?: string;
+      code?: number;
+      data?: Record<string, unknown> | null;
+    };
+    return new ApiError(
+      res.status,
+      data.message ?? res.statusText,
+      data.code,
+      data.data
+    );
   } catch {
-    return res.statusText || "Request failed";
+    return new ApiError(res.status, res.statusText || "Request failed");
   }
 }
 
@@ -42,7 +70,7 @@ export async function api<T>(
 
   const res = await fetch(`${API_BASE}${path}`, { ...options, headers });
   if (!res.ok) {
-    throw new ApiError(res.status, await parseError(res));
+    throw await parseError(res);
   }
   if (res.status === 204) return undefined as T;
   return (await res.json()) as T;
@@ -55,9 +83,29 @@ export const authApi = {
       body: JSON.stringify({ email, password }),
     }),
   register: (body: RegisterBody) =>
-    api<AuthResponse>("/auth/register", {
+    api<RegisterResponse>("/auth/register", {
       method: "POST",
       body: JSON.stringify(body),
+    }),
+  verifyEmail: (token: string) =>
+    api<AuthResponse>("/auth/verify-email", {
+      method: "POST",
+      body: JSON.stringify({ token }),
+    }),
+  resendVerification: (email: string) =>
+    api<MessageResponse>("/auth/resend-verification", {
+      method: "POST",
+      body: JSON.stringify({ email }),
+    }),
+  forgotPassword: (email: string) =>
+    api<MessageResponse>("/auth/forgot-password", {
+      method: "POST",
+      body: JSON.stringify({ email }),
+    }),
+  resetPassword: (token: string, newPassword: string) =>
+    api<MessageResponse>("/auth/reset-password", {
+      method: "POST",
+      body: JSON.stringify({ token, newPassword }),
     }),
   me: () => api<UserDto>("/auth/me"),
   chooseRole: (role: "CANDIDATE" | "RECRUITER") =>
@@ -176,6 +224,19 @@ export interface RegisterBody {
   email: string;
   password: string;
 }
+
+export interface RegisterResponse {
+  email: string;
+  message: string;
+}
+
+export interface MessageResponse {
+  message: string;
+}
+
+/** Quy tắc mật khẩu giống backend: 8–100 ký tự, có chữ và số. */
+export const PASSWORD_RULE = /^(?=.*[A-Za-z])(?=.*\d).{8,100}$/;
+export const PASSWORD_HINT = "Ít nhất 8 ký tự, gồm cả chữ và số.";
 
 export interface JobDto {
   id: number;

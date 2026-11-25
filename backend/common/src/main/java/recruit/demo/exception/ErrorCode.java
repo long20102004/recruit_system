@@ -27,6 +27,11 @@ public enum ErrorCode {
     // ── Identity (2xxx) ──────────────────────────────────
     INVALID_CREDENTIALS(2001, "Invalid email or password", HttpStatus.UNAUTHORIZED),
     EMAIL_ALREADY_EXISTS(2002, "Email already exists", HttpStatus.CONFLICT),
+    EMAIL_NOT_VERIFIED(2003, "Email chưa được xác thực", HttpStatus.FORBIDDEN),
+    LOGIN_TEMPORARILY_LOCKED(2004, "Đăng nhập sai quá nhiều lần, tài khoản đang tạm khoá", HttpStatus.LOCKED),
+    ACCOUNT_LOCKED(2005, "Tài khoản đã bị khoá", HttpStatus.FORBIDDEN),
+    INVALID_LINK_TOKEN(2006, "Link không hợp lệ hoặc đã hết hạn", HttpStatus.BAD_REQUEST),
+    CANNOT_LOCK_USER(2007, "Không thể khoá tài khoản này", HttpStatus.BAD_REQUEST),
 
     // ── CV / trích xuất (3xxx) ───────────────────────────
     CV_FILE_REQUIRED(3001, "File is required", HttpStatus.BAD_REQUEST),

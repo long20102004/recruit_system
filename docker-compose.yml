@@ -73,6 +73,25 @@ services:
       timeout: 5s
       retries: 30
 
+  # Redis: khoá tạm đăng nhập, token dùng một lần, cache tóm tắt người dùng (specs/003-auth-flow)
+  redis:
+    image: redis:7
+    command: ["redis-server", "--save", "", "--appendonly", "no"]
+    ports:
+      - "127.0.0.1:6380:6379"   # 6380 để không đụng Redis khác trên máy; chỉ cần khi chạy Java ngoài Docker
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 5s
+      timeout: 3s
+      retries: 20
+
+  # Hộp thư dev: SMTP 1025, giao diện xem mail http://localhost:8025
+  mailpit:
+    image: axllent/mailpit:v1.27
+    ports:
+      - "127.0.0.1:8025:8025"
+      - "127.0.0.1:1025:1025"
+
   identity-service:
     build:
       context: ./backend
@@ -93,9 +112,20 @@ services:
       AI_READ_TIMEOUT_MS: 180000
       CV_EXTRACTION_URL: ${CV_EXTRACTION_URL:-http://cv-extraction-ai:8000}
       CORS_ORIGINS: ${CORS_ORIGINS:-http://localhost:5173}
+      REDIS_HOST: redis
+      REDIS_PORT: 6379
+      MAIL_HOST: ${MAIL_HOST:-mailpit}
+      MAIL_PORT: ${MAIL_PORT:-1025}
+      MAIL_USERNAME: ${MAIL_USERNAME:-}
+      MAIL_PASSWORD: ${MAIL_PASSWORD:-}
+      MAIL_SMTP_AUTH: ${MAIL_SMTP_AUTH:-false}
+      MAIL_STARTTLS: ${MAIL_STARTTLS:-false}
+      APP_FRONTEND_URL: ${APP_FRONTEND_URL:-http://localhost:5173}
     ports:
       - "127.0.0.1:8081:8081"
     depends_on:
+      redis:
+        condition: service_healthy
       identity-db:
         condition: service_healthy
     healthcheck:
@@ -129,9 +159,13 @@ services:
       CVMATCH_URL: ${CVMATCH_URL:-http://cvmatch-ai:8000}
       CVMATCH_SYNC_ENABLED: ${CVMATCH_SYNC_ENABLED:-true}
       CORS_ORIGINS: ${CORS_ORIGINS:-http://localhost:5173}
+      REDIS_HOST: redis
+      REDIS_PORT: 6379
     ports:
       - "127.0.0.1:8082:8082"
     depends_on:
+      redis:
+        condition: service_healthy
       recruitment-db:
         condition: service_healthy
       identity-service:
@@ -167,9 +201,13 @@ services:
       AI_READ_TIMEOUT_MS: 180000
       CV_EXTRACTION_URL: ${CV_EXTRACTION_URL:-http://cv-extraction-ai:8000}
       CORS_ORIGINS: ${CORS_ORIGINS:-http://localhost:5173}
+      REDIS_HOST: redis
+      REDIS_PORT: 6379
     ports:
       - "127.0.0.1:8083:8083"
     depends_on:
+      redis:
+        condition: service_healthy
       interview-db:
         condition: service_healthy
       identity-service:

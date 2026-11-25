@@ -11,6 +11,7 @@ import {
   authApi,
   getToken,
   setToken,
+  type RegisterResponse,
   type RoleDto,
   type UserDto,
 } from "../api/client";
@@ -20,7 +21,10 @@ interface AuthState {
   user: UserDto | null;
   loading: boolean;
   login: (email: string, password: string) => Promise<UserDto>;
-  register: (input: { email: string; password: string }) => Promise<UserDto>;
+  /** Tạo tài khoản; chưa đăng nhập cho tới khi xác thực email. */
+  register: (input: { email: string; password: string }) => Promise<RegisterResponse>;
+  /** Dùng token trong link xác thực email; thành công thì đăng nhập luôn. */
+  verifyEmail: (token: string) => Promise<UserDto>;
   chooseRole: (role: "CANDIDATE" | "RECRUITER") => Promise<UserDto>;
   logout: () => void;
   headerMode: HeaderMode;
@@ -65,8 +69,13 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     return res.user;
   }, []);
 
-  const register = useCallback(async (input: { email: string; password: string }) => {
-    const res = await authApi.register(input);
+  const register = useCallback(
+    (input: { email: string; password: string }) => authApi.register(input),
+    []
+  );
+
+  const verifyEmail = useCallback(async (token: string) => {
+    const res = await authApi.verifyEmail(token);
     setToken(res.token);
     setUser(res.user);
     return res.user;
@@ -90,12 +99,13 @@ export function AuthProvider({ children }: { children: ReactNode }) {
       loading,
       login,
       register,
+      verifyEmail,
       chooseRole,
       logout,
       headerMode: roleToHeader(user?.role),
       uiRole: roleToUi(user?.role),
     }),
-    [user, loading, login, register, chooseRole, logout]
+    [user, loading, login, register, verifyEmail, chooseRole, logout]
   );
 
   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;
