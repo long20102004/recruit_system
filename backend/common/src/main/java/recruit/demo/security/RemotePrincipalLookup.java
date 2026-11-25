@@ -11,17 +11,23 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 public class RemotePrincipalLookup implements PrincipalLookup {
     private final ServiceHttpClient http;
     private final String identityUrl;
-    public RemotePrincipalLookup(ServiceHttpClient http, @Value("${app.services.identity-url}") String url) {
-        this.http = http; identityUrl = url;
+    private final UserSnapshotCache cache;
+    public RemotePrincipalLookup(ServiceHttpClient http, @Value("${app.services.identity-url}") String url,
+                                 UserSnapshotCache cache) {
+        this.http = http; identityUrl = url; this.cache = cache;
     }
     public UserPrincipal load(Integer id, String email) {
-        UserSnapshot user;
-        try { user = http.get(identityUrl + "/internal/users/" + id, UserSnapshot.class); }
-        catch (ApiException ex) {
-            if (ex.getStatus().value() == 404) throw new UsernameNotFoundException("User not found");
-            throw ex;
+        UserSnapshot user = cache.get(id).orElse(null);
+        if (user == null) {
+            try { user = http.get(identityUrl + "/internal/users/" + id, UserSnapshot.class); }
+            catch (ApiException ex) {
+                if (ex.getStatus().value() == 404) throw new UsernameNotFoundException("User not found");
+                throw ex;
+            }
+            cache.put(user);
         }
         if (!user.email().equalsIgnoreCase(email)) throw new UsernameNotFoundException("User not found");
-        return new UserPrincipal(user.id(), user.email(), "", user.fullName(), user.role(), user.status());
+        return new UserPrincipal(user.id(), user.email(), "", user.fullName(), user.role(), user.status(),
+                user.sessionsValidAfter());
     }
 }

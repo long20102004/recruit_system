@@ -42,7 +42,8 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
             } catch (recruit.demo.exception.ApiException ex) {
                 response.sendError(ex.getStatus().value()); return;
             }
-            if (!principal.isEnabled() || !principal.isAccountNonLocked()) {
+            if (!principal.isEnabled() || !principal.isAccountNonLocked()
+                    || !principal.acceptsTokenIssuedAt(jwtService.parseClaims(token).getIssuedAt())) {
                 response.sendError(401); return;
             }
             UsernamePasswordAuthenticationToken authentication =

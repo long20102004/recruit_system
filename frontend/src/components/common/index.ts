@@ -33,6 +33,7 @@ export { Chat, ChatBubble } from "./ChatBubble";
 export { EvalBlock, EvalRow } from "./EvalBlock";
 export { RoleOption, RoleSwitch } from "./RoleOption";
 export { AuthPage, AuthPanel, AuthAside, AuthForm } from "./AuthLayout";
+export { ResendVerificationButton } from "./ResendVerificationButton";
 export { Table } from "./Table";
 export { SiteHeader } from "./SiteHeader";
 export type { SiteHeaderProps } from "./SiteHeader";
