@@ -10,7 +10,7 @@ Tài liệu này hướng dẫn **chạy toàn bộ hệ thống trên máy loca
 
 ```mermaid
 flowchart LR
-    FE[Frontend React :5173] -->|/api| GW[API Gateway Nginx :8080]
+    FE[Frontend React :5173] -->|/api| GW[API Gateway Spring Cloud :8080]
     GW --> ID[Identity :8081]
     GW --> RC[Recruitment :8082]
     GW --> IV[Interview :8083]
@@ -28,7 +28,7 @@ flowchart LR
 | Thành phần | Thư mục | Cổng local | Chạy khi |
 |---|---|---|---|
 | Frontend (React, Vite) | `frontend/` | 5173 | luôn |
-| API Gateway (Nginx) | `infra/gateway/` | 8080 | luôn |
+| API Gateway (Spring Cloud Gateway): định tuyến `/api` tới 3 service | `backend/api-gateway/` | 8080 | luôn |
 | Identity Service: tài khoản, JWT | `backend/identity-service/` | 8081 | luôn |
 | Recruitment Service: CV, việc làm, ứng tuyển, gọi M1/M2 | `backend/recruitment-service/` | 8082 | luôn |
 | Interview Service: phiên phỏng vấn, chấm | `backend/interview-service/` | 8083 | luôn |
@@ -202,15 +202,17 @@ curl -s -X POST http://127.0.0.1:8001/api/v1/extract-cv \
 ### Backend Java
 
 ```bash
+# DB, Redis, Mailpit chạy trong Docker
 docker compose up -d identity-db recruitment-db interview-db redis mailpit
 cd backend
 JAVA_HOME=<JDK 17 hoặc 21> ./mvnw clean package
 java -jar identity-service/target/identity-service-0.0.1-SNAPSHOT.jar        # terminal 1, :8081
 java -jar recruitment-service/target/recruitment-service-0.0.1-SNAPSHOT.jar  # terminal 2, :8082
 java -jar interview-service/target/interview-service-0.0.1-SNAPSHOT.jar      # terminal 3, :8083
+java -jar api-gateway/target/api-gateway-0.0.1-SNAPSHOT.jar                  # terminal 4, :8080
 ```
 
-Cấu hình mặc định trỏ tới MySQL local 3307/3308/3309. Gateway Nginx đi kèm trỏ theo tên container của Compose, nên khi chạy Java ngoài Docker hãy gọi thẳng cổng từng service (hoặc sửa `infra/gateway/nginx.conf`). Recruitment Service đọc `CV_EXTRACTION_URL` (mặc định trong code: `http://localhost:8001`) và `CVMATCH_URL` để gọi AI.
+Cấu hình mặc định trỏ tới MySQL local 3307/3308/3309, Redis 6380, Mailpit SMTP 1025, nên không cần đặt biến môi trường. Gateway mặc định chuyển tới `localhost:8081/8082/8083` (đổi bằng `IDENTITY_URL`, `RECRUITMENT_URL`, `INTERVIEW_URL`), nên frontend `npm run dev` gọi `:8080` như bình thường. Bảng định tuyến nằm trong `backend/api-gateway/src/main/resources/application.yml`; thêm API mới với tiền tố mới thì phải thêm route ở đây. Cần JDK 17 hoặc 21; JDK 25 làm Lombok lỗi khi build sạch. Recruitment Service đọc `CV_EXTRACTION_URL` (mặc định trong code: `http://localhost:8001`) và `CVMATCH_URL` để gọi AI.
 
 ### Module 1 · Trích xuất CV
 

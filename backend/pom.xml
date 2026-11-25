@@ -25,5 +25,6 @@
         <module>identity-service</module>
         <module>recruitment-service</module>
         <module>interview-service</module>
+        <module>api-gateway</module>
     </modules>
 </project>
