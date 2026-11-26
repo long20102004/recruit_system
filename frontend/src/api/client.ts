@@ -149,12 +149,13 @@ export const cvsApi = {
   upload: (file: File) => {
     const fd = new FormData();
     fd.append("file", file);
-    return api<CvFormDto>("/cvs", { method: "POST", body: fd });
+    return api<BaseResponse<CandidateProfileDto>>("/cvs", { method: "POST", body: fd });
   },
-  confirm: (fields: CvFieldDto[]) =>
+  /** profile: hồ sơ đã sửa theo CandidateProfile; fields: ghi đè thêm từng field (vd "Kỹ năng suy ra"). */
+  confirm: (body: { profile?: CandidateProfileDto; fields?: CvFieldDto[] }) =>
     api<CvFormDto>("/cvs", {
       method: "PUT",
-      body: JSON.stringify({ fields }),
+      body: JSON.stringify(body),
     }),
 };
 
@@ -296,11 +297,62 @@ export interface CvFieldDto {
   values: string[];
 }
 
+/** Khung response chung của backend: {code, message, data}. */
+export interface BaseResponse<T> {
+  code: number;
+  message: string;
+  data?: T;
+}
+
+/**
+ * Profile AI trích xuất từ CV (response của POST /api/cvs), cùng cấu trúc với
+ * CandidateProfile của /api/v1/cv/analyze-pdf (nhánh hocnv/DO-06). Trường nào AI không đọc được thì null.
+ */
+export interface CandidateProfileDto {
+  personal_info: {
+    full_name: string | null;
+    email: string | null;
+    phone: string | null;
+    github_url: string | null;
+  } | null;
+  objective: string | null;
+  education: {
+    school: string | null;
+    major: string | null;
+    start_year: number | null;
+    end_year: number | null;
+    gpa: string | null;
+  }[] | null;
+  experience: {
+    company: string | null;
+    job_title: string | null;
+    start_date: string | null;
+    end_date: string | null;
+    description: string[] | null;
+  }[] | null;
+  personal_projects: {
+    name: string | null;
+    role: string | null;
+    team_size: number | null;
+    start_date: string | null;
+    end_date: string | null;
+    github_url: string | null;
+    description: string[] | null;
+    tech_stack: string[] | null;
+  }[] | null;
+  skills: string[] | null;
+  certificates: string[] | null;
+  honours: string[] | null;
+  languages: { language: string | null; note: string | null }[] | null;
+}
+
 export interface CvFormDto {
   fileName: string | null;
   parsingStatus: string | null;
   analyzed: boolean;
   fields: CvFieldDto[];
+  /** Hồ sơ theo cấu trúc CandidateProfile đã lưu; null khi chưa tải CV. */
+  profile: CandidateProfileDto | null;
 }
 
 export interface MatchDto {

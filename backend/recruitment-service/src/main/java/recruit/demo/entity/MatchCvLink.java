@@ -1,5 +1,6 @@
 package recruit.demo.entity;
 
+import recruit.demo.enums.SyncStatus;
 import jakarta.persistence.*;
 import lombok.*;
 import org.hibernate.annotations.UpdateTimestamp;

@@ -2,8 +2,8 @@ package recruit.demo.dto;
 
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
-import recruit.demo.entity.Role;
-import recruit.demo.entity.UserStatus;
+import recruit.demo.enums.Role;
+import recruit.demo.enums.UserStatus;
 
 import java.time.LocalDateTime;
 

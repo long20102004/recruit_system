@@ -1,4 +1,4 @@
-package recruit.demo.entity;
+package recruit.demo.enums;
 
 public enum ApplicationStatus {
     SUBMITTED,

@@ -1,7 +1,7 @@
 package recruit.demo.dto;
 
 import jakarta.validation.constraints.NotBlank;
-import recruit.demo.entity.JobStatus;
+import recruit.demo.enums.JobStatus;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;

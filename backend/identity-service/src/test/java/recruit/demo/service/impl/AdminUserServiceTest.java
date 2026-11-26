@@ -1,13 +1,14 @@
-package recruit.demo.service;
+package recruit.demo.service.impl;
 
+import recruit.demo.service.*;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.context.SecurityContextHolder;
-import recruit.demo.entity.Role;
+import recruit.demo.enums.Role;
 import recruit.demo.entity.User;
-import recruit.demo.entity.UserStatus;
+import recruit.demo.enums.UserStatus;
 import recruit.demo.exception.ApiException;
 import recruit.demo.exception.BusinessException;
 import recruit.demo.repository.UserRepository;
@@ -31,7 +32,7 @@ class AdminUserServiceTest {
         repo = mock(UserRepository.class);
         cache = mock(UserCacheInvalidator.class);
         when(repo.save(any(User.class))).thenAnswer(i -> i.getArgument(0));
-        service = new AdminUserService(repo, cache);
+        service = new AdminUserServiceImpl(repo, cache);
         loginAs(1, Role.ADMIN);
     }
 

@@ -1,5 +1,7 @@
 package recruit.demo.service.cvmatch;
 
+import recruit.demo.enums.JobStatus;
+import recruit.demo.enums.SyncStatus;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpStatus;
