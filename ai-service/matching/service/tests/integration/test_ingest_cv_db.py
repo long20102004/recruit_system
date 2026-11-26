@@ -54,7 +54,7 @@ def test_ingest_sample_fills_all_tables(db, ingestor):
     cv = db.execute("SELECT * FROM cv").fetchone()
     assert (cv["status"], cv["is_latest"], cv["version"]) == ("active", True, 1)
     assert (cv["ontology_version"], cv["pipeline_version"], cv["embed_model"]) == \
-        ("kb-mini-test", "prep-1.1", "fake-bge-m3@5617a9f61b")
+        ("kb-mini-test", "prep-1.2", "fake-bge-m3@5617a9f61b")
     meta = db.execute("SELECT * FROM cv_meta").fetchone()
     assert float(meta["years_experience"]) == 4.7 and meta["role_group"] == "Backend" and meta["n_bullets"] == 2
 
@@ -85,6 +85,20 @@ def test_duplicate_and_new_version(db, ingestor):
     assert rows == {o1.cv_id: False, o3.cv_id: True}
 
 
+def test_revert_to_old_content_makes_new_version(db, ingestor):
+    """V-09: v1 -> v2 -> noi dung v1 lan nua => version 3 moi nhat (khong tra id v1 da cu)."""
+    (o1,) = ingestor.ingest_many([("v1", copy.deepcopy(SAMPLE))])
+    newer = copy.deepcopy(SAMPLE)
+    newer["summary"] = "Backend developer 5 năm kinh nghiệm Java"
+    (o2,) = ingestor.ingest_many([("v2", newer)])
+    (o3,) = ingestor.ingest_many([("v1-again", copy.deepcopy(SAMPLE))])
+    assert (o3.status, o3.version) == ("ok", 3) and o3.cv_id not in (o1.cv_id, o2.cv_id)
+    rows = {str(r["cv_id"]): r["is_latest"] for r in db.execute("SELECT cv_id, is_latest FROM cv")}
+    assert rows == {o1.cv_id: False, o2.cv_id: False, o3.cv_id: True}
+    (o4,) = ingestor.ingest_many([("v1-again-2", copy.deepcopy(SAMPLE))])
+    assert o4.status == "duplicate" and o4.cv_id == o3.cv_id
+
+
 def test_duplicate_within_same_batch(db, ingestor):
     out = ingestor.ingest_many([("x", copy.deepcopy(SAMPLE)), ("y", copy.deepcopy(SAMPLE))])
     assert [o.status for o in out] == ["ok", "duplicate"]
@@ -101,7 +115,7 @@ def test_invalid_logged_without_cv_row(db, ingestor):
 
 
 def _patch_halfvec(monkeypatch, fail_when):
-    import cvmatch.ingest.cv.a11_write as a11
+    import cvmatch.ingest.cv.write as a11
 
     real = a11.halfvec
     calls = {"n": 0}
@@ -171,7 +185,7 @@ def test_cli_ingest_dir(fresh_db_url, tmp_path, monkeypatch):
 
 def _built(ingestor, raw):
     from cvmatch.core.models import FakeEncoder as FE
-    from cvmatch.ingest.cv.a10_embed import embed_records
+    from cvmatch.ingest.cv.embed import embed_records
     from cvmatch.ingest.cv.pipeline import build_cv_record
 
     ingestor.ctx.dedup = None
@@ -181,7 +195,7 @@ def _built(ingestor, raw):
 
 
 def test_write_cvs_batch_is_atomic(db, ingestor):
-    from cvmatch.ingest.cv.a11_write import write_cvs
+    from cvmatch.ingest.cv.write import write_cvs
 
     good = _built(ingestor, copy.deepcopy(SAMPLE))
     other = copy.deepcopy(SAMPLE)

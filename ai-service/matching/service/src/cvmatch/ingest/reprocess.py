@@ -27,8 +27,8 @@ import psycopg
 
 from cvmatch.core import events
 from cvmatch.core.models import Encoder
-from cvmatch.ingest.cv.a10_embed import embed_records
-from cvmatch.ingest.cv.a11_write import write_cvs
+from cvmatch.ingest.cv.embed import embed_records
+from cvmatch.ingest.cv.write import write_cvs
 from cvmatch.ingest.cv.pipeline import build_cv_record
 from cvmatch.ingest.cv.record import CvContext
 
@@ -153,8 +153,8 @@ def _batch(conn, ctx: CvContext, encoder: Encoder, rows: list[dict], from_step: 
 def reprocess_jds(conn: psycopg.Connection, ctx, encoder: Encoder, *, limit: int | None = None) -> ReprocessReport:
     """JD: Luong B lai tren raw_json cua ban moi nhat -> version moi o bo khoa moi (ban cu giu de cau hinh cu
     van chon duoc theo bo khoa). Trang thai tin giu nguyen."""
-    from cvmatch.ingest.jd.b06_b07 import embed_jd_records
-    from cvmatch.ingest.jd.b08_write import write_jd
+    from cvmatch.ingest.jd.embed import embed_jd_records
+    from cvmatch.ingest.jd.write import write_jd
     from cvmatch.ingest.jd.pipeline import build_jd_record
 
     keys = (ctx.snapshot.ontology_version, ctx.cfg.prep.version, encoder.key())

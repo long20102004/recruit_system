@@ -1,0 +1,108 @@
+{
+  "message": "Success",
+  "code": 200,
+  "data": {
+    "certificates": [],
+    "education": [
+      {
+        "end_year": 2027,
+        "gpa": "3.33/4.0",
+        "major": "Information Technology, D22",
+        "school": "Học viện Công nghệ Demo",
+        "start_year": 2022
+      }
+    ],
+    "experience": [
+      {
+        "company": "Công ty Demo",
+        "description": [
+          "Developed RESTful APIs for CMS using Spring Boot, handling business logic and configuration management",
+          "Implemented OTP & pricing configuration modules with CRUD APIs, dynamic search, pagination, and complex validation logic (30+ properties, JSON-based storage)",
+          "Built transaction reporting APIs with multi-condition filtering and optimized SQL queries (joins across multiple tables)",
+          "Designed and optimized database operations, including complex queries, data validation, and soft delete mechanism",
+          "Integrated external system (SAPO) to synchronize product data, including data mapping, validation, and consistency handling"
+        ],
+        "end_date": "May 2026",
+        "job_title": null,
+        "start_date": "October 2025"
+      }
+    ],
+    "honours": [
+      "Full Entrance Scholarship (100%) for the First Year"
+    ],
+    "languages": [
+      {
+        "language": "English",
+        "note": "TOEIC 690"
+      }
+    ],
+    "objective": "Aspiring backend developer specializing in Java and Spring framework, passionate about building secure and scalable web applications using modern technologies.",
+    "personal_info": {
+      "email": "demo.parse@example.test",
+      "full_name": "NGUYEN VAN DEMO",
+      "github_url": "https://github.com/example-demo",
+      "phone": "0900000009"
+    },
+    "personal_projects": [
+      {
+        "description": [
+          "A full-stack e-commerce web application for book sales with the following key features: Built a full-stack e-commerce platform for book sales using Spring Boot and MySQL. Integrated Google OAuth2 + JWT for secure authentication. Implemented shopping cart, VNPAY payment gateway, and real-time order tracking. Utilized Cloudinary for product image management."
+        ],
+        "end_date": "June 2025",
+        "github_url": "https://github.com/example-demo/BookStore",
+        "name": "BOOKSTORE",
+        "role": "Developer",
+        "start_date": "May 2025",
+        "team_size": 1,
+        "tech_stack": [
+          "Spring Boot",
+          "Spring REST",
+          "Spring Data",
+          "Spring Security",
+          "MySQL",
+          "OAuth2 (Google Login)",
+          "VNPAY",
+          "Cloudinary"
+        ]
+      },
+      {
+        "description": [
+          "Built a language learning website with two main features: vocabulary learning and AI-powered practice with Gemini."
+        ],
+        "end_date": "August 2025",
+        "github_url": "https://github.com/example-demo/LMH",
+        "name": "WRITING PRACTICE",
+        "role": "Developer",
+        "start_date": "July 2025",
+        "team_size": 3,
+        "tech_stack": [
+          "Spring Boot",
+          "REST API",
+          "Data",
+          "Security",
+          "OAuth2",
+          "JSON Web Token",
+          "PostgreSQL",
+          "Redis",
+          "Liquibase",
+          "Cloudinary",
+          "Gemini"
+        ]
+      }
+    ],
+    "skills": [
+      "Spring Boot",
+      "MySQL",
+      "PostgreSQL",
+      "Redis",
+      "Docker",
+      "Git",
+      "Postman",
+      "Cloudinary",
+      "VNPay",
+      "WebSocket-Node",
+      "Java",
+      "C++"
+    ]
+  }
+}

@@ -16,7 +16,7 @@ from cvmatch.ingest.cv.record import CvContext
 from cvmatch.ingest.cv.service import CvIngestor, delete_cv
 from cvmatch.ingest.jd.pipeline import JdIngestor
 from cvmatch.ingest.reprocess import reprocess_cvs, reprocess_jds
-from cvmatch.retrieve.flow_c import retrieve_for_jd
+from cvmatch.retrieve.jd_to_cvs import retrieve_for_jd
 from cvmatch.retrieve.index import CvIndex
 from cvmatch.retrieve.jd_index import JdIndex
 

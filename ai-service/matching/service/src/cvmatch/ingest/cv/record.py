@@ -226,7 +226,7 @@ class CvContext:
             cfg=cfg,
             snapshot=snapshot,
             matcher=matcher,
-            lookup=TitleLookup(snapshot),
+            lookup=TitleLookup(snapshot, fallback=cfg.prep.role_title_fallback),
             patterns=Patterns.from_config(cfg),
             segmenter=segmenter or make_segmenter(cfg.prep.segmenter, protected),
             locations=LocationNormalizer.from_file(cfg.pattern_path("locations")),

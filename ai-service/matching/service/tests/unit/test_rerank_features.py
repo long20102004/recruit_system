@@ -5,19 +5,23 @@ import pytest
 
 from cvmatch.core.config import load_config
 from cvmatch.core.contracts import FEATURES
-from cvmatch.rerank.features import a1_a2, b4_b5
-from cvmatch.rerank.features.b1_b2_b3 import Exp, b1_role, b2_years, relevant_years, years_fit
+from cvmatch.rerank.features import skill_match, sentence_match
+from cvmatch.rerank.features.experience_fit import Exp, b1_role, b2_years, relevant_years, years_fit
 from cvmatch.rerank.scoring import Scored, finalize, gate_cap
+
+
+# chinh sach du lieu thieu cua rr-1.0 (trung vi pool, bo feature thieu phia JD); rr-1.2 thu o cuoi file (S02)
+OLD_MISSING = {"rerank": {"missing": {"cv_side_policy": "pool_median", "jd_side_policy": "drop"}}}
 
 
 @pytest.fixture(scope="module")
 def rc():
-    return load_config().rerank
+    return load_config(overrides=OLD_MISSING).rerank
 
 
 @pytest.fixture(scope="module")
 def rc_all():
-    return load_config(overrides={"rerank": {"features_enabled": list(FEATURES)}}).rerank
+    return load_config(overrides={"rerank": {"features_enabled": list(FEATURES), **OLD_MISSING["rerank"]}}).rerank
 
 
 def M(a, b):
@@ -60,30 +64,30 @@ def test_ranking_tiebreak(rc):
 
 def test_b4_example_5_3(rc):
     R = np.array([[0.84, 0.70], [0.69, 0.83]], np.float32)
-    m = b4_b5.bullet_multipliers(np.array([False, False]), np.array([False, False]), rc.b4)
-    ss = b4_b5.sentence_scores(R, m, rc.b4)
+    m = sentence_match.bullet_multipliers(np.array([False, False]), np.array([False, False]), rc.b4)
+    ss = sentence_match.sentence_scores(R, m, rc.b4)
     assert ss.c == pytest.approx([0.76, 0.72], abs=1e-5)
     assert ss.cal[0, 1] == pytest.approx(0.20, abs=1e-5) and ss.cal[1, 0] == pytest.approx(0.16, abs=1e-5)
     ids = np.array([90001, 90002])
     assert list(ids[ss.best]) == [90001, 90002]
-    assert b4_b5.aggregate(ss.c, np.ones(2, np.float32)) == pytest.approx(0.74, abs=1e-5)
-    assert [b4_b5.level_of(float(c), rc.b4) for c in (0.76, 0.45, 0.1)] == ["met", "partial", "not_evidenced"]
+    assert sentence_match.aggregate(ss.c, np.ones(2, np.float32)) == pytest.approx(0.74, abs=1e-5)
+    assert [sentence_match.level_of(float(c), rc.b4) for c in (0.76, 0.45, 0.1)] == ["met", "partial", "not_evidenced"]
 
 
 def test_b4_multipliers_and_no_evidence(rc):
     R = np.array([[0.90, 0.80]], np.float32)
-    m = b4_b5.bullet_multipliers(np.array([True, False]), np.array([False, True]), rc.b4)
+    m = sentence_match.bullet_multipliers(np.array([True, False]), np.array([False, True]), rc.b4)
     assert list(m) == pytest.approx([0.3, 0.6])
-    ss = b4_b5.sentence_scores(R, m, rc.b4)
+    ss = sentence_match.sentence_scores(R, m, rc.b4)
     assert ss.best[0] == 1 and ss.c[0] == pytest.approx(0.6 * 0.6)      # 0,3 x 1,0 < 0,6 x 0,6
-    low = b4_b5.sentence_scores(np.array([[0.5, 0.6]], np.float32), np.ones(2, np.float32), rc.b4)
+    low = sentence_match.sentence_scores(np.array([[0.5, 0.6]], np.float32), np.ones(2, np.float32), rc.b4)
     assert low.best[0] == -1 and low.c[0] == 0 and low.R_best[0] == 0     # khong co bang chung
 
 
 def test_b4_generic_weight():
-    w = b4_b5.sentence_weights([False, True], 0.0)
-    assert b4_b5.aggregate(np.array([0.8, 0.2]), w) == pytest.approx(0.8)
-    assert b4_b5.aggregate(np.array([0.2]), b4_b5.sentence_weights([True], 0.0)) is None   # jd_side
+    w = sentence_match.sentence_weights([False, True], 0.0)
+    assert sentence_match.aggregate(np.array([0.8, 0.2]), w) == pytest.approx(0.8)
+    assert sentence_match.aggregate(np.array([0.2]), sentence_match.sentence_weights([True], 0.0)) is None   # jd_side
 
 
 # --------------------------------------------------------------------------- B1, B2
@@ -132,22 +136,22 @@ def test_b1_role(rc):
 
 
 def test_a1_coverage_groups_and_facts():
-    jd = [a1_a2.JdSkill("java", True, 1.0), a1_a2.JdSkill("spring", True, 1.0),
-          a1_a2.JdSkill("pg", True, 0.7, group_id=1), a1_a2.JdSkill("mysql", True, 0.4, group_id=1),
-          a1_a2.JdSkill("kafka", False, 0.4)]
-    cv = {"java": a1_a2.CvSkill("java", 0.6, None, "skills[0]"), "mysql": a1_a2.CvSkill("mysql", 1.0, 7, "x"),
-          "kotlin": a1_a2.CvSkill("kotlin", 1.0, 8, "y")}
-    assert a1_a2.coverage(jd, cv, True) == pytest.approx((0.6 + 0 + 0.7 * 1.0) / 2.7)
-    assert a1_a2.coverage(jd, cv, False) == 0.0
-    assert a1_a2.coverage([a1_a2.JdSkill("kafka", False, 0.4)], cv, True) is None
+    jd = [skill_match.JdSkill("java", True, 1.0), skill_match.JdSkill("spring", True, 1.0),
+          skill_match.JdSkill("pg", True, 0.7, group_id=1), skill_match.JdSkill("mysql", True, 0.4, group_id=1),
+          skill_match.JdSkill("kafka", False, 0.4)]
+    cv = {"java": skill_match.CvSkill("java", 0.6, None, "skills[0]"), "mysql": skill_match.CvSkill("mysql", 1.0, 7, "x"),
+          "kotlin": skill_match.CvSkill("kotlin", 1.0, 8, "y")}
+    assert skill_match.coverage(jd, cv, True) == pytest.approx((0.6 + 0 + 0.7 * 1.0) / 2.7)
+    assert skill_match.coverage(jd, cv, False) == 0.0
+    assert skill_match.coverage([skill_match.JdSkill("kafka", False, 0.4)], cv, True) is None
     rel = lambda a, b: 0.4 if {a, b} == {"kotlin", "spring"} else (1.0 if a == b else 0.0)  # noqa: E731
-    assert a1_a2.coverage(jd, cv, True, rel) == pytest.approx((0.6 + 0.4 + 0.7) / 2.7)
+    assert skill_match.coverage(jd, cv, True, rel) == pytest.approx((0.6 + 0.4 + 0.7) / 2.7)
     relation = lambda a, b: "sibling" if {a, b} == {"kotlin", "spring"} else None  # noqa: E731
-    f = a1_a2.skill_facts(jd, cv, relation)
+    f = skill_match.skill_facts(jd, cv, relation)
     assert [(m.skill, m.evidence_id) for m in f.met] == [("java", "skills[0]"), ("mysql", "7")]
     assert [(p.required, p.found, p.relation) for p in f.partial] == [("spring", "kotlin", "sibling")]
     assert f.missing == []
-    assert a1_a2.skill_facts(jd, cv).missing == ["spring"]
+    assert skill_match.skill_facts(jd, cv).missing == ["spring"]
 
 
 # --------------------------------------------------------------------------- 5.8
@@ -161,11 +165,11 @@ def test_missing_policies(rc):
     finalize(rs, rc)
     nd = next(r for r in rs if r.item_id == "nd")
     assert nd.used["B4"] == pytest.approx(0.6)                  # trung vi pool (0,4 0,6 0,8)
-    zero = load_config(overrides={"rerank": {"missing": {"cv_side_policy": "zero"}}}).rerank
+    zero = load_config(overrides={"rerank": {"missing": {"cv_side_policy": "zero", "jd_side_policy": "drop"}}}).rerank
     rs = rows()
     finalize(rs, zero)
     assert next(r for r in rs if r.item_id == "nd").used["B4"] == 0.0
-    drop = load_config(overrides={"rerank": {"missing": {"cv_side_policy": "drop"}}}).rerank
+    drop = load_config(overrides={"rerank": {"missing": {"cv_side_policy": "drop", "jd_side_policy": "drop"}}}).rerank
     rs = rows()
     finalize(rs, drop)
     nd = next(r for r in rs if r.item_id == "nd")
@@ -207,3 +211,65 @@ def test_align_word_grouping_and_literal_rule():
     assert m == ["phát triển", "API", "thanh toán"] and miss == ["Thiết kế", "hệ thống"]
     m, miss, _ = align_words(jd, jd_emb, cv_emb, 0.75, seg)          # nguong cosine du thap -> moi tu khop
     assert miss == [] and len(m) == 5
+
+
+# --------------------------------------------------------------------------- S02 (rr-1.2): diem khong phu thuoc pool
+
+
+@pytest.fixture(scope="module")
+def rc12():
+    return load_config(overrides={"rerank": {"missing": {
+        "cv_side_policy": "fixed", "cv_side_fixed": {"A1": 0.2, "B1": 0.4, "B2": 0.0, "B4": 0.2},
+        "jd_side_policy": "neutral", "jd_side_neutral": {"B1": 0.5, "B2": 0.5, "B3": 0.5, "C1": 0.5}}}}).rerank
+
+
+def _pool(n: int) -> list[Scored]:
+    rng = np.random.default_rng(n)
+    rows = [Scored(f"x{i}", {"A1": float(rng.random()), "B4": float(rng.random()), "B1": 1.0, "B2": float(rng.random())},
+                   {}) for i in range(n)]
+    return rows
+
+
+def test_fixed_policy_score_does_not_depend_on_pool(rc12):
+    """V-04: cung mot cap (CV thieu B4) cho cung diem trong pool 1, 34, 200."""
+    def target():
+        return Scored("cv", {"A1": 0.7, "B4": None, "B1": 1.0, "B2": 0.8}, {"B4": "cv_side"})
+    scores = set()
+    for n in (0, 33, 199):
+        rows = _pool(n) + [target()]
+        finalize(rows, rc12)
+        t = next(r for r in rows if r.item_id == "cv")
+        assert t.used["B4"] == pytest.approx(0.2)
+        scores.add((t.score, round(t.s_raw, 9)))
+    assert len(scores) == 1
+
+
+def test_pool_median_depends_on_pool(rc):
+    """Doi chung: chinh sach cu (rr-1.0) cho diem khac nhau theo pool."""
+    scores = set()
+    for n in (0, 33):
+        rows = _pool(n) + [Scored("cv", {"A1": 0.7, "B4": None, "B1": 1.0, "B2": 0.8}, {"B4": "cv_side"})]
+        finalize(rows, rc)
+        scores.add(next(r for r in rows if r.item_id == "cv").score)
+    assert len(scores) == 2
+
+
+def test_jd_side_neutral_keeps_feature_set(rc12):
+    """V-01: JD khong ghi so nam -> B2 trung tinh 0,5 thay vi bi bo; B4 thieu phia JD van bi bo."""
+    r = Scored("jd", {"A1": 0.8, "B4": None, "B1": 1.0, "B2": None}, {"B4": "jd_side", "B2": "jd_side"})
+    finalize([r], rc12)
+    assert r.used["B2"] == 0.5 and r.used["B4"] is None
+    assert r.s_raw == pytest.approx((0.25 * 0.8 + 0.10 * 1.0 + 0.10 * 0.5) / 0.45)
+
+
+def test_fixed_policy_without_value_drops(rc12):
+    """Feature bat them (vd qua ablation) chua co gia tri do san -> bo, khong loi."""
+    r = Scored("cv", {"A1": 0.7, "B4": None, "B1": 1.0, "B2": 0.8, "A2": None}, {"A2": "cv_side"})
+    rc = rc12.model_copy(update={"features_enabled": ["A1", "A2", "B4", "B1", "B2"]})
+    finalize([r], rc)
+    assert r.used["A2"] is None
+
+
+def test_neutral_values_must_be_in_range():
+    with pytest.raises(Exception, match="jd_side_neutral"):
+        load_config(overrides={"rerank": {"missing": {"jd_side_neutral": {"B1": 1.5}}}})

@@ -12,6 +12,7 @@ from typing import Any
 
 import hmac
 import os
+import threading
 
 from fastapi import Body, FastAPI, HTTPException, Request
 from fastapi.responses import JSONResponse
@@ -23,8 +24,8 @@ from cvmatch.api.services import Services, config_and_encoder
 from cvmatch.explain.checks import ExplainCheckError
 from cvmatch.explain.facts import FactsNotFound
 from cvmatch.rerank.run import RerankError
-from cvmatch.retrieve.flow_c import JdNotReady
-from cvmatch.retrieve.flow_d import CvNotReady
+from cvmatch.retrieve.jd_to_cvs import JdNotReady
+from cvmatch.retrieve.cv_to_jds import CvNotReady
 
 _ERR = {404: {"model": S.ErrorOut}, 409: {"model": S.ErrorOut}}
 
@@ -85,6 +86,10 @@ def create_app(services: Services | Callable[[], Services] | None = None, *, tok
         svc = services if isinstance(services, Services) else (services or default_services)()
         app.state.svc, app.state.jobs = svc, JobRegistry()
         log_event("api_start", **{k: v for k, v in svc.cfg.versions.model_dump().items()})
+        # S05 / V-12: lam nong cache token BERTScore chay nen (API nhan request ngay). 0 = tat.
+        warm_s = float(os.environ.get("CVMATCH_WARM_MAX_S", "600" if own else "0"))
+        if warm_s > 0:
+            threading.Thread(target=svc.warm_cache, kwargs={"max_s": warm_s}, name="warm-cache", daemon=True).start()
         try:
             yield
         finally:
@@ -147,6 +152,14 @@ def create_app(services: Services | Callable[[], Services] | None = None, *, tok
             return JSONResponse(request.app.state.jobs.submit("ingest_cv_batch", run), status_code=202)
         return run()
 
+    @app.patch("/cv/{cv_id}", response_model=S.CvPatchOut, tags=["cv"], responses=_ERR)
+    def patch_cv(request: Request, cv_id: str, body: S.CvPatchIn):
+        """S07: ung vien bat / tat nhan goi y viec lam (ap cho moi ban CV cua cung nguoi)."""
+        ids = svc(request).set_recommendable(cv_id, body.recommendable)
+        if ids is None:
+            raise HTTPException(404, f"khong co CV {cv_id}")
+        return {"cv_id": cv_id, "recommendable": body.recommendable, "cv_ids": ids}
+
     @app.delete("/cv/{cv_id}", response_model=S.CvDeleteOut, tags=["cv"], responses=_ERR)
     def del_cv(request: Request, cv_id: str):
         if not svc(request).delete_cv(cv_id):
@@ -179,7 +192,8 @@ def create_app(services: Services | Callable[[], Services] | None = None, *, tok
             hf = None
         run = lambda: _match_out(s.match_jd(jd_id, K=body.K, N=body.N, hard_filters=hf,  # noqa: E731
                                             exclude_cv_ids=body.exclude_cv_ids, views=body.views,
-                                            ref_ym=body.ref_ym, include_cv_ids=body.include_cv_ids))
+                                            ref_ym=body.ref_ym, include_cv_ids=body.include_cv_ids,
+                                            only_recommendable=body.only_recommendable, min_score=body.min_score))
         if body.background:
             return JSONResponse(request.app.state.jobs.submit("match_jd", run), status_code=202)
         return run()

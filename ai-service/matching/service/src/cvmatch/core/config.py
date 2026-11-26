@@ -1,6 +1,6 @@
 """Doc cau hinh co phien ban (thiet ke 11) va sinh bo khoa phien ban (thiet ke 00 muc 3.4).
 
-Moi tham so (UL) nam trong file YAML o `services/cvmatch-ai/config/`, khong viet cung trong code.
+Moi tham so (UL) nam trong file YAML o `ai-service/matching/service/config/`, khong viet cung trong code.
 `active.yaml` chon file nao dang dung cho tung tang.
 """
 
@@ -52,6 +52,9 @@ class NoDiacriticsConfig(_Strict):
 
 class JdPrepConfig(_Strict):
     min_query_words: int = 50
+    # S04 / V-05: `responsibilities` chi co 1 dong dai hon muc nay (hoac khong co ma co `description`) -> tach cau.
+    # None = khong tach (prep-1.0, 1.1).
+    split_min_words: int | None = None
 
 
 class UnknownSkillConfig(_Strict):
@@ -60,6 +63,17 @@ class UnknownSkillConfig(_Strict):
 
 class ExperienceConfig(_Strict):
     role_keyword_ratio: float = 2.0
+    # S03 / V-06: Module 1 de `end_date = null`. "all" (cu): moi muc co start la dang lam; "latest": chi muc co start
+    # moi nhat, muc cu hon -> end khong ro (date_unparsed).
+    null_end_current: Literal["all", "latest"] = "all"
+
+
+class EducationConfig(_Strict):
+    """S03 / V-07: thieu `end` nhung `start` gan (<= max_study_years) -> dang hoc, du kien tot nghiep sau
+    default_duration_years. Khong khai bao (prep-1.0, 1.1) -> `unknown` nhu cu."""
+
+    max_study_years: int = 5
+    default_duration_years: int = 4
 
 
 class PatternFiles(_Strict):
@@ -81,6 +95,10 @@ class PrepConfig(_Strict):
     jd: JdPrepConfig
     unknown_skill: UnknownSkillConfig
     experience: ExperienceConfig
+    education: EducationConfig | None = None
+    # S04 / V-02: chuc danh bo tu cap bac ma khong tra duoc (vd "Java Intern") -> thu them duoi "developer" va tu khoa
+    # nhom vai tro. False = nhu prep-1.0, 1.1.
+    role_title_fallback: bool = False
     level_from_years: list[tuple[float, int]]
     protected_tokens: list[str]
     patterns: PatternFiles
@@ -140,6 +158,9 @@ class RetrieveConfig(_Strict):
     bm25: Bm25Config
     hard_filters: HardFilterConfig
     min_pool_warn: int = 20
+    # S06 / V-20: HR xem nguoi DA NOP (`include_cv_ids`) <= nguong nay -> rerank va tra TOAN BO pool (K = N = so CV),
+    # khong ai bi loai o buoc so bo. None = nhu cu (top K roi top N). Nguong theo do S05 (research/reports/bench_*.md).
+    pool_rerank_all_max: int | None = None
     reverse: ReverseConfig
     resp_calib: RespCalibConfig | None = None        # None = cosine tho (retrieve-1.0)
 
@@ -275,7 +296,15 @@ class GateConfig(_Strict):
 
 
 class MissingConfig(_Strict):
-    cv_side_policy: Literal["pool_median", "drop", "zero"] = "pool_median"
+    """Thiet ke 07 muc 5.8 + S02. `pool_median` lam diem phu thuoc pool (V-04); `fixed` dung gia tri do san tren kho.
+    `jd_side_policy = neutral`: feature thieu PHIA JD nhan gia tri trung tinh thay vi bi bo, de moi JD co cung tap
+    feature khi so voi nhau o Luong D (V-01). Feature khong co trong `cv_side_fixed` / `jd_side_neutral` thi bi bo
+    (vd bat them A2 qua ablation ma chua do gia tri) - van khong phu thuoc pool."""
+
+    cv_side_policy: Literal["pool_median", "drop", "zero", "fixed"] = "pool_median"
+    cv_side_fixed: dict[FeatureName, float] = Field(default_factory=dict)
+    jd_side_policy: Literal["drop", "neutral"] = "drop"
+    jd_side_neutral: dict[FeatureName, float] = Field(default_factory=dict)
 
 
 class LowDataQualityConfig(_Strict):
@@ -324,6 +353,10 @@ class RerankConfig(_Strict):
         missing = set(self.features_enabled) - set(self.weights)
         if missing:
             raise ValueError(f"feature bat nhung thieu trong so: {sorted(missing)}")
+        m = self.missing
+        for name, vals in (("cv_side_fixed", m.cv_side_fixed), ("jd_side_neutral", m.jd_side_neutral)):
+            if bad := {f: v for f, v in vals.items() if not 0.0 <= v <= 1.0}:
+                raise ValueError(f"missing.{name} phai trong [0, 1]: {bad}")
         return self
 
 

@@ -74,7 +74,7 @@ def cmd_inspect(args: argparse.Namespace) -> int:
     from cvmatch.demo.seed import load_state
 
     md = inspect_run(load_state(Path(args.data_dir) / "state.json"), args.run_id, show_all=args.all)
-    out = Path(args.out or f"reports/demo/inspect_{args.run_id[:8]}.md")
+    out = Path(args.out or f"research/reports/demo/inspect_{args.run_id[:8]}.md")
     out.parent.mkdir(parents=True, exist_ok=True)
     out.write_text(md, encoding="utf-8")
     print(md)
@@ -117,7 +117,7 @@ def register(sub: argparse._SubParsersAction) -> None:
     c.add_argument("--api", default="http://127.0.0.1:8090")
     c.add_argument("--only", default=None, help="vd health,match_params")
     c.add_argument("--data-dir", default=str(DEFAULT_DIR))
-    c.add_argument("--out", default="reports/demo/scenarios.md")
+    c.add_argument("--out", default="research/reports/demo/scenarios.md")
     c.set_defaults(func=cmd_scenarios)
 
     pm = ds.add_parser("postman", help="sinh Postman collection + environment dung cv_id / jd_id that cua DB demo")

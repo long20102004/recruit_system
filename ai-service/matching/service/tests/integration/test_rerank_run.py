@@ -16,7 +16,7 @@ from cvmatch.ingest.cv.service import CvIngestor
 from cvmatch.ingest.jd.pipeline import JdIngestor
 from cvmatch.rerank.bertscore.engine import BertScorer
 from cvmatch.rerank.run import Reranker, request_from_run
-from cvmatch.retrieve.flow_c import retrieve_for_jd
+from cvmatch.retrieve.jd_to_cvs import retrieve_for_jd
 from cvmatch.retrieve.index import CvIndex
 
 pytestmark = pytest.mark.db
@@ -55,7 +55,9 @@ POOL = {
 def env(fresh_db_url):
     migrate(fresh_db_url)
     snap = KBSnapshot.from_dir(FIX / "kb_mini")
-    cfg = load_config(overrides={"ontology_version": snap.ontology_version, "models": {"embed": {"key": KEY}}})
+    # so lieu ky vong cua T11 tinh voi chinh sach thieu du lieu cua rr-1.0 (trung vi pool)
+    cfg = load_config(overrides={"ontology_version": snap.ontology_version, "models": {"embed": {"key": KEY}},
+                                 "rerank": {"missing": {"cv_side_policy": "pool_median", "jd_side_policy": "drop"}}})
     ctx = CvContext.create(cfg, snap, hmac_key="k", ingest_ym="2026-11")
     enc = FakeEncoder(key=KEY)
     with connect(fresh_db_url) as conn:

@@ -1,6 +1,6 @@
-# cvmatch-ai: API match CV <-> JD (I01). Build tu thu muc services/cvmatch-ai:
-#   docker build -t cvmatch-ai services/cvmatch-ai                                  # CPU
-#   docker build -t cvmatch-ai --build-arg TORCH_INDEX=https://download.pytorch.org/whl/cu130 services/cvmatch-ai   # GPU
+# cvmatch-ai: API match CV <-> JD (I01). Build tu thu muc ai-service/matching/service:
+#   docker build -t cvmatch-ai ai-service/matching/service                                  # CPU
+#   docker build -t cvmatch-ai --build-arg TORCH_INDEX=https://download.pytorch.org/whl/cu130 ai-service/matching/service   # GPU
 # Model bge-m3 KHONG nam trong image: tai lan dau vao HF_HOME (gan volume de khong tai lai).
 FROM python:3.11-slim
 

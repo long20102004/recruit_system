@@ -60,7 +60,7 @@ def ensure_kb(url: str, cfg: AppConfig, kb_dir: str | Path | None) -> str:
             raise BootstrapError(f"KB {version} chua nap va khong co CVMATCH_KB_DIR")
         path = Path(kb_dir) / version
         if not (path / "manifest.json").exists():
-            raise BootstrapError(f"khong thay snapshot {path} (mount tools/build_kb/out/snapshot vao CVMATCH_KB_DIR)")
+            raise BootstrapError(f"khong thay snapshot {path} (mount ai-service/matching/kb-builder/out/snapshot vao CVMATCH_KB_DIR)")
         got = import_snapshot(conn, path)
     log_event("kb_imported", ontology_version=got, path=str(path))
     return got
