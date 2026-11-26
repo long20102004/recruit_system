@@ -46,6 +46,8 @@ public class SecurityConfig {
                                 "/api/auth/forgot-password", "/api/auth/reset-password", "/api/auth/google").permitAll()
                         .requestMatchers(HttpMethod.GET, "/api/jobs").permitAll()
                         .requestMatchers(HttpMethod.GET, "/api/jobs/{id:\\d+}").permitAll()
+                        .requestMatchers(HttpMethod.GET, "/api/companies").permitAll()
+                        .requestMatchers(HttpMethod.GET, "/api/companies/{id:\\d+}").permitAll()
                         .requestMatchers("/error", "/health", "/internal/**").permitAll()
                         .anyRequest().authenticated()
                 )

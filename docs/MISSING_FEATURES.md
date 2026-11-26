@@ -1,6 +1,6 @@
 # Các tính năng còn thiếu
 
-Cập nhật: 26/11/2026. Gộp từ danh sách tính năng hệ thống và `TASKS_ai_service.md` (24/11/2026).
+Cập nhật: 27/11/2026. Gộp từ danh sách tính năng hệ thống và `TASKS_ai_service.md` (24/11/2026).
 
 Danh sách các tính năng chưa hoàn thiện, chia theo **module AI** đã phân công (M1, M2, M3). Tính năng không thuộc module AI nào xếp vào nhóm **Chung**.
 
@@ -19,8 +19,8 @@ Service backend nơi đặt bảng và API của từng tính năng ghi ở dòn
 
 | Service | Đang quản lý | Route qua gateway |
 |---|---|---|
-| **identity-service** (8081) | Người dùng, đăng nhập, RBAC, tài khoản, cài đặt thông báo | `/api/auth/**`, `/api/account/**`, `/api/admin/users/**`, `/api/admin/roles/**` |
-| **recruitment-service** (8082) | Công ty, tin tuyển dụng, đơn ứng tuyển, CV, matching, dashboard | `/api/jobs/**`, `/api/cvs/**`, `/api/applications/**`, `/api/matching/**`, `/api/dashboard/**` |
+| **identity-service** (8081) | Người dùng, đăng nhập, RBAC, tài khoản, cài đặt thông báo, nhật ký hoạt động (`audit_logs`), dashboard admin | `/api/auth/**`, `/api/account/**`, `/api/admin/users/**`, `/api/admin/roles/**`, `/api/admin/dashboard/**`, `/api/admin/audit-logs/**` |
+| **recruitment-service** (8082) | Công ty, tin tuyển dụng, đơn ứng tuyển, CV, matching, dashboard, việc đã lưu, kiểm duyệt tin | `/api/jobs/**`, `/api/cvs/**`, `/api/applications/**`, `/api/matching/**`, `/api/dashboard/**`, `/api/companies/**`, `/api/recruiter/company/**`, `/api/admin/companies/**`, `/api/admin/jobs/**`, `/api/saved-jobs/**` |
 | **interview-service** (8083) | Ngân hàng câu hỏi, phiên phỏng vấn, chấm điểm | `/api/interviews/**` |
 | **ai-service** | Trích xuất CV, matching CV–tin, chấm câu trả lời | Gọi nội bộ từ recruitment/interview |
 | **notification** (mới) | Thông báo trong app và email | Chưa có |
@@ -33,21 +33,14 @@ Ký hiệu cho task AI:
 
 ## Tổng quan tính năng hệ thống
 
-| # | Tính năng | Module | Service chính | Task AI liên quan | Màn | Hiện trạng FE | Phụ thuộc |
+| # | Tính năng | Module | Service chính | Task AI liên quan | Màn | Hiện trạng | Phụ thuộc |
 |---|---|---|---|---|---|---|---|
-| 1 | Quản lý công ty & duyệt công ty | Chung | recruitment | — | R02, R09, AD02, P04, P05 | Mock | — |
 | 2 | Thành viên công ty & lời mời | Chung | recruitment | — | R10, C13 | Mock | 1 |
-| 3 | Quy trình xử lý đơn ứng tuyển | Chung | recruitment | F2-03, F2-08 | R05, R06, C06 | Mock (R06), chỉ xem (C06) | 1, 2 |
-| 4 | Sửa tin tuyển dụng & vòng đời tin | Chung | recruitment | F2-04 | R03, R04, R01 | Một phần | 1 |
 | 5 | Module thông báo | Chung | notification (mới) | — | C13, chuông thông báo, C14 | Mock | — |
-| 6 | Việc đã lưu | Chung | recruitment | — | C07, C01 | Mock | — |
 | 7 | Job alert | M2 | recruitment | F2-07 | C09, C01 | Mock | 5 |
 | 8 | Nhiều CV cho mỗi ứng viên | M1 | recruitment | F1-02, F1-04 | C02, C05 | Mock | — |
 | 9 | Tìm & lưu CV ứng viên | M2 | recruitment | F2-05 | R11 | Mock | 8 |
 | 10 | Mời phỏng vấn & xem kết quả phỏng vấn | M3 | interview | F3-01, F3-04, F3-05, F3-09 | R08, C10, C01, R06 | Mock | 3 |
-| 11 | Dashboard nhà tuyển dụng đầy đủ | Chung | recruitment | — | R01 | Tính trên trình duyệt | 4, 10 |
-| 12 | Dashboard & nhật ký hoạt động của admin | Chung | identity | — | AD01 | Mock | 1, 13 |
-| 13 | Kiểm duyệt tin tuyển dụng | Chung | recruitment | — | AD04 | Danh sách thật, khoá tin là mock | 5 |
 | 14 | Ngân hàng câu hỏi & mẫu CV cho admin | M3 + Chung | interview, recruitment | F3-03 | AD05, AD06 | Danh sách câu hỏi thật, chỉnh sửa là mock | — |
 | 15 | Bổ sung cho phiên phỏng vấn | M3 | interview | F3-06 | C10, C11, C12 | Thiếu chức năng | — |
 
@@ -58,6 +51,7 @@ Ký hiệu cho task AI:
 | M1 · Trích xuất CV | Upload CV PDF → trích xuất thông tin, kỹ năng (kèm liên kết KB) → ứng viên chỉnh sửa → lưu (CV-01) |
 | M2 · Matching | Ứng viên xem việc phù hợp và làm mới (MT-01); recruiter xếp hạng ứng viên của một tin (MT-02); chi tiết điểm matching (MT-03) |
 | M3 · Phỏng vấn | Tạo phiên luyện theo JD/CV (IV-01); chấm câu trả lời bằng BERTScore + rubric (IV-02); lịch sử và tổng kết phiên (IV-03); recruiter xem ngân hàng câu hỏi (IV-04) |
+| Chung | Quản lý & duyệt công ty (#1); xử lý đơn ứng tuyển, lịch sử, rút đơn, ghi chú/chấm sao & tải CV (#3); sửa tin, gia hạn, xoá nháp & tự hết hạn (#4); việc đã lưu (#6); dashboard recruiter đầy đủ (#11); dashboard & audit log admin (#12); kiểm duyệt khoá/mở khoá tin (#13) |
 
 ---
 
@@ -225,32 +219,7 @@ F2-06 ("Việc làm tương tự"): FE đã có khối này ở trang chi tiết
 
 ## Chung (chưa gán module AI)
 
-Thứ tự bên dưới cũng là thứ tự nên làm, vì nhiều tính năng phụ thuộc nhau. Tính năng 1–4 là lõi tuyển dụng, nên làm trước.
-
-### 1. Quản lý công ty và duyệt công ty
-
-**Module:** Chung (chưa gán module AI).  
-**Service chính:** recruitment-service (bảng `companies` đã có ở đây, tin tuyển dụng gắn với công ty).  
-**Service liên quan:** identity-service: quyền admin duyệt công ty; liên kết người dùng là Owner. api-gateway: route `/api/companies/**`, `/api/recruiter/company/**`, `/api/admin/companies/**`.
-
-**Màn:** R02 Đăng ký công ty, R09 Hồ sơ công ty, AD02 Duyệt công ty, P04/P05 Danh sách và trang công ty.  
-**Mock:** `recruiterMock.ts` (`getCompanyProfile`, `saveCompanyDraft`, `submitCompanyRegistration`, `updateCompanyProfile`), `companyMock.ts` (`listCompanies`, `getCompany`, `approveCompany`, `rejectCompany`, `lockCompany`, `unlockCompany`).
-
-- **Đăng ký:** nhà tuyển dụng gửi hồ sơ công ty gồm tên pháp lý, mã số thuế, lĩnh vực, quy mô, loại công ty, website, năm thành lập, địa chỉ, email, điện thoại, giới thiệu, logo và giấy phép kinh doanh. Có thể lưu nháp trước khi gửi.
-- **Trạng thái công ty:** `DRAFT → PENDING → ACTIVE | REJECTED`. Admin có thể chuyển `ACTIVE` sang `LOCKED` và mở lại.
-  - Khi bị từ chối, người gửi xem được lý do rồi sửa và gửi lại.
-  - Khi đang chờ duyệt, nhà tuyển dụng chỉ lưu được tin nháp, chưa đăng tin được.
-- **Hồ sơ công ty:** Owner và Manager sửa được thông tin hiển thị: ảnh bìa, logo, ngày làm việc, chế độ OT, lý do nên làm ở đây, công nghệ sử dụng. Đổi mã số thuế thì phải được admin duyệt lại.
-- **Trang công khai:**
-  - Danh sách chỉ gồm công ty `ACTIVE`, lọc theo tên, thành phố, lĩnh vực; sắp xếp theo số việc đang tuyển, mới tham gia, hoặc A–Z.
-  - Trang chi tiết gồm giới thiệu và danh sách tin đang mở.
-  - Có nút "Theo dõi công ty".
-- **Admin duyệt:** hàng chờ theo trạng thái, xem thông tin khai báo và mở file giấy phép để đối chiếu, duyệt hoặc từ chối (từ chối bắt buộc nhập lý do). Nếu công ty đã được người khác xử lý thì báo xung đột.
-
-**Cần làm ở backend**
-- Mở rộng bảng `companies` trong recruitment-service (thêm trạng thái, thông tin pháp lý, hồ sơ hiển thị).
-- Lưu file logo, ảnh bìa và giấy phép. Giấy phép chỉ admin được xem.
-- API `/api/companies` (công khai), `/api/recruiter/company` (đăng ký, sửa), `/api/admin/companies` (duyệt, từ chối, khoá, mở khoá).
+Các tính năng nhóm Chung còn lại cần triển khai:
 
 ### 2. Thành viên công ty và lời mời
 
@@ -282,49 +251,6 @@ Thứ tự bên dưới cũng là thứ tự nên làm, vì nhiều tính năng 
 - Phân quyền theo vai trò trong công ty, chạy song song với RBAC hệ thống hiện có.
 - Tin tuyển dụng và đơn ứng tuyển phải thuộc về **công ty**, không chỉ thuộc về người tạo như hiện nay (`createdById`).
 
-### 3. Quy trình xử lý đơn ứng tuyển
-
-**Module:** Chung (luồng đơn ứng tuyển). Phần AI: điểm phù hợp trong chi tiết đơn (F2-03) và xếp hạng kết hợp điểm phỏng vấn (F2-08) thuộc **M2**.  
-**Service chính:** recruitment-service (bảng `job_applications`).  
-**Service liên quan:** interview-service: kết quả phỏng vấn hiện trong R06. ai-service: điểm phù hợp chia theo chức danh / kinh nghiệm / kỹ năng. notification: báo ứng viên khi đơn đổi trạng thái.
-
-**Màn:** R05 Quản lý đơn, R06 Chi tiết đơn, C06 Đơn ứng tuyển của tôi.  
-**Mock:** `recruiterMock.ts` (`getApplicationDetailMock`, `updateMockApplicationStatus`, `saveMockApplicationNote`).
-
-- **Recruiter đổi trạng thái đơn** theo các bước `SUBMITTED → REVIEWING → INTERVIEW → HIRED | REJECTED`, kèm ghi chú gửi ứng viên. Đơn ở bước Phỏng vấn chỉ chuyển được sang Trúng tuyển hoặc Từ chối. Có thể chọn nhiều đơn để đổi cùng lúc.
-- **Ứng viên rút đơn** khi đơn chưa kết thúc (thêm trạng thái `WITHDRAWN`).
-- **Lịch sử trạng thái:** mỗi lần đổi đều lưu thời điểm và người thực hiện. Màn C06 hiện dòng thời gian, màn R06 hiện mục "Lịch sử".
-- **Ghi chú nội bộ và chấm sao 1–5:** chỉ thành viên công ty xem được.
-- **R06 cần thêm dữ liệu:** CV đầy đủ của ứng viên, nút tải file CV gốc, điểm phù hợp chia theo chức danh / kinh nghiệm / kỹ năng, kết quả phỏng vấn.
-- **Bộ lọc ở R05:** theo khoảng điểm phù hợp; sắp xếp theo điểm phù hợp hoặc điểm phỏng vấn.
-
-**Cần làm ở backend**
-- `PATCH /api/applications/{id}/status`, `POST /api/applications/{id}/withdraw`, `GET /api/applications/{id}` (chi tiết đơn cho recruiter).
-- Bảng `application_status_history` và `application_notes`.
-- API tải file CV gốc (kiểm tra quyền: chỉ công ty nhận đơn được tải).
-
-### 4. Sửa tin tuyển dụng và vòng đời tin
-
-**Module:** Chung. Phần AI: gỡ tin đã đóng khỏi chỉ mục matching (F2-04) thuộc **M2**.  
-**Service chính:** recruitment-service (bảng `jobs`).  
-**Service liên quan:** Không có. Job chạy theo lịch cũng đặt trong recruitment-service.
-
-**Màn:** R03 Tin tuyển dụng, R04 Đăng/sửa tin, R01 mục "Tin sắp hết hạn".
-
-- **Sửa tin đã đăng:** hiện backend chỉ có API tạo tin và đổi trạng thái, chưa có API sửa.
-- **Trường còn thiếu:** loại hợp đồng, số lượng tuyển, lương từ–đến dạng số (thay vì chuỗi `salaryText`), quyền lợi, **hạn nộp**, số câu phỏng vấn mặc định, nhãn HOT.
-- **Vòng đời tin:** Nháp → Đang đăng → Đã đóng / Hết hạn.
-  - Tin tự chuyển sang Hết hạn khi qua hạn nộp (cần một job chạy theo lịch).
-  - Có thể gia hạn.
-  - Chỉ xoá được tin nháp chưa có ứng viên.
-- **Danh sách tin (R03):** thêm cột hạn nộp, số đơn mới, người đăng; lọc theo người đăng trong công ty.
-- **Lọc lương ở trang tìm việc** (P02 "Mức lương", "Lương cao nhất"): cần lương dạng số.
-
-**Cần làm ở backend**
-- `PUT /api/jobs/{id}`, `DELETE /api/jobs/{id}`.
-- Migration thêm các trường trên.
-- Job chạy theo lịch để đánh dấu tin hết hạn.
-
 ### 5. Module thông báo
 
 **Module:** Chung (chưa gán module AI).  
@@ -343,67 +269,6 @@ Thứ tự bên dưới cũng là thứ tự nên làm, vì nhiều tính năng 
 - Service riêng hoặc module trong identity: bảng `notifications`, API `/api/notifications` (liệt kê, đánh dấu đã đọc, đếm chưa đọc).
 - Các service khác gửi sự kiện qua OpenFeign hoặc một hàng đợi tin nhắn.
 
-### 6. Việc đã lưu
-
-**Module:** Chung (chưa gán module AI).  
-**Service chính:** recruitment-service.  
-**Service liên quan:** Không có.
-
-**Màn:** C07 Việc đã lưu, ô thống kê "Việc đã lưu" ở C01, nút lưu trên thẻ việc (chưa có).  
-**Mock:** `candidateMock.ts` (`savedJobsMock.list`, `unsave`).
-
-- **Lưu / bỏ lưu tin** từ thẻ việc và trang chi tiết.
-- **Danh sách việc đã lưu:** tab Đang mở / Đã đóng – hết hạn. Tin đã đóng vẫn hiện, làm mờ, để tham khảo.
-
-**Cần làm ở backend:** bảng `saved_jobs (candidate_id, job_id, saved_at)`, API `/api/saved-jobs` (liệt kê, lưu, bỏ lưu).
-
-### 11. Dashboard nhà tuyển dụng đầy đủ
-
-**Module:** Chung (chưa gán module AI).  
-**Service chính:** recruitment-service (`DashboardController`).  
-**Service liên quan:** interview-service: số phiên đã xong và điểm trung bình (gọi qua OpenFeign).
-
-**Màn:** R01 Tổng quan tuyển dụng. Hiện FE tự tính từ tối đa 100 đơn tải về.
-
-- **Chỉ số tính ở backend** theo khoảng thời gian 7 hoặc 30 ngày: tin đang mở, tin nháp, đơn mới (so với kỳ trước), đơn chờ xử lý, số phiên phỏng vấn đã xong kèm điểm trung bình.
-- **Phễu ứng viên chính xác**, không bị giới hạn ở 100 đơn.
-- **Danh sách tin sắp hết hạn** kèm nút gia hạn (phụ thuộc tính năng 4).
-
-**Cần làm ở backend:** mở rộng `GET /api/dashboard/recruiter`, nhận thêm tham số `days`.
-
-### 12. Dashboard và nhật ký hoạt động của admin
-
-**Module:** Chung (chưa gán module AI).  
-**Service chính:** identity-service (API admin và bảng `audit_logs`).  
-**Service liên quan:** recruitment-service và interview-service: API nội bộ trả số liệu thống kê, ghi nhật ký khi có thao tác quản trị.
-
-**Màn:** AD01 Tổng quan.  
-**Mock:** `adminMock.ts` (`getAdminDashboard`, `recordAdminActivity`).
-
-- **Chỉ số toàn hệ thống:** số người dùng (kèm số mới trong 30 ngày), công ty đang hoạt động và chờ duyệt, tin đang đăng và bị khoá, đơn ứng tuyển trong 30 ngày, câu hỏi cần duyệt.
-- **Người dùng theo vai trò** và số tài khoản đang bị khoá.
-- **Hàng chờ duyệt công ty** (rút gọn), liên kết tới AD02.
-- **Nhật ký hoạt động:** duyệt/từ chối công ty, khoá tin, khoá tài khoản, thêm câu hỏi. Ghi thời gian, sự kiện, đối tượng, người thực hiện.
-
-**Cần làm ở backend:** API thống kê tổng hợp gọi sang các service, bảng `audit_logs` (identity hoặc service dùng chung).
-
-### 13. Kiểm duyệt tin tuyển dụng
-
-**Module:** Chung (chưa gán module AI).  
-**Service chính:** recruitment-service (bảng `jobs`).  
-**Service liên quan:** notification: báo nhà tuyển dụng khi tin bị khoá. api-gateway: route `/api/admin/jobs/**`.
-
-**Màn:** AD04 Tin tuyển dụng. Danh sách tin là dữ liệu thật, trạng thái khoá là mock.  
-**Mock:** `adminMock.ts` (`getJobLockStates`, `lockAdminJob`, `unlockAdminJob`).
-
-- **Admin xem toàn bộ tin** ở mọi trạng thái, lọc theo công ty, có số ứng viên của từng tin.
-- **Khoá tin vi phạm:** chọn lý do (nội dung sai sự thật/lừa đảo, không phải việc IT, trùng lặp, khác) kèm ghi chú gửi nhà tuyển dụng. Tin bị khoá biến mất khỏi trang công khai. Có thể mở khoá.
-
-**Cần làm ở backend**
-- Thêm trạng thái `LOCKED` và các trường lý do khoá cho bảng `jobs`.
-- API `/api/admin/jobs` (danh sách, khoá, mở khoá).
-- Thông báo cho nhà tuyển dụng (tính năng 5).
-
 ### Việc nhỏ lẻ
 
 - **Ảnh đại diện** (C14, identity-service): upload, cắt ảnh, lưu và trả URL trong `/me`.
@@ -411,7 +276,7 @@ Thứ tự bên dưới cũng là thứ tự nên làm, vì nhiều tính năng 
   - lọc theo vai trò (API `GET /api/admin/users` chưa có tham số `role`);
   - cột công ty;
   - cột lần đăng nhập gần nhất (cần lưu `last_login_at`).
-- **Hiệu năng** (recruitment-service): các trang thống kê đang lấy tối đa 100 bản ghi rồi tự tính (Tổng quan ứng viên, trang tìm việc P02 lọc/sắp xếp, R01). Nên chuyển sang lọc và đếm ở backend.
+- **Hiệu năng** (recruitment-service): một số màn như Tổng quan ứng viên, trang tìm việc P02 lọc/sắp xếp đang lấy tối đa 100 bản ghi rồi tự tính ở FE. Nên chuyển sang lọc và đếm ở backend.
 - **Đăng ký** (identity-service): form đăng ký trên canvas có trường "Họ và tên" mà `POST /api/auth/register` chưa nhận.
 
 ---
@@ -426,21 +291,18 @@ Thứ tự bên dưới cũng là thứ tự nên làm, vì nhiều tính năng 
 4. **Số liệu cho báo cáo:** F2-02, F3-08 (cùng đánh giá M1 đã có trong `extraction/eval`).
 5. **P2:** các chức năng *Mới* còn lại, chỉ làm khi đã xong P0–P1.
 
-Phụ thuộc chính: F3-04 và F3-05 cần RabbitMQ (INF) và AP-06 (đổi trạng thái đơn); F2-07 cần notification-service (NT-00, NT-01); F2-05 cần CV-09.
+Phụ thuộc chính: F3-04 và F3-05 cần RabbitMQ (INF) và AP-06 (đổi trạng thái đơn — đã có lõi #3); F2-07 cần notification-service (NT-00, NT-01); F2-05 cần CV-09.
 
-**Tính năng nhóm Chung:**
+**Tính năng nhóm Chung còn lại:**
 
-1. **Lõi tuyển dụng:** 1 Công ty → 2 Thành viên → 3 Xử lý đơn → 4 Vòng đời tin. Tính năng 3 mở đường cho F3-04, F3-05, F2-08.
-2. **Thông báo:** 5. Cần trước F2-07 (job alert), lời mời phỏng vấn (F3-04) và kiểm duyệt tin (13).
-3. **Quản trị:** 13 Kiểm duyệt tin → 12 Dashboard admin.
-4. **Còn lại:** 6 Việc đã lưu, 11 Dashboard recruiter, việc nhỏ lẻ.
+1. `2 Thành viên công ty & lời mời` → `5 Module thông báo` (cần cho job alert F2-07, lời mời phỏng vấn F3-04 và thông báo khoá tin #13) → mẫu CV của `14` → `Việc nhỏ lẻ`.
 
 ## Phụ thuộc giữa module
 
 | Module | Làm chính | Cần từ nhóm khác |
 |---|---|---|
 | **M1** | 8 Nhiều CV; F1-01 → F1-06 | Mẫu CV (14, nhóm Chung) cho F1-04 |
-| **M2** | 7 Job alert, 9 Tìm CV; F2-01 → F2-08 | Đổi trạng thái đơn (3), thông báo (5), vòng đời tin (4) cho F2-04 |
-| **M3** | 10 Mời phỏng vấn, 14 Ngân hàng câu hỏi, 15 Bổ sung phiên; F3-01 → F3-09 | Đổi trạng thái đơn (3), thành viên công ty (2) cho F3-09, thông báo (5) |
-| **Chung** | 1–6, 11–13, mẫu CV, việc nhỏ lẻ | Điểm matching (F2-03) cho R06, kết quả phỏng vấn (F3-05) cho đơn |
-| **frontend** | Thay thân các hàm trong `src/api/mock/` bằng API thật khi backend xong | Tất cả |
+| **M2** | 7 Job alert, 9 Tìm CV; F2-01 → F2-08 | Thông báo (5), gỡ index AI khi đóng tin (4 / F2-04) |
+| **M3** | 10 Mời phỏng vấn, 14 Ngân hàng câu hỏi, 15 Bổ sung phiên; F3-01 → F3-09 | Thành viên công ty (2) cho F3-09, thông báo (5) |
+| **Chung** | 2 Thành viên, 5 Thông báo, mẫu CV (14), việc nhỏ lẻ | Điểm matching (F2-03) cho R06, kết quả phỏng vấn (F3-05) cho đơn |
+| **frontend** | Nối API thật cho các phần mock còn lại (`#2`, `#5`, `#7`, `#8`, `#9`, `#10`, `#14`) | Các backend tương ứng |

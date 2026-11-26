@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { Button, EmptyNote, RecruiterLayout, Can } from "../../components/common";
 import {
@@ -23,38 +23,55 @@ export function RecruiterHomePage() {
   const [jobs, setJobs] = useState<JobDto[]>([]);
   const [apps, setApps] = useState<ApplicationDto[]>([]);
   const [days, setDays] = useState(30);
+  const [renewingId, setRenewingId] = useState<number | null>(null);
   const [now] = useState(() => Date.now());
 
-  useEffect(() => {
-    Promise.all([
-      dashboardApi.recruiter(),
+  const load = useCallback(async () => {
+    const [s, j, a] = await Promise.all([
+      dashboardApi.recruiter(days),
       canReadJobs ? jobsApi.mine({ size: MAX_PAGE_SIZE }).then((p) => p.content) : Promise.resolve([]),
       canReadApps ? applicationsApi.recruiter({ size: MAX_PAGE_SIZE }).then((p) => p.content) : Promise.resolve([]),
-    ])
-      .then(([s, j, a]) => {
-        setStats(s);
-        setJobs(j);
-        setApps(a);
-      })
-      .catch((e) => toast(e.message));
-  }, [toast, canReadJobs, canReadApps]);
+    ]);
+    setStats(s);
+    setJobs(j);
+    setApps(a);
+  }, [days, canReadJobs, canReadApps]);
 
+  useEffect(() => {
+    load().catch((e) => toast(e instanceof Error ? e.message : "Không tải được dashboard"));
+  }, [load, toast]);
 
-  // Đơn trong khoảng thời gian đang chọn (theo ngày nộp) cho chỉ số "Đơn mới" và phễu.
+  async function handleRenew(jobId: number, title: string) {
+    setRenewingId(jobId);
+    try {
+      await jobsApi.renew(jobId);
+      toast(`Đã gia hạn tin “${title}” thêm 30 ngày.`);
+      await load();
+    } catch (e) {
+      toast(e instanceof Error ? e.message : "Gia hạn thất bại");
+    } finally {
+      setRenewingId(null);
+    }
+  }
+
+  // Fallback khi dữ liệu backend chi tiết đang tải.
   const inRange = apps.filter((a) => a.appliedAt && now - Date.parse(a.appliedAt) <= days * 86_400_000);
-  const count = (st: string) => inRange.filter((a) => a.status === st).length;
-  const drafts = jobs.filter((j) => j.status === "DRAFT").length;
+  const count = (st: string) => stats?.funnel?.[st] ?? inRange.filter((a) => a.status === st).length;
+  const drafts = stats?.draftJobsCount ?? jobs.filter((j) => j.status === "DRAFT").length;
+  const newApps = stats?.newApplicationsCount ?? inRange.length;
+  const submittedCount = stats?.funnel ? (stats.funnel.SUBMITTED ?? 0) : inRange.length;
   const company = jobs[0]?.company;
   const funnel: [string, number][] = [
-    ["Đã nộp", inRange.length],
+    ["Đã nộp", submittedCount],
     ["Đang xem xét", count("REVIEWING")],
     ["Phỏng vấn", count("INTERVIEW")],
     ["Trúng tuyển", count("HIRED")],
     ["Từ chối", count("REJECTED")],
   ];
-  const max = Math.max(1, inRange.length);
+  const max = Math.max(1, ...funnel.map(([, v]) => v));
   const perJob = (jobId: number) => apps.filter((a) => a.jobId === jobId).length;
   const recent = [...apps].sort((x, y) => (y.appliedAt ?? "").localeCompare(x.appliedAt ?? "")).slice(0, 8);
+  const expiringJobs = stats?.expiringJobs ?? [];
 
   return (
     <RecruiterLayout active="home">
@@ -80,14 +97,21 @@ export function RecruiterHomePage() {
           <p className="v">{stats?.openJobsCount ?? jobs.filter((j) => j.status === "PUBLISHED").length}</p>
           <p className="tiny muted">{drafts ? `${drafts} tin nháp` : "Hiển thị trên trang tìm việc"}</p></div>
         <div className="stat"><p className="l">Đơn mới ({days} ngày)</p>
-          <p className="v">{inRange.length}</p>
-          <p className="tiny muted">Tổng {stats?.applicationsCount ?? apps.length} đơn</p></div>
+          <p className="v">{newApps}</p>
+          <p className="tiny muted">
+            Tổng {stats?.applicationsCount ?? apps.length} đơn
+            {stats?.previousPeriodApplicationsCount != null ? ` · Kỳ trước: ${stats.previousPeriodApplicationsCount}` : ""}
+          </p></div>
         <div className="stat"><p className="l">Chờ xử lý</p>
-          <p className="v">{count("SUBMITTED")}</p>
-          <p className="tiny muted">Đơn ở trạng thái Đã nộp</p></div>
-        <div className="stat"><p className="l">Câu hỏi phỏng vấn</p>
-          <p className="v">{stats?.questionsCount ?? 0}</p>
-          <p className="tiny muted">Ngân hàng câu hỏi</p></div>
+          <p className="v">{stats?.pendingApplicationsCount ?? count("SUBMITTED")}</p>
+          <p className="tiny muted">Đơn Đã nộp / Đang xem xét</p></div>
+        <div className="stat"><p className="l">Phỏng vấn AI</p>
+          <p className="v">{stats?.completedInterviewsCount ?? 0}</p>
+          <p className="tiny muted">
+            {stats?.averageInterviewScore != null
+              ? `Điểm TB ${stats.averageInterviewScore.toFixed(1)}/10 · ${stats?.questionsCount ?? 0} câu hỏi`
+              : `${stats?.questionsCount ?? 0} câu hỏi ngân hàng`}
+          </p></div>
       </section>
 
       <section style={{ display: "flex", gap: 20, flexWrap: "wrap", alignItems: "flex-start" }}>
@@ -124,6 +148,28 @@ export function RecruiterHomePage() {
           })}
         </div>
       </section>
+
+      {expiringJobs.length > 0 ? (
+        <section className="card" style={{ display: "flex", flexDirection: "column", gap: 8 }}>
+          <h3 style={{ fontSize: 18 }}>Tin sắp hết hạn</h3>
+          {expiringJobs.map((ej) => (
+            <div key={ej.id} className="between" style={{ padding: "8px 0", borderTop: "1px solid var(--line)" }}>
+              <div>
+                <p style={{ fontWeight: 650, fontSize: 14 }}>{ej.title}</p>
+                <p className="tiny muted">Hết hạn: {shortDate(ej.deadline)} · {ej.applicantsCount} ứng viên</p>
+              </div>
+              <Button
+                variant="ghost"
+                size="sm"
+                disabled={renewingId === ej.id}
+                onClick={() => void handleRenew(ej.id, ej.title)}
+              >
+                {renewingId === ej.id ? "Đang gia hạn…" : "Gia hạn (+30 ngày)"}
+              </Button>
+            </div>
+          ))}
+        </section>
+      ) : null}
 
       <section className="stack" style={{ gap: 12 }}>
         <div className="between">

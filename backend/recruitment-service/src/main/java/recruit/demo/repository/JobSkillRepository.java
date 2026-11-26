@@ -12,5 +12,7 @@ public interface JobSkillRepository extends JpaRepository<JobSkill, Integer> {
     @Query("SELECT js FROM JobSkill js JOIN FETCH js.skill WHERE js.job.id = :jobId")
     List<JobSkill> findByJobId(@Param("jobId") Integer jobId);
 
-    void deleteByJobId(Integer jobId);
+    @org.springframework.data.jpa.repository.Modifying
+    @org.springframework.data.jpa.repository.Query("DELETE FROM JobSkill js WHERE js.job.id = :jobId")
+    void deleteByJobId(@Param("jobId") Integer jobId);
 }

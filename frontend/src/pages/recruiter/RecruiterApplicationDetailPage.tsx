@@ -1,7 +1,7 @@
 import { useEffect, useMemo, useState } from "react";
 import { Link, useParams } from "react-router-dom";
-import { EmptyNote, MockNote, RecruiterLayout } from "../../components/common";
-import { MAX_PAGE_SIZE, applicationsApi, type ApplicationDto } from "../../api/client";
+import { EmptyNote, RecruiterLayout } from "../../components/common";
+import { MAX_PAGE_SIZE, applicationsApi, getToken, type ApplicationDto } from "../../api/client";
 import {
   getApplicationDetailMock,
   saveMockApplicationNote,
@@ -156,12 +156,37 @@ export function RecruiterApplicationDetailPage() {
     }
   }
 
+  async function handleDownloadCv() {
+    if (!app) return;
+    if (detail?.hasCvFile === false) {
+      toast("Ứng viên chưa tải lên tệp CV PDF gốc.");
+      return;
+    }
+    try {
+      const token = getToken();
+      const res = await fetch(applicationsApi.cvFileUrl(app.id), {
+        headers: token ? { Authorization: `Bearer ${token}` } : undefined,
+      });
+      if (!res.ok) {
+        toast("Không có tệp CV để tải xuống.");
+        return;
+      }
+      const blob = await res.blob();
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement("a");
+      a.href = url;
+      a.download = detail?.cvFileName || `cv-ung-vien-${app.id}.pdf`;
+      document.body.appendChild(a);
+      a.click();
+      a.remove();
+      setTimeout(() => URL.revokeObjectURL(url), 60_000);
+    } catch {
+      toast("Không tải được tệp CV.");
+    }
+  }
+
   return (
     <RecruiterLayout active="candidates">
-      <MockNote>
-        Tiêu đề đơn và thư giới thiệu lấy từ API thật; CV, điểm phù hợp, phỏng vấn, ghi chú và chuyển trạng thái dùng dữ liệu mẫu.
-      </MockNote>
-
       {loading ? (
         <p className="muted">Đang tải chi tiết đơn ứng tuyển…</p>
       ) : !app || !detail ? (
@@ -211,7 +236,7 @@ export function RecruiterApplicationDetailPage() {
               <button
                 type="button"
                 className="btn btn-g"
-                onClick={() => toast(`Đang tải CV của ${app.candidateName} (mô phỏng).`)}
+                onClick={() => void handleDownloadCv()}
               >
                 Tải CV
               </button>
@@ -449,8 +474,8 @@ export function RecruiterApplicationDetailPage() {
                 </button>
                 <p className="help">
                   {effectiveStatus.toUpperCase() === "INTERVIEW"
-                    ? "Đơn ở Phỏng vấn chỉ chuyển được sang Trúng tuyển hoặc Từ chối. Ứng viên nhận thông báo ngay."
-                    : "Cập nhật trạng thái ở chế độ mẫu; không ghi vào hệ thống thật."}
+                    ? "Đơn ở Phỏng vấn chỉ chuyển được sang Trúng tuyển hoặc Từ chối."
+                    : "Thao tác cập nhật trạng thái sẽ được ghi nhận vào lịch sử xử lý đơn."}
                 </p>
               </section>
 

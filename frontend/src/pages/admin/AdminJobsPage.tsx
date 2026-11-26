@@ -1,14 +1,14 @@
 import { useCallback, useEffect, useMemo, useState } from "react";
-import { MAX_PAGE_SIZE, jobsApi, type JobDto } from "../../api/client";
+import { MAX_PAGE_SIZE, type JobDto } from "../../api/client";
 import {
   JOB_LOCK_REASONS,
   getJobLockStates,
+  listAdminJobs,
   lockAdminJob,
   unlockAdminJob,
   type JobLockState,
 } from "../../api/mock/adminMock";
-import { EmptyNote, MockNote, RecruiterLayout } from "../../components/common";
-import { useAuth } from "../../context/AuthContext";
+import { EmptyNote, RecruiterLayout } from "../../components/common";
 import { useToast } from "../../context/ToastContext";
 import { jobBadge, shortDate } from "../../utils/format";
 
@@ -24,7 +24,6 @@ const JOB_TABS: { key: JobTabKey; label: string }[] = [
 /** Màn AD04 · Quản lý tin tuyển dụng (design canvas AdminJobs.dc.html). */
 export function AdminJobsPage() {
   const { toast } = useToast();
-  const { user } = useAuth();
   const [jobs, setJobs] = useState<JobDto[] | null>(null);
   const [lockMap, setLockMap] = useState<Record<number, JobLockState>>({});
   const [tab, setTab] = useState<JobTabKey>("ALL");
@@ -35,15 +34,14 @@ export function AdminJobsPage() {
   const [lockNote, setLockNote] = useState("");
   const [busy, setBusy] = useState(false);
 
-  const actorEmail = user?.email ?? "admin@hirelens.local";
-
   const refreshLocks = useCallback(async () => {
-    const locks = await getJobLockStates();
+    const [page, locks] = await Promise.all([listAdminJobs({ size: MAX_PAGE_SIZE }), getJobLockStates()]);
+    setJobs(page.content);
     setLockMap(locks);
   }, []);
 
   useEffect(() => {
-    Promise.all([jobsApi.list({ size: MAX_PAGE_SIZE }), getJobLockStates()])
+    Promise.all([listAdminJobs({ size: MAX_PAGE_SIZE }), getJobLockStates()])
       .then(([page, locks]) => {
         setJobs(page.content);
         setLockMap(locks);
@@ -100,7 +98,7 @@ export function AdminJobsPage() {
     if (!lockingJob) return;
     setBusy(true);
     try {
-      await lockAdminJob(lockingJob.id, lockReason, lockNote, lockingJob.title, actorEmail);
+      await lockAdminJob(lockingJob.id, lockReason, lockNote, lockingJob.title);
       await refreshLocks();
       toast(`Đã khoá tin “${lockingJob.title}”`);
       setLockingJob(null);
@@ -115,7 +113,7 @@ export function AdminJobsPage() {
   async function onUnlock(job: JobDto) {
     setBusy(true);
     try {
-      await unlockAdminJob(job.id, job.title, actorEmail);
+      await unlockAdminJob(job.id, job.title);
       await refreshLocks();
       toast(`Đã mở khoá tin “${job.title}”`);
     } catch (e: unknown) {
@@ -127,10 +125,6 @@ export function AdminJobsPage() {
 
   return (
     <RecruiterLayout active="adminJobs">
-      <MockNote>
-        Danh sách tin tải từ hệ thống; thao tác khoá / mở khoá tin và lý do khoá đang lưu tạm trong trình duyệt.
-      </MockNote>
-
       <div className="page-head" style={{ marginBottom: 0 }}>
         <div>
           <h1 style={{ fontSize: 32 }}>Tin tuyển dụng</h1>

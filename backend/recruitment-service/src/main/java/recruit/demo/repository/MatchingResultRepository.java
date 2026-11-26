@@ -60,4 +60,6 @@ public interface MatchingResultRepository extends JpaRepository<MatchingResult, 
 
     Optional<MatchingResult> findFirstByJobIdAndCandidateIdAndModelNameAndModelVersionOrderByCreatedAtDesc(
             Integer jobId, Integer candidateId, String modelName, String modelVersion);
+
+    Optional<MatchingResult> findFirstByJobIdAndCandidateIdOrderByCreatedAtDesc(Integer jobId, Integer candidateId);
 }

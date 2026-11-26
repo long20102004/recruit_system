@@ -1,6 +1,6 @@
 import { useEffect, useState, type ChangeEvent, type KeyboardEvent } from "react";
 import { Link } from "react-router-dom";
-import { MockNote, RecruiterLayout } from "../../components/common";
+import { RecruiterLayout } from "../../components/common";
 import {
   getCompanyProfile,
   updateCompanyProfile,
@@ -140,8 +140,6 @@ export function RecruiterCompanyPage() {
 
   return (
     <RecruiterLayout active="company">
-      <MockNote />
-
       {!company || !form ? (
         <p className="muted">Đang tải hồ sơ công ty…</p>
       ) : (

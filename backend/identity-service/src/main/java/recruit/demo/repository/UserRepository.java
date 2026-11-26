@@ -6,14 +6,19 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import recruit.demo.entity.User;
+import recruit.demo.enums.Role;
 import recruit.demo.enums.UserStatus;
 
+import java.time.LocalDateTime;
 import java.util.Optional;
 
 public interface UserRepository extends JpaRepository<User, Integer> {
     Optional<User> findByEmailIgnoreCase(String email);
     Optional<User> findByGoogleSub(String googleSub);
     boolean existsByEmailIgnoreCase(String email);
+    long countByCreatedAtAfter(LocalDateTime since);
+    long countByRole(Role role);
+    long countByStatus(UserStatus status);
 
     /** Tìm theo email / họ tên (chứa, không phân biệt hoa thường) và trạng thái; tham số null = bỏ qua. */
     @Query("""

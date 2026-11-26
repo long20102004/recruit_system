@@ -1,6 +1,6 @@
 import { useEffect, useMemo, useState } from "react";
 import { Link } from "react-router-dom";
-import { EmptyNote, JobLogo, MockNote, SiteHeader } from "../../components/common";
+import { EmptyNote, JobLogo, SiteHeader } from "../../components/common";
 import { savedJobsMock, type SavedJobItem } from "../../api/mock/candidateMock";
 import { useToast } from "../../context/ToastContext";
 
@@ -63,8 +63,6 @@ export function CandidateSavedJobsPage() {
           maxWidth: 980,
         }}
       >
-        <MockNote />
-
         <div className="page-head" style={{ marginBottom: 0 }}>
           <div>
             <h1 style={{ fontSize: 34 }}>Việc đã lưu</h1>

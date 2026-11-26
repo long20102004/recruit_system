@@ -198,15 +198,25 @@ export const accountApi = {
 };
 
 export const jobsApi = {
-  list: (params?: { keyword?: string; city?: string } & PageParams) =>
+  list: (params?: { keyword?: string; city?: string; minSalary?: number } & PageParams) =>
     apiData<PageDto<JobDto>>(`/jobs${pageQuery(params, {
       keyword: params?.keyword?.trim() || undefined,
       city: params?.city && params.city !== "all" ? params.city : undefined,
+      minSalary: params?.minSalary != null && params.minSalary > 0 ? String(params.minSalary) : undefined,
     })}`),
   mine: (params?: PageParams) => apiData<PageDto<JobDto>>(`/jobs/mine${pageQuery(params)}`),
   get: (id: number) => api<JobDto>(`/jobs/${id}`),
   create: (body: CreateJobBody) =>
     api<JobDto>("/jobs", { method: "POST", body: JSON.stringify(body) }),
+  update: (id: number, body: CreateJobBody) =>
+    api<JobDto>(`/jobs/${id}`, { method: "PUT", body: JSON.stringify(body) }),
+  remove: (id: number) =>
+    api<void>(`/jobs/${id}`, { method: "DELETE" }),
+  renew: (id: number, deadline?: string) =>
+    api<JobDto>(`/jobs/${id}/renew`, {
+      method: "POST",
+      body: JSON.stringify(deadline ? { deadline } : {}),
+    }),
   updateStatus: (id: number, status: string) =>
     api<JobDto>(`/jobs/${id}/status`, {
       method: "PATCH",
@@ -221,8 +231,38 @@ export const applicationsApi = {
       body: JSON.stringify(body ?? {}),
     }),
   mine: (params?: PageParams) => apiData<PageDto<ApplicationDto>>(`/applications/mine${pageQuery(params)}`),
-  recruiter: (params?: PageParams) =>
-    apiData<PageDto<ApplicationDto>>(`/applications/recruiter${pageQuery(params)}`),
+  recruiter: (params?: PageParams & { status?: string; jobId?: number; minMatchScore?: number }) =>
+    apiData<PageDto<ApplicationDto>>(`/applications/recruiter${pageQuery(params, {
+      status: params?.status && params.status !== "ALL" ? params.status : undefined,
+      jobId: params?.jobId != null ? String(params.jobId) : undefined,
+      minMatchScore: params?.minMatchScore != null ? String(params.minMatchScore) : undefined,
+    })}`),
+  detail: (id: number) => apiData<ApplicationDetailDto>(`/applications/${id}`),
+  updateStatus: (id: number, status: string, note?: string) =>
+    apiData<ApplicationDetailDto>(`/applications/${id}/status`, {
+      method: "PATCH",
+      body: JSON.stringify({ status, note: note ?? "" }),
+    }),
+  bulkUpdateStatus: (applicationIds: number[], status: string, note?: string) =>
+    apiData<ApplicationDto[]>("/applications/bulk-status", {
+      method: "PATCH",
+      body: JSON.stringify({ applicationIds, status, note: note ?? "" }),
+    }),
+  withdraw: (id: number) =>
+    apiData<ApplicationDetailDto>(`/applications/${id}/withdraw`, { method: "POST" }),
+  saveNote: (id: number, rating: number, internalNote: string) =>
+    apiData<ApplicationDetailDto>(`/applications/${id}/note`, {
+      method: "PUT",
+      body: JSON.stringify({ rating, internalNote }),
+    }),
+  history: (id: number) => apiData<ApplicationHistoryDto[]>(`/applications/${id}/history`),
+  cvFileUrl: (id: number) => `${API_BASE}/applications/${id}/cv-file`,
+};
+
+export const savedJobsApi = {
+  list: () => apiData<SavedJobDto[]>("/saved-jobs"),
+  save: (jobId: number) => apiData<SavedJobDto>(`/saved-jobs/${jobId}`, { method: "POST" }),
+  unsave: (jobIdOrSavedId: number) => api<void>(`/saved-jobs/${jobIdOrSavedId}`, { method: "DELETE" }),
 };
 
 export const cvsApi = {
@@ -285,7 +325,7 @@ export const interviewsApi = {
 };
 
 export const dashboardApi = {
-  recruiter: () => api<RecruiterStatsDto>("/dashboard/recruiter"),
+  recruiter: (days = 30) => api<RecruiterStatsDto>(`/dashboard/recruiter?days=${days}`),
 };
 
 export type RoleDto = "CANDIDATE" | "RECRUITER" | "ADMIN";
@@ -342,6 +382,18 @@ export interface JobDto {
   postedAt: string | null;
   requiredSkills: string[];
   preferredSkills: string[];
+  salaryMin?: number | null;
+  salaryMax?: number | null;
+  currency?: string | null;
+  headcount?: number | null;
+  benefits?: string | null;
+  deadline?: string | null;
+  defaultInterviewQuestions?: number | null;
+  lockReason?: string | null;
+  lockNote?: string | null;
+  lockedAt?: string | null;
+  applicantsCount?: number;
+  createdById?: number | null;
 }
 
 export interface CreateJobBody {
@@ -361,6 +413,13 @@ export interface CreateJobBody {
   requirements?: string;
   /** Mỗi dòng một trách nhiệm (giúp ghép hồ sơ chính xác hơn). */
   responsibilities?: string;
+  salaryMin?: number | null;
+  salaryMax?: number | null;
+  currency?: string;
+  headcount?: number | null;
+  benefits?: string;
+  deadline?: string | null;
+  defaultInterviewQuestions?: number | null;
 }
 
 export interface ApplicationDto {
@@ -374,6 +433,73 @@ export interface ApplicationDto {
   status: string;
   coverLetter: string | null;
   appliedAt: string;
+  matchScore?: number | null;
+}
+
+export interface ApplicationCvDetailDto {
+  roleTitle: string;
+  yearsExpLabel: string;
+  email: string;
+  phone: string;
+  summary: string;
+  experiences: { title: string; company: string | null; period: string; description: string }[];
+  education: string;
+  matchedSkills: string[];
+  otherSkills: string[];
+}
+
+export interface ApplicationMatchDetailDto {
+  overallPercent: number;
+  breakdown: { label: string; percent: number }[];
+  missingSkills: string[];
+}
+
+export interface ApplicationHistoryDto {
+  id: number;
+  fromStatus: string | null;
+  toStatus: string;
+  statusLabel: string;
+  timestamp: string;
+  actor: string;
+  note: string | null;
+}
+
+export interface ApplicationDetailDto {
+  id: number;
+  jobId: number;
+  jobTitle: string;
+  companyName: string;
+  candidateId: number;
+  candidateName: string;
+  cvDocumentId: number | null;
+  cvFileName: string | null;
+  hasCvFile: boolean;
+  status: string;
+  coverLetter: string | null;
+  appliedAt: string;
+  rating: number;
+  internalNote: string | null;
+  cv: ApplicationCvDetailDto;
+  match: ApplicationMatchDetailDto | null;
+  history: ApplicationHistoryDto[];
+}
+
+export interface SavedJobDto {
+  id: number;
+  jobId: number;
+  title: string;
+  company: string;
+  logo: string;
+  city: string;
+  mode: string;
+  level: string;
+  salary: string;
+  skills: string[];
+  savedAt: string;
+  deadline: string | null;
+  status: "OPEN" | "CLOSED" | "EXPIRED";
+  hot: boolean;
+  match: number | null;
 }
 
 export interface CvFieldDto {
@@ -530,10 +656,25 @@ export interface EvaluationDto {
   criterionResults: CriterionResultDto[];
 }
 
+export interface ExpiringJobDto {
+  id: number;
+  title: string;
+  deadline: string;
+  applicantsCount: number;
+}
+
 export interface RecruiterStatsDto {
   openJobsCount: number;
   applicationsCount: number;
   questionsCount: number;
+  draftJobsCount?: number;
+  newApplicationsCount?: number;
+  previousPeriodApplicationsCount?: number;
+  pendingApplicationsCount?: number;
+  completedInterviewsCount?: number;
+  averageInterviewScore?: number | null;
+  funnel?: Record<string, number>;
+  expiringJobs?: ExpiringJobDto[];
 }
 
 // ── Quản trị (specs/004-rbac) ───────────────────────────

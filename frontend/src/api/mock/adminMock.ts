@@ -1,3 +1,4 @@
+import { apiData, type JobDto, type PageDto } from "../client";
 import { mockReject, mockResolve, nextId } from "./core";
 
 export interface AdminKpi {
@@ -93,30 +94,6 @@ export const CV_TONE_OPTIONS: { tone: CvPreviewTone; label: string }[] = [
   { tone: "ok", label: "Xanh lá nhạt" },
 ];
 
-const DASHBOARD_KPIS: AdminKpi[] = [
-  { id: "users", label: "Người dùng", value: "5.214", note: "+312 trong 30 ngày" },
-  { id: "companies", label: "Công ty hoạt động", value: "186", note: "5 chờ duyệt" },
-  { id: "jobs", label: "Tin đang đăng", value: "1.240", note: "3 tin bị khoá" },
-  { id: "applications", label: "Đơn ứng tuyển (30 ngày)", value: "9.870", note: "+14% so với tháng trước" },
-  { id: "questions", label: "Câu hỏi phỏng vấn", value: "30", note: "30 cần chuyên gia duyệt" },
-];
-
-const ROLE_BREAKDOWN: RoleBreakdown[] = [
-  { role: "CANDIDATE", label: "Ứng viên", count: 4870 },
-  { role: "RECRUITER", label: "Nhà tuyển dụng", count: 341 },
-  { role: "ADMIN", label: "Admin", count: 3 },
-];
-
-const ACTIVITY_LOG: AdminActivityLog[] = [
-  { id: 1, time: "24/11 10:12", event: "Duyệt công ty", badgeClass: "badge b-ok", target: "Lumen Fintech", actor: "admin@hirelens.local" },
-  { id: 2, time: "24/11 09:40", event: "Khoá tin", badgeClass: "badge b-danger", target: "Tuyển CTV nhập liệu, lương 50tr", actor: "admin@hirelens.local" },
-  { id: 3, time: "23/11 17:05", event: "Từ chối công ty", badgeClass: "badge b-warn", target: "ABC Tech", actor: "admin@hirelens.local" },
-  { id: 4, time: "23/11 15:22", event: "Khoá tài khoản", badgeClass: "badge b-danger", target: "spam.user@mail.com", actor: "admin@hirelens.local" },
-  { id: 5, time: "23/11 11:00", event: "Thêm câu hỏi", badgeClass: "badge b-brand", target: "Kafka – consumer group", actor: "admin@hirelens.local" },
-];
-
-const JOB_LOCKS: JobLockState[] = [];
-
 const CV_TEMPLATES: CvTemplateDto[] = [
   {
     id: 1,
@@ -164,101 +141,61 @@ const CV_TEMPLATES: CvTemplateDto[] = [
   },
 ];
 
-function nowShortStamp(): string {
-  const d = new Date();
-  const dd = String(d.getDate()).padStart(2, "0");
-  const mm = String(d.getMonth() + 1).padStart(2, "0");
-  const hh = String(d.getHours()).padStart(2, "0");
-  const min = String(d.getMinutes()).padStart(2, "0");
-  return `${dd}/${mm} ${hh}:${min}`;
-}
-
 function todayFormatted(): string {
   return new Date().toLocaleDateString("vi-VN");
 }
 
 export async function getAdminDashboard(): Promise<AdminDashboardData> {
-  return mockResolve({
-    kpis: DASHBOARD_KPIS,
-    roles: ROLE_BREAKDOWN,
-    lockedUsersCount: 8,
-    activityLog: ACTIVITY_LOG.slice(0, 10),
-  });
+  return apiData<AdminDashboardData>("/admin/dashboard");
 }
 
 export async function recordAdminActivity(
   entry: Omit<AdminActivityLog, "id" | "time">
 ): Promise<AdminActivityLog> {
-  const item: AdminActivityLog = {
-    id: nextId(ACTIVITY_LOG),
-    time: nowShortStamp(),
-    ...entry,
-  };
-  ACTIVITY_LOG.unshift(item);
-  return mockResolve(item);
+  return apiData<AdminActivityLog>("/admin/audit-logs", {
+    method: "POST",
+    body: JSON.stringify({
+      eventType: "ADMIN_ACTION",
+      eventLabel: entry.event,
+      badgeClass: entry.badgeClass,
+      target: entry.target,
+      actorEmail: entry.actor,
+    }),
+  });
+}
+
+export async function listAdminJobs(params?: { status?: string; companyId?: number; keyword?: string; size?: number }): Promise<PageDto<JobDto>> {
+  const qs = new URLSearchParams();
+  if (params?.status && params.status !== "ALL") qs.set("status", params.status);
+  if (params?.companyId != null) qs.set("companyId", String(params.companyId));
+  if (params?.keyword?.trim()) qs.set("keyword", params.keyword.trim());
+  qs.set("size", String(params?.size ?? 100));
+  return apiData<PageDto<JobDto>>(`/admin/jobs?${qs.toString()}`);
 }
 
 export async function getJobLockStates(): Promise<Record<number, JobLockState>> {
-  const out: Record<number, JobLockState> = {};
-  for (const item of JOB_LOCKS) {
-    if (item.locked) out[item.jobId] = item;
-  }
-  return mockResolve(out);
+  return (await apiData<Record<number, JobLockState>>("/admin/jobs/locks")) ?? {};
 }
 
 export async function lockAdminJob(
   jobId: number,
   reason: string,
   note: string,
-  jobTitle?: string,
-  actorEmail = "admin@hirelens.local"
+  _jobTitle?: string,
+  _actorEmail?: string
 ): Promise<JobLockState> {
-  const cleanReason = reason.trim();
-  if (!cleanReason) {
-    return mockReject("Vui lòng chọn lý do khoá tin.");
-  }
-  const existing = JOB_LOCKS.find((x) => x.jobId === jobId);
-  const next: JobLockState = {
-    jobId,
-    locked: true,
-    reason: cleanReason,
-    note: note.trim(),
-    lockedAt: new Date().toISOString(),
-  };
-  if (existing) {
-    Object.assign(existing, next);
-  } else {
-    JOB_LOCKS.push(next);
-  }
-  ACTIVITY_LOG.unshift({
-    id: nextId(ACTIVITY_LOG),
-    time: nowShortStamp(),
-    event: "Khoá tin",
-    badgeClass: "badge b-danger",
-    target: jobTitle || `Tin #${jobId}`,
-    actor: actorEmail,
+  return apiData<JobLockState>(`/admin/jobs/${jobId}/lock`, {
+    method: "POST",
+    body: JSON.stringify({ reason: reason.trim(), note: note.trim() }),
   });
-  return mockResolve(next);
 }
 
 export async function unlockAdminJob(
   jobId: number,
-  jobTitle?: string,
-  actorEmail = "admin@hirelens.local"
+  _jobTitle?: string,
+  _actorEmail?: string
 ): Promise<void> {
-  const existing = JOB_LOCKS.find((x) => x.jobId === jobId);
-  if (existing) {
-    existing.locked = false;
-  }
-  ACTIVITY_LOG.unshift({
-    id: nextId(ACTIVITY_LOG),
-    time: nowShortStamp(),
-    event: "Mở khoá tin",
-    badgeClass: "badge b-ok",
-    target: jobTitle || `Tin #${jobId}`,
-    actor: actorEmail,
-  });
-  return mockResolve(undefined);
+  await apiData<void>(`/admin/jobs/${jobId}/unlock`, { method: "POST" });
 }
 
 export async function listCvTemplates(): Promise<CvTemplateDto[]> {

@@ -1,4 +1,5 @@
 import { useCallback, useEffect, useMemo, useState } from "react";
+import { Link } from "react-router-dom";
 import {
   Button,
   Can,
@@ -13,13 +14,15 @@ import { useToast } from "../../context/ToastContext";
 import { jobBadge, shortDate } from "../../utils/format";
 import { mapJob } from "../../utils/mappers";
 
-type JobStatusTab = "ALL" | "PUBLISHED" | "DRAFT" | "CLOSED";
+type JobStatusTab = "ALL" | "PUBLISHED" | "DRAFT" | "CLOSED" | "EXPIRED" | "LOCKED";
 
 const STATUS_TABS: ReadonlyArray<{ key: JobStatusTab; label: string }> = [
   { key: "ALL", label: "Tất cả" },
   { key: "PUBLISHED", label: "Đang đăng" },
   { key: "DRAFT", label: "Nháp" },
   { key: "CLOSED", label: "Đã đóng" },
+  { key: "EXPIRED", label: "Hết hạn" },
+  { key: "LOCKED", label: "Bị khoá" },
 ];
 
 export function RecruiterJobsPage() {
@@ -58,10 +61,12 @@ export function RecruiterJobsPage() {
       PUBLISHED: 0,
       DRAFT: 0,
       CLOSED: 0,
+      EXPIRED: 0,
+      LOCKED: 0,
     };
     for (const j of jobs) {
       const s = (j.status ?? "").toUpperCase();
-      if (s === "PUBLISHED" || s === "DRAFT" || s === "CLOSED") {
+      if (s === "PUBLISHED" || s === "DRAFT" || s === "CLOSED" || s === "EXPIRED" || s === "LOCKED") {
         map[s] += 1;
       }
     }
@@ -96,6 +101,32 @@ export function RecruiterJobsPage() {
       await load();
     } catch (err) {
       toast(err instanceof Error ? err.message : "Cập nhật trạng thái thất bại");
+    } finally {
+      setBusyId(null);
+    }
+  }
+
+  async function handleRenew(job: JobDto) {
+    setBusyId(job.id);
+    try {
+      await jobsApi.renew(job.id);
+      toast(`Đã gia hạn tin “${job.title}” thêm 30 ngày`);
+      await load();
+    } catch (err) {
+      toast(err instanceof Error ? err.message : "Gia hạn tin thất bại");
+    } finally {
+      setBusyId(null);
+    }
+  }
+
+  async function handleDelete(job: JobDto) {
+    setBusyId(job.id);
+    try {
+      await jobsApi.remove(job.id);
+      toast(`Đã xoá tin nháp “${job.title}”`);
+      await load();
+    } catch (err) {
+      toast(err instanceof Error ? err.message : "Không xoá được tin nháp");
     } finally {
       setBusyId(null);
     }
@@ -178,7 +209,13 @@ export function RecruiterJobsPage() {
                     <p style={{ fontWeight: 650 }}>{j.title}</p>
                     <p className="tiny muted">
                       {[mapped.location, mapped.salary].filter(Boolean).join(" · ")}
+                      {j.deadline ? ` · Hạn ${shortDate(j.deadline)}` : ""}
                     </p>
+                    {status === "LOCKED" && j.lockReason ? (
+                      <p className="tiny" style={{ color: "var(--danger)", marginTop: 2 }}>
+                        Khoá: {j.lockReason}{j.lockNote ? ` — ${j.lockNote}` : ""}
+                      </p>
+                    ) : null}
                   </td>
                   {appCount ? <td>{appCount.get(j.id) ?? 0}</td> : null}
                   <td className="small muted">{shortDate(j.postedAt) || "—"}</td>
@@ -187,27 +224,71 @@ export function RecruiterJobsPage() {
                   </td>
                   <td style={{ textAlign: "right", whiteSpace: "nowrap" }}>
                     <Can perm="job:update">
-                      {status === "PUBLISHED" ? (
-                        <Button
-                          variant="ghost"
-                          size="sm"
-                          disabled={isBusy}
-                          onClick={() => void handleStatusChange(j.id, "CLOSED")}
-                        >
-                          {isBusy ? "Đang xử lý…" : "Đóng tin"}
-                        </Button>
-                      ) : status === "CLOSED" ? (
-                        <Button
-                          variant="ghost"
-                          size="sm"
-                          disabled={isBusy}
-                          onClick={() =>
-                            void handleStatusChange(j.id, "PUBLISHED")
-                          }
-                        >
-                          {isBusy ? "Đang xử lý…" : "Mở lại"}
-                        </Button>
-                      ) : null}
+                      <div className="row" style={{ gap: 6, justifyContent: "flex-end" }}>
+                        {status !== "LOCKED" ? (
+                          <Link to={`/recruiter/jobs/${j.id}/edit`} className="btn btn-g btn-sm">
+                            Sửa
+                          </Link>
+                        ) : null}
+                        {status === "PUBLISHED" ? (
+                          <Button
+                            variant="ghost"
+                            size="sm"
+                            disabled={isBusy}
+                            onClick={() => void handleStatusChange(j.id, "CLOSED")}
+                          >
+                            {isBusy ? "Đang xử lý…" : "Đóng tin"}
+                          </Button>
+                        ) : status === "DRAFT" ? (
+                          <>
+                            <Button
+                              variant="ghost"
+                              size="sm"
+                              disabled={isBusy}
+                              onClick={() => void handleStatusChange(j.id, "PUBLISHED")}
+                            >
+                              Đăng tin
+                            </Button>
+                            <Button
+                              variant="ghost"
+                              size="sm"
+                              style={{ color: "var(--danger)" }}
+                              disabled={isBusy}
+                              onClick={() => void handleDelete(j)}
+                            >
+                              Xoá
+                            </Button>
+                          </>
+                        ) : status === "CLOSED" ? (
+                          <>
+                            <Button
+                              variant="ghost"
+                              size="sm"
+                              disabled={isBusy}
+                              onClick={() => void handleStatusChange(j.id, "PUBLISHED")}
+                            >
+                              Mở lại
+                            </Button>
+                            <Button
+                              variant="ghost"
+                              size="sm"
+                              disabled={isBusy}
+                              onClick={() => void handleRenew(j)}
+                            >
+                              Gia hạn
+                            </Button>
+                          </>
+                        ) : status === "EXPIRED" ? (
+                          <Button
+                            variant="primary"
+                            size="sm"
+                            disabled={isBusy}
+                            onClick={() => void handleRenew(j)}
+                          >
+                            Gia hạn (+30 ngày)
+                          </Button>
+                        ) : null}
+                      </div>
                     </Can>
                   </td>
                 </tr>

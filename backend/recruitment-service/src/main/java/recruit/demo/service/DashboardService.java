@@ -4,4 +4,5 @@ import recruit.demo.dto.DashboardDtos;
 
 public interface DashboardService {
     DashboardDtos.RecruiterStatsResponse recruiterStats();
+    DashboardDtos.RecruiterStatsResponse recruiterStats(int days);
 }

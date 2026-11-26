@@ -5,5 +5,6 @@ public enum ApplicationStatus {
     REVIEWING,
     INTERVIEW,
     REJECTED,
-    HIRED
+    HIRED,
+    WITHDRAWN
 }

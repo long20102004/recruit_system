@@ -20,4 +20,24 @@ public final class ServiceDtos {
         java.util.List<String> requiredSkills, java.util.List<String> candidateSkills,
         String seniority, Integer recruiterUserId) {}
     public record QuestionCount(long count) {}
+    public record RecruitmentAdminStats(
+            long activeCompanies,
+            long pendingCompanies,
+            long publishedJobs,
+            long lockedJobs,
+            long applicationsLast30Days,
+            long applicationsPrev30Days) {}
+    public record InterviewAdminStats(
+            long totalQuestions,
+            long pendingApprovalQuestions,
+            long completedSessions,
+            Double averageScore) {}
+    public record RecruiterInterviewStats(long completedSessions, Double averageScore) {}
+    public record AuditLogCreateRequest(
+            String eventType,
+            String eventLabel,
+            String badgeClass,
+            String target,
+            Integer actorUserId,
+            String actorEmail) {}
 }

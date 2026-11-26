@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useMemo, useState } from "react";
 import { Link, useSearchParams } from "react-router-dom";
-import { recordAdminActivity } from "../../api/mock/adminMock";
+import { getToken } from "../../api/client";
 import {
   approveCompany,
   listCompanies,
@@ -10,8 +10,7 @@ import {
   type CompanyDto,
   type CompanyStatus,
 } from "../../api/mock/companyMock";
-import { EmptyNote, MockNote, RecruiterLayout } from "../../components/common";
-import { useAuth } from "../../context/AuthContext";
+import { EmptyNote, RecruiterLayout } from "../../components/common";
 import { useToast } from "../../context/ToastContext";
 import { shortDate } from "../../utils/format";
 
@@ -40,7 +39,6 @@ function formatDateTime(iso: string): string {
 /** Màn AD02 · Duyệt và quản lý công ty (design canvas AdminCompanies.dc.html). */
 export function AdminCompaniesPage() {
   const { toast } = useToast();
-  const { user } = useAuth();
   const [searchParams, setSearchParams] = useSearchParams();
   const requestedId = Number(searchParams.get("id") || 0) || null;
 
@@ -51,8 +49,6 @@ export function AdminCompaniesPage() {
   const [rejectReason, setRejectReason] = useState("");
   const [lockReason, setLockReason] = useState("");
   const [busy, setBusy] = useState(false);
-
-  const actorEmail = user?.email ?? "admin@hirelens.local";
 
   const loadCompanies = useCallback(async () => {
     try {
@@ -107,12 +103,6 @@ export function AdminCompaniesPage() {
     setBusy(true);
     try {
       await approveCompany(company.id);
-      await recordAdminActivity({
-        event: "Duyệt công ty",
-        badgeClass: "badge b-ok",
-        target: company.name,
-        actor: actorEmail,
-      });
       toast(`Đã duyệt công ty ${company.name}`);
       setRejectReason("");
       await loadCompanies();
@@ -131,12 +121,6 @@ export function AdminCompaniesPage() {
     setBusy(true);
     try {
       await rejectCompany(company.id, rejectReason);
-      await recordAdminActivity({
-        event: "Từ chối công ty",
-        badgeClass: "badge b-warn",
-        target: company.name,
-        actor: actorEmail,
-      });
       toast(`Đã từ chối hồ sơ ${company.name}`);
       setRejectReason("");
       await loadCompanies();
@@ -151,12 +135,6 @@ export function AdminCompaniesPage() {
     setBusy(true);
     try {
       await lockCompany(company.id, lockReason);
-      await recordAdminActivity({
-        event: "Khoá công ty",
-        badgeClass: "badge b-danger",
-        target: company.name,
-        actor: actorEmail,
-      });
       toast(`Đã khoá công ty ${company.name}`);
       setLockReason("");
       await loadCompanies();
@@ -171,12 +149,6 @@ export function AdminCompaniesPage() {
     setBusy(true);
     try {
       await unlockCompany(company.id);
-      await recordAdminActivity({
-        event: "Mở khoá công ty",
-        badgeClass: "badge b-ok",
-        target: company.name,
-        actor: actorEmail,
-      });
       toast(`Đã mở khoá công ty ${company.name}`);
       await loadCompanies();
     } catch (e: unknown) {
@@ -186,12 +158,29 @@ export function AdminCompaniesPage() {
     }
   }
 
+  async function openLicense(company: CompanyDto) {
+    try {
+      const token = getToken();
+      const res = await fetch(`/api/admin/companies/${company.id}/license`, {
+        headers: token ? { Authorization: `Bearer ${token}` } : undefined,
+      });
+      if (!res.ok) {
+        toast("Chưa có file giấy phép được tải lên cho công ty này.");
+        return;
+      }
+      const blob = await res.blob();
+      const url = URL.createObjectURL(blob);
+      window.open(url, "_blank", "noopener,noreferrer");
+      setTimeout(() => URL.revokeObjectURL(url), 60_000);
+    } catch {
+      toast("Không tải được file giấy phép.");
+    }
+  }
+
   const badge = selected ? STATUS_BADGE[selected.status] : null;
 
   return (
     <RecruiterLayout active="companies">
-      <MockNote />
-
       <div className="page-head" style={{ marginBottom: 0 }}>
         <div>
           <h1 style={{ fontSize: 32 }}>Công ty</h1>
@@ -383,7 +372,7 @@ export function AdminCompaniesPage() {
                   <button
                     type="button"
                     className="btn btn-g btn-sm"
-                    onClick={() => toast(`Đang mở tệp mẫu ${selected.licenseFile.name}`)}
+                    onClick={() => void openLicense(selected)}
                   >
                     Mở file
                   </button>
