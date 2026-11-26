@@ -11,7 +11,7 @@ import recruit.demo.dto.CvFieldValue;
 import recruit.demo.dto.CvFormResponse;
 import recruit.demo.entity.CandidateProfile;
 import recruit.demo.entity.CvData;
-import recruit.demo.entity.Role;
+import recruit.demo.enums.Role;
 import recruit.demo.exception.ApiException;
 import recruit.demo.repository.CandidateProfileRepository;
 import recruit.demo.repository.CvDataRepository;

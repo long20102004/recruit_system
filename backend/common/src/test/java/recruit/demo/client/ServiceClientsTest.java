@@ -16,8 +16,8 @@ import org.springframework.test.context.DynamicPropertyRegistry;
 import org.springframework.test.context.DynamicPropertySource;
 import recruit.demo.config.ServiceClientsConfig;
 import recruit.demo.dto.ServiceDtos.ProfileUpdate;
-import recruit.demo.entity.Role;
-import recruit.demo.entity.UserStatus;
+import recruit.demo.enums.Role;
+import recruit.demo.enums.UserStatus;
 import recruit.demo.exception.ApiException;
 
 import java.io.IOException;

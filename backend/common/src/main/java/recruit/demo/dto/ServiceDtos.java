@@ -1,6 +1,6 @@
 package recruit.demo.dto;
-import recruit.demo.entity.Role;
-import recruit.demo.entity.UserStatus;
+import recruit.demo.enums.Role;
+import recruit.demo.enums.UserStatus;
 public final class ServiceDtos {
     private ServiceDtos() {}
     /** sessionsValidAfter: epoch giây; JWT có iat nhỏ hơn bị từ chối. Null = không giới hạn. */

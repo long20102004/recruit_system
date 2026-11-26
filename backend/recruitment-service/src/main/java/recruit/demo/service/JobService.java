@@ -1,5 +1,7 @@
 package recruit.demo.service;
 
+import recruit.demo.enums.JobStatus;
+import recruit.demo.enums.Role;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;

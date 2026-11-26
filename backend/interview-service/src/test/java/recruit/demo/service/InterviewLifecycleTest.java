@@ -1,4 +1,7 @@
 package recruit.demo.service;
+import recruit.demo.enums.Role;
+import recruit.demo.enums.SessionStatus;
+import recruit.demo.enums.UserStatus;
 import org.junit.jupiter.api.Test;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.context.SecurityContextHolder;

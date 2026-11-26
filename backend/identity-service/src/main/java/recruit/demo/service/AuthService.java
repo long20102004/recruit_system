@@ -1,5 +1,7 @@
 package recruit.demo.service;
 
+import recruit.demo.enums.Role;
+import recruit.demo.enums.UserStatus;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.security.crypto.password.PasswordEncoder;

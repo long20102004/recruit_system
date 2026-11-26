@@ -4,7 +4,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import recruit.demo.entity.Job;
-import recruit.demo.entity.JobStatus;
+import recruit.demo.enums.JobStatus;
 
 import java.util.List;
 

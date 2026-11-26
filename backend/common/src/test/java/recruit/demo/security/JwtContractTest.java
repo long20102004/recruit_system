@@ -1,7 +1,9 @@
 package recruit.demo.security;
+import recruit.demo.enums.Role;
+import recruit.demo.enums.UserStatus;
 import org.junit.jupiter.api.Test;
 import recruit.demo.config.AppProperties;
-import recruit.demo.entity.*;
+import recruit.demo.enums.*;
 import static org.junit.jupiter.api.Assertions.*;
 class JwtContractTest {
     @Test void signedIdentityIsPortableAndTamperingIsRejected() {

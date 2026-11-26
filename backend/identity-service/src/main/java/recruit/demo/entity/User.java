@@ -1,5 +1,7 @@
 package recruit.demo.entity;
 
+import recruit.demo.enums.Role;
+import recruit.demo.enums.UserStatus;
 import jakarta.persistence.*;
 import lombok.*;
 import org.hibernate.annotations.CreationTimestamp;

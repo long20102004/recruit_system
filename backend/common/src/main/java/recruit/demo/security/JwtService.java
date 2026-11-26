@@ -5,7 +5,7 @@ import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.security.Keys;
 import org.springframework.stereotype.Service;
 import recruit.demo.config.AppProperties;
-import recruit.demo.entity.Role;
+import recruit.demo.enums.Role;
 
 import javax.crypto.SecretKey;
 import java.nio.charset.StandardCharsets;

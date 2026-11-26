@@ -3,7 +3,7 @@ package recruit.demo.security;
 import org.springframework.http.HttpStatus;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
-import recruit.demo.entity.Role;
+import recruit.demo.enums.Role;
 import recruit.demo.exception.ApiException;
 
 public final class SecurityUtils {
