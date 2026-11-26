@@ -87,7 +87,7 @@ public final class CvMatchPayloads {
         for (String line : lines) {
             int hit = -1;
             for (int i = 0; i < extracted.size(); i++) {
-                if (!used[i] && joinOf(extracted.get(i), first, second).equals(line)) {
+                if (!used[i] && joinOf(extracted.get(i), first, second).equals(withoutDetail(line).replaceFirst("^— ", ""))) {
                     hit = i;
                     break;
                 }
@@ -104,12 +104,20 @@ public final class CvMatchPayloads {
 
     private static Map<String, Object> withLine(Map<String, Object> item, String line, String first, String second) {
         Map<String, Object> m = deepCopy(item);
+        line = withoutDetail(line);
+        if (line.startsWith(JOIN.strip() + " ")) line = JOIN + line.substring(2);   // "— Công ty": thiếu vế đầu
         int k = line.indexOf(JOIN);
         String a = (k < 0 ? line : line.substring(0, k)).trim();
         String b = k < 0 ? null : line.substring(k + JOIN.length()).trim();
         m.put(first, a.isEmpty() ? null : a);
         if (k >= 0 || !m.containsKey(second)) m.put(second, b == null || b.isEmpty() ? null : b);
         return m;
+    }
+
+    /** Bỏ phần chi tiết (thời gian, GPA…) CvProfileMapper thêm sau " | ": chỉ vế "a — b" mới là dữ liệu form. */
+    static String withoutDetail(String line) {
+        int d = line.indexOf(recruit.demo.service.cv.CvProfileMapper.DETAIL);
+        return d < 0 ? line : line.substring(0, d);
     }
 
     private static String joinOf(Map<String, Object> item, String first, String second) {

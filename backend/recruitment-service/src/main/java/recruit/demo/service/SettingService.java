@@ -16,7 +16,8 @@ public class SettingService {
 
     public static final String CV_FIELD = "CV_FIELD";
     public static final String DEFAULT_CV_FIELDS =
-            "Họ tên,Email,Điện thoại,Tóm tắt,Kỹ năng,Kỹ năng suy ra,Học vấn,Kinh nghiệm,Chứng chỉ";
+            "Họ tên,Email,Điện thoại,GitHub,Tóm tắt,Kỹ năng,Kỹ năng suy ra,Học vấn,Kinh nghiệm,Mô tả kinh nghiệm,"
+            + "Dự án,Chứng chỉ,Giải thưởng,Ngoại ngữ";
     public static final String IMPLIED_SKILL_FIELD = "Kỹ năng suy ra";
 
     private final SettingRepository settingRepository;

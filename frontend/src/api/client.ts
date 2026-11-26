@@ -151,10 +151,11 @@ export const cvsApi = {
     fd.append("file", file);
     return api<BaseResponse<CandidateProfileDto>>("/cvs", { method: "POST", body: fd });
   },
-  confirm: (fields: CvFieldDto[]) =>
+  /** profile: hồ sơ đã sửa theo CandidateProfile; fields: ghi đè thêm từng field (vd "Kỹ năng suy ra"). */
+  confirm: (body: { profile?: CandidateProfileDto; fields?: CvFieldDto[] }) =>
     api<CvFormDto>("/cvs", {
       method: "PUT",
-      body: JSON.stringify({ fields }),
+      body: JSON.stringify(body),
     }),
 };
 
@@ -350,6 +351,8 @@ export interface CvFormDto {
   parsingStatus: string | null;
   analyzed: boolean;
   fields: CvFieldDto[];
+  /** Hồ sơ theo cấu trúc CandidateProfile đã lưu; null khi chưa tải CV. */
+  profile: CandidateProfileDto | null;
 }
 
 export interface MatchDto {

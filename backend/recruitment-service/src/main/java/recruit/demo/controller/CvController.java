@@ -6,7 +6,8 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
-import recruit.demo.dto.CvDtos;
+import recruit.demo.dto.ConfirmCvRequest;
+import recruit.demo.dto.CvFormResponse;
 import recruit.demo.service.CvService;
 
 @RestController
@@ -17,7 +18,7 @@ public class CvController {
     private final CvService cvService;
 
     @GetMapping
-    public CvDtos.CvFormResponse mine() {
+    public CvFormResponse mine() {
         return cvService.mine();
     }
 
@@ -28,7 +29,7 @@ public class CvController {
     }
 
     @PutMapping
-    public CvDtos.CvFormResponse confirm(@RequestBody CvDtos.ConfirmCvRequest request) {
+    public CvFormResponse confirm(@RequestBody ConfirmCvRequest request) {
         return cvService.confirm(request);
     }
 }
