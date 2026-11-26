@@ -1,5 +1,6 @@
-package recruit.demo.service;
+package recruit.demo.service.impl;
 
+import recruit.demo.service.*;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -31,7 +32,7 @@ class AdminUserServiceTest {
         repo = mock(UserRepository.class);
         cache = mock(UserCacheInvalidator.class);
         when(repo.save(any(User.class))).thenAnswer(i -> i.getArgument(0));
-        service = new AdminUserService(repo, cache);
+        service = new AdminUserServiceImpl(repo, cache);
         loginAs(1, Role.ADMIN);
     }
 

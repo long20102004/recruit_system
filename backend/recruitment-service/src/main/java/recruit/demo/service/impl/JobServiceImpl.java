@@ -1,5 +1,6 @@
-package recruit.demo.service;
+package recruit.demo.service.impl;
 
+import recruit.demo.service.*;
 import recruit.demo.enums.JobStatus;
 import recruit.demo.enums.Role;
 import lombok.RequiredArgsConstructor;
@@ -24,7 +25,7 @@ import java.util.Locale;
 
 @Service
 @RequiredArgsConstructor
-public class JobService {
+public class JobServiceImpl implements JobService {
 
     private final JobRepository jobRepository;
     private final JobSkillRepository jobSkillRepository;

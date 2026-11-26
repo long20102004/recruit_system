@@ -1,5 +1,6 @@
-package recruit.demo.service;
+package recruit.demo.service.impl;
 
+import recruit.demo.service.*;
 import recruit.demo.enums.Role;
 import recruit.demo.enums.SessionStatus;
 import lombok.RequiredArgsConstructor;
@@ -22,7 +23,7 @@ import java.util.stream.Collectors;
 
 @Service
 @RequiredArgsConstructor
-public class InterviewService {
+public class InterviewServiceImpl implements InterviewService {
 
     private final InterviewQuestionRepository questionRepository;
     private final EvaluationRubricRepository rubricRepository;

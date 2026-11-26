@@ -1,5 +1,6 @@
-package recruit.demo.service;
+package recruit.demo.service.impl;
 
+import recruit.demo.service.*;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -45,7 +46,7 @@ class AuthServiceTest {
         when(jwt.generateToken(any(), any(), any())).thenReturn("jwt");
         when(attempts.lockedForSeconds(anyString())).thenReturn(Optional.empty());
         when(repo.save(any(User.class))).thenAnswer(i -> i.getArgument(0));
-        service = new AuthService(repo, ENCODER, jwt, new AuthProperties(), attempts, tokens, mail, cache);
+        service = new AuthServiceImpl(repo, ENCODER, jwt, new AuthProperties(), attempts, tokens, mail, cache);
     }
 
     private static User user(boolean verified, UserStatus status) {

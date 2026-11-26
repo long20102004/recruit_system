@@ -1,5 +1,6 @@
-package recruit.demo.service;
+package recruit.demo.service.impl;
 
+import recruit.demo.service.*;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
@@ -31,14 +32,9 @@ import java.util.UUID;
 
 @Service
 @RequiredArgsConstructor
-public class CvService {
+public class CvServiceImpl implements CvService {
     private final recruit.demo.client.IdentityClient identityClient;
 
-    static final String FILE_NAME = "file_name";
-    static final String FILE_URL = "file_url";
-    static final String PARSING_STATUS = "parsing_status";
-    /** JSON profile hiện hành: kết quả AI lúc upload, sau đó là bản người dùng đã sửa (giữ cả dữ liệu KG). */
-    static final String PROFILE_JSON = "extracted_profile";
 
     private final CvDataRepository cvDataRepository;
     private final CandidateProfileRepository candidateProfileRepository;

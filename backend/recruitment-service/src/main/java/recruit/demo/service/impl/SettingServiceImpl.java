@@ -1,5 +1,6 @@
-package recruit.demo.service;
+package recruit.demo.service.impl;
 
+import recruit.demo.service.*;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -12,7 +13,7 @@ import java.util.List;
 
 @Service
 @RequiredArgsConstructor
-public class SettingService {
+public class SettingServiceImpl implements SettingService {
 
     public static final String CV_FIELD = "CV_FIELD";
     public static final String DEFAULT_CV_FIELDS =

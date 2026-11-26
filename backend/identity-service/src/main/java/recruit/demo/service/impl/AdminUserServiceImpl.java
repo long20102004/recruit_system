@@ -1,5 +1,6 @@
-package recruit.demo.service;
+package recruit.demo.service.impl;
 
+import recruit.demo.service.*;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort;
@@ -22,7 +23,7 @@ import java.time.LocalDateTime;
 /** Admin xem danh sách, khoá / mở khoá tài khoản. Khoá vô hiệu mọi phiên và xoá cache để có hiệu lực ngay. */
 @Service
 @RequiredArgsConstructor
-public class AdminUserService {
+public class AdminUserServiceImpl implements AdminUserService {
 
     private static final int MAX_PAGE_SIZE = 100;
 
@@ -35,7 +36,7 @@ public class AdminUserService {
         String keyword = q == null || q.isBlank() ? null : q.trim();
         var pageable = PageRequest.of(Math.max(page, 0), Math.min(Math.max(size, 1), MAX_PAGE_SIZE),
                 Sort.by(Sort.Direction.DESC, "id"));
-        return PageResponse.toPageResponse(users.search(keyword, status, pageable).map(AdminUserService::toDto));
+        return PageResponse.toPageResponse(users.search(keyword, status, pageable).map(AdminUserServiceImpl::toDto));
     }
 
     @Transactional

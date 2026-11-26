@@ -1,5 +1,6 @@
-package recruit.demo.service;
+package recruit.demo.service.impl;
 
+import recruit.demo.service.*;
 import recruit.demo.enums.ApplicationStatus;
 import recruit.demo.enums.JobStatus;
 import recruit.demo.enums.Role;
@@ -18,7 +19,7 @@ import java.util.List;
 
 @Service
 @RequiredArgsConstructor
-public class ApplicationService {
+public class ApplicationServiceImpl implements ApplicationService {
     private final recruit.demo.client.IdentityClient identityClient;
 
     private final JobApplicationRepository applicationRepository;

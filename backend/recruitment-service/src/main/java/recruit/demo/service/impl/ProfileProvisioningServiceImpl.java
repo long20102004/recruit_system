@@ -1,4 +1,5 @@
-package recruit.demo.service;
+package recruit.demo.service.impl;
+import recruit.demo.service.*;
 import recruit.demo.enums.Role;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -8,7 +9,7 @@ import recruit.demo.repository.*;
 import recruit.demo.security.UserPrincipal;
 @Service
 @RequiredArgsConstructor
-public class ProfileProvisioningService {
+public class ProfileProvisioningServiceImpl implements ProfileProvisioningService {
     private final CandidateProfileRepository candidates;
     private final RecruiterProfileRepository recruiters;
     private final CompanyRepository companies;

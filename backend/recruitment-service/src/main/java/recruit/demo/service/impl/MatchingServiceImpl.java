@@ -1,5 +1,6 @@
-package recruit.demo.service;
+package recruit.demo.service.impl;
 
+import recruit.demo.service.*;
 import recruit.demo.enums.Role;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
@@ -21,7 +22,7 @@ import java.util.List;
  */
 @Service
 @RequiredArgsConstructor
-public class MatchingService {
+public class MatchingServiceImpl implements MatchingService {
     private final MatchingResultRepository matchingResultRepository;
     private final JobRepository jobRepository;
     private final CandidateProfileRepository candidateProfileRepository;

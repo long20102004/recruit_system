@@ -1,11 +1,12 @@
-package recruit.demo.service;
+package recruit.demo.service.impl;
+import recruit.demo.service.*;
 import org.springframework.stereotype.Service;
 import recruit.demo.dto.ServiceDtos.InterviewContext;
 import recruit.demo.entity.InterviewQuestion;
 import recruit.demo.kb.SkillGraph;
 import java.util.*;
 @Service
-public class QuestionSelectionService {
+public class QuestionSelectionServiceImpl implements QuestionSelectionService {
     private final SkillGraph graph = SkillGraph.shared();
     private String normalize(String text) {
         String s = Objects.toString(text, "").toLowerCase(Locale.ROOT).replaceAll("[^\\p{L}\\p{N}]", "");

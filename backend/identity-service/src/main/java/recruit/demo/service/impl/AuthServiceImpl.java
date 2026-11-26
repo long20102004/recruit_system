@@ -1,5 +1,6 @@
-package recruit.demo.service;
+package recruit.demo.service.impl;
 
+import recruit.demo.service.*;
 import recruit.demo.enums.Role;
 import recruit.demo.enums.UserStatus;
 import lombok.RequiredArgsConstructor;
@@ -25,7 +26,7 @@ import java.util.Map;
 
 @Service
 @RequiredArgsConstructor
-public class AuthService {
+public class AuthServiceImpl implements AuthService {
 
     static final String RESEND_MESSAGE = "Nếu email cần xác thực, bạn sẽ nhận được email mới trong ít phút.";
     static final String FORGOT_MESSAGE = "Nếu email tồn tại, bạn sẽ nhận được link đặt lại mật khẩu trong ít phút.";

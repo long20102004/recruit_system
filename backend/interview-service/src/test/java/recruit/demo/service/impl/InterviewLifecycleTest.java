@@ -1,4 +1,5 @@
-package recruit.demo.service;
+package recruit.demo.service.impl;
+import recruit.demo.service.*;
 import recruit.demo.enums.Role;
 import recruit.demo.enums.SessionStatus;
 import recruit.demo.enums.UserStatus;
@@ -25,7 +26,7 @@ class InterviewLifecycleTest {
     private final EvaluationResultRepository evaluations=mock(EvaluationResultRepository.class);
     private final AiScoringClient ai=mock(AiScoringClient.class);
     private final RecruitmentServiceClient http=mock(RecruitmentServiceClient.class);
-    private InterviewService service() { return new InterviewService(questions,rubrics,sessions,items,responses,evaluations,ai,new QuestionSelectionService(),http); }
+    private InterviewService service() { return new InterviewServiceImpl(questions,rubrics,sessions,items,responses,evaluations,ai,new QuestionSelectionServiceImpl(),http); }
     private void authenticate() {
         var user=new UserPrincipal(10,"test@example.com","","Test",Role.CANDIDATE,UserStatus.ACTIVE);
         SecurityContextHolder.getContext().setAuthentication(new UsernamePasswordAuthenticationToken(user,null,user.getAuthorities()));

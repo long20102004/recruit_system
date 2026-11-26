@@ -1,5 +1,6 @@
-package recruit.demo.service;
+package recruit.demo.service.impl;
 
+import recruit.demo.service.*;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -13,7 +14,7 @@ import recruit.demo.security.UserPrincipal;
 
 @Service
 @RequiredArgsConstructor
-public class DashboardService {
+public class DashboardServiceImpl implements DashboardService {
 
     private final JobRepository jobRepository;
     private final JobApplicationRepository applicationRepository;
