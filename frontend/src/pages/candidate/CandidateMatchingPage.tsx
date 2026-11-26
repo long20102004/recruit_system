@@ -1,11 +1,9 @@
 import { useCallback, useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import {
   Button,
   EmptyNote,
   MatchItem,
-  Page,
-  PageHead,
-  Panel,
   SiteHeader,
 } from "../../components/common";
 import {
@@ -82,87 +80,103 @@ export function CandidateMatchingPage() {
     (a, b) => Number(b.overallScore) - Number(a.overallScore)
   );
 
+  const [band, setBand] = useState<"all" | "high" | "mid">("all");
+  const high = ranked.filter((r) => Number(r.overallScore) >= 0.8).length;
+  const shown = ranked.filter((r) => {
+    const v = Number(r.overallScore);
+    return band === "all" || (band === "high" ? v >= 0.8 : v >= 0.6 && v < 0.8);
+  });
+
   return (
     <>
       <SiteHeader active="matching" mode="candidate" />
-      <Page>
-        <PageHead
-          title="Công việc phù hợp với tôi"
-          description="Danh sách được xếp hạng từ kỹ năng và kinh nghiệm đã trích xuất trong CV của bạn."
-          actions={
-            ready ? (
-              <Button variant="primary" onClick={rematch} disabled={busy}>
-                {busy ? "Đang cập nhật…" : "Cập nhật theo CV"}
-              </Button>
-            ) : null
-          }
-        />
+      <div className="wrap" style={{ paddingTop: 32, paddingBottom: 64, display: "flex", flexDirection: "column", gap: 22 }}>
+        <div className="page-head" style={{ marginBottom: 0 }}>
+          <div>
+            <p className="kicker">Gợi ý việc làm bằng AI</p>
+            <h1 style={{ fontSize: 34, marginTop: 6 }}>Việc phù hợp với CV của bạn</h1>
+          </div>
+          {ready ? (
+            <button type="button" className="btn btn-g" onClick={rematch} disabled={busy}>
+              {busy ? "Đang tính lại…" : "Tính lại"}
+            </button>
+          ) : null}
+        </div>
 
-        <Panel>
+        <section className="card" style={{ display: "flex", gap: 28, flexWrap: "wrap", alignItems: "center",
+          background: "var(--brand-soft)", borderColor: "#cdd6f0" }}>
+          <div style={{ flex: "1 1 320px", display: "flex", flexDirection: "column", gap: 6 }}>
+            <h3>Cách tính điểm phù hợp</h3>
+            <p className="small" style={{ color: "var(--brand-deep)" }}>
+              So khớp kỹ năng, kinh nghiệm và nội dung CV với từng tin đang mở. Bấm “Tính lại” sau khi sửa CV.
+            </p>
+          </div>
+          <div className="row" style={{ gap: 24 }}>
+            <div><p className="disp" style={{ fontSize: 28, color: "var(--brand)" }}>{ranked.length}</p><p className="tiny" style={{ color: "var(--brand-deep)" }}>tin đã chấm</p></div>
+            <div><p className="disp" style={{ fontSize: 28, color: "var(--brand)" }}>{high}</p><p className="tiny" style={{ color: "var(--brand-deep)" }}>tin trên 80%</p></div>
+          </div>
+        </section>
+
+        {ready && ranked.length > 0 ? (
+          <div className="row" style={{ gap: 8 }}>
+            {([["all", "Tất cả"], ["high", "Trên 80%"], ["mid", "60 – 80%"]] as const).map(([k, label]) => (
+              <button key={k} type="button" className={band === k ? "tag tag-on" : "tag"} onClick={() => setBand(k)}>
+                {label}
+              </button>
+            ))}
+          </div>
+        ) : null}
+
+        <section style={{ display: "flex", flexDirection: "column", gap: 14 }}>
           {loading ? (
             <EmptyNote>Đang kiểm tra hồ sơ…</EmptyNote>
           ) : !ready ? (
-            <EmptyNote>
-              Chưa có dữ liệu. Hãy tải CV ở mục Hồ sơ / CV để hệ thống phân tích
-              và trích xuất kỹ năng, học vấn, kinh nghiệm. Việc phù hợp chỉ hiện
-              sau bước đó.
-              <div style={{ marginTop: "0.85rem" }}>
-                <Button variant="primary" size="sm" to="/candidate/cv">
-                  Tải CV
-                </Button>
-              </div>
-            </EmptyNote>
+            <div className="note note-warn small">
+              Bạn chưa có CV đã phân tích. Tải CV lên để xem việc phù hợp.{" "}
+              <Link to="/candidate/cv" style={{ fontWeight: 700, textDecoration: "underline" }}>Tải CV</Link>
+            </div>
           ) : ranked.length === 0 && jobs.length === 0 ? (
-            <EmptyNote>
-              CV đã được phân tích nhưng chưa có tin tuyển dụng để so khớp.
-            </EmptyNote>
+            <EmptyNote>CV đã được phân tích nhưng chưa có tin tuyển dụng để so khớp.</EmptyNote>
           ) : ranked.length === 0 ? (
             <>
-              <EmptyNote>
+              <div className="note small">
                 {scoreError
                   ? `Chưa chấm được mức phù hợp (${scoreError}). Các tin đang mở:`
                   : "Chưa có điểm phù hợp. Các tin đang mở:"}
-              </EmptyNote>
+              </div>
               {jobs.map((job) => {
                 const mapped = mapJob(job);
                 return (
-                  <article key={job.id} className="match-item">
-                    <div>
-                      <h3 style={{ margin: 0 }}>{mapped.title}</h3>
-                      <div className="muted">
-                        {mapped.company} · {mapped.location} · {mapped.salary}
-                      </div>
-                      <p className="match-gap">
+                  <article key={job.id} className="card between">
+                    <div style={{ minWidth: 0 }}>
+                      <h3>{mapped.title}</h3>
+                      <p className="small muted">{mapped.company} · {mapped.location} · {mapped.salary}</p>
+                      <p className="help" style={{ marginTop: 6 }}>
                         Kỹ năng yêu cầu: {mapped.requiredSkills.join(", ") || "Chưa khai báo"}
                       </p>
                     </div>
-                    <Button variant="accent" size="sm" to={`/candidate/jobs/${job.id}`}>
-                      Xem chi tiết
-                    </Button>
+                    <Button variant="ghost" size="sm" to={`/candidate/jobs/${job.id}`}>Xem chi tiết</Button>
                   </article>
                 );
               })}
             </>
+          ) : shown.length === 0 ? (
+            <EmptyNote>Không có tin trong khoảng điểm này.</EmptyNote>
           ) : (
-            ranked.map((r, idx) => {
+            shown.map((r, idx) => {
               const job = jobs.find((j) => j.id === r.jobId);
               if (!job) return null;
               const mapped = mapJob(job);
               const match = mapMatch(r);
               if (!match.rank) match.rank = idx + 1;
               return (
-                <MatchItem
-                  key={r.id}
-                  job={mapped}
-                  match={match}
-                  actionHref={`/candidate/jobs/${job.id}`}
-                  actionLabel="Xem chi tiết"
-                />
+                <MatchItem key={r.id} job={mapped} match={match}
+                  actionHref={`/candidate/jobs/${job.id}`} actionLabel="Xem chi tiết" />
               );
             })
           )}
-        </Panel>
-      </Page>
+        </section>
+      </div>
     </>
   );
 }

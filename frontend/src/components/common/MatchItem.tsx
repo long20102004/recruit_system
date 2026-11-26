@@ -1,11 +1,9 @@
 import type { ReactNode } from "react";
+import { Link } from "react-router-dom";
 import type { Job, MatchResult } from "../../types";
 import { pct } from "../../utils/format";
 import { Button } from "./Button";
-import { JobLogo } from "./JobLogo";
 import { BandBadge, MatchExplain } from "./MatchExplain";
-import { ProgressBar } from "./ProgressBar";
-import { ScoreRing } from "./ScoreRing";
 
 interface MatchItemProps {
   job: Job;
@@ -41,55 +39,61 @@ export function MatchItem({
   actionHref = "/candidate/matching",
   actionLabel = "Xem chi tiết",
 }: MatchItemProps) {
+  const parts: [string, number][] = match.band
+    ? []
+    : [
+        ["Kỹ năng", match.skillOverlap],
+        ["Ngữ nghĩa", match.semanticSimilarity],
+        ["Từ khoá", match.tfidfSimilarity],
+      ];
   return (
-    <article className="match-item">
-      <div>
-        <div
-          style={{
-            display: "flex",
-            gap: ".5rem",
-            alignItems: "center",
-            marginBottom: ".35rem",
-          }}
-        >
-          <JobLogo
-            initials={job.logo}
-            color={job.logoColor}
-            style={{ width: 40, height: 40, fontSize: ".8rem" }}
-          />
-          <div>
-            <h3 style={{ margin: 0 }}>
-              #{match.rank} · {job.title}
-            </h3>
-            <div className="muted">
-              {job.company} · {job.location} · {job.salary}
-            </div>
-          </div>
-        </div>
-        {match.band ? null : <ProgressBar percent={pct(match.score)} />}
-        <p className="match-gap">{gapLine(match)}</p>
-        {match.capApplied ? (
-          <p className="muted">Mức phù hợp bị giới hạn vì CV chưa thể hiện kỹ năng bắt buộc.</p>
-        ) : null}
-        <MatchExplain matchId={match.id} available={Boolean(match.band)} />
-      </div>
-      <div style={{ textAlign: "center" }}>
+    <article className="card" style={{ display: "flex", gap: 24, flexWrap: "wrap", alignItems: "flex-start" }}>
+      <div style={{ flex: "0 0 96px", textAlign: "center", paddingTop: 4 }}>
         {match.band ? (
           // cvmatch: ứng viên thấy mức khớp, không thấy điểm (plan Q-B)
           <BandBadge band={match.band} />
         ) : (
-          <ScoreRing percent={pct(match.score)}>
-            {pct(match.score)}
-          </ScoreRing>
+          <>
+            <p className="disp" style={{ fontSize: 36, color: "var(--brand)" }}>{pct(match.score)}%</p>
+            <p className="tiny muted">phù hợp</p>
+          </>
         )}
-        <Button
-          variant="accent"
-          size="sm"
-          to={actionHref}
-          style={{ marginTop: ".75rem" }}
-        >
-          {actionLabel}
-        </Button>
+        {match.rank ? <p className="tiny muted" style={{ marginTop: 6 }}>Hạng #{match.rank}</p> : null}
+      </div>
+      <div style={{ flex: "1 1 380px", minWidth: 0, display: "flex", flexDirection: "column", gap: 8 }}>
+        <Link to={actionHref} className="disp" style={{ fontSize: 20 }}>{job.title}</Link>
+        <p className="small muted">{job.company} · {job.location} · {job.salary}</p>
+        {parts.length ? (
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(3, minmax(0, 1fr))", gap: 12, marginTop: 4 }}>
+            {parts.map(([n, v]) => (
+              <div key={n}>
+                <div className="between tiny" style={{ marginBottom: 4 }}>
+                  <span className="muted">{n}</span>
+                  <strong>{pct(v)}%</strong>
+                </div>
+                <div className="meter"><span style={{ width: `${pct(v)}%` }} /></div>
+              </div>
+            ))}
+          </div>
+        ) : null}
+        <p className="small">
+          {match.matchedSkills.length ? (
+            <span style={{ color: "var(--ok)", fontWeight: 600 }}>Có: {match.matchedSkills.join(", ")}</span>
+          ) : null}
+          {match.matchedSkills.length && match.missingSkills.length ? " · " : null}
+          {match.missingSkills.length ? (
+            <span style={{ color: "var(--warn)", fontWeight: 600 }}>Thiếu: {match.missingSkills.join(", ")}</span>
+          ) : null}
+        </p>
+        <p className="help">{gapLine(match)}</p>
+        {match.capApplied ? (
+          <p className="help">Mức phù hợp bị giới hạn vì CV chưa thể hiện kỹ năng bắt buộc.</p>
+        ) : null}
+        <MatchExplain matchId={match.id} available={Boolean(match.band)} />
+      </div>
+      <div style={{ flex: "0 0 auto", display: "flex", flexDirection: "column", gap: 8 }}>
+        <Button variant="primary" size="sm" to={actionHref}>{actionLabel}</Button>
+        <Button variant="ghost" size="sm" to={`/candidate/interview?jobId=${job.id}`}>Luyện phỏng vấn</Button>
       </div>
     </article>
   );

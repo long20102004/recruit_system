@@ -54,6 +54,7 @@ export function RegisterPage() {
       <AuthPage>
         <AuthPanel>
           <AuthAside
+            kicker="Gần xong rồi"
             title="Kiểm tra hộp thư"
             description="Tài khoản chỉ đăng nhập được sau khi bạn xác thực email."
           />
@@ -67,7 +68,7 @@ export function RegisterPage() {
             }
           >
             <ResendVerificationButton email={sentTo} />
-            <p className="hint">
+            <p className="small muted" style={{ textAlign: "center" }}>
               Không thấy email? Kiểm tra thư mục spam rồi gửi lại.
               <br />
               <Link to="/login">Đến trang đăng nhập</Link>
@@ -82,8 +83,9 @@ export function RegisterPage() {
     <AuthPage>
       <AuthPanel>
         <AuthAside
-          title="Tạo tài khoản"
-          description="Chỉ cần email và mật khẩu. Sau khi xác thực email, bạn chọn dùng với vai trò ứng viên hoặc nhà tuyển dụng."
+          kicker="Bắt đầu miễn phí"
+          title="Tạo tài khoản, chọn vai trò sau."
+          description="Sau khi xác thực email, bạn chọn là ứng viên hay nhà tuyển dụng. Nhà tuyển dụng đăng tin và xem xếp hạng ứng viên theo CV."
         />
         <AuthForm
           title="Đăng ký"
@@ -119,12 +121,12 @@ export function RegisterPage() {
               required
             />
           </Field>
-          <p className="hint">{PASSWORD_HINT}</p>
+          <p className="help">{PASSWORD_HINT}</p>
 
           <Button variant="primary" block type="submit" disabled={busy}>
             {busy ? "Đang tạo…" : "Tạo tài khoản"}
           </Button>
-          <p className="hint">
+          <p className="small muted" style={{ textAlign: "center" }}>
             Đã có tài khoản? <Link to="/login">Đăng nhập</Link>
             <br />
             <Link to="/">Quay lại danh sách việc làm</Link>

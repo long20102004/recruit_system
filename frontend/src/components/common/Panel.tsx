@@ -14,7 +14,7 @@ export function Panel({
   ...rest
 }: PanelProps) {
   return (
-    <Tag className={classNames("panel", className)} {...rest}>
+    <Tag className={classNames("card", className)} {...rest}>
       {children}
     </Tag>
   );
@@ -27,7 +27,7 @@ interface SidePanelProps {
 
 export function SidePanel({ children, className }: SidePanelProps) {
   return (
-    <aside className={classNames("side-panel", className)}>{children}</aside>
+    <aside className={classNames("card stack", className)}>{children}</aside>
   );
 }
 
@@ -38,7 +38,7 @@ interface EmptyNoteProps {
 
 export function EmptyNote({ children, className }: EmptyNoteProps) {
   return (
-    <div className={classNames("empty-note", className)}>{children}</div>
+    <div className={classNames("empty", className)}>{children}</div>
   );
 }
 

@@ -61,14 +61,16 @@ export function LoginPage() {
     <AuthPage>
       <AuthPanel>
         <AuthAside
-          title="Chào mừng trở lại"
-          description="Đăng nhập để tiếp tục tìm việc, quản lý hồ sơ hoặc theo dõi tin tuyển dụng của bạn."
+          kicker="Tuyển dụng IT có AI hỗ trợ"
+          title="Một tài khoản cho cả tìm việc và tuyển dụng."
+          description=""
+          points={[
+            "CV PDF được đọc và điền sẵn vào hồ sơ.",
+            "Điểm phù hợp với từng tin tuyển dụng.",
+            "Luyện phỏng vấn, chấm điểm từng câu trả lời.",
+          ]}
         />
-        <AuthForm
-          title="Đăng nhập"
-          subtitle="Nhập email và mật khẩu của tài khoản đã đăng ký."
-          onSubmit={onSubmit}
-        >
+        <AuthForm title="Đăng nhập" subtitle="Chào mừng bạn quay lại." onSubmit={onSubmit}>
           <Field label="Email">
             <TextInput
               type="email"
@@ -78,31 +80,37 @@ export function LoginPage() {
               required
             />
           </Field>
-          <Field label="Mật khẩu">
+          <div className="field">
+            <div className="between">
+              <label htmlFor="login-password" className="lbl">Mật khẩu</label>
+              <Link to="/forgot-password" className="small" style={{ color: "var(--brand)", fontWeight: 600 }}>
+                Quên mật khẩu?
+              </Link>
+            </div>
             <TextInput
+              id="login-password"
               type="password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               autoComplete="current-password"
               required
             />
-          </Field>
+          </div>
 
           {notice ? (
-            <p className="hint" role="alert">
+            <div className="note note-warn small" role="alert">
               {notice}
-            </p>
+            </div>
           ) : null}
           <Button variant="primary" block type="submit" disabled={busy}>
             {busy ? "Đang vào…" : "Đăng nhập"}
           </Button>
           {unverifiedEmail ? <ResendVerificationButton email={unverifiedEmail} /> : null}
-          <p className="hint">
-            <Link to="/forgot-password">Quên mật khẩu?</Link>
-            <br />
-            Chưa có tài khoản? <Link to="/register">Đăng ký</Link>
-            <br />
-            <Link to="/">Quay lại danh sách việc làm</Link>
+          <p className="small muted" style={{ textAlign: "center" }}>
+            Chưa có tài khoản?{" "}
+            <Link to="/register" style={{ color: "var(--brand)", fontWeight: 650 }}>Đăng ký</Link>
+            {" · "}
+            <Link to="/">Xem việc làm</Link>
           </p>
         </AuthForm>
       </AuthPanel>

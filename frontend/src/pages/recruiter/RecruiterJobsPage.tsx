@@ -4,18 +4,16 @@ import {
   EmptyNote,
   Field,
   Grid2,
-  JobCard,
-  JobList,
-  Page,
   PageHead,
   Panel,
-  SiteHeader,
+  RecruiterLayout,
   TextInput,
   TextSelect,
   TextTextarea,
 } from "../../components/common";
 import { jobsApi, type JobDto } from "../../api/client";
 import { useToast } from "../../context/ToastContext";
+import { jobBadge, shortDate } from "../../utils/format";
 import { mapJob } from "../../utils/mappers";
 
 export function RecruiterJobsPage() {
@@ -79,9 +77,7 @@ export function RecruiterJobsPage() {
   }
 
   return (
-    <>
-      <SiteHeader active="jobs" mode="recruiter" />
-      <Page>
+    <RecruiterLayout active="jobs">
         <PageHead
           title="Đăng & quản lý tin tuyển dụng"
           description="Đăng vị trí, yêu cầu và kỹ năng. Tin sẽ hiện trên trang tìm việc của ứng viên."
@@ -89,16 +85,33 @@ export function RecruiterJobsPage() {
 
         <Grid2>
           <Panel>
-            <h2>Tin đang mở</h2>
-            <JobList>
-              {jobs.length === 0 ? (
-                <EmptyNote>Chưa có tin nào.</EmptyNote>
-              ) : (
-                jobs.map((j, i) => (
-                  <JobCard key={j.id} job={mapJob(j)} delayMs={i * 40} />
-                ))
-              )}
-            </JobList>
+            <h2>Tin của bạn</h2>
+            {jobs.length === 0 ? (
+              <EmptyNote>Chưa có tin nào. Điền form bên cạnh để đăng vị trí đầu tiên.</EmptyNote>
+            ) : (
+              <div className="tbl-box">
+                <table className="tbl" style={{ minWidth: 520 }}>
+                  <thead><tr><th>Vị trí</th><th>Địa điểm</th><th>Đăng</th><th>Trạng thái</th></tr></thead>
+                  <tbody>
+                    {jobs.map((j) => {
+                      const b = jobBadge(j.status);
+                      const m = mapJob(j);
+                      return (
+                        <tr key={j.id}>
+                          <td>
+                            <p style={{ fontWeight: 650 }}>{j.title}</p>
+                            <p className="tiny muted">{m.salary} · {m.requiredSkills.slice(0, 3).join(", ")}</p>
+                          </td>
+                          <td className="small">{m.location}</td>
+                          <td className="small muted">{shortDate(j.postedAt)}</td>
+                          <td><span className={b.cls}>{b.label}</span></td>
+                        </tr>
+                      );
+                    })}
+                  </tbody>
+                </table>
+              </div>
+            )}
           </Panel>
 
           <Panel>
@@ -218,7 +231,6 @@ export function RecruiterJobsPage() {
             </form>
           </Panel>
         </Grid2>
-      </Page>
-    </>
+    </RecruiterLayout>
   );
 }

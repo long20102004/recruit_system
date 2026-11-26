@@ -8,10 +8,10 @@ interface StatProps {
 
 export function Stat({ label, value, note }: StatProps) {
   return (
-    <article className="stat">
-      <div className="label">{label}</div>
-      <div className="value">{value}</div>
-      {note != null ? <div className="note">{note}</div> : null}
-    </article>
+    <div className="stat">
+      <p className="l">{label}</p>
+      <p className="v">{value}</p>
+      {note != null ? <p className="help">{note}</p> : null}
+    </div>
   );
 }

@@ -7,7 +7,7 @@ interface PageProps {
 
 export function Page({ children, className }: PageProps) {
   return (
-    <main className={className ? `page ${className}` : "page"}>{children}</main>
+    <main className={className ? `wrap page-hl ${className}` : "wrap page-hl"}>{children}</main>
   );
 }
 
@@ -18,32 +18,13 @@ interface PageHeadProps {
 }
 
 export function PageHead({ title, description, actions }: PageHeadProps) {
-  if (actions) {
-    return (
-      <header className="page-head">
-        <div
-          style={{
-            display: "flex",
-            flexWrap: "wrap",
-            justifyContent: "space-between",
-            gap: "1rem",
-            alignItems: "end",
-          }}
-        >
-          <div>
-            <h1>{title}</h1>
-            {description ? <p>{description}</p> : null}
-          </div>
-          {actions}
-        </div>
-      </header>
-    );
-  }
-
   return (
     <header className="page-head">
-      <h1>{title}</h1>
-      {description ? <p>{description}</p> : null}
+      <div>
+        <h1 style={{ fontSize: 32 }}>{title}</h1>
+        {description ? <p className="muted">{description}</p> : null}
+      </div>
+      {actions}
     </header>
   );
 }
@@ -56,10 +37,10 @@ interface SectionHeadProps {
 
 export function SectionHead({ title, subtitle, actions }: SectionHeadProps) {
   return (
-    <div className="section-head">
+    <div className="between" style={{ marginBottom: 12 }}>
       <div>
-        <h2>{title}</h2>
-        {subtitle ? <p>{subtitle}</p> : null}
+        <h2 style={{ fontSize: 22 }}>{title}</h2>
+        {subtitle ? <p className="small muted" style={{ marginTop: 4 }}>{subtitle}</p> : null}
       </div>
       {actions}
     </div>

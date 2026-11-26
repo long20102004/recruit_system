@@ -1,10 +1,9 @@
 import { useEffect, useState } from "react";
 import {
   EmptyNote,
-  Page,
   PageHead,
   Panel,
-  SiteHeader,
+  RecruiterLayout,
   Table,
 } from "../../components/common";
 import { interviewsApi, type QuestionDto } from "../../api/client";
@@ -22,9 +21,7 @@ export function RecruiterInterviewsPage() {
   }, [toast]);
 
   return (
-    <>
-      <SiteHeader active="interviews" mode="recruiter" />
-      <Page>
+    <RecruiterLayout active="interviews">
         <PageHead
           title="Ngân hàng câu hỏi & phỏng vấn"
           description="Danh sách câu hỏi dùng cho phiên luyện và đánh giá phỏng vấn."
@@ -46,7 +43,11 @@ export function RecruiterInterviewsPage() {
                 {questions.map((q) => (
                   <tr key={q.id}>
                     <td>{q.topic}</td>
-                    <td>{q.difficulty}</td>
+                    <td>
+                      <span className={`badge b-plain ${q.difficulty === "Hard" ? "b-danger" : q.difficulty === "Medium" ? "b-gold" : "b-ok"}`}>
+                        {q.difficulty}
+                      </span>
+                    </td>
                     <td>{q.skill}</td>
                     <td>{q.questionText}</td>
                   </tr>
@@ -55,7 +56,6 @@ export function RecruiterInterviewsPage() {
             </Table>
           )}
         </Panel>
-      </Page>
-    </>
+    </RecruiterLayout>
   );
 }

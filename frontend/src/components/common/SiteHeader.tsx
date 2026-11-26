@@ -1,11 +1,11 @@
 import { Link, useNavigate } from "react-router-dom";
 import type { HeaderMode, NavKey } from "../../types";
 import { Brand } from "./Brand";
-import { Button } from "./Button";
-import { classNames } from "../../utils/format";
 import { useAuth } from "../../context/AuthContext";
 import { accountPath } from "../../utils/account";
+import { initials } from "../../utils/format";
 
+/** Thanh điều hướng trên (design canvas: TopNav) cho khách và ứng viên. Recruiter dùng RecruiterLayout. */
 export interface SiteHeaderProps {
   active: NavKey;
   mode: HeaderMode;
@@ -18,47 +18,21 @@ interface NavItem {
   label: string;
 }
 
-function navForMode(mode: HeaderMode): {
-  home: string;
-  links: NavItem[];
-} {
-  if (mode === "public") {
-    return {
-      home: "/",
-      links: [{ to: "/", key: "jobs", label: "Việc làm" }],
-    };
-  }
-  if (mode === "recruiter") {
-    return {
-      home: "/recruiter",
-      links: [
-        { to: "/recruiter", key: "home", label: "Tổng quan" },
-        { to: "/recruiter/jobs", key: "jobs", label: "Đăng tuyển" },
-        { to: "/recruiter/candidates", key: "candidates", label: "Ứng viên" },
-        { to: "/recruiter/matching", key: "matching", label: "Ghép hồ sơ" },
-        { to: "/recruiter/interviews", key: "interviews", label: "Phỏng vấn" },
-      ],
-    };
-  }
-  return {
-    home: "/candidate",
-    links: [
-      { to: "/candidate", key: "jobs", label: "Việc làm" },
-      { to: "/candidate/matching", key: "matching", label: "Phù hợp với tôi" },
-      { to: "/candidate/cv", key: "cv", label: "Hồ sơ / CV" },
-      { to: "/candidate/interview", key: "interview", label: "Phỏng vấn AI" },
-    ],
-  };
-}
+const PUBLIC_LINKS: NavItem[] = [{ to: "/jobs", key: "jobs", label: "Việc làm IT" }];
 
-export function SiteHeader({
-  active,
-  mode,
-  userLocation,
-}: SiteHeaderProps) {
-  const { home, links } = navForMode(mode);
+const CANDIDATE_LINKS: NavItem[] = [
+  { to: "/candidate", key: "home", label: "Tổng quan" },
+  { to: "/jobs", key: "jobs", label: "Việc làm IT" },
+  { to: "/candidate/matching", key: "matching", label: "Việc phù hợp" },
+  { to: "/candidate/cv", key: "cv", label: "CV của tôi" },
+  { to: "/candidate/interview", key: "interview", label: "Phỏng vấn" },
+];
+
+export function SiteHeader({ active, mode, userLocation }: SiteHeaderProps) {
   const { user, logout } = useAuth();
   const navigate = useNavigate();
+  const candidate = mode !== "public";
+  const links = candidate ? CANDIDATE_LINKS : PUBLIC_LINKS;
 
   function onLogout() {
     logout();
@@ -66,66 +40,35 @@ export function SiteHeader({
   }
 
   return (
-    <header className="site-header">
-      <div className="site-header-inner">
-        <Brand to={home} />
-        <nav className="nav-links">
+    <header className="topnav">
+      <div className="wrap topnav-inner">
+        <Brand to={candidate ? "/candidate" : "/"} />
+        <nav aria-label="Chính" className="topnav-links">
           {links.map((l) => (
-            <Link
-              key={l.key}
-              to={l.to}
-              className={classNames(active === l.key && "active")}
-            >
+            <Link key={l.key} to={l.to} className={active === l.key ? "on" : undefined}
+              aria-current={active === l.key ? "page" : undefined}>
               {l.label}
             </Link>
           ))}
         </nav>
-        <div className="header-actions">
-          {mode === "public" ? (
-            <>
-              {userLocation ? (
-                <span className="loc-pill">{userLocation}</span>
-              ) : null}
-              {user ? (
-                <Button variant="primary" size="sm" to={accountPath(user)}>
-                  Trang của tôi
-                </Button>
-              ) : (
-                <>
-                  <Button variant="ghost" size="sm" to="/login">
-                    Đăng nhập
-                  </Button>
-                  <Button variant="primary" size="sm" to="/register">
-                    Tạo tài khoản
-                  </Button>
-                </>
-              )}
-            </>
-          ) : null}
-          {mode === "recruiter" ? (
-            <>
-              <Button variant="ghost" size="sm" to="/jobs">
-                Việc làm công khai
-              </Button>
-              <Button variant="primary" size="sm" onClick={onLogout}>
-                Đăng xuất
-              </Button>
-            </>
-          ) : null}
-          {mode === "candidate" ? (
-            <>
-              {userLocation ? (
-                <span className="loc-pill">{userLocation}</span>
-              ) : null}
-              <Button variant="ghost" size="sm" to="/candidate">
-                Trang chủ
-              </Button>
-              <Button variant="primary" size="sm" onClick={onLogout}>
-                Đăng xuất
-              </Button>
-            </>
-          ) : null}
-        </div>
+        {userLocation ? <span className="tag">{userLocation}</span> : null}
+        {!candidate ? (
+          user ? (
+            <Link to={accountPath(user)} className="btn btn-p btn-sm">Trang của tôi</Link>
+          ) : (
+            <div className="row" style={{ gap: 8 }}>
+              <Link to="/login" className="btn btn-sm" style={{ fontWeight: 600 }}>Đăng nhập</Link>
+              <Link to="/register" className="btn btn-g btn-sm">Đăng ký</Link>
+            </div>
+          )
+        ) : (
+          <div className="row" style={{ gap: 10 }}>
+            <span className="avatar" aria-hidden="true">{initials(user?.fullName)}</span>
+            <span style={{ fontSize: 14, fontWeight: 600 }}>{user?.fullName}</span>
+            <span className="topnav-sep" />
+            <button type="button" className="btn btn-sm" onClick={onLogout}>Đăng xuất</button>
+          </div>
+        )}
       </div>
     </header>
   );

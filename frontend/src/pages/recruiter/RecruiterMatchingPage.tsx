@@ -6,10 +6,9 @@ import {
   EmptyNote,
   Field,
   MatchExplain,
-  Page,
   PageHead,
   Panel,
-  SiteHeader,
+  RecruiterLayout,
   TextSelect,
 } from "../../components/common";
 import {
@@ -62,9 +61,7 @@ export function RecruiterMatchingPage() {
   }
 
   return (
-    <>
-      <SiteHeader active="matching" mode="recruiter" />
-      <Page>
+    <RecruiterLayout active="matching">
         <PageHead
           title="Ghép hồ sơ – tin tuyển dụng"
           description="Xếp hạng ứng viên theo kỹ năng và mức phù hợp với tin đã chọn."
@@ -141,7 +138,6 @@ export function RecruiterMatchingPage() {
             ))
           )}
         </Panel>
-      </Page>
-    </>
+    </RecruiterLayout>
   );
 }
