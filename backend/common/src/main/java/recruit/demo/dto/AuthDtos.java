@@ -38,6 +38,10 @@ public final class AuthDtos {
     public record EmailRequest(@NotBlank @Email String email) {
     }
 
+    /** credential: ID token (JWT) do Google Identity Services trả cho FE. */
+    public record GoogleLoginRequest(@NotBlank @Size(max = 4096) String credential) {
+    }
+
     public record ResetPasswordRequest(
             @NotBlank @Size(max = 200) String token,
             @NotBlank @Pattern(regexp = PASSWORD_PATTERN, message = PASSWORD_MESSAGE) String newPassword

@@ -15,6 +15,10 @@ import java.time.Duration;
 public class AuthProperties {
     /** Gốc URL giao diện web, dùng tạo link trong email. */
     private String frontendUrl = "http://localhost:5173";
+    /** OAuth Client ID (Web) của Google; rỗng = tắt đăng nhập Google. */
+    private String googleClientId = "";
+    /** JWKS của Google để xác minh chữ ký ID token. */
+    private String googleJwksUri = "https://www.googleapis.com/oauth2/v3/certs";
     private String mailFrom = "HireLens <no-reply@hirelens.local>";
     private Duration verifyTokenTtl = Duration.ofHours(24);
     private Duration resetTokenTtl = Duration.ofMinutes(30);

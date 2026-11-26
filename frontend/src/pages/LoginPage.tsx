@@ -7,6 +7,7 @@ import {
   AuthPanel,
   Button,
   Field,
+  GoogleAuthBlock,
   ResendVerificationButton,
   TextInput,
 } from "../components/common";
@@ -106,6 +107,7 @@ export function LoginPage() {
             {busy ? "Đang vào…" : "Đăng nhập"}
           </Button>
           {unverifiedEmail ? <ResendVerificationButton email={unverifiedEmail} /> : null}
+          <GoogleAuthBlock />
           <p className="small muted" style={{ textAlign: "center" }}>
             Chưa có tài khoản?{" "}
             <Link to="/register" style={{ color: "var(--brand)", fontWeight: 650 }}>Đăng ký</Link>

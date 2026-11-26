@@ -40,6 +40,7 @@ public class AuthServiceImpl implements AuthService {
     private final AuthMailService mail;
     private final UserCacheInvalidator userCache;
     private final RbacService rbac;
+    private final GoogleTokenVerifier google;
 
     /** Băm giả để email không tồn tại vẫn tốn thời gian so khớp như email có thật. */
     private volatile String dummyHash;
@@ -123,6 +124,48 @@ public class AuthServiceImpl implements AuthService {
                     "Email chưa được xác thực. Vui lòng bấm link trong email hoặc gửi lại email xác thực.",
                     Map.of("email", email));
         }
+        return issueSession(user);
+    }
+
+    /**
+     * Đăng nhập bằng Google (specs/005-google-login): tìm theo google_sub, rồi theo email (tự liên kết),
+     * không có thì tạo tài khoản mới đã xác thực email, chưa chọn vai trò.
+     */
+    @Override
+    @Transactional
+    public AuthDtos.AuthResponse googleLogin(AuthDtos.GoogleLoginRequest request) {
+        GoogleTokenVerifier.GoogleIdentity g = google.verify(request.credential());
+        if (g.subject() == null || g.email() == null || !g.emailVerified()) {
+            throw new BusinessException(ErrorCode.GOOGLE_TOKEN_INVALID, "Email Google chưa được xác thực", null);
+        }
+        String email = normalize(g.email());
+        User user = userRepository.findByGoogleSub(g.subject()).orElse(null);
+        if (user == null) {
+            user = userRepository.findByEmailIgnoreCase(email).orElse(null);
+            if (user != null) {
+                if (user.getGoogleSub() != null && !user.getGoogleSub().equals(g.subject())) {
+                    throw new BusinessException(ErrorCode.GOOGLE_TOKEN_INVALID,
+                            "Email này đã liên kết với một tài khoản Google khác", null);
+                }
+                user.setGoogleSub(g.subject());
+                if (!user.emailVerified()) user.setEmailVerifiedAt(LocalDateTime.now());
+                user = userRepository.save(user);
+            } else {
+                String name = g.name() == null || g.name().isBlank() ? displayNameFromEmail(email) : g.name().trim();
+                user = userRepository.save(User.builder()
+                        .email(email)
+                        .fullName(name)
+                        // Mật khẩu ngẫu nhiên không ai biết: muốn đăng nhập bằng mật khẩu thì dùng "Quên mật khẩu".
+                        .passwordHash(passwordEncoder.encode(java.util.UUID.randomUUID().toString()))
+                        .role(Role.CANDIDATE)
+                        .roleChosen(false)
+                        .status(UserStatus.ACTIVE)
+                        .emailVerifiedAt(LocalDateTime.now())
+                        .googleSub(g.subject())
+                        .build());
+            }
+        }
+        requireNotLocked(user);
         return issueSession(user);
     }
 
