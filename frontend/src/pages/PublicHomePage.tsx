@@ -1,7 +1,7 @@
 import { useEffect, useMemo, useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import { Button, EmptyNote, JobCard, JobLogo, SiteHeader } from "../components/common";
-import { jobsApi, matchingApi, type JobDto, type MatchDto } from "../api/client";
+import { MAX_PAGE_SIZE, jobsApi, matchingApi, type JobDto, type MatchDto } from "../api/client";
 import { useAuth } from "../context/AuthContext";
 import { useToast } from "../context/ToastContext";
 import { mapJob, mapMatch } from "../utils/mappers";
@@ -21,9 +21,9 @@ export function PublicHomePage() {
 
   useEffect(() => {
     jobsApi
-      .list()
-      .then((list) => {
-        setRemoteJobs(list);
+      .list({ size: MAX_PAGE_SIZE })
+      .then((page) => {
+        setRemoteJobs(page.content);
       })
       .catch(() => {
         toast("Không tải được danh sách việc làm. Thử lại sau.");
@@ -33,8 +33,8 @@ export function PublicHomePage() {
   useEffect(() => {
     if (!user || user.role !== "CANDIDATE") return;
     matchingApi
-      .mine()
-      .then((list: MatchDto[]) => setMatches(list.map(mapMatch)))
+      .mine({ size: MAX_PAGE_SIZE })
+      .then((page) => setMatches(page.content.map((m: MatchDto) => mapMatch(m))))
       .catch(() => undefined);
   }, [user]);
 

@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import { Button, Can, EmptyNote, JobLogo, SiteHeader } from "../../components/common";
-import { applicationsApi, jobsApi, matchingApi } from "../../api/client";
+import { MAX_PAGE_SIZE, applicationsApi, jobsApi, matchingApi } from "../../api/client";
 import { useAuth } from "../../context/AuthContext";
 import { useToast } from "../../context/ToastContext";
 import { mapJob, mapMatch } from "../../utils/mappers";
@@ -59,8 +59,8 @@ export function CandidateJobDetailPage() {
   useEffect(() => {
     if (!canReadMatch) return;
     matchingApi
-      .mine()
-      .then((list) => setMatch(list.map(mapMatch).find((m) => m.jobId === String(jobId)) ?? null))
+      .mine({ size: MAX_PAGE_SIZE })
+      .then((page) => setMatch(page.content.map(mapMatch).find((m) => m.jobId === String(jobId)) ?? null))
       .catch(() => setMatch(null));
   }, [jobId, canReadMatch]);
 

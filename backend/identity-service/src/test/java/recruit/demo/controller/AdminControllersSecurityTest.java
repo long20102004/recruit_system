@@ -1,5 +1,8 @@
 package recruit.demo.controller;
 
+import recruit.demo.dto.admin.LockRequest;
+import recruit.demo.dto.admin.UpdateRolePermissionsRequest;
+
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
@@ -9,8 +12,6 @@ import org.springframework.security.access.AccessDeniedException;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.config.annotation.method.configuration.EnableMethodSecurity;
 import org.springframework.security.core.context.SecurityContextHolder;
-import recruit.demo.dto.AdminUserDtos.LockRequest;
-import recruit.demo.dto.RbacDtos;
 import recruit.demo.enums.Role;
 import recruit.demo.enums.UserStatus;
 import recruit.demo.security.UserPrincipal;
@@ -66,6 +67,6 @@ class AdminControllersSecurityTest {
         assertThrows(AccessDeniedException.class, rolesApi::matrix);
         loginWith(Role.ADMIN, "role:manage");
         assertDoesNotThrow(rolesApi::matrix);
-        assertDoesNotThrow(() -> rolesApi.update("RECRUITER", new RbacDtos.UpdateRolePermissionsRequest(List.of())));
+        assertDoesNotThrow(() -> rolesApi.update("RECRUITER", new UpdateRolePermissionsRequest(List.of())));
     }
 }

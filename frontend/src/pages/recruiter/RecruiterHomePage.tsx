@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { Button, EmptyNote, RecruiterLayout, Can } from "../../components/common";
 import {
+  MAX_PAGE_SIZE,
   applicationsApi,
   dashboardApi,
   jobsApi,
@@ -25,8 +26,8 @@ export function RecruiterHomePage() {
   useEffect(() => {
     Promise.all([
       dashboardApi.recruiter(),
-      canReadJobs ? jobsApi.mine() : Promise.resolve([]),
-      canReadApps ? applicationsApi.recruiter() : Promise.resolve([]),
+      canReadJobs ? jobsApi.mine({ size: MAX_PAGE_SIZE }).then((p) => p.content) : Promise.resolve([]),
+      canReadApps ? applicationsApi.recruiter({ size: MAX_PAGE_SIZE }).then((p) => p.content) : Promise.resolve([]),
     ])
       .then(([s, j, a]) => {
         setStats(s);

@@ -55,9 +55,9 @@ class AdminUserServiceTest {
     void lockBansRevokesSessionsAndEvictsCache() {
         stubUser(5, Role.CANDIDATE, UserStatus.ACTIVE);
         var dto = service.lock(5, "  spam  ");
-        assertEquals(UserStatus.BANNED, dto.status());
-        assertEquals("spam", dto.lockedReason());
-        assertNotNull(dto.lockedAt());
+        assertEquals(UserStatus.BANNED, dto.getStatus());
+        assertEquals("spam", dto.getLockedReason());
+        assertNotNull(dto.getLockedAt());
         verify(repo).save(argThat(u -> u.getSessionsValidAfter() != null));
         verify(cache).evictAfterCommit(5);
     }
@@ -77,8 +77,8 @@ class AdminUserServiceTest {
                 .passwordHash("h").role(Role.CANDIDATE).status(UserStatus.BANNED).lockedReason("spam")
                 .sessionsValidAfter(java.time.LocalDateTime.now()).build()));
         var dto = service.unlock(5);
-        assertEquals(UserStatus.ACTIVE, dto.status());
-        assertNull(dto.lockedReason());
+        assertEquals(UserStatus.ACTIVE, dto.getStatus());
+        assertNull(dto.getLockedReason());
         verify(repo).save(argThat(u -> u.getSessionsValidAfter() != null));
         verify(cache).evictAfterCommit(5);
     }

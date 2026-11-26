@@ -76,46 +76,68 @@ export async function api<T>(
   return (await res.json()) as T;
 }
 
+/** API trả khung BaseResponse {code, message, data}: lấy data ra. */
+export async function apiData<T>(path: string, options: RequestInit = {}): Promise<T> {
+  const res = await api<BaseResponse<T>>(path, options);
+  return res?.data as T;
+}
+
+/** Tham số phân trang (page từ 0). Backend giới hạn size tối đa {@link MAX_PAGE_SIZE}. */
+export interface PageParams {
+  page?: number;
+  size?: number;
+}
+
+export const MAX_PAGE_SIZE = 100;
+
+function pageQuery(params?: PageParams, extra?: Record<string, string | undefined>): string {
+  const q = new URLSearchParams();
+  for (const [k, v] of Object.entries(extra ?? {})) if (v) q.set(k, v);
+  q.set("page", String(params?.page ?? 0));
+  q.set("size", String(params?.size ?? 20));
+  return `?${q.toString()}`;
+}
+
 export const authApi = {
   login: (email: string, password: string) =>
-    api<AuthResponse>("/auth/login", {
+    apiData<AuthResponse>("/auth/login", {
       method: "POST",
       body: JSON.stringify({ email, password }),
     }),
   register: (body: RegisterBody) =>
-    api<RegisterResponse>("/auth/register", {
+    apiData<RegisterResponse>("/auth/register", {
       method: "POST",
       body: JSON.stringify(body),
     }),
   /** Đăng nhập bằng ID token của Google Identity Services (specs/005-google-login). */
   google: (credential: string) =>
-    api<AuthResponse>("/auth/google", {
+    apiData<AuthResponse>("/auth/google", {
       method: "POST",
       body: JSON.stringify({ credential }),
     }),
   verifyEmail: (token: string) =>
-    api<AuthResponse>("/auth/verify-email", {
+    apiData<AuthResponse>("/auth/verify-email", {
       method: "POST",
       body: JSON.stringify({ token }),
     }),
   resendVerification: (email: string) =>
-    api<MessageResponse>("/auth/resend-verification", {
+    apiData<MessageResponse>("/auth/resend-verification", {
       method: "POST",
       body: JSON.stringify({ email }),
     }),
   forgotPassword: (email: string) =>
-    api<MessageResponse>("/auth/forgot-password", {
+    apiData<MessageResponse>("/auth/forgot-password", {
       method: "POST",
       body: JSON.stringify({ email }),
     }),
   resetPassword: (token: string, newPassword: string) =>
-    api<MessageResponse>("/auth/reset-password", {
+    apiData<MessageResponse>("/auth/reset-password", {
       method: "POST",
       body: JSON.stringify({ token, newPassword }),
     }),
-  me: () => api<UserDto>("/auth/me"),
+  me: () => apiData<UserDto>("/auth/me"),
   chooseRole: (role: "CANDIDATE" | "RECRUITER") =>
-    api<AuthResponse>("/auth/role", {
+    apiData<AuthResponse>("/auth/role", {
       method: "POST",
       body: JSON.stringify({ role }),
     }),
@@ -158,32 +180,30 @@ export interface NotificationPrefDto {
 }
 
 export const accountApi = {
-  profile: () => api<ProfileDto>("/account/profile"),
+  profile: () => apiData<ProfileDto>("/account/profile"),
   updateProfile: (body: UpdateProfileBody) =>
-    api<ProfileDto>("/account/profile", { method: "PUT", body: JSON.stringify(body) }),
+    apiData<ProfileDto>("/account/profile", { method: "PUT", body: JSON.stringify(body) }),
   /** Trả token mới; các phiên khác bị đăng xuất. */
   changePassword: (currentPassword: string | null, newPassword: string) =>
-    api<AuthResponse>("/account/password", {
+    apiData<AuthResponse>("/account/password", {
       method: "POST",
       body: JSON.stringify({ currentPassword, newPassword }),
     }),
-  notifications: () => api<{ items: NotificationPrefDto[] }>("/account/notifications"),
+  notifications: () => apiData<{ items: NotificationPrefDto[] }>("/account/notifications"),
   updateNotifications: (items: NotificationPrefDto[]) =>
-    api<{ items: NotificationPrefDto[] }>("/account/notifications", {
+    apiData<{ items: NotificationPrefDto[] }>("/account/notifications", {
       method: "PUT",
       body: JSON.stringify({ items }),
     }),
 };
 
 export const jobsApi = {
-  list: (params?: { keyword?: string; city?: string }) => {
-    const q = new URLSearchParams();
-    if (params?.keyword) q.set("keyword", params.keyword);
-    if (params?.city && params.city !== "all") q.set("city", params.city);
-    const qs = q.toString();
-    return api<JobDto[]>(`/jobs${qs ? `?${qs}` : ""}`);
-  },
-  mine: () => api<JobDto[]>("/jobs/mine"),
+  list: (params?: { keyword?: string; city?: string } & PageParams) =>
+    apiData<PageDto<JobDto>>(`/jobs${pageQuery(params, {
+      keyword: params?.keyword?.trim() || undefined,
+      city: params?.city && params.city !== "all" ? params.city : undefined,
+    })}`),
+  mine: (params?: PageParams) => apiData<PageDto<JobDto>>(`/jobs/mine${pageQuery(params)}`),
   get: (id: number) => api<JobDto>(`/jobs/${id}`),
   create: (body: CreateJobBody) =>
     api<JobDto>("/jobs", { method: "POST", body: JSON.stringify(body) }),
@@ -200,8 +220,9 @@ export const applicationsApi = {
       method: "POST",
       body: JSON.stringify(body ?? {}),
     }),
-  mine: () => api<ApplicationDto[]>("/applications/mine"),
-  recruiter: () => api<ApplicationDto[]>("/applications/recruiter"),
+  mine: (params?: PageParams) => apiData<PageDto<ApplicationDto>>(`/applications/mine${pageQuery(params)}`),
+  recruiter: (params?: PageParams) =>
+    apiData<PageDto<ApplicationDto>>(`/applications/recruiter${pageQuery(params)}`),
 };
 
 export const cvsApi = {
@@ -220,10 +241,11 @@ export const cvsApi = {
 };
 
 export const matchingApi = {
-  mine: () => api<MatchDto[]>("/matching/mine"),
+  mine: (params?: PageParams) => apiData<PageDto<MatchDto>>(`/matching/mine${pageQuery(params)}`),
   refreshMine: () =>
     api<MatchDto[]>("/matching/mine/refresh", { method: "POST" }),
-  forJob: (jobId: number) => api<MatchDto[]>(`/matching/jobs/${jobId}`),
+  forJob: (jobId: number, params?: PageParams) =>
+    apiData<PageDto<MatchDto>>(`/matching/jobs/${jobId}${pageQuery(params)}`),
   run: (jobId: number, candidateId?: number) =>
     api<MatchDto>("/matching/run", {
       method: "POST",
@@ -241,8 +263,8 @@ export const matchingApi = {
 };
 
 export const interviewsApi = {
-  questions: () => api<QuestionDto[]>("/interviews/questions"),
-  mine: () => api<SessionDto[]>("/interviews/sessions/mine"),
+  questions: (params?: PageParams) => apiData<PageDto<QuestionDto>>(`/interviews/questions${pageQuery(params)}`),
+  mine: (params?: PageParams) => apiData<PageDto<SessionDto>>(`/interviews/sessions/mine${pageQuery(params)}`),
   summary: (id: number) => api<SessionSummaryDto>(`/interviews/sessions/${id}/summary`),
   createSession: (body?: {
     jobId?: number;
@@ -562,13 +584,13 @@ export const adminApi = {
     if (params.status) qs.set("status", params.status);
     qs.set("page", String(params.page ?? 0));
     qs.set("size", String(params.size ?? 20));
-    return api<PageDto<AdminUserDto>>(`/admin/users?${qs.toString()}`);
+    return apiData<PageDto<AdminUserDto>>(`/admin/users?${qs.toString()}`);
   },
   lock: (id: number, reason: string) =>
-    api<AdminUserDto>(`/admin/users/${id}/lock`, { method: "PATCH", body: JSON.stringify({ reason }) }),
-  unlock: (id: number) => api<AdminUserDto>(`/admin/users/${id}/unlock`, { method: "PATCH" }),
-  roles: () => api<RbacMatrixDto>("/admin/roles"),
+    apiData<AdminUserDto>(`/admin/users/${id}/lock`, { method: "PATCH", body: JSON.stringify({ reason }) }),
+  unlock: (id: number) => apiData<AdminUserDto>(`/admin/users/${id}/unlock`, { method: "PATCH" }),
+  roles: () => apiData<RbacMatrixDto>("/admin/roles"),
   updateRole: (code: string, permissions: string[]) =>
-    api<RbacRoleDto>(`/admin/roles/${code}/permissions`, { method: "PUT", body: JSON.stringify({ permissions }) }),
+    apiData<RbacRoleDto>(`/admin/roles/${code}/permissions`, { method: "PUT", body: JSON.stringify({ permissions }) }),
 };
 

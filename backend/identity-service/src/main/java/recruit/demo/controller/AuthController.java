@@ -1,9 +1,21 @@
 package recruit.demo.controller;
 
+import recruit.demo.dto.auth.AuthResponse;
+import recruit.demo.dto.auth.ChooseRoleRequest;
+import recruit.demo.dto.auth.EmailRequest;
+import recruit.demo.dto.auth.GoogleLoginRequest;
+import recruit.demo.dto.auth.LoginRequest;
+import recruit.demo.dto.auth.MessageResponse;
+import recruit.demo.dto.auth.RegisterRequest;
+import recruit.demo.dto.auth.RegisterResponse;
+import recruit.demo.dto.auth.ResetPasswordRequest;
+import recruit.demo.dto.auth.TokenRequest;
+import recruit.demo.dto.auth.UserResponse;
+
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
+import recruit.demo.dto.BaseResponse;
 import org.springframework.web.bind.annotation.*;
-import recruit.demo.dto.AuthDtos;
 import recruit.demo.service.AuthService;
 
 @RestController
@@ -14,47 +26,47 @@ public class AuthController {
     private final AuthService authService;
 
     @PostMapping("/login")
-    public AuthDtos.AuthResponse login(@Valid @RequestBody AuthDtos.LoginRequest request) {
-        return authService.login(request);
+    public BaseResponse<AuthResponse> login(@Valid @RequestBody LoginRequest request) {
+        return BaseResponse.success(authService.login(request));
     }
 
     @PostMapping("/register")
-    public AuthDtos.RegisterResponse register(@Valid @RequestBody AuthDtos.RegisterRequest request) {
-        return authService.register(request);
+    public BaseResponse<RegisterResponse> register(@Valid @RequestBody RegisterRequest request) {
+        return BaseResponse.success(authService.register(request));
     }
 
     @PostMapping("/google")
-    public AuthDtos.AuthResponse google(@Valid @RequestBody AuthDtos.GoogleLoginRequest request) {
-        return authService.googleLogin(request);
+    public BaseResponse<AuthResponse> google(@Valid @RequestBody GoogleLoginRequest request) {
+        return BaseResponse.success(authService.googleLogin(request));
     }
 
     @PostMapping("/verify-email")
-    public AuthDtos.AuthResponse verifyEmail(@Valid @RequestBody AuthDtos.TokenRequest request) {
-        return authService.verifyEmail(request);
+    public BaseResponse<AuthResponse> verifyEmail(@Valid @RequestBody TokenRequest request) {
+        return BaseResponse.success(authService.verifyEmail(request));
     }
 
     @PostMapping("/resend-verification")
-    public AuthDtos.MessageResponse resendVerification(@Valid @RequestBody AuthDtos.EmailRequest request) {
-        return authService.resendVerification(request);
+    public BaseResponse<MessageResponse> resendVerification(@Valid @RequestBody EmailRequest request) {
+        return BaseResponse.success(authService.resendVerification(request));
     }
 
     @PostMapping("/forgot-password")
-    public AuthDtos.MessageResponse forgotPassword(@Valid @RequestBody AuthDtos.EmailRequest request) {
-        return authService.forgotPassword(request);
+    public BaseResponse<MessageResponse> forgotPassword(@Valid @RequestBody EmailRequest request) {
+        return BaseResponse.success(authService.forgotPassword(request));
     }
 
     @PostMapping("/reset-password")
-    public AuthDtos.MessageResponse resetPassword(@Valid @RequestBody AuthDtos.ResetPasswordRequest request) {
-        return authService.resetPassword(request);
+    public BaseResponse<MessageResponse> resetPassword(@Valid @RequestBody ResetPasswordRequest request) {
+        return BaseResponse.success(authService.resetPassword(request));
     }
 
     @GetMapping("/me")
-    public AuthDtos.UserResponse me() {
-        return authService.me();
+    public BaseResponse<UserResponse> me() {
+        return BaseResponse.success(authService.me());
     }
 
     @PostMapping("/role")
-    public AuthDtos.AuthResponse chooseRole(@Valid @RequestBody AuthDtos.ChooseRoleRequest request) {
-        return authService.chooseRole(request);
+    public BaseResponse<AuthResponse> chooseRole(@Valid @RequestBody ChooseRoleRequest request) {
+        return BaseResponse.success(authService.chooseRole(request));
     }
 }

@@ -7,6 +7,7 @@ import {
   SiteHeader,
 } from "../../components/common";
 import {
+  MAX_PAGE_SIZE,
   cvsApi,
   jobsApi,
   matchingApi,
@@ -35,11 +36,11 @@ export function CandidateMatchingPage() {
       setScoreError(null);
       return "empty" as const;
     }
-    const jobList = await jobsApi.list();
+    const jobList = (await jobsApi.list({ size: MAX_PAGE_SIZE })).content;
     setJobs(jobList);
     let stored: MatchDto[] = [];
     try {
-      stored = await matchingApi.mine();
+      stored = (await matchingApi.mine({ size: MAX_PAGE_SIZE })).content;
     } catch {
       stored = [];
     }

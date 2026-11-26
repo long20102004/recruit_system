@@ -1,11 +1,19 @@
 package recruit.demo.service.impl;
 
+import recruit.demo.dto.auth.AuthResponse;
+import recruit.demo.dto.auth.EmailRequest;
+import recruit.demo.dto.auth.GoogleLoginRequest;
+import recruit.demo.dto.auth.LoginRequest;
+import recruit.demo.dto.auth.RegisterRequest;
+import recruit.demo.dto.auth.RegisterResponse;
+import recruit.demo.dto.auth.ResetPasswordRequest;
+import recruit.demo.dto.auth.TokenRequest;
+
 import recruit.demo.service.*;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import recruit.demo.config.AuthProperties;
-import recruit.demo.dto.AuthDtos.*;
 import recruit.demo.enums.Role;
 import recruit.demo.entity.User;
 import recruit.demo.enums.UserStatus;
@@ -70,7 +78,7 @@ class AuthServiceTest {
 
         RegisterResponse res = service.register(new RegisterRequest("  A@X.test ", "abc12345"));
 
-        assertEquals("a@x.test", res.email());
+        assertEquals("a@x.test", res.getEmail());
         verify(repo).save(argThat(u -> u.getEmailVerifiedAt() == null && u.getEmail().equals("a@x.test")));
         verify(mail).sendVerification("a@x.test", "a", "tok");
         verifyNoInteractions(jwt);
@@ -92,7 +100,7 @@ class AuthServiceTest {
 
         AuthResponse res = service.verifyEmail(new TokenRequest("tok"));
 
-        assertEquals("jwt", res.token());
+        assertEquals("jwt", res.getToken());
         assertNotNull(u.getEmailVerifiedAt());
     }
 
@@ -108,8 +116,8 @@ class AuthServiceTest {
         when(repo.findByEmailIgnoreCase("v@x.test")).thenReturn(Optional.of(user(true, UserStatus.ACTIVE)));
         when(repo.findByEmailIgnoreCase("n@x.test")).thenReturn(Optional.empty());
 
-        String m1 = service.resendVerification(new EmailRequest("v@x.test")).message();
-        String m2 = service.resendVerification(new EmailRequest("n@x.test")).message();
+        String m1 = service.resendVerification(new EmailRequest("v@x.test")).getMessage();
+        String m2 = service.resendVerification(new EmailRequest("n@x.test")).getMessage();
 
         assertEquals(m1, m2);
         verifyNoInteractions(mail);
@@ -121,8 +129,8 @@ class AuthServiceTest {
     void loginSuccessResetsFailures() {
         when(repo.findByEmailIgnoreCase("a@x.test")).thenReturn(Optional.of(user(true, UserStatus.ACTIVE)));
         AuthResponse res = service.login(new LoginRequest("A@x.test", "abc12345"));
-        assertEquals("jwt", res.token());
-        assertEquals(List.of("cv:manage-own", "interview:practice"), res.user().permissions());
+        assertEquals("jwt", res.getToken());
+        assertEquals(List.of("cv:manage-own", "interview:practice"), res.getUser().getPermissions());
         verify(attempts).reset("a@x.test");
     }
 
@@ -189,9 +197,9 @@ class AuthServiceTest {
         when(tokens.tryAcquireCooldown(eq(Purpose.RESET), anyString(), any())).thenReturn(true);
         when(tokens.issue(eq(Purpose.RESET), eq(9), any())).thenReturn("tok");
 
-        String m1 = service.forgotPassword(new EmailRequest("a@x.test")).message();
-        String m2 = service.forgotPassword(new EmailRequest("b@x.test")).message();
-        String m3 = service.forgotPassword(new EmailRequest("nobody@x.test")).message();
+        String m1 = service.forgotPassword(new EmailRequest("a@x.test")).getMessage();
+        String m2 = service.forgotPassword(new EmailRequest("b@x.test")).getMessage();
+        String m3 = service.forgotPassword(new EmailRequest("nobody@x.test")).getMessage();
 
         assertEquals(m1, m2);
         assertEquals(m1, m3);
@@ -242,8 +250,8 @@ class AuthServiceTest {
 
         AuthResponse res = service.googleLogin(new GoogleLoginRequest("cred"));
 
-        assertEquals("jwt", res.token());
-        assertFalse(res.user().roleChosen());
+        assertEquals("jwt", res.getToken());
+        assertFalse(res.getUser().isRoleChosen());
         verify(repo).save(argThat(u -> u.getEmail().equals("new@gmail.com") && "g-1".equals(u.getGoogleSub())
                 && u.getEmailVerifiedAt() != null && u.getRole() == Role.CANDIDATE && "An Nguyen".equals(u.getFullName())
                 && u.getPasswordHash() != null && !u.isRoleChosen() && !u.isPasswordSet()));
@@ -255,7 +263,7 @@ class AuthServiceTest {
         googleSays("g-1", "a@x.test", true);
         when(repo.findByEmailIgnoreCase("a@x.test")).thenReturn(Optional.of(existing));
 
-        assertEquals("jwt", service.googleLogin(new GoogleLoginRequest("cred")).token());
+        assertEquals("jwt", service.googleLogin(new GoogleLoginRequest("cred")).getToken());
         assertEquals("g-1", existing.getGoogleSub());
         assertNotNull(existing.getEmailVerifiedAt());
         assertEquals(HASH, existing.getPasswordHash(), "password login keeps working");
@@ -267,7 +275,7 @@ class AuthServiceTest {
         linked.setGoogleSub("g-1");
         googleSays("g-1", "renamed@gmail.com", true);
         when(repo.findByGoogleSub("g-1")).thenReturn(Optional.of(linked));
-        assertEquals("jwt", service.googleLogin(new GoogleLoginRequest("cred")).token());
+        assertEquals("jwt", service.googleLogin(new GoogleLoginRequest("cred")).getToken());
         verify(repo, never()).save(any());
     }
 

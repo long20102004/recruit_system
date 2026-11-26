@@ -1,24 +1,27 @@
 import { useEffect, useState } from "react";
 import {
   EmptyNote,
+  Pager,
   PageHead,
   Panel,
   RecruiterLayout,
   Table,
 } from "../../components/common";
-import { interviewsApi, type QuestionDto } from "../../api/client";
+import { interviewsApi, type PageDto, type QuestionDto } from "../../api/client";
 import { useToast } from "../../context/ToastContext";
 
 export function RecruiterInterviewsPage() {
   const { toast } = useToast();
-  const [questions, setQuestions] = useState<QuestionDto[]>([]);
+  const [page, setPage] = useState(0);
+  const [data, setData] = useState<PageDto<QuestionDto> | null>(null);
+  const questions = data?.content ?? [];
 
   useEffect(() => {
     interviewsApi
-      .questions()
-      .then(setQuestions)
+      .questions({ page })
+      .then(setData)
       .catch((e) => toast(e.message));
-  }, [toast]);
+  }, [toast, page]);
 
   return (
     <RecruiterLayout active="interviews">
@@ -55,6 +58,7 @@ export function RecruiterInterviewsPage() {
               </tbody>
             </Table>
           )}
+          <Pager data={data} onPage={setPage} />
         </Panel>
     </RecruiterLayout>
   );

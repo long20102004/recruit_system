@@ -66,7 +66,7 @@ class RbacServiceImplTest {
 
         var dto = service.updateRolePermissions("recruiter", List.of("job:create"));
 
-        assertEquals(List.of("job:create"), dto.permissions());
+        assertEquals(List.of("job:create"), dto.getPermissions());
         verify(userCache).evictAll();
         assertEquals(List.of("job:create"), service.permissionsOf(Role.RECRUITER));
         verify(roles, times(3)).findById("RECRUITER"); // cache xoá nên đọc lại

@@ -1,5 +1,12 @@
 package recruit.demo.service.impl;
 
+import recruit.demo.dto.auth.AuthResponse;
+import recruit.demo.dto.account.ChangePasswordRequest;
+import recruit.demo.dto.account.NotificationPreferenceDto;
+import recruit.demo.dto.account.NotificationSettingsDto;
+import recruit.demo.dto.account.ProfileResponse;
+import recruit.demo.dto.account.UpdateProfileRequest;
+
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -7,8 +14,6 @@ import org.springframework.security.authentication.UsernamePasswordAuthenticatio
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import recruit.demo.config.AuthProperties;
-import recruit.demo.dto.AccountDtos.*;
-import recruit.demo.dto.AuthDtos.AuthResponse;
 import recruit.demo.entity.NotificationPreference;
 import recruit.demo.entity.User;
 import recruit.demo.enums.Gender;
@@ -82,11 +87,11 @@ class AccountServiceImplTest {
         ProfileResponse res = service.updateProfile(
                 new UpdateProfileRequest("  Nguyễn An ", "  ", LocalDate.of(2001, 5, 12), Gender.MALE));
 
-        assertEquals("Nguyễn An", res.fullName());
-        assertNull(res.phone());
-        assertEquals(LocalDate.of(2001, 5, 12), res.dateOfBirth());
-        assertEquals(Gender.MALE, res.gender());
-        assertEquals("A@x.test", res.email());
+        assertEquals("Nguyễn An", res.getFullName());
+        assertNull(res.getPhone());
+        assertEquals(LocalDate.of(2001, 5, 12), res.getDateOfBirth());
+        assertEquals(Gender.MALE, res.getGender());
+        assertEquals("A@x.test", res.getEmail());
         verify(cache).evictAfterCommit(9);
     }
 
@@ -96,7 +101,7 @@ class AccountServiceImplTest {
     void changePasswordInvalidatesOtherSessionsAndReturnsNewToken() {
         AuthResponse res = service.changePassword(new ChangePasswordRequest("abc12345", "newpass12"));
 
-        assertEquals("new-jwt", res.token());
+        assertEquals("new-jwt", res.getToken());
         assertTrue(ENCODER.matches("newpass12", user.getPasswordHash()));
         assertNotNull(user.getSessionsValidAfter());
         verify(attempts).reset("a@x.test");
@@ -152,15 +157,15 @@ class AccountServiceImplTest {
         when(prefs.findByUserId(9)).thenReturn(List.of(
                 new NotificationPreference(9, NotificationType.JOB_ALERT, false, false)));
 
-        NotificationSettings res = service.notificationSettings();
+        NotificationSettingsDto res = service.notificationSettings();
 
-        assertEquals(NotificationType.values().length, res.items().size());
-        var jobAlert = res.items().get(NotificationType.JOB_ALERT.ordinal());
-        assertEquals(NotificationType.JOB_ALERT, jobAlert.type());
-        assertFalse(jobAlert.inApp());
-        assertFalse(jobAlert.email());
-        assertTrue(res.items().get(NotificationType.INTERVIEW_INVITE.ordinal()).email());
-        assertFalse(res.items().get(NotificationType.CV_PROCESSED.ordinal()).email());
+        assertEquals(NotificationType.values().length, res.getItems().size());
+        var jobAlert = res.getItems().get(NotificationType.JOB_ALERT.ordinal());
+        assertEquals(NotificationType.JOB_ALERT, jobAlert.getType());
+        assertFalse(jobAlert.isInApp());
+        assertFalse(jobAlert.isEmail());
+        assertTrue(res.getItems().get(NotificationType.INTERVIEW_INVITE.ordinal()).isEmail());
+        assertFalse(res.getItems().get(NotificationType.CV_PROCESSED.ordinal()).isEmail());
     }
 
     @Test
@@ -169,20 +174,13 @@ class AccountServiceImplTest {
         NotificationPreference existing = new NotificationPreference(9, NotificationType.JOB_ALERT, true, true);
         when(prefs.findByUserId(9)).thenReturn(new ArrayList<>(List.of(existing)));
 
-        service.updateNotificationSettings(new NotificationSettings(List.of(
-                new NotificationPreference_(NotificationType.JOB_ALERT, false, true).dto(),
-                new NotificationPreference_(NotificationType.CV_PROCESSED, true, true).dto())));
+        service.updateNotificationSettings(new NotificationSettingsDto(List.of(
+                new NotificationPreferenceDto(NotificationType.JOB_ALERT, false, true),
+                new NotificationPreferenceDto(NotificationType.CV_PROCESSED, true, true))));
 
         verify(prefs).saveAll(argThat((Collection<NotificationPreference> rows) -> rows.size() == 2
                 && rows.stream().allMatch(r -> r.getUserId() == 9)
                 && rows.stream().anyMatch(r -> r.getType() == NotificationType.JOB_ALERT && !r.isInApp() && r.isEmail())
                 && rows.stream().anyMatch(r -> r.getType() == NotificationType.CV_PROCESSED && r.isEmail())));
-    }
-
-    /** Tránh trùng tên giữa entity NotificationPreference và DTO AccountDtos.NotificationPreference. */
-    private record NotificationPreference_(NotificationType type, boolean inApp, boolean email) {
-        recruit.demo.dto.AccountDtos.NotificationPreference dto() {
-            return new recruit.demo.dto.AccountDtos.NotificationPreference(type, inApp, email);
-        }
     }
 }

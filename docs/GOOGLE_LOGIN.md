@@ -36,7 +36,7 @@ sequenceDiagram
     ID->>G: lấy khoá công khai (JWKS, có cache)
     ID->>ID: kiểm tra chữ ký, iss, aud = Client ID, hạn, email_verified
     ID->>ID: tìm user theo google_sub → theo email (liên kết) → tạo mới
-    ID-->>FE: {token, user} như đăng nhập thường
+    ID-->>FE: BaseResponse { data: {token, user} } như đăng nhập thường
     FE->>FE: user mới → /choose-role, user cũ → trang theo quyền
 ```
 
