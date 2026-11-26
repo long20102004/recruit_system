@@ -3,23 +3,38 @@ import { Link, useNavigate } from "react-router-dom";
 import { Brand } from "./Brand";
 import { useAuth } from "../../context/AuthContext";
 import { initials } from "../../utils/format";
+import type { PermissionRequirement } from "../../utils/permissions";
 
 /** Khung trang nhà tuyển dụng (design canvas: SideNav + app-main). */
-export type RecruiterNavKey = "home" | "jobs" | "candidates" | "matching" | "interviews";
+export type RecruiterNavKey = "home" | "jobs" | "candidates" | "matching" | "interviews" | "users" | "roles";
 
-type Entry = { group: string } | { key: RecruiterNavKey; label: string; to: string };
+type Entry = { group: string } | { key: RecruiterNavKey; label: string; to: string; perm: PermissionRequirement };
 
+/** Mục menu kèm quyền cần có; mục không đủ quyền bị ẩn (specs/004-rbac). */
 const ENTRIES: Entry[] = [
-  { key: "home", label: "Tổng quan", to: "/recruiter" },
+  { key: "home", label: "Tổng quan", to: "/recruiter", perm: "dashboard:recruiter" },
   { group: "Tuyển dụng" },
-  { key: "jobs", label: "Tin tuyển dụng", to: "/recruiter/jobs" },
-  { key: "candidates", label: "Đơn ứng tuyển", to: "/recruiter/candidates" },
-  { key: "matching", label: "Xếp hạng matching", to: "/recruiter/matching" },
-  { key: "interviews", label: "Kết quả phỏng vấn", to: "/recruiter/interviews" },
+  { key: "jobs", label: "Tin tuyển dụng", to: "/recruiter/jobs", perm: "job:read-own" },
+  { key: "candidates", label: "Đơn ứng tuyển", to: "/recruiter/candidates", perm: "application:read-received" },
+  { key: "matching", label: "Xếp hạng matching", to: "/recruiter/matching", perm: ["matching:run", "matching:read-all"] },
+  { key: "interviews", label: "Ngân hàng câu hỏi", to: "/recruiter/interviews", perm: "question:read" },
+  { group: "Quản trị" },
+  { key: "users", label: "Người dùng", to: "/admin/users", perm: "user:read" },
+  { key: "roles", label: "Phân quyền", to: "/admin/roles", perm: "role:manage" },
 ];
 
+/** Bỏ mục không đủ quyền và tiêu đề nhóm không còn mục nào. */
+function visibleEntries(can: (p: PermissionRequirement) => boolean): Entry[] {
+  const out: Entry[] = [];
+  for (const e of ENTRIES) {
+    if ("group" in e) out.push(e);
+    else if (can(e.perm)) out.push(e);
+  }
+  return out.filter((e, i) => !("group" in e) || (i + 1 < out.length && !("group" in out[i + 1])));
+}
+
 export function RecruiterLayout({ active, children }: { active: RecruiterNavKey; children: ReactNode }) {
-  const { user, logout } = useAuth();
+  const { user, logout, can } = useAuth();
   const navigate = useNavigate();
   const admin = user?.role === "ADMIN";
 
@@ -30,7 +45,7 @@ export function RecruiterLayout({ active, children }: { active: RecruiterNavKey;
           <Brand to="/recruiter" />
           <p className="sidenav-area">{admin ? "Quản trị hệ thống" : "Nhà tuyển dụng"}</p>
           <nav aria-label="Điều hướng" style={{ display: "flex", flexDirection: "column", gap: 2 }}>
-            {ENTRIES.map((e) =>
+            {visibleEntries(can).map((e) =>
               "group" in e ? (
                 <p key={e.group} className="sidenav-group">{e.group}</p>
               ) : (

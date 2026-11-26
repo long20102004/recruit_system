@@ -2,6 +2,7 @@ package recruit.demo.controller;
 
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 import recruit.demo.dto.AdminUserDtos.AdminUserDto;
 import recruit.demo.dto.AdminUserDtos.LockRequest;
@@ -17,6 +18,7 @@ public class AdminUserController {
     private final AdminUserService adminUserService;
 
     @GetMapping
+    @PreAuthorize("hasAuthority('user:read')")
     public PageResponse<AdminUserDto> list(@RequestParam(required = false) String q,
                                            @RequestParam(required = false) UserStatus status,
                                            @RequestParam(defaultValue = "0") int page,
@@ -25,11 +27,13 @@ public class AdminUserController {
     }
 
     @PatchMapping("/{id}/lock")
+    @PreAuthorize("hasAuthority('user:lock')")
     public AdminUserDto lock(@PathVariable Integer id, @Valid @RequestBody LockRequest request) {
         return adminUserService.lock(id, request.reason());
     }
 
     @PatchMapping("/{id}/unlock")
+    @PreAuthorize("hasAuthority('user:lock')")
     public AdminUserDto unlock(@PathVariable Integer id) {
         return adminUserService.unlock(id);
     }

@@ -32,7 +32,6 @@ public class AdminUserServiceImpl implements AdminUserService {
 
     @Transactional(readOnly = true)
     public PageResponse<AdminUserDto> list(String q, UserStatus status, int page, int size) {
-        SecurityUtils.requireRole(Role.ADMIN);
         String keyword = q == null || q.isBlank() ? null : q.trim();
         var pageable = PageRequest.of(Math.max(page, 0), Math.min(Math.max(size, 1), MAX_PAGE_SIZE),
                 Sort.by(Sort.Direction.DESC, "id"));
@@ -41,7 +40,6 @@ public class AdminUserServiceImpl implements AdminUserService {
 
     @Transactional
     public AdminUserDto lock(Integer id, String reason) {
-        SecurityUtils.requireRole(Role.ADMIN);
         User user = require(id);
         if (user.getId().equals(SecurityUtils.currentUser().getId()) || user.getRole() == Role.ADMIN) {
             throw new BusinessException(ErrorCode.CANNOT_LOCK_USER,
@@ -58,7 +56,6 @@ public class AdminUserServiceImpl implements AdminUserService {
 
     @Transactional
     public AdminUserDto unlock(Integer id) {
-        SecurityUtils.requireRole(Role.ADMIN);
         User user = require(id);
         if (user.getStatus() == UserStatus.BANNED) {
             user.setStatus(UserStatus.ACTIVE);

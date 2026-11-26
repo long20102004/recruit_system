@@ -4,10 +4,15 @@ import recruit.demo.enums.UserStatus;
 public final class ServiceDtos {
     private ServiceDtos() {}
     /** sessionsValidAfter: epoch giây; JWT có iat nhỏ hơn bị từ chối. Null = không giới hạn. */
+    /** permissions: quyền theo ma trận RBAC của role (specs/004-rbac); null/rỗng = không có quyền nghiệp vụ nào. */
     public record UserSnapshot(Integer id, String fullName, String email, String phone, Role role, UserStatus status,
-                               Long sessionsValidAfter) {
+                               Long sessionsValidAfter, java.util.List<String> permissions) {
         public UserSnapshot(Integer id, String fullName, String email, String phone, Role role, UserStatus status) {
-            this(id, fullName, email, phone, role, status, null);
+            this(id, fullName, email, phone, role, status, null, java.util.List.of());
+        }
+        public UserSnapshot(Integer id, String fullName, String email, String phone, Role role, UserStatus status,
+                            Long sessionsValidAfter) {
+            this(id, fullName, email, phone, role, status, sessionsValidAfter, java.util.List.of());
         }
     }
     public record ProfileUpdate(String fullName, String phone) {}

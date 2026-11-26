@@ -1,5 +1,6 @@
 package recruit.demo.controller;
 
+import org.springframework.security.access.prepost.PreAuthorize;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -15,6 +16,8 @@ public class DashboardController {
     private final DashboardService dashboardService;
 
     @GetMapping("/recruiter")
+
+    @PreAuthorize("hasAuthority('dashboard:recruiter')")
     public DashboardDtos.RecruiterStatsResponse recruiterStats() {
         return dashboardService.recruiterStats();
     }

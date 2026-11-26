@@ -39,6 +39,7 @@ public class AuthServiceImpl implements AuthService {
     private final OneTimeTokenService tokens;
     private final AuthMailService mail;
     private final UserCacheInvalidator userCache;
+    private final RbacService rbac;
 
     /** Băm giả để email không tồn tại vẫn tốn thời gian so khớp như email có thật. */
     private volatile String dummyHash;
@@ -209,7 +210,8 @@ public class AuthServiceImpl implements AuthService {
 
     private AuthDtos.UserResponse toUserResponse(User user) {
         return new AuthDtos.UserResponse(
-                user.getId(), user.getFullName(), user.getEmail(), user.getRole(), user.isRoleChosen());
+                user.getId(), user.getFullName(), user.getEmail(), user.getRole(), user.isRoleChosen(),
+                rbac.permissionsOf(user.getRole()));
     }
 
     static String normalize(String email) {

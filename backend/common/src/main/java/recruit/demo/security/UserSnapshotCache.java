@@ -44,7 +44,8 @@ public class UserSnapshotCache {
                     blankToNull(h.get("phone")),
                     Role.valueOf((String) h.get("role")),
                     UserStatus.valueOf((String) h.get("status")),
-                    parseLong(h.get("sessionsValidAfter"))));
+                    parseLong(h.get("sessionsValidAfter")),
+                    parseList(h.get("permissions"))));
         } catch (RuntimeException ex) {
             log.warn("User cache read failed for {}: {}", userId, ex.getClass().getSimpleName());
             return Optional.empty();
@@ -61,6 +62,7 @@ public class UserSnapshotCache {
             h.put("role", u.role().name());
             h.put("status", u.status().name());
             h.put("sessionsValidAfter", u.sessionsValidAfter() == null ? "" : String.valueOf(u.sessionsValidAfter()));
+            h.put("permissions", u.permissions() == null ? "" : String.join(",", u.permissions()));
             String key = PREFIX + u.id();
             redis.opsForHash().putAll(key, h);
             redis.expire(key, ttl);
@@ -76,6 +78,20 @@ public class UserSnapshotCache {
         } catch (RuntimeException ex) {
             log.warn("User cache evict failed for {}: {}", userId, ex.getClass().getSimpleName());
         }
+    }
+
+    /** Xoá cache của mọi user (vd sau khi admin sửa ma trận phân quyền). */
+    public void evictAll() {
+        try {
+            var keys = redis.keys(PREFIX + "*");
+            if (keys != null && !keys.isEmpty()) redis.delete(keys);
+        } catch (RuntimeException ex) {
+            log.warn("User cache evictAll failed: {}", ex.getClass().getSimpleName());
+        }
+    }
+
+    private static java.util.List<String> parseList(Object v) {
+        return v == null || ((String) v).isEmpty() ? java.util.List.of() : java.util.List.of(((String) v).split(","));
     }
 
     private static String nullToBlank(String v) { return v == null ? "" : v; }

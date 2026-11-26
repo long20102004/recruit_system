@@ -9,7 +9,7 @@ import {
   RecruiterLayout,
   TextInput,
   TextSelect,
-  TextTextarea,
+  TextTextarea, Can
 } from "../../components/common";
 import { jobsApi, type JobDto } from "../../api/client";
 import { useToast } from "../../context/ToastContext";
@@ -114,6 +114,7 @@ export function RecruiterJobsPage() {
             )}
           </Panel>
 
+          <Can perm="job:create">
           <Panel>
             <h2>Đăng vị trí mới</h2>
             <form onSubmit={onSubmit}>
@@ -230,6 +231,7 @@ export function RecruiterJobsPage() {
               </Button>
             </form>
           </Panel>
+          </Can>
         </Grid2>
     </RecruiterLayout>
   );

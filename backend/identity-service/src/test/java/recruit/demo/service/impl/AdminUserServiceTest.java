@@ -9,7 +9,6 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import recruit.demo.enums.Role;
 import recruit.demo.entity.User;
 import recruit.demo.enums.UserStatus;
-import recruit.demo.exception.ApiException;
 import recruit.demo.exception.BusinessException;
 import recruit.demo.repository.UserRepository;
 import recruit.demo.security.UserPrincipal;
@@ -82,12 +81,5 @@ class AdminUserServiceTest {
         assertNull(dto.lockedReason());
         verify(repo).save(argThat(u -> u.getSessionsValidAfter() != null));
         verify(cache).evictAfterCommit(5);
-    }
-
-    @Test
-    void nonAdminIsForbidden() {
-        loginAs(3, Role.RECRUITER);
-        assertThrows(ApiException.class, () -> service.lock(5, "x"));
-        assertThrows(ApiException.class, () -> service.list(null, null, 0, 20));
     }
 }

@@ -15,6 +15,7 @@ import recruit.demo.security.JwtService;
 import recruit.demo.service.OneTimeTokenService.Purpose;
 
 import java.time.LocalDateTime;
+import java.util.List;
 import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -46,7 +47,9 @@ class AuthServiceTest {
         when(jwt.generateToken(any(), any(), any())).thenReturn("jwt");
         when(attempts.lockedForSeconds(anyString())).thenReturn(Optional.empty());
         when(repo.save(any(User.class))).thenAnswer(i -> i.getArgument(0));
-        service = new AuthServiceImpl(repo, ENCODER, jwt, new AuthProperties(), attempts, tokens, mail, cache);
+        RbacService rbac = mock(RbacService.class);
+        when(rbac.permissionsOf(Role.CANDIDATE)).thenReturn(List.of("cv:manage-own", "interview:practice"));
+        service = new AuthServiceImpl(repo, ENCODER, jwt, new AuthProperties(), attempts, tokens, mail, cache, rbac);
     }
 
     private static User user(boolean verified, UserStatus status) {
@@ -113,7 +116,9 @@ class AuthServiceTest {
     @Test
     void loginSuccessResetsFailures() {
         when(repo.findByEmailIgnoreCase("a@x.test")).thenReturn(Optional.of(user(true, UserStatus.ACTIVE)));
-        assertEquals("jwt", service.login(new LoginRequest("A@x.test", "abc12345")).token());
+        AuthResponse res = service.login(new LoginRequest("A@x.test", "abc12345"));
+        assertEquals("jwt", res.token());
+        assertEquals(List.of("cv:manage-own", "interview:practice"), res.user().permissions());
         verify(attempts).reset("a@x.test");
     }
 

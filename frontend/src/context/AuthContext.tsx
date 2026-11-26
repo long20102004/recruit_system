@@ -15,6 +15,7 @@ import {
   type RoleDto,
   type UserDto,
 } from "../api/client";
+import { hasPermission, type PermissionRequirement } from "../utils/permissions";
 import type { HeaderMode, UserRole } from "../types";
 
 interface AuthState {
@@ -26,7 +27,10 @@ interface AuthState {
   /** Dùng token trong link xác thực email; thành công thì đăng nhập luôn. */
   verifyEmail: (token: string) => Promise<UserDto>;
   chooseRole: (role: "CANDIDATE" | "RECRUITER") => Promise<UserDto>;
+  refreshUser: () => Promise<void>;
   logout: () => void;
+  /** Kiểm tra quyền theo ma trận RBAC; mảng = có một trong số đó là đủ. */
+  can: (need: PermissionRequirement) => boolean;
   headerMode: HeaderMode;
   uiRole: UserRole | null;
 }
@@ -88,6 +92,12 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     return res.user;
   }, []);
 
+  const refreshUser = useCallback(async () => {
+    if (!getToken()) return;
+    const me = await authApi.me();
+    setUser(me);
+  }, []);
+
   const logout = useCallback(() => {
     setToken(null);
     setUser(null);
@@ -101,11 +111,13 @@ export function AuthProvider({ children }: { children: ReactNode }) {
       register,
       verifyEmail,
       chooseRole,
+      refreshUser,
       logout,
+      can: (need: PermissionRequirement) => hasPermission(user, need),
       headerMode: roleToHeader(user?.role),
       uiRole: roleToUi(user?.role),
     }),
-    [user, loading, login, register, verifyEmail, chooseRole, logout]
+    [user, loading, login, register, verifyEmail, chooseRole, refreshUser, logout]
   );
 
   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;

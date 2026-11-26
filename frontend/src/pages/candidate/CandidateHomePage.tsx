@@ -17,7 +17,7 @@ import { applicationBadge, pct, shortDate } from "../../utils/format";
 import { Link } from "react-router-dom";
 
 export function CandidateHomePage() {
-  const { user } = useAuth();
+  const { user, can } = useAuth();
   const { toast } = useToast();
   const [keyword, setKeyword] = useState("");
   const [city, setCity] = useState("TP. Hồ Chí Minh");
@@ -205,7 +205,7 @@ export function CandidateHomePage() {
                   active={job.id === activeId}
                   delayMs={i * 40}
                   onClick={() => setSelectedId(job.id)}
-                  onApply={apply}
+                  onApply={can("application:apply") ? apply : undefined}
                 />
               ))
             )}

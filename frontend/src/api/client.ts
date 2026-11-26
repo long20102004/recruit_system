@@ -214,6 +214,8 @@ export interface UserDto {
   email: string;
   role: RoleDto;
   roleChosen?: boolean;
+  /** Quyền theo ma trận RBAC (specs/004-rbac), vd "job:create". */
+  permissions?: string[];
 }
 
 export interface AuthResponse {
@@ -451,3 +453,62 @@ export interface RecruiterStatsDto {
   applicationsCount: number;
   questionsCount: number;
 }
+
+// ── Quản trị (specs/004-rbac) ───────────────────────────
+
+export interface PageDto<T> {
+  content: T[];
+  pageNumber: number;
+  pageSize: number;
+  totalElements: number;
+  totalPages: number;
+  last: boolean;
+}
+
+export interface AdminUserDto {
+  id: number;
+  fullName: string;
+  email: string;
+  role: RoleDto;
+  status: "ACTIVE" | "INACTIVE" | "BANNED";
+  emailVerified: boolean;
+  lockedReason: string | null;
+  lockedAt: string | null;
+  createdAt: string;
+}
+
+export interface RbacPermissionDto {
+  code: string;
+  resource: string;
+  description: string;
+}
+
+export interface RbacRoleDto {
+  code: string;
+  name: string;
+  description: string | null;
+  permissions: string[];
+}
+
+export interface RbacMatrixDto {
+  roles: RbacRoleDto[];
+  permissions: RbacPermissionDto[];
+}
+
+export const adminApi = {
+  users: (params: { q?: string; status?: string; page?: number; size?: number }) => {
+    const qs = new URLSearchParams();
+    if (params.q) qs.set("q", params.q);
+    if (params.status) qs.set("status", params.status);
+    qs.set("page", String(params.page ?? 0));
+    qs.set("size", String(params.size ?? 20));
+    return api<PageDto<AdminUserDto>>(`/admin/users?${qs.toString()}`);
+  },
+  lock: (id: number, reason: string) =>
+    api<AdminUserDto>(`/admin/users/${id}/lock`, { method: "PATCH", body: JSON.stringify({ reason }) }),
+  unlock: (id: number) => api<AdminUserDto>(`/admin/users/${id}/unlock`, { method: "PATCH" }),
+  roles: () => api<RbacMatrixDto>("/admin/roles"),
+  updateRole: (code: string, permissions: string[]) =>
+    api<RbacRoleDto>(`/admin/roles/${code}/permissions`, { method: "PUT", body: JSON.stringify({ permissions }) }),
+};
+

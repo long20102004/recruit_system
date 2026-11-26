@@ -49,6 +49,7 @@ class GatewayRoutingTest {
     void routesEachPrefixToItsService() throws Exception {
         assertEquals("identity GET /api/auth/me", get("/api/auth/me").body());
         assertEquals("identity GET /api/admin/users?q=a", get("/api/admin/users?q=a").body());
+        assertEquals("identity GET /api/admin/roles", get("/api/admin/roles").body());
         assertEquals("recruitment GET /api/jobs", get("/api/jobs").body());
         assertEquals("recruitment GET /api/jobs/3", get("/api/jobs/3").body());
         assertEquals("recruitment GET /api/applications/mine", get("/api/applications/mine").body());

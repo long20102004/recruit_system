@@ -28,7 +28,6 @@ public class ApplicationServiceImpl implements ApplicationService {
 
     @Transactional
     public ApplicationDtos.ApplicationResponse apply(Integer jobId, ApplicationDtos.ApplyRequest request) {
-        SecurityUtils.requireRole(Role.CANDIDATE);
         CandidateProfile candidate = requireCandidate();
         Job job = jobRepository.findById(jobId)
                 .orElseThrow(() -> new ApiException(HttpStatus.NOT_FOUND, "Job not found"));
@@ -51,7 +50,6 @@ public class ApplicationServiceImpl implements ApplicationService {
 
     @Transactional(readOnly = true)
     public List<ApplicationDtos.ApplicationResponse> myApplications() {
-        SecurityUtils.requireRole(Role.CANDIDATE);
         CandidateProfile candidate = requireCandidate();
         return applicationRepository.findByCandidateIdOrderByAppliedAtDesc(candidate.getId()).stream()
                 .map(this::toResponse)
@@ -60,7 +58,6 @@ public class ApplicationServiceImpl implements ApplicationService {
 
     @Transactional(readOnly = true)
     public List<ApplicationDtos.ApplicationResponse> recruiterApplications() {
-        SecurityUtils.requireRole(Role.RECRUITER, Role.ADMIN);
         UserPrincipal principal = SecurityUtils.currentUser();
         return applicationRepository.findForRecruiterUser(principal.getId()).stream()
                 .map(this::toResponse)
