@@ -7,6 +7,7 @@ public interface AuthService {
     AuthDtos.AuthResponse verifyEmail(AuthDtos.TokenRequest request);
     AuthDtos.MessageResponse resendVerification(AuthDtos.EmailRequest request);
     AuthDtos.AuthResponse login(AuthDtos.LoginRequest request);
+    AuthDtos.AuthResponse googleLogin(AuthDtos.GoogleLoginRequest request);
     AuthDtos.MessageResponse forgotPassword(AuthDtos.EmailRequest request);
     AuthDtos.MessageResponse resetPassword(AuthDtos.ResetPasswordRequest request);
     AuthDtos.AuthResponse chooseRole(AuthDtos.ChooseRoleRequest request);

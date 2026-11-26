@@ -126,7 +126,7 @@ Mở `http://localhost:5173`. Tài khoản có sẵn (mật khẩu `demo1234`):
 | Nhà tuyển dụng | `recruiter@hirelens.local` |
 | Quản trị | `admin@hirelens.local` |
 
-Tài khoản mới phải **xác thực email** trước khi đăng nhập: mở hộp thư dev tại `http://localhost:8025` và bấm link. Mail quên mật khẩu cũng vào đây. Đăng nhập sai 5 lần liên tiếp thì email đó bị khoá 15 phút. Admin khoá / mở khoá tài khoản qua `PATCH /api/admin/users/{id}/lock|unlock` (chưa có giao diện). Chi tiết: `specs/003-auth-flow/`.
+Tài khoản mới phải **xác thực email** trước khi đăng nhập: mở hộp thư dev tại `http://localhost:8025` và bấm link. Mail quên mật khẩu cũng vào đây. Đăng nhập sai 5 lần liên tiếp thì email đó bị khoá 15 phút. Admin khoá / mở khoá tài khoản ở trang Quản trị → Người dùng. Đăng nhập bằng Google: đặt `GOOGLE_CLIENT_ID` và `VITE_GOOGLE_CLIENT_ID` trong `.env`, xem `docs/GOOGLE_LOGIN.md`. Phân quyền: `docs/RBAC.md`.
 
 Ở bước này đăng nhập, tạo việc làm, quản lý tài khoản đã dùng được. Tải CV, matching và chấm phỏng vấn sẽ báo lỗi **"AI chưa sẵn sàng"** cho đến khi bật các service AI ở bước 5 (hệ thống không trả dữ liệu mẫu).
 

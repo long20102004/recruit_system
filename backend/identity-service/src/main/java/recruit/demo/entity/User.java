@@ -57,6 +57,10 @@ public class User {
     @Column(name = "locked_at")
     private LocalDateTime lockedAt;
 
+    /** Subject ("sub") của tài khoản Google đã liên kết; null nếu chưa liên kết. */
+    @Column(name = "google_sub", length = 64, unique = true)
+    private String googleSub;
+
     /** JWT có iat trước mốc này bị từ chối ở mọi service. */
     @Column(name = "sessions_valid_after")
     private LocalDateTime sessionsValidAfter;

@@ -87,6 +87,12 @@ export const authApi = {
       method: "POST",
       body: JSON.stringify(body),
     }),
+  /** Đăng nhập bằng ID token của Google Identity Services (specs/005-google-login). */
+  google: (credential: string) =>
+    api<AuthResponse>("/auth/google", {
+      method: "POST",
+      body: JSON.stringify({ credential }),
+    }),
   verifyEmail: (token: string) =>
     api<AuthResponse>("/auth/verify-email", {
       method: "POST",

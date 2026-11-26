@@ -22,6 +22,8 @@ interface AuthState {
   user: UserDto | null;
   loading: boolean;
   login: (email: string, password: string) => Promise<UserDto>;
+  /** Đăng nhập bằng Google: credential là ID token Google trả về cho nút Google. */
+  loginWithGoogle: (credential: string) => Promise<UserDto>;
   /** Tạo tài khoản; chưa đăng nhập cho tới khi xác thực email. */
   register: (input: { email: string; password: string }) => Promise<RegisterResponse>;
   /** Dùng token trong link xác thực email; thành công thì đăng nhập luôn. */
@@ -73,6 +75,13 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     return res.user;
   }, []);
 
+  const loginWithGoogle = useCallback(async (credential: string) => {
+    const res = await authApi.google(credential);
+    setToken(res.token);
+    setUser(res.user);
+    return res.user;
+  }, []);
+
   const register = useCallback(
     (input: { email: string; password: string }) => authApi.register(input),
     []
@@ -108,6 +117,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
       user,
       loading,
       login,
+      loginWithGoogle,
       register,
       verifyEmail,
       chooseRole,
@@ -117,7 +127,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
       headerMode: roleToHeader(user?.role),
       uiRole: roleToUi(user?.role),
     }),
-    [user, loading, login, register, verifyEmail, chooseRole, refreshUser, logout]
+    [user, loading, login, loginWithGoogle, register, verifyEmail, chooseRole, refreshUser, logout]
   );
 
   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;

@@ -41,3 +41,5 @@ export { Can } from "./Can";
 export type { RecruiterNavKey } from "./RecruiterLayout";
 export type { SiteHeaderProps } from "./SiteHeader";
 export { CompanyRow } from "./CompanyRow";
+export { GoogleSignInButton } from "./GoogleSignInButton";
+export { GoogleAuthBlock } from "./GoogleAuthBlock";

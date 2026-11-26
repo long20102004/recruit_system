@@ -7,6 +7,7 @@ import {
   AuthPanel,
   Button,
   Field,
+  GoogleAuthBlock,
   ResendVerificationButton,
   TextInput,
 } from "../components/common";
@@ -126,6 +127,7 @@ export function RegisterPage() {
           <Button variant="primary" block type="submit" disabled={busy}>
             {busy ? "Đang tạo…" : "Tạo tài khoản"}
           </Button>
+          <GoogleAuthBlock text="signup_with" />
           <p className="small muted" style={{ textAlign: "center" }}>
             Đã có tài khoản? <Link to="/login">Đăng nhập</Link>
             <br />

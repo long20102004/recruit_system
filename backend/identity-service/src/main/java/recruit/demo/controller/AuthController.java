@@ -23,6 +23,11 @@ public class AuthController {
         return authService.register(request);
     }
 
+    @PostMapping("/google")
+    public AuthDtos.AuthResponse google(@Valid @RequestBody AuthDtos.GoogleLoginRequest request) {
+        return authService.googleLogin(request);
+    }
+
     @PostMapping("/verify-email")
     public AuthDtos.AuthResponse verifyEmail(@Valid @RequestBody AuthDtos.TokenRequest request) {
         return authService.verifyEmail(request);
