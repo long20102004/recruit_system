@@ -3,6 +3,9 @@
 
 # Runtime databases, uploads, model caches and Docker storage
 /data/
+# CV upload khi chạy service trên máy (UPLOAD_PATH mặc định ./uploads)
+/uploads/
+backend/**/uploads/
 
 /AI.zip
 

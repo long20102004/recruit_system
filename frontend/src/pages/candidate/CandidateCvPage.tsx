@@ -1,7 +1,8 @@
 import { useEffect, useMemo, useRef, useState, type KeyboardEvent } from "react";
 import { Link } from "react-router-dom";
 import { SiteHeader, UploadZone } from "../../components/common";
-import { cvsApi, type CvFormDto } from "../../api/client";
+import { cvsApi, type CandidateProfileDto, type CvFormDto } from "../../api/client";
+import { ExtractedProfileView } from "./ExtractedProfileView";
 import { useToast } from "../../context/ToastContext";
 
 type Values = Record<string, string[]>;
@@ -165,6 +166,8 @@ export function CandidateCvPage() {
   const [saving, setSaving] = useState(false);
   const [uploadError, setUploadError] = useState<string | null>(null);
   const [previewUrl, setPreviewUrl] = useState<string | null>(null);
+  /** Profile AI trả về ở lần upload gần nhất trong phiên (POST /api/cvs). */
+  const [extracted, setExtracted] = useState<CandidateProfileDto | null>(null);
   const previewRef = useRef<string | null>(null);
 
   function applyForm(form: CvFormDto) {
@@ -208,9 +211,12 @@ export function CandidateCvPage() {
     setFileName(file.name);
     setFileSize(file.size);
     setPreview(file);
+    setExtracted(null);
     try {
-      const form = await cvsApi.upload(file);
-      applyForm(form);
+      const res = await cvsApi.upload(file);
+      setExtracted(res.data ?? null);
+      // Form chỉnh sửa vẫn theo dạng field đã lưu (GET /api/cvs)
+      applyForm(await cvsApi.mine());
       setAnalyzed(false);
       toast("AI đã điền các mục hồ sơ. Hãy kiểm tra trước khi lưu.");
     } catch (e) {
@@ -383,6 +389,8 @@ export function CandidateCvPage() {
                   </aside>
 
                   <form className="cvu-form" onSubmit={(e) => { e.preventDefault(); void onSave(); }}>
+                    {extracted ? <ExtractedProfileView profile={extracted} /> : null}
+
                     <div className="cvu-note cvu-small">
                       AI có thể đọc sai, nhất là số điện thoại, ngày tháng và tên trường. Hãy xem lại từng mục trước khi lưu.
                     </div>

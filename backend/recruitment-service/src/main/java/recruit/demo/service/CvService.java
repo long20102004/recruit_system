@@ -43,6 +43,7 @@ public class CvService {
     private final recruit.demo.service.cv.CvProfileMapper profileMapper;
     private final AppProperties appProperties;
     private final org.springframework.context.ApplicationEventPublisher events;
+    private final tools.jackson.databind.ObjectMapper objectMapper;
 
     @Transactional(readOnly = true)
     public CvDtos.CvFormResponse mine() {
@@ -50,8 +51,12 @@ public class CvService {
         return toForm(candidate.getId());
     }
 
+    /**
+     * Lưu file và kết quả trích xuất như trước, nhưng trả về profile AI đọc được (cùng DTO với /analyze-pdf của
+     * nhánh hocnv/DO-06). Form chỉnh sửa vẫn lấy qua {@link #mine()}.
+     */
     @Transactional
-    public CvDtos.CvFormResponse upload(MultipartFile file) {
+    public recruit.demo.dto.CandidateProfileDto upload(MultipartFile file) {
         CandidateProfile candidate = requireCandidate();
         if (file == null || file.isEmpty()) {
             throw new ApiException(HttpStatus.BAD_REQUEST, "File is required");
@@ -78,7 +83,7 @@ public class CvService {
                 if (settingService.cvFields().contains(entry.getKey())) replaceLines(candidate.getId(), entry.getKey(), entry.getValue());
             }
             events.publishEvent(new recruit.demo.service.cvmatch.CvMatchEvents.CvChanged(candidate.getId()));
-            return toForm(candidate.getId());
+            return objectMapper.treeToValue(extracted, recruit.demo.dto.CandidateProfileDto.class);
         } catch (IOException ex) {
             throw new ApiException(HttpStatus.INTERNAL_SERVER_ERROR, "Failed to store file");
         }
