@@ -6,8 +6,8 @@ src/*.egg-info
 .venv
 .env
 data
-reports
+research/reports
 tests
-experiments
+research/experiments
 var
 docker-compose.yml

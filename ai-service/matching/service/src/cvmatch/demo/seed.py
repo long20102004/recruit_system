@@ -17,9 +17,9 @@ from pathlib import Path
 from cvmatch.core.db import connect, db_url, migrate
 
 DEFAULT_DIR = Path(__file__).resolve().parents[3] / "data" / "demo"
-# repo goc = thu muc cha dau tien co tools/build_kb (trong container khong co -> duong dan tuong doi, chi dung khi chay demo)
-_REPO = next((p for p in Path(__file__).resolve().parents if (p / "tools" / "build_kb").is_dir()), Path("."))
-DEFAULT_KB = _REPO / "tools" / "build_kb" / "out" / "snapshot" / "kb-2026-11-21-4"
+# ai-service/matching = thu muc cha dau tien co kb-builder (trong container khong co -> duong dan tuong doi, chi dung khi chay demo)
+_MATCHING = next((p for p in Path(__file__).resolve().parents if (p / "kb-builder").is_dir()), Path("."))
+DEFAULT_KB = _MATCHING / "kb-builder" / "out" / "snapshot" / "kb-2026-11-21-4"
 DEMO_HMAC = "demo-local-hmac-key"          # chi cho du lieu gia cua moi truong demo
 
 

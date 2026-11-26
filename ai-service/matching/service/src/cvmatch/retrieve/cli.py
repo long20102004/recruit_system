@@ -9,7 +9,7 @@ import time
 def cmd_retrieve_jd(args: argparse.Namespace) -> int:
     from cvmatch.core.config import load_config
     from cvmatch.core.db import connect
-    from cvmatch.retrieve.flow_c import retrieve_for_jd
+    from cvmatch.retrieve.jd_to_cvs import retrieve_for_jd
     from cvmatch.retrieve.index import CvIndex
 
     cfg = load_config(args.config_dir)
@@ -37,7 +37,7 @@ def cmd_retrieve_jd(args: argparse.Namespace) -> int:
 def cmd_retrieve_cv(args: argparse.Namespace) -> int:
     from cvmatch.core.config import load_config
     from cvmatch.core.db import connect
-    from cvmatch.retrieve.flow_d import retrieve_for_cv
+    from cvmatch.retrieve.cv_to_jds import retrieve_for_cv
     from cvmatch.retrieve.jd_index import JdIndex
 
     cfg = load_config(args.config_dir)

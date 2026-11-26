@@ -86,9 +86,9 @@ def test_ingest_match_explain(client):
     v = h["versions"]
     assert (mr["ontology_version"], mr["pipeline_version"], mr["embed_model"]) == (
         v["ontology_version"], v["pipeline_version"], v["embed_model"])
-    assert mr["config_json"]["rerank"]["version"] == "rr-1.0" and mr["config_hash"]
+    assert mr["config_json"]["rerank"]["version"] == "rr-1.2" and mr["config_hash"]
     assert rr["config_json"]["versions"] == v and rr["bertscore_config"] == v["bertscore_config"]
-    assert rr["config_json"]["bertscore"]["layer"] == 24 and rr["rerank_config_version"] == "rr-1.0"
+    assert rr["config_json"]["bertscore"]["layer"] == 24 and rr["rerank_config_version"] == "rr-1.2"
 
     # loc dia diem: chuoi nguoi dung nhap ("Hồ Chí Minh") phai doi ve cung ma voi cv_meta.location
     lf = c.post("/match/jd/E2E-JAVA", json={"hard_filters": {"location": "Hồ Chí Minh", "allow_remote": False}}).json()

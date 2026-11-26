@@ -1,0 +1,79 @@
+# Tien xu ly (Luong A, B). Thiet ke 11 muc 1.1. prep-1.2 = prep-1.1 + sua du lieu vao (S03, S04): V-02, V-05, V-06, V-07.
+version: prep-1.2
+# Phien ban mau ghep van ban tai lieu (A8) va van ban truy van (B3). Doi mau -> tang version.
+doc_template_version: doc-1
+
+ev:
+  in_description: 1.0     # ky nang nam trong description cua kinh nghiem/du an
+  in_technologies: 0.8    # chi nam trong technologies (UL)
+  listed_only: 0.6        # chi o skills / summary / certificates (UL)
+
+w_imp:
+  core: 1.0
+  medium: 0.7
+  minor: 0.4
+  default: 1.0            # Module 1 khong co importance
+
+bullet:
+  min_words: 4            # bo gach / trach nhiem ngan hon (UL)
+
+no_diacritics:
+  threshold: 0.05         # ti le am tiet co dau toi thieu voi CV tieng Viet (UL)
+
+jd:
+  min_query_words: 50     # duoi muc nay canh bao HR
+  split_min_words: 25     # V-05: dong trach nhiem dai hon -> tach cau (JD nhap doan van)
+
+unknown_skill:
+  warn_ratio: 0.30        # ti le ky nang JD khong gan duoc ma de canh bao
+
+experience:
+  # A6: gan role_group cho muc kinh nghiem bang dem tu khoa khi chuc danh khong tra duoc:
+  # nhan nhom dau neu so lan >= ratio x nhom thu hai (UL)
+  role_keyword_ratio: 2.0
+  # V-06: Module 1 de end_date = null -> chi muc co start moi nhat la dang lam
+  null_end_current: latest
+
+# V-07: hoc van thieu end, start trong vong 5 nam -> dang hoc, du kien tot nghiep sau 4 nam (co edu_end_inferred)
+education:
+  max_study_years: 5
+  default_duration_years: 4
+
+# V-02: "Java Intern" -> bo cap bac con "java" -> thu "java developer" / "java engineer"
+role_title_fallback: true
+
+# A6: suy level_rank tu years_experience khi chuc danh khong co tu cap bac (diem mo 9, UL).
+# Moi dong: [so nam toi thieu, level_rank]. Lay dong cuoi co min_years <= years.
+level_from_years:
+  - [0.0, 1]   # Fresher
+  - [1.0, 2]   # Junior
+  - [3.0, 3]   # Mid
+  - [5.0, 4]   # Senior
+
+# Token duoc bao ve (khong cat khi chuan hoa / tach tu). Bo sung tu dong tu alias KB co ky tu dac biet.
+protected_tokens:
+  - "c#"
+  - "c++"
+  - "f#"
+  - ".net"
+  - "asp.net"
+  - "node.js"
+  - "vue.js"
+  - "next.js"
+  - "nuxt.js"
+  - "react.js"
+  - "ci/cd"
+  - "tcp/ip"
+  - "pl/sql"
+  - "objective-c"
+
+patterns:
+  negation: patterns/negation.txt
+  coursework: patterns/coursework.txt
+  generic_resp: patterns/generic_resp.txt
+  injection: patterns/injection.txt
+  locations: patterns/locations.yaml
+  role_keywords: patterns/role_keywords.yaml
+
+# Cong cu tach tu tieng Viet (diem mo 10). Doi duoc qua interface Segmenter.
+segmenter: pyvi

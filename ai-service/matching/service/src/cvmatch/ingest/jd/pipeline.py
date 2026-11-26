@@ -11,11 +11,13 @@ import psycopg
 from cvmatch.core.models import Encoder
 from cvmatch.core import events
 from cvmatch.ingest.common.writer import log_ingest_now, with_retry
-from cvmatch.ingest.jd.b01_b03 import step_b01, step_b02, step_b03
-from cvmatch.ingest.jd.b04_skills import step_b04
-from cvmatch.ingest.jd.b05_requirements import step_b05
-from cvmatch.ingest.jd.b06_b07 import embed_jd_records, step_b06, step_b07_tokens
-from cvmatch.ingest.jd.b08_write import compute_warnings, write_jd
+from cvmatch.ingest.jd.prepare import step_b01, step_b02, step_b03
+from cvmatch.ingest.jd.skills import step_b04
+from cvmatch.ingest.jd.requirements import step_b05
+from cvmatch.ingest.jd.bm25_tokens import step_b07_tokens
+from cvmatch.ingest.jd.embed import embed_jd_records
+from cvmatch.ingest.jd.responsibilities import step_b06
+from cvmatch.ingest.jd.write import compute_warnings, write_jd
 from cvmatch.ingest.jd.record import JdRecord, PrepContext, UnchangedJD
 from cvmatch.ingest.jd.schema import InvalidJD
 

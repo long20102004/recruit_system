@@ -10,6 +10,8 @@ voi moi cau JD: S = E_j . C^T tren toan bo token CV ghep lai, max theo tung gach
 
 from __future__ import annotations
 
+import threading
+
 import numpy as np
 
 from cvmatch.core.config import BertScoreConfig
@@ -28,6 +30,8 @@ class BertScorer:
         self.cfg = cfg
         self.matcher = matcher
         self.cache = cache or TokenCache(cfg.key())
+        # nhieu request match song song (S05): cache (OrderedDict + 1 ket noi DB) va encoder dung chung -> mot khoa
+        self._lock = threading.Lock()
 
     # ----------------------------------------------------------------- dau vao + embedding
 
@@ -36,6 +40,10 @@ class BertScorer:
                         mask_numbers=self.cfg.mask_numbers) for t in texts]
 
     def embed(self, prepared: list[Prepared]) -> list[TokenEmb]:
+        with self._lock:
+            return self._embed(prepared)
+
+    def _embed(self, prepared: list[Prepared]) -> list[TokenEmb]:
         hashes = [text_hash(p.text) for p in prepared]
         got = self.cache.get_many(list(dict.fromkeys(hashes)))
         todo = {h: p.text for h, p in zip(hashes, prepared) if h not in got}
@@ -85,7 +93,9 @@ class BertScorer:
 
     def purge_texts(self, texts_raw: list[str]) -> None:
         """Xoa cache cua cac gach (theo van ban sau chuan bi) - dung khi xoa CV."""
-        self.cache.purge([text_hash(p.text) for p in self.prepare(list(texts_raw))])
+        hashes = [text_hash(p.text) for p in self.prepare(list(texts_raw))]
+        with self._lock:
+            self.cache.purge(hashes)
 
     def attach_events(self) -> None:
         """Nghe `cv_deleted` (core.events): xoa cache embedding token cua cac gach cua CV do."""

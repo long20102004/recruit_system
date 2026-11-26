@@ -14,7 +14,7 @@ from cvmatch.core.db import connect, migrate
 from cvmatch.core.kb.store import import_snapshot
 from cvmatch.evaluation import ablation
 from cvmatch.evaluation.calibrate import calibrate_pairs
-from cvmatch.evaluation.g2 import run_g2
+from cvmatch.evaluation.golden_pipeline import run_g2
 from cvmatch.evaluation.invariance import TRANSFORMS, run_invariance
 from cvmatch.evaluation.labels import PairLabel, load_graded, write_graded
 from cvmatch.evaluation.prep_quality import export_sample, score_sample
@@ -22,7 +22,7 @@ from cvmatch.evaluation.prep_quality import export_sample, score_sample
 pytestmark = pytest.mark.db
 FIX = Path(__file__).resolve().parents[1] / "fixtures"
 E2E = FIX / "e2e"
-EXP = DEFAULT_CONFIG_DIR.parent / "experiments"
+EXP = DEFAULT_CONFIG_DIR.parent / "research" / "experiments"
 GRADE = {"E2E-JAVA": {"java": 2, "python": 1, "fullstack": 1},
          "E2E-FE": {"frontend": 2, "fullstack": 1},
          "E2E-DATA": {"data": 2, "python": 1}}

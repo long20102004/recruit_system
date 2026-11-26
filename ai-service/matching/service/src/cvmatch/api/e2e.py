@@ -56,7 +56,7 @@ def _memory() -> dict:
 
 
 def run_e2e(cv_dir: str | Path, jd_path: str | Path, *, url: str | None = None, config_dir=None,
-            kb_dir: str | Path | None = None, fake: bool = False, out_dir: str | Path = "reports/e2e",
+            kb_dir: str | Path | None = None, fake: bool = False, out_dir: str | Path = "research/reports/e2e",
             n_explain: int = 5, n_retrieve_top: int = 30, ref_ym: str | None = None, hmac_key: str | None = None,
             N: int | None = None, K: int | None = None) -> dict:
     url = url or db_url()

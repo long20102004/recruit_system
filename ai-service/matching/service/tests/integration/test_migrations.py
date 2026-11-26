@@ -18,7 +18,7 @@ RERANK_TABLES = {"rerank_run", "rerank_feature", "rerank_result", "bertscore_tok
 
 def test_migrate_creates_all_tables_and_is_idempotent(fresh_db_url):
     ran = migrate(fresh_db_url)
-    assert ran[0].startswith("001") and len(ran) == 8
+    assert ran[0].startswith("001") and len(ran) == 9
     assert migrate(fresh_db_url) == []  # chay lai khong lam gi
 
     with connect(fresh_db_url, autocommit=True) as conn:

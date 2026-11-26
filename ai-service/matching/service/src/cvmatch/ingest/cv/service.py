@@ -19,8 +19,8 @@ import psycopg
 from cvmatch.core.models import Encoder
 from cvmatch.core import events
 from cvmatch.ingest.common.writer import log_ingest, log_ingest_now, with_retry
-from cvmatch.ingest.cv.a10_embed import embed_records
-from cvmatch.ingest.cv.a11_write import write_cv, write_cvs
+from cvmatch.ingest.cv.embed import embed_records
+from cvmatch.ingest.cv.write import write_cv, write_cvs
 from cvmatch.ingest.cv.dedup_pg import BatchDedup, PgDedup
 from cvmatch.ingest.cv.pipeline import build_cv_record
 from cvmatch.ingest.cv.record import CvContext, CvRecord, DuplicateCV

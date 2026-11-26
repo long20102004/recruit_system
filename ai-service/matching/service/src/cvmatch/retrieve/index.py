@@ -65,6 +65,7 @@ class _CvRows:
     bullet: np.ndarray
     skills: list[tuple[int, str, float]]   # (chi so CV trong lo, skill_id, ev)
     bm25_docs: list[list[str]]
+    recommendable: list[bool]
 
 
 class CvIndex:
@@ -75,6 +76,7 @@ class CvIndex:
         self.cv_ids: list[str] = []
         self.row_of: dict[str, int] = {}
         self.active = np.zeros(0, dtype=bool)
+        self.recommendable = np.zeros(0, dtype=bool)      # S07: ung vien nhan goi y viec lam
         self._doc = _Growable(DIM)
         self._bullet = _Growable(DIM)
         self.bullet_cv_index = np.zeros(0, dtype=np.int64)
@@ -105,7 +107,7 @@ class CvIndex:
             where += " AND c.cv_id = ANY(%s::uuid[])"
             params.append(cv_ids)
         with conn.cursor(binary=True) as cur:
-            cur.execute(f"SELECT c.cv_id, v.dense, d.bm25_noacc, d.bm25_acc, d.skill_tokens FROM cv c"
+            cur.execute(f"SELECT c.cv_id, c.recommendable, v.dense, d.bm25_noacc, d.bm25_acc, d.skill_tokens FROM cv c"
                         f" JOIN cv_vector v USING (cv_id) JOIN cv_bm25_doc d USING (cv_id)"
                         f" WHERE {where} ORDER BY c.cv_id", params)
             rows = cur.fetchall()
@@ -125,7 +127,7 @@ class CvIndex:
             bullet=(np.stack([r["dense"].to_numpy() for r in brows]).astype(np.float16)
                     if brows else np.zeros((0, DIM), np.float16)),
             skills=[(pos[str(r["cv_id"])], r["skill_id"], float(r["ev"])) for r in srows],
-            bm25_docs=bm25_docs)
+            bm25_docs=bm25_docs, recommendable=[bool(r["recommendable"]) for r in rows])
 
     # ----------------------------------------------------------------- dung / cap nhat
 
@@ -135,6 +137,7 @@ class CvIndex:
         self.cv_ids = d.cv_ids
         self.row_of = {c: i for i, c in enumerate(d.cv_ids)}
         self.active = np.ones(len(d.cv_ids), dtype=bool)
+        self.recommendable = np.asarray(d.recommendable, dtype=bool)
         self._doc = _Growable(DIM, d.doc)
         self._bullet = _Growable(DIM, d.bullet)
         self.bullet_cv_index = np.asarray(d.bullet_cv, dtype=np.int64)
@@ -176,6 +179,7 @@ class CvIndex:
             self.row_of[c] = len(self.cv_ids)
             self.cv_ids.append(c)
         self.active = np.concatenate([self.active, np.ones(len(d.cv_ids), dtype=bool)])
+        self.recommendable = np.concatenate([self.recommendable, np.asarray(d.recommendable, dtype=bool)])
         self._doc.append(d.doc)
         if len(d.bullet_ids):
             self._bullet.append(d.bullet)
@@ -188,6 +192,12 @@ class CvIndex:
         self._skill_cache = None
         self.bm25.append(d.bm25_docs)
         return len(d.cv_ids)
+
+    def set_recommendable(self, cv_ids: list[str], value: bool) -> None:
+        for c in cv_ids:
+            i = self.row_of.get(c)
+            if i is not None:
+                self.recommendable[i] = value
 
     def deactivate(self, cv_id: str) -> None:
         i = self.row_of.get(cv_id)

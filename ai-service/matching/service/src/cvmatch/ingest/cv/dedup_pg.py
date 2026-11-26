@@ -22,9 +22,12 @@ class PgDedup:
         return (_KEYS, tuple(self.keys)) if self.keys else ("", ())
 
     def find_by_hash(self, content_hash: str) -> str | None:
+        """Chi trung voi ban MOI NHAT (V-09): ung vien sua CV roi sua ve dung noi dung cu -> ban cu da
+        `is_latest = false`, khong con trong chi muc; tra id cua no thi backend match khong duoc. Khi do A2 de
+        CV di tiep va thanh version moi."""
         k, p = self._k()
         row = self.conn.execute(
-            "SELECT cv_id FROM cv WHERE content_hash = %s AND status <> 'deleted'" + k + " LIMIT 1",
+            "SELECT cv_id FROM cv WHERE content_hash = %s AND status <> 'deleted' AND is_latest" + k + " LIMIT 1",
             (content_hash, *p)).fetchone()
         return str(row["cv_id"]) if row else None
 

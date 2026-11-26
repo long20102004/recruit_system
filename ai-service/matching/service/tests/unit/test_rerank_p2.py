@@ -5,9 +5,9 @@ import pytest
 
 from cvmatch.core.config import load_config
 from cvmatch.core.kb.rel import SkillRelations
-from cvmatch.rerank.features import a1_a2, b4_b5
-from cvmatch.rerank.features.b1_b2_b3 import b3_level, cv_level, level_fit, level_from_years, spearman
-from cvmatch.rerank.features.c1 import Edu, c1_education, degree_status
+from cvmatch.rerank.features import skill_match, sentence_match
+from cvmatch.rerank.features.experience_fit import b3_level, cv_level, level_fit, level_from_years, spearman
+from cvmatch.rerank.features.education import Edu, c1_education, degree_status
 from cvmatch.rerank.scoring import Scored, finalize
 
 
@@ -21,7 +21,9 @@ def _rr11():
 
     from cvmatch.core.config import DEFAULT_CONFIG_DIR
 
-    return yaml.safe_load((DEFAULT_CONFIG_DIR / "rr-1.1.yaml").read_text(encoding="utf-8"))
+    rr = yaml.safe_load((DEFAULT_CONFIG_DIR / "rr-1.1.yaml").read_text(encoding="utf-8"))
+    rr["missing"] |= {"jd_side_policy": "drop"}    # ghi de len active (rr-1.2): giu chinh sach cua rr-1.1
+    return rr
 
 
 @pytest.fixture(scope="module")
@@ -34,22 +36,22 @@ def rels(kb_mini, cfg11):
 
 def test_rel_parent_child_score_req(rels):
     """CV co Spring Boot (con cua Java), JD can Java -> score_req = 0,7 x ev."""
-    cv = {"S0002": a1_a2.CvSkill("S0002", 0.8, 1, "experiences[0].description[0]")}
-    v, used, opt = a1_a2.score_req(["S0001"], cv, rels.rel)
+    cv = {"S0002": skill_match.CvSkill("S0002", 0.8, 1, "experiences[0].description[0]")}
+    v, used, opt = skill_match.score_req(["S0001"], cv, rels.rel)
     assert v == pytest.approx(0.7 * 0.8) and used.skill_id == "S0002" and opt == "S0001"
-    facts = a1_a2.skill_facts([a1_a2.JdSkill("S0001", True, 1.0)], cv, rels.relation)
+    facts = skill_match.skill_facts([skill_match.JdSkill("S0001", True, 1.0)], cv, rels.relation)
     assert facts.partial[0].relation == "child" and facts.missing == []
 
 
 def test_a2_and_min_den(rels):
-    jd = [a1_a2.JdSkill("S0001", True, 1.0), a1_a2.JdSkill("S0021", False, 0.4)]
-    cv = {"S0001": a1_a2.CvSkill("S0001", 1.0), "S0022": a1_a2.CvSkill("S0022", 1.0)}  # RabbitMQ anh em Kafka
-    assert a1_a2.coverage(jd, cv, True, rels.rel) == 1.0
-    assert a1_a2.coverage(jd, cv, False, rels.rel) == pytest.approx(0.4)             # sibling 0,4
-    assert a1_a2.coverage(jd, cv, False) == 0.0                                      # khong qua KB
-    assert a1_a2.coverage([jd[0]], {}, False) is None                                # khong co ky nang uu tien
+    jd = [skill_match.JdSkill("S0001", True, 1.0), skill_match.JdSkill("S0021", False, 0.4)]
+    cv = {"S0001": skill_match.CvSkill("S0001", 1.0), "S0022": skill_match.CvSkill("S0022", 1.0)}  # RabbitMQ anh em Kafka
+    assert skill_match.coverage(jd, cv, True, rels.rel) == 1.0
+    assert skill_match.coverage(jd, cv, False, rels.rel) == pytest.approx(0.4)             # sibling 0,4
+    assert skill_match.coverage(jd, cv, False) == 0.0                                      # khong qua KB
+    assert skill_match.coverage([jd[0]], {}, False) is None                                # khong co ky nang uu tien
     # chieu CV -> JD: JD chi 1 ky nang, min_imp_sum = 3 -> 1/3 (vi du 06 muc 5.6)
-    assert a1_a2.coverage([jd[0]], cv, True, min_den=3.0) == pytest.approx(1 / 3)
+    assert skill_match.coverage([jd[0]], cv, True, min_den=3.0) == pytest.approx(1 / 3)
 
 
 # --------------------------------------------------------------------------- B3
@@ -109,12 +111,12 @@ def test_engine_cosine_and_max(cfg11):
     R = np.array([[0.70, 0.95]], np.float32)
     cos = np.array([[0.85, 0.40]], np.float32)
     b4 = cfg11.rerank.b4
-    assert b4_b5.calibrated(R, b4, cos)[0].tolist() == pytest.approx([0.2, 1.0])           # bertscore
+    assert sentence_match.calibrated(R, b4, cos)[0].tolist() == pytest.approx([0.2, 1.0])           # bertscore
     cos_cfg = b4.model_copy(update={"engine": "cosine"})
-    assert b4_b5.calibrated(R, cos_cfg, cos)[0].tolist() == pytest.approx([1.0, 0.0])
+    assert sentence_match.calibrated(R, cos_cfg, cos)[0].tolist() == pytest.approx([1.0, 0.0])
     mx = b4.model_copy(update={"engine": "max"})
-    assert b4_b5.calibrated(R, mx, cos)[0].tolist() == pytest.approx([1.0, 1.0])
-    ss = b4_b5.sentence_scores(R, np.ones(2, np.float32), mx, cal_base=b4_b5.calibrated(R, mx, cos))
+    assert sentence_match.calibrated(R, mx, cos)[0].tolist() == pytest.approx([1.0, 1.0])
+    ss = sentence_match.sentence_scores(R, np.ones(2, np.float32), mx, cal_base=sentence_match.calibrated(R, mx, cos))
     assert ss.c[0] == pytest.approx(1.0) and ss.best[0] == 1                               # hoa -> R lon hon
 
 

@@ -36,9 +36,9 @@ from cvmatch.core.text.normalize import normalize
 from cvmatch.core.text.patterns import PatternList, read_pattern_file
 from cvmatch.rerank.bertscore.align import align_words
 from cvmatch.rerank.bertscore.engine import BertScorer
-from cvmatch.rerank.features import a1_a2, b4_b5
-from cvmatch.rerank.features.b1_b2_b3 import Exp, b1_role, b2_years, b3_level, cv_level, spearman
-from cvmatch.rerank.features.c1 import Edu, c1_education
+from cvmatch.rerank.features import skill_match, sentence_match
+from cvmatch.rerank.features.experience_fit import Exp, b1_role, b2_years, b3_level, cv_level, spearman
+from cvmatch.rerank.features.education import Edu, c1_education
 from cvmatch.rerank.scoring import Scored, finalize
 
 log = logging.getLogger(__name__)
@@ -59,7 +59,7 @@ class JdData:
     version: int
     resp: list[dict]                 # idx, text_raw, is_generic (+ dense khi can cosine)
     req_items: list[dict]            # idx, text_raw, kind
-    skills: list[a1_a2.JdSkill]
+    skills: list[skill_match.JdSkill]
     meta: dict
     status: str = "open"
     unmapped_required: list[str] = field(default_factory=list)   # ky nang bat buoc khong co trong KB
@@ -76,7 +76,7 @@ class CvData:
     meta: dict
     bullets: list[dict] = field(default_factory=list)   # bullet_id, section, item_idx, pos, text_raw, has_negation, is_coursework
     summary: list[dict] = field(default_factory=list)   # idx, text_raw, has_negation, is_coursework
-    skills: dict[str, a1_a2.CvSkill] = field(default_factory=dict)
+    skills: dict[str, skill_match.CvSkill] = field(default_factory=dict)
     exps: list[Exp] = field(default_factory=list)
     edus: list[Edu] = field(default_factory=list)
 
@@ -107,7 +107,7 @@ def load_jd(conn: psycopg.Connection, jd_id: str, version: int, *, with_dense: b
     req = q("SELECT idx, text_raw, kind FROM jd_requirement_item WHERE jd_id=%s AND version=%s ORDER BY idx")
     srows = q("SELECT skill_id, required, w_imp, group_id, source, raw_text FROM jd_skill WHERE jd_id=%s AND version=%s"
               " ORDER BY required DESC, w_imp DESC, skill_id")
-    skills = [a1_a2.JdSkill(r["skill_id"], r["required"], float(r["w_imp"]), r["group_id"]) for r in srows]
+    skills = [skill_match.JdSkill(r["skill_id"], r["required"], float(r["w_imp"]), r["group_id"]) for r in srows]
     meta = conn.execute("SELECT * FROM jd_meta WHERE jd_id=%s AND version=%s", (jd_id, version)).fetchone() or {}
     meta = {k: (float(v) if k in ("min_years", "max_years") and v is not None else v) for k, v in dict(meta).items()}
     unmapped = _unmapped_required(head["raw_json"], {r["raw_text"] for r in srows if r["source"] == "module1"})
@@ -142,7 +142,7 @@ def load_cvs(conn: psycopg.Connection, cv_ids: list[str], *, with_dense: bool = 
         out[r["cv_id"]].summary.append(dict(r))
     for r in conn.execute("SELECT cv_id::text AS cv_id, skill_id, ev, bullet_id, source_field FROM cv_skill"
                           " WHERE cv_id = ANY(%s::uuid[])", (ids,)):
-        out[r["cv_id"]].skills[r["skill_id"]] = a1_a2.CvSkill(r["skill_id"], float(r["ev"]), r["bullet_id"],
+        out[r["cv_id"]].skills[r["skill_id"]] = skill_match.CvSkill(r["skill_id"], float(r["ev"]), r["bullet_id"],
                                                               r["source_field"])
     for r in conn.execute("SELECT cv_id::text AS cv_id, kind, role_group, start_ym, end_ym, is_current"
                           " FROM cv_experience WHERE cv_id = ANY(%s::uuid[]) ORDER BY cv_id, idx", (ids,)):
@@ -246,7 +246,7 @@ class Reranker:
         for jd in jds:
             if kind == "B4":
                 s = [r for r in jd.resp if not r["is_generic"] or b4.generic_weight > 0]
-                w = b4_b5.sentence_weights([r["is_generic"] for r in s], b4.generic_weight)
+                w = sentence_match.sentence_weights([r["is_generic"] for r in s], b4.generic_weight)
             else:
                 s = [r for r in jd.req_items if r["kind"] == "text"]
                 w = np.ones(len(s), np.float32)
@@ -255,7 +255,7 @@ class Reranker:
         scorable = [c for c in cvs if cands[c.cv_id] and "no_diacritics" not in c.flags]
 
         res: dict = {}
-        jd_ok = [jd for jd in jds if b4_b5.aggregate(np.zeros(len(weights[jd.key]), np.float32), weights[jd.key])
+        jd_ok = [jd for jd in jds if sentence_match.aggregate(np.zeros(len(weights[jd.key]), np.float32), weights[jd.key])
                  is not None]
         ok_keys = {jd.key for jd in jd_ok}
         for jd in jds:
@@ -308,10 +308,10 @@ class Reranker:
                 ca, cb = col_of[c.cv_id]
                 cl = cands[c.cv_id]
                 Rc = R[ra:rb, ca:cb]
-                m = b4_b5.bullet_multipliers(np.array([x.has_negation for x in cl]),
+                m = sentence_match.bullet_multipliers(np.array([x.has_negation for x in cl]),
                                              np.array([x.is_coursework for x in cl]), b4)
-                cal = b4_b5.calibrated(Rc, b4, cos[ra:rb, ca:cb] if cos is not None else None)
-                ss = b4_b5.sentence_scores(Rc, m, b4, cal_base=cal)
+                cal = sentence_match.calibrated(Rc, b4, cos[ra:rb, ca:cb] if cos is not None else None)
+                ss = sentence_match.sentence_scores(Rc, m, b4, cal_base=cal)
                 details = []
                 for j, s in enumerate(sents[jd.key]):
                     bi = int(ss.best[j])
@@ -326,11 +326,11 @@ class Reranker:
                     details.append(SentenceDetail(
                         resp_idx=s["idx"], c_j=round(float(ss.c[j]), 6), R_best=round(float(ss.R_best[j]), 6),
                         bullet_id=x.bullet_id if x else None, evidence_id=x.evidence_id if x else None,
-                        level=b4_b5.level_of(float(ss.c[j]), b4), matched_words=matched if x else [],
+                        level=sentence_match.level_of(float(ss.c[j]), b4), matched_words=matched if x else [],
                         missing_words=missing,
                         bullet_flags=[f for f, v in (("has_negation", x.has_negation),
                                                      ("is_coursework", x.is_coursework)) if v] if x else []))
-                res[(jd.key, c.cv_id)] = (b4_b5.aggregate(ss.c, weights[jd.key]), None, details)
+                res[(jd.key, c.cv_id)] = (sentence_match.aggregate(ss.c, weights[jd.key]), None, details)
         timings[f"rr3_{kind.lower()}_align_s"] = round(time.perf_counter() - t, 4)
         return res
 
@@ -347,12 +347,12 @@ class Reranker:
             if not any(s.required for s in jd.skills):
                 missing["A1"] = "jd_side"
             elif rc.a1.use_kb_rel:
-                raw["A1"] = a1_a2.coverage(jd.skills, c.skills, True, rel, min_den=min_den)
+                raw["A1"] = skill_match.coverage(jd.skills, c.skills, True, rel, min_den=min_den)
             else:
                 s = cand.s.skill
-                raw["A1"] = float(s) if s is not None else a1_a2.coverage(jd.skills, c.skills, True, min_den=min_den)
+                raw["A1"] = float(s) if s is not None else skill_match.coverage(jd.skills, c.skills, True, min_den=min_den)
         if "A2" in on:
-            raw["A2"] = a1_a2.coverage(jd.skills, c.skills, False, rel, min_den=min_den)
+            raw["A2"] = skill_match.coverage(jd.skills, c.skills, False, rel, min_den=min_den)
             if raw["A2"] is None:
                 missing["A2"] = "jd_side"
         details: dict[str, list] = {"B4": [], "B5": []}
@@ -412,7 +412,7 @@ class Reranker:
         # bat buoc CUA JD NAY hay khong -> dung do phu khong mau so toi thieu (khong thi CV du ky nang van bi tran 50).
         gate_a1 = None
         if reverse and "A1" in on and "A1" not in missing:
-            gate_a1 = a1_a2.coverage(jd.skills, c.skills, True, rel)
+            gate_a1 = skill_match.coverage(jd.skills, c.skills, True, rel)
         extra = {"resp_detail": details["B4"], "req_detail": details["B5"], "relevant_years": y_any,
                  "level_cv": level_cv, "level_source": level_src, "edu_fit": c1_val}
         return Scored(item_id, raw, missing, flags=flags, gate_a1=gate_a1), extra
@@ -500,7 +500,7 @@ class Reranker:
                              matched_words=d.matched_words, missing_words=d.missing_words) for d in details]
 
     def _final_item(self, r: Scored, jd: JdData, c: CvData, ex: dict, reverse: bool) -> FinalItem:
-        facts = a1_a2.skill_facts(jd.skills, c.skills, self.rels.relation)
+        facts = skill_match.skill_facts(jd.skills, c.skills, self.rels.relation)
         resp_facts = self._facts(ex["resp_detail"], {s["idx"]: s["text_raw"] for s in jd.resp})
         req_facts = self._facts(ex["req_detail"], {s["idx"]: s["text_raw"] for s in jd.req_items})
         bullets = {str(b["bullet_id"]): b for b in c.bullets}

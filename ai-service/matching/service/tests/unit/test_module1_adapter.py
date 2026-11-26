@@ -1,4 +1,4 @@
-"""I03: dau ra THAT cua Module 1 (`services/cv-extraction-ai`) qua adapter + Luong A (A1-A9), khong DB.
+"""I03: dau ra THAT cua Module 1 (`ai-service/extraction`) qua adapter + Luong A (A1-A9), khong DB.
 
 Fixture la du lieu gia dung hinh dang Module 1 (`tests/fixtures/module1/make_fixtures.py`).
 """
@@ -17,7 +17,7 @@ from cvmatch.ingest.cv.record import CvContext
 from cvmatch.ingest.cv.schema import validate_cv
 
 M1 = Path(__file__).resolve().parents[1] / "fixtures" / "module1"
-KB = Path(__file__).resolve().parents[4] / "tools" / "build_kb" / "out" / "snapshot" / "kb-2026-11-24"
+KB = Path(__file__).resolve().parents[3] / "kb-builder" / "out" / "snapshot" / "kb-2026-11-24"
 
 
 def load(name: str) -> dict:
@@ -31,6 +31,7 @@ ALL = sorted(p.stem for p in M1.glob("m1_*.json"))
 def test_fixture_validates_and_keeps_sections(name):
     raw = load(name)
     cv = validate_cv(adapt_cv(copy.deepcopy(raw)))
+    raw = raw.get("data", raw)                                # fixture co vo {message, code, data}
     assert len(cv.experiences) == len(raw["experience"])
     assert len(cv.projects) == len(raw["personal_projects"])
     assert len(cv.education) == len(raw["education"])
@@ -95,3 +96,48 @@ def test_same_account_email_is_same_candidate(ctx):
     b["skills"].append("Kafka")
     ra, rb = build_cv_record(a, ctx), build_cv_record(b, ctx)
     assert ra.candidate_key == rb.candidate_key and ra.content_hash != rb.content_hash
+
+
+# ------------------------------------------------ vo ApiResponse cua backend {message, code, data}
+# hinh dang: data/demo/cv/cv_parse_demo.json (fixture thay PII bang du lieu gia)
+
+ENV = "m1_envelope_backend_intern"
+
+
+def test_envelope_is_unwrapped():
+    raw = load(ENV)
+    cv = adapt_cv(copy.deepcopy(raw))
+    assert not {"message", "code", "data"} & set(cv)
+    assert cv["email"] == raw["data"]["personal_info"]["email"]
+    assert len(cv["experiences"]) == 1 and len(cv["projects"]) == 2
+    assert cv["summary"] == raw["data"]["objective"]
+
+
+def test_envelope_without_cv_is_invalid():
+    from cvmatch.ingest.cv.adapter import unwrap_envelope
+    from cvmatch.ingest.cv.schema import InvalidCV
+    assert unwrap_envelope({"message": "Parse failed", "code": 500, "data": None}) is None
+    with pytest.raises(InvalidCV):
+        validate_cv(adapt_cv({"message": "Parse failed", "code": 500, "data": None}))
+
+
+def test_cv_with_data_field_is_not_unwrapped():
+    cv = adapt_cv({"full_name": "X", "data": {"skills": ["Java"]}})   # khong phai vo: co khoa CV
+    assert cv["full_name"] == "X" and "data" in cv
+
+
+def test_luong_a_on_envelope(ctx):
+    raw = load(ENV)
+    r = build_cv_record(raw, ctx)
+    assert r.flags == [] and r.candidate_key
+    # hash tinh tren CV ben trong: doi message/code cua vo khong sinh CV moi
+    other = copy.deepcopy(raw)
+    other["message"] = "OK"
+    assert build_cv_record(other, ctx).content_hash == r.content_hash == build_cv_record(raw["data"], ctx).content_hash
+    assert r.meta.role_group == "Backend" and r.meta.major_group == "it"
+    assert r.experiences[0].start_ym == "2025-10" and r.experiences[0].end_ym == "2026-05"  # "October 2025"
+    assert r.education[0].status == "studying" and r.education[0].end_year == 2027
+    names = {ctx.snapshot.skills[s.skill_id].name for s in r.skills_found}
+    assert {"Java", "Spring Boot", "MySQL", "PostgreSQL", "Redis", "Docker"} <= names
+    assert "github_url" not in r.anon_json
+    assert "example-demo" not in json.dumps(r.anon_json, ensure_ascii=False)

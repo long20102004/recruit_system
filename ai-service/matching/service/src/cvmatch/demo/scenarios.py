@@ -1,7 +1,7 @@
 """Bo kich ban goi API THAT qua HTTP (server dang chay tren DB demo), ghi ket qua + do tre tung endpoint.
 
     cvmatch demo serve                      # cua so 1
-    cvmatch demo scenarios [--only a,b]     # cua so 2 -> bang ket qua + reports/demo/scenarios.md
+    cvmatch demo scenarios [--only a,b]     # cua so 2 -> bang ket qua + research/reports/demo/scenarios.md
 
 Kich ban thay doi du lieu (CV moi / ban moi / xoa / JD moi / dong JD) dung du lieu RIENG cua lan chay va
 don dep o cuoi, nen kho CV demo giu nguyen giua cac lan chay. Doc `state.json` de biet vai tro / nhom that

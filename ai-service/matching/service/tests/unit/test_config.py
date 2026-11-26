@@ -42,9 +42,9 @@ def test_bertscore_config_key():
 
 def test_versions_bundle():
     v = load_config().versions
-    assert v.pipeline_version == "prep-1.1"
+    assert v.pipeline_version == "prep-1.2"
     assert v.embed_model == "bge-m3@5617a9f61b"
-    assert v.rerank_config_version == "rr-1.0"
+    assert v.rerank_config_version == "rr-1.2"
     assert v.ontology_version == load_config().ontology_version  # lay tu active.yaml
 
 
