@@ -75,7 +75,7 @@ export function AccountSettingsPage() {
 
   function onLogout() {
     logout();
-    navigate("/login");
+    navigate("/");
   }
 
   return (

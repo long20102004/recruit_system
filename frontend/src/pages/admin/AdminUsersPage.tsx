@@ -59,11 +59,10 @@ export function AdminUsersPage() {
 
   return (
     <RecruiterLayout active="users">
-      <div className="page-head">
+      <div className="page-head" style={{ marginBottom: 0 }}>
         <div>
-          <p className="kicker">Quản trị</p>
-          <h1 style={{ fontSize: 32, marginTop: 4 }}>Người dùng</h1>
-          <p className="muted">Khoá tài khoản sẽ đăng xuất người đó khỏi mọi thiết bị ngay lập tức.</p>
+          <h1 style={{ fontSize: 32 }}>Người dùng</h1>
+          <p className="muted">{data ? `${data.totalElements} tài khoản` : "Đang tải…"}</p>
         </div>
       </div>
       <div className="row">
@@ -76,7 +75,6 @@ export function AdminUsersPage() {
           <option value="BANNED">Bị khoá</option>
           <option value="INACTIVE">Không hoạt động</option>
         </select>
-        {data ? <span className="small muted">{data.totalElements} người dùng</span> : null}
       </div>
       {!data ? (
         <EmptyNote>Đang tải…</EmptyNote>
@@ -85,7 +83,7 @@ export function AdminUsersPage() {
       ) : (
         <div className="tbl-box">
           <table className="tbl">
-            <thead><tr><th>Người dùng</th><th>Vai trò</th><th>Trạng thái</th><th>Email</th><th>Tạo</th><th /></tr></thead>
+            <thead><tr><th>Người dùng</th><th>Vai trò</th><th>Email</th><th>Đăng ký</th><th>Trạng thái</th><th style={{ textAlign: "right" }}>Thao tác</th></tr></thead>
             <tbody>
               {data.content.map((u) => {
                 const st = STATUS[u.status] ?? { label: u.status, cls: "badge" };
@@ -102,13 +100,13 @@ export function AdminUsersPage() {
                       </div>
                     </td>
                     <td className="small">{ROLE_LABEL[u.role] ?? u.role}</td>
+                    <td className="small">{u.emailVerified ? "Đã xác thực" : <span className="muted">Chưa xác thực</span>}</td>
+                    <td className="small muted">{shortDate(u.createdAt)}</td>
                     <td>
                       <span className={st.cls}>{st.label}</span>
                       {u.lockedReason ? <p className="tiny muted" style={{ marginTop: 4 }}>{u.lockedReason}</p> : null}
                     </td>
-                    <td className="small">{u.emailVerified ? "Đã xác thực" : <span className="muted">Chưa xác thực</span>}</td>
-                    <td className="small muted">{shortDate(u.createdAt)}</td>
-                    <td style={{ minWidth: 220 }}>
+                    <td style={{ minWidth: 220, textAlign: "right" }}>
                       <Can perm="user:lock">
                         {u.status === "BANNED" ? (
                           <button type="button" className="btn btn-g btn-sm" disabled={busy} onClick={() => unlock(u.id)}>Mở khoá</button>
@@ -132,6 +130,7 @@ export function AdminUsersPage() {
         </div>
       )}
       <Pager data={data} onPage={setPage} />
+      <div className="note small">Khoá tài khoản sẽ chặn đăng nhập và đăng xuất người đó khỏi mọi thiết bị ngay lập tức.</div>
     </RecruiterLayout>
   );
 }

@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useState } from "react";
-import { Button, EmptyNote, JobCard, JobLogo, SiteHeader } from "../../components/common";
+import { ApplyModal, Button, EmptyNote, JobCard, JobLogo, SiteHeader, type ApplyTarget } from "../../components/common";
 import {
   MAX_PAGE_SIZE,
   applicationsApi,
@@ -10,24 +10,36 @@ import {
   type JobDto,
   type MatchDto,
 } from "../../api/client";
+import { savedJobsMock } from "../../api/mock/candidateMock";
 import { useAuth } from "../../context/AuthContext";
 import { useToast } from "../../context/ToastContext";
 import { mapJob, mapMatch } from "../../utils/mappers";
 import { filterJobs, jobById, matchForJob } from "../../utils/jobs";
 import { applicationBadge, pct, shortDate } from "../../utils/format";
-import { Link } from "react-router-dom";
+import { Link, useSearchParams } from "react-router-dom";
 
 export function CandidateHomePage() {
   const { user, can } = useAuth();
   const { toast } = useToast();
-  const [keyword, setKeyword] = useState("");
-  const [city, setCity] = useState("TP. Hồ Chí Minh");
+  const [searchParams] = useSearchParams();
+  // Trang này gộp "Tổng quan" và "Việc làm IT" (specs: bỏ trang /jobs riêng cho ứng viên).
+  const [keyword, setKeyword] = useState(() => searchParams.get("keyword") ?? "");
+  const [city, setCity] = useState(() => searchParams.get("city") || "all");
+  const [level, setLevel] = useState("all");
+  const [workType, setWorkType] = useState("all");
   const [mode, setMode] = useState<"near" | "match">("near");
   const [jobs, setJobs] = useState<JobDto[]>([]);
   const [matches, setMatches] = useState<MatchDto[]>([]);
   const [cvReady, setCvReady] = useState(false);
-  const [selectedId, setSelectedId] = useState<string | null>(null);
   const [apps, setApps] = useState<ApplicationDto[]>([]);
+  const [applying, setApplying] = useState<ApplyTarget | null>(null);
+  const [savedCount, setSavedCount] = useState(0);
+
+  useEffect(() => {
+    // Dữ liệu mẫu (C07) cho tới khi có API việc đã lưu.
+    savedJobsMock.list().then((xs) => setSavedCount(xs.length)).catch(() => setSavedCount(0));
+  }, []);
+  const [selectedId, setSelectedId] = useState<string | null>(null);
   const [today] = useState(() =>
     new Date().toLocaleDateString("vi-VN", { weekday: "long", day: "2-digit", month: "2-digit", year: "numeric" })
   );
@@ -64,12 +76,17 @@ export function CandidateHomePage() {
       if (ranked.length > 0 || !cvReady) return ranked;
       return mapped;
     }
-    return filterJobs(mapped, { keyword, city });
-  }, [mode, mapped, matchResults, keyword, city, cvReady]);
+    return filterJobs(mapped, { keyword, city })
+      .filter((j) => (level === "all" || j.level === level) && (workType === "all" || j.workType === workType));
+  }, [mode, mapped, matchResults, keyword, city, level, workType, cvReady]);
+
+  const options = (pick: (j: ReturnType<typeof mapJob>) => string) =>
+    [...new Set(mapped.map(pick).filter(Boolean))].sort();
 
   const top = matchResults[0];
   const topJob = top ? mapped.find((j) => j.id === top.jobId) : undefined;
   const firstName = user?.fullName?.split(" ").slice(-1)[0] ?? "bạn";
+  // Bấm thẻ việc chỉ đổi khung tóm tắt bên phải; nút "Chi tiết" mới mở trang chi tiết.
   const activeId =
     selectedId && list.some((job) => job.id === selectedId)
       ? selectedId
@@ -77,14 +94,18 @@ export function CandidateHomePage() {
   const selected = activeId ? jobById(mapped, activeId) : undefined;
   const selectedMatch = activeId ? matchForJob(matchResults, activeId) : undefined;
 
-  async function apply(jobId: string) {
-    try {
-      await applicationsApi.apply(Number(jobId));
-      toast("Đã nộp hồ sơ ứng tuyển");
-      applicationsApi.mine({ size: MAX_PAGE_SIZE }).then((p) => setApps(p.content)).catch(() => undefined);
-    } catch (e) {
-      toast(e instanceof Error ? e.message : "Ứng tuyển thất bại");
-    }
+  function apply(jobId: string) {
+    const job = jobById(mapped, jobId);
+    if (!job) return;
+    const m = cvReady ? matchForJob(matchResults, jobId) : undefined;
+    setApplying({ id: job.id, title: job.title, company: job.company, location: job.location,
+      matchPct: m ? pct(m.score) : null });
+  }
+
+  function onApplied() {
+    setApplying(null);
+    toast("Đã gửi đơn. Nhà tuyển dụng sẽ nhận được thông báo.");
+    applicationsApi.mine({ size: MAX_PAGE_SIZE }).then((p) => setApps(p.content)).catch(() => undefined);
   }
 
   const countBy = (st: string) => apps.filter((a) => a.status === st).length;
@@ -104,14 +125,6 @@ export function CandidateHomePage() {
                 : ", tải CV để xem việc hợp với bạn."}
             </h1>
           </div>
-          <form className="search" role="search" style={{ flex: "0 1 460px", padding: 4 }}
-            onSubmit={(e) => { e.preventDefault(); setMode("near"); }}>
-            <label className="seg" style={{ minHeight: 44 }}>
-              <input type="search" placeholder="Tìm việc, kỹ năng…" aria-label="Tìm việc"
-                value={keyword} onChange={(e) => { setKeyword(e.target.value); setMode("near"); }} />
-            </label>
-            <button type="submit" className="btn btn-p" style={{ minHeight: 44 }}>Tìm</button>
-          </form>
         </section>
 
         <section style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 260px), 1fr))", gap: 16 }}>
@@ -147,13 +160,13 @@ export function CandidateHomePage() {
               {cvReady ? "Cập nhật CV" : "Tải CV"}
             </Button>
           </div>
-          <div className="card" style={{ display: "grid", gridTemplateColumns: "repeat(2, minmax(0, 1fr))", gap: 14 }}>
+          <Link to="/candidate/applications" className="card" style={{ display: "grid", gridTemplateColumns: "repeat(2, minmax(0, 1fr))", gap: 14, color: "inherit" }}>
             <h4 style={{ gridColumn: "1 / -1" }}>Đơn ứng tuyển</h4>
             <div className="stat"><p className="l">Đã nộp</p><p className="v">{apps.length}</p></div>
             <div className="stat"><p className="l">Đang xem xét</p><p className="v">{countBy("REVIEWING")}</p></div>
             <div className="stat"><p className="l">Phỏng vấn</p><p className="v">{countBy("INTERVIEW")}</p></div>
-            <div className="stat"><p className="l">Trúng tuyển</p><p className="v">{countBy("HIRED")}</p></div>
-          </div>
+            <div className="stat"><p className="l">Việc đã lưu</p><p className="v">{savedCount}</p></div>
+          </Link>
         </section>
 
         <section style={{ display: "flex", gap: 24, flexWrap: "wrap", alignItems: "flex-start" }}>
@@ -161,9 +174,9 @@ export function CandidateHomePage() {
             <div className="between">
               <div>
                 <p className="kicker">{mode === "match" ? "Gợi ý theo CV" : city === "all" ? "Tất cả khu vực" : city}</p>
-                <h2>{mode === "match" ? "Việc làm dành cho bạn" : "Việc làm đang tuyển"}</h2>
+                <h2>{mode === "match" ? "Việc làm dành cho bạn" : "Việc làm IT đang tuyển"}</h2>
               </div>
-              <div className="tabs" role="tablist" style={{ borderBottom: 0 }}>
+              <div className="tabs" role="tablist" style={{ borderBottom: 0, overflow: "visible", flexShrink: 0 }}>
                 <button type="button" role="tab" aria-selected={mode === "near"}
                   className={mode === "near" ? "tab tab-on" : "tab"} onClick={() => setMode("near")}>
                   Theo khu vực
@@ -175,15 +188,42 @@ export function CandidateHomePage() {
               </div>
             </div>
             {mode === "near" ? (
-              <label className="row small" style={{ gap: 8 }}>
-                <span className="muted">Khu vực</span>
-                <select className="input" style={{ height: 38, width: "auto" }} value={city} onChange={(e) => setCity(e.target.value)}>
-                  <option value="all">Tất cả</option>
-                  {[...new Set(mapped.map((j) => j.city).filter(Boolean))].sort().map((c) => (
-                    <option key={c} value={c}>{c}</option>
-                  ))}
-                </select>
-              </label>
+              <>
+                <form className="search" role="search" onSubmit={(e) => e.preventDefault()}>
+                  <label className="seg" style={{ flex: "3 1 320px" }}>
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--muted)" strokeWidth="2" aria-hidden="true">
+                      <circle cx="11" cy="11" r="7" />
+                      <path d="m20 20-3.5-3.5" />
+                    </svg>
+                    <input type="search" placeholder="Vị trí, kỹ năng, công ty…" aria-label="Từ khóa"
+                      value={keyword} onChange={(e) => setKeyword(e.target.value)} />
+                  </label>
+                  <label className="seg" style={{ flex: "1 1 200px" }}>
+                    <select aria-label="Thành phố" value={city} onChange={(e) => setCity(e.target.value)}>
+                      <option value="all">Tất cả thành phố</option>
+                      {options((j) => j.city).map((c) => <option key={c} value={c}>{c}</option>)}
+                    </select>
+                  </label>
+                  <button type="submit" className="btn btn-p">Tìm việc</button>
+                </form>
+                <div className="row small" style={{ gap: 8 }}>
+                  <select className="input" aria-label="Cấp bậc" style={{ height: 38, width: "auto", paddingRight: 28, fontSize: 13.5, fontWeight: 600, borderRadius: 19 }} value={level} onChange={(e) => setLevel(e.target.value)}>
+                    <option value="all">Cấp bậc: Tất cả</option>
+                    {options((j) => j.level).map((c) => <option key={c} value={c}>{c}</option>)}
+                  </select>
+                  <select className="input" aria-label="Hình thức" style={{ height: 38, width: "auto", paddingRight: 28, fontSize: 13.5, fontWeight: 600, borderRadius: 19 }} value={workType} onChange={(e) => setWorkType(e.target.value)}>
+                    <option value="all">Hình thức: Tất cả</option>
+                    {options((j) => j.workType).map((c) => <option key={c} value={c}>{c}</option>)}
+                  </select>
+                  {keyword || city !== "all" || level !== "all" || workType !== "all" ? (
+                    <button type="button" className="btn btn-link small"
+                      onClick={() => { setKeyword(""); setCity("all"); setLevel("all"); setWorkType("all"); }}>
+                      Xoá bộ lọc
+                    </button>
+                  ) : null}
+                  <span className="muted" style={{ marginLeft: "auto" }}>{list.length} việc</span>
+                </div>
+              </>
             ) : (
               <p className="help">Xếp theo mức phù hợp với CV hiện tại. <Link to="/candidate/matching" style={{ color: "var(--brand)", fontWeight: 600 }}>Xem giải thích điểm →</Link></p>
             )}
@@ -212,7 +252,8 @@ export function CandidateHomePage() {
             )}
           </div>
 
-          <aside style={{ flex: "1 1 300px", minWidth: 0, maxWidth: 400, display: "flex", flexDirection: "column", gap: 20 }}>
+          <aside style={{ flex: "1 1 300px", minWidth: 0, maxWidth: 400, display: "flex", flexDirection: "column", gap: 20,
+            position: "sticky", top: 16, maxHeight: "calc(100vh - 32px)", overflowY: "auto" }}>
             {selected ? (
               <section className="card stack" style={{ gap: 12 }}>
                 <div className="row" style={{ gap: 12, flexWrap: "nowrap", alignItems: "flex-start" }}>
@@ -232,12 +273,14 @@ export function CandidateHomePage() {
                 <div className="row" style={{ gap: 8 }}>
                   <Button variant="primary" size="sm" onClick={() => apply(selected.id)}>Ứng tuyển</Button>
                   <Button variant="ghost" size="sm" to={`/candidate/jobs/${selected.id}`}>Chi tiết</Button>
-                  <Button variant="ghost" size="sm" to={`/candidate/interview?jobId=${selected.id}`}>Luyện phỏng vấn</Button>
                 </div>
               </section>
             ) : null}
             <section className="card stack" style={{ gap: 4 }}>
-              <h4 style={{ marginBottom: 6 }}>Đơn gần đây</h4>
+              <div className="between" style={{ marginBottom: 6 }}>
+                <h4>Đơn gần đây</h4>
+                <Link to="/candidate/applications" className="small" style={{ color: "var(--brand)", fontWeight: 650 }}>Tất cả</Link>
+              </div>
               {recentApps.length === 0 ? (
                 <p className="small muted">Bạn chưa nộp đơn nào.</p>
               ) : (
@@ -255,9 +298,15 @@ export function CandidateHomePage() {
                 })
               )}
             </section>
+            <section className="card stack" style={{ gap: 10, background: "var(--brand-soft)", borderColor: "#cdd6f0" }}>
+              <h4>Job alert</h4>
+              <p className="small" style={{ color: "var(--brand-deep)" }}>Nhận thông báo khi có việc mới khớp kỹ năng và khu vực bạn quan tâm.</p>
+              <Link to="/candidate/alerts" className="btn btn-p btn-sm" style={{ alignSelf: "flex-start" }}>Quản lý job alert</Link>
+            </section>
           </aside>
         </section>
       </div>
+      {applying ? <ApplyModal job={applying} onClose={() => setApplying(null)} onApplied={onApplied} /> : null}
     </>
   );
 }

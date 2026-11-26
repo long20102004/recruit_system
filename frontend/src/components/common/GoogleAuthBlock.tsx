@@ -1,9 +1,9 @@
 import { useCallback, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useSearchParams } from "react-router-dom";
 import { ApiError } from "../../api/client";
 import { useAuth } from "../../context/AuthContext";
 import { useToast } from "../../context/ToastContext";
-import { accountPath } from "../../utils/account";
+import { afterLoginPath } from "../../utils/account";
 import { isGoogleSignInEnabled } from "../../utils/google";
 import { GoogleSignInButton } from "./GoogleSignInButton";
 
@@ -15,6 +15,7 @@ export function GoogleAuthBlock({ text = "signin_with" }: { text?: "signin_with"
   const { loginWithGoogle } = useAuth();
   const { toast } = useToast();
   const navigate = useNavigate();
+  const redirect = useSearchParams()[0].get("redirect");
   const [error, setError] = useState<string | null>(null);
 
   const onCredential = useCallback(async (credential: string) => {
@@ -22,11 +23,11 @@ export function GoogleAuthBlock({ text = "signin_with" }: { text?: "signin_with"
     try {
       const user = await loginWithGoogle(credential);
       toast("Đăng nhập bằng Google thành công");
-      navigate(accountPath(user), { replace: true });
+      navigate(afterLoginPath(user, redirect), { replace: true });
     } catch (e) {
       setError(e instanceof ApiError ? e.message : "Không đăng nhập được bằng Google");
     }
-  }, [loginWithGoogle, navigate, toast]);
+  }, [loginWithGoogle, navigate, toast, redirect]);
 
   const onError = useCallback((m: string) => setError(m), []);
 
