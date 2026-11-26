@@ -5,8 +5,8 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.stereotype.Component;
 import recruit.demo.dto.ServiceDtos.UserSnapshot;
-import recruit.demo.entity.Role;
-import recruit.demo.entity.UserStatus;
+import recruit.demo.enums.Role;
+import recruit.demo.enums.UserStatus;
 
 import java.time.Duration;
 import java.util.HashMap;

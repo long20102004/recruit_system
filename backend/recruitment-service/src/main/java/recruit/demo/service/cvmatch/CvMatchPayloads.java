@@ -1,6 +1,6 @@
 package recruit.demo.service.cvmatch;
 
-import recruit.demo.entity.JobStatus;
+import recruit.demo.enums.JobStatus;
 import tools.jackson.databind.ObjectMapper;
 
 import java.math.BigDecimal;

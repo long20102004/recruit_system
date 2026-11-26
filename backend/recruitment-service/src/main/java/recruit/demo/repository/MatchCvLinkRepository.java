@@ -2,7 +2,7 @@ package recruit.demo.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import recruit.demo.entity.MatchCvLink;
-import recruit.demo.entity.SyncStatus;
+import recruit.demo.enums.SyncStatus;
 
 import java.util.Collection;
 import java.util.List;

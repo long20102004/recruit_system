@@ -4,8 +4,8 @@ import lombok.Getter;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
-import recruit.demo.entity.Role;
-import recruit.demo.entity.UserStatus;
+import recruit.demo.enums.Role;
+import recruit.demo.enums.UserStatus;
 
 import java.util.Collection;
 import java.util.List;

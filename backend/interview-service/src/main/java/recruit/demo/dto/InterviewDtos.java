@@ -2,7 +2,7 @@ package recruit.demo.dto;
 
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
-import recruit.demo.entity.SessionStatus;
+import recruit.demo.enums.SessionStatus;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;

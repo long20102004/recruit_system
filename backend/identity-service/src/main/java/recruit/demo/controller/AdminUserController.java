@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.*;
 import recruit.demo.dto.AdminUserDtos.AdminUserDto;
 import recruit.demo.dto.AdminUserDtos.LockRequest;
 import recruit.demo.dto.PageResponse;
-import recruit.demo.entity.UserStatus;
+import recruit.demo.enums.UserStatus;
 import recruit.demo.service.AdminUserService;
 
 @RestController

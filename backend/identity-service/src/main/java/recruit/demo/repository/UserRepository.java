@@ -6,7 +6,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import recruit.demo.entity.User;
-import recruit.demo.entity.UserStatus;
+import recruit.demo.enums.UserStatus;
 
 import java.util.Optional;
 

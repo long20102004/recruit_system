@@ -1,6 +1,6 @@
 package recruit.demo.dto;
 
-import recruit.demo.entity.ApplicationStatus;
+import recruit.demo.enums.ApplicationStatus;
 
 import java.time.LocalDateTime;
 

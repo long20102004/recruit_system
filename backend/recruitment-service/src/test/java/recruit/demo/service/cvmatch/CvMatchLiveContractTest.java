@@ -3,7 +3,7 @@ package recruit.demo.service.cvmatch;
 import org.junit.jupiter.api.Test;
 import recruit.demo.client.CvMatchApi;
 import recruit.demo.client.HttpCvMatchClient;
-import recruit.demo.entity.JobStatus;
+import recruit.demo.enums.JobStatus;
 import tools.jackson.databind.ObjectMapper;
 
 import java.math.BigDecimal;

@@ -21,7 +21,7 @@ public class InternalRecruitmentController {
     public InterviewContext context(@RequestParam Integer userId,
             @RequestParam(required=false) Integer jobId, @RequestParam(required=false) Integer applicationId) {
         var user = identity.get(userId);
-        if (user.role() != recruit.demo.entity.Role.CANDIDATE || user.status() != recruit.demo.entity.UserStatus.ACTIVE)
+        if (user.role() != recruit.demo.enums.Role.CANDIDATE || user.status() != recruit.demo.enums.UserStatus.ACTIVE)
             throw new ApiException(HttpStatus.FORBIDDEN, "Active candidate required");
         profiles.ensureProfile(new recruit.demo.security.UserPrincipal(user.id(), user.email(), "", user.fullName(), user.role(), user.status()));
         var candidate = candidates.findByUserId(userId)

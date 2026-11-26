@@ -1,4 +1,4 @@
-package recruit.demo.entity;
+package recruit.demo.enums;
 
 /** Trang thai dong bo mot CV / JD sang cvmatch (plan I05). */
 public enum SyncStatus {

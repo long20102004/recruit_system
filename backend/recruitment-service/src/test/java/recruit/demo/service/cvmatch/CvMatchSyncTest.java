@@ -1,5 +1,9 @@
 package recruit.demo.service.cvmatch;
 
+import recruit.demo.enums.JobStatus;
+import recruit.demo.enums.Role;
+import recruit.demo.enums.SyncStatus;
+import recruit.demo.enums.UserStatus;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.transaction.PlatformTransactionManager;
