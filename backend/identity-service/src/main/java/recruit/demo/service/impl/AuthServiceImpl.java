@@ -162,6 +162,7 @@ public class AuthServiceImpl implements AuthService {
                         .status(UserStatus.ACTIVE)
                         .emailVerifiedAt(LocalDateTime.now())
                         .googleSub(g.subject())
+                        .passwordSet(false)
                         .build());
             }
         }

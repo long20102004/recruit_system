@@ -7,6 +7,7 @@ import { RegisterPage } from "./pages/RegisterPage";
 import { ChooseRolePage } from "./pages/ChooseRolePage";
 import { VerifyEmailPage } from "./pages/VerifyEmailPage";
 import { ForgotPasswordPage } from "./pages/ForgotPasswordPage";
+import { AccountSettingsPage } from "./pages/AccountSettingsPage";
 import { ResetPasswordPage } from "./pages/ResetPasswordPage";
 import { accountPath } from "./utils/account";
 import { PublicHomePage } from "./pages/PublicHomePage";
@@ -92,6 +93,14 @@ function AppRoutes() {
         element={
           <RequireAuth perm={["application:apply", "matching:read-own"]}>
             <CandidateJobDetailPage />
+          </RequireAuth>
+        }
+      />
+      <Route
+        path="/candidate/profile"
+        element={
+          <RequireAuth>
+            <AccountSettingsPage />
           </RequireAuth>
         }
       />

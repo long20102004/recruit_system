@@ -121,6 +121,60 @@ export const authApi = {
     }),
 };
 
+/** Tài khoản của chính người dùng (specs/006-account-settings, màn C14). */
+export type Gender = "MALE" | "FEMALE" | "OTHER";
+export type NotificationType =
+  | "APPLICATION_STATUS"
+  | "INTERVIEW_INVITE"
+  | "JOB_ALERT"
+  | "COMPANY_INVITE"
+  | "CV_PROCESSED";
+
+export interface ProfileDto {
+  id: number;
+  fullName: string;
+  email: string;
+  phone: string | null;
+  /** yyyy-MM-dd */
+  dateOfBirth: string | null;
+  gender: Gender | null;
+  role: UserDto["role"];
+  /** false: tài khoản tạo bằng Google, chưa đặt mật khẩu. */
+  passwordSet: boolean;
+  googleLinked: boolean;
+}
+
+export interface UpdateProfileBody {
+  fullName: string;
+  phone: string | null;
+  dateOfBirth: string | null;
+  gender: Gender | null;
+}
+
+export interface NotificationPrefDto {
+  type: NotificationType;
+  inApp: boolean;
+  email: boolean;
+}
+
+export const accountApi = {
+  profile: () => api<ProfileDto>("/account/profile"),
+  updateProfile: (body: UpdateProfileBody) =>
+    api<ProfileDto>("/account/profile", { method: "PUT", body: JSON.stringify(body) }),
+  /** Trả token mới; các phiên khác bị đăng xuất. */
+  changePassword: (currentPassword: string | null, newPassword: string) =>
+    api<AuthResponse>("/account/password", {
+      method: "POST",
+      body: JSON.stringify({ currentPassword, newPassword }),
+    }),
+  notifications: () => api<{ items: NotificationPrefDto[] }>("/account/notifications"),
+  updateNotifications: (items: NotificationPrefDto[]) =>
+    api<{ items: NotificationPrefDto[] }>("/account/notifications", {
+      method: "PUT",
+      body: JSON.stringify({ items }),
+    }),
+};
+
 export const jobsApi = {
   list: (params?: { keyword?: string; city?: string }) => {
     const q = new URLSearchParams();

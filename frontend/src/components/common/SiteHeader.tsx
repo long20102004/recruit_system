@@ -63,8 +63,12 @@ export function SiteHeader({ active, mode, userLocation }: SiteHeaderProps) {
           )
         ) : (
           <div className="row" style={{ gap: 10 }}>
-            <span className="avatar" aria-hidden="true">{initials(user?.fullName)}</span>
-            <span style={{ fontSize: 14, fontWeight: 600 }}>{user?.fullName}</span>
+            <Link to="/candidate/profile" className="row" title="Hồ sơ & mật khẩu"
+              aria-current={active === "profile" ? "page" : undefined}
+              style={{ gap: 10, color: "inherit", textDecoration: "none" }}>
+              <span className="avatar" aria-hidden="true">{initials(user?.fullName)}</span>
+              <span style={{ fontSize: 14, fontWeight: 600 }}>{user?.fullName}</span>
+            </Link>
             <span className="topnav-sep" />
             <button type="button" className="btn btn-sm" onClick={onLogout}>Đăng xuất</button>
           </div>
