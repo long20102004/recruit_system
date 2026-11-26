@@ -1,6 +1,7 @@
 package recruit.demo.service;
 
-import recruit.demo.dto.AdminUserDtos.AdminUserDto;
+import recruit.demo.dto.admin.AdminUserDto;
+
 import recruit.demo.dto.PageResponse;
 import recruit.demo.enums.UserStatus;
 

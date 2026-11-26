@@ -1,5 +1,7 @@
 # Contract: Auth API (identity-service, qua gateway `:8080`)
 
+> **Cập nhật:** mọi response thành công của identity-service (`/api/auth/**`, `/api/account/**`, `/api/admin/**`) được bọc trong `BaseResponse`: `{ "code": 200, "message": "Success", "data": <body mô tả bên dưới> }`. Ví dụ, đăng nhập trả `data = { token, user }`. FE đọc qua `apiData()` trong `frontend/src/api/client.ts`.
+
 Lỗi nghiệp vụ trả body `{ "code": number, "message": string, "data": object|null }`. Lỗi validation giữ dạng cũ `{ "message": string }` với HTTP 400.
 
 ## Thay đổi so với hiện tại

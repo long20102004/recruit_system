@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useState } from "react";
 import { Button, EmptyNote, JobCard, JobLogo, SiteHeader } from "../../components/common";
 import {
+  MAX_PAGE_SIZE,
   applicationsApi,
   cvsApi,
   jobsApi,
@@ -32,8 +33,8 @@ export function CandidateHomePage() {
   );
 
   useEffect(() => {
-    jobsApi.list().then(setJobs).catch((e) => toast(e.message));
-    applicationsApi.mine().then(setApps).catch(() => setApps([]));
+    jobsApi.list({ size: MAX_PAGE_SIZE }).then((p) => setJobs(p.content)).catch((e) => toast(e.message));
+    applicationsApi.mine({ size: MAX_PAGE_SIZE }).then((p) => setApps(p.content)).catch(() => setApps([]));
     cvsApi
       .mine()
       .then(async (form) => {
@@ -43,7 +44,7 @@ export function CandidateHomePage() {
           setMatches([]);
           return;
         }
-        setMatches(await matchingApi.mine());
+        setMatches((await matchingApi.mine({ size: MAX_PAGE_SIZE })).content);
       })
       .catch(() => {
         setCvReady(false);
@@ -80,7 +81,7 @@ export function CandidateHomePage() {
     try {
       await applicationsApi.apply(Number(jobId));
       toast("Đã nộp hồ sơ ứng tuyển");
-      applicationsApi.mine().then(setApps).catch(() => undefined);
+      applicationsApi.mine({ size: MAX_PAGE_SIZE }).then((p) => setApps(p.content)).catch(() => undefined);
     } catch (e) {
       toast(e instanceof Error ? e.message : "Ứng tuyển thất bại");
     }

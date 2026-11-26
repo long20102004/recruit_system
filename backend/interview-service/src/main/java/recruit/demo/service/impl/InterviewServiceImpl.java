@@ -4,11 +4,14 @@ import recruit.demo.service.*;
 import recruit.demo.enums.Role;
 import recruit.demo.enums.SessionStatus;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import recruit.demo.dto.AiScoringDtos;
 import recruit.demo.dto.InterviewDtos;
+import recruit.demo.dto.PageResponse;
 import recruit.demo.entity.*;
 import recruit.demo.exception.ApiException;
 import recruit.demo.repository.*;
@@ -36,10 +39,9 @@ public class InterviewServiceImpl implements InterviewService {
     private final recruit.demo.client.RecruitmentServiceClient recruitmentClient;
 
     @Transactional(readOnly = true)
-    public List<InterviewDtos.QuestionResponse> listQuestions() {
-        return questionRepository.findByActiveTrueOrderByIdAsc().stream()
-                .map(this::toQuestionResponse)
-                .toList();
+    public PageResponse<InterviewDtos.QuestionResponse> listQuestions(Pageable pageable) {
+        Page<InterviewQuestion> page = questionRepository.findByActiveTrueOrderByIdAsc(pageable);
+        return PageResponse.toPageResponse(page, this::toQuestionResponse);
     }
 
     @Transactional
@@ -126,9 +128,10 @@ public class InterviewServiceImpl implements InterviewService {
     }
 
     @Transactional(readOnly=true)
-    public List<InterviewDtos.SessionResponse> mySessions() {
-        return sessionRepository.findByCandidateUserIdOrderByCreatedAtDesc(SecurityUtils.currentUser().getId())
-            .stream().map(this::toSessionResponse).toList();
+    public PageResponse<InterviewDtos.SessionResponse> mySessions(Pageable pageable) {
+        Page<InterviewSession> page = sessionRepository.findByCandidateUserIdOrderByCreatedAtDesc(
+                SecurityUtils.currentUser().getId(), pageable);
+        return PageResponse.toPageResponse(page, this::toSessionResponse);
     }
 
     @Transactional(readOnly=true)

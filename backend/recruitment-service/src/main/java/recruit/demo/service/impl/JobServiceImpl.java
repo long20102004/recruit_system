@@ -4,10 +4,13 @@ import recruit.demo.service.*;
 import recruit.demo.enums.JobStatus;
 import recruit.demo.enums.Role;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import recruit.demo.dto.JobDtos;
+import recruit.demo.dto.PageResponse;
 import recruit.demo.entity.*;
 import recruit.demo.exception.ApiException;
 import recruit.demo.repository.*;
@@ -34,14 +37,13 @@ public class JobServiceImpl implements JobService {
     private final org.springframework.context.ApplicationEventPublisher events;
 
     @Transactional(readOnly = true)
-    public List<JobDtos.JobResponse> list(String keyword, String city, String status) {
+    public PageResponse<JobDtos.JobResponse> list(String keyword, String city, String status, Pageable pageable) {
         JobStatus jobStatus = parseStatusOrNull(status);
         if (jobStatus == null && (status == null || status.isBlank())) {
             jobStatus = JobStatus.PUBLISHED;
         }
-        return jobRepository.search(blankToNull(keyword), blankToNull(city), jobStatus).stream()
-                .map(this::toResponse)
-                .toList();
+        Page<Job> page = jobRepository.search(blankToNull(keyword), blankToNull(city), jobStatus, pageable);
+        return PageResponse.toPageResponse(page, this::toResponse);
     }
 
     @Transactional(readOnly = true)
@@ -97,11 +99,10 @@ public class JobServiceImpl implements JobService {
     }
 
     @Transactional(readOnly = true)
-    public List<JobDtos.JobResponse> myJobs() {
+    public PageResponse<JobDtos.JobResponse> myJobs(Pageable pageable) {
         UserPrincipal principal = SecurityUtils.currentUser();
-        return jobRepository.findByCreatedByIdOrderByCreatedAtDesc(principal.getId()).stream()
-                .map(this::toResponse)
-                .toList();
+        Page<Job> page = jobRepository.findByCreatedByIdOrderByCreatedAtDesc(principal.getId(), pageable);
+        return PageResponse.toPageResponse(page, this::toResponse);
     }
 
     private void attachSkills(Job job, List<String> skillNames, boolean required) {

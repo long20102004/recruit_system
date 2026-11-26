@@ -12,6 +12,7 @@ import {
   TextSelect, Can
 } from "../../components/common";
 import {
+  MAX_PAGE_SIZE,
   jobsApi,
   matchingApi,
   type JobDto,
@@ -31,8 +32,8 @@ export function RecruiterMatchingPage() {
   const [busy, setBusy] = useState(false);
 
   useEffect(() => {
-    (canReadOwnJobs ? jobsApi.mine() : jobsApi.list())
-      .then((list) => {
+    (canReadOwnJobs ? jobsApi.mine({ size: MAX_PAGE_SIZE }) : jobsApi.list({ size: MAX_PAGE_SIZE }))
+      .then(({ content: list }) => {
         setJobs(list);
         if (list[0]) setJobId(list[0].id);
       })
@@ -42,8 +43,8 @@ export function RecruiterMatchingPage() {
   useEffect(() => {
     if (!jobId) return;
     matchingApi
-      .forJob(Number(jobId))
-      .then(setMatches)
+      .forJob(Number(jobId), { size: MAX_PAGE_SIZE })
+      .then((p) => setMatches(p.content))
       .catch(() => setMatches([]));
   }, [jobId]);
 

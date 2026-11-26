@@ -9,16 +9,17 @@ import {
   RecruiterLayout,
   TextInput,
   TextSelect,
-  TextTextarea, Can
+  TextTextarea, Can, Pager
 } from "../../components/common";
-import { jobsApi, type JobDto } from "../../api/client";
+import { jobsApi, type JobDto, type PageDto } from "../../api/client";
 import { useToast } from "../../context/ToastContext";
 import { jobBadge, shortDate } from "../../utils/format";
 import { mapJob } from "../../utils/mappers";
 
 export function RecruiterJobsPage() {
   const { toast } = useToast();
-  const [jobs, setJobs] = useState<JobDto[]>([]);
+  const [data, setData] = useState<PageDto<JobDto> | null>(null);
+  const jobs = data?.content ?? [];
   const [busy, setBusy] = useState(false);
   const [form, setForm] = useState({
     title: "",
@@ -34,8 +35,8 @@ export function RecruiterJobsPage() {
     responsibilities: "",
   });
 
-  async function load() {
-    setJobs(await jobsApi.mine());
+  async function load(page = 0) {
+    setData(await jobsApi.mine({ page }));
   }
 
   useEffect(() => {
@@ -85,7 +86,7 @@ export function RecruiterJobsPage() {
 
         <Grid2>
           <Panel>
-            <h2>Tin của bạn</h2>
+            <h2>Tin của bạn{data ? <span className="count">{data.totalElements}</span> : null}</h2>
             {jobs.length === 0 ? (
               <EmptyNote>Chưa có tin nào. Điền form bên cạnh để đăng vị trí đầu tiên.</EmptyNote>
             ) : (
@@ -112,6 +113,7 @@ export function RecruiterJobsPage() {
                 </table>
               </div>
             )}
+            <Pager data={data} onPage={(p) => load(p).catch((e) => toast(e.message))} />
           </Panel>
 
           <Can perm="job:create">

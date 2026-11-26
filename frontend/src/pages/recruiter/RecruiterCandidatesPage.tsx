@@ -2,26 +2,29 @@ import { useEffect, useState } from "react";
 import {
   Button,
   EmptyNote,
+  Pager,
   PageHead,
   Panel,
   RecruiterLayout,
   SplitActions,
   Table,
 } from "../../components/common";
-import { applicationsApi, type ApplicationDto } from "../../api/client";
+import { applicationsApi, type ApplicationDto, type PageDto } from "../../api/client";
 import { useToast } from "../../context/ToastContext";
 import { applicationBadge, initials, shortDate } from "../../utils/format";
 
 export function RecruiterCandidatesPage() {
   const { toast } = useToast();
-  const [apps, setApps] = useState<ApplicationDto[]>([]);
+  const [page, setPage] = useState(0);
+  const [data, setData] = useState<PageDto<ApplicationDto> | null>(null);
+  const apps = data?.content ?? [];
 
   useEffect(() => {
     applicationsApi
-      .recruiter()
-      .then(setApps)
+      .recruiter({ page })
+      .then(setData)
       .catch((e) => toast(e.message));
-  }, [toast]);
+  }, [toast, page]);
 
   return (
     <RecruiterLayout active="candidates">
@@ -64,6 +67,7 @@ export function RecruiterCandidatesPage() {
               </tbody>
             </Table>
           )}
+          <Pager data={data} onPage={setPage} />
           <SplitActions>
             <Button variant="soft" size="sm" to="/recruiter/matching">
               Ghép hồ sơ

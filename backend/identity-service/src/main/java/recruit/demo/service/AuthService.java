@@ -1,15 +1,26 @@
 package recruit.demo.service;
 
-import recruit.demo.dto.AuthDtos;
+import recruit.demo.dto.auth.AuthResponse;
+import recruit.demo.dto.auth.ChooseRoleRequest;
+import recruit.demo.dto.auth.EmailRequest;
+import recruit.demo.dto.auth.GoogleLoginRequest;
+import recruit.demo.dto.auth.LoginRequest;
+import recruit.demo.dto.auth.MessageResponse;
+import recruit.demo.dto.auth.RegisterRequest;
+import recruit.demo.dto.auth.RegisterResponse;
+import recruit.demo.dto.auth.ResetPasswordRequest;
+import recruit.demo.dto.auth.TokenRequest;
+import recruit.demo.dto.auth.UserResponse;
+
 
 public interface AuthService {
-    AuthDtos.RegisterResponse register(AuthDtos.RegisterRequest request);
-    AuthDtos.AuthResponse verifyEmail(AuthDtos.TokenRequest request);
-    AuthDtos.MessageResponse resendVerification(AuthDtos.EmailRequest request);
-    AuthDtos.AuthResponse login(AuthDtos.LoginRequest request);
-    AuthDtos.AuthResponse googleLogin(AuthDtos.GoogleLoginRequest request);
-    AuthDtos.MessageResponse forgotPassword(AuthDtos.EmailRequest request);
-    AuthDtos.MessageResponse resetPassword(AuthDtos.ResetPasswordRequest request);
-    AuthDtos.AuthResponse chooseRole(AuthDtos.ChooseRoleRequest request);
-    AuthDtos.UserResponse me();
+    RegisterResponse register(RegisterRequest request);
+    AuthResponse verifyEmail(TokenRequest request);
+    MessageResponse resendVerification(EmailRequest request);
+    AuthResponse login(LoginRequest request);
+    AuthResponse googleLogin(GoogleLoginRequest request);
+    MessageResponse forgotPassword(EmailRequest request);
+    MessageResponse resetPassword(ResetPasswordRequest request);
+    AuthResponse chooseRole(ChooseRoleRequest request);
+    UserResponse me();
 }

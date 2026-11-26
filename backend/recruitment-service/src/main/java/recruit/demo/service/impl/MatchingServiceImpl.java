@@ -3,10 +3,12 @@ package recruit.demo.service.impl;
 import recruit.demo.service.*;
 import recruit.demo.enums.Role;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import recruit.demo.dto.MatchingDtos;
+import recruit.demo.dto.PageResponse;
 import recruit.demo.entity.*;
 import recruit.demo.exception.ApiException;
 import recruit.demo.repository.*;
@@ -30,12 +32,12 @@ public class MatchingServiceImpl implements MatchingService {
     private final CvMatchMatching cvmatch;
 
     @Transactional(readOnly = true)
-    public List<MatchingDtos.MatchResponse> myMatches() {
+    public PageResponse<MatchingDtos.MatchResponse> myMatches(Pageable pageable) {
         CandidateProfile candidate = requireCandidate();
         if (!hasAnalyzedCv(candidate)) {
-            return List.of();
+            return PageResponse.of(List.of(), pageable);
         }
-        return cvmatch.resultsForCandidate(candidate);
+        return PageResponse.of(cvmatch.resultsForCandidate(candidate), pageable);
     }
 
     /** Luong D: mot lan goi cvmatch cho moi job dang mo. */
@@ -47,10 +49,10 @@ public class MatchingServiceImpl implements MatchingService {
     }
 
     @Transactional(readOnly = true)
-    public List<MatchingDtos.MatchResponse> matchesForJob(Integer jobId) {
+    public PageResponse<MatchingDtos.MatchResponse> matchesForJob(Integer jobId, Pageable pageable) {
         Job job = requireJob(jobId);
         ensureRecruiterOwns(job);
-        return cvmatch.resultsForJob(job);
+        return PageResponse.of(cvmatch.resultsForJob(job), pageable);
     }
 
     /**

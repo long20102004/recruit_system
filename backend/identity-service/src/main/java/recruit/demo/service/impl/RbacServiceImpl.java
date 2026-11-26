@@ -1,12 +1,15 @@
 package recruit.demo.service.impl;
 
+import recruit.demo.dto.admin.MatrixResponse;
+import recruit.demo.dto.admin.PermissionDto;
+import recruit.demo.dto.admin.RoleDto;
+
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.transaction.support.TransactionSynchronization;
 import org.springframework.transaction.support.TransactionSynchronizationManager;
-import recruit.demo.dto.RbacDtos;
 import recruit.demo.entity.AppPermission;
 import recruit.demo.entity.AppRole;
 import recruit.demo.enums.Role;
@@ -48,21 +51,21 @@ public class RbacServiceImpl implements RbacService {
 
     @Override
     @Transactional(readOnly = true)
-    public RbacDtos.MatrixResponse matrix() {
-        List<RbacDtos.RoleDto> roleDtos = roles.findAll().stream()
+    public MatrixResponse matrix() {
+        List<RoleDto> roleDtos = roles.findAll().stream()
                 .sorted(Comparator.comparing(r -> roleOrder(r.getCode())))
                 .map(RbacServiceImpl::toDto)
                 .toList();
-        List<RbacDtos.PermissionDto> perms = permissions.findAll().stream()
+        List<PermissionDto> perms = permissions.findAll().stream()
                 .sorted(Comparator.comparing(AppPermission::getResource).thenComparing(AppPermission::getCode))
-                .map(p -> new RbacDtos.PermissionDto(p.getCode(), p.getResource(), p.getDescription()))
+                .map(p -> new PermissionDto(p.getCode(), p.getResource(), p.getDescription()))
                 .toList();
-        return new RbacDtos.MatrixResponse(roleDtos, perms);
+        return new MatrixResponse(roleDtos, perms);
     }
 
     @Override
     @Transactional
-    public RbacDtos.RoleDto updateRolePermissions(String roleCode, List<String> codes) {
+    public RoleDto updateRolePermissions(String roleCode, List<String> codes) {
         AppRole role = roles.findById(roleCode == null ? "" : roleCode.trim().toUpperCase(Locale.ROOT))
                 .orElseThrow(() -> new ApiException(HttpStatus.NOT_FOUND, "Role not found"));
         Set<String> wanted = new TreeSet<>(codes == null ? List.of() : codes);
@@ -86,8 +89,8 @@ public class RbacServiceImpl implements RbacService {
         return toDto(role);
     }
 
-    private static RbacDtos.RoleDto toDto(AppRole r) {
-        return new RbacDtos.RoleDto(r.getCode(), r.getName(), r.getDescription(),
+    private static RoleDto toDto(AppRole r) {
+        return new RoleDto(r.getCode(), r.getName(), r.getDescription(),
                 r.getPermissions().stream().map(AppPermission::getCode).sorted().toList());
     }
 

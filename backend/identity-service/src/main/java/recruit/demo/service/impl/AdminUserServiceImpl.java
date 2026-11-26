@@ -1,5 +1,7 @@
 package recruit.demo.service.impl;
 
+import recruit.demo.dto.admin.AdminUserDto;
+
 import recruit.demo.service.*;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.PageRequest;
@@ -7,7 +9,6 @@ import org.springframework.data.domain.Sort;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import recruit.demo.dto.AdminUserDtos.AdminUserDto;
 import recruit.demo.dto.PageResponse;
 import recruit.demo.enums.Role;
 import recruit.demo.entity.User;

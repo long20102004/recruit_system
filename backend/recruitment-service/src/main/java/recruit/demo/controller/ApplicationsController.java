@@ -4,9 +4,10 @@ import org.springframework.security.access.prepost.PreAuthorize;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 import recruit.demo.dto.ApplicationDtos;
+import recruit.demo.dto.BaseResponse;
+import recruit.demo.dto.PageResponse;
+import recruit.demo.dto.Paging;
 import recruit.demo.service.ApplicationService;
-
-import java.util.List;
 
 @RestController
 @RequestMapping("/api/applications")
@@ -16,7 +17,6 @@ public class ApplicationsController {
     private final ApplicationService applicationService;
 
     @PostMapping("/jobs/{jobId}")
-
     @PreAuthorize("hasAuthority('application:apply')")
     public ApplicationDtos.ApplicationResponse apply(@PathVariable Integer jobId,
                                                      @RequestBody(required = false) ApplicationDtos.ApplyRequest request) {
@@ -24,16 +24,20 @@ public class ApplicationsController {
     }
 
     @GetMapping("/mine")
-
     @PreAuthorize("hasAuthority('application:read-own')")
-    public List<ApplicationDtos.ApplicationResponse> myApplications() {
-        return applicationService.myApplications();
+    public BaseResponse<PageResponse<ApplicationDtos.ApplicationResponse>> myApplications(
+            @RequestParam(defaultValue = "0") int page,
+            @RequestParam(defaultValue = "20") int size
+    ) {
+        return BaseResponse.success(applicationService.myApplications(Paging.of(page, size)));
     }
 
     @GetMapping("/recruiter")
-
     @PreAuthorize("hasAuthority('application:read-received')")
-    public List<ApplicationDtos.ApplicationResponse> recruiterApplications() {
-        return applicationService.recruiterApplications();
+    public BaseResponse<PageResponse<ApplicationDtos.ApplicationResponse>> recruiterApplications(
+            @RequestParam(defaultValue = "0") int page,
+            @RequestParam(defaultValue = "20") int size
+    ) {
+        return BaseResponse.success(applicationService.recruiterApplications(Paging.of(page, size)));
     }
 }

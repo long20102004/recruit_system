@@ -5,10 +5,13 @@ import recruit.demo.enums.ApplicationStatus;
 import recruit.demo.enums.JobStatus;
 import recruit.demo.enums.Role;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import recruit.demo.dto.ApplicationDtos;
+import recruit.demo.dto.PageResponse;
 import recruit.demo.entity.*;
 import recruit.demo.exception.ApiException;
 import recruit.demo.repository.*;
@@ -49,19 +52,17 @@ public class ApplicationServiceImpl implements ApplicationService {
     }
 
     @Transactional(readOnly = true)
-    public List<ApplicationDtos.ApplicationResponse> myApplications() {
+    public PageResponse<ApplicationDtos.ApplicationResponse> myApplications(Pageable pageable) {
         CandidateProfile candidate = requireCandidate();
-        return applicationRepository.findByCandidateIdOrderByAppliedAtDesc(candidate.getId()).stream()
-                .map(this::toResponse)
-                .toList();
+        Page<JobApplication> page = applicationRepository.findByCandidateIdOrderByAppliedAtDesc(candidate.getId(), pageable);
+        return PageResponse.toPageResponse(page, this::toResponse);
     }
 
     @Transactional(readOnly = true)
-    public List<ApplicationDtos.ApplicationResponse> recruiterApplications() {
+    public PageResponse<ApplicationDtos.ApplicationResponse> recruiterApplications(Pageable pageable) {
         UserPrincipal principal = SecurityUtils.currentUser();
-        return applicationRepository.findForRecruiterUser(principal.getId()).stream()
-                .map(this::toResponse)
-                .toList();
+        Page<JobApplication> page = applicationRepository.findForRecruiterUser(principal.getId(), pageable);
+        return PageResponse.toPageResponse(page, this::toResponse);
     }
 
     private ApplicationDtos.ApplicationResponse toResponse(JobApplication app) {

@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useState } from "react";
-import { Can, EmptyNote, RecruiterLayout } from "../../components/common";
+import { Can, EmptyNote, Pager, RecruiterLayout } from "../../components/common";
 import { adminApi, ApiError, type AdminUserDto, type PageDto } from "../../api/client";
 import { useAuth } from "../../context/AuthContext";
 import { useToast } from "../../context/ToastContext";
@@ -131,13 +131,7 @@ export function AdminUsersPage() {
           </table>
         </div>
       )}
-      {data && data.totalPages > 1 ? (
-        <div className="row" style={{ justifyContent: "center" }}>
-          <button type="button" className="btn btn-g btn-sm" disabled={page === 0} onClick={() => setPage(page - 1)}>‹ Trước</button>
-          <span className="small muted">Trang {page + 1} / {data.totalPages}</span>
-          <button type="button" className="btn btn-g btn-sm" disabled={data.last} onClick={() => setPage(page + 1)}>Sau ›</button>
-        </div>
-      ) : null}
+      <Pager data={data} onPage={setPage} />
     </RecruiterLayout>
   );
 }

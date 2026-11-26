@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
 import { useSearchParams } from "react-router-dom";
 import { Link } from "react-router-dom";
-import { EmptyNote, SiteHeader } from "../../components/common";
-import { interviewsApi, type EvaluationDto, type SessionDto, type SessionSummaryDto } from "../../api/client";
+import { EmptyNote, Pager, SiteHeader } from "../../components/common";
+import { interviewsApi, type EvaluationDto, type PageDto, type SessionDto, type SessionSummaryDto } from "../../api/client";
 import { useToast } from "../../context/ToastContext";
 import { shortDate } from "../../utils/format";
 
@@ -14,7 +14,8 @@ export function CandidateInterviewPage() {
   const [params] = useSearchParams();
   const jobId = Number(params.get("jobId"));
   const [session,setSession] = useState<SessionDto|null>(null);
-  const [history,setHistory] = useState<SessionDto[]>([]);
+  const [historyData,setHistoryData] = useState<PageDto<SessionDto>|null>(null);
+  const history = historyData?.content ?? [];
   const [summary,setSummary] = useState<SessionSummaryDto|null>(null);
   const [idx,setIdx] = useState(0);
   const [answer,setAnswer] = useState("");
@@ -22,7 +23,7 @@ export function CandidateInterviewPage() {
   const [evaluation,setEvaluation] = useState<EvaluationDto|null>(null);
   const [busy,setBusy] = useState(false);
   const [count,setCount] = useState(6);
-  useEffect(() => { interviewsApi.mine().then(setHistory).catch(e => toast(e.message)); },[toast]);
+  useEffect(() => { interviewsApi.mine().then(setHistoryData).catch(e => toast(e.message)); },[toast]);
   const q = session?.questions[idx];
   async function openSession(id:number) {
     setBusy(true);
@@ -37,7 +38,7 @@ export function CandidateInterviewPage() {
     try {
       const s = await interviewsApi.createSession({ ...(Number.isFinite(jobId)&&jobId>0 ? {jobId}:{}),questionCount:count });
       setSession(s);setIdx(s.currentIndex);setSummary(null);setAnswer("");setLastAnswer(null);setEvaluation(null);
-      setHistory(await interviewsApi.mine());
+      setHistoryData(await interviewsApi.mine());
     } catch(e) { toast(e instanceof Error ? e.message : "Không tạo được phiên"); }
     finally { setBusy(false); }
   }
@@ -47,7 +48,7 @@ export function CandidateInterviewPage() {
     try {
       const ev = await interviewsApi.submit(session.id,q.questionId,answer.trim());setEvaluation(ev);
       const [s,report] = await Promise.all([interviewsApi.getSession(session.id),interviewsApi.summary(session.id)]);
-      setSession(s);setSummary(report);setHistory(await interviewsApi.mine());toast("Đã lưu kết quả đánh giá");
+      setSession(s);setSummary(report);setHistoryData(await interviewsApi.mine());toast("Đã lưu kết quả đánh giá");
     } catch(e) { toast(e instanceof Error ? e.message : "Đánh giá thất bại"); }
     finally { setBusy(false); }
   }
@@ -94,7 +95,7 @@ export function CandidateInterviewPage() {
               <button type="submit" className="btn btn-p" disabled={busy}>{busy ? "Đang tạo…" : "Bắt đầu phiên luyện"}</button>
             </form>
             <div style={{ flex: "999 1 520px", minWidth: 0, display: "flex", flexDirection: "column", gap: 12 }}>
-              <h2 style={{ fontSize: 22 }}>Lịch sử phiên<span className="count">{history.length}</span></h2>
+              <h2 style={{ fontSize: 22 }}>Lịch sử phiên<span className="count">{historyData?.totalElements ?? 0}</span></h2>
               {history.length === 0 ? (
                 <EmptyNote>Chưa có phiên nào. Bắt đầu một phiên luyện ở bên trái.</EmptyNote>
               ) : (
@@ -119,6 +120,7 @@ export function CandidateInterviewPage() {
                   </table>
                 </div>
               )}
+              <Pager data={historyData} onPage={(p) => interviewsApi.mine({ page: p }).then(setHistoryData).catch((e) => toast(e.message))} />
             </div>
           </section>
         </div>
