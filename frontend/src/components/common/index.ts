@@ -36,5 +36,7 @@ export { AuthPage, AuthPanel, AuthAside, AuthForm } from "./AuthLayout";
 export { ResendVerificationButton } from "./ResendVerificationButton";
 export { Table } from "./Table";
 export { SiteHeader } from "./SiteHeader";
+export { RecruiterLayout } from "./RecruiterLayout";
+export type { RecruiterNavKey } from "./RecruiterLayout";
 export type { SiteHeaderProps } from "./SiteHeader";
 export { CompanyRow } from "./CompanyRow";

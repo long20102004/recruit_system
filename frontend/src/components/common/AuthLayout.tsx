@@ -1,46 +1,41 @@
 import type { FormEvent, ReactNode } from "react";
 import { Brand } from "./Brand";
 
-interface AuthPageProps {
-  children: ReactNode;
+/** Layout trang đăng nhập / đăng ký (design canvas: Login, Register): cột tối bên trái, form bên phải. */
+
+export function AuthPage({ children }: { children: ReactNode }) {
+  return <main className="auth-split">{children}</main>;
 }
 
-export function AuthPage({ children }: AuthPageProps) {
-  return <main className="auth-page">{children}</main>;
-}
-
-interface AuthPanelProps {
-  children: ReactNode;
-}
-
-export function AuthPanel({ children }: AuthPanelProps) {
-  return <div className="auth-panel">{children}</div>;
+/** Giữ để tương thích; khung chia đôi nằm ở AuthPage. */
+export function AuthPanel({ children }: { children: ReactNode }) {
+  return <>{children}</>;
 }
 
 interface AuthAsideProps {
   title: ReactNode;
   description: ReactNode;
+  kicker?: ReactNode;
+  points?: ReactNode[];
   footer?: ReactNode;
   brandTo?: string;
 }
 
-export function AuthAside({
-  title,
-  description,
-  footer,
-  brandTo = "/",
-}: AuthAsideProps) {
+export function AuthAside({ title, description, kicker, points, footer, brandTo = "/" }: AuthAsideProps) {
   return (
-    <aside className="auth-aside">
-      <div>
-        <Brand to={brandTo} style={{ color: "#fff" }} />
+    <section className="auth-split-aside">
+      <Brand to={brandTo} />
+      <div style={{ display: "flex", flexDirection: "column", gap: 18, maxWidth: 460 }}>
+        {kicker ? <p className="kicker" style={{ color: "#b8c5f0" }}>{kicker}</p> : null}
         <h1>{title}</h1>
-        <p>{description}</p>
+        {points?.length ? (
+          <ul>{points.map((p, i) => <li key={i}>{p}</li>)}</ul>
+        ) : (
+          <p>{description}</p>
+        )}
       </div>
-      {footer != null ? (
-        <p style={{ fontSize: ".9rem", opacity: 0.85, margin: 0 }}>{footer}</p>
-      ) : null}
-    </aside>
+      <p className="small" style={{ color: "#a39888" }}>{footer ?? "© 2026 HireLens · PTIT"}</p>
+    </section>
   );
 }
 
@@ -53,16 +48,20 @@ interface AuthFormProps {
 
 export function AuthForm({ title, subtitle, children, onSubmit }: AuthFormProps) {
   return (
-    <form
-      className="auth-form"
-      onSubmit={(e) => {
-        e.preventDefault();
-        onSubmit?.(e);
-      }}
-    >
-      <h2>{title}</h2>
-      {subtitle != null ? <p className="muted">{subtitle}</p> : null}
-      {children}
-    </form>
+    <section className="auth-split-main">
+      <form
+        className="auth-split-form"
+        onSubmit={(e) => {
+          e.preventDefault();
+          onSubmit?.(e);
+        }}
+      >
+        <div>
+          <h2>{title}</h2>
+          {subtitle != null ? <p className="muted" style={{ marginTop: 6 }}>{subtitle}</p> : null}
+        </div>
+        {children}
+      </form>
+    </section>
   );
 }

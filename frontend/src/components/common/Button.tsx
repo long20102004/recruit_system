@@ -33,12 +33,11 @@ function buttonClassName({
   block,
   className,
 }: Pick<CommonProps, "variant" | "size" | "block" | "className">) {
+  // Class theo design system (styles/hl.css): btn-p chính, btn-g viền
   return classNames(
     "btn",
-    variant === "primary" && "btn-primary",
-    variant === "accent" && "btn-accent",
-    variant === "ghost" && "btn-ghost",
-    variant === "soft" && "btn-soft",
+    (variant === "primary" || variant === "accent") && "btn-p",
+    (variant === "ghost" || variant === "soft") && "btn-g",
     size === "sm" && "btn-sm",
     block && "btn-block",
     className

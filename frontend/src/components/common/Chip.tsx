@@ -12,8 +12,8 @@ export function Chip({ children, tone = "default", className }: ChipProps) {
   return (
     <span
       className={classNames(
-        "chip",
-        tone !== "default" && tone,
+        tone === "hot" ? "badge b-hot" : tone === "ok" ? "badge b-ok b-plain" : tone === "warn" ? "badge b-warn b-plain" : "tag",
+        (tone === "brand" || tone === "accent" || tone === "near") && "tag-on",
         className
       )}
     >
@@ -40,7 +40,7 @@ export function ChipFilter({
   return (
     <button
       type={type}
-      className={classNames("chip-filter", active && "active", className)}
+      className={classNames("tag", active && "tag-on", className)}
       onClick={onClick}
     >
       {children}

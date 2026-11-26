@@ -45,6 +45,7 @@ export function VerifyEmailPage() {
     <AuthPage>
       <AuthPanel>
         <AuthAside
+          kicker="Bước cuối"
           title="Xác thực email"
           description="Bước cuối trước khi bạn chọn vai trò và bắt đầu dùng HireLens."
         />
@@ -66,7 +67,7 @@ export function VerifyEmailPage() {
               />
             </Field>
             <ResendVerificationButton email={email.trim()} />
-            <p className="hint">
+            <p className="small muted">
               <Link to="/login">Đến trang đăng nhập</Link>
             </p>
           </AuthForm>

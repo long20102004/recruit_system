@@ -1,18 +1,6 @@
 import { useEffect, useState } from "react";
-import {
-  Button,
-  EmptyNote,
-  Grid2,
-  Grid3,
-  JobCard,
-  JobList,
-  Page,
-  PageHead,
-  Panel,
-  SiteHeader,
-  SplitActions,
-  Stat,
-} from "../../components/common";
+import { Link } from "react-router-dom";
+import { Button, EmptyNote, RecruiterLayout } from "../../components/common";
 import {
   applicationsApi,
   dashboardApi,
@@ -21,12 +9,10 @@ import {
   type JobDto,
   type RecruiterStatsDto,
 } from "../../api/client";
-import { useAuth } from "../../context/AuthContext";
 import { useToast } from "../../context/ToastContext";
-import { applicationStatusLabel, mapJob } from "../../utils/mappers";
+import { applicationBadge, initials, jobBadge, shortDate } from "../../utils/format";
 
 export function RecruiterHomePage() {
-  const { user } = useAuth();
   const { toast } = useToast();
   const [stats, setStats] = useState<RecruiterStatsDto | null>(null);
   const [jobs, setJobs] = useState<JobDto[]>([]);
@@ -46,93 +32,110 @@ export function RecruiterHomePage() {
       .catch((e) => toast(e.message));
   }, [toast]);
 
-  const firstName = user?.fullName?.split(" ").slice(-1)[0] ?? "bạn";
+
+  const count = (st: string) => apps.filter((a) => a.status === st).length;
+  const funnel: [string, number][] = [
+    ["Đã nộp", apps.length],
+    ["Đang xem xét", count("REVIEWING")],
+    ["Phỏng vấn", count("INTERVIEW")],
+    ["Trúng tuyển", count("HIRED")],
+    ["Từ chối", count("REJECTED")],
+  ];
+  const max = Math.max(1, apps.length);
+  const perJob = (jobId: number) => apps.filter((a) => a.jobId === jobId).length;
+  const recent = [...apps].sort((x, y) => (y.appliedAt ?? "").localeCompare(x.appliedAt ?? "")).slice(0, 8);
 
   return (
-    <>
-      <SiteHeader active="home" mode="recruiter" />
-      <Page>
-        <PageHead
-          title={
-            <>
-              Xin chào, <span>{firstName}</span>
-            </>
-          }
-          description={
-            <>
-              Quản lý tin đăng, hồ sơ ứng viên và phiên phỏng vấn.
-            </>
-          }
-          actions={
-            <Button variant="primary" to="/recruiter/jobs">
-              Đăng vị trí mới
-            </Button>
-          }
-        />
-
-        <div style={{ marginBottom: "1.15rem" }}>
-          <Grid3>
-            <Stat
-              label="Tin đang mở"
-              value={
-                stats?.openJobsCount ??
-                jobs.filter((j) => j.status === "PUBLISHED").length
-              }
-              note="Hiển thị trên trang tìm việc"
-            />
-            <Stat
-              label="Hồ sơ ứng viên"
-              value={stats?.applicationsCount ?? apps.length}
-              note="Đã nộp / đang xem xét"
-            />
-            <Stat
-              label="Câu hỏi phỏng vấn"
-              value={stats?.questionsCount ?? 0}
-              note="Ngân hàng theo vị trí"
-            />
-          </Grid3>
+    <RecruiterLayout active="home">
+      <div className="page-head" style={{ marginBottom: 0 }}>
+        <div>
+          <p className="kicker">Nhà tuyển dụng</p>
+          <h1 style={{ fontSize: 32, marginTop: 4 }}>Tổng quan tuyển dụng</h1>
         </div>
+        <Button variant="primary" to="/recruiter/jobs">+ Đăng tin mới</Button>
+      </div>
 
-        <Grid2>
-          <Panel>
-            <h2>Tin tuyển dụng gần đây</h2>
-            <JobList>
-              {jobs.slice(0, 4).map((j, i) => (
-                <JobCard key={j.id} job={mapJob(j)} delayMs={i * 40} />
-              ))}
-              {!jobs.length ? <EmptyNote>Chưa có tin. Hãy đăng vị trí mới.</EmptyNote> : null}
-            </JobList>
-            <SplitActions>
-              <Button variant="soft" size="sm" to="/recruiter/jobs">
-                Quản lý tất cả tin
-              </Button>
-            </SplitActions>
-          </Panel>
-          <Panel>
-            <h2>Ứng viên mới</h2>
-            {apps.length === 0 ? (
-              <EmptyNote>Chưa có đơn ứng tuyển.</EmptyNote>
-            ) : (
-              apps.slice(0, 6).map((a) => (
-                <div key={a.id} style={{ marginBottom: ".75rem" }}>
-                  <strong>{a.candidateName}</strong>
-                  <div className="muted">
-                    {a.jobTitle} · {applicationStatusLabel(a.status)}
-                  </div>
+      <section style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 200px), 1fr))", gap: 20 }}>
+        <div className="stat"><p className="l">Tin đang mở</p>
+          <p className="v">{stats?.openJobsCount ?? jobs.filter((j) => j.status === "PUBLISHED").length}</p>
+          <p className="tiny muted">Hiển thị trên trang tìm việc</p></div>
+        <div className="stat"><p className="l">Đơn ứng tuyển</p>
+          <p className="v">{stats?.applicationsCount ?? apps.length}</p>
+          <p className="tiny muted">Tất cả tin của bạn</p></div>
+        <div className="stat"><p className="l">Đang phỏng vấn</p>
+          <p className="v">{count("INTERVIEW")}</p>
+          <p className="tiny muted">Đơn ở bước phỏng vấn</p></div>
+        <div className="stat"><p className="l">Câu hỏi phỏng vấn</p>
+          <p className="v">{stats?.questionsCount ?? 0}</p>
+          <p className="tiny muted">Ngân hàng câu hỏi</p></div>
+      </section>
+
+      <section style={{ display: "flex", gap: 20, flexWrap: "wrap", alignItems: "flex-start" }}>
+        <div className="card" style={{ flex: "1 1 360px", display: "flex", flexDirection: "column", gap: 12 }}>
+          <h3 style={{ fontSize: 18 }}>Phễu ứng viên</h3>
+          {funnel.map(([n, v]) => (
+            <div key={n} style={{ display: "grid", gridTemplateColumns: "120px 1fr 40px", gap: 12, alignItems: "center", fontSize: 14 }}>
+              <span>{n}</span>
+              <div style={{ height: 22, background: "var(--sky)" }}>
+                <div style={{ height: "100%", width: `${(v / max) * 100}%`, background: n === "Từ chối" ? "#cfc6ba" : "var(--brand)" }} />
+              </div>
+              <strong style={{ textAlign: "right" }}>{v}</strong>
+            </div>
+          ))}
+        </div>
+        <div className="card" style={{ flex: "1 1 360px", display: "flex", flexDirection: "column", gap: 4 }}>
+          <div className="between" style={{ marginBottom: 8 }}>
+            <h3 style={{ fontSize: 18 }}>Tin của bạn</h3>
+            <Link to="/recruiter/jobs" className="small" style={{ color: "var(--brand)", fontWeight: 650 }}>Tất cả tin</Link>
+          </div>
+          {jobs.length === 0 ? <p className="small muted">Chưa có tin. Hãy đăng vị trí mới.</p> : jobs.slice(0, 5).map((j) => {
+            const b = jobBadge(j.status);
+            return (
+              <div key={j.id} className="between" style={{ padding: "10px 0", borderTop: "1px solid var(--line)" }}>
+                <div>
+                  <p style={{ fontWeight: 650, fontSize: 14 }}>{j.title}</p>
+                  <p className="tiny muted">{perJob(j.id)} ứng viên</p>
                 </div>
-              ))
-            )}
-            <SplitActions>
-              <Button variant="soft" size="sm" to="/recruiter/candidates">
-                Xem hồ sơ
-              </Button>
-              <Button variant="ghost" size="sm" to="/recruiter/matching">
-                Ghép hồ sơ–tin
-              </Button>
-            </SplitActions>
-          </Panel>
-        </Grid2>
-      </Page>
-    </>
+                <span className={b.cls}>{b.label}</span>
+              </div>
+            );
+          })}
+        </div>
+      </section>
+
+      <section className="stack" style={{ gap: 12 }}>
+        <div className="between">
+          <h2 style={{ fontSize: 22 }}>Đơn ứng tuyển mới</h2>
+          <Link to="/recruiter/candidates" className="btn btn-link">Quản lý đơn →</Link>
+        </div>
+        {recent.length === 0 ? (
+          <EmptyNote>Chưa có đơn ứng tuyển.</EmptyNote>
+        ) : (
+          <div className="tbl-box">
+            <table className="tbl">
+              <thead><tr><th>Ứng viên</th><th>Vị trí</th><th>Nộp</th><th>Trạng thái</th></tr></thead>
+              <tbody>
+                {recent.map((a) => {
+                  const b = applicationBadge(a.status);
+                  return (
+                    <tr key={a.id}>
+                      <td>
+                        <div className="row" style={{ gap: 10, flexWrap: "nowrap" }}>
+                          <span className="avatar">{initials(a.candidateName)}</span>
+                          <span style={{ fontWeight: 650 }}>{a.candidateName}</span>
+                        </div>
+                      </td>
+                      <td className="small">{a.jobTitle}</td>
+                      <td className="small muted">{shortDate(a.appliedAt)}</td>
+                      <td><span className={b.cls}>{b.label}</span></td>
+                    </tr>
+                  );
+                })}
+              </tbody>
+            </table>
+          </div>
+        )}
+      </section>
+    </RecruiterLayout>
   );
 }

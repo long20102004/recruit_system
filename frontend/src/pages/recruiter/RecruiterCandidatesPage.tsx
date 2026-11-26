@@ -2,16 +2,15 @@ import { useEffect, useState } from "react";
 import {
   Button,
   EmptyNote,
-  Page,
   PageHead,
   Panel,
-  SiteHeader,
+  RecruiterLayout,
   SplitActions,
   Table,
 } from "../../components/common";
 import { applicationsApi, type ApplicationDto } from "../../api/client";
 import { useToast } from "../../context/ToastContext";
-import { applicationStatusLabel } from "../../utils/mappers";
+import { applicationBadge, initials, shortDate } from "../../utils/format";
 
 export function RecruiterCandidatesPage() {
   const { toast } = useToast();
@@ -25,11 +24,9 @@ export function RecruiterCandidatesPage() {
   }, [toast]);
 
   return (
-    <>
-      <SiteHeader active="candidates" mode="recruiter" />
-      <Page>
+    <RecruiterLayout active="candidates">
         <PageHead
-          title="Hồ sơ ứng viên"
+          title="Đơn ứng tuyển"
           description="Danh sách đơn ứng tuyển vào các tin bạn đang quản lý."
         />
         <Panel>
@@ -47,15 +44,23 @@ export function RecruiterCandidatesPage() {
                 </tr>
               </thead>
               <tbody>
-                {apps.map((a) => (
-                  <tr key={a.id}>
-                    <td>{a.candidateName}</td>
-                    <td>{a.jobTitle}</td>
-                    <td>{a.companyName}</td>
-                    <td>{applicationStatusLabel(a.status)}</td>
-                    <td>{new Date(a.appliedAt).toLocaleDateString("vi-VN")}</td>
-                  </tr>
-                ))}
+                {apps.map((a) => {
+                  const b = applicationBadge(a.status);
+                  return (
+                    <tr key={a.id}>
+                      <td>
+                        <div className="row" style={{ gap: 10, flexWrap: "nowrap" }}>
+                          <span className="avatar">{initials(a.candidateName)}</span>
+                          <span style={{ fontWeight: 650 }}>{a.candidateName}</span>
+                        </div>
+                      </td>
+                      <td className="small">{a.jobTitle}</td>
+                      <td className="small">{a.companyName}</td>
+                      <td><span className={b.cls}>{b.label}</span></td>
+                      <td className="small muted">{shortDate(a.appliedAt)}</td>
+                    </tr>
+                  );
+                })}
               </tbody>
             </Table>
           )}
@@ -68,7 +73,6 @@ export function RecruiterCandidatesPage() {
             </Button>
           </SplitActions>
         </Panel>
-      </Page>
-    </>
+    </RecruiterLayout>
   );
 }

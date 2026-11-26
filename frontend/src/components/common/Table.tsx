@@ -7,8 +7,10 @@ interface TableProps extends TableHTMLAttributes<HTMLTableElement> {
 
 export function Table({ children, className, ...rest }: TableProps) {
   return (
-    <table className={classNames("table", className)} {...rest}>
-      {children}
-    </table>
+    <div className="tbl-box">
+      <table className={classNames("tbl", className)} {...rest}>
+        {children}
+      </table>
+    </div>
   );
 }
