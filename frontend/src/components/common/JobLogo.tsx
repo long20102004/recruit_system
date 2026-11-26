@@ -11,8 +11,9 @@ interface JobLogoProps {
 export function JobLogo({ initials, color, className, style }: JobLogoProps) {
   return (
     <div
-      className={classNames("job-logo", className)}
-      style={{ background: color, ...style }}
+      className={classNames("logo", className)}
+      style={style}
+      data-color={color}
     >
       {initials}
     </div>

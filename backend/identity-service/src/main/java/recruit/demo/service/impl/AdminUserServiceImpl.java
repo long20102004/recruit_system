@@ -1,5 +1,7 @@
 package recruit.demo.service.impl;
 
+import recruit.demo.dto.admin.AdminUserDto;
+
 import recruit.demo.service.*;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.PageRequest;
@@ -7,7 +9,6 @@ import org.springframework.data.domain.Sort;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import recruit.demo.dto.AdminUserDtos.AdminUserDto;
 import recruit.demo.dto.PageResponse;
 import recruit.demo.enums.Role;
 import recruit.demo.entity.User;
@@ -32,7 +33,6 @@ public class AdminUserServiceImpl implements AdminUserService {
 
     @Transactional(readOnly = true)
     public PageResponse<AdminUserDto> list(String q, UserStatus status, int page, int size) {
-        SecurityUtils.requireRole(Role.ADMIN);
         String keyword = q == null || q.isBlank() ? null : q.trim();
         var pageable = PageRequest.of(Math.max(page, 0), Math.min(Math.max(size, 1), MAX_PAGE_SIZE),
                 Sort.by(Sort.Direction.DESC, "id"));
@@ -41,7 +41,6 @@ public class AdminUserServiceImpl implements AdminUserService {
 
     @Transactional
     public AdminUserDto lock(Integer id, String reason) {
-        SecurityUtils.requireRole(Role.ADMIN);
         User user = require(id);
         if (user.getId().equals(SecurityUtils.currentUser().getId()) || user.getRole() == Role.ADMIN) {
             throw new BusinessException(ErrorCode.CANNOT_LOCK_USER,
@@ -58,7 +57,6 @@ public class AdminUserServiceImpl implements AdminUserService {
 
     @Transactional
     public AdminUserDto unlock(Integer id) {
-        SecurityUtils.requireRole(Role.ADMIN);
         User user = require(id);
         if (user.getStatus() == UserStatus.BANNED) {
             user.setStatus(UserStatus.ACTIVE);

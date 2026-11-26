@@ -1,30 +1,30 @@
 import { useEffect, useState } from "react";
 import {
   EmptyNote,
-  Page,
+  Pager,
   PageHead,
   Panel,
-  SiteHeader,
+  RecruiterLayout,
   Table,
 } from "../../components/common";
-import { interviewsApi, type QuestionDto } from "../../api/client";
+import { interviewsApi, type PageDto, type QuestionDto } from "../../api/client";
 import { useToast } from "../../context/ToastContext";
 
 export function RecruiterInterviewsPage() {
   const { toast } = useToast();
-  const [questions, setQuestions] = useState<QuestionDto[]>([]);
+  const [page, setPage] = useState(0);
+  const [data, setData] = useState<PageDto<QuestionDto> | null>(null);
+  const questions = data?.content ?? [];
 
   useEffect(() => {
     interviewsApi
-      .questions()
-      .then(setQuestions)
+      .questions({ page })
+      .then(setData)
       .catch((e) => toast(e.message));
-  }, [toast]);
+  }, [toast, page]);
 
   return (
-    <>
-      <SiteHeader active="interviews" mode="recruiter" />
-      <Page>
+    <RecruiterLayout active="interviews">
         <PageHead
           title="Ngân hàng câu hỏi & phỏng vấn"
           description="Danh sách câu hỏi dùng cho phiên luyện và đánh giá phỏng vấn."
@@ -46,7 +46,11 @@ export function RecruiterInterviewsPage() {
                 {questions.map((q) => (
                   <tr key={q.id}>
                     <td>{q.topic}</td>
-                    <td>{q.difficulty}</td>
+                    <td>
+                      <span className={`badge b-plain ${q.difficulty === "Hard" ? "b-danger" : q.difficulty === "Medium" ? "b-gold" : "b-ok"}`}>
+                        {q.difficulty}
+                      </span>
+                    </td>
                     <td>{q.skill}</td>
                     <td>{q.questionText}</td>
                   </tr>
@@ -54,8 +58,8 @@ export function RecruiterInterviewsPage() {
               </tbody>
             </Table>
           )}
+          <Pager data={data} onPage={setPage} />
         </Panel>
-      </Page>
-    </>
+    </RecruiterLayout>
   );
 }

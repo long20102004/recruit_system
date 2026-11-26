@@ -11,22 +11,31 @@ import {
   authApi,
   getToken,
   setToken,
+  type AuthResponse,
   type RegisterResponse,
   type RoleDto,
   type UserDto,
 } from "../api/client";
+import { hasPermission, type PermissionRequirement } from "../utils/permissions";
 import type { HeaderMode, UserRole } from "../types";
 
 interface AuthState {
   user: UserDto | null;
   loading: boolean;
   login: (email: string, password: string) => Promise<UserDto>;
+  /** Đăng nhập bằng Google: credential là ID token Google trả về cho nút Google. */
+  loginWithGoogle: (credential: string) => Promise<UserDto>;
+  /** Thay phiên hiện tại bằng token/user mới (vd sau khi đổi mật khẩu). */
+  applySession: (res: AuthResponse) => void;
   /** Tạo tài khoản; chưa đăng nhập cho tới khi xác thực email. */
   register: (input: { email: string; password: string }) => Promise<RegisterResponse>;
   /** Dùng token trong link xác thực email; thành công thì đăng nhập luôn. */
   verifyEmail: (token: string) => Promise<UserDto>;
   chooseRole: (role: "CANDIDATE" | "RECRUITER") => Promise<UserDto>;
+  refreshUser: () => Promise<void>;
   logout: () => void;
+  /** Kiểm tra quyền theo ma trận RBAC; mảng = có một trong số đó là đủ. */
+  can: (need: PermissionRequirement) => boolean;
   headerMode: HeaderMode;
   uiRole: UserRole | null;
 }
@@ -69,6 +78,18 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     return res.user;
   }, []);
 
+  const loginWithGoogle = useCallback(async (credential: string) => {
+    const res = await authApi.google(credential);
+    setToken(res.token);
+    setUser(res.user);
+    return res.user;
+  }, []);
+
+  const applySession = useCallback((res: AuthResponse) => {
+    setToken(res.token);
+    setUser(res.user);
+  }, []);
+
   const register = useCallback(
     (input: { email: string; password: string }) => authApi.register(input),
     []
@@ -88,6 +109,12 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     return res.user;
   }, []);
 
+  const refreshUser = useCallback(async () => {
+    if (!getToken()) return;
+    const me = await authApi.me();
+    setUser(me);
+  }, []);
+
   const logout = useCallback(() => {
     setToken(null);
     setUser(null);
@@ -98,14 +125,18 @@ export function AuthProvider({ children }: { children: ReactNode }) {
       user,
       loading,
       login,
+      loginWithGoogle,
+      applySession,
       register,
       verifyEmail,
       chooseRole,
+      refreshUser,
       logout,
+      can: (need: PermissionRequirement) => hasPermission(user, need),
       headerMode: roleToHeader(user?.role),
       uiRole: roleToUi(user?.role),
     }),
-    [user, loading, login, register, verifyEmail, chooseRole, logout]
+    [user, loading, login, loginWithGoogle, applySession, register, verifyEmail, chooseRole, refreshUser, logout]
   );
 
   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;

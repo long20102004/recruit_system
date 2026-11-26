@@ -1,11 +1,19 @@
 package recruit.demo.service.impl;
 
+import recruit.demo.dto.auth.AuthResponse;
+import recruit.demo.dto.auth.EmailRequest;
+import recruit.demo.dto.auth.GoogleLoginRequest;
+import recruit.demo.dto.auth.LoginRequest;
+import recruit.demo.dto.auth.RegisterRequest;
+import recruit.demo.dto.auth.RegisterResponse;
+import recruit.demo.dto.auth.ResetPasswordRequest;
+import recruit.demo.dto.auth.TokenRequest;
+
 import recruit.demo.service.*;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import recruit.demo.config.AuthProperties;
-import recruit.demo.dto.AuthDtos.*;
 import recruit.demo.enums.Role;
 import recruit.demo.entity.User;
 import recruit.demo.enums.UserStatus;
@@ -15,6 +23,7 @@ import recruit.demo.security.JwtService;
 import recruit.demo.service.OneTimeTokenService.Purpose;
 
 import java.time.LocalDateTime;
+import java.util.List;
 import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -33,6 +42,7 @@ class AuthServiceTest {
     private OneTimeTokenService tokens;
     private AuthMailService mail;
     private UserCacheInvalidator cache;
+    private GoogleTokenVerifier google;
     private AuthService service;
 
     @BeforeEach
@@ -46,7 +56,12 @@ class AuthServiceTest {
         when(jwt.generateToken(any(), any(), any())).thenReturn("jwt");
         when(attempts.lockedForSeconds(anyString())).thenReturn(Optional.empty());
         when(repo.save(any(User.class))).thenAnswer(i -> i.getArgument(0));
-        service = new AuthServiceImpl(repo, ENCODER, jwt, new AuthProperties(), attempts, tokens, mail, cache);
+        RbacService rbac = mock(RbacService.class);
+        when(rbac.permissionsOf(Role.CANDIDATE)).thenReturn(List.of("cv:manage-own", "interview:practice"));
+        google = mock(GoogleTokenVerifier.class);
+        when(repo.findByGoogleSub(anyString())).thenReturn(Optional.empty());
+        when(repo.findByEmailIgnoreCase(anyString())).thenReturn(Optional.empty());
+        service = new AuthServiceImpl(repo, ENCODER, jwt, new AuthProperties(), attempts, tokens, mail, cache, rbac, google);
     }
 
     private static User user(boolean verified, UserStatus status) {
@@ -63,7 +78,7 @@ class AuthServiceTest {
 
         RegisterResponse res = service.register(new RegisterRequest("  A@X.test ", "abc12345"));
 
-        assertEquals("a@x.test", res.email());
+        assertEquals("a@x.test", res.getEmail());
         verify(repo).save(argThat(u -> u.getEmailVerifiedAt() == null && u.getEmail().equals("a@x.test")));
         verify(mail).sendVerification("a@x.test", "a", "tok");
         verifyNoInteractions(jwt);
@@ -85,7 +100,7 @@ class AuthServiceTest {
 
         AuthResponse res = service.verifyEmail(new TokenRequest("tok"));
 
-        assertEquals("jwt", res.token());
+        assertEquals("jwt", res.getToken());
         assertNotNull(u.getEmailVerifiedAt());
     }
 
@@ -101,8 +116,8 @@ class AuthServiceTest {
         when(repo.findByEmailIgnoreCase("v@x.test")).thenReturn(Optional.of(user(true, UserStatus.ACTIVE)));
         when(repo.findByEmailIgnoreCase("n@x.test")).thenReturn(Optional.empty());
 
-        String m1 = service.resendVerification(new EmailRequest("v@x.test")).message();
-        String m2 = service.resendVerification(new EmailRequest("n@x.test")).message();
+        String m1 = service.resendVerification(new EmailRequest("v@x.test")).getMessage();
+        String m2 = service.resendVerification(new EmailRequest("n@x.test")).getMessage();
 
         assertEquals(m1, m2);
         verifyNoInteractions(mail);
@@ -113,7 +128,9 @@ class AuthServiceTest {
     @Test
     void loginSuccessResetsFailures() {
         when(repo.findByEmailIgnoreCase("a@x.test")).thenReturn(Optional.of(user(true, UserStatus.ACTIVE)));
-        assertEquals("jwt", service.login(new LoginRequest("A@x.test", "abc12345")).token());
+        AuthResponse res = service.login(new LoginRequest("A@x.test", "abc12345"));
+        assertEquals("jwt", res.getToken());
+        assertEquals(List.of("cv:manage-own", "interview:practice"), res.getUser().getPermissions());
         verify(attempts).reset("a@x.test");
     }
 
@@ -180,9 +197,9 @@ class AuthServiceTest {
         when(tokens.tryAcquireCooldown(eq(Purpose.RESET), anyString(), any())).thenReturn(true);
         when(tokens.issue(eq(Purpose.RESET), eq(9), any())).thenReturn("tok");
 
-        String m1 = service.forgotPassword(new EmailRequest("a@x.test")).message();
-        String m2 = service.forgotPassword(new EmailRequest("b@x.test")).message();
-        String m3 = service.forgotPassword(new EmailRequest("nobody@x.test")).message();
+        String m1 = service.forgotPassword(new EmailRequest("a@x.test")).getMessage();
+        String m2 = service.forgotPassword(new EmailRequest("b@x.test")).getMessage();
+        String m3 = service.forgotPassword(new EmailRequest("nobody@x.test")).getMessage();
 
         assertEquals(m1, m2);
         assertEquals(m1, m3);
@@ -218,5 +235,66 @@ class AuthServiceTest {
         when(tokens.consume(Purpose.RESET, "tok")).thenReturn(Optional.empty());
         assertEquals(2006L, assertThrows(BusinessException.class,
                 () -> service.resetPassword(new ResetPasswordRequest("tok", "newpass99"))).getCode());
+    }
+
+    // ── Đăng nhập Google (specs/005-google-login) ───────
+
+    private void googleSays(String sub, String email, boolean verified) {
+        when(google.verify("cred")).thenReturn(new GoogleTokenVerifier.GoogleIdentity(sub, email, verified, "An Nguyen"));
+    }
+
+    @Test
+    void googleCreatesVerifiedUserWithoutRole() {
+        googleSays("g-1", "New@Gmail.com", true);
+        when(repo.save(any(User.class))).thenAnswer(i -> { User u = i.getArgument(0); u.setId(42); return u; });
+
+        AuthResponse res = service.googleLogin(new GoogleLoginRequest("cred"));
+
+        assertEquals("jwt", res.getToken());
+        assertFalse(res.getUser().isRoleChosen());
+        verify(repo).save(argThat(u -> u.getEmail().equals("new@gmail.com") && "g-1".equals(u.getGoogleSub())
+                && u.getEmailVerifiedAt() != null && u.getRole() == Role.CANDIDATE && "An Nguyen".equals(u.getFullName())
+                && u.getPasswordHash() != null && !u.isRoleChosen() && !u.isPasswordSet()));
+    }
+
+    @Test
+    void googleLinksExistingPasswordAccountByEmail() {
+        User existing = user(false, UserStatus.ACTIVE);
+        googleSays("g-1", "a@x.test", true);
+        when(repo.findByEmailIgnoreCase("a@x.test")).thenReturn(Optional.of(existing));
+
+        assertEquals("jwt", service.googleLogin(new GoogleLoginRequest("cred")).getToken());
+        assertEquals("g-1", existing.getGoogleSub());
+        assertNotNull(existing.getEmailVerifiedAt());
+        assertEquals(HASH, existing.getPasswordHash(), "password login keeps working");
+    }
+
+    @Test
+    void googleUsesLinkedAccountEvenIfEmailChanged() {
+        User linked = user(true, UserStatus.ACTIVE);
+        linked.setGoogleSub("g-1");
+        googleSays("g-1", "renamed@gmail.com", true);
+        when(repo.findByGoogleSub("g-1")).thenReturn(Optional.of(linked));
+        assertEquals("jwt", service.googleLogin(new GoogleLoginRequest("cred")).getToken());
+        verify(repo, never()).save(any());
+    }
+
+    @Test
+    void googleRejectsLockedUnverifiedOrOtherLinkedAccount() {
+        googleSays("g-1", "a@x.test", true);
+        when(repo.findByEmailIgnoreCase("a@x.test")).thenReturn(Optional.of(user(true, UserStatus.BANNED)));
+        assertEquals(2005L, assertThrows(BusinessException.class,
+                () -> service.googleLogin(new GoogleLoginRequest("cred"))).getCode());
+
+        User other = user(true, UserStatus.ACTIVE);
+        other.setGoogleSub("g-other");
+        when(repo.findByEmailIgnoreCase("a@x.test")).thenReturn(Optional.of(other));
+        assertEquals(2008L, assertThrows(BusinessException.class,
+                () -> service.googleLogin(new GoogleLoginRequest("cred"))).getCode());
+
+        googleSays("g-2", "b@x.test", false);
+        assertEquals(2008L, assertThrows(BusinessException.class,
+                () -> service.googleLogin(new GoogleLoginRequest("cred"))).getCode());
+        verifyNoInteractions(jwt);
     }
 }

@@ -10,7 +10,8 @@ export type NavKey =
   | "matching"
   | "interview"
   | "interviews"
-  | "cv";
+  | "cv"
+  | "profile";
 
 export interface NavLink {
   href: string;

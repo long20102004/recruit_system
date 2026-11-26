@@ -58,6 +58,7 @@ export function ResetPasswordPage() {
     <AuthPage>
       <AuthPanel>
         <AuthAside
+          kicker="Bước 2 / 2 · mở từ email"
           title="Mật khẩu mới"
           description="Sau khi đổi, mọi phiên đăng nhập cũ trên các thiết bị khác sẽ bị đăng xuất."
         />
@@ -69,7 +70,7 @@ export function ResetPasswordPage() {
             <Button variant="primary" block to="/forgot-password">
               Gửi lại link đặt lại mật khẩu
             </Button>
-            <p className="hint">
+            <p className="small muted">
               <Link to="/login">Quay lại đăng nhập</Link>
             </p>
           </AuthForm>

@@ -1,5 +1,6 @@
 package recruit.demo.entity;
 
+import recruit.demo.enums.Gender;
 import recruit.demo.enums.Role;
 import recruit.demo.enums.UserStatus;
 import jakarta.persistence.*;
@@ -7,6 +8,7 @@ import lombok.*;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 @Entity
@@ -33,6 +35,18 @@ public class User {
 
     private String phone;
 
+    @Column(name = "date_of_birth")
+    private LocalDate dateOfBirth;
+
+    @Enumerated(EnumType.STRING)
+    @Column(length = 16)
+    private Gender gender;
+
+    /** false: tài khoản tạo bằng Google, chưa tự đặt mật khẩu. */
+    @Column(name = "password_set", nullable = false)
+    @Builder.Default
+    private boolean passwordSet = true;
+
     @Enumerated(EnumType.STRING)
     @Column(nullable = false, length = 32)
     @Builder.Default
@@ -56,6 +70,10 @@ public class User {
 
     @Column(name = "locked_at")
     private LocalDateTime lockedAt;
+
+    /** Subject ("sub") của tài khoản Google đã liên kết; null nếu chưa liên kết. */
+    @Column(name = "google_sub", length = 64, unique = true)
+    private String googleSub;
 
     /** JWT có iat trước mốc này bị từ chối ở mọi service. */
     @Column(name = "sessions_valid_after")

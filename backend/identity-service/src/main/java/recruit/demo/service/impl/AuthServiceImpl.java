@@ -1,5 +1,17 @@
 package recruit.demo.service.impl;
 
+import recruit.demo.dto.auth.AuthResponse;
+import recruit.demo.dto.auth.ChooseRoleRequest;
+import recruit.demo.dto.auth.EmailRequest;
+import recruit.demo.dto.auth.GoogleLoginRequest;
+import recruit.demo.dto.auth.LoginRequest;
+import recruit.demo.dto.auth.MessageResponse;
+import recruit.demo.dto.auth.RegisterRequest;
+import recruit.demo.dto.auth.RegisterResponse;
+import recruit.demo.dto.auth.ResetPasswordRequest;
+import recruit.demo.dto.auth.TokenRequest;
+import recruit.demo.dto.auth.UserResponse;
+
 import recruit.demo.service.*;
 import recruit.demo.enums.Role;
 import recruit.demo.enums.UserStatus;
@@ -9,7 +21,6 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import recruit.demo.config.AuthProperties;
-import recruit.demo.dto.AuthDtos;
 import recruit.demo.entity.*;
 import recruit.demo.exception.ApiException;
 import recruit.demo.exception.BusinessException;
@@ -39,19 +50,21 @@ public class AuthServiceImpl implements AuthService {
     private final OneTimeTokenService tokens;
     private final AuthMailService mail;
     private final UserCacheInvalidator userCache;
+    private final RbacService rbac;
+    private final GoogleTokenVerifier google;
 
     /** Băm giả để email không tồn tại vẫn tốn thời gian so khớp như email có thật. */
     private volatile String dummyHash;
 
     /** Tạo tài khoản chưa xác thực và gửi link xác thực; không cấp token đăng nhập. */
-    public AuthDtos.RegisterResponse register(AuthDtos.RegisterRequest request) {
-        String email = normalize(request.email());
+    public RegisterResponse register(RegisterRequest request) {
+        String email = normalize(request.getEmail());
         if (userRepository.existsByEmailIgnoreCase(email)) {
             throw new BusinessException(ErrorCode.EMAIL_ALREADY_EXISTS, "Email đã được đăng ký", null);
         }
         User user = userRepository.save(User.builder()
                 .email(email)
-                .passwordHash(passwordEncoder.encode(request.password()))
+                .passwordHash(passwordEncoder.encode(request.getPassword()))
                 .fullName(displayNameFromEmail(email))
                 .role(Role.CANDIDATE)
                 .roleChosen(false)
@@ -61,14 +74,14 @@ public class AuthServiceImpl implements AuthService {
         tokens.tryAcquireCooldown(Purpose.VERIFY, email, props.getResendCooldown());
         String token = tokens.issue(Purpose.VERIFY, user.getId(), props.getVerifyTokenTtl());
         mail.sendVerification(email, user.getFullName(), token);
-        return new AuthDtos.RegisterResponse(email,
+        return new RegisterResponse(email,
                 "Đã gửi email xác thực tới " + email + ". Vui lòng kiểm tra hộp thư để kích hoạt tài khoản.");
     }
 
     /** Bấm link xác thực: đánh dấu đã xác thực và đăng nhập luôn. */
     @Transactional
-    public AuthDtos.AuthResponse verifyEmail(AuthDtos.TokenRequest request) {
-        Integer userId = tokens.consume(Purpose.VERIFY, request.token())
+    public AuthResponse verifyEmail(TokenRequest request) {
+        Integer userId = tokens.consume(Purpose.VERIFY, request.getToken())
                 .orElseThrow(() -> new BusinessException(ErrorCode.INVALID_LINK_TOKEN));
         User user = userRepository.findById(userId)
                 .orElseThrow(() -> new BusinessException(ErrorCode.INVALID_LINK_TOKEN));
@@ -80,22 +93,22 @@ public class AuthServiceImpl implements AuthService {
         return issueSession(user);
     }
 
-    public AuthDtos.MessageResponse resendVerification(AuthDtos.EmailRequest request) {
-        String email = normalize(request.email());
+    public MessageResponse resendVerification(EmailRequest request) {
+        String email = normalize(request.getEmail());
         userRepository.findByEmailIgnoreCase(email)
                 .filter(u -> !u.emailVerified() && u.getStatus() == UserStatus.ACTIVE)
                 .filter(u -> tokens.tryAcquireCooldown(Purpose.VERIFY, email, props.getResendCooldown()))
                 .ifPresent(u -> mail.sendVerification(email, u.getFullName(),
                         tokens.issue(Purpose.VERIFY, u.getId(), props.getVerifyTokenTtl())));
-        return new AuthDtos.MessageResponse(RESEND_MESSAGE);
+        return new MessageResponse(RESEND_MESSAGE);
     }
 
     /**
      * Thứ tự kiểm tra: khoá tạm → mật khẩu → trạng thái tài khoản.
      * Trạng thái (chưa xác thực, bị khoá) chỉ lộ ra khi mật khẩu đúng.
      */
-    public AuthDtos.AuthResponse login(AuthDtos.LoginRequest request) {
-        String email = normalize(request.email());
+    public AuthResponse login(LoginRequest request) {
+        String email = normalize(request.getEmail());
         loginAttempts.lockedForSeconds(email).ifPresent(seconds -> {
             throw temporarilyLocked(seconds);
         });
@@ -103,9 +116,9 @@ public class AuthServiceImpl implements AuthService {
         User user = userRepository.findByEmailIgnoreCase(email).orElse(null);
         boolean passwordOk;
         if (user != null) {
-            passwordOk = passwordEncoder.matches(request.password(), user.getPasswordHash());
+            passwordOk = passwordEncoder.matches(request.getPassword(), user.getPasswordHash());
         } else {
-            passwordEncoder.matches(request.password(), dummyHash());
+            passwordEncoder.matches(request.getPassword(), dummyHash());
             passwordOk = false;
         }
         if (!passwordOk) {
@@ -125,36 +138,79 @@ public class AuthServiceImpl implements AuthService {
         return issueSession(user);
     }
 
-    public AuthDtos.MessageResponse forgotPassword(AuthDtos.EmailRequest request) {
-        String email = normalize(request.email());
+    /**
+     * Đăng nhập bằng Google (specs/005-google-login): tìm theo google_sub, rồi theo email (tự liên kết),
+     * không có thì tạo tài khoản mới đã xác thực email, chưa chọn vai trò.
+     */
+    @Override
+    @Transactional
+    public AuthResponse googleLogin(GoogleLoginRequest request) {
+        GoogleTokenVerifier.GoogleIdentity g = google.verify(request.getCredential());
+        if (g.subject() == null || g.email() == null || !g.emailVerified()) {
+            throw new BusinessException(ErrorCode.GOOGLE_TOKEN_INVALID, "Email Google chưa được xác thực", null);
+        }
+        String email = normalize(g.email());
+        User user = userRepository.findByGoogleSub(g.subject()).orElse(null);
+        if (user == null) {
+            user = userRepository.findByEmailIgnoreCase(email).orElse(null);
+            if (user != null) {
+                if (user.getGoogleSub() != null && !user.getGoogleSub().equals(g.subject())) {
+                    throw new BusinessException(ErrorCode.GOOGLE_TOKEN_INVALID,
+                            "Email này đã liên kết với một tài khoản Google khác", null);
+                }
+                user.setGoogleSub(g.subject());
+                if (!user.emailVerified()) user.setEmailVerifiedAt(LocalDateTime.now());
+                user = userRepository.save(user);
+            } else {
+                String name = g.name() == null || g.name().isBlank() ? displayNameFromEmail(email) : g.name().trim();
+                user = userRepository.save(User.builder()
+                        .email(email)
+                        .fullName(name)
+                        // Mật khẩu ngẫu nhiên không ai biết: muốn đăng nhập bằng mật khẩu thì dùng "Quên mật khẩu".
+                        .passwordHash(passwordEncoder.encode(java.util.UUID.randomUUID().toString()))
+                        .role(Role.CANDIDATE)
+                        .roleChosen(false)
+                        .status(UserStatus.ACTIVE)
+                        .emailVerifiedAt(LocalDateTime.now())
+                        .googleSub(g.subject())
+                        .passwordSet(false)
+                        .build());
+            }
+        }
+        requireNotLocked(user);
+        return issueSession(user);
+    }
+
+    public MessageResponse forgotPassword(EmailRequest request) {
+        String email = normalize(request.getEmail());
         userRepository.findByEmailIgnoreCase(email)
                 .filter(u -> u.getStatus() == UserStatus.ACTIVE)
                 .filter(u -> tokens.tryAcquireCooldown(Purpose.RESET, email, props.getResendCooldown()))
                 .ifPresent(u -> mail.sendPasswordReset(email, u.getFullName(),
                         tokens.issue(Purpose.RESET, u.getId(), props.getResetTokenTtl())));
-        return new AuthDtos.MessageResponse(FORGOT_MESSAGE);
+        return new MessageResponse(FORGOT_MESSAGE);
     }
 
     /** Đổi mật khẩu, vô hiệu mọi phiên cũ, gỡ khoá tạm; link đặt lại cũng chứng minh sở hữu email. */
     @Transactional
-    public AuthDtos.MessageResponse resetPassword(AuthDtos.ResetPasswordRequest request) {
-        Integer userId = tokens.consume(Purpose.RESET, request.token())
+    public MessageResponse resetPassword(ResetPasswordRequest request) {
+        Integer userId = tokens.consume(Purpose.RESET, request.getToken())
                 .orElseThrow(() -> new BusinessException(ErrorCode.INVALID_LINK_TOKEN));
         User user = userRepository.findById(userId)
                 .orElseThrow(() -> new BusinessException(ErrorCode.INVALID_LINK_TOKEN));
         requireNotLocked(user);
-        user.setPasswordHash(passwordEncoder.encode(request.newPassword()));
+        user.setPasswordHash(passwordEncoder.encode(request.getNewPassword()));
         if (!user.emailVerified()) user.setEmailVerifiedAt(LocalDateTime.now());
         user.invalidateSessions();
         userRepository.save(user);
         loginAttempts.clear(normalize(user.getEmail()));
         userCache.evictAfterCommit(user.getId());
-        return new AuthDtos.MessageResponse("Đã đặt lại mật khẩu. Vui lòng đăng nhập bằng mật khẩu mới.");
+        return new MessageResponse("Đã đặt lại mật khẩu. Vui lòng đăng nhập bằng mật khẩu mới.");
     }
 
     @Transactional
-    public AuthDtos.AuthResponse chooseRole(AuthDtos.ChooseRoleRequest request) {
-        if (request.role() != Role.CANDIDATE && request.role() != Role.RECRUITER) {
+    public AuthResponse chooseRole(ChooseRoleRequest request) {
+        if (request.getRole() != Role.CANDIDATE && request.getRole() != Role.RECRUITER) {
             throw new ApiException(HttpStatus.BAD_REQUEST, "Chỉ được chọn ứng viên hoặc nhà tuyển dụng");
         }
         UserPrincipal principal = SecurityUtils.currentUser();
@@ -164,7 +220,7 @@ public class AuthServiceImpl implements AuthService {
             throw new ApiException(HttpStatus.CONFLICT, "Vai trò đã được lưu");
         }
 
-        user.setRole(request.role());
+        user.setRole(request.getRole());
         user.setRoleChosen(true);
         userRepository.save(user);
         userCache.evictAfterCommit(user.getId());
@@ -172,16 +228,16 @@ public class AuthServiceImpl implements AuthService {
         return issueSession(user);
     }
 
-    public AuthDtos.UserResponse me() {
+    public UserResponse me() {
         UserPrincipal principal = SecurityUtils.currentUser();
         User user = userRepository.findById(principal.getId())
                 .orElseThrow(() -> new ApiException(HttpStatus.NOT_FOUND, "User not found"));
         return toUserResponse(user);
     }
 
-    private AuthDtos.AuthResponse issueSession(User user) {
+    private AuthResponse issueSession(User user) {
         String token = jwtService.generateToken(user.getId(), user.getEmail(), user.getRole());
-        return new AuthDtos.AuthResponse(token, toUserResponse(user));
+        return new AuthResponse(token, toUserResponse(user));
     }
 
     private static void requireNotLocked(User user) {
@@ -207,9 +263,10 @@ public class AuthServiceImpl implements AuthService {
         return h;
     }
 
-    private AuthDtos.UserResponse toUserResponse(User user) {
-        return new AuthDtos.UserResponse(
-                user.getId(), user.getFullName(), user.getEmail(), user.getRole(), user.isRoleChosen());
+    private UserResponse toUserResponse(User user) {
+        return new UserResponse(
+                user.getId(), user.getFullName(), user.getEmail(), user.getRole(), user.isRoleChosen(),
+                rbac.permissionsOf(user.getRole()));
     }
 
     static String normalize(String email) {

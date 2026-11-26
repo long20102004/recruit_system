@@ -12,6 +12,7 @@ import java.util.Optional;
 
 public interface UserRepository extends JpaRepository<User, Integer> {
     Optional<User> findByEmailIgnoreCase(String email);
+    Optional<User> findByGoogleSub(String googleSub);
     boolean existsByEmailIgnoreCase(String email);
 
     /** Tìm theo email / họ tên (chứa, không phân biệt hoa thường) và trạng thái; tham số null = bỏ qua. */

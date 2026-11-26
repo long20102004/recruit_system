@@ -34,12 +34,13 @@ export function ForgotPasswordPage() {
     <AuthPage>
       <AuthPanel>
         <AuthAside
+          kicker="Bước 1 / 2"
           title="Quên mật khẩu"
           description="Nhập email đã đăng ký, chúng tôi sẽ gửi link để bạn đặt mật khẩu mới."
         />
         {sent ? (
           <AuthForm title="Kiểm tra hộp thư" subtitle={sent}>
-            <p className="hint">
+            <p className="small muted">
               Link có hiệu lực 30 phút và chỉ dùng được một lần.
               <br />
               <Link to="/login">Quay lại đăng nhập</Link>
@@ -63,7 +64,7 @@ export function ForgotPasswordPage() {
             <Button variant="primary" block type="submit" disabled={busy}>
               {busy ? "Đang gửi…" : "Gửi link đặt lại"}
             </Button>
-            <p className="hint">
+            <p className="small muted">
               <Link to="/login">Quay lại đăng nhập</Link>
             </p>
           </AuthForm>

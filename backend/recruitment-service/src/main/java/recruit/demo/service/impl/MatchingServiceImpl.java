@@ -3,10 +3,12 @@ package recruit.demo.service.impl;
 import recruit.demo.service.*;
 import recruit.demo.enums.Role;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import recruit.demo.dto.MatchingDtos;
+import recruit.demo.dto.PageResponse;
 import recruit.demo.entity.*;
 import recruit.demo.exception.ApiException;
 import recruit.demo.repository.*;
@@ -30,30 +32,27 @@ public class MatchingServiceImpl implements MatchingService {
     private final CvMatchMatching cvmatch;
 
     @Transactional(readOnly = true)
-    public List<MatchingDtos.MatchResponse> myMatches() {
-        SecurityUtils.requireRole(Role.CANDIDATE);
+    public PageResponse<MatchingDtos.MatchResponse> myMatches(Pageable pageable) {
         CandidateProfile candidate = requireCandidate();
         if (!hasAnalyzedCv(candidate)) {
-            return List.of();
+            return PageResponse.of(List.of(), pageable);
         }
-        return cvmatch.resultsForCandidate(candidate);
+        return PageResponse.of(cvmatch.resultsForCandidate(candidate), pageable);
     }
 
     /** Luong D: mot lan goi cvmatch cho moi job dang mo. */
     @Transactional
     public List<MatchingDtos.MatchResponse> refreshMine() {
-        SecurityUtils.requireRole(Role.CANDIDATE);
         CandidateProfile candidate = requireCandidate();
         requireAnalyzedCv(candidate);
         return cvmatch.refreshForCandidate(candidate);
     }
 
     @Transactional(readOnly = true)
-    public List<MatchingDtos.MatchResponse> matchesForJob(Integer jobId) {
-        SecurityUtils.requireRole(Role.RECRUITER, Role.ADMIN);
+    public PageResponse<MatchingDtos.MatchResponse> matchesForJob(Integer jobId, Pageable pageable) {
         Job job = requireJob(jobId);
         ensureRecruiterOwns(job);
-        return cvmatch.resultsForJob(job);
+        return PageResponse.of(cvmatch.resultsForJob(job), pageable);
     }
 
     /**
@@ -62,11 +61,10 @@ public class MatchingServiceImpl implements MatchingService {
      */
     @Transactional
     public List<MatchingDtos.MatchResponse> refreshForJob(Integer jobId, String scope) {
-        SecurityUtils.requireRole(Role.RECRUITER, Role.ADMIN);
         Job job = requireJob(jobId);
         ensureRecruiterOwns(job);
         boolean pool = "pool".equalsIgnoreCase(scope);
-        if (pool && SecurityUtils.currentUser().getRole() != Role.ADMIN) {
+        if (pool && !SecurityUtils.hasPermission("matching:run-pool")) {
             throw new ApiException(HttpStatus.FORBIDDEN, "Chỉ admin được xếp hạng toàn bộ kho CV");
         }
         return cvmatch.refreshForJob(job, pool);
@@ -87,7 +85,6 @@ public class MatchingServiceImpl implements MatchingService {
                 throw new ApiException(HttpStatus.FORBIDDEN, "Not your match");
             }
         } else {
-            SecurityUtils.requireRole(Role.RECRUITER, Role.ADMIN);
             ensureRecruiterOwns(m.getJob());
             if (!CvMatchMatching.TO_CV.equals(m.getDirection())) {
                 throw new ApiException(HttpStatus.FORBIDDEN, "Kết quả này thuộc chiều ứng viên");
@@ -109,7 +106,9 @@ public class MatchingServiceImpl implements MatchingService {
             requireAnalyzedCv(candidate);
             return cvmatch.runForCandidate(candidate, job);
         }
-        SecurityUtils.requireRole(Role.RECRUITER, Role.ADMIN);
+        if (!SecurityUtils.hasPermission("matching:run")) {
+            throw new ApiException(HttpStatus.FORBIDDEN, "Access denied");
+        }
         if (request.candidateId() == null) {
             throw new ApiException(HttpStatus.BAD_REQUEST, "candidateId is required for recruiter matching");
         }
@@ -150,9 +149,10 @@ public class MatchingServiceImpl implements MatchingService {
                 .orElseThrow(() -> new ApiException(HttpStatus.BAD_REQUEST, "Candidate profile not found"));
     }
 
+    /** Tin của mình; người có matching:read-all (ADMIN) xem được mọi tin. */
     private void ensureRecruiterOwns(Job job) {
         UserPrincipal principal = SecurityUtils.currentUser();
-        if (principal.getRole() == Role.ADMIN) {
+        if (principal.hasPermission("matching:read-all")) {
             return;
         }
         if (!job.getCreatedById().equals(principal.getId())) {

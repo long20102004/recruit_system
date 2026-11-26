@@ -36,7 +36,7 @@ export function mapJob(dto: JobDto): Job {
     company: dto.company,
     location,
     city: dto.city ?? location,
-    workType: dto.workType ?? "Hybrid",
+    workType: workTypeLabel(dto.workType),
     level: dto.level ?? "Junior",
     salary: dto.salaryText ?? "Thỏa thuận",
     postedAgo: dto.postedAt ? relativeTime(dto.postedAt) : "Mới",
@@ -81,4 +81,21 @@ function relativeTime(iso: string): string {
   if (hours < 24) return `${hours} giờ trước`;
   const days = Math.floor(hours / 24);
   return `${days} ngày trước`;
+}
+
+const WORK_TYPE_LABEL: Record<string, string> = {
+  FULL_TIME: "Toàn thời gian",
+  PART_TIME: "Bán thời gian",
+  INTERNSHIP: "Thực tập",
+  CONTRACT: "Hợp đồng",
+  FREELANCE: "Freelance",
+  REMOTE: "Remote",
+  HYBRID: "Hybrid",
+  ONSITE: "Tại văn phòng",
+};
+
+/** Hình thức làm việc từ backend (FULL_TIME, REMOTE…) sang nhãn tiếng Việt; giá trị lạ giữ nguyên. */
+export function workTypeLabel(raw: string | null | undefined): string {
+  if (!raw) return "Hybrid";
+  return WORK_TYPE_LABEL[raw.trim().toUpperCase()] ?? raw;
 }

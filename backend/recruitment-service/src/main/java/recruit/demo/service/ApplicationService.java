@@ -1,10 +1,11 @@
 package recruit.demo.service;
 
-import java.util.List;
+import org.springframework.data.domain.Pageable;
 import recruit.demo.dto.ApplicationDtos;
+import recruit.demo.dto.PageResponse;
 
 public interface ApplicationService {
     ApplicationDtos.ApplicationResponse apply(Integer jobId, ApplicationDtos.ApplyRequest request);
-    List<ApplicationDtos.ApplicationResponse> myApplications();
-    List<ApplicationDtos.ApplicationResponse> recruiterApplications();
+    PageResponse<ApplicationDtos.ApplicationResponse> myApplications(Pageable pageable);
+    PageResponse<ApplicationDtos.ApplicationResponse> recruiterApplications(Pageable pageable);
 }

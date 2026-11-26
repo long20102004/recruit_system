@@ -6,43 +6,45 @@ import {
   EmptyNote,
   Field,
   MatchExplain,
-  Page,
   PageHead,
   Panel,
-  SiteHeader,
-  TextSelect,
+  RecruiterLayout,
+  TextSelect, Can
 } from "../../components/common";
 import {
+  MAX_PAGE_SIZE,
   jobsApi,
   matchingApi,
   type JobDto,
   type MatchDto,
 } from "../../api/client";
+import { useAuth } from "../../context/AuthContext";
 import { useToast } from "../../context/ToastContext";
 import { pct } from "../../utils/format";
 
 export function RecruiterMatchingPage() {
   const { toast } = useToast();
+  const { can } = useAuth();
+  const canReadOwnJobs = can("job:read-own");
   const [jobs, setJobs] = useState<JobDto[]>([]);
   const [jobId, setJobId] = useState<number | "">("");
   const [matches, setMatches] = useState<MatchDto[]>([]);
   const [busy, setBusy] = useState(false);
 
   useEffect(() => {
-    jobsApi
-      .mine()
-      .then((list) => {
+    (canReadOwnJobs ? jobsApi.mine({ size: MAX_PAGE_SIZE }) : jobsApi.list({ size: MAX_PAGE_SIZE }))
+      .then(({ content: list }) => {
         setJobs(list);
         if (list[0]) setJobId(list[0].id);
       })
       .catch((e) => toast(e.message));
-  }, [toast]);
+  }, [toast, canReadOwnJobs]);
 
   useEffect(() => {
     if (!jobId) return;
     matchingApi
-      .forJob(Number(jobId))
-      .then(setMatches)
+      .forJob(Number(jobId), { size: MAX_PAGE_SIZE })
+      .then((p) => setMatches(p.content))
       .catch(() => setMatches([]));
   }, [jobId]);
 
@@ -62,16 +64,16 @@ export function RecruiterMatchingPage() {
   }
 
   return (
-    <>
-      <SiteHeader active="matching" mode="recruiter" />
-      <Page>
+    <RecruiterLayout active="matching">
         <PageHead
           title="Ghép hồ sơ – tin tuyển dụng"
           description="Xếp hạng ứng viên theo kỹ năng và mức phù hợp với tin đã chọn."
           actions={
-            <Button variant="primary" onClick={run} disabled={busy || !jobId}>
-              {busy ? "Đang chạy…" : "Làm mới xếp hạng"}
-            </Button>
+            <Can perm={["matching:run", "matching:run-pool"]}>
+              <Button variant="primary" onClick={run} disabled={busy || !jobId}>
+                {busy ? "Đang chạy…" : "Làm mới xếp hạng"}
+              </Button>
+            </Can>
           }
         />
 
@@ -141,7 +143,6 @@ export function RecruiterMatchingPage() {
             ))
           )}
         </Panel>
-      </Page>
-    </>
+    </RecruiterLayout>
   );
 }

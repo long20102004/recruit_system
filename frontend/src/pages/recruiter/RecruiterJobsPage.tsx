@@ -4,23 +4,22 @@ import {
   EmptyNote,
   Field,
   Grid2,
-  JobCard,
-  JobList,
-  Page,
   PageHead,
   Panel,
-  SiteHeader,
+  RecruiterLayout,
   TextInput,
   TextSelect,
-  TextTextarea,
+  TextTextarea, Can, Pager
 } from "../../components/common";
-import { jobsApi, type JobDto } from "../../api/client";
+import { jobsApi, type JobDto, type PageDto } from "../../api/client";
 import { useToast } from "../../context/ToastContext";
+import { jobBadge, shortDate } from "../../utils/format";
 import { mapJob } from "../../utils/mappers";
 
 export function RecruiterJobsPage() {
   const { toast } = useToast();
-  const [jobs, setJobs] = useState<JobDto[]>([]);
+  const [data, setData] = useState<PageDto<JobDto> | null>(null);
+  const jobs = data?.content ?? [];
   const [busy, setBusy] = useState(false);
   const [form, setForm] = useState({
     title: "",
@@ -36,8 +35,8 @@ export function RecruiterJobsPage() {
     responsibilities: "",
   });
 
-  async function load() {
-    setJobs(await jobsApi.mine());
+  async function load(page = 0) {
+    setData(await jobsApi.mine({ page }));
   }
 
   useEffect(() => {
@@ -79,9 +78,7 @@ export function RecruiterJobsPage() {
   }
 
   return (
-    <>
-      <SiteHeader active="jobs" mode="recruiter" />
-      <Page>
+    <RecruiterLayout active="jobs">
         <PageHead
           title="Đăng & quản lý tin tuyển dụng"
           description="Đăng vị trí, yêu cầu và kỹ năng. Tin sẽ hiện trên trang tìm việc của ứng viên."
@@ -89,18 +86,37 @@ export function RecruiterJobsPage() {
 
         <Grid2>
           <Panel>
-            <h2>Tin đang mở</h2>
-            <JobList>
-              {jobs.length === 0 ? (
-                <EmptyNote>Chưa có tin nào.</EmptyNote>
-              ) : (
-                jobs.map((j, i) => (
-                  <JobCard key={j.id} job={mapJob(j)} delayMs={i * 40} />
-                ))
-              )}
-            </JobList>
+            <h2>Tin của bạn{data ? <span className="count">{data.totalElements}</span> : null}</h2>
+            {jobs.length === 0 ? (
+              <EmptyNote>Chưa có tin nào. Điền form bên cạnh để đăng vị trí đầu tiên.</EmptyNote>
+            ) : (
+              <div className="tbl-box">
+                <table className="tbl" style={{ minWidth: 520 }}>
+                  <thead><tr><th>Vị trí</th><th>Địa điểm</th><th>Đăng</th><th>Trạng thái</th></tr></thead>
+                  <tbody>
+                    {jobs.map((j) => {
+                      const b = jobBadge(j.status);
+                      const m = mapJob(j);
+                      return (
+                        <tr key={j.id}>
+                          <td>
+                            <p style={{ fontWeight: 650 }}>{j.title}</p>
+                            <p className="tiny muted">{m.salary} · {m.requiredSkills.slice(0, 3).join(", ")}</p>
+                          </td>
+                          <td className="small">{m.location}</td>
+                          <td className="small muted">{shortDate(j.postedAt)}</td>
+                          <td><span className={b.cls}>{b.label}</span></td>
+                        </tr>
+                      );
+                    })}
+                  </tbody>
+                </table>
+              </div>
+            )}
+            <Pager data={data} onPage={(p) => load(p).catch((e) => toast(e.message))} />
           </Panel>
 
+          <Can perm="job:create">
           <Panel>
             <h2>Đăng vị trí mới</h2>
             <form onSubmit={onSubmit}>
@@ -217,8 +233,8 @@ export function RecruiterJobsPage() {
               </Button>
             </form>
           </Panel>
+          </Can>
         </Grid2>
-      </Page>
-    </>
+    </RecruiterLayout>
   );
 }
