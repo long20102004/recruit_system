@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
-import { Button, Can, EmptyNote, JobLogo, SiteHeader } from "../../components/common";
-import { MAX_PAGE_SIZE, applicationsApi, jobsApi, matchingApi } from "../../api/client";
+import { ApplyModal, Button, Can, EmptyNote, JobLogo, SiteHeader } from "../../components/common";
+import { MAX_PAGE_SIZE, jobsApi, matchingApi } from "../../api/client";
 import { useAuth } from "../../context/AuthContext";
 import { useToast } from "../../context/ToastContext";
 import { mapJob, mapMatch } from "../../utils/mappers";
@@ -42,6 +42,22 @@ export function CandidateJobDetailPage() {
   const [job, setJob] = useState<Job | null>(null);
   const [loading, setLoading] = useState(true);
   const [match, setMatch] = useState<MatchResult | null>(null);
+  const [applying, setApplying] = useState(false);
+  const [similar, setSimilar] = useState<Job[]>([]);
+
+  useEffect(() => {
+    if (!job) return;
+    const skills = new Set(job.requiredSkills.map((x) => x.toLowerCase()));
+    jobsApi.list({ size: MAX_PAGE_SIZE })
+      .then((p) => setSimilar(p.content.map(mapJob)
+        .filter((j) => j.id !== job.id)
+        .map((j) => ({ j, n: j.requiredSkills.filter((x) => skills.has(x.toLowerCase())).length }))
+        .filter((x) => x.n > 0)
+        .sort((a, b) => b.n - a.n)
+        .slice(0, 4)
+        .map((x) => x.j)))
+      .catch(() => setSimilar([]));
+  }, [job]);
 
   useEffect(() => {
     const id = Number(jobId);
@@ -66,13 +82,8 @@ export function CandidateJobDetailPage() {
 
   const id = Number(jobId);
 
-  async function apply() {
-    try {
-      await applicationsApi.apply(id);
-      toast("Đã nộp hồ sơ ứng tuyển");
-    } catch (e) {
-      toast(e instanceof Error ? e.message : "Ứng tuyển thất bại");
-    }
+  function apply() {
+    setApplying(true);
   }
 
   const have = new Set((match?.matchedSkills ?? []).map((x) => x.toLowerCase()));
@@ -86,7 +97,7 @@ export function CandidateJobDetailPage() {
 
   return (
     <>
-      <SiteHeader active="jobs" mode="candidate" />
+      <SiteHeader active="home" mode="candidate" />
       <div className="wrap" style={{ paddingTop: 20, paddingBottom: 64, display: "flex", flexDirection: "column", gap: 20 }}>
         <nav aria-label="Breadcrumb" className="small muted row" style={{ gap: 6 }}>
           <Link to="/candidate">Tổng quan</Link>
@@ -198,11 +209,35 @@ export function CandidateJobDetailPage() {
                   <dt className="muted">Địa điểm</dt><dd style={{ margin: 0 }}>{job.location}</dd>
                 </dl>
               </section>
+              {similar.length ? (
+                <section className="card stack" style={{ gap: 0 }}>
+                  <h4 style={{ marginBottom: 6 }}>Việc làm tương tự</h4>
+                  {similar.map((s) => (
+                    <Link key={s.id} to={`/candidate/jobs/${s.id}`}
+                      style={{ display: "flex", gap: 12, padding: "12px 0", borderTop: "1px solid var(--line)", color: "inherit" }}>
+                      <span className="logo logo-sm">{s.logo}</span>
+                      <div style={{ minWidth: 0 }}>
+                        <p style={{ fontWeight: 650, fontSize: 14 }}>{s.title}</p>
+                        <p className="tiny muted">{s.company} · {s.city}</p>
+                        <p className="tiny" style={{ color: "var(--ok)", fontWeight: 650 }}>{s.salary}</p>
+                      </div>
+                    </Link>
+                  ))}
+                </section>
+              ) : null}
               <Link to="/candidate/matching" className="btn btn-g">← Quay lại việc phù hợp</Link>
             </aside>
           </div>
         )}
       </div>
+      {applying && job ? (
+        <ApplyModal
+          job={{ id: job.id, title: job.title, company: job.company, location: job.location,
+            matchPct: match ? pct(match.score) : null }}
+          onClose={() => setApplying(false)}
+          onApplied={() => { setApplying(false); toast("Đã gửi đơn. Nhà tuyển dụng sẽ nhận được thông báo."); }}
+        />
+      ) : null}
     </>
   );
 }

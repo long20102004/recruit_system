@@ -22,6 +22,8 @@ export function RecruiterHomePage() {
   const [stats, setStats] = useState<RecruiterStatsDto | null>(null);
   const [jobs, setJobs] = useState<JobDto[]>([]);
   const [apps, setApps] = useState<ApplicationDto[]>([]);
+  const [days, setDays] = useState(30);
+  const [now] = useState(() => Date.now());
 
   useEffect(() => {
     Promise.all([
@@ -38,15 +40,19 @@ export function RecruiterHomePage() {
   }, [toast, canReadJobs, canReadApps]);
 
 
-  const count = (st: string) => apps.filter((a) => a.status === st).length;
+  // Đơn trong khoảng thời gian đang chọn (theo ngày nộp) cho chỉ số "Đơn mới" và phễu.
+  const inRange = apps.filter((a) => a.appliedAt && now - Date.parse(a.appliedAt) <= days * 86_400_000);
+  const count = (st: string) => inRange.filter((a) => a.status === st).length;
+  const drafts = jobs.filter((j) => j.status === "DRAFT").length;
+  const company = jobs[0]?.company;
   const funnel: [string, number][] = [
-    ["Đã nộp", apps.length],
+    ["Đã nộp", inRange.length],
     ["Đang xem xét", count("REVIEWING")],
     ["Phỏng vấn", count("INTERVIEW")],
     ["Trúng tuyển", count("HIRED")],
     ["Từ chối", count("REJECTED")],
   ];
-  const max = Math.max(1, apps.length);
+  const max = Math.max(1, inRange.length);
   const perJob = (jobId: number) => apps.filter((a) => a.jobId === jobId).length;
   const recent = [...apps].sort((x, y) => (y.appliedAt ?? "").localeCompare(x.appliedAt ?? "")).slice(0, 8);
 
@@ -54,24 +60,31 @@ export function RecruiterHomePage() {
     <RecruiterLayout active="home">
       <div className="page-head" style={{ marginBottom: 0 }}>
         <div>
-          <p className="kicker">Nhà tuyển dụng</p>
+          <p className="kicker">{company ?? "Nhà tuyển dụng"}</p>
           <h1 style={{ fontSize: 32, marginTop: 4 }}>Tổng quan tuyển dụng</h1>
         </div>
-        <Can perm="job:create">
-          <Button variant="primary" to="/recruiter/jobs">+ Đăng tin mới</Button>
-        </Can>
+        <div className="row">
+          <select className="input" aria-label="Khoảng thời gian" style={{ width: "auto" }} value={days}
+            onChange={(e) => setDays(Number(e.target.value))}>
+            <option value={30}>30 ngày qua</option>
+            <option value={7}>7 ngày qua</option>
+          </select>
+          <Can perm="job:create">
+            <Button variant="primary" to="/recruiter/jobs/new">+ Đăng tin mới</Button>
+          </Can>
+        </div>
       </div>
 
       <section style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 200px), 1fr))", gap: 20 }}>
         <div className="stat"><p className="l">Tin đang mở</p>
           <p className="v">{stats?.openJobsCount ?? jobs.filter((j) => j.status === "PUBLISHED").length}</p>
-          <p className="tiny muted">Hiển thị trên trang tìm việc</p></div>
-        <div className="stat"><p className="l">Đơn ứng tuyển</p>
-          <p className="v">{stats?.applicationsCount ?? apps.length}</p>
-          <p className="tiny muted">Tất cả tin của bạn</p></div>
-        <div className="stat"><p className="l">Đang phỏng vấn</p>
-          <p className="v">{count("INTERVIEW")}</p>
-          <p className="tiny muted">Đơn ở bước phỏng vấn</p></div>
+          <p className="tiny muted">{drafts ? `${drafts} tin nháp` : "Hiển thị trên trang tìm việc"}</p></div>
+        <div className="stat"><p className="l">Đơn mới ({days} ngày)</p>
+          <p className="v">{inRange.length}</p>
+          <p className="tiny muted">Tổng {stats?.applicationsCount ?? apps.length} đơn</p></div>
+        <div className="stat"><p className="l">Chờ xử lý</p>
+          <p className="v">{count("SUBMITTED")}</p>
+          <p className="tiny muted">Đơn ở trạng thái Đã nộp</p></div>
         <div className="stat"><p className="l">Câu hỏi phỏng vấn</p>
           <p className="v">{stats?.questionsCount ?? 0}</p>
           <p className="tiny muted">Ngân hàng câu hỏi</p></div>

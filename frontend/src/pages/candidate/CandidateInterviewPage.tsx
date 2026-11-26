@@ -247,32 +247,84 @@ export function CandidateInterviewPage() {
             </section>
           ) : null}
 
-          {done && summary ? (
-            <section className="card" style={{ padding: 24, display: "flex", flexDirection: "column", gap: 14 }}>
-              <div className="between">
-                <div>
-                  <p className="kicker">Tổng kết phiên</p>
-                  <h3 style={{ marginTop: 4 }}>{summary.answeredQuestions}/{summary.totalQuestions} câu đã chấm</h3>
-                </div>
-                <p className="disp" style={{ fontSize: 40, color: "var(--brand)" }}>
-                  {score(summary.averageScore)}<span className="small muted" style={{ fontFamily: "var(--font-body)" }}>/10</span>
-                </p>
+          {done && summary ? (() => {
+            const qById = new Map((session?.questions ?? []).map((x) => [x.questionId, x]));
+            const topics = new Map<string, number[]>();
+            for (const ev of summary.evaluations) {
+              const t = qById.get(ev.questionId)?.topic || "Khác";
+              topics.set(t, [...(topics.get(t) ?? []), Number(ev.predictedScore)]);
+            }
+            const review = [...new Set(summary.evaluations.flatMap((ev) => ev.missingPoints))].slice(0, 5);
+            return (
+              <div style={{ display: "flex", flexDirection: "column", gap: 22 }}>
+                <section className="card" style={{ padding: 32, display: "flex", gap: 32, flexWrap: "wrap", alignItems: "center" }}>
+                  <div style={{ flex: "0 0 auto", textAlign: "center" }}>
+                    <p className="disp" style={{ fontSize: 72, color: "var(--brand)", lineHeight: 1 }}>{score(summary.averageScore)}</p>
+                    <p className="small muted">điểm trung bình / 10</p>
+                  </div>
+                  <div style={{ flex: "1 1 380px", display: "flex", flexDirection: "column", gap: 10 }}>
+                    <div className="row" style={{ gap: 8 }}>
+                      <span className={summary.answeredQuestions >= summary.totalQuestions ? "badge b-ok" : "badge b-gold"}>
+                        {summary.answeredQuestions >= summary.totalQuestions ? "Hoàn thành" : "Chưa xong"}
+                      </span>
+                      <span className="badge b-plain">{summary.answeredQuestions}/{summary.totalQuestions} câu đã chấm</span>
+                    </div>
+                    <h1 style={{ fontSize: 28 }}>{session?.jobTitle || "Phiên luyện tập"}</h1>
+                    <p style={{ color: "var(--ink-soft)" }}>Điểm luyện tập do AI chấm tự động, dùng để tự đánh giá và ôn tập.</p>
+                  </div>
+                  <div className="row" style={{ flex: "0 0 auto", flexDirection: "column", alignItems: "stretch" }}>
+                    <button type="button" className="btn btn-p" onClick={start} disabled={busy}>Luyện lại phiên mới</button>
+                    <button type="button" className="btn btn-g" onClick={exit}>Về trang phỏng vấn</button>
+                  </div>
+                </section>
+
+                <section style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 300px), 1fr))", gap: 16 }}>
+                  <div className="card stack" style={{ gap: 10 }}>
+                    <h3 style={{ fontSize: 18 }}>Theo chủ đề</h3>
+                    {[...topics].map(([t, xs]) => {
+                      const avg = xs.reduce((a, b) => a + b, 0) / xs.length;
+                      return (
+                        <div key={t} style={{ display: "grid", gridTemplateColumns: "110px 1fr 40px", gap: 10, alignItems: "center", fontSize: 14 }}>
+                          <span>{t}</span>
+                          <div className="meter"><span style={{ width: `${Math.max(0, Math.min(100, avg * 10))}%` }} /></div>
+                          <strong style={{ textAlign: "right" }}>{score(avg)}</strong>
+                        </div>
+                      );
+                    })}
+                  </div>
+                  <div className="card stack" style={{ gap: 10 }}>
+                    <h3 style={{ fontSize: 18 }}>Nên ôn thêm</h3>
+                    {review.length ? (
+                      <ul style={{ margin: 0, paddingLeft: 18, display: "grid", gap: 6, fontSize: 14, color: "var(--ink-soft)" }}>
+                        {review.map((r) => <li key={r}>{r}</li>)}
+                      </ul>
+                    ) : <p className="small muted">Không ghi nhận ý còn thiếu.</p>}
+                  </div>
+                </section>
+
+                <section className="stack" style={{ gap: 10 }}>
+                  <h2 style={{ fontSize: 22 }}>Chi tiết từng câu</h2>
+                  {summary.evaluations.map((item, i) => {
+                    const q = qById.get(item.questionId);
+                    return (
+                      <details key={item.responseId} className="card" style={{ padding: 0 }} open={i === 0}>
+                        <summary style={{ display: "flex", gap: 16, alignItems: "center", padding: "16px 20px", cursor: "pointer", flexWrap: "wrap" }}>
+                          <span className="disp" style={{ fontSize: 22, color: "var(--brand)", width: 52 }}>{score(item.predictedScore)}</span>
+                          <span style={{ flex: "1 1 320px", fontWeight: 600 }}>{q?.questionText ?? `Câu ${i + 1}`}</span>
+                          {q?.topic ? <span className="badge b-plain">{q.topic}</span> : null}
+                        </summary>
+                        <div style={{ padding: "0 20px 18px 88px", display: "grid", gap: 8, fontSize: 14 }}>
+                          <p><strong style={{ color: "var(--ok)" }}>Đã nêu:</strong> {item.coveredPoints.join("; ") || "—"}</p>
+                          <p><strong style={{ color: "var(--hot)" }}>Còn thiếu:</strong> {item.missingPoints.join("; ") || "Không ghi nhận ý thiếu."}</p>
+                          {item.comment ? <p className="muted">{item.comment}</p> : null}
+                        </div>
+                      </details>
+                    );
+                  })}
+                </section>
               </div>
-              {summary.evaluations.map((item, i) => (
-                <details key={item.responseId} style={{ borderTop: "1px solid var(--line)", paddingTop: 10 }}>
-                  <summary style={{ cursor: "pointer", fontWeight: 600 }}>
-                    Câu {i + 1} · {score(item.predictedScore)}/10
-                  </summary>
-                  {item.comment ? <p className="small" style={{ marginTop: 6 }}>{item.comment}</p> : null}
-                  <p className="small muted" style={{ marginTop: 4 }}>Cần bổ sung: {item.missingPoints.join("; ") || "Không ghi nhận ý thiếu."}</p>
-                </details>
-              ))}
-              <div className="row">
-                <button type="button" className="btn btn-p" onClick={start} disabled={busy}>Luyện phiên mới</button>
-                <button type="button" className="btn btn-g" onClick={exit}>Về trang phỏng vấn</button>
-              </div>
-            </section>
-          ) : null}
+            );
+          })() : null}
         </main>
       </div>
     </>
