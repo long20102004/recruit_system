@@ -1,6 +1,6 @@
 import { useEffect, useMemo, useState, type FormEvent } from "react";
 import { Link } from "react-router-dom";
-import { EmptyNote, MockNote, Pager, SiteHeader } from "../components/common";
+import { EmptyNote, Pager, SiteHeader } from "../components/common";
 import { listCompanies, type CompanyDto } from "../api/mock/companyMock";
 import { useAuth } from "../context/AuthContext";
 import { useToast } from "../context/ToastContext";
@@ -86,7 +86,6 @@ export function CompanyListPage() {
 
       <section style={{ padding: "40px 0 24px", borderBottom: "1px solid var(--line)" }}>
         <div className="wrap" style={{ display: "flex", flexDirection: "column", gap: 16 }}>
-          <MockNote />
           <p className="kicker">{companies ? `${companies.length} công ty đã xác minh` : "Danh bạ công ty IT"}</p>
           <h1 style={{ fontSize: 40 }}>Tìm công ty IT phù hợp với bạn</h1>
           <form className="search" role="search" style={{ maxWidth: 880 }} onSubmit={onSearchSubmit}>

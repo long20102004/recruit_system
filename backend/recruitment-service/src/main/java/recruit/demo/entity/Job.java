@@ -70,6 +70,34 @@ public class Job {
 
     private LocalDateTime deadline;
 
+    @Column(length = 64)
+    private String level;
+
+    private Integer headcount;
+
+    @Column(columnDefinition = "TEXT")
+    private String benefits;
+
+    @Column(nullable = false)
+    @Builder.Default
+    private boolean hot = false;
+
+    @Column(name = "default_interview_questions")
+    @Builder.Default
+    private Integer defaultInterviewQuestions = 5;
+
+    @Column(name = "lock_reason")
+    private String lockReason;
+
+    @Column(name = "lock_note", columnDefinition = "TEXT")
+    private String lockNote;
+
+    @Column(name = "locked_at")
+    private LocalDateTime lockedAt;
+
+    @Column(name = "locked_by")
+    private Integer lockedBy;
+
     @CreationTimestamp
     @Column(name = "created_at", nullable = false, updatable = false)
     private LocalDateTime createdAt;

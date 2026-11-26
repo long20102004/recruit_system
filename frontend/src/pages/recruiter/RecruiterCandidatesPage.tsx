@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from "react";
+import { useCallback, useEffect, useMemo, useState } from "react";
 import { Link } from "react-router-dom";
 import {
   Button,
@@ -49,13 +49,46 @@ export function RecruiterCandidatesPage() {
   const [jobFilter, setJobFilter] = useState("");
   const [statusFilter, setStatusFilter] = useState<StatusTab>("ALL");
   const [sortBy, setSortBy] = useState<SortOption>("newest");
+  const [selectedIds, setSelectedIds] = useState<Set<number>>(new Set());
+  const [bulkStatus, setBulkStatus] = useState<"REVIEWING" | "INTERVIEW" | "HIRED" | "REJECTED">("REVIEWING");
+  const [bulkBusy, setBulkBusy] = useState(false);
 
-  useEffect(() => {
+  const load = useCallback(() => {
     applicationsApi
       .recruiter({ page })
-      .then(setData)
+      .then((res) => {
+        setData(res);
+        setSelectedIds(new Set());
+      })
       .catch((e) => toast(e.message));
   }, [toast, page]);
+
+  useEffect(() => {
+    load();
+  }, [load]);
+
+  function toggleSelect(id: number) {
+    setSelectedIds((prev) => {
+      const next = new Set(prev);
+      if (next.has(id)) next.delete(id);
+      else next.add(id);
+      return next;
+    });
+  }
+
+  async function handleBulkUpdate() {
+    if (selectedIds.size === 0) return;
+    setBulkBusy(true);
+    try {
+      await applicationsApi.bulkUpdateStatus([...selectedIds], bulkStatus);
+      toast(`Đã cập nhật ${selectedIds.size} đơn sang trạng thái ${applicationBadge(bulkStatus).label}.`);
+      load();
+    } catch (e) {
+      toast(e instanceof Error ? e.message : "Cập nhật hàng loạt thất bại");
+    } finally {
+      setBulkBusy(false);
+    }
+  }
 
   const jobOptions = useMemo(() => {
     const counts = new Map<string, number>();
@@ -185,6 +218,29 @@ export function RecruiterCandidatesPage() {
         </Button>
       </div>
 
+      {selectedIds.size > 0 ? (
+        <div className="card row" style={{ gap: 12, padding: "12px 16px", alignItems: "center" }}>
+          <strong className="small">Đã chọn {selectedIds.size} đơn</strong>
+          <TextSelect
+            aria-label="Trạng thái hàng loạt"
+            value={bulkStatus}
+            onChange={(e) => setBulkStatus(e.target.value as "REVIEWING" | "INTERVIEW" | "HIRED" | "REJECTED")}
+            style={{ width: "auto" }}
+          >
+            <option value="REVIEWING">Đang xem xét</option>
+            <option value="INTERVIEW">Mời phỏng vấn</option>
+            <option value="HIRED">Trúng tuyển</option>
+            <option value="REJECTED">Từ chối</option>
+          </TextSelect>
+          <Button variant="primary" size="sm" disabled={bulkBusy} onClick={() => void handleBulkUpdate()}>
+            {bulkBusy ? "Đang cập nhật…" : "Cập nhật hàng loạt"}
+          </Button>
+          <Button variant="ghost" size="sm" onClick={() => setSelectedIds(new Set())}>
+            Bỏ chọn
+          </Button>
+        </div>
+      ) : null}
+
       <Panel>
         {filtered.length === 0 ? (
           <EmptyNote>
@@ -196,6 +252,16 @@ export function RecruiterCandidatesPage() {
           <Table>
             <thead>
               <tr>
+                <th style={{ width: 32 }}>
+                  <input
+                    type="checkbox"
+                    aria-label="Chọn tất cả đơn đang hiển thị"
+                    checked={filtered.length > 0 && filtered.every((a) => selectedIds.has(a.id))}
+                    onChange={(e) =>
+                      setSelectedIds(e.target.checked ? new Set(filtered.map((a) => a.id)) : new Set())
+                    }
+                  />
+                </th>
                 <th>Ứng viên</th>
                 <th>Vị trí</th>
                 <th>Công ty</th>
@@ -209,6 +275,14 @@ export function RecruiterCandidatesPage() {
                 const b = applicationBadge(a.status);
                 return (
                   <tr key={a.id}>
+                    <td>
+                      <input
+                        type="checkbox"
+                        aria-label={`Chọn đơn của ${a.candidateName}`}
+                        checked={selectedIds.has(a.id)}
+                        onChange={() => toggleSelect(a.id)}
+                      />
+                    </td>
                     <td>
                       <div
                         className="row"

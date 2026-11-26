@@ -31,7 +31,7 @@ spring:
             - id: identity
               uri: ${IDENTITY_URL:http://localhost:8081}
               predicates:
-                - Path=/api/auth/**,/api/account/**,/api/admin/users/**,/api/admin/roles/**
+                - Path=/api/auth/**,/api/account/**,/api/admin/users/**,/api/admin/roles/**,/api/admin/dashboard/**,/api/admin/audit-logs/**
             - id: interview
               uri: ${INTERVIEW_URL:http://localhost:8083}
               predicates:
@@ -39,4 +39,4 @@ spring:
             - id: recruitment
               uri: ${RECRUITMENT_URL:http://localhost:8082}
               predicates:
-                - Path=/api/jobs/**,/api/cvs/**,/api/applications/**,/api/matching/**,/api/dashboard/**
+                - Path=/api/jobs/**,/api/cvs/**,/api/applications/**,/api/matching/**,/api/dashboard/**,/api/companies/**,/api/recruiter/company/**,/api/admin/companies/**,/api/admin/jobs/**,/api/saved-jobs/**

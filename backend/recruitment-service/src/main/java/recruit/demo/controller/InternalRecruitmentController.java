@@ -4,8 +4,12 @@ import org.springframework.http.HttpStatus;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
 import recruit.demo.dto.ServiceDtos.InterviewContext;
+import recruit.demo.dto.ServiceDtos.RecruitmentAdminStats;
+import recruit.demo.enums.CompanyStatus;
+import recruit.demo.enums.JobStatus;
 import recruit.demo.exception.ApiException;
 import recruit.demo.repository.*;
+import java.time.LocalDateTime;
 @RestController
 @RequiredArgsConstructor
 public class InternalRecruitmentController {
@@ -13,9 +17,26 @@ public class InternalRecruitmentController {
     private final recruit.demo.client.IdentityClient identity;
     private final recruit.demo.service.ProfileProvisioningService profiles;
     private final JobRepository jobs;
+    private final CompanyRepository companies;
     private final JobSkillRepository jobSkills;
     private final CvDataRepository cvData;
     private final JobApplicationRepository applications;
+
+    @GetMapping("/internal/stats/admin")
+    @Transactional(readOnly = true)
+    public RecruitmentAdminStats adminStats() {
+        LocalDateTime now = LocalDateTime.now();
+        LocalDateTime d30 = now.minusDays(30);
+        LocalDateTime d60 = now.minusDays(60);
+        return new RecruitmentAdminStats(
+                companies.countByStatus(CompanyStatus.ACTIVE),
+                companies.countByStatus(CompanyStatus.PENDING),
+                jobs.countByStatus(JobStatus.PUBLISHED),
+                jobs.countByStatus(JobStatus.LOCKED),
+                applications.countByAppliedAtBetween(d30, now),
+                applications.countByAppliedAtBetween(d60, d30)
+        );
+    }
     @GetMapping("/internal/interview-context")
     @Transactional
     public InterviewContext context(@RequestParam Integer userId,

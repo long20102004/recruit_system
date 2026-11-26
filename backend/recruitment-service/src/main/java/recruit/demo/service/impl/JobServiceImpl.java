@@ -1,30 +1,29 @@
 package recruit.demo.service.impl;
 
-import recruit.demo.service.*;
-import recruit.demo.enums.JobStatus;
-import recruit.demo.enums.Role;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import recruit.demo.client.IdentityClient;
 import recruit.demo.dto.JobDtos;
 import recruit.demo.dto.PageResponse;
 import recruit.demo.entity.*;
+import recruit.demo.enums.CompanyStatus;
+import recruit.demo.enums.JobStatus;
 import recruit.demo.exception.ApiException;
 import recruit.demo.repository.*;
 import recruit.demo.security.SecurityUtils;
 import recruit.demo.security.UserPrincipal;
+import recruit.demo.service.JobService;
 
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 import java.text.DecimalFormat;
 import java.text.DecimalFormatSymbols;
 import java.time.LocalDateTime;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Locale;
+import java.util.*;
 
 @Service
 @RequiredArgsConstructor
@@ -34,18 +33,28 @@ public class JobServiceImpl implements JobService {
     private final JobSkillRepository jobSkillRepository;
     private final SkillRepository skillRepository;
     private final RecruiterProfileRepository recruiterProfileRepository;
+    private final JobApplicationRepository applicationRepository;
+    private final IdentityClient identityClient;
     private final org.springframework.context.ApplicationEventPublisher events;
 
+    @Override
     @Transactional(readOnly = true)
     public PageResponse<JobDtos.JobResponse> list(String keyword, String city, String status, Pageable pageable) {
+        return list(keyword, city, status, null, pageable);
+    }
+
+    @Override
+    @Transactional(readOnly = true)
+    public PageResponse<JobDtos.JobResponse> list(String keyword, String city, String status, BigDecimal minSalary, Pageable pageable) {
         JobStatus jobStatus = parseStatusOrNull(status);
         if (jobStatus == null && (status == null || status.isBlank())) {
             jobStatus = JobStatus.PUBLISHED;
         }
-        Page<Job> page = jobRepository.search(blankToNull(keyword), blankToNull(city), jobStatus, pageable);
+        Page<Job> page = jobRepository.search(blankToNull(keyword), blankToNull(city), jobStatus, minSalary, pageable);
         return PageResponse.toPageResponse(page, this::toResponse);
     }
 
+    @Override
     @Transactional(readOnly = true)
     public JobDtos.JobResponse getById(Integer id) {
         Job job = jobRepository.findById(id)
@@ -53,14 +62,20 @@ public class JobServiceImpl implements JobService {
         return toResponse(job);
     }
 
+    @Override
     @Transactional
     public JobDtos.JobResponse create(JobDtos.CreateJobRequest request) {
         UserPrincipal principal = SecurityUtils.currentUser();
         RecruiterProfile recruiter = requireRecruiter();
+        Company company = recruiter.getCompany();
 
         JobStatus status = request.status() != null ? request.status() : JobStatus.DRAFT;
+        if (status == JobStatus.PUBLISHED) {
+            ensureCompanyActiveForPublish(company);
+        }
+
         Job job = Job.builder()
-                .company(recruiter.getCompany())
+                .company(company)
                 .createdById(principal.getId())
                 .title(request.title().trim())
                 .description(request.description())
@@ -68,14 +83,22 @@ public class JobServiceImpl implements JobService {
                 .responsibilities(blankToNull(request.responsibilities()))
                 .employmentType(request.workType())
                 .workLocation(firstNonBlank(request.location(), request.city()))
-                .salaryMin(null)
-                .salaryMax(null)
-                .currency("VND")
+                .level(blankToNull(request.level()))
+                .salaryMin(request.salaryMin())
+                .salaryMax(request.salaryMax())
+                .currency(firstNonBlank(request.currency(), "VND"))
                 .experienceRequired(request.minYears() != null ? request.minYears() : BigDecimal.ZERO)
+                .headcount(request.headcount())
+                .benefits(blankToNull(request.benefits()))
+                .hot(Boolean.TRUE.equals(request.hot()))
+                .defaultInterviewQuestions(request.defaultInterviewQuestions() != null ? request.defaultInterviewQuestions() : 5)
+                .deadline(request.deadline())
                 .status(status)
                 .postedAt(status == JobStatus.PUBLISHED ? LocalDateTime.now() : null)
                 .build();
-        parseSalaryText(request.salaryText(), job);
+        if (job.getSalaryMin() == null && job.getSalaryMax() == null) {
+            parseSalaryText(request.salaryText(), job);
+        }
         jobRepository.save(job);
         attachSkills(job, request.requiredSkills(), true);
         attachSkills(job, request.preferredSkills(), false);
@@ -83,13 +106,99 @@ public class JobServiceImpl implements JobService {
         return toResponse(job);
     }
 
+    @Override
+    @Transactional
+    public JobDtos.JobResponse update(Integer id, JobDtos.UpdateJobRequest request) {
+        Job job = jobRepository.findById(id)
+                .orElseThrow(() -> new ApiException(HttpStatus.NOT_FOUND, "Job not found"));
+        ensureOwnsJob(job);
+        if (job.getStatus() == JobStatus.LOCKED) {
+            throw new ApiException(HttpStatus.BAD_REQUEST, "Tin đang bị admin khoá, không thể chỉnh sửa.");
+        }
+
+        JobStatus nextStatus = request.status() != null ? request.status() : job.getStatus();
+        if (nextStatus == JobStatus.PUBLISHED) {
+            ensureCompanyActiveForPublish(job.getCompany());
+        }
+
+        job.setTitle(request.title().trim());
+        job.setDescription(request.description());
+        job.setRequirements(blankToNull(request.requirements()));
+        job.setResponsibilities(blankToNull(request.responsibilities()));
+        job.setEmploymentType(request.workType());
+        job.setWorkLocation(firstNonBlank(request.location(), request.city()));
+        job.setLevel(blankToNull(request.level()));
+        job.setExperienceRequired(request.minYears() != null ? request.minYears() : BigDecimal.ZERO);
+        if (request.headcount() != null) job.setHeadcount(request.headcount());
+        job.setBenefits(blankToNull(request.benefits()));
+        if (request.hot() != null) job.setHot(request.hot());
+        if (request.defaultInterviewQuestions() != null) {
+            job.setDefaultInterviewQuestions(request.defaultInterviewQuestions());
+        }
+        if (request.deadline() != null) {
+            job.setDeadline(request.deadline());
+        }
+        if (request.salaryMin() != null || request.salaryMax() != null) {
+            job.setSalaryMin(request.salaryMin());
+            job.setSalaryMax(request.salaryMax());
+            if (!isBlank(request.currency())) job.setCurrency(request.currency().trim());
+        } else if (request.salaryText() != null) {
+            job.setSalaryMin(null);
+            job.setSalaryMax(null);
+            parseSalaryText(request.salaryText(), job);
+        }
+
+        if (nextStatus != JobStatus.LOCKED) {
+            job.setStatus(nextStatus);
+            if (nextStatus == JobStatus.PUBLISHED && job.getPostedAt() == null) {
+                job.setPostedAt(LocalDateTime.now());
+            }
+        }
+        jobRepository.save(job);
+
+        if (request.requiredSkills() != null || request.preferredSkills() != null) {
+            jobSkillRepository.deleteByJobId(job.getId());
+            jobSkillRepository.flush();
+            attachSkills(job, request.requiredSkills(), true);
+            attachSkills(job, request.preferredSkills(), false);
+        }
+
+        events.publishEvent(new recruit.demo.service.cvmatch.CvMatchEvents.JobChanged(job.getId()));
+        return toResponse(job);
+    }
+
+    @Override
+    @Transactional
+    public void delete(Integer id) {
+        Job job = jobRepository.findById(id)
+                .orElseThrow(() -> new ApiException(HttpStatus.NOT_FOUND, "Job not found"));
+        ensureOwnsJob(job);
+        if (job.getStatus() != JobStatus.DRAFT) {
+            throw new ApiException(HttpStatus.BAD_REQUEST, "Chỉ có thể xoá tin ở trạng thái Nháp (DRAFT).");
+        }
+        if (applicationRepository.countByJobId(id) > 0) {
+            throw new ApiException(HttpStatus.BAD_REQUEST, "Không thể xoá tin đã có ứng viên nộp đơn.");
+        }
+        jobRepository.delete(job);
+    }
+
+    @Override
     @Transactional
     public JobDtos.JobResponse updateStatus(Integer id, String statusRaw) {
         Job job = jobRepository.findById(id)
                 .orElseThrow(() -> new ApiException(HttpStatus.NOT_FOUND, "Job not found"));
         ensureOwnsJob(job);
+        if (job.getStatus() == JobStatus.LOCKED) {
+            throw new ApiException(HttpStatus.BAD_REQUEST, "Tin đang bị khoá bởi quản trị viên, không thể tự mở lại.");
+        }
 
         JobStatus status = parseStatus(statusRaw);
+        if (status == JobStatus.LOCKED) {
+            throw new ApiException(HttpStatus.FORBIDDEN, "Chỉ admin mới có quyền khoá tin.");
+        }
+        if (status == JobStatus.PUBLISHED) {
+            ensureCompanyActiveForPublish(job.getCompany());
+        }
         job.setStatus(status);
         if (status == JobStatus.PUBLISHED && job.getPostedAt() == null) {
             job.setPostedAt(LocalDateTime.now());
@@ -98,6 +207,33 @@ public class JobServiceImpl implements JobService {
         return toResponse(job);
     }
 
+    @Override
+    @Transactional
+    public JobDtos.JobResponse renew(Integer id, LocalDateTime newDeadline) {
+        Job job = jobRepository.findById(id)
+                .orElseThrow(() -> new ApiException(HttpStatus.NOT_FOUND, "Job not found"));
+        ensureOwnsJob(job);
+        if (job.getStatus() == JobStatus.LOCKED) {
+            throw new ApiException(HttpStatus.BAD_REQUEST, "Tin đang bị khoá, không thể gia hạn.");
+        }
+        ensureCompanyActiveForPublish(job.getCompany());
+        LocalDateTime targetDeadline = newDeadline != null ? newDeadline : LocalDateTime.now().plusDays(30);
+        if (targetDeadline.isBefore(LocalDateTime.now())) {
+            throw new ApiException(HttpStatus.BAD_REQUEST, "Hạn nộp mới phải ở tương lai.");
+        }
+        job.setDeadline(targetDeadline);
+        if (job.getStatus() == JobStatus.EXPIRED || job.getStatus() == JobStatus.CLOSED || job.getStatus() == JobStatus.DRAFT) {
+            job.setStatus(JobStatus.PUBLISHED);
+            if (job.getPostedAt() == null) {
+                job.setPostedAt(LocalDateTime.now());
+            }
+        }
+        jobRepository.save(job);
+        events.publishEvent(new recruit.demo.service.cvmatch.CvMatchEvents.JobChanged(job.getId()));
+        return toResponse(job);
+    }
+
+    @Override
     @Transactional(readOnly = true)
     public PageResponse<JobDtos.JobResponse> myJobs(Pageable pageable) {
         UserPrincipal principal = SecurityUtils.currentUser();
@@ -105,16 +241,99 @@ public class JobServiceImpl implements JobService {
         return PageResponse.toPageResponse(page, this::toResponse);
     }
 
+    @Override
+    @Transactional(readOnly = true)
+    public PageResponse<JobDtos.JobResponse> adminList(String status, Integer companyId, String keyword, Pageable pageable) {
+        JobStatus parsed = parseStatusOrNull(status);
+        Page<Job> page = jobRepository.adminSearch(parsed, companyId, blankToNull(keyword), pageable);
+        return PageResponse.toPageResponse(page, this::toResponse);
+    }
+
+    @Override
+    @Transactional(readOnly = true)
+    public Map<Integer, JobDtos.JobLockStateDto> adminLockStates() {
+        Map<Integer, JobDtos.JobLockStateDto> out = new LinkedHashMap<>();
+        for (Job j : jobRepository.findByStatus(JobStatus.LOCKED)) {
+            out.put(j.getId(), new JobDtos.JobLockStateDto(
+                    j.getId(),
+                    true,
+                    firstNonBlank(j.getLockReason(), "Vi phạm quy định"),
+                    orEmpty(j.getLockNote()),
+                    j.getLockedAt()
+            ));
+        }
+        return out;
+    }
+
+    @Override
+    @Transactional
+    public JobDtos.JobLockStateDto lockJob(Integer id, String reason, String note) {
+        if (isBlank(reason)) {
+            throw new ApiException(HttpStatus.BAD_REQUEST, "Vui lòng chọn lý do khoá tin.");
+        }
+        Job job = jobRepository.findById(id)
+                .orElseThrow(() -> new ApiException(HttpStatus.NOT_FOUND, "Job not found"));
+        UserPrincipal actor = SecurityUtils.currentUser();
+
+        job.setStatus(JobStatus.LOCKED);
+        job.setLockReason(reason.trim());
+        job.setLockNote(blankToNull(note));
+        job.setLockedAt(LocalDateTime.now());
+        job.setLockedBy(actor.getId());
+        jobRepository.save(job);
+
+        events.publishEvent(new recruit.demo.service.cvmatch.CvMatchEvents.JobChanged(job.getId()));
+        identityClient.recordAuditLog("LOCK_JOB", "Khoá tin", "badge b-danger",
+                job.getTitle(), actor.getId(), actor.getEmail());
+
+        return new JobDtos.JobLockStateDto(job.getId(), true, job.getLockReason(),
+                orEmpty(job.getLockNote()), job.getLockedAt());
+    }
+
+    @Override
+    @Transactional
+    public void unlockJob(Integer id) {
+        Job job = jobRepository.findById(id)
+                .orElseThrow(() -> new ApiException(HttpStatus.NOT_FOUND, "Job not found"));
+        UserPrincipal actor = SecurityUtils.currentUser();
+
+        JobStatus restored = (job.getDeadline() != null && job.getDeadline().isBefore(LocalDateTime.now()))
+                ? JobStatus.EXPIRED
+                : JobStatus.PUBLISHED;
+        job.setStatus(restored);
+        job.setLockReason(null);
+        job.setLockNote(null);
+        job.setLockedAt(null);
+        job.setLockedBy(null);
+        jobRepository.save(job);
+
+        events.publishEvent(new recruit.demo.service.cvmatch.CvMatchEvents.JobChanged(job.getId()));
+        identityClient.recordAuditLog("UNLOCK_JOB", "Mở khoá tin", "badge b-ok",
+                job.getTitle(), actor.getId(), actor.getEmail());
+    }
+
+    private void ensureCompanyActiveForPublish(Company company) {
+        if (company.getStatus() != CompanyStatus.ACTIVE) {
+            throw new ApiException(HttpStatus.BAD_REQUEST,
+                    "Công ty chưa được duyệt hoạt động (trạng thái hiện tại: " + company.getStatus() + "). Chỉ có thể lưu tin nháp.");
+        }
+    }
+
     private void attachSkills(Job job, List<String> skillNames, boolean required) {
         if (skillNames == null) {
             return;
         }
+        Set<String> seen = new HashSet<>();
         for (String name : skillNames) {
             if (name == null || name.isBlank()) {
                 continue;
             }
-            Skill skill = skillRepository.findByNameIgnoreCase(name.trim())
-                    .orElseGet(() -> skillRepository.save(Skill.builder().name(name.trim()).category("General").build()));
+            String clean = name.trim();
+            if (!seen.add(clean.toLowerCase(Locale.ROOT))) {
+                continue;
+            }
+            Skill skill = skillRepository.findByNameIgnoreCase(clean)
+                    .orElseGet(() -> skillRepository.save(Skill.builder().name(clean).category("General").build()));
             jobSkillRepository.save(JobSkill.builder().job(job).skill(skill).required(required).build());
         }
     }
@@ -133,7 +352,9 @@ public class JobServiceImpl implements JobService {
 
         String location = job.getWorkLocation();
         String city = deriveCity(location);
-        boolean hot = job.getPostedAt() != null && job.getPostedAt().isAfter(LocalDateTime.now().minusDays(1));
+        boolean hot = job.isHot() || (job.getPostedAt() != null && job.getPostedAt().isAfter(LocalDateTime.now().minusDays(1)));
+        String level = firstNonBlank(job.getLevel(), deriveLevel(job.getTitle()));
+        long applicantsCount = applicationRepository.countByJobId(job.getId());
 
         return new JobDtos.JobResponse(
                 job.getId(),
@@ -143,7 +364,7 @@ public class JobServiceImpl implements JobService {
                 location,
                 city,
                 job.getEmploymentType(),
-                deriveLevel(job.getTitle()),
+                level,
                 formatSalaryText(job),
                 job.getExperienceRequired() != null ? job.getExperienceRequired() : BigDecimal.ZERO,
                 job.getStatus(),
@@ -153,7 +374,19 @@ public class JobServiceImpl implements JobService {
                 job.getResponsibilities(),
                 job.getPostedAt(),
                 required,
-                preferred
+                preferred,
+                job.getSalaryMin(),
+                job.getSalaryMax(),
+                job.getCurrency(),
+                job.getHeadcount(),
+                job.getBenefits(),
+                job.getDeadline(),
+                job.getDefaultInterviewQuestions(),
+                job.getLockReason(),
+                job.getLockNote(),
+                job.getLockedAt(),
+                applicantsCount,
+                job.getCreatedById()
         );
     }
 
@@ -177,12 +410,10 @@ public class JobServiceImpl implements JobService {
         if (salaryText == null || salaryText.isBlank()) {
             return;
         }
-        // Keep free-text as description fallback; numeric parse is best-effort for "15 – 22 triệu"
         String normalized = salaryText.toLowerCase(Locale.ROOT).replace(",", "");
         if (normalized.contains("thỏa thuận") || normalized.contains("thoả thuận")) {
             return;
         }
-        // store millions as VND if "triệu" present
         if (normalized.contains("triệu")) {
             String digits = normalized.replaceAll("[^0-9.\\-–]", " ").trim();
             String[] parts = digits.split("[\\-–]+");
@@ -196,7 +427,6 @@ public class JobServiceImpl implements JobService {
                             .setScale(2, RoundingMode.HALF_UP));
                 }
             } catch (NumberFormatException ignored) {
-                // leave nulls
             }
         }
     }
@@ -211,6 +441,9 @@ public class JobServiceImpl implements JobService {
         }
         if (loc.contains("hồ chí minh") || loc.contains("hcm") || loc.contains("tp.hcm") || loc.contains("sài gòn")) {
             return "TP. Hồ Chí Minh";
+        }
+        if (loc.contains("đà nẵng") || loc.contains("da nang")) {
+            return "Đà Nẵng";
         }
         if (loc.contains("remote")) {
             return "Remote";
@@ -260,21 +493,29 @@ public class JobServiceImpl implements JobService {
     }
 
     private JobStatus parseStatusOrNull(String raw) {
-        if (raw == null || raw.isBlank()) {
+        if (raw == null || raw.isBlank() || "ALL".equalsIgnoreCase(raw.trim())) {
             return null;
         }
         return parseStatus(raw);
     }
 
+    private boolean isBlank(String s) {
+        return s == null || s.isBlank();
+    }
+
     private String blankToNull(String value) {
-        return value == null || value.isBlank() ? null : value.trim();
+        return isBlank(value) ? null : value.trim();
+    }
+
+    private String orEmpty(String value) {
+        return value == null ? "" : value;
     }
 
     private String firstNonBlank(String a, String b) {
-        if (a != null && !a.isBlank()) {
+        if (!isBlank(a)) {
             return a.trim();
         }
-        if (b != null && !b.isBlank()) {
+        if (!isBlank(b)) {
             return b.trim();
         }
         return null;

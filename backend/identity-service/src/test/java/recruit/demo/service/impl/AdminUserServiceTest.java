@@ -10,6 +10,7 @@ import recruit.demo.enums.Role;
 import recruit.demo.entity.User;
 import recruit.demo.enums.UserStatus;
 import recruit.demo.exception.BusinessException;
+import recruit.demo.repository.AuditLogRepository;
 import recruit.demo.repository.UserRepository;
 import recruit.demo.security.UserPrincipal;
 
@@ -24,14 +25,16 @@ class AdminUserServiceTest {
 
     private UserRepository repo;
     private UserCacheInvalidator cache;
+    private AuditLogRepository auditLogs;
     private AdminUserService service;
 
     @BeforeEach
     void setUp() {
         repo = mock(UserRepository.class);
         cache = mock(UserCacheInvalidator.class);
+        auditLogs = mock(AuditLogRepository.class);
         when(repo.save(any(User.class))).thenAnswer(i -> i.getArgument(0));
-        service = new AdminUserServiceImpl(repo, cache);
+        service = new AdminUserServiceImpl(repo, cache, auditLogs);
         loginAs(1, Role.ADMIN);
     }
 

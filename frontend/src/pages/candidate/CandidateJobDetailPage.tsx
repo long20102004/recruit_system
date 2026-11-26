@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import { ApplyModal, Button, Can, EmptyNote, JobLogo, SiteHeader } from "../../components/common";
 import { MAX_PAGE_SIZE, jobsApi, matchingApi } from "../../api/client";
+import { savedJobsMock } from "../../api/mock/candidateMock";
 import { useAuth } from "../../context/AuthContext";
 import { useToast } from "../../context/ToastContext";
 import { mapJob, mapMatch } from "../../utils/mappers";
@@ -36,13 +37,15 @@ function TextBlock({ text, splitCommas = false }: { text: string; splitCommas?: 
 
 export function CandidateJobDetailPage() {
   const { jobId } = useParams();
-  const { can } = useAuth();
+  const { user, can } = useAuth();
   const { toast } = useToast();
   const canReadMatch = can("matching:read-own");
   const [job, setJob] = useState<Job | null>(null);
   const [loading, setLoading] = useState(true);
   const [match, setMatch] = useState<MatchResult | null>(null);
   const [applying, setApplying] = useState(false);
+  const [saved, setSaved] = useState(false);
+  const [saveBusy, setSaveBusy] = useState(false);
   const [similar, setSimilar] = useState<Job[]>([]);
 
   useEffect(() => {
@@ -80,10 +83,39 @@ export function CandidateJobDetailPage() {
       .catch(() => setMatch(null));
   }, [jobId, canReadMatch]);
 
+  useEffect(() => {
+    const numericId = Number(jobId);
+    if (!Number.isFinite(numericId) || user?.role !== "CANDIDATE") return;
+    savedJobsMock
+      .list()
+      .then((items) => setSaved(items.some((x) => x.jobId === numericId)))
+      .catch(() => setSaved(false));
+  }, [jobId, user]);
+
   const id = Number(jobId);
 
   function apply() {
     setApplying(true);
+  }
+
+  async function toggleSave() {
+    if (!Number.isFinite(id)) return;
+    setSaveBusy(true);
+    try {
+      if (saved) {
+        await savedJobsMock.unsave(id);
+        setSaved(false);
+        toast("Đã bỏ lưu tin tuyển dụng.");
+      } else {
+        await savedJobsMock.save(id);
+        setSaved(true);
+        toast("Đã lưu tin tuyển dụng.");
+      }
+    } catch (e) {
+      toast(e instanceof Error ? e.message : "Không thể cập nhật trạng thái lưu tin");
+    } finally {
+      setSaveBusy(false);
+    }
   }
 
   const have = new Set((match?.matchedSkills ?? []).map((x) => x.toLowerCase()));
@@ -134,8 +166,13 @@ export function CandidateJobDetailPage() {
                 </div>
                 <div className="row" style={{ gap: 10 }}>
                   <Can perm="application:apply">
-                    <Button variant="primary" onClick={apply} style={{ flex: "1 1 260px" }}>Ứng tuyển ngay</Button>
+                    <Button variant="primary" onClick={apply} style={{ flex: "1 1 240px" }}>Ứng tuyển ngay</Button>
                   </Can>
+                  {user?.role === "CANDIDATE" ? (
+                    <Button variant="ghost" disabled={saveBusy} onClick={() => void toggleSave()}>
+                      {saved ? "Đã lưu ✓" : "Lưu tin"}
+                    </Button>
+                  ) : null}
                   <Can perm="interview:practice">
                     <Button variant="ghost"
                       to={Number.isFinite(id) ? `/candidate/interview?jobId=${id}` : "/candidate/interview"}>

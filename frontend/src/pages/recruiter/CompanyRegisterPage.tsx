@@ -1,14 +1,12 @@
 import { useEffect, useState, type ChangeEvent, type FormEvent } from "react";
 import { Link } from "react-router-dom";
-import { MockNote, RecruiterLayout } from "../../components/common";
+import { RecruiterLayout } from "../../components/common";
 import {
   getCompanyProfile,
   saveCompanyDraft,
-  setMockCompanyStatus,
   submitCompanyRegistration,
   type CompanyProfile,
   type CompanyRegistrationInput,
-  type CompanyVerificationStatus,
 } from "../../api/mock/recruiterMock";
 import { useToast } from "../../context/ToastContext";
 import { initials } from "../../utils/format";
@@ -118,20 +116,8 @@ export function CompanyRegisterPage() {
     }
   }
 
-  async function handleSwitchMockStatus(status: CompanyVerificationStatus) {
-    try {
-      const updated = await setMockCompanyStatus(status);
-      setCompany(updated);
-      toast(`Đã chuyển trạng thái mẫu sang ${status}.`);
-    } catch (err) {
-      toast(err instanceof Error ? err.message : "Không đổi được trạng thái");
-    }
-  }
-
   return (
     <RecruiterLayout active="company">
-      <MockNote />
-
       {!company || !form ? (
         <p className="muted">Đang tải thông tin đăng ký công ty…</p>
       ) : (
@@ -443,21 +429,6 @@ export function CompanyRegisterPage() {
               </section>
             )}
 
-            <section className="card stack" style={{ gap: 8 }}>
-              <p className="tiny muted">Chuyển nhanh trạng thái mẫu (mock) để xem giao diện:</p>
-              <div className="row" style={{ gap: 6 }}>
-                {(["PENDING", "REJECTED", "ACTIVE"] as const).map((s) => (
-                  <button
-                    key={s}
-                    type="button"
-                    className={company.status === s ? "tag tag-on" : "tag"}
-                    onClick={() => void handleSwitchMockStatus(s)}
-                  >
-                    {s}
-                  </button>
-                ))}
-              </div>
-            </section>
           </aside>
         </div>
       )}

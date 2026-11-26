@@ -1,3 +1,5 @@
+import { savedJobsApi, type SavedJobDto } from "../client";
+import { shortDate } from "../../utils/format";
 import { mockReject, mockResolve, nextId } from "./core";
 
 /* ── C02 · Danh sách CV của ứng viên ─────────────────────────────── */
@@ -101,126 +103,39 @@ export interface SavedJobItem {
   match?: number;
 }
 
-const savedJobs: SavedJobItem[] = [
-  {
-    id: 1,
-    jobId: 1,
-    title: "Senior Java Backend Engineer (Spring Boot)",
-    company: "Lumen Fintech",
-    logo: "LF",
-    city: "TP. Hồ Chí Minh",
-    mode: "Hybrid",
-    level: "Senior",
-    salary: "35 – 55 triệu",
-    skills: ["Java", "Spring Boot", "Kafka"],
-    savedAt: "20/11",
-    deadline: "31/12",
-    status: "OPEN",
-    hot: true,
-    match: 86,
-  },
-  {
-    id: 2,
-    jobId: 2,
-    title: "Tech Lead Java (Payment Platform)",
-    company: "Cobalt Cloud",
-    logo: "CC",
-    city: "TP. Hồ Chí Minh",
-    mode: "Hybrid",
-    level: "Lead",
-    salary: "60 – 80 triệu",
-    skills: ["Java", "AWS", "System Design"],
-    savedAt: "19/11",
-    deadline: "10/12",
-    status: "OPEN",
-    match: 63,
-  },
-  {
-    id: 3,
-    jobId: 3,
-    title: "Python Data Engineer",
-    company: "Orbit Analytics",
-    logo: "OA",
-    city: "Remote",
-    mode: "Remote",
-    level: "Middle",
-    salary: "Thỏa thuận",
-    skills: ["Python", "Airflow", "SQL"],
-    savedAt: "15/11",
-    deadline: "05/12",
-    status: "OPEN",
-    match: 48,
-  },
-  {
-    id: 4,
-    title: "DevOps Engineer (AWS, Kubernetes)",
-    company: "Cobalt Cloud",
-    logo: "CC",
-    city: "Đà Nẵng",
-    mode: "Hybrid",
-    level: "Middle",
-    salary: "30 – 45 triệu",
-    skills: ["AWS", "Kubernetes", "Terraform"],
-    savedAt: "11/11",
-    deadline: "30/11",
-    status: "OPEN",
-    match: 41,
-  },
-  {
-    id: 5,
-    title: "Java Developer (Microservices)",
-    company: "Sao Mai Software",
-    logo: "SM",
-    city: "Hà Nội",
-    mode: "On-site",
-    level: "Middle",
-    salary: "25 – 38 triệu",
-    skills: ["Java", "Spring Boot", "PostgreSQL", "Docker"],
-    savedAt: "08/11",
-    deadline: "20/12",
-    status: "OPEN",
-    match: 79,
-  },
-  {
-    id: 6,
-    title: "Java Developer (Logistics)",
-    company: "Kestrel Logistics",
-    logo: "KL",
-    city: "Hà Nội",
-    mode: "On-site",
-    level: "Junior",
-    salary: "18 – 26 triệu",
-    skills: ["Java", "MySQL", "REST API"],
-    savedAt: "01/11",
-    deadline: "15/11/2026",
-    status: "EXPIRED",
-  },
-  {
-    id: 7,
-    title: "Frontend Engineer (React / TypeScript)",
-    company: "Bluewave Digital",
-    logo: "BD",
-    city: "TP. Hồ Chí Minh",
-    mode: "Hybrid",
-    level: "Middle",
-    salary: "24 – 35 triệu",
-    skills: ["ReactJS", "TypeScript", "Vite"],
-    savedAt: "28/10",
-    deadline: "12/11/2026",
-    status: "CLOSED",
-  },
-];
+function mapSavedJobDto(dto: SavedJobDto): SavedJobItem {
+  return {
+    id: dto.id,
+    jobId: dto.jobId,
+    title: dto.title,
+    company: dto.company,
+    logo: dto.logo,
+    city: dto.city,
+    mode: dto.mode,
+    level: dto.level,
+    salary: dto.salary,
+    skills: dto.skills ?? [],
+    savedAt: shortDate(dto.savedAt),
+    deadline: dto.deadline ? shortDate(dto.deadline) : "Không giới hạn",
+    status: dto.status,
+    hot: dto.hot,
+    match: dto.match ?? undefined,
+  };
+}
 
 export const savedJobsMock = {
-  list(): Promise<SavedJobItem[]> {
-    return mockResolve(savedJobs);
+  async list(): Promise<SavedJobItem[]> {
+    const rows = await savedJobsApi.list();
+    return (rows ?? []).map(mapSavedJobDto);
   },
 
-  unsave(id: number): Promise<void> {
-    const idx = savedJobs.findIndex((j) => j.id === id);
-    if (idx === -1) return mockReject("Không tìm thấy việc làm đã lưu.");
-    savedJobs.splice(idx, 1);
-    return mockResolve(undefined);
+  async save(jobId: number): Promise<SavedJobItem> {
+    const dto = await savedJobsApi.save(jobId);
+    return mapSavedJobDto(dto);
+  },
+
+  async unsave(id: number): Promise<void> {
+    await savedJobsApi.unsave(id);
   },
 };
 

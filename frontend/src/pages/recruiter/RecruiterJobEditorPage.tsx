@@ -1,5 +1,5 @@
-import { useState, type KeyboardEvent } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { useEffect, useState, type KeyboardEvent } from "react";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import {
   Button,
   Field,
@@ -36,9 +36,13 @@ const CITIES = [
 ] as const;
 
 export function RecruiterJobEditorPage() {
+  const { id } = useParams<{ id?: string }>();
+  const numericId = id ? Number(id) : null;
+  const isEdit = Boolean(numericId && Number.isFinite(numericId));
   const { toast } = useToast();
   const navigate = useNavigate();
 
+  const [loading, setLoading] = useState(isEdit);
   const [busy, setBusy] = useState(false);
   const [title, setTitle] = useState("");
   const [level, setLevel] = useState<string>("Junior");
@@ -48,7 +52,15 @@ export function RecruiterJobEditorPage() {
   const [location, setLocation] = useState("");
 
   const [salaryInput, setSalaryInput] = useState("");
+  const [salaryMin, setSalaryMin] = useState("");
+  const [salaryMax, setSalaryMax] = useState("");
   const [negotiable, setNegotiable] = useState(false);
+
+  const [headcount, setHeadcount] = useState("1");
+  const [deadline, setDeadline] = useState("");
+  const [defaultInterviewQuestions, setDefaultInterviewQuestions] = useState(5);
+  const [hot, setHot] = useState(false);
+  const [benefits, setBenefits] = useState("");
 
   const [description, setDescription] = useState("");
   const [requirements, setRequirements] = useState("");
@@ -58,6 +70,37 @@ export function RecruiterJobEditorPage() {
   const [requiredSkillDraft, setRequiredSkillDraft] = useState("");
   const [preferredSkills, setPreferredSkills] = useState<string[]>([]);
   const [preferredSkillDraft, setPreferredSkillDraft] = useState("");
+
+  useEffect(() => {
+    if (!isEdit || !numericId) return;
+    setLoading(true);
+    jobsApi
+      .get(numericId)
+      .then((dto) => {
+        setTitle(dto.title ?? "");
+        setLevel(dto.level || "Junior");
+        setMinYears(dto.minYears ?? 0);
+        setWorkType(dto.workType || "Hybrid");
+        setCity(dto.city || "TP. Hồ Chí Minh");
+        setLocation(dto.location ?? "");
+        setNegotiable(dto.salaryText === "Thoả thuận");
+        setSalaryInput(dto.salaryText && dto.salaryText !== "Thoả thuận" ? dto.salaryText : "");
+        setSalaryMin(dto.salaryMin != null ? String(dto.salaryMin) : "");
+        setSalaryMax(dto.salaryMax != null ? String(dto.salaryMax) : "");
+        setHeadcount(dto.headcount != null ? String(dto.headcount) : "1");
+        setDeadline(dto.deadline ? dto.deadline.slice(0, 10) : "");
+        setDefaultInterviewQuestions(dto.defaultInterviewQuestions ?? 5);
+        setHot(Boolean(dto.hot));
+        setBenefits(dto.benefits ?? "");
+        setDescription(dto.description ?? "");
+        setRequirements(dto.requirements ?? "");
+        setResponsibilities(dto.responsibilities ?? "");
+        setRequiredSkills(dto.requiredSkills ?? []);
+        setPreferredSkills(dto.preferredSkills ?? []);
+      })
+      .catch((e) => toast(e instanceof Error ? e.message : "Không tải được thông tin tin tuyển dụng"))
+      .finally(() => setLoading(false));
+  }, [isEdit, numericId, toast]);
 
   const salaryText = negotiable ? "Thoả thuận" : salaryInput;
 
@@ -114,27 +157,40 @@ export function RecruiterJobEditorPage() {
     }
 
     setBusy(true);
+    const parsedMin = salaryMin.trim() ? Number(salaryMin) : null;
+    const parsedMax = salaryMax.trim() ? Number(salaryMax) : null;
+    const parsedHeadcount = headcount.trim() ? Number(headcount) : null;
+    const payload = {
+      title: cleanTitle,
+      description: description.trim() || cleanTitle,
+      location: location.trim(),
+      city,
+      workType,
+      level,
+      minYears,
+      salaryText: salaryText.trim(),
+      salaryMin: !negotiable && parsedMin != null && Number.isFinite(parsedMin) ? parsedMin : null,
+      salaryMax: !negotiable && parsedMax != null && Number.isFinite(parsedMax) ? parsedMax : null,
+      currency: "VND",
+      headcount: parsedHeadcount != null && Number.isFinite(parsedHeadcount) ? parsedHeadcount : null,
+      deadline: deadline ? `${deadline}T23:59:59` : null,
+      defaultInterviewQuestions,
+      hot,
+      benefits: benefits.trim(),
+      status,
+      requiredSkills,
+      preferredSkills,
+      requirements: requirements.trim(),
+      responsibilities: responsibilities.trim(),
+    };
     try {
-      await jobsApi.create({
-        title: cleanTitle,
-        description: description.trim() || cleanTitle,
-        location: location.trim(),
-        city,
-        workType,
-        level,
-        minYears,
-        salaryText: salaryText.trim(),
-        status,
-        requiredSkills,
-        preferredSkills,
-        requirements: requirements.trim(),
-        responsibilities: responsibilities.trim(),
-      });
-      toast(
-        status === "DRAFT"
-          ? "Đã lưu tin nháp"
-          : "Đã đăng tin tuyển dụng"
-      );
+      if (isEdit && numericId) {
+        await jobsApi.update(numericId, payload);
+        toast(status === "DRAFT" ? "Đã cập nhật tin nháp" : "Đã cập nhật tin tuyển dụng");
+      } else {
+        await jobsApi.create(payload);
+        toast(status === "DRAFT" ? "Đã lưu tin nháp" : "Đã đăng tin tuyển dụng");
+      }
       navigate("/recruiter/jobs");
     } catch (err) {
       toast(err instanceof Error ? err.message : "Lưu tin thất bại");
@@ -154,31 +210,35 @@ export function RecruiterJobEditorPage() {
           >
             <Link to="/recruiter/jobs">Tin tuyển dụng</Link>
             <span aria-hidden="true">/</span>
-            <span style={{ color: "var(--ink)" }}>Đăng tin mới</span>
+            <span style={{ color: "var(--ink)" }}>{isEdit ? "Chỉnh sửa tin" : "Đăng tin mới"}</span>
           </nav>
           <div className="row" style={{ marginTop: 6 }}>
             <h1 style={{ fontSize: 30 }}>
-              {title.trim() || "Đăng tin mới"}
+              {title.trim() || (isEdit ? "Chỉnh sửa tin tuyển dụng" : "Đăng tin mới")}
             </h1>
           </div>
         </div>
         <div className="row">
           <Button
             variant="ghost"
-            disabled={busy}
+            disabled={busy || loading}
             onClick={() => void submit("DRAFT")}
           >
             {busy ? "Đang lưu…" : "Lưu nháp"}
           </Button>
           <Button
             variant="primary"
-            disabled={busy}
+            disabled={busy || loading}
             onClick={() => void submit("PUBLISHED")}
           >
-            {busy ? "Đang đăng…" : "Đăng tin"}
+            {busy ? "Đang đăng…" : isEdit ? "Lưu & Đăng tin" : "Đăng tin"}
           </Button>
         </div>
       </div>
+
+      {loading ? (
+        <p className="muted">Đang tải thông tin tin tuyển dụng…</p>
+      ) : null}
 
       <div
         style={{
@@ -275,14 +335,53 @@ export function RecruiterJobEditorPage() {
                   placeholder="Số nhà, đường, quận"
                 />
               </Field>
+
+              <Field label="Số lượng cần tuyển" htmlFor="job-headcount">
+                <TextInput
+                  id="job-headcount"
+                  type="number"
+                  min={1}
+                  max={500}
+                  value={headcount}
+                  onChange={(e) => setHeadcount(e.target.value)}
+                />
+              </Field>
+
+              <Field label="Hạn nộp hồ sơ" htmlFor="job-deadline">
+                <TextInput
+                  id="job-deadline"
+                  type="date"
+                  value={deadline}
+                  onChange={(e) => setDeadline(e.target.value)}
+                />
+              </Field>
+
+              <Field label="Số câu phỏng vấn AI mặc định" htmlFor="job-questions-count">
+                <TextInput
+                  id="job-questions-count"
+                  type="number"
+                  min={1}
+                  max={20}
+                  value={defaultInterviewQuestions}
+                  onChange={(e) => setDefaultInterviewQuestions(Math.max(1, Number(e.target.value) || 5))}
+                />
+              </Field>
             </div>
+            <label className="check">
+              <input
+                type="checkbox"
+                checked={hot}
+                onChange={(e) => setHot(e.target.checked)}
+              />
+              Đánh dấu tin nổi bật (HOT)
+            </label>
           </section>
 
           <section className="card stack" style={{ gap: 16, padding: 26 }}>
             <h3 style={{ fontSize: 18 }}>Mức lương</h3>
             <div className="form-grid">
               <Field
-                label="Mức lương"
+                label="Hiển thị mức lương"
                 htmlFor="job-salary"
                 className="span2"
               >
@@ -292,6 +391,30 @@ export function RecruiterJobEditorPage() {
                   disabled={negotiable}
                   onChange={(e) => setSalaryInput(e.target.value)}
                   placeholder="Ví dụ: 25 – 40 triệu VND"
+                />
+              </Field>
+              <Field label="Lương tối thiểu (triệu VND)" htmlFor="job-salary-min">
+                <TextInput
+                  id="job-salary-min"
+                  type="number"
+                  min={0}
+                  step="0.5"
+                  disabled={negotiable}
+                  value={salaryMin}
+                  onChange={(e) => setSalaryMin(e.target.value)}
+                  placeholder="Ví dụ: 25"
+                />
+              </Field>
+              <Field label="Lương tối đa (triệu VND)" htmlFor="job-salary-max">
+                <TextInput
+                  id="job-salary-max"
+                  type="number"
+                  min={0}
+                  step="0.5"
+                  disabled={negotiable}
+                  value={salaryMax}
+                  onChange={(e) => setSalaryMax(e.target.value)}
+                  placeholder="Ví dụ: 40"
                 />
               </Field>
               <label className="check span2">
@@ -340,6 +463,16 @@ export function RecruiterJobEditorPage() {
                 placeholder={"Thiết kế và phát triển REST API\nReview code cùng đội ngũ"}
               />
               <Hint>Mỗi dòng một trách nhiệm.</Hint>
+            </Field>
+
+            <Field label="Phúc lợi & đãi ngộ" htmlFor="job-benefits">
+              <TextTextarea
+                id="job-benefits"
+                style={{ minHeight: 90 }}
+                value={benefits}
+                onChange={(e) => setBenefits(e.target.value)}
+                placeholder={"Thưởng tháng 13, bảo hiểm sức khoẻ\nLàm việc hybrid 2 ngày/tuần"}
+              />
             </Field>
 
             <Field label="Kỹ năng bắt buộc *" htmlFor="job-req-skill">

@@ -1,8 +1,8 @@
 import { useEffect, useMemo, useState } from "react";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import { MAX_PAGE_SIZE, jobsApi, type JobDto } from "../api/client";
-import { getCompany, type CompanyDto } from "../api/mock/companyMock";
-import { EmptyNote, JobCard, MockNote, SiteHeader } from "../components/common";
+import { followCompany, getCompany, unfollowCompany, type CompanyDto } from "../api/mock/companyMock";
+import { EmptyNote, JobCard, SiteHeader } from "../components/common";
 import { useAuth } from "../context/AuthContext";
 import { useToast } from "../context/ToastContext";
 import { mapJob } from "../utils/mappers";
@@ -32,7 +32,10 @@ export function CompanyDetailPage() {
     setFollowing(false);
 
     getCompany(numericId)
-      .then(setCompany)
+      .then((c) => {
+        setCompany(c);
+        setFollowing(Boolean(c.following));
+      })
       .catch((e: unknown) => {
         setCompanyError(e instanceof Error ? e.message : "Không tìm thấy thông tin công ty.");
       });
@@ -69,16 +72,25 @@ export function CompanyDetailPage() {
     [companyJobs, levelFilter]
   );
 
-  function toggleFollow() {
-    setFollowing((prev) => {
-      const next = !prev;
+  async function toggleFollow() {
+    if (!company) return;
+    if (!user) {
+      toast("Vui lòng đăng nhập để theo dõi công ty.");
+      navigate("/login");
+      return;
+    }
+    try {
+      const res = following ? await unfollowCompany(company.id) : await followCompany(company.id);
+      setFollowing(res.following);
+      setCompany((prev) => (prev ? { ...prev, following: res.following, followersCount: res.followersCount } : prev));
       toast(
-        next
-          ? `Đã theo dõi ${company?.name ?? "công ty"}`
-          : `Đã bỏ theo dõi ${company?.name ?? "công ty"}`
+        res.following
+          ? `Đã theo dõi ${company.name}`
+          : `Đã bỏ theo dõi ${company.name}`
       );
-      return next;
-    });
+    } catch (e: unknown) {
+      toast(e instanceof Error ? e.message : "Không thể cập nhật theo dõi công ty.");
+    }
   }
 
   function openJob(jobId: string, title: string) {
@@ -95,7 +107,6 @@ export function CompanyDetailPage() {
 
       {companyError ? (
         <div className="wrap page-hl">
-          <MockNote />
           <EmptyNote>
             {companyError}{" "}
             <Link to="/companies" className="btn btn-link small">
@@ -105,7 +116,6 @@ export function CompanyDetailPage() {
         </div>
       ) : company === null ? (
         <div className="wrap page-hl">
-          <MockNote />
           <p className="muted">Đang tải thông tin công ty…</p>
         </div>
       ) : (
@@ -214,10 +224,6 @@ export function CompanyDetailPage() {
               gap: 20,
             }}
           >
-            <MockNote>
-              Hồ sơ công ty đang dùng dữ liệu mẫu; danh sách việc làm bên dưới tải trực tiếp từ hệ thống.
-            </MockNote>
-
             <div style={{ display: "flex", gap: 24, flexWrap: "wrap", alignItems: "flex-start" }}>
               <main style={{ flex: "999 1 560px", minWidth: 0, display: "flex", flexDirection: "column", gap: 20 }}>
                 <section id="about" className="card" style={{ padding: 28, display: "flex", flexDirection: "column", gap: 14 }}>

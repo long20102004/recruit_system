@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { getAdminDashboard, type AdminDashboardData } from "../../api/mock/adminMock";
 import { listCompanies, type CompanyDto } from "../../api/mock/companyMock";
-import { EmptyNote, MockNote, RecruiterLayout } from "../../components/common";
+import { EmptyNote, RecruiterLayout } from "../../components/common";
 import { useToast } from "../../context/ToastContext";
 import { shortDate } from "../../utils/format";
 
@@ -35,8 +35,6 @@ export function AdminDashboardPage() {
 
   return (
     <RecruiterLayout active="adminHome">
-      <MockNote />
-
       <div className="page-head" style={{ marginBottom: 0 }}>
         <div>
           <p className="kicker">Quản trị hệ thống</p>

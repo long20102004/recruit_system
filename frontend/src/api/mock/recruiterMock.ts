@@ -1,3 +1,4 @@
+import { apiData, applicationsApi, type ApplicationDetailDto } from "../client";
 import { mockReject, mockResolve, nextId } from "./core";
 
 // ── R02 & R09: Đăng ký & Hồ sơ công ty ──────────────────────────────
@@ -70,116 +71,42 @@ export interface CompanyProfileUpdateInput {
   coverFileName: string;
 }
 
-let companyState: CompanyProfile = {
-  id: 1,
-  name: "Công ty TNHH Lumen Fintech",
-  displayName: "Lumen Fintech",
-  taxCode: "0312345678",
-  industry: "Fintech",
-  size: "300 – 500 nhân viên",
-  companyType: "Product",
-  website: "https://lumenfintech.vn",
-  foundedYear: "2016",
-  headquarters: "2A Nguyễn Lương Bằng, Quận 7, TP. Hồ Chí Minh",
-  officeAddress: "Tầng 12, toà Riverside, 2A Nguyễn Lương Bằng, Quận 7, TP. Hồ Chí Minh",
-  contactEmail: "hr@lumenfintech.vn",
-  contactPhone: "028 3812 3456",
-  shortBio: "Nền tảng thanh toán cho doanh nghiệp vừa và nhỏ.",
-  description:
-    "Lumen Fintech xây dựng hạ tầng thanh toán, đối soát và quản lý dòng tiền cho doanh nghiệp vừa và nhỏ tại Việt Nam.",
-  whyWorkHere: "- Hybrid 3/2\n- Bảo hiểm sức khoẻ cho gia đình",
-  workingDays: "Thứ 2 – Thứ 6",
-  overtimePolicy: "Không OT",
-  techStack: ["Java", "Spring Boot", "Kafka", "AWS"],
-  logoFileName: "logo-lumen.png",
-  coverFileName: "cover-lumen.jpg",
-  licenseFileName: "GPKD_Lumen.pdf",
-  licenseFileMeta: "1,2 MB",
-  confirmed: true,
-  status: "PENDING",
-  submittedAt: "24/11/2026",
-  approvedAt: "25/11/2026",
-  createdBy: "Trần Minh Khoa",
-  rejectionReason: "Giấy phép kinh doanh không rõ nét. Vui lòng tải lại bản scan.",
-};
-
-function todayVi(): string {
-  return new Date().toLocaleDateString("vi-VN");
-}
-
 export async function getCompanyProfile(): Promise<CompanyProfile> {
-  return mockResolve(companyState);
+  return apiData<CompanyProfile>("/recruiter/company");
 }
 
 export async function saveCompanyDraft(
   input: CompanyRegistrationInput
 ): Promise<CompanyProfile> {
-  if (!input.name.trim()) {
-    return mockReject("Vui lòng nhập tên công ty trước khi lưu nháp.");
-  }
-  companyState = {
-    ...companyState,
-    ...input,
-    displayName: companyState.displayName || input.name.trim(),
-  };
-  return mockResolve(companyState);
+  return apiData<CompanyProfile>("/recruiter/company/draft", {
+    method: "PUT",
+    body: JSON.stringify(input),
+  });
 }
 
 export async function submitCompanyRegistration(
   input: CompanyRegistrationInput
 ): Promise<CompanyProfile> {
-  if (
-    !input.name.trim() ||
-    !input.taxCode.trim() ||
-    !input.headquarters.trim() ||
-    !input.contactEmail.trim() ||
-    !input.contactPhone.trim()
-  ) {
-    return mockReject("Vui lòng điền đầy đủ các trường bắt buộc (*).");
-  }
-  if (!input.licenseFileName.trim()) {
-    return mockReject("Vui lòng chọn tệp Giấy phép kinh doanh.");
-  }
-  if (!input.confirmed) {
-    return mockReject("Vui lòng xác nhận thông tin và quyền đại diện công ty.");
-  }
-  companyState = {
-    ...companyState,
-    ...input,
-    status: "PENDING",
-    submittedAt: todayVi(),
-    rejectionReason: null,
-  };
-  return mockResolve(companyState);
+  return apiData<CompanyProfile>("/recruiter/company/submit", {
+    method: "POST",
+    body: JSON.stringify(input),
+  });
 }
 
 export async function setMockCompanyStatus(
   status: CompanyVerificationStatus
 ): Promise<CompanyProfile> {
-  companyState = {
-    ...companyState,
-    status,
-    approvedAt: status === "ACTIVE" ? companyState.approvedAt ?? todayVi() : companyState.approvedAt,
-    rejectionReason:
-      status === "REJECTED"
-        ? companyState.rejectionReason ??
-          "Giấy phép kinh doanh không rõ nét. Vui lòng tải lại bản scan."
-        : null,
-  };
-  return mockResolve(companyState);
+  const current = await getCompanyProfile();
+  return mockResolve({ ...current, status });
 }
 
 export async function updateCompanyProfile(
   input: CompanyProfileUpdateInput
 ): Promise<CompanyProfile> {
-  if (!input.displayName.trim()) {
-    return mockReject("Tên hiển thị công ty không được để trống.");
-  }
-  companyState = {
-    ...companyState,
-    ...input,
-  };
-  return mockResolve(companyState);
+  return apiData<CompanyProfile>("/recruiter/company", {
+    method: "PUT",
+    body: JSON.stringify(input),
+  });
 }
 
 // ── R10: Thành viên công ty ───────────────────────────────────────────
@@ -782,24 +709,12 @@ export interface ApplicationDetailMock {
   overrideStatus: string | null;
   rating: number;
   internalNote: string;
+  hasCvFile?: boolean;
+  cvFileName?: string | null;
   cv: ApplicationCvMock;
   match: ApplicationMatchMock;
   interview: ApplicationInterviewMock | null;
   history: ApplicationHistoryItem[];
-}
-
-const applicationDetailStore = new Map<number, ApplicationDetailMock>();
-
-function slugEmailFromName(name: string): string {
-  const ascii = name
-    .normalize("NFD")
-    .replace(/[\u0300-\u036f]/g, "")
-    .replace(/đ/g, "d")
-    .replace(/Đ/g, "D")
-    .toLowerCase()
-    .replace(/[^a-z0-9]+/g, ".")
-    .replace(/^\.+|\.+$/g, "");
-  return `${ascii || "ung.vien"}@gmail.com`;
 }
 
 function formatShortTimestamp(iso: string): string {
@@ -812,177 +727,46 @@ function formatShortTimestamp(iso: string): string {
   return `${day}/${month} ${hour}:${min}`;
 }
 
-function nowShortTimestamp(): string {
-  return formatShortTimestamp(new Date().toISOString());
-}
-
-const STATUS_LABELS: Record<string, string> = {
-  SUBMITTED: "Đã nộp",
-  REVIEWING: "Đang xem xét",
-  INTERVIEW: "Mời phỏng vấn",
-  HIRED: "Trúng tuyển",
-  REJECTED: "Từ chối",
-  WITHDRAWN: "Đã rút",
-};
-
-function buildInitialDetailMock(seed: {
-  id: number;
-  candidateName: string;
-  jobTitle: string;
-  status: string;
-  appliedAt: string;
-}): ApplicationDetailMock {
-  const variant = Math.abs(seed.id) % 3;
-  const isFrontend = seed.jobTitle.toLowerCase().includes("front") || seed.jobTitle.toLowerCase().includes("react");
-  const isQa = seed.jobTitle.toLowerCase().includes("qa") || seed.jobTitle.toLowerCase().includes("test");
-
-  const cv: ApplicationCvMock = isFrontend
-    ? {
-        roleTitle: "Frontend Engineer",
-        yearsExpLabel: `${2 + variant} năm kinh nghiệm`,
-        email: slugEmailFromName(seed.candidateName),
-        phone: `09${10 + variant}2 345 6${70 + variant}`,
-        summary:
-          "Kinh nghiệm phát triển ứng dụng web React, TypeScript strict, tối ưu Core Web Vitals và xây dựng design system.",
-        experiences: [
-          {
-            title: "Frontend Developer · Sendo Tech",
-            company: "Sendo Tech",
-            period: "04/2024 – nay",
-            description: "Phát triển luồng giỏ hàng và trang quản trị nhà bán hàng bằng React 19 & Vite.",
-          },
-          {
-            title: "Web Intern · TMA Solutions",
-            company: "TMA Solutions",
-            period: "05/2023 – 03/2024",
-            description: "Xây dựng component UI chuẩn accessibility và viết unit test Vitest.",
-          },
-        ],
-        education: "ĐH Công nghệ Thông tin ĐHQG-HCM · Kỹ thuật phần mềm · 2019 – 2023",
-        matchedSkills: ["React", "TypeScript", "HTML/CSS", "REST API"],
-        otherSkills: ["Vite", "Git"],
-      }
-    : isQa
-      ? {
-          roleTitle: "QA Automation Engineer",
-          yearsExpLabel: `${2 + variant} năm kinh nghiệm`,
-          email: slugEmailFromName(seed.candidateName),
-          phone: `09${30 + variant}4 512 8${10 + variant}`,
-          summary:
-            "Kinh nghiệm kiểm thử tự động API & E2E, thiết kế bộ test regression và theo dõi chất lượng release.",
-          experiences: [
-            {
-              title: "QA Engineer · NashTech",
-              company: "NashTech",
-              period: "03/2024 – nay",
-              description: "Viết script Playwright & Postman CI kiểm thử hệ thống thanh toán.",
-            },
-          ],
-          education: "ĐH Khoa học Tự nhiên · Hệ thống thông tin · 2019 – 2023",
-          matchedSkills: ["Playwright", "Postman", "SQL", "CI/CD"],
-          otherSkills: ["Java", "Git"],
-        }
-      : {
-          roleTitle: "Backend Developer",
-          yearsExpLabel: `${3 + variant} năm kinh nghiệm`,
-          email: slugEmailFromName(seed.candidateName),
-          phone: `0912 345 6${78 - variant}`,
-          summary:
-            "3 năm kinh nghiệm phát triển backend Java, Spring Boot cho hệ thống thương mại điện tử và thanh toán.",
-          experiences: [
-            {
-              title: "Backend Developer · Nami Commerce",
-              company: "Nami Commerce",
-              period: "06/2024 – nay",
-              description: "Dịch vụ đơn hàng Spring Boot; giảm 40% thời gian truy vấn báo cáo.",
-            },
-            {
-              title: "Java Intern · Sao Mai Software",
-              company: "Sao Mai Software",
-              period: "01/2023 – 05/2024",
-              description: "API quản lý kho, unit test JUnit.",
-            },
-          ],
-          education: "Học viện Công nghệ Bưu chính Viễn thông · Công nghệ thông tin · 2019 – 2024",
-          matchedSkills: ["Java", "Spring Boot", "MySQL", "Docker"],
-          otherSkills: ["Redis", "Git"],
-        };
-
-  const overallPercent = 86 - variant * 4;
-  const match: ApplicationMatchMock = {
-    overallPercent,
-    breakdown: [
-      { label: "Chức danh", percent: 90 - variant * 3 },
-      { label: "Kinh nghiệm", percent: 82 - variant * 4 },
-      { label: "Kỹ năng", percent: 88 - variant * 5 },
-    ],
-    missingSkills: isFrontend ? ["GraphQL"] : isQa ? ["Performance Testing"] : ["Kafka"],
-  };
-
-  const upperStatus = seed.status.toUpperCase();
-  const hasInterview = upperStatus === "INTERVIEW" || upperStatus === "HIRED" || variant === 0;
-  const interview: ApplicationInterviewMock | null = hasInterview
-    ? {
-        completedAt: "22/11/2026",
-        questionCount: 6,
-        durationMinutes: 28,
-        overallScore: Number((7.4 + variant * 0.3).toFixed(1)),
-        topics: isFrontend
-          ? [
-              { name: "React", score: 8.3 },
-              { name: "TypeScript", score: 7.9 },
-              { name: "CSS Layout", score: 7.4 },
-              { name: "Performance", score: 6.8 },
-              { name: "Testing", score: 6.4 },
-            ]
-          : [
-              { name: "Java", score: 8.2 },
-              { name: "SQL", score: 7.5 },
-              { name: "Spring Boot", score: 7.8 },
-              { name: "REST API", score: 7.0 },
-              { name: "Docker", score: 6.0 },
-            ],
-      }
-    : null;
-
-  const appliedTime = formatShortTimestamp(seed.appliedAt);
-  const history: ApplicationHistoryItem[] = [];
-  if (interview) {
-    history.push({
-      statusLabel: `Hoàn thành phỏng vấn (${String(interview.overallScore).replace(".", ",")}/10)`,
-      timestamp: "22/11 16:40",
-      actor: "Hệ thống",
-    });
-  }
-  if (upperStatus === "INTERVIEW" || upperStatus === "HIRED") {
-    history.push({
-      statusLabel: "Mời phỏng vấn",
-      timestamp: "21/11 15:02",
-      actor: "Trần Minh Khoa",
-    });
-  }
-  if (upperStatus !== "SUBMITTED") {
-    history.push({
-      statusLabel: STATUS_LABELS[upperStatus] ?? upperStatus,
-      timestamp: "21/11 14:30",
-      actor: "Trần Minh Khoa",
-    });
-  }
-  history.push({
-    statusLabel: "Đã nộp",
-    timestamp: appliedTime || "20/11 09:12",
-    actor: "Ứng viên",
-  });
-
+function toDetailMockFromDto(dto: ApplicationDetailDto): ApplicationDetailMock {
   return {
-    applicationId: seed.id,
-    overrideStatus: null,
-    rating: 4,
-    internalNote: "Giao tiếp tốt, cần hỏi thêm về Kafka ở vòng trực tiếp.",
-    cv,
-    match,
-    interview,
-    history,
+    applicationId: dto.id,
+    overrideStatus: dto.status,
+    rating: dto.rating ?? 0,
+    internalNote: dto.internalNote ?? "",
+    hasCvFile: dto.hasCvFile,
+    cvFileName: dto.cvFileName,
+    cv: {
+      roleTitle: dto.cv.roleTitle || "Ứng viên",
+      yearsExpLabel: dto.cv.yearsExpLabel || "Chưa cập nhật",
+      email: dto.cv.email || "",
+      phone: dto.cv.phone || "",
+      summary: dto.cv.summary || "",
+      experiences: (dto.cv.experiences ?? []).map((e) => ({
+        title: e.title,
+        company: e.company ?? "",
+        period: e.period ?? "",
+        description: e.description ?? "",
+      })),
+      education: dto.cv.education || "Chưa cập nhật",
+      matchedSkills: dto.cv.matchedSkills ?? [],
+      otherSkills: dto.cv.otherSkills ?? [],
+    },
+    match: dto.match ?? {
+      overallPercent: 0,
+      breakdown: [
+        { label: "Ngữ nghĩa / Chức danh", percent: 0 },
+        { label: "Kỹ năng", percent: 0 },
+        { label: "Kinh nghiệm", percent: 0 },
+      ],
+      missingSkills: [],
+    },
+    interview: null,
+    history: (dto.history ?? []).map((h) => ({
+      statusLabel: h.statusLabel,
+      timestamp: formatShortTimestamp(h.timestamp),
+      actor: h.actor,
+      note: h.note ?? undefined,
+    })),
   };
 }
 
@@ -993,35 +777,17 @@ export async function getApplicationDetailMock(seed: {
   status: string;
   appliedAt: string;
 }): Promise<ApplicationDetailMock> {
-  let entry = applicationDetailStore.get(seed.id);
-  if (!entry) {
-    entry = buildInitialDetailMock(seed);
-    applicationDetailStore.set(seed.id, entry);
-  }
-  return mockResolve(entry);
+  const dto = await applicationsApi.detail(seed.id);
+  return toDetailMockFromDto(dto);
 }
 
 export async function updateMockApplicationStatus(
   applicationId: number,
   nextStatus: string,
-  note: string,
-  actor = "Trần Minh Khoa"
+  note: string
 ): Promise<ApplicationDetailMock> {
-  const entry = applicationDetailStore.get(applicationId);
-  if (!entry) {
-    return mockReject("Không tìm thấy dữ liệu đơn ứng tuyển.");
-  }
-  entry.overrideStatus = nextStatus;
-  entry.history = [
-    {
-      statusLabel: STATUS_LABELS[nextStatus.toUpperCase()] ?? nextStatus,
-      timestamp: nowShortTimestamp(),
-      actor,
-      note: note.trim() || undefined,
-    },
-    ...entry.history,
-  ];
-  return mockResolve(entry);
+  const dto = await applicationsApi.updateStatus(applicationId, nextStatus, note);
+  return toDetailMockFromDto(dto);
 }
 
 export async function saveMockApplicationNote(
@@ -1029,11 +795,6 @@ export async function saveMockApplicationNote(
   rating: number,
   internalNote: string
 ): Promise<ApplicationDetailMock> {
-  const entry = applicationDetailStore.get(applicationId);
-  if (!entry) {
-    return mockReject("Không tìm thấy dữ liệu đơn ứng tuyển.");
-  }
-  entry.rating = rating;
-  entry.internalNote = internalNote;
-  return mockResolve(entry);
+  const dto = await applicationsApi.saveNote(applicationId, rating, internalNote);
+  return toDetailMockFromDto(dto);
 }
