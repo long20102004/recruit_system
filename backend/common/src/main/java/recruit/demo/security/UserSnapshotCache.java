@@ -22,7 +22,8 @@ import java.util.Optional;
 @Component
 public class UserSnapshotCache {
 
-    static final String PREFIX = "auth:user:";
+    /** v2: thêm permissions (specs/004-rbac). Đổi tiền tố để entry cũ (không có permissions) bị bỏ qua sau deploy. */
+    static final String PREFIX = "auth:user:v2:";
 
     private final StringRedisTemplate redis;
     private final Duration ttl;

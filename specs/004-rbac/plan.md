@@ -28,7 +28,7 @@ Endpoint công khai / chỉ cần đăng nhập (không permission): `/api/auth/
 
 ## Thiết kế
 
-- **identity**: bảng `roles`, `permissions`, `role_permissions`; FK `users.role → roles.code`. `RbacService` đọc ma trận (cache trong bộ nhớ, xoá khi sửa). `UserResponse` và `UserSnapshot` thêm `permissions`. API `GET /api/admin/roles`, `PUT /api/admin/roles/{code}/permissions`; sửa ma trận → xoá cache `auth:user:*`.
+- **identity**: bảng `roles`, `permissions`, `role_permissions`; FK `users.role → roles.code`. `RbacService` đọc ma trận (cache trong bộ nhớ, xoá khi sửa). `UserResponse` và `UserSnapshot` thêm `permissions`. API `GET /api/admin/roles`, `PUT /api/admin/roles/{code}/permissions`; sửa ma trận → xoá cache `auth:user:v2:*` (tiền tố có v2 để bỏ entry cũ chưa có permissions).
 - **common**: `UserPrincipal` thêm `permissions`, authorities = `ROLE_X` + permission; `UserSnapshotCache` lưu thêm permissions, có `evictAll`; `SecurityUtils.hasPermission`.
 - **3 service**: `@PreAuthorize` ở controller; bỏ `requireRole`; bypass ADMIN → `hasPermission("…:read-all")`. Rẽ nhánh theo loại người dùng (ứng viên / recruiter) trong cùng endpoint vẫn theo role, chỉ để chọn luồng, không để cấp quyền.
 - **gateway**: route `/api/admin/roles/**` → identity.
