@@ -125,6 +125,8 @@ body.hl{margin:0;min-height:100vh;background:var(--bg)}
 .btn-block{width:100%}
 .btn-link:hover{text-decoration:underline}
 button.tag{cursor:pointer;font-family:var(--font-body)}
+.brand-hl .brand-accent{color:var(--brand)}
+.sidenav .brand-hl .brand-accent,.auth-split-aside .brand-hl .brand-accent{color:#b8c5f0}
 .brand-hl{display:inline-flex;align-items:center;gap:8px;font-family:var(--font-display);font-weight:650;font-size:25px;letter-spacing:-.02em;color:var(--ink)}
 
 /* top nav */
@@ -149,6 +151,38 @@ button.tag{cursor:pointer;font-family:var(--font-body)}
 .sidenav-user p{margin:0}
 .sidenav-logout{background:none;border:0;color:#bfb5a8;font:600 12.5px var(--font-body);cursor:pointer;padding:0}
 .sidenav-logout:hover{color:#fbf8f3}
+.sidenav .sn-icon,.sidenav .brand-hl svg{flex:none}
+
+/* Sidebar thu gọn chỉ còn icon; hover hoặc focus bàn phím thì mở rộng, đè lên nội dung (không đẩy layout). */
+@media (min-width:761px){
+  .app{flex-wrap:nowrap}
+  .app-side{flex:0 0 64px;min-width:64px;max-width:64px;position:relative;z-index:30}
+  .sidenav{width:64px;height:100vh;min-height:0;padding:22px 10px;overflow-x:hidden;overflow-y:auto;
+    transition:width .18s ease,box-shadow .18s ease}
+  .sidenav:hover,.sidenav:focus-within{width:248px;box-shadow:10px 0 32px rgba(42,36,31,.28)}
+  .sidenav .sn-label,.sidenav .brand-text{opacity:0;white-space:nowrap;transition:opacity .1s ease}
+  .sidenav:hover .sn-label,.sidenav:focus-within .sn-label,
+  .sidenav:hover .brand-text,.sidenav:focus-within .brand-text{opacity:1;transition-delay:.08s}
+  .sidenav .brand-hl{padding:0 7px 4px;white-space:nowrap}
+  .sidenav-area{padding:0 12px 14px}
+  .sidenav a.item{justify-content:flex-start;gap:14px;padding:0 12px;white-space:nowrap}
+  .sidenav-group{position:relative;white-space:nowrap;padding:14px 12px 6px}
+  .sidenav-group::before{content:"";position:absolute;left:12px;right:12px;top:58%;border-top:1px solid #4a433c;transition:opacity .1s}
+  .sidenav:hover .sidenav-group::before,.sidenav:focus-within .sidenav-group::before{opacity:0}
+  .sidenav-user{padding:14px 2px 0;white-space:nowrap}
+  .sidenav-user .avatar{flex:none}
+  /* Ẩn thanh cuộn (chiếm chỗ trong 64px) nhưng vẫn cuộn được bằng con lăn/bàn phím khi màn hình thấp. */
+  .sidenav{scrollbar-width:none;overscroll-behavior:contain}
+  .sidenav::-webkit-scrollbar{display:none}
+}
+/* Màn hình thấp: thu gọn khoảng cách để menu vừa chiều cao, hạn chế phải cuộn. */
+@media (min-width:761px) and (max-height:820px){
+  .sidenav{gap:2px;padding-top:14px;padding-bottom:12px}
+  .sidenav a.item{min-height:36px}
+  .sidenav-area{padding-bottom:6px}
+  .sidenav-group{padding-top:8px;padding-bottom:4px}
+  .sidenav-user{padding-top:10px}
+}
 
 /* auth split */
 .auth-split{display:flex;flex-wrap:wrap;min-height:100vh}

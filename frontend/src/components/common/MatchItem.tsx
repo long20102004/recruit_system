@@ -10,6 +10,8 @@ interface MatchItemProps {
   match: MatchResult;
   actionHref?: string;
   actionLabel?: string;
+  /** Có thì nút chính là "Ứng tuyển" (mở modal C05) thay cho actionHref. */
+  onApply?: () => void;
 }
 
 function gapLine(match: MatchResult): string {
@@ -38,6 +40,7 @@ export function MatchItem({
   match,
   actionHref = "/candidate/matching",
   actionLabel = "Xem chi tiết",
+  onApply,
 }: MatchItemProps) {
   const parts: [string, number][] = match.band
     ? []
@@ -92,7 +95,11 @@ export function MatchItem({
         <MatchExplain matchId={match.id} available={Boolean(match.band)} />
       </div>
       <div style={{ flex: "0 0 auto", display: "flex", flexDirection: "column", gap: 8 }}>
-        <Button variant="primary" size="sm" to={actionHref}>{actionLabel}</Button>
+        {onApply ? (
+          <Button variant="primary" size="sm" onClick={onApply}>Ứng tuyển</Button>
+        ) : (
+          <Button variant="primary" size="sm" to={actionHref}>{actionLabel}</Button>
+        )}
         <Button variant="ghost" size="sm" to={`/candidate/interview?jobId=${job.id}`}>Luyện phỏng vấn</Button>
       </div>
     </article>

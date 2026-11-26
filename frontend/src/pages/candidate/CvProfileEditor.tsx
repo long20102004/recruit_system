@@ -138,12 +138,12 @@ export function CvProfileEditor({
       <section className="cvu-card cvu-stack">
         <h3>Thông tin cá nhân</h3>
         <div className="cvu-grid">
-          <Text id="cv-name" label="Họ tên" value={info.full_name} onChange={(v) => setInfo({ full_name: v })} />
+          <Text id="cv-name" label="Họ và tên" value={info.full_name} onChange={(v) => setInfo({ full_name: v })} />
           <Text id="cv-email" label="Email" type="email" value={info.email} onChange={(v) => setInfo({ email: v })} />
-          <Text id="cv-phone" label="Điện thoại" value={info.phone} onChange={(v) => setInfo({ phone: v })} />
+          <Text id="cv-phone" label="Số điện thoại" value={info.phone} onChange={(v) => setInfo({ phone: v })} />
           <Text id="cv-github" label="GitHub" value={info.github_url} onChange={(v) => setInfo({ github_url: v })} />
           <div className="cvu-field cvu-span2">
-            <label htmlFor="cv-objective">Mục tiêu nghề nghiệp</label>
+            <label htmlFor="cv-objective">Giới thiệu</label>
             <textarea id="cv-objective" className="cvu-input" rows={4} value={profile.objective ?? ""}
               onChange={(e) => set({ objective: e.target.value })} />
           </div>
@@ -169,29 +169,29 @@ export function CvProfileEditor({
         render={(e, up, i) => (
           <>
             <Text id={`edu-school-${i}`} label="Trường" value={e.school} onChange={(v) => up({ school: v })} span2 />
-            <Text id={`edu-major-${i}`} label="Ngành" value={e.major} onChange={(v) => up({ major: v })} />
+            <Text id={`edu-major-${i}`} label="Chuyên ngành" value={e.major} onChange={(v) => up({ major: v })} />
             <Text id={`edu-gpa-${i}`} label="GPA" value={e.gpa} onChange={(v) => up({ gpa: v })} />
-            <Text id={`edu-start-${i}`} label="Năm bắt đầu" type="number" value={e.start_year}
+            <Text id={`edu-start-${i}`} label="Từ" type="number" value={e.start_year}
               onChange={(v) => up({ start_year: toInt(v) })} />
-            <Text id={`edu-end-${i}`} label="Năm kết thúc" type="number" value={e.end_year}
+            <Text id={`edu-end-${i}`} label="Đến" type="number" value={e.end_year}
               onChange={(v) => up({ end_year: toInt(v) })} />
           </>
         )}
       />
 
       <Repeat<Experience>
-        title="Kinh nghiệm" items={profile.experience ?? []} onChange={(experience) => set({ experience })}
+        title="Kinh nghiệm làm việc" items={profile.experience ?? []} onChange={(experience) => set({ experience })}
         empty="AI không tìm thấy kinh nghiệm làm việc trong CV."
         blank={() => ({ company: null, job_title: null, start_date: null, end_date: null, description: [] })}
         render={(e, up, i) => (
           <>
-            <Text id={`exp-title-${i}`} label="Vị trí" value={e.job_title} onChange={(v) => up({ job_title: v })} />
+            <Text id={`exp-title-${i}`} label="Chức danh" value={e.job_title} onChange={(v) => up({ job_title: v })} />
             <Text id={`exp-company-${i}`} label="Công ty" value={e.company} onChange={(v) => up({ company: v })} />
-            <Text id={`exp-start-${i}`} label="Bắt đầu" placeholder="MM/YYYY" value={e.start_date}
+            <Text id={`exp-start-${i}`} label="Từ tháng" placeholder="MM/YYYY" value={e.start_date}
               onChange={(v) => up({ start_date: v })} />
-            <Text id={`exp-end-${i}`} label="Kết thúc" placeholder="MM/YYYY hoặc để trống" value={e.end_date}
+            <Text id={`exp-end-${i}`} label="Đến tháng" placeholder="MM/YYYY hoặc để trống" value={e.end_date}
               onChange={(v) => up({ end_date: v })} />
-            <Lines id={`exp-desc-${i}`} label="Mô tả công việc" value={e.description}
+            <Lines id={`exp-desc-${i}`} label="Mô tả công việc, thành tựu" value={e.description}
               onChange={(v) => up({ description: v })} />
           </>
         )}
@@ -213,7 +213,7 @@ export function CvProfileEditor({
             <Text id={`prj-end-${i}`} label="Kết thúc" value={x.end_date} onChange={(v) => up({ end_date: v })} />
             <Text id={`prj-gh-${i}`} label="GitHub" value={x.github_url} onChange={(v) => up({ github_url: v })} span2 />
             <div className="cvu-field cvu-span2">
-              <label>Công nghệ</label>
+              <label>Công nghệ sử dụng</label>
               <Tags items={x.tech_stack ?? []} onChange={(v) => up({ tech_stack: v })} addLabel="Thêm công nghệ" />
             </div>
             <Lines id={`prj-desc-${i}`} label="Mô tả" value={x.description} onChange={(v) => up({ description: v })} />

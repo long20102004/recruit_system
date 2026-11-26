@@ -66,12 +66,12 @@ export function RecruiterMatchingPage() {
   return (
     <RecruiterLayout active="matching">
         <PageHead
-          title="Ghép hồ sơ – tin tuyển dụng"
+          title="Xếp hạng matching"
           description="Xếp hạng ứng viên theo kỹ năng và mức phù hợp với tin đã chọn."
           actions={
             <Can perm={["matching:run", "matching:run-pool"]}>
               <Button variant="primary" onClick={run} disabled={busy || !jobId}>
-                {busy ? "Đang chạy…" : "Làm mới xếp hạng"}
+                {busy ? "Đang chạy…" : "Chạy matching"}
               </Button>
             </Can>
           }
@@ -95,7 +95,7 @@ export function RecruiterMatchingPage() {
 
           {matches.length === 0 ? (
             <EmptyNote>
-              Chưa có kết quả. Bấm “Làm mới xếp hạng” để ghép ứng viên với tin đã
+              Chưa có kết quả. Bấm “Chạy matching” để ghép ứng viên với tin đã
               chọn.
             </EmptyNote>
           ) : (

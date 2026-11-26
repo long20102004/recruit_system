@@ -1,11 +1,14 @@
 import { useCallback, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import {
+  ApplyModal,
   Button,
   EmptyNote,
   MatchItem,
   SiteHeader,
+  type ApplyTarget,
 } from "../../components/common";
+import { useAuth } from "../../context/AuthContext";
 import {
   MAX_PAGE_SIZE,
   cvsApi,
@@ -24,6 +27,8 @@ export function CandidateMatchingPage() {
   const [ready, setReady] = useState(false);
   const [loading, setLoading] = useState(true);
   const [busy, setBusy] = useState(false);
+  const [applying, setApplying] = useState<ApplyTarget | null>(null);
+  const { can } = useAuth();
   const [scoreError, setScoreError] = useState<string | null>(null);
 
   const load = useCallback(async () => {
@@ -172,12 +177,18 @@ export function CandidateMatchingPage() {
               if (!match.rank) match.rank = idx + 1;
               return (
                 <MatchItem key={r.id} job={mapped} match={match}
-                  actionHref={`/candidate/jobs/${job.id}`} actionLabel="Xem chi tiết" />
+                  actionHref={`/candidate/jobs/${job.id}`} actionLabel="Xem chi tiết"
+                  onApply={can("application:apply") ? () => setApplying({ id: job.id, title: mapped.title,
+                    company: mapped.company, location: mapped.location, matchPct: Math.round(Number(r.overallScore) * 100) }) : undefined} />
               );
             })
           )}
         </section>
       </div>
+      {applying ? (
+        <ApplyModal job={applying} onClose={() => setApplying(null)}
+          onApplied={() => { setApplying(null); toast("Đã gửi đơn. Nhà tuyển dụng sẽ nhận được thông báo."); }} />
+      ) : null}
     </>
   );
 }

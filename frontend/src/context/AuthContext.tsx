@@ -34,6 +34,8 @@ interface AuthState {
   chooseRole: (role: "CANDIDATE" | "RECRUITER") => Promise<UserDto>;
   refreshUser: () => Promise<void>;
   logout: () => void;
+  /** true ngay sau khi người dùng chủ động đăng xuất (route bảo vệ đưa về trang chủ thay vì trang đăng nhập). */
+  loggedOut: boolean;
   /** Kiểm tra quyền theo ma trận RBAC; mảng = có một trong số đó là đủ. */
   can: (need: PermissionRequirement) => boolean;
   headerMode: HeaderMode;
@@ -57,6 +59,7 @@ function roleToUi(role: RoleDto | undefined): UserRole | null {
 export function AuthProvider({ children }: { children: ReactNode }) {
   const [user, setUser] = useState<UserDto | null>(null);
   const [loading, setLoading] = useState(true);
+  const [loggedOut, setLoggedOut] = useState(false);
 
   useEffect(() => {
     const token = getToken();
@@ -116,6 +119,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   }, []);
 
   const logout = useCallback(() => {
+    setLoggedOut(true);
     setToken(null);
     setUser(null);
   }, []);
@@ -132,11 +136,12 @@ export function AuthProvider({ children }: { children: ReactNode }) {
       chooseRole,
       refreshUser,
       logout,
+      loggedOut: loggedOut && !user,
       can: (need: PermissionRequirement) => hasPermission(user, need),
       headerMode: roleToHeader(user?.role),
       uiRole: roleToUi(user?.role),
     }),
-    [user, loading, login, loginWithGoogle, applySession, register, verifyEmail, chooseRole, refreshUser, logout]
+    [user, loading, login, loginWithGoogle, applySession, register, verifyEmail, chooseRole, refreshUser, logout, loggedOut]
   );
 
   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;

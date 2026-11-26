@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Link, Navigate, useNavigate } from "react-router-dom";
+import { Link, Navigate, useNavigate, useSearchParams } from "react-router-dom";
 import {
   AuthAside,
   AuthForm,
@@ -14,12 +14,13 @@ import {
 import { useAuth } from "../context/AuthContext";
 import { useToast } from "../context/ToastContext";
 import { ApiError, AuthErrorCode } from "../api/client";
-import { accountPath } from "../utils/account";
+import { afterLoginPath } from "../utils/account";
 
 export function LoginPage() {
   const { login, user, loading } = useAuth();
   const { toast } = useToast();
   const navigate = useNavigate();
+  const redirect = useSearchParams()[0].get("redirect");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [busy, setBusy] = useState(false);
@@ -28,7 +29,7 @@ export function LoginPage() {
   const [unverifiedEmail, setUnverifiedEmail] = useState<string | null>(null);
 
   if (!loading && user) {
-    return <Navigate to={accountPath(user)} replace />;
+    return <Navigate to={afterLoginPath(user, redirect)} replace />;
   }
 
   async function onSubmit() {
@@ -38,7 +39,7 @@ export function LoginPage() {
     try {
       const signedIn = await login(email, password);
       toast("Đăng nhập thành công");
-      navigate(accountPath(signedIn));
+      navigate(afterLoginPath(signedIn, redirect));
     } catch (e) {
       if (!(e instanceof ApiError)) {
         toast("Đăng nhập thất bại");

@@ -1,240 +1,221 @@
-import { useEffect, useState, type FormEvent } from "react";
+import { useCallback, useEffect, useMemo, useState } from "react";
 import {
   Button,
+  Can,
   EmptyNote,
-  Field,
-  Grid2,
   PageHead,
-  Panel,
   RecruiterLayout,
-  TextInput,
-  TextSelect,
-  TextTextarea, Can, Pager
+  Table,
 } from "../../components/common";
-import { jobsApi, type JobDto, type PageDto } from "../../api/client";
+import { MAX_PAGE_SIZE, applicationsApi, jobsApi, type JobDto } from "../../api/client";
+import { useAuth } from "../../context/AuthContext";
 import { useToast } from "../../context/ToastContext";
 import { jobBadge, shortDate } from "../../utils/format";
 import { mapJob } from "../../utils/mappers";
 
+type JobStatusTab = "ALL" | "PUBLISHED" | "DRAFT" | "CLOSED";
+
+const STATUS_TABS: ReadonlyArray<{ key: JobStatusTab; label: string }> = [
+  { key: "ALL", label: "Tất cả" },
+  { key: "PUBLISHED", label: "Đang đăng" },
+  { key: "DRAFT", label: "Nháp" },
+  { key: "CLOSED", label: "Đã đóng" },
+];
+
 export function RecruiterJobsPage() {
   const { toast } = useToast();
-  const [data, setData] = useState<PageDto<JobDto> | null>(null);
-  const jobs = data?.content ?? [];
-  const [busy, setBusy] = useState(false);
-  const [form, setForm] = useState({
-    title: "",
-    level: "Junior",
-    workType: "Hybrid",
-    location: "",
-    city: "TP. Hồ Chí Minh",
-    salary: "",
-    required: "",
-    preferred: "",
-    description: "",
-    requirements: "",
-    responsibilities: "",
-  });
+  const [jobs, setJobs] = useState<JobDto[]>([]);
+  const [loading, setLoading] = useState(true);
+  const [tab, setTab] = useState<JobStatusTab>("ALL");
+  const [keyword, setKeyword] = useState("");
+  const [busyId, setBusyId] = useState<number | null>(null);
+  const [appCount, setAppCount] = useState<Map<number, number> | null>(null);
+  const { can } = useAuth();
+  const canReadApps = can("application:read-received");
 
-  async function load(page = 0) {
-    setData(await jobsApi.mine({ page }));
-  }
+  const load = useCallback(async () => {
+    const page = await jobsApi.mine({ size: MAX_PAGE_SIZE });
+    setJobs(page.content);
+    if (canReadApps) {
+      const apps = await applicationsApi.recruiter({ size: MAX_PAGE_SIZE });
+      const counts = new Map<number, number>();
+      for (const a of apps.content) counts.set(a.jobId, (counts.get(a.jobId) ?? 0) + 1);
+      setAppCount(counts);
+    }
+  }, [canReadApps]);
 
   useEffect(() => {
-    load().catch((e) => toast(e.message));
-  }, [toast]);
+    load()
+      .catch((e) =>
+        toast(e instanceof Error ? e.message : "Không tải được danh sách tin")
+      )
+      .finally(() => setLoading(false));
+  }, [load, toast]);
 
-  async function onSubmit(e: FormEvent) {
-    e.preventDefault();
-    setBusy(true);
+  const counts = useMemo(() => {
+    const map: Record<JobStatusTab, number> = {
+      ALL: jobs.length,
+      PUBLISHED: 0,
+      DRAFT: 0,
+      CLOSED: 0,
+    };
+    for (const j of jobs) {
+      const s = (j.status ?? "").toUpperCase();
+      if (s === "PUBLISHED" || s === "DRAFT" || s === "CLOSED") {
+        map[s] += 1;
+      }
+    }
+    return map;
+  }, [jobs]);
+
+  const filtered = useMemo(() => {
+    const q = keyword.trim().toLowerCase();
+    return jobs.filter((j) => {
+      if (tab !== "ALL" && (j.status ?? "").toUpperCase() !== tab) {
+        return false;
+      }
+      if (q && !j.title.toLowerCase().includes(q)) {
+        return false;
+      }
+      return true;
+    });
+  }, [jobs, tab, keyword]);
+
+  async function handleStatusChange(
+    jobId: number,
+    nextStatus: "CLOSED" | "PUBLISHED"
+  ) {
+    setBusyId(jobId);
     try {
-      await jobsApi.create({
-        title: form.title,
-        description: form.description || form.title,
-        location: form.location,
-        city: form.city,
-        workType: form.workType,
-        level: form.level,
-        salaryText: form.salary,
-        status: "PUBLISHED",
-        requiredSkills: form.required
-          .split(",")
-          .map((s) => s.trim())
-          .filter(Boolean),
-        preferredSkills: form.preferred
-          .split(",")
-          .map((s) => s.trim())
-          .filter(Boolean),
-        requirements: form.requirements,
-        responsibilities: form.responsibilities,
-      });
-      toast("Đã đăng tin tuyển dụng");
-      setForm((f) => ({ ...f, title: "", description: "", requirements: "", responsibilities: "" }));
+      await jobsApi.updateStatus(jobId, nextStatus);
+      toast(
+        nextStatus === "CLOSED"
+          ? "Đã đóng tin tuyển dụng"
+          : "Đã mở lại tin tuyển dụng"
+      );
       await load();
     } catch (err) {
-      toast(err instanceof Error ? err.message : "Đăng tin thất bại");
+      toast(err instanceof Error ? err.message : "Cập nhật trạng thái thất bại");
     } finally {
-      setBusy(false);
+      setBusyId(null);
     }
   }
 
   return (
     <RecruiterLayout active="jobs">
-        <PageHead
-          title="Đăng & quản lý tin tuyển dụng"
-          description="Đăng vị trí, yêu cầu và kỹ năng. Tin sẽ hiện trên trang tìm việc của ứng viên."
-        />
-
-        <Grid2>
-          <Panel>
-            <h2>Tin của bạn{data ? <span className="count">{data.totalElements}</span> : null}</h2>
-            {jobs.length === 0 ? (
-              <EmptyNote>Chưa có tin nào. Điền form bên cạnh để đăng vị trí đầu tiên.</EmptyNote>
-            ) : (
-              <div className="tbl-box">
-                <table className="tbl" style={{ minWidth: 520 }}>
-                  <thead><tr><th>Vị trí</th><th>Địa điểm</th><th>Đăng</th><th>Trạng thái</th></tr></thead>
-                  <tbody>
-                    {jobs.map((j) => {
-                      const b = jobBadge(j.status);
-                      const m = mapJob(j);
-                      return (
-                        <tr key={j.id}>
-                          <td>
-                            <p style={{ fontWeight: 650 }}>{j.title}</p>
-                            <p className="tiny muted">{m.salary} · {m.requiredSkills.slice(0, 3).join(", ")}</p>
-                          </td>
-                          <td className="small">{m.location}</td>
-                          <td className="small muted">{shortDate(j.postedAt)}</td>
-                          <td><span className={b.cls}>{b.label}</span></td>
-                        </tr>
-                      );
-                    })}
-                  </tbody>
-                </table>
-              </div>
-            )}
-            <Pager data={data} onPage={(p) => load(p).catch((e) => toast(e.message))} />
-          </Panel>
-
+      <PageHead
+        title="Tin tuyển dụng"
+        description="Đăng, đóng và mở lại tin tuyển dụng của công ty."
+        actions={
           <Can perm="job:create">
-          <Panel>
-            <h2>Đăng vị trí mới</h2>
-            <form onSubmit={onSubmit}>
-              <Field label="Vị trí / tiêu đề tin">
-                <TextInput
-                  required
-                  value={form.title}
-                  onChange={(e) => setForm({ ...form, title: e.target.value })}
-                  placeholder="Tên vị trí"
-                />
-              </Field>
-              <Field label="Cấp bậc">
-                <TextSelect
-                  value={form.level}
-                  onChange={(e) => setForm({ ...form, level: e.target.value })}
-                >
-                  <option>Intern</option>
-                  <option>Fresher</option>
-                  <option>Junior</option>
-                  <option>Mid</option>
-                </TextSelect>
-              </Field>
-              <Field label="Hình thức">
-                <TextSelect
-                  value={form.workType}
-                  onChange={(e) =>
-                    setForm({ ...form, workType: e.target.value })
-                  }
-                >
-                  <option>Tại văn phòng</option>
-                  <option>Hybrid</option>
-                  <option>Remote</option>
-                </TextSelect>
-              </Field>
-              <Field label="Địa điểm">
-                <TextInput
-                  value={form.location}
-                  onChange={(e) =>
-                    setForm({ ...form, location: e.target.value })
-                  }
-                  placeholder="Quận, thành phố"
-                />
-              </Field>
-              <Field label="Thành phố (lọc)">
-                <TextSelect
-                  value={form.city}
-                  onChange={(e) => setForm({ ...form, city: e.target.value })}
-                >
-                  <option>TP. Hồ Chí Minh</option>
-                  <option>Hà Nội</option>
-                  <option>Remote</option>
-                </TextSelect>
-              </Field>
-              <Field label="Mức lương">
-                <TextInput
-                  value={form.salary}
-                  onChange={(e) => setForm({ ...form, salary: e.target.value })}
-                  placeholder="Thỏa thuận hoặc khoảng lương"
-                />
-              </Field>
-              <Field label="Kỹ năng bắt buộc (phẩy)">
-                <TextInput
-                  required
-                  value={form.required}
-                  onChange={(e) =>
-                    setForm({ ...form, required: e.target.value })
-                  }
-                  placeholder="Các kỹ năng bắt buộc, cách nhau bởi dấu phẩy"
-                />
-              </Field>
-              <Field label="Kỹ năng ưu tiên (phẩy)">
-                <TextInput
-                  value={form.preferred}
-                  onChange={(e) =>
-                    setForm({ ...form, preferred: e.target.value })
-                  }
-                  placeholder="Các kỹ năng ưu tiên, cách nhau bởi dấu phẩy"
-                />
-              </Field>
-              <Field label="Mô tả công việc">
-                <TextTextarea
-                  rows={4}
-                  required
-                  value={form.description}
-                  onChange={(e) =>
-                    setForm({ ...form, description: e.target.value })
-                  }
-                  placeholder="Mô tả trách nhiệm, yêu cầu và quyền lợi"
-                />
-              </Field>
-              <Field label="Trách nhiệm công việc (mỗi dòng một ý)">
-                <TextTextarea
-                  rows={4}
-                  value={form.responsibilities}
-                  onChange={(e) =>
-                    setForm({ ...form, responsibilities: e.target.value })
-                  }
-                  placeholder={"Phát triển REST API bằng Spring Boot\nTối ưu truy vấn cơ sở dữ liệu"}
-                />
-              </Field>
-              <Field label="Yêu cầu ứng viên (mỗi dòng một ý)">
-                <TextTextarea
-                  rows={3}
-                  value={form.requirements}
-                  onChange={(e) =>
-                    setForm({ ...form, requirements: e.target.value })
-                  }
-                  placeholder={"Ít nhất 1 năm kinh nghiệm Java\nHiểu biết về Docker"}
-                />
-              </Field>
-              <p className="muted">Mỗi dòng một ý giúp ghép hồ sơ chính xác hơn.</p>
-              <Button variant="primary" block type="submit" disabled={busy}>
-                {busy ? "Đang đăng…" : "Đăng tin"}
-              </Button>
-            </form>
-          </Panel>
+            <Button variant="primary" to="/recruiter/jobs/new">
+              + Đăng tin mới
+            </Button>
           </Can>
-        </Grid2>
+        }
+      />
+
+      <div className="tabs" role="tablist" aria-label="Lọc theo trạng thái tin">
+        {STATUS_TABS.map((t) => {
+          const active = tab === t.key;
+          return (
+            <button
+              key={t.key}
+              type="button"
+              role="tab"
+              aria-selected={active}
+              className={active ? "tab tab-on" : "tab"}
+              onClick={() => setTab(t.key)}
+            >
+              {t.label}
+              <span className="count">{counts[t.key]}</span>
+            </button>
+          );
+        })}
+      </div>
+
+      <div className="row">
+        <div className="field" style={{ flex: "1 1 280px", maxWidth: 380 }}>
+          <input
+            className="input"
+            type="search"
+            placeholder="Tìm theo tiêu đề tin"
+            aria-label="Tìm theo tiêu đề tin"
+            value={keyword}
+            onChange={(e) => setKeyword(e.target.value)}
+          />
+        </div>
+      </div>
+
+      {loading ? (
+        <EmptyNote>Đang tải danh sách tin tuyển dụng…</EmptyNote>
+      ) : filtered.length === 0 ? (
+        <EmptyNote>
+          {jobs.length === 0
+            ? "Chưa có tin tuyển dụng nào. Nhấn “+ Đăng tin mới” để bắt đầu."
+            : "Không có tin nào khớp bộ lọc hiện tại."}
+        </EmptyNote>
+      ) : (
+        <Table>
+          <thead>
+            <tr>
+              <th>Tin</th>
+              {appCount ? <th>Ứng viên</th> : null}
+              <th>Ngày đăng</th>
+              <th>Trạng thái</th>
+              <th style={{ textAlign: "right" }}>Thao tác</th>
+            </tr>
+          </thead>
+          <tbody>
+            {filtered.map((j) => {
+              const badge = jobBadge(j.status);
+              const mapped = mapJob(j);
+              const status = (j.status ?? "").toUpperCase();
+              const isBusy = busyId === j.id;
+              return (
+                <tr key={j.id}>
+                  <td>
+                    <p style={{ fontWeight: 650 }}>{j.title}</p>
+                    <p className="tiny muted">
+                      {[mapped.location, mapped.salary].filter(Boolean).join(" · ")}
+                    </p>
+                  </td>
+                  {appCount ? <td>{appCount.get(j.id) ?? 0}</td> : null}
+                  <td className="small muted">{shortDate(j.postedAt) || "—"}</td>
+                  <td>
+                    <span className={badge.cls}>{badge.label}</span>
+                  </td>
+                  <td style={{ textAlign: "right", whiteSpace: "nowrap" }}>
+                    <Can perm="job:update">
+                      {status === "PUBLISHED" ? (
+                        <Button
+                          variant="ghost"
+                          size="sm"
+                          disabled={isBusy}
+                          onClick={() => void handleStatusChange(j.id, "CLOSED")}
+                        >
+                          {isBusy ? "Đang xử lý…" : "Đóng tin"}
+                        </Button>
+                      ) : status === "CLOSED" ? (
+                        <Button
+                          variant="ghost"
+                          size="sm"
+                          disabled={isBusy}
+                          onClick={() =>
+                            void handleStatusChange(j.id, "PUBLISHED")
+                          }
+                        >
+                          {isBusy ? "Đang xử lý…" : "Mở lại"}
+                        </Button>
+                      ) : null}
+                    </Can>
+                  </td>
+                </tr>
+              );
+            })}
+          </tbody>
+        </Table>
+      )}
     </RecruiterLayout>
   );
 }
