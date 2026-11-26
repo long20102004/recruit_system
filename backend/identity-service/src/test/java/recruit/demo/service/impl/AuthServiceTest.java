@@ -246,7 +246,7 @@ class AuthServiceTest {
         assertFalse(res.user().roleChosen());
         verify(repo).save(argThat(u -> u.getEmail().equals("new@gmail.com") && "g-1".equals(u.getGoogleSub())
                 && u.getEmailVerifiedAt() != null && u.getRole() == Role.CANDIDATE && "An Nguyen".equals(u.getFullName())
-                && u.getPasswordHash() != null && !u.isRoleChosen()));
+                && u.getPasswordHash() != null && !u.isRoleChosen() && !u.isPasswordSet()));
     }
 
     @Test

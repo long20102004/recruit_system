@@ -33,6 +33,7 @@ public enum ErrorCode {
     INVALID_LINK_TOKEN(2006, "Link không hợp lệ hoặc đã hết hạn", HttpStatus.BAD_REQUEST),
     CANNOT_LOCK_USER(2007, "Không thể khoá tài khoản này", HttpStatus.BAD_REQUEST),
     GOOGLE_TOKEN_INVALID(2008, "Không xác minh được tài khoản Google", HttpStatus.UNAUTHORIZED),
+    WRONG_CURRENT_PASSWORD(2009, "Mật khẩu hiện tại không đúng", HttpStatus.BAD_REQUEST),
 
     // ── CV / trích xuất (3xxx) ───────────────────────────
     CV_FILE_REQUIRED(3001, "File is required", HttpStatus.BAD_REQUEST),

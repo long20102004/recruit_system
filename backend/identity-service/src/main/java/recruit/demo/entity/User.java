@@ -1,5 +1,6 @@
 package recruit.demo.entity;
 
+import recruit.demo.enums.Gender;
 import recruit.demo.enums.Role;
 import recruit.demo.enums.UserStatus;
 import jakarta.persistence.*;
@@ -7,6 +8,7 @@ import lombok.*;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 @Entity
@@ -32,6 +34,18 @@ public class User {
     private String passwordHash;
 
     private String phone;
+
+    @Column(name = "date_of_birth")
+    private LocalDate dateOfBirth;
+
+    @Enumerated(EnumType.STRING)
+    @Column(length = 16)
+    private Gender gender;
+
+    /** false: tài khoản tạo bằng Google, chưa tự đặt mật khẩu. */
+    @Column(name = "password_set", nullable = false)
+    @Builder.Default
+    private boolean passwordSet = true;
 
     @Enumerated(EnumType.STRING)
     @Column(nullable = false, length = 32)

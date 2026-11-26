@@ -28,6 +28,17 @@ class BusinessExceptionHandlerTest {
     }
 
     @Test
+    void unreadableJsonIs400WithoutParserDetails() {
+        var ex = new org.springframework.http.converter.HttpMessageNotReadableException(
+                "Cannot deserialize value of type `recruit.demo.enums.Gender`",
+                new org.springframework.mock.http.MockHttpInputMessage(new byte[0]));
+        var res = handler.handleUnreadable(ex);
+        assertThat(res.getStatusCode()).isEqualTo(HttpStatus.BAD_REQUEST);
+        assertThat(res.getBody()).isNotNull();
+        assertThat(res.getBody().toString()).doesNotContain("Gender");
+    }
+
+    @Test
     void freeHttpCodeIsKeptAndUnknownCodeIs500() {
         assertThat(GlobalExceptionHandler.resolveHttpStatus(409L)).isEqualTo(HttpStatus.CONFLICT);
         assertThat(GlobalExceptionHandler.resolveHttpStatus(418L)).isEqualTo(HttpStatus.I_AM_A_TEAPOT);

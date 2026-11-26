@@ -2,6 +2,7 @@ package recruit.demo.exception;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.http.converter.HttpMessageNotReadableException;
 import org.springframework.security.access.AccessDeniedException;
 import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.validation.FieldError;
@@ -61,6 +62,12 @@ public class GlobalExceptionHandler {
             message = "Validation failed";
         }
         return ResponseEntity.badRequest().body(new ErrorResponse(message));
+    }
+
+    /** JSON sai cú pháp hoặc sai kiểu (vd enum không hợp lệ): 400, không lộ chi tiết parser. */
+    @ExceptionHandler(HttpMessageNotReadableException.class)
+    public ResponseEntity<ErrorResponse> handleUnreadable(HttpMessageNotReadableException ex) {
+        return ResponseEntity.badRequest().body(new ErrorResponse("Dữ liệu gửi lên không hợp lệ"));
     }
 
     @ExceptionHandler(Exception.class)
