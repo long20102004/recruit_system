@@ -195,7 +195,7 @@ Phương án này chỉ chấp nhận được nếu nhóm thiếu thời gian.
 | MT-01 | Ứng viên xem việc phù hợp với CV + làm mới | Ứng viên | ✅ | — | — | — |
 | MT-02 | Recruiter chạy matching cho ứng viên của một tin, xếp hạng | Recruiter | ✅ | — | — | — |
 | MT-03 | Chi tiết điểm matching trên trang việc làm | Ứng viên | ✅ | — | — | — |
-| RS-01 | Gợi ý việc làm tự động, tính trước (batch theo lịch, chỉ tính lại khi CV/Job đổi — content hash) | Hệ thống | 🟡 | Hiện chỉ tính khi bấm làm mới, chấm 1 CV với từng job (O(n)). Thêm `@Scheduled` + bảng kết quả, và dùng `/match_batch` nếu phù hợp | P1 | L |
+| RS-01 | Gợi ý việc làm tự động, tính trước (batch theo lịch, chỉ tính lại khi CV/Job đổi — content hash) | Hệ thống | 🟡 | Hiện chỉ tính khi bấm làm mới, chấm 1 CV với từng job (O(n)). Thêm `@Scheduled` + bảng kết quả, và dùng `/match_batch` nếu phù hợp. **Đề xuất theo sự kiện** (cvmatch đã có API, 26/11): `JobPublished` → `POST /match/jd/{id}` với `only_recommendable`, `min_score`, `exclude_cv_ids`; `CvUpdated` → `POST /match/cv/{id}`; đồng bộ cờ bằng `PATCH /cv/{id}` `{recommendable}`. Xem `ai-service/matching/service/docs/plan/S07 Gợi ý theo sự kiện - phía cvmatch.md` | P1 | L |
 | RS-02 | Đánh giá chất lượng gợi ý (MRR, NDCG@K, HitRate@K) cho báo cáo chương 3 | — | ❌ | Script đánh giá trong `ai/cvmatch` | P1 | M |
 | RS-03 | Recruiter tìm kiếm CV ứng viên (đang mở tìm việc) | Recruiter | ❌ | `GET /api/cvs/search`; cần CV-09 | P2 | M |
 

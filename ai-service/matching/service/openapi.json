@@ -114,6 +114,77 @@
       }
     },
     "/cv/{cv_id}": {
+      "patch": {
+        "tags": [
+          "cv"
+        ],
+        "summary": "Patch Cv",
+        "description": "S07: ung vien bat / tat nhan goi y viec lam (ap cho moi ban CV cua cung nguoi).",
+        "operationId": "patch_cv_cv__cv_id__patch",
+        "parameters": [
+          {
+            "name": "cv_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Cv Id"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CvPatchIn"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CvPatchOut"
+                }
+              }
+            }
+          },
+          "404": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorOut"
+                }
+              }
+            },
+            "description": "Not Found"
+          },
+          "409": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorOut"
+                }
+              }
+            },
+            "description": "Conflict"
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      },
       "delete": {
         "tags": [
           "cv"
@@ -911,6 +982,47 @@
         ],
         "title": "CvIngestResult"
       },
+      "CvPatchIn": {
+        "properties": {
+          "recommendable": {
+            "type": "boolean",
+            "title": "Recommendable",
+            "description": "ung vien dong y nhan goi y viec lam (ap cho moi ban CV cua ho)"
+          }
+        },
+        "type": "object",
+        "required": [
+          "recommendable"
+        ],
+        "title": "CvPatchIn"
+      },
+      "CvPatchOut": {
+        "properties": {
+          "cv_id": {
+            "type": "string",
+            "title": "Cv Id"
+          },
+          "recommendable": {
+            "type": "boolean",
+            "title": "Recommendable"
+          },
+          "cv_ids": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Cv Ids",
+            "description": "moi ban CV cua ung vien da cap nhat"
+          }
+        },
+        "type": "object",
+        "required": [
+          "cv_id",
+          "recommendable",
+          "cv_ids"
+        ],
+        "title": "CvPatchOut"
+      },
       "ErrorOut": {
         "properties": {
           "detail": {
@@ -1565,7 +1677,7 @@
               }
             ],
             "title": "Include Cv Ids",
-            "description": "chi xet cac CV nay (vd ung vien da nop don); null = ca kho. Diem phu thuoc pool (chuan hoa min-max, pool_median) nen pool nho cho diem khac pool lon"
+            "description": "chi xet cac CV nay (vd ung vien da nop don); null = ca kho. Pool <= retrieve.pool_rerank_all_max -> cham va tra TOAN BO pool (bo qua K, N nho hon). rr-1.2: diem mot cap khong phu thuoc pool"
           },
           "views": {
             "anyOf": [
@@ -1600,6 +1712,26 @@
             ],
             "title": "Ref Ym",
             "description": "thang tham chieu B1 (mac dinh thang nay)"
+          },
+          "only_recommendable": {
+            "type": "boolean",
+            "title": "Only Recommendable",
+            "description": "chi CV cua ung vien dong y nhan goi y (PATCH /cv/{id})",
+            "default": false
+          },
+          "min_score": {
+            "anyOf": [
+              {
+                "type": "integer",
+                "maximum": 100.0,
+                "minimum": 0.0
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Min Score",
+            "description": "chi tra CV co diem >= nguong (goi y tin moi)"
           },
           "background": {
             "type": "boolean",

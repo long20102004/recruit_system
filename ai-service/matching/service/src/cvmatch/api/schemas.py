@@ -68,11 +68,24 @@ class MatchIn(BaseModel):
     hard_filters: HardFilters | None = None
     exclude_cv_ids: list[str] = Field(default_factory=list, description="vd CV da phong van")
     include_cv_ids: list[str] | None = Field(
-        None, description="chi xet cac CV nay (vd ung vien da nop don); null = ca kho. Diem phu thuoc pool "
-                          "(chuan hoa min-max, pool_median) nen pool nho cho diem khac pool lon")
+        None, description="chi xet cac CV nay (vd ung vien da nop don); null = ca kho. Pool <= "
+                          "retrieve.pool_rerank_all_max -> cham va tra TOAN BO pool (bo qua K, N nho hon). "
+                          "rr-1.2: diem mot cap khong phu thuoc pool")
     views: list[View] | None = Field(None, description="mac dinh retrieve.views_enabled")
     ref_ym: str | None = Field(None, pattern=r"^\d{4}-\d{2}$", description="thang tham chieu B1 (mac dinh thang nay)")
+    only_recommendable: bool = Field(False, description="chi CV cua ung vien dong y nhan goi y (PATCH /cv/{id})")
+    min_score: int | None = Field(None, ge=0, le=100, description="chi tra CV co diem >= nguong (goi y tin moi)")
     background: bool = False
+
+
+class CvPatchIn(BaseModel):
+    recommendable: bool = Field(..., description="ung vien dong y nhan goi y viec lam (ap cho moi ban CV cua ho)")
+
+
+class CvPatchOut(BaseModel):
+    cv_id: str
+    recommendable: bool
+    cv_ids: list[str] = Field(description="moi ban CV cua ung vien da cap nhat")
 
 
 class SkillSummary(BaseModel):

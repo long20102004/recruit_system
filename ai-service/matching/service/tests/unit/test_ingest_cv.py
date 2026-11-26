@@ -7,8 +7,8 @@ import pytest
 
 from cvmatch.core.config import load_config
 from cvmatch.core.text.normalize import strip_diacritics
-from cvmatch.ingest.cv.a03_anonymize import scrub_text, _name_regex
-from cvmatch.ingest.cv.a07_bullets import split_description
+from cvmatch.ingest.cv.anonymize import scrub_text, _name_regex
+from cvmatch.ingest.cv.bullets import split_description
 from cvmatch.ingest.cv.pipeline import build_cv_record
 from cvmatch.ingest.cv.record import CvContext, DuplicateCV, InMemoryDedup
 from cvmatch.ingest.cv.schema import InvalidCV
@@ -108,7 +108,7 @@ def test_a01_a02_record_header(rec):
     assert len(rec.content_hash) == 64
     assert rec.candidate_key.startswith("hmac:") and "a.nguyen" not in rec.candidate_key
     assert (rec.version, rec.is_latest) == (1, True)
-    assert rec.ontology_version == "kb-mini-test" and rec.pipeline_version == "prep-1.1"
+    assert rec.ontology_version == "kb-mini-test" and rec.pipeline_version == "prep-1.2"
 
 
 # ------------------------------------------------------------------ an danh

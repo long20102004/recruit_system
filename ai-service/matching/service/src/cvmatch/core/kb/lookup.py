@@ -22,8 +22,13 @@ def _alias_regex(aliases) -> re.Pattern | None:
     return re.compile(r"(?<!\w)(" + "|".join(re.escape(a) for a in forms) + r")(?!\w)")
 
 
+# V-02: "Java Intern" bo cap bac con "java" - khong co trong role_title_map (map theo chuc danh day du)
+FALLBACK_SUFFIXES = ("developer", "engineer")
+
+
 class TitleLookup:
-    def __init__(self, snapshot: KBSnapshot):
+    def __init__(self, snapshot: KBSnapshot, *, fallback: bool = False):
+        self.fallback = fallback
         self.level_map = dict(snapshot.level_map)
         self.title_map = dict(snapshot.title_map)
         self.major_map = dict(snapshot.major_map)
@@ -71,6 +76,10 @@ class TitleLookup:
             m = self._title_re.search(t)
             if m:
                 return self.title_map[m.group(1)]
+        if self.fallback and len(t.split()) <= 3:      # chuc danh ngan con lai sau khi bo cap bac (vd "java")
+            for suf in FALLBACK_SUFFIXES:
+                if (cand := f"{t} {suf}") in self.title_map:
+                    return self.title_map[cand]
         return None
 
     def parse_title(self, title: str | None) -> tuple[int | None, str | None, str]:

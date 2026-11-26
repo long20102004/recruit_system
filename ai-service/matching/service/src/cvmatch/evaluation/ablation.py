@@ -199,7 +199,7 @@ def _query_metrics(plan: Plan, ranked: list[str], pool: list[str], labels: dict[
 
 def _run_one(plan: Plan, c: ExpConfig, cache: _Cache, queries: list[str], labels: GradedLabels, *,
              config_dir, extra_overrides: dict, ref_ym: str | None, groups: dict) -> ConfigResult:
-    from cvmatch.retrieve.flow_c import retrieve_for_jd
+    from cvmatch.retrieve.jd_to_cvs import retrieve_for_jd
 
     ov = _deep_merge(_deep_merge(plan.base, c.overrides), extra_overrides)
     cfg = load_config(config_dir, overrides=ov)
@@ -215,7 +215,7 @@ def _run_one(plan: Plan, c: ExpConfig, cache: _Cache, queries: list[str], labels
     for q in queries:
         t0 = time.perf_counter()
         if reverse:
-            from cvmatch.retrieve.flow_d import retrieve_for_cv
+            from cvmatch.retrieve.cv_to_jds import retrieve_for_cv
 
             res = retrieve_for_cv(conn, idx, cfg, q, K=plan.K, write_log=False)
             ids = [it["jd_id"] for it in res.items]

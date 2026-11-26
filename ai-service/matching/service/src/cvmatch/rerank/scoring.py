@@ -35,20 +35,27 @@ class Scored:
 
 
 def fill_missing(rows: list[Scored], cfg: RerankConfig) -> None:
-    """5.8: jd_side -> bo feature cho moi CV; cv_side -> trung vi pool | bo ra | 0."""
+    """5.8 (+ S02): thieu phia CV -> trung vi pool | gia tri co dinh | 0 | bo; thieu phia JD -> bo | trung tinh.
+
+    Chi `pool_median` phu thuoc cac dong khac trong pool; cac policy con lai cho cung mot cap (CV, JD) cung diem
+    du cham le hay cham trong danh sach (V-04)."""
     enabled = [f for f in FEATURES if f in cfg.features_enabled]
-    policy = cfg.missing.cv_side_policy
+    m = cfg.missing
     medians: dict[str, float | None] = {}
-    for f in enabled:
-        vals = [r.raw[f] for r in rows if r.raw.get(f) is not None]
-        medians[f] = float(np.median(vals)) if vals else None
+    if m.cv_side_policy == "pool_median":
+        for f in enabled:
+            vals = [r.raw[f] for r in rows if r.raw.get(f) is not None]
+            medians[f] = float(np.median(vals)) if vals else None
     for r in rows:
         used: dict[str, float | None] = {}
         for f in enabled:
             v = r.raw.get(f)
             side = r.missing.get(f)
             if v is None and side == "cv_side":
-                v = {"pool_median": medians[f], "zero": 0.0, "drop": None}[policy]
+                v = {"pool_median": lambda: medians[f], "zero": lambda: 0.0, "drop": lambda: None,
+                     "fixed": lambda: m.cv_side_fixed.get(f)}[m.cv_side_policy]()
+            elif v is None and side == "jd_side" and m.jd_side_policy == "neutral":
+                v = m.jd_side_neutral.get(f)
             used[f] = v
         r.used = used
         n_cv = sum(1 for f in enabled if r.missing.get(f) == "cv_side")

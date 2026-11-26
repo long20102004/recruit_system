@@ -1,8 +1,8 @@
 # Chon file cau hinh dang dung. Moi file co phien ban rieng; doi phien ban = them file moi, sua dong o day.
 # match_run / rerank_run ghi lai config_json + config_hash cua lan chay.
-prep: prep-1.1.yaml
-retrieve: retrieve-1.0.yaml
-rerank: rr-1.0.yaml
+prep: prep-1.2.yaml     # S03, S04 (26/11): sua du lieu vao V-02, V-05, V-06, V-07
+retrieve: retrieve-1.1.yaml   # S06 (26/11): HR xem nguoi da nop -> cham toan bo pool
+rerank: rr-1.2.yaml   # S02 (26/11): nhu rr-1.0, chinh sach du lieu thieu khong phu thuoc pool
 bertscore: bertscore.yaml
 explain: explain-1.1.yaml
 models: models.yaml

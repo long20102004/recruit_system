@@ -8,7 +8,7 @@ import pytest
 
 from cvmatch.core.config import load_config
 from cvmatch.ingest.cv.record import CvContext
-from cvmatch.ingest.jd.b05_requirements import parse_years
+from cvmatch.ingest.jd.requirements import parse_years
 from cvmatch.ingest.jd.pipeline import build_jd_record
 from cvmatch.ingest.jd.record import UnchangedJD
 from cvmatch.ingest.jd.schema import InvalidJD

@@ -138,7 +138,7 @@ def cmd_pool(args: argparse.Namespace) -> int:
     from cvmatch.evaluation.labels import load_graded
     from cvmatch.evaluation.labels.pooling import pool_items, write_pool_csv
     from cvmatch.rerank.run import Reranker
-    from cvmatch.retrieve.flow_c import retrieve_for_jd
+    from cvmatch.retrieve.jd_to_cvs import retrieve_for_jd
 
     from cvmatch.core.models import get_encoder
 
@@ -237,7 +237,7 @@ def cmd_invariance(args: argparse.Namespace) -> int:
 
 
 def cmd_g2(args: argparse.Namespace) -> int:
-    from cvmatch.evaluation.g2 import run_g2, to_markdown
+    from cvmatch.evaluation.golden_pipeline import run_g2, to_markdown
 
     with _svc_fresh(args) as svc:
         rows = run_g2(svc, ref_ym=args.ref_ym)
@@ -287,6 +287,39 @@ def cmd_prep_score(args: argparse.Namespace) -> int:
     return 0
 
 
+def cmd_missing_defaults(args: argparse.Namespace) -> int:
+    from cvmatch.core.db import connect
+    from cvmatch.evaluation.missing_defaults import feature_medians, to_yaml
+
+    with connect(args.url) as conn:
+        med = feature_medians(conn, args.direction)
+        db = conn.info.dbname
+    if not med:
+        print("chua co lan rerank nao trong DB")
+        return 1
+    print(to_yaml(med, f"DB {db}" + (f", {args.direction}" if args.direction else "")))
+    return 0
+
+
+def cmd_bench(args: argparse.Namespace) -> int:
+    import torch
+
+    from cvmatch.api.services import Services, config_and_encoder
+    from cvmatch.evaluation.bench import run_bench, to_markdown
+
+    if args.threads:
+        torch.set_num_threads(args.threads)
+    cfg, enc = config_and_encoder(args.config_dir, fake=args.fake_encoder)
+    with Services(cfg, url=args.url, encoder=enc, db_cache=False) as svc:
+        rows = run_bench(svc, sizes=[int(x) for x in args.sizes.split(",")], jd_id=args.jd)
+        md = to_markdown(rows, device=svc.cfg.models.embed.device, threads=torch.get_num_threads(),
+                         n_cv=int(svc.index.active.sum()))
+    Path(args.out).parent.mkdir(parents=True, exist_ok=True)
+    Path(args.out).write_text(md, encoding="utf-8")
+    print(md)
+    return 0
+
+
 def register(sub: argparse._SubParsersAction) -> None:
     ev = sub.add_parser("eval", help="danh gia va thi nghiem")
     evs = ev.add_subparsers(dest="cmd", required=True)
@@ -302,10 +335,25 @@ def register(sub: argparse._SubParsersAction) -> None:
     c = evs.add_parser("coverage", help="do phu Module 1 (T07): truong nao du de bat feature nao")
     c.add_argument("--cv", default=None, help="thu muc / file CV JSON")
     c.add_argument("--jd", default=None, help="thu muc / file JD JSON")
-    c.add_argument("--out", default="reports/coverage.md")
+    c.add_argument("--out", default="research/reports/coverage.md")
     c.add_argument("--tokenizer", action="store_true", help="do do dai gach bang tokenizer bge-m3 (mac dinh: so tu)")
     c.add_argument("--config-dir", default=None)
     c.set_defaults(func=cmd_coverage)
+
+    md = evs.add_parser("missing-defaults", help="S02: trung vi feature tren cac lan rerank -> missing.cv_side_fixed")
+    md.add_argument("--direction", choices=["jd_to_cv", "cv_to_jd"], default=None)
+    md.add_argument("--url", default=None)
+    md.set_defaults(func=cmd_missing_defaults)
+
+    bn = evs.add_parser("bench", help="S05: thoi gian match theo co pool (cold / warm), Luong C va D")
+    bn.add_argument("--sizes", default="10,50,100,200,300")
+    bn.add_argument("--jd", default=None, help="jd_id (mac dinh JD mo dau tien)")
+    bn.add_argument("--threads", type=int, default=None, help="so luong torch (container: 4)")
+    bn.add_argument("--out", default="research/reports/bench.md")
+    bn.add_argument("--config-dir", default=None)
+    bn.add_argument("--url", default=None)
+    bn.add_argument("--fake-encoder", action="store_true")
+    bn.set_defaults(func=cmd_bench)
 
     def common(x, *, enc=True):
         x.add_argument("--config-dir", default=None)
@@ -314,7 +362,7 @@ def register(sub: argparse._SubParsersAction) -> None:
         if enc:
             x.add_argument("--fake-encoder", action="store_true")
 
-    a = evs.add_parser("ablation", help="T14: chay ke hoach thi nghiem (experiments/*.yaml) -> bang + bieu do")
+    a = evs.add_parser("ablation", help="T14: chay ke hoach thi nghiem (research/experiments/*.yaml) -> bang + bieu do")
     a.add_argument("plan")
     a.add_argument("--labels", required=True, help="graded.csv (query_id,item_id,grade,rater)")
     a.add_argument("--split", default=None, help="file JSON {query_id: dev|test} (eval split)")
@@ -322,7 +370,7 @@ def register(sub: argparse._SubParsersAction) -> None:
     a.add_argument("--groups", default=None, help="JSON {query_id: nhom} de tach bang theo nhom")
     a.add_argument("--only", default=None, help="chi chay cac id, vd R-A0,P1")
     a.add_argument("--ref-ym", default=None)
-    a.add_argument("--out", default="reports/ablation")
+    a.add_argument("--out", default="research/reports/ablation")
     common(a)
     a.set_defaults(func=cmd_ablation)
 
@@ -330,7 +378,7 @@ def register(sub: argparse._SubParsersAction) -> None:
     sp.add_argument("--labels", required=True)
     sp.add_argument("--direction", default="jd_to_cv", choices=["jd_to_cv", "cv_to_jd"])
     sp.add_argument("--seed", type=int, default=13)
-    sp.add_argument("--out", default="reports/labels/split.json")
+    sp.add_argument("--out", default="research/reports/labels/split.json")
     common(sp, enc=False)
     sp.set_defaults(func=cmd_split)
 
@@ -339,14 +387,14 @@ def register(sub: argparse._SubParsersAction) -> None:
     k.set_defaults(func=cmd_kappa)
 
     po = evs.add_parser("pool", help="T14: gop top-300 RT-*, top-60 R-*, 20 ngau nhien -> CSV can cham")
-    po.add_argument("--retrieve-plan", default="experiments/retrieve_RT.yaml")
-    po.add_argument("--rerank-plan", default="experiments/rerank_R.yaml")
+    po.add_argument("--retrieve-plan", default="research/experiments/retrieve_RT.yaml")
+    po.add_argument("--rerank-plan", default="research/experiments/rerank_R.yaml")
     po.add_argument("--queries", default=None, help="jd_id cach nhau dau phay (mac dinh: moi JD mo)")
     po.add_argument("--existing", default=None, help="file nhan da co: bo cac cap da cham")
     po.add_argument("--n-random", type=int, default=20)
     po.add_argument("--seed", type=int, default=13)
     po.add_argument("--ref-ym", default=None)
-    po.add_argument("--out", default="reports/labels/to_label.csv")
+    po.add_argument("--out", default="research/reports/labels/to_label.csv")
     common(po)
     po.set_defaults(func=cmd_pool)
 
@@ -362,14 +410,14 @@ def register(sub: argparse._SubParsersAction) -> None:
     iv.add_argument("--kb-dir", default=None)
     iv.add_argument("--limit", type=int, default=50)
     iv.add_argument("--ref-ym", default=None)
-    iv.add_argument("--out", default="reports/invariance.md")
+    iv.add_argument("--out", default="research/reports/invariance.md")
     common(iv)
     iv.set_defaults(func=cmd_invariance)
 
     g2 = evs.add_parser("g2", help="T14: golden co diem yeu qua ca pipeline (DB rieng)")
     g2.add_argument("--kb-dir", default=None)
     g2.add_argument("--ref-ym", default=None)
-    g2.add_argument("--out", default="reports/g2.md")
+    g2.add_argument("--out", default="research/reports/g2.md")
     common(g2)
     g2.set_defaults(func=cmd_g2)
 
@@ -377,14 +425,14 @@ def register(sub: argparse._SubParsersAction) -> None:
     ps.add_argument("--n-cv", type=int, default=50)
     ps.add_argument("--n-jd", type=int, default=30)
     ps.add_argument("--seed", type=int, default=13)
-    ps.add_argument("--out", default="reports/prep_sample.jsonl")
+    ps.add_argument("--out", default="research/reports/prep_sample.jsonl")
     common(ps, enc=False)
     ps.set_defaults(func=cmd_prep_sample)
 
     f16 = evs.add_parser("fp16", help="T17: kiem lech fp16 so voi fp32 tren golden (< 0,001 moi duoc chuyen)")
     f16.add_argument("--kb-dir", default=None)
     f16.add_argument("--threshold", type=float, default=0.001)
-    f16.add_argument("--out", default="reports/fp16_check.md")
+    f16.add_argument("--out", default="research/reports/fp16_check.md")
     f16.add_argument("--config-dir", default=None)
     f16.add_argument("--url", default=None)
     f16.set_defaults(func=cmd_fp16)

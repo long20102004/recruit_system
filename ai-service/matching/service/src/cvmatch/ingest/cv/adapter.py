@@ -3,7 +3,7 @@
 Ten truong trong thiet ke la gia dinh. Khi co schema that chi can sua cac bang anh xa duoi day,
 logic A1-A11 giu nguyen. Ten khong co trong bang duoc giu nguyen.
 
-Schema that cua Module 1 (`services/cv-extraction-ai`, `app/postprocess/schema.py`, I03 cua plan tich hop):
+Schema that cua Module 1 (`ai-service/extraction`, `app/postprocess/schema.py`, I03 cua plan tich hop):
 `personal_info{full_name, email, phone, github_url}`, `objective`, `experience[{company, job_title, start_date,
 end_date, description[]}]`, `personal_projects[{name, role, team_size, start_date, end_date, github_url,
 description[], tech_stack[]}]`, `education[{school, major, start_year, end_year, gpa}]`, `skills[]`,
@@ -16,11 +16,16 @@ description[], tech_stack[]}]`, `education[{school, major, start_year, end_year,
   version CV moi.
 - `experience[].end_date = null` (co `start_date`) -> `is_current = true` (quy uoc cua Module 1).
 - Backend (I05) gui email TAI KHOAN trong `personal_info.email` va them `location` neu co.
+- Phan hoi API cua recruitment-service boc CV trong vo `{"message", "code", "data": {...}}` (mau:
+  `data/demo/cv/cv_parse_demo.json`). Backend gui sang cvmatch CV BEN TRONG (`CvMatchPayloads.cvPayload`), khong
+  co vo; `unwrap_envelope` chi de chiu duoc khi ai do gui nguyen phan hoi (vd dan tay vao /docs, Postman).
 """
 
 from __future__ import annotations
 
 from typing import Any
+
+from cvmatch.core.text.normalize import parse_ym
 
 # truong cap goc: ten ngoai -> ten noi bo
 TOP_LEVEL = {
@@ -121,8 +126,26 @@ def _lift_personal_info(raw: dict) -> dict:
     return out
 
 
-def adapt_cv(raw: dict) -> dict:
-    """JSON ngoai -> JSON theo ten truong noi bo. Khong doi gia tri."""
+# vo ApiResponse cua backend: {"message": "Success", "code": 200, "data": {...CV...}}
+ENVELOPE_KEYS = {"message", "code", "data", "status", "success", "errors", "error", "timestamp"}
+
+
+def unwrap_envelope(raw: Any) -> Any:
+    """Bo vo `{message, code, data}` neu co -> CV ben trong. Chi boc khi `data` la object va moi khoa cap goc
+    deu la khoa cua vo (CV thuong khong co cac khoa nay). `data` khong phai object (vd parse loi, `data: null`)
+    -> tra ve `data` de A1 bao `InvalidCV`."""
+    if isinstance(raw, dict) and "data" in raw and set(raw) <= ENVELOPE_KEYS:
+        return raw["data"]
+    return raw
+
+
+def adapt_cv(raw: dict, *, null_end_current: str = "all") -> dict:
+    """JSON ngoai -> JSON theo ten truong noi bo. Khong doi gia tri.
+
+    `null_end_current` (prep.experience, V-06): "all" -> moi muc `end_date = null` co start la dang lam; "latest" ->
+    chi muc co start moi nhat trong `experience` (model de null vi khong doc duoc ngay thi muc cu khong bi cong
+    thang toi hien tai)."""
+    raw = unwrap_envelope(raw)
     if not isinstance(raw, dict):
         return raw
     raw = {k: v for k, v in _lift_personal_info(raw).items() if k not in KG_FIELDS}
@@ -131,10 +154,19 @@ def adapt_cv(raw: dict) -> dict:
         if isinstance(cv.get(key), list):
             cv[key] = [_rename(x, mapping) for x in cv[key]]
     if isinstance(raw.get("experience"), list) and isinstance(cv.get("experiences"), list):
-        for src, item in zip(raw["experience"], cv["experiences"]):
-            if _module1_current(src, item):
-                item["is_current"] = True
+        pairs = [(src, item) for src, item in zip(raw["experience"], cv["experiences"]) if _module1_current(src, item)]
+        if null_end_current == "latest" and pairs:
+            latest = _latest_start(raw["experience"])
+            pairs = [(s, i) for s, i in pairs if latest is not None and parse_ym(s.get("start_date")) == latest]
+        for _, item in pairs:
+            item["is_current"] = True
     return cv
+
+
+def _latest_start(items: list) -> str | None:
+    starts = [parse_ym(x.get("start_date")) for x in items if isinstance(x, dict) and x.get("start_date")]
+    starts = [s for s in starts if s]
+    return max(starts) if starts else None
 
 
 def _module1_current(src: Any, item: Any) -> bool:

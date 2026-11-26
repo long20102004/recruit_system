@@ -1,0 +1,78 @@
+# Tang 2 Rerank (S02): nhu rr-1.0 (4 feature P1), doi chinh sach du lieu thieu de diem KHONG phu thuoc pool
+# (V-04) va moi JD co cung tap feature khi so o Luong D (V-01). Thiet ke 07, 11 muc 1.3. Moi gia tri la (UL) tru khi ghi khac.
+version: rr-1.2
+N: 30
+reverse_N: 10
+
+# Feature bat o P1: A1 (= s_skill), B4, B1, B2. A2, B5, B3, C1 bat o P2 (rr-1.1).
+features_enabled: [A1, B4, B1, B2]
+
+weights:                 # tong = 1.00 (Q7); R-E13
+  A1: 0.25
+  A2: 0.05
+  B4: 0.28
+  B5: 0.12
+  B1: 0.10
+  B2: 0.10
+  B3: 0.05
+  C1: 0.05
+
+a1:
+  use_kb_rel: false      # P1: A1 = s_skill cua Retrieve; P2: qua rel cua KB
+
+b4:
+  calib: {lo: 0.65, hi: 0.90}         # tu golden; thay bang gia tri theo nhan (R-E5)
+  level: {met: 0.6, partial: 0.3}     # nguong muc khop cho Explain
+  m_negation: 0.3                     # R-E6
+  m_coursework: 0.6                   # R-E6
+  generic_weight: 0.0                 # R-E7
+
+align:
+  # Do tren bge-m3 that (T12): o layer 24, tu VANG MAT trong mot cap co lien quan van dat 0,78-0,89,
+  # tu co mat 0,86-0,98, cap khong lien quan <= 0,72 -> 0,75 danh dau moi tu la "khop".
+  # Quy tac: khop neu tu xuat hien nguyen van trong gach (van ban da chuan bi) HOAC cosine >= word_sim_min.
+  word_sim_min: 0.90     # thiet ke goc 0,75 (UL); hieu chuan lai o T14
+  literal_match: true
+
+rel:
+  same: 1.0
+  parent_child: 0.7
+  sibling: 0.4           # kiem do nhay 0.5
+
+b1:
+  recent_months: 36
+  recent_boost: 2.0
+
+b2:
+  project_personal_weight: 0.3
+  overqual_penalty: true            # JD -> CV bat; CV -> JD tat (R-E11)
+  overqual_penalty_reverse: false
+
+gate:
+  thresholds: [0.5, 0.7]            # R-E12
+  caps: [50, 70]
+
+missing:
+  # Thieu PHIA CV: gia tri co dinh thay cho trung vi pool -> cung cap (CV, JD) cung diem du cham le hay trong danh sach.
+  cv_side_policy: fixed             # pool_median | fixed | zero | drop (R-E12)
+  cv_side_fixed:                    # trung vi tren DB cvmatch_demo (du lieu tong hop), jd_to_cv, 26/11/2026
+    A1: 0.200                       #   n = 7052 cap; do lai tren du lieu that (S08): cvmatch eval missing-defaults
+    B1: 0.400                       #   n = 6839
+    B2: 0.000                       #   n = 6839
+    B4: 0.207                       #   n = 6681
+  # Thieu PHIA JD: feature "muc phu hop" nhan gia tri trung tinh thay vi bi bo (JD khong ghi vai tro / so nam / cap
+  # bac / hoc van). A1, A2, B4, B5 thieu phia JD (khong co ky nang bat buoc / trach nhiem / yeu cau) van bi bo.
+  jd_side_policy: neutral           # drop | neutral
+  jd_side_neutral: {B1: 0.5, B2: 0.5, B3: 0.5, C1: 0.5}
+
+low_data_quality:
+  min_missing: 3
+
+score:
+  bands: [80, 60]                   # dai nhan hien thi
+
+rr5:
+  enabled: false                    # R-X4
+
+cache:
+  token_lru_gb: 20

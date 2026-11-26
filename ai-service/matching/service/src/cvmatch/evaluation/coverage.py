@@ -22,9 +22,9 @@ import yaml
 
 from cvmatch.core.text.diacritics import no_diacritics
 from cvmatch.core.text.normalize import _MONTHS_EN, normalize
-from cvmatch.ingest.cv.a01_schema import _fix_dates
-from cvmatch.ingest.cv.a04_normalize import free_texts
-from cvmatch.ingest.cv.a07_bullets import n_words, split_description
+from cvmatch.ingest.cv.validate import _fix_dates
+from cvmatch.ingest.cv.normalize import free_texts
+from cvmatch.ingest.cv.bullets import n_words, split_description
 from cvmatch.ingest.cv.adapter import adapt_cv
 from cvmatch.ingest.cv.schema import InvalidCV, validate_cv
 from cvmatch.ingest.jd.schema import InvalidJD, _as_list, adapt_jd, validate_jd

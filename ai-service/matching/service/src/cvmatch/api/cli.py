@@ -112,7 +112,7 @@ def register(sub: argparse._SubParsersAction) -> None:
     e.add_argument("--kb-dir", default=None, help="thu muc snapshot KB; chua nap thi nap (mac dinh: ban trong active.yaml)")
     e.add_argument("--fake-encoder", action="store_true", help="FakeEncoder (khong GPU)")
     e.add_argument("--fresh-db", action="store_true", help="tao database moi tren cung server cho lan chay nay")
-    e.add_argument("--out", default="reports/e2e")
+    e.add_argument("--out", default="research/reports/e2e")
     e.add_argument("--explain-top", type=int, default=5)
     e.add_argument("--n", type=int, default=None)
     e.add_argument("--k", type=int, default=None)
