@@ -1,5 +1,7 @@
 package recruit.demo.controller;
 
+import recruit.demo.dto.BaseResponse;
+import recruit.demo.dto.CandidateProfileDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
@@ -19,9 +21,10 @@ public class CvController {
         return cvService.mine();
     }
 
+    /** Trích xuất CV PDF; data là profile AI đọc được (cùng DTO với /analyze-pdf). */
     @PostMapping(consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
-    public CvDtos.CvFormResponse upload(@RequestPart("file") MultipartFile file) {
-        return cvService.upload(file);
+    public BaseResponse<CandidateProfileDto> upload(@RequestPart("file") MultipartFile file) {
+        return BaseResponse.success(cvService.upload(file));
     }
 
     @PutMapping
