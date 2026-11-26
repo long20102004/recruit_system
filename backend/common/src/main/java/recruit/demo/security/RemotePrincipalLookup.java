@@ -25,6 +25,6 @@ public class RemotePrincipalLookup implements PrincipalLookup {
         }
         if (!user.email().equalsIgnoreCase(email)) throw new UsernameNotFoundException("User not found");
         return new UserPrincipal(user.id(), user.email(), "", user.fullName(), user.role(), user.status(),
-                user.sessionsValidAfter());
+                user.sessionsValidAfter(), user.permissions());
     }
 }

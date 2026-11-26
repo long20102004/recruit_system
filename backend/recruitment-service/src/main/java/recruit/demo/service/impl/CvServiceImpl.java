@@ -258,7 +258,6 @@ public class CvServiceImpl implements CvService {
     }
 
     private CandidateProfile requireCandidate() {
-        SecurityUtils.requireRole(Role.CANDIDATE);
         UserPrincipal principal = SecurityUtils.currentUser();
         return candidateProfileRepository.findByUserId(principal.getId())
                 .orElseThrow(() -> new ApiException(HttpStatus.BAD_REQUEST, "Candidate profile not found"));

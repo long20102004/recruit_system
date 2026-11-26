@@ -1,5 +1,6 @@
 package recruit.demo.controller;
 
+import org.springframework.security.access.prepost.PreAuthorize;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
@@ -27,6 +28,8 @@ public class JobsController {
     }
 
     @GetMapping("/mine")
+
+    @PreAuthorize("hasAuthority('job:read-own')")
     public List<JobDtos.JobResponse> myJobs() {
         return jobService.myJobs();
     }
@@ -37,11 +40,15 @@ public class JobsController {
     }
 
     @PostMapping
+
+    @PreAuthorize("hasAuthority('job:create')")
     public JobDtos.JobResponse create(@Valid @RequestBody JobDtos.CreateJobRequest request) {
         return jobService.create(request);
     }
 
     @PatchMapping("/{id}/status")
+
+    @PreAuthorize("hasAuthority('job:update')")
     public JobDtos.JobResponse updateStatus(@PathVariable Integer id,
                                             @Valid @RequestBody JobDtos.UpdateJobStatusRequest request) {
         return jobService.updateStatus(id, request.status());

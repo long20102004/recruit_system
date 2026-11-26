@@ -52,12 +52,14 @@ public final class AuthDtos {
     ) {
     }
 
+    /** permissions: quyền của user theo ma trận RBAC (specs/004-rbac), FE dùng để chặn route / ẩn nút. */
     public record UserResponse(
             Integer id,
             String fullName,
             String email,
             Role role,
-            boolean roleChosen
+            boolean roleChosen,
+            java.util.List<String> permissions
     ) {
     }
 

@@ -44,7 +44,6 @@ public class InterviewServiceImpl implements InterviewService {
 
     @Transactional
     public InterviewDtos.SessionResponse createSession(InterviewDtos.CreateSessionRequest request) {
-        SecurityUtils.requireRole(Role.CANDIDATE);
         UserPrincipal principal = SecurityUtils.currentUser();
         var context = recruitmentClient.interviewContext(principal.getId(),
                 request != null ? request.jobId() : null, request != null ? request.applicationId() : null);
@@ -103,7 +102,6 @@ public class InterviewServiceImpl implements InterviewService {
 
     @Transactional
     public InterviewDtos.EvaluationResponse submitAndEvaluate(Integer sessionId, InterviewDtos.SubmitResponseRequest request) {
-        SecurityUtils.requireRole(Role.CANDIDATE);
         InterviewSession session = sessionRepository.findForUpdate(sessionId)
             .orElseThrow(() -> new ApiException(HttpStatus.NOT_FOUND, "Session not found"));
         ensureCanAccess(session);
@@ -129,7 +127,6 @@ public class InterviewServiceImpl implements InterviewService {
 
     @Transactional(readOnly=true)
     public List<InterviewDtos.SessionResponse> mySessions() {
-        SecurityUtils.requireRole(Role.CANDIDATE);
         return sessionRepository.findByCandidateUserIdOrderByCreatedAtDesc(SecurityUtils.currentUser().getId())
             .stream().map(this::toSessionResponse).toList();
     }
@@ -286,8 +283,8 @@ public class InterviewServiceImpl implements InterviewService {
 
     private void ensureCanAccess(InterviewSession session) {
         UserPrincipal principal = SecurityUtils.currentUser();
-        if (principal.getRole() == Role.ADMIN ||
-            (principal.getRole() == Role.RECRUITER && principal.getId().equals(session.getRecruiterUserId()))) {
+        if (principal.hasPermission("interview:read-all") ||
+            (principal.hasPermission("interview:read-result") && principal.getId().equals(session.getRecruiterUserId()))) {
             return;
         }
         if (!session.getCandidateUserId().equals(principal.getId())) {

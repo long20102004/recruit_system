@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
-import { Button, EmptyNote, JobLogo, SiteHeader } from "../../components/common";
+import { Button, Can, EmptyNote, JobLogo, SiteHeader } from "../../components/common";
 import { applicationsApi, jobsApi, matchingApi } from "../../api/client";
+import { useAuth } from "../../context/AuthContext";
 import { useToast } from "../../context/ToastContext";
 import { mapJob, mapMatch } from "../../utils/mappers";
 import { pct } from "../../utils/format";
@@ -35,7 +36,9 @@ function TextBlock({ text, splitCommas = false }: { text: string; splitCommas?: 
 
 export function CandidateJobDetailPage() {
   const { jobId } = useParams();
+  const { can } = useAuth();
   const { toast } = useToast();
+  const canReadMatch = can("matching:read-own");
   const [job, setJob] = useState<Job | null>(null);
   const [loading, setLoading] = useState(true);
   const [match, setMatch] = useState<MatchResult | null>(null);
@@ -54,11 +57,12 @@ export function CandidateJobDetailPage() {
   }, [jobId, toast]);
 
   useEffect(() => {
+    if (!canReadMatch) return;
     matchingApi
       .mine()
       .then((list) => setMatch(list.map(mapMatch).find((m) => m.jobId === String(jobId)) ?? null))
       .catch(() => setMatch(null));
-  }, [jobId]);
+  }, [jobId, canReadMatch]);
 
   const id = Number(jobId);
 
@@ -118,11 +122,15 @@ export function CandidateJobDetailPage() {
                     .map((x) => <span key={x}>{x}</span>)}
                 </div>
                 <div className="row" style={{ gap: 10 }}>
-                  <Button variant="primary" onClick={apply} style={{ flex: "1 1 260px" }}>Ứng tuyển ngay</Button>
-                  <Button variant="ghost"
-                    to={Number.isFinite(id) ? `/candidate/interview?jobId=${id}` : "/candidate/interview"}>
-                    Luyện phỏng vấn cho tin này
-                  </Button>
+                  <Can perm="application:apply">
+                    <Button variant="primary" onClick={apply} style={{ flex: "1 1 260px" }}>Ứng tuyển ngay</Button>
+                  </Can>
+                  <Can perm="interview:practice">
+                    <Button variant="ghost"
+                      to={Number.isFinite(id) ? `/candidate/interview?jobId=${id}` : "/candidate/interview"}>
+                      Luyện phỏng vấn cho tin này
+                    </Button>
+                  </Can>
                 </div>
               </section>
 

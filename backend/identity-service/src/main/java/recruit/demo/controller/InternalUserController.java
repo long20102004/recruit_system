@@ -14,6 +14,7 @@ import recruit.demo.security.UserSnapshotCache;
 public class InternalUserController {
     private final UserRepository users;
     private final UserSnapshotCache userCache;
+    private final recruit.demo.service.RbacService rbac;
     @GetMapping("/{id}")
     public UserSnapshot get(@PathVariable Integer id) { return snapshot(require(id)); }
     @PatchMapping("/{id}")
@@ -30,6 +31,6 @@ public class InternalUserController {
         .orElseThrow(() -> new ApiException(HttpStatus.NOT_FOUND, "User not found")); }
     private UserSnapshot snapshot(User u) {
         return new UserSnapshot(u.getId(), u.getFullName(), u.getEmail(), u.getPhone(), u.getRole(), u.getStatus(),
-            u.sessionsValidAfterEpochSeconds());
+            u.sessionsValidAfterEpochSeconds(), rbac.permissionsOf(u.getRole()));
     }
 }

@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { Button, EmptyNote, RecruiterLayout } from "../../components/common";
+import { Button, EmptyNote, RecruiterLayout, Can } from "../../components/common";
 import {
   applicationsApi,
   dashboardApi,
@@ -9,11 +9,15 @@ import {
   type JobDto,
   type RecruiterStatsDto,
 } from "../../api/client";
+import { useAuth } from "../../context/AuthContext";
 import { useToast } from "../../context/ToastContext";
 import { applicationBadge, initials, jobBadge, shortDate } from "../../utils/format";
 
 export function RecruiterHomePage() {
   const { toast } = useToast();
+  const { can } = useAuth();
+  const canReadJobs = can("job:read-own");
+  const canReadApps = can("application:read-received");
   const [stats, setStats] = useState<RecruiterStatsDto | null>(null);
   const [jobs, setJobs] = useState<JobDto[]>([]);
   const [apps, setApps] = useState<ApplicationDto[]>([]);
@@ -21,8 +25,8 @@ export function RecruiterHomePage() {
   useEffect(() => {
     Promise.all([
       dashboardApi.recruiter(),
-      jobsApi.mine(),
-      applicationsApi.recruiter(),
+      canReadJobs ? jobsApi.mine() : Promise.resolve([]),
+      canReadApps ? applicationsApi.recruiter() : Promise.resolve([]),
     ])
       .then(([s, j, a]) => {
         setStats(s);
@@ -30,7 +34,7 @@ export function RecruiterHomePage() {
         setApps(a);
       })
       .catch((e) => toast(e.message));
-  }, [toast]);
+  }, [toast, canReadJobs, canReadApps]);
 
 
   const count = (st: string) => apps.filter((a) => a.status === st).length;
@@ -52,7 +56,9 @@ export function RecruiterHomePage() {
           <p className="kicker">Nhà tuyển dụng</p>
           <h1 style={{ fontSize: 32, marginTop: 4 }}>Tổng quan tuyển dụng</h1>
         </div>
-        <Button variant="primary" to="/recruiter/jobs">+ Đăng tin mới</Button>
+        <Can perm="job:create">
+          <Button variant="primary" to="/recruiter/jobs">+ Đăng tin mới</Button>
+        </Can>
       </div>
 
       <section style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 200px), 1fr))", gap: 20 }}>
@@ -86,7 +92,9 @@ export function RecruiterHomePage() {
         <div className="card" style={{ flex: "1 1 360px", display: "flex", flexDirection: "column", gap: 4 }}>
           <div className="between" style={{ marginBottom: 8 }}>
             <h3 style={{ fontSize: 18 }}>Tin của bạn</h3>
-            <Link to="/recruiter/jobs" className="small" style={{ color: "var(--brand)", fontWeight: 650 }}>Tất cả tin</Link>
+            <Can perm="job:read-own">
+              <Link to="/recruiter/jobs" className="small" style={{ color: "var(--brand)", fontWeight: 650 }}>Tất cả tin</Link>
+            </Can>
           </div>
           {jobs.length === 0 ? <p className="small muted">Chưa có tin. Hãy đăng vị trí mới.</p> : jobs.slice(0, 5).map((j) => {
             const b = jobBadge(j.status);

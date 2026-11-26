@@ -22,7 +22,6 @@ public class DashboardServiceImpl implements DashboardService {
 
     @Transactional(readOnly = true)
     public DashboardDtos.RecruiterStatsResponse recruiterStats() {
-        SecurityUtils.requireRole(Role.RECRUITER, Role.ADMIN);
         UserPrincipal principal = SecurityUtils.currentUser();
 
         long openJobs = jobRepository.countByStatusAndCreatedById(JobStatus.PUBLISHED, principal.getId());

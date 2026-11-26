@@ -21,6 +21,8 @@ public class UserPrincipal implements UserDetails {
     private final UserStatus status;
     /** Epoch giây; JWT có iat nhỏ hơn bị từ chối. Null = không giới hạn. */
     private final Long sessionsValidAfter;
+    /** Quyền theo ma trận RBAC của role (vd "job:create"); dùng với @PreAuthorize("hasAuthority('…')"). */
+    private final java.util.Set<String> permissions;
 
     public UserPrincipal(Integer id, String email, String password, String fullName, Role role, UserStatus status) {
         this(id, email, password, fullName, role, status, null);
@@ -28,9 +30,19 @@ public class UserPrincipal implements UserDetails {
 
     public UserPrincipal(Integer id, String email, String password, String fullName, Role role, UserStatus status,
                          Long sessionsValidAfter) {
+        this(id, email, password, fullName, role, status, sessionsValidAfter, java.util.Set.of());
+    }
+
+    public UserPrincipal(Integer id, String email, String password, String fullName, Role role, UserStatus status,
+                         Long sessionsValidAfter, java.util.Collection<String> permissions) {
         this.id = id; this.email = email; this.password = password;
         this.fullName = fullName; this.role = role; this.status = status;
         this.sessionsValidAfter = sessionsValidAfter;
+        this.permissions = permissions == null ? java.util.Set.of() : java.util.Set.copyOf(permissions);
+    }
+
+    public boolean hasPermission(String permission) {
+        return permissions.contains(permission);
     }
 
     /** Token phát hành trước mốc vô hiệu phiên thì không còn hợp lệ. */
@@ -41,7 +53,10 @@ public class UserPrincipal implements UserDetails {
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        return List.of(new SimpleGrantedAuthority("ROLE_" + role.name()));
+        List<GrantedAuthority> authorities = new java.util.ArrayList<>();
+        authorities.add(new SimpleGrantedAuthority("ROLE_" + role.name()));
+        permissions.stream().sorted().forEach(p -> authorities.add(new SimpleGrantedAuthority(p)));
+        return authorities;
     }
 
     @Override

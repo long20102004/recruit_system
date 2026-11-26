@@ -53,7 +53,6 @@ public class JobServiceImpl implements JobService {
 
     @Transactional
     public JobDtos.JobResponse create(JobDtos.CreateJobRequest request) {
-        SecurityUtils.requireRole(Role.RECRUITER, Role.ADMIN);
         UserPrincipal principal = SecurityUtils.currentUser();
         RecruiterProfile recruiter = requireRecruiter();
 
@@ -84,7 +83,6 @@ public class JobServiceImpl implements JobService {
 
     @Transactional
     public JobDtos.JobResponse updateStatus(Integer id, String statusRaw) {
-        SecurityUtils.requireRole(Role.RECRUITER, Role.ADMIN);
         Job job = jobRepository.findById(id)
                 .orElseThrow(() -> new ApiException(HttpStatus.NOT_FOUND, "Job not found"));
         ensureOwnsJob(job);
@@ -100,7 +98,6 @@ public class JobServiceImpl implements JobService {
 
     @Transactional(readOnly = true)
     public List<JobDtos.JobResponse> myJobs() {
-        SecurityUtils.requireRole(Role.RECRUITER, Role.ADMIN);
         UserPrincipal principal = SecurityUtils.currentUser();
         return jobRepository.findByCreatedByIdOrderByCreatedAtDesc(principal.getId()).stream()
                 .map(this::toResponse)
@@ -248,9 +245,6 @@ public class JobServiceImpl implements JobService {
 
     private void ensureOwnsJob(Job job) {
         UserPrincipal principal = SecurityUtils.currentUser();
-        if (principal.getRole() == Role.ADMIN) {
-            return;
-        }
         if (!job.getCreatedById().equals(principal.getId())) {
             throw new ApiException(HttpStatus.FORBIDDEN, "Not your job");
         }
