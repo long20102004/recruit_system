@@ -6,7 +6,9 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.multipart.MultipartFile;
 import recruit.demo.config.AppProperties;
-import recruit.demo.dto.CvDtos;
+import recruit.demo.dto.ConfirmCvRequest;
+import recruit.demo.dto.CvFieldValue;
+import recruit.demo.dto.CvFormResponse;
 import recruit.demo.entity.CandidateProfile;
 import recruit.demo.entity.CvData;
 import recruit.demo.entity.Role;
@@ -35,6 +37,8 @@ public class CvService {
     static final String FILE_NAME = "file_name";
     static final String FILE_URL = "file_url";
     static final String PARSING_STATUS = "parsing_status";
+    /** JSON profile hiện hành: kết quả AI lúc upload, sau đó là bản người dùng đã sửa (giữ cả dữ liệu KG). */
+    static final String PROFILE_JSON = "extracted_profile";
 
     private final CvDataRepository cvDataRepository;
     private final CandidateProfileRepository candidateProfileRepository;
@@ -46,7 +50,7 @@ public class CvService {
     private final tools.jackson.databind.ObjectMapper objectMapper;
 
     @Transactional(readOnly = true)
-    public CvDtos.CvFormResponse mine() {
+    public CvFormResponse mine() {
         CandidateProfile candidate = requireCandidate();
         return toForm(candidate.getId());
     }
@@ -78,7 +82,7 @@ public class CvService {
             put(candidate.getId(), FILE_NAME, original);
             put(candidate.getId(), FILE_URL, target.toString());
             put(candidate.getId(), PARSING_STATUS, "COMPLETED");
-            put(candidate.getId(), "extracted_profile", extracted.toString());
+            put(candidate.getId(), PROFILE_JSON, extracted.toString());
             for (var entry : profileMapper.fields(extracted).entrySet()) {
                 if (settingService.cvFields().contains(entry.getKey())) replaceLines(candidate.getId(), entry.getKey(), entry.getValue());
             }
@@ -90,30 +94,56 @@ public class CvService {
     }
 
     @Transactional
-    public CvDtos.CvFormResponse confirm(CvDtos.ConfirmCvRequest request) {
+    public CvFormResponse confirm(ConfirmCvRequest request) {
         CandidateProfile candidate = requireCandidate();
         if (value(candidate.getId(), FILE_NAME).isBlank()) {
             throw new ApiException(HttpStatus.BAD_REQUEST, "Hãy tải CV trước");
         }
         List<String> allowed = settingService.cvFields();
-        if (request == null || request.fields() == null) {
+        if (request == null || (request.getFields() == null && request.getProfile() == null)) {
             throw new ApiException(HttpStatus.BAD_REQUEST, "Thiếu dữ liệu hồ sơ");
         }
-        for (CvDtos.FieldValue item : request.fields()) {
-            if (item == null || item.field() == null || item.field().isBlank()) {
+        if (request.getProfile() != null) {
+            applyProfile(candidate, request.getProfile(), allowed);
+        }
+        for (CvFieldValue item : request.getFields() == null ? List.<CvFieldValue>of() : request.getFields()) {
+            if (item == null || item.getField() == null || item.getField().isBlank()) {
                 continue;
             }
-            String field = item.field().trim();
+            String field = item.getField().trim();
             if (!allowed.contains(field)) {
                 throw new ApiException(HttpStatus.BAD_REQUEST, "Field không nằm trong cấu hình CV_FIELD: " + field);
             }
-            List<String> lines = linesOf(item.values());
+            List<String> lines = linesOf(item.getValues());
             replaceLines(candidate.getId(), field, lines);
             syncProfile(candidate, field, lines);
         }
         put(candidate.getId(), PARSING_STATUS, "COMPLETED");
         events.publishEvent(new recruit.demo.service.cvmatch.CvMatchEvents.CvChanged(candidate.getId()));
         return toForm(candidate.getId());
+    }
+
+    /**
+     * Gộp hồ sơ người dùng sửa vào JSON đã lưu (giữ các khoá ngoài CandidateProfile như implied_skills của KG),
+     * rồi ghi lại các field dùng cho matching và đồng bộ họ tên / SĐT / tóm tắt như khi sửa từng field.
+     */
+    private void applyProfile(CandidateProfile candidate, recruit.demo.dto.CandidateProfileDto profile, List<String> allowed) {
+        tools.jackson.databind.node.ObjectNode merged;
+        String stored = value(candidate.getId(), PROFILE_JSON);
+        try {
+            var base = stored.isBlank() ? null : objectMapper.readTree(stored);
+            merged = base instanceof tools.jackson.databind.node.ObjectNode obj ? obj : objectMapper.createObjectNode();
+        } catch (RuntimeException ex) {
+            merged = objectMapper.createObjectNode();
+        }
+        tools.jackson.databind.JsonNode edited = objectMapper.valueToTree(profile);
+        for (var entry : edited.properties()) merged.set(entry.getKey(), entry.getValue());
+        put(candidate.getId(), PROFILE_JSON, merged.toString());
+        for (var entry : profileMapper.fields(merged).entrySet()) {
+            if (!allowed.contains(entry.getKey())) continue;
+            replaceLines(candidate.getId(), entry.getKey(), entry.getValue());
+            syncProfile(candidate, entry.getKey(), entry.getValue());
+        }
     }
 
     private void syncProfile(CandidateProfile candidate, String field, List<String> lines) {
@@ -128,20 +158,31 @@ public class CvService {
         }
     }
 
-    private CvDtos.CvFormResponse toForm(Integer candidateId) {
-        List<CvDtos.FieldValue> fields = new ArrayList<>();
+    private CvFormResponse toForm(Integer candidateId) {
+        List<CvFieldValue> fields = new ArrayList<>();
         for (String field : settingService.cvFields()) {
-            fields.add(new CvDtos.FieldValue(field, lines(candidateId, field)));
+            fields.add(new CvFieldValue(field, lines(candidateId, field)));
         }
         String status = value(candidateId, PARSING_STATUS);
         String fileName = value(candidateId, FILE_NAME);
         boolean analyzed = "COMPLETED".equals(status) && !fileName.isBlank();
-        return new CvDtos.CvFormResponse(
-                fileName.isBlank() ? null : fileName,
-                status.isBlank() ? null : status,
-                analyzed,
-                fields
-        );
+        return CvFormResponse.builder()
+                .fileName(fileName.isBlank() ? null : fileName)
+                .parsingStatus(status.isBlank() ? null : status)
+                .analyzed(analyzed)
+                .fields(fields)
+                .profile(storedProfile(candidateId))
+                .build();
+    }
+
+    private recruit.demo.dto.CandidateProfileDto storedProfile(Integer candidateId) {
+        String stored = value(candidateId, PROFILE_JSON);
+        if (stored.isBlank()) return null;
+        try {
+            return objectMapper.readValue(stored, recruit.demo.dto.CandidateProfileDto.class);
+        } catch (RuntimeException ex) {
+            return null;
+        }
     }
 
     private List<String> linesOf(List<String> raw) {

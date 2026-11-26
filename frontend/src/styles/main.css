@@ -1212,14 +1212,7 @@ textarea.cvu-input { height: auto; padding: 10px 12px; resize: vertical; line-he
   .cvu-paper { min-height: 320px; }
 }
 
-/* Kết quả AI trích xuất (ExtractedProfileView) */
-.cvx { display: flex; flex-direction: column; gap: 14px; }
-.cvx > summary { cursor: pointer; list-style: none; }
-.cvx > summary::-webkit-details-marker { display: none; }
-.cvx-section { border-top: 1px solid var(--line); padding-top: 12px; }
-.cvx-label { font-size: 12px; font-weight: 600; color: var(--muted-c); }
-.cvx-entry { display: flex; flex-direction: column; gap: 4px; padding: 8px 0; }
+/* Form sửa hồ sơ theo CandidateProfile (CvProfileEditor) */
+.cvx-entry { display: flex; flex-direction: column; gap: 8px; padding: 14px 0 6px; }
 .cvx-entry + .cvx-entry { border-top: 1px dashed var(--line); }
-.cvx-bullets { margin: 0; padding-left: 18px; font-size: 13.5px; display: flex; flex-direction: column; gap: 2px; }
-.cvx-pre { white-space: pre-line; font-size: 14px; margin: 0; }
-.cvx-tag { padding: 0 12px; }
+.cvx-remove { align-self: flex-end; color: var(--danger-c); }
