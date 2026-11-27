@@ -63,6 +63,9 @@ app:
     path: ${UPLOAD_PATH:./uploads}
   cv-extraction:
     base-url: ${CV_EXTRACTION_URL:http://localhost:8001}
+  gotenberg:
+    base-url: ${GOTENBERG_URL:http://localhost:3100}
+    timeout-ms: ${GOTENBERG_TIMEOUT_MS:20000}
   # Module match CV <-> JD (services/cvmatch-ai, plan I05/I06)
   cvmatch:
     base-url: ${CVMATCH_URL:http://localhost:8003}

@@ -194,6 +194,7 @@ services:
       CV_EXTRACTION_URL: ${CV_EXTRACTION_URL:-http://cv-extraction-ai:8000}
       CVMATCH_URL: ${CVMATCH_URL:-http://cvmatch-ai:8000}
       CVMATCH_SYNC_ENABLED: ${CVMATCH_SYNC_ENABLED:-true}
+      GOTENBERG_URL: ${GOTENBERG_URL:-http://gotenberg:3000}
       # Cloudflare R2 (specs/008-r2-storage, docs/R2_STORAGE.md). Bat buoc: thieu thi recruitment-service khong khoi dong.
       R2_ACCOUNT_ID: ${R2_ACCOUNT_ID:-}
       R2_ACCESS_KEY_ID: ${R2_ACCESS_KEY_ID:-}
@@ -449,6 +450,13 @@ services:
       timeout: 10s
       retries: 10
       start_period: 600s
+
+  # Chuyển mẫu CV Word (.docx) sang PDF (specs/011-cv-templates). Dev bind loopback 127.0.0.1:3100;
+  # production nên bỏ ports và đặt trên mạng internal: true để chặn tài liệu gọi ra Internet.
+  gotenberg:
+    image: gotenberg/gotenberg:8
+    ports:
+      - "127.0.0.1:3100:3000"
 
 volumes:
   hirelens_mysql_data:

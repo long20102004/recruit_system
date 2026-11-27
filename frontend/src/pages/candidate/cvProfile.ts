@@ -25,8 +25,12 @@ export function normalizeProfile(p: Profile | null | undefined): Profile {
   return {
     personal_info: { ...base.personal_info!, ...(p.personal_info ?? {}) },
     objective: p.objective ?? null,
-    education: p.education ?? [],
-    experience: (p.experience ?? []).map((e) => ({ ...e, description: e.description ?? [] })),
+    education: (p.education ?? []).map((e) => ({ ...e, location: e.location ?? null })),
+    experience: (p.experience ?? []).map((e) => ({
+      ...e,
+      location: e.location ?? null,
+      description: e.description ?? [],
+    })),
     personal_projects: (p.personal_projects ?? []).map((x) => ({
       ...x,
       description: x.description ?? [],
@@ -53,17 +57,24 @@ export function cleanProfile(p: Profile): Profile {
     },
     objective: s(p.objective),
     education: (p.education ?? [])
-      .map((e) => ({ ...e, school: s(e.school), major: s(e.major), gpa: s(e.gpa) }))
-      .filter((e) => e.school || e.major || e.gpa || e.start_year != null || e.end_year != null),
+      .map((e) => ({
+        ...e,
+        school: s(e.school),
+        major: s(e.major),
+        location: s(e.location),
+        gpa: s(e.gpa),
+      }))
+      .filter((e) => e.school || e.major || e.location || e.gpa || e.start_year != null || e.end_year != null),
     experience: (p.experience ?? [])
       .map((e) => ({
         company: s(e.company),
         job_title: s(e.job_title),
+        location: s(e.location),
         start_date: s(e.start_date),
         end_date: s(e.end_date),
         description: lines(e.description),
       }))
-      .filter((e) => e.company || e.job_title || e.description.length),
+      .filter((e) => e.company || e.job_title || e.location || e.description.length),
     personal_projects: (p.personal_projects ?? [])
       .map((x) => ({
         name: s(x.name),

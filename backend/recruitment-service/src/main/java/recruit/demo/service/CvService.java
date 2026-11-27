@@ -7,6 +7,8 @@ import recruit.demo.dto.ConfirmCvRequest;
 import recruit.demo.dto.CvDocumentDtos.CvDocumentDto;
 import recruit.demo.dto.CvDocumentDtos.CvUploadResponse;
 import recruit.demo.dto.CvFormResponse;
+import recruit.demo.dto.CvTemplateSelectionDtos.CvPreviewRequest;
+import recruit.demo.dto.CvTemplateSelectionDtos.CvPreviewResult;
 
 import java.util.List;
 
@@ -34,6 +36,14 @@ public interface CvService {
 
     /** Tạo CV trống (không file) cho nút Tạo CV từ đầu ở C04. */
     CvDocumentDto createBlank(String title);
+
+    CvDocumentDto createBlank(String title, Integer templateId);
+
+    CvDocumentDto setTemplate(Integer cvId, Integer templateId);
+
+    CvPreviewResult preview(CvPreviewRequest request);
+
+    FileLinkDto generatePdf(Integer cvId);
 
     CvDocumentDto rename(Integer cvId, String title);
 

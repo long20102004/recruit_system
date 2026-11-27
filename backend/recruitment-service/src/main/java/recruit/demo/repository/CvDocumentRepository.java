@@ -14,4 +14,6 @@ public interface CvDocumentRepository extends JpaRepository<CvDocument, Integer>
     Optional<CvDocument> findFirstByCandidateIdAndMainTrue(Integer candidateId);
 
     long countByCandidateId(Integer candidateId);
+
+    long countByTemplateId(Integer templateId);
 }

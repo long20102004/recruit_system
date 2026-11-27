@@ -1,0 +1,255 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title th:text="${pageTitle}">CV</title>
+    <style type="text/css">
+        * {
+            box-sizing: border-box;
+        }
+        body {
+            margin: 0;
+            padding: 0;
+            line-height: 1.42;
+            font-size: 10pt;
+        }
+        table {
+            border-collapse: collapse;
+        }
+        p, ul, h1, h2, h3 {
+            margin: 0;
+            padding: 0;
+        }
+        .cv-header {
+            margin-bottom: 10px;
+            padding-bottom: 8px;
+            border-bottom: 1pt solid #d6d3cd;
+        }
+        .header-LEFT {
+            text-align: left;
+        }
+        .header-CENTER {
+            text-align: center;
+        }
+        .cv-name {
+            font-size: 19pt;
+            font-weight: bold;
+            letter-spacing: 0.3px;
+            line-height: 1.2;
+        }
+        .cv-title {
+            font-size: 10.5pt;
+            font-weight: bold;
+            margin-top: 2px;
+            color: #44403c;
+        }
+        .cv-contact {
+            font-size: 9pt;
+            color: #57534e;
+            margin-top: 4px;
+        }
+        .cv-section {
+            margin-top: 11px;
+        }
+        .density-COMPACT .cv-section {
+            margin-top: 8px;
+        }
+        .density-COMPACT {
+            font-size: 9.4pt;
+            line-height: 1.32;
+        }
+        .density-NORMAL {
+            font-size: 10pt;
+            line-height: 1.44;
+        }
+        .section-title {
+            font-size: 10.5pt;
+            font-weight: bold;
+            margin-bottom: 6px;
+            page-break-after: avoid;
+        }
+        .density-COMPACT .section-title {
+            font-size: 10pt;
+            margin-bottom: 4px;
+        }
+        .heading-UPPERCASE_RULE .section-title {
+            text-transform: uppercase;
+            letter-spacing: 0.6px;
+            padding-bottom: 2px;
+        }
+        .heading-PLAIN .section-title {
+            text-transform: none;
+        }
+        .entry {
+            margin-bottom: 7px;
+            page-break-inside: avoid;
+        }
+        .density-COMPACT .entry {
+            margin-bottom: 5px;
+        }
+        .entry-head-table {
+            width: 100%;
+        }
+        .entry-head-left {
+            vertical-align: top;
+            text-align: left;
+        }
+        .entry-head-right {
+            vertical-align: top;
+            text-align: right;
+            white-space: nowrap;
+            font-size: 9pt;
+            color: #57534e;
+            padding-left: 10px;
+        }
+        .entry-primary {
+            font-weight: bold;
+        }
+        .entry-secondary {
+            color: #44403c;
+        }
+        .entry-meta {
+            font-size: 9pt;
+            color: #57534e;
+            margin-top: 1px;
+        }
+        .entry-date-below {
+            font-size: 9pt;
+            color: #57534e;
+            margin-top: 1px;
+        }
+        .bullet-list {
+            margin-top: 3px;
+            margin-left: 15px;
+        }
+        .bullet-list li {
+            margin-bottom: 2px;
+        }
+        .skills-inline {
+            line-height: 1.5;
+        }
+        .objective-text {
+            text-align: left;
+        }
+    </style>
+    <style type="text/css" th:text="${dynamicCss}"></style>
+</head>
+<body>
+<div th:class="${pageClasses}">
+    <th:block th:each="sec : ${sections}">
+
+        <div class="cv-header" th:if="${sec == 'info'}" th:classappend="${' header-' + config.header}">
+            <div class="cv-name" th:if="${cv.fullName != null}" th:text="${cv.fullName}">Họ tên</div>
+            <div class="cv-title" th:if="${cv.title != null}" th:text="${cv.title}">Chức danh</div>
+            <div class="cv-contact" th:if="${cv.contactLine != null}" th:text="${cv.contactLine}">Liên hệ</div>
+        </div>
+
+        <div class="cv-section" th:if="${sec == 'objective' and cv.objective != null}">
+            <div class="section-title">Mục tiêu nghề nghiệp</div>
+            <p class="objective-text" th:text="${cv.objective}">Mục tiêu</p>
+        </div>
+
+        <div class="cv-section" th:if="${sec == 'education' and !#lists.isEmpty(cv.education)}">
+            <div class="section-title">Học vấn</div>
+            <div class="entry" th:each="edu : ${cv.education}">
+                <table class="entry-head-table" th:if="${config.dates == 'RIGHT_INLINE'}">
+                    <tr>
+                        <td class="entry-head-left">
+                            <span class="entry-primary" th:text="${edu.school}">Trường</span>
+                            <span class="entry-secondary" th:if="${edu.location != null}" th:text="${' — ' + edu.location}"></span>
+                        </td>
+                        <td class="entry-head-right" th:text="${edu.period}">2019 - 2023</td>
+                    </tr>
+                </table>
+                <div th:if="${config.dates == 'BELOW'}">
+                    <div>
+                        <span class="entry-primary" th:text="${edu.school}">Trường</span>
+                        <span class="entry-secondary" th:if="${edu.location != null}" th:text="${' — ' + edu.location}"></span>
+                    </div>
+                    <div class="entry-date-below" th:if="${edu.period != null}" th:text="${edu.period}">2019 - 2023</div>
+                </div>
+                <div class="entry-meta" th:if="${edu.detailLine != null}" th:text="${edu.detailLine}">Chuyên ngành</div>
+            </div>
+        </div>
+
+        <div class="cv-section" th:if="${sec == 'experience' and !#lists.isEmpty(cv.experience)}">
+            <div class="section-title">Kinh nghiệm làm việc</div>
+            <div class="entry" th:each="exp : ${cv.experience}">
+                <table class="entry-head-table" th:if="${config.dates == 'RIGHT_INLINE'}">
+                    <tr>
+                        <td class="entry-head-left">
+                            <span class="entry-primary" th:text="${exp.jobTitle}">Vị trí</span>
+                            <span class="entry-secondary" th:if="${exp.companyLine != null}" th:text="${' — ' + exp.companyLine}"></span>
+                        </td>
+                        <td class="entry-head-right" th:text="${exp.period}">06/2023 - Hiện tại</td>
+                    </tr>
+                </table>
+                <div th:if="${config.dates == 'BELOW'}">
+                    <div>
+                        <span class="entry-primary" th:text="${exp.jobTitle}">Vị trí</span>
+                        <span class="entry-secondary" th:if="${exp.companyLine != null}" th:text="${' — ' + exp.companyLine}"></span>
+                    </div>
+                    <div class="entry-date-below" th:if="${exp.period != null}" th:text="${exp.period}">06/2023 - Hiện tại</div>
+                </div>
+                <ul class="bullet-list" th:if="${!#lists.isEmpty(exp.bullets)}">
+                    <li th:each="b : ${exp.bullets}" th:text="${b}">Mô tả</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="cv-section" th:if="${sec == 'projects' and !#lists.isEmpty(cv.projects)}">
+            <div class="section-title">Dự án cá nhân</div>
+            <div class="entry" th:each="proj : ${cv.projects}">
+                <table class="entry-head-table" th:if="${config.dates == 'RIGHT_INLINE'}">
+                    <tr>
+                        <td class="entry-head-left">
+                            <span class="entry-primary" th:text="${proj.name}">Tên dự án</span>
+                            <span class="entry-secondary" th:if="${proj.role != null}" th:text="${' — ' + proj.role}"></span>
+                        </td>
+                        <td class="entry-head-right" th:text="${proj.period}">01/2024 - 06/2024</td>
+                    </tr>
+                </table>
+                <div th:if="${config.dates == 'BELOW'}">
+                    <div>
+                        <span class="entry-primary" th:text="${proj.name}">Tên dự án</span>
+                        <span class="entry-secondary" th:if="${proj.role != null}" th:text="${' — ' + proj.role}"></span>
+                    </div>
+                    <div class="entry-date-below" th:if="${proj.period != null}" th:text="${proj.period}">01/2024 - 06/2024</div>
+                </div>
+                <div class="entry-meta" th:if="${proj.metaLine != null}" th:text="${proj.metaLine}">Công nghệ</div>
+                <ul class="bullet-list" th:if="${!#lists.isEmpty(proj.bullets)}">
+                    <li th:each="b : ${proj.bullets}" th:text="${b}">Mô tả</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="cv-section" th:if="${sec == 'skills' and !#lists.isEmpty(cv.skills)}">
+            <div class="section-title">Kỹ năng</div>
+            <p class="skills-inline" th:text="${cv.skillsText}">Java, Spring Boot</p>
+        </div>
+
+        <div class="cv-section" th:if="${sec == 'languages' and !#lists.isEmpty(cv.languages)}">
+            <div class="section-title">Ngoại ngữ</div>
+            <ul class="bullet-list">
+                <li th:each="lang : ${cv.languages}" th:text="${lang.displayLine}">Tiếng Anh</li>
+            </ul>
+        </div>
+
+        <div class="cv-section" th:if="${sec == 'certificates' and !#lists.isEmpty(cv.certificates)}">
+            <div class="section-title">Chứng chỉ</div>
+            <ul class="bullet-list">
+                <li th:each="cert : ${cv.certificates}" th:text="${cert}">Chứng chỉ</li>
+            </ul>
+        </div>
+
+        <div class="cv-section" th:if="${sec == 'honours' and !#lists.isEmpty(cv.honours)}">
+            <div class="section-title">Giải thưởng &amp; hoạt động</div>
+            <ul class="bullet-list">
+                <li th:each="hon : ${cv.honours}" th:text="${hon}">Giải thưởng</li>
+            </ul>
+        </div>
+
+    </th:block>
+</div>
+</body>
+</html>

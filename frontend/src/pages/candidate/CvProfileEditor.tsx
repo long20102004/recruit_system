@@ -183,12 +183,14 @@ export function CvProfileEditor({
       {show("education") ? <Repeat<Education>
         title="Học vấn" items={profile.education ?? []} onChange={(education) => set({ education })}
         empty="AI không tìm thấy học vấn trong CV. Bấm “+ Thêm” nếu cần bổ sung."
-        blank={() => ({ school: null, major: null, start_year: null, end_year: null, gpa: null })}
+        blank={() => ({ school: null, major: null, location: null, start_year: null, end_year: null, gpa: null })}
         render={(e, up, i) => (
           <>
             <Text id={`edu-school-${i}`} label="Trường" value={e.school} onChange={(v) => up({ school: v })} span2 />
             <Text id={`edu-major-${i}`} label="Chuyên ngành" value={e.major} onChange={(v) => up({ major: v })} />
             <Text id={`edu-gpa-${i}`} label="GPA" value={e.gpa} onChange={(v) => up({ gpa: v })} />
+            <Text id={`edu-loc-${i}`} label="Địa điểm" placeholder="TP.HCM / Hà Nội" value={e.location}
+              onChange={(v) => up({ location: v })} span2 />
             <Text id={`edu-start-${i}`} label="Từ" type="number" value={e.start_year}
               onChange={(v) => up({ start_year: toInt(v) })} />
             <Text id={`edu-end-${i}`} label="Đến" type="number" value={e.end_year}
@@ -200,11 +202,13 @@ export function CvProfileEditor({
       {show("experience") ? <Repeat<Experience>
         title="Kinh nghiệm làm việc" items={profile.experience ?? []} onChange={(experience) => set({ experience })}
         empty="AI không tìm thấy kinh nghiệm làm việc trong CV."
-        blank={() => ({ company: null, job_title: null, start_date: null, end_date: null, description: [] })}
+        blank={() => ({ company: null, job_title: null, location: null, start_date: null, end_date: null, description: [] })}
         render={(e, up, i) => (
           <>
             <Text id={`exp-title-${i}`} label="Chức danh" value={e.job_title} onChange={(v) => up({ job_title: v })} />
             <Text id={`exp-company-${i}`} label="Công ty" value={e.company} onChange={(v) => up({ company: v })} />
+            <Text id={`exp-loc-${i}`} label="Địa điểm" placeholder="TP.HCM / Hà Nội" value={e.location}
+              onChange={(v) => up({ location: v })} span2 />
             <Text id={`exp-start-${i}`} label="Từ tháng" placeholder="MM/YYYY" value={e.start_date}
               onChange={(v) => up({ start_date: v })} />
             <Text id={`exp-end-${i}`} label="Đến tháng" placeholder="MM/YYYY" value={isCurrent(e.end_date) ? "" : e.end_date}

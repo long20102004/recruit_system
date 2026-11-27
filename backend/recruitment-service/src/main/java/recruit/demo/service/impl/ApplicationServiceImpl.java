@@ -209,14 +209,19 @@ public class ApplicationServiceImpl implements ApplicationService {
         ensureCanAccess(app);
         Integer candidateId = app.getCandidate().getId();
         String key = cvValue(candidateId, app.getCvId(), CvService.FILE_URL);
-        if (key.isBlank()) {
-            throw new ApiException(HttpStatus.NOT_FOUND, "Ứng viên chưa tải lên tệp CV.");
+        if (!key.isBlank()) {
+            if (!ObjectKeys.isObjectKey(key)) {
+                throw new ApiException(HttpStatus.NOT_FOUND, "Tệp CV chưa được chuyển lên kho lưu trữ.");
+            }
+            String fileName = cvValue(candidateId, app.getCvId(), CvService.FILE_NAME);
+            return storageService.presignGet(key, fileName.isBlank() ? "cv-ung-vien-" + app.getId() + ".pdf" : fileName, false);
         }
-        if (!ObjectKeys.isObjectKey(key)) {
-            throw new ApiException(HttpStatus.NOT_FOUND, "Tệp CV chưa được chuyển lên kho lưu trữ.");
+        CvDocument doc = resolveCvDocument(candidateId, app.getCvId()).orElse(null);
+        String generatedKey = doc != null ? doc.getGeneratedPdfKey() : null;
+        if (generatedKey != null && !generatedKey.isBlank() && ObjectKeys.isObjectKey(generatedKey)) {
+            return storageService.presignGet(generatedKey, generatedDownloadName(doc, app.getId()), false);
         }
-        String fileName = cvValue(candidateId, app.getCvId(), CvService.FILE_NAME);
-        return storageService.presignGet(key, fileName.isBlank() ? "cv-ung-vien-" + app.getId() + ".pdf" : fileName, false);
+        throw new ApiException(HttpStatus.NOT_FOUND, "Ứng viên chưa tải lên tệp CV.");
     }
 
     private void transitionStatus(JobApplication app, ApplicationStatus next, String note, UserPrincipal actor) {
@@ -300,6 +305,15 @@ public class ApplicationServiceImpl implements ApplicationService {
 
         String cvFileName = cvValue(candidate.getId(), app.getCvId(), CvService.FILE_NAME);
         String cvFileUrl = cvValue(candidate.getId(), app.getCvId(), CvService.FILE_URL);
+        CvDocument cvDoc = cvFileUrl.isBlank() ? resolveCvDocument(candidate.getId(), app.getCvId()).orElse(null) : null;
+        boolean hasGeneratedPdf = cvDoc != null
+                && cvDoc.getGeneratedPdfKey() != null
+                && !cvDoc.getGeneratedPdfKey().isBlank()
+                && ObjectKeys.isObjectKey(cvDoc.getGeneratedPdfKey());
+        boolean hasCvFile = !cvFileUrl.isBlank() || hasGeneratedPdf;
+        String resolvedCvFileName = !cvFileName.isBlank()
+                ? cvFileName
+                : (hasGeneratedPdf ? generatedDownloadName(cvDoc, app.getId()) : null);
 
         MatchingResult match = matchingResultRepository
                 .findFirstByJobIdAndCandidateIdOrderByCreatedAtDesc(app.getJob().getId(), candidate.getId())
@@ -317,8 +331,8 @@ public class ApplicationServiceImpl implements ApplicationService {
                 candidate.getId(),
                 candidateName,
                 app.getCvId(),
-                cvFileName.isBlank() ? null : cvFileName,
-                !cvFileUrl.isBlank(),
+                resolvedCvFileName,
+                hasCvFile,
                 app.getStatus(),
                 app.getCoverLetter(),
                 app.getAppliedAt(),
@@ -549,6 +563,24 @@ public class ApplicationServiceImpl implements ApplicationService {
                 .filter(v -> v != null && !v.isBlank())
                 .map(String::trim)
                 .toList();
+    }
+
+    private Optional<CvDocument> resolveCvDocument(Integer candidateId, Integer cvId) {
+        return cvId != null
+                ? cvDocumentRepository.findByIdAndCandidateId(cvId, candidateId)
+                : cvDocumentRepository.findFirstByCandidateIdAndMainTrue(candidateId);
+    }
+
+    private String generatedDownloadName(CvDocument doc, Integer appId) {
+        String title = doc.getTitle();
+        if (title == null || title.isBlank()) {
+            return "cv-ung-vien-" + appId + ".pdf";
+        }
+        String clean = title.trim().replaceAll("[\\\\/:*?\"<>|]+", "_");
+        if (clean.isEmpty()) {
+            return "cv-ung-vien-" + appId + ".pdf";
+        }
+        return clean.toLowerCase(Locale.ROOT).endsWith(".pdf") ? clean : clean + ".pdf";
     }
 
     private int toPercent(BigDecimal score) {

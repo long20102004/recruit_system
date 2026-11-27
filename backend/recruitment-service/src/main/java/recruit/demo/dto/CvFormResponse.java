@@ -22,4 +22,7 @@ public class CvFormResponse {
     private boolean analyzed;
     private List<CvFieldValue> fields;
     private CandidateProfileDto profile;
+    private Integer templateId;
+    private boolean hasGeneratedPdf;
+    private String pdfError;
 }

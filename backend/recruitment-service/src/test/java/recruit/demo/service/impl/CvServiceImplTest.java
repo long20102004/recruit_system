@@ -11,6 +11,13 @@ import org.springframework.mock.web.MockMultipartFile;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.context.SecurityContextHolder;
 import recruit.demo.client.IdentityClient;
+import recruit.demo.cvtemplate.CvRenderService;
+import recruit.demo.cvtemplate.CvTemplate;
+import recruit.demo.cvtemplate.CvTemplateConfig;
+import recruit.demo.cvtemplate.CvTemplateRepository;
+import recruit.demo.cvtemplate.CvTemplateStatus;
+import recruit.demo.cvtemplate.CvTemplateType;
+import recruit.demo.dto.CvTemplateSelectionDtos.CvPreviewRequest;
 import recruit.demo.dto.FileLinkDto;
 import recruit.demo.storage.StorageService;
 import recruit.demo.dto.CandidateProfileDto;
@@ -56,6 +63,8 @@ class CvServiceImplTest {
     private ApplicationEventPublisher events;
     private StorageService storage;
     private OutboxWriter outbox;
+    private CvTemplateRepository templates;
+    private CvRenderService renderService;
     private CvServiceImpl service;
 
     private final CandidateProfile candidate = CandidateProfile.builder().id(7).userId(70).build();
@@ -73,10 +82,12 @@ class CvServiceImplTest {
         events = mock(ApplicationEventPublisher.class);
         storage = mock(StorageService.class);
         outbox = mock(OutboxWriter.class);
+        templates = mock(CvTemplateRepository.class);
+        renderService = mock(CvRenderService.class);
         ObjectProvider<OutboxWriter> outboxProvider = mock(ObjectProvider.class);
         when(outboxProvider.getIfAvailable()).thenReturn(outbox);
         service = new CvServiceImpl(identity, cvData, candidates, settings, extraction, new CvProfileMapper(),
-                storage, events, new ObjectMapper(), docs, apps, outboxProvider);
+                storage, events, new ObjectMapper(), docs, apps, outboxProvider, templates, renderService);
 
         when(candidates.findByUserId(70)).thenReturn(Optional.of(candidate));
         when(settings.cvFields()).thenReturn(List.of("Họ tên", "Kỹ năng"));
@@ -351,5 +362,139 @@ class CvServiceImplTest {
         assertEquals(3, form.getCvId());
         verify(cvData).save(argThat(row -> row.getCvId() == 3
                 && CvService.PARSING_STATUS.equals(row.getField()) && "COMPLETED".equals(row.getValue())));
+    }
+
+    // ---- specs/011-cv-templates ----
+
+    @Test
+    void createBlankAssignsSelectedOrDefaultTemplateAndRejectsHidden() {
+        when(docs.countByCandidateId(7)).thenReturn(0L);
+        when(docs.save(any(CvDocument.class))).thenAnswer(i -> {
+            CvDocument d = i.getArgument(0);
+            if (d.getId() == null) d.setId(51);
+            return d;
+        });
+        CvTemplate active = CvTemplate.builder().id(10).type(CvTemplateType.CONFIG).status(CvTemplateStatus.ACTIVE).build();
+        when(templates.findById(10)).thenReturn(Optional.of(active));
+
+        var dto = service.createBlank("CV Java", 10);
+        assertEquals(10, dto.getTemplateId());
+
+        CvTemplate hidden = CvTemplate.builder().id(11).type(CvTemplateType.CONFIG).status(CvTemplateStatus.HIDDEN).build();
+        when(templates.findById(11)).thenReturn(Optional.of(hidden));
+        assertEquals(HttpStatus.BAD_REQUEST,
+                assertThrows(ApiException.class, () -> service.createBlank("CV Ẩn", 11)).getStatus());
+
+        CvTemplate def = CvTemplate.builder().id(1).type(CvTemplateType.CONFIG).status(CvTemplateStatus.ACTIVE)
+                .defaultTemplate(true).build();
+        when(templates.findFirstByDefaultTemplateTrue()).thenReturn(Optional.of(def));
+        var dtoDefault = service.createBlank("CV Mặc định", null);
+        assertEquals(1, dtoDefault.getTemplateId());
+    }
+
+    @Test
+    void setTemplateUpdatesTemplateAndRejectsHidden() {
+        CvDocument cv = doc(3, false);
+        cv.setTemplateId(1);
+        CvTemplate active = CvTemplate.builder().id(2).type(CvTemplateType.CONFIG).status(CvTemplateStatus.ACTIVE).build();
+        when(templates.findById(2)).thenReturn(Optional.of(active));
+
+        var dto = service.setTemplate(3, 2);
+        assertEquals(2, dto.getTemplateId());
+        assertEquals(2, cv.getTemplateId());
+
+        CvTemplate hidden = CvTemplate.builder().id(9).type(CvTemplateType.CONFIG).status(CvTemplateStatus.HIDDEN).build();
+        when(templates.findById(9)).thenReturn(Optional.of(hidden));
+        assertEquals(HttpStatus.BAD_REQUEST,
+                assertThrows(ApiException.class, () -> service.setTemplate(3, 9)).getStatus());
+    }
+
+    @Test
+    void previewRendersHtmlForConfigAndTempPdfForDocx() {
+        CvTemplateConfig cfg = CvTemplateConfig.builder().layout("ONE_COLUMN").build();
+        CvTemplate configTpl = CvTemplate.builder().id(1).type(CvTemplateType.CONFIG)
+                .status(CvTemplateStatus.ACTIVE).config(cfg).build();
+        when(templates.findById(1)).thenReturn(Optional.of(configTpl));
+        CandidateProfileDto profile = new CandidateProfileDto();
+        when(renderService.renderHtml(cfg, profile, "CV Preview")).thenReturn("<html>ok</html>");
+
+        var htmlRes = service.preview(new CvPreviewRequest(1, "CV Preview", profile));
+        assertEquals("<html>ok</html>", htmlRes.getHtml());
+        assertNull(htmlRes.getPdfLink());
+
+        CvTemplate docxTpl = CvTemplate.builder().id(2).type(CvTemplateType.DOCX)
+                .status(CvTemplateStatus.ACTIVE).docxKey("cv-templates/2/sample.docx").build();
+        when(templates.findById(2)).thenReturn(Optional.of(docxTpl));
+        byte[] docxBytes = {1, 2};
+        byte[] pdfBytes = {3, 4};
+        when(storage.getPrivate("cv-templates/2/sample.docx")).thenReturn(docxBytes);
+        when(renderService.renderDocxPdf(docxBytes, profile, "CV Word")).thenReturn(pdfBytes);
+        var link = FileLinkDto.builder().url("https://preview").build();
+        when(storage.presignGet(argThat(k -> k.startsWith("cvs/7/preview/")), eq("cv-preview.pdf"), eq(true)))
+                .thenReturn(link);
+
+        var pdfRes = service.preview(new CvPreviewRequest(2, "CV Word", profile));
+        assertNull(pdfRes.getHtml());
+        assertSame(link, pdfRes.getPdfLink());
+        verify(storage).putPrivate(argThat(k -> k.startsWith("cvs/7/preview/")), eq(pdfBytes), eq("application/pdf"));
+    }
+
+    @Test
+    void generatePdfStoresPdfUpdatesDocumentAndDeletesOldKey() {
+        CvDocument cv = doc(4, false);
+        cv.setTitle("CV Backend");
+        cv.setTemplateId(1);
+        cv.setGeneratedPdfKey("cvs/7/4/generated-old.pdf");
+        field(4, CvService.PROFILE_JSON, "{\"objective\":\"Java dev\"}");
+
+        CvTemplate tpl = CvTemplate.builder().id(1).type(CvTemplateType.CONFIG).status(CvTemplateStatus.ACTIVE).build();
+        when(templates.findById(1)).thenReturn(Optional.of(tpl));
+        byte[] pdf = {9, 8, 7};
+        when(renderService.renderPdf(eq(tpl), any(CandidateProfileDto.class), eq("CV Backend"))).thenReturn(pdf);
+        var link = FileLinkDto.builder().url("https://generated").build();
+        when(storage.presignGet(argThat(k -> k.startsWith("cvs/7/4/generated-") && !k.equals("cvs/7/4/generated-old.pdf")),
+                eq("CV Backend.pdf"), eq(true))).thenReturn(link);
+
+        FileLinkDto res = service.generatePdf(4);
+
+        assertSame(link, res);
+        assertNotNull(cv.getGeneratedPdfKey());
+        assertNotEquals("cvs/7/4/generated-old.pdf", cv.getGeneratedPdfKey());
+        assertNotNull(cv.getGeneratedAt());
+        verify(storage).deletePrivateQuietly("cvs/7/4/generated-old.pdf");
+    }
+
+    @Test
+    void confirmSavesDataEvenWhenPdfRenderFailsAndReturnsPdfError() throws Exception {
+        CvDocument cv = doc(5, false);
+        cv.setTitle("CV Form");
+        cv.setTemplateId(2);
+        CvTemplate tpl = CvTemplate.builder().id(2).type(CvTemplateType.DOCX)
+                .status(CvTemplateStatus.ACTIVE).docxKey("cv-templates/2/doc.docx").build();
+        when(templates.findById(2)).thenReturn(Optional.of(tpl));
+        when(storage.getPrivate("cv-templates/2/doc.docx")).thenReturn(new byte[]{1});
+        when(renderService.renderDocxPdf(any(), any(), eq("CV Form")))
+                .thenThrow(new ApiException(HttpStatus.SERVICE_UNAVAILABLE, "Chuyển đổi chưa sẵn sàng"));
+
+        var request = new ConfirmCvRequest(null, new ObjectMapper().readValue(
+                "{\"skills\":[\"Java\"]}", CandidateProfileDto.class));
+
+        var form = service.confirm(5, request);
+
+        assertEquals(5, form.getCvId());
+        assertEquals("Chuyển đổi chưa sẵn sàng", form.getPdfError());
+        verify(cvData).save(argThat(row -> row.getCvId() == 5
+                && CvService.PARSING_STATUS.equals(row.getField()) && "COMPLETED".equals(row.getValue())));
+    }
+
+    @Test
+    void fileFallsBackToGeneratedPdfWhenNoUploadedFile() {
+        CvDocument cv = doc(6, false);
+        cv.setTitle("CV Form");
+        cv.setGeneratedPdfKey("cvs/7/6/generated-123.pdf");
+        var link = FileLinkDto.builder().url("https://gen-download").build();
+        when(storage.presignGet("cvs/7/6/generated-123.pdf", "CV Form.pdf", false)).thenReturn(link);
+
+        assertSame(link, service.file(6));
     }
 }

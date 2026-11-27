@@ -53,6 +53,9 @@ class GatewayRoutingTest {
         assertEquals("recruitment GET /api/jobs", get("/api/jobs").body());
         assertEquals("recruitment GET /api/jobs/3", get("/api/jobs/3").body());
         assertEquals("recruitment GET /api/applications/mine", get("/api/applications/mine").body());
+        assertEquals("recruitment GET /api/admin/cv-templates", get("/api/admin/cv-templates").body());
+        assertEquals("recruitment GET /api/admin/cv-templates/1", get("/api/admin/cv-templates/1").body());
+        assertEquals("recruitment GET /api/cv-templates", get("/api/cv-templates").body());
         assertEquals("interview GET /api/interviews/sessions/mine", get("/api/interviews/sessions/mine").body());
     }
 

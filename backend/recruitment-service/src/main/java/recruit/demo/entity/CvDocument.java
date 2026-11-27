@@ -29,6 +29,15 @@ public class CvDocument {
     @Column(name = "is_main", nullable = false)
     private boolean main;
 
+    @Column(name = "template_id")
+    private Integer templateId;
+
+    @Column(name = "generated_pdf_key", length = 512)
+    private String generatedPdfKey;
+
+    @Column(name = "generated_at")
+    private LocalDateTime generatedAt;
+
     @CreationTimestamp
     @Column(name = "created_at", nullable = false, updatable = false)
     private LocalDateTime createdAt;

@@ -1232,7 +1232,7 @@ textarea.cvu-input { height: auto; padding: 10px 12px; resize: vertical; line-he
 .cve-head-actions { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
 .cve-soon { margin-left: 4px; height: 20px; padding: 0 7px; font-size: 11px; background: var(--warn-bg); color: var(--warn-c); }
 .cve-soon::before { display: none; }
-.cve-layout { display: grid; grid-template-columns: 230px minmax(0, 1fr) 340px; gap: 24px; align-items: start; }
+.cve-layout { display: grid; grid-template-columns: 230px minmax(0, 1fr) 400px; gap: 24px; align-items: start; }
 .cve-nav { padding: 8px; display: flex; flex-direction: column; gap: 2px; position: sticky; top: 16px; }
 .cve-nav-item { display: flex; justify-content: space-between; align-items: center; gap: 8px; min-height: 44px; padding: 0 10px; font: 600 14px var(--font-body); color: var(--ink-soft); background: transparent; border: 0; border-radius: 2px; cursor: pointer; text-align: left; }
 .cve-nav-item:hover { background: var(--sky); }
@@ -1244,12 +1244,14 @@ textarea.cvu-input { height: auto; padding: 10px 12px; resize: vertical; line-he
 .cvx-entry-actions { display: flex; justify-content: flex-end; gap: 16px; }
 .cve-form { min-width: 0; }
 .cve-aside { position: sticky; top: 16px; }
-.cve-templates { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; }
-.cve-tpl { display: flex; flex-direction: column; gap: 6px; padding: 6px; background: var(--paper); border: 1px solid var(--line); border-radius: 2px; font: inherit; color: var(--ink); }
-.cve-tpl > span:first-child { display: block; height: 70px; }
-.cve-tpl.is-on { border: 2px solid var(--brand); }
+.cve-templates { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; max-height: 240px; overflow-y: auto; padding-right: 2px; }
+.cve-tpl { display: flex; flex-direction: column; gap: 6px; padding: 6px; background: var(--paper); border: 1px solid var(--line); border-radius: 2px; font: inherit; color: var(--ink); cursor: pointer; text-align: left; }
+.cve-tpl:hover:not(:disabled) { border-color: var(--ink-soft); }
+.cve-tpl > span:first-child { display: block; height: 64px; overflow: hidden; }
+.cve-tpl.is-on { border: 2px solid var(--brand); background: var(--brand-soft); }
 .cve-tpl:disabled { cursor: not-allowed; opacity: .75; }
 .cve-preview-card { background: #fbf8f3; }
+.cve-preview-iframe { width: 100%; height: 520px; border: 1px solid var(--line); background: #fff; display: block; }
 .cve-preview { background: var(--paper); border: 1px solid var(--line); padding: 18px; display: flex; flex-direction: column; gap: 6px; font-size: 12px; line-height: 1.45; overflow-wrap: anywhere; }
 .cve-preview p { margin: 0; }
 .cve-preview-name { font: 650 17px var(--font-display); }
@@ -1257,9 +1259,36 @@ textarea.cvu-input { height: auto; padding: 10px 12px; resize: vertical; line-he
 .cve-preview-sep { height: 1px; background: var(--line); margin: 6px 0; }
 .cve-preview-h { font-weight: 700; letter-spacing: .06em; margin-top: 6px !important; }
 
+/* Modal chọn mẫu & quản lý mẫu CV (specs/011-cv-templates) */
+.cvt-dialog { position: fixed; inset: 0; z-index: 50; display: grid; place-items: center; padding: 16px; }
+/* .modal (hl.css, nạp sau main.css) đặt width 560px: tăng độ ưu tiên để popup mẫu CV đủ rộng. */
+.modal.cvt-modal-wide { width: min(1120px, 100%); max-height: 92vh; overflow-y: auto; }
+.modal.cvt-modal-md { width: min(760px, 100%); max-height: 90vh; overflow-y: auto; }
+.cvt-config-grid { display: grid; grid-template-columns: minmax(360px, 1fr) minmax(360px, 460px); gap: 24px; align-items: start; }
+.cvt-config-grid > .stack { min-width: 0; }
+.cvt-config-grid .form-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.cvt-preview-col { position: sticky; top: 0; }
+.cvt-preview-iframe { width: 100%; height: min(640px, 70vh); border: 1px solid var(--line); background: #fff; display: block; }
+@media (max-width: 900px) {
+  .cvt-config-grid { grid-template-columns: minmax(0, 1fr); }
+  .cvt-preview-col { position: static; }
+  .cvt-preview-iframe { height: 520px; }
+}
+@media (max-width: 560px) {
+  .cvt-config-grid .form-grid { grid-template-columns: minmax(0, 1fr); }
+  .modal.cvt-modal-wide, .modal.cvt-modal-md { padding: 18px; }
+}
+.cvt-swatches { display: flex; flex-wrap: wrap; gap: 6px; }
+.cvt-swatch { display: inline-flex; align-items: center; gap: 6px; padding: 5px 10px; border: 1px solid var(--line-strong); border-radius: 2px; background: var(--paper); font: 500 12.5px var(--font-body); color: var(--ink); cursor: pointer; }
+.cvt-swatch.is-on { border: 2px solid var(--brand); background: var(--brand-soft); }
+.cvt-swatch-dot { width: 14px; height: 14px; border-radius: 2px; border: 1px solid rgba(0, 0, 0, 0.2); flex: none; }
+.cvt-section-row { display: flex; align-items: center; justify-content: space-between; gap: 8px; padding: 6px 10px; border: 1px solid var(--line); background: var(--paper); border-radius: 2px; }
+.cvt-tpl-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 12px; }
+
 @media (max-width: 1100px) {
   .cve-layout { grid-template-columns: 220px minmax(0, 1fr); }
   .cve-aside { grid-column: 1 / -1; position: static; }
+  .cvt-config-grid { grid-template-columns: minmax(0, 1fr); }
 }
 @media (max-width: 760px) {
   .cve-layout { grid-template-columns: minmax(0, 1fr); }

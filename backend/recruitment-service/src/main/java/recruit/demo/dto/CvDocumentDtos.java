@@ -28,6 +28,8 @@ public final class CvDocumentDtos {
         private List<String> skills;
         private LocalDateTime updatedAt;
         private boolean inActiveApplication;
+        private Integer templateId;
+        private boolean hasGeneratedPdf;
     }
 
     /** Kết quả tải CV: id của CV vừa ghi và profile AI trích xuất được. */
@@ -47,11 +49,16 @@ public final class CvDocumentDtos {
         private String title;
     }
 
-    /** Body tạo CV trống; title tuỳ chọn. */
+    /** Body tạo CV trống; title và templateId tuỳ chọn. */
     @Data
     @NoArgsConstructor
     @AllArgsConstructor
     public static class CreateCvRequest {
         private String title;
+        private Integer templateId;
+
+        public CreateCvRequest(String title) {
+            this.title = title;
+        }
     }
 }

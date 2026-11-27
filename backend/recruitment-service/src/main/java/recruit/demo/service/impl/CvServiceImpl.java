@@ -8,11 +8,19 @@ import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.multipart.MultipartFile;
+import recruit.demo.cvtemplate.CvRenderService;
+import recruit.demo.cvtemplate.CvTemplate;
+import recruit.demo.cvtemplate.CvTemplateRepository;
+import recruit.demo.cvtemplate.CvTemplateStatus;
+import recruit.demo.cvtemplate.CvTemplateType;
+import recruit.demo.dto.CandidateProfileDto;
 import recruit.demo.dto.ConfirmCvRequest;
 import recruit.demo.dto.CvDocumentDtos.CvDocumentDto;
 import recruit.demo.dto.CvDocumentDtos.CvUploadResponse;
 import recruit.demo.dto.CvFieldValue;
 import recruit.demo.dto.CvFormResponse;
+import recruit.demo.dto.CvTemplateSelectionDtos.CvPreviewRequest;
+import recruit.demo.dto.CvTemplateSelectionDtos.CvPreviewResult;
 import recruit.demo.dto.FileLinkDto;
 import recruit.demo.entity.CandidateProfile;
 import recruit.demo.entity.CvData;
@@ -37,6 +45,7 @@ import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Locale;
+import java.util.Objects;
 import java.util.Optional;
 import java.util.Set;
 
@@ -61,6 +70,8 @@ public class CvServiceImpl implements CvService {
     private final CvDocumentRepository cvDocumentRepository;
     private final JobApplicationRepository applicationRepository;
     private final ObjectProvider<OutboxWriter> outboxWriter;
+    private final CvTemplateRepository cvTemplateRepository;
+    private final CvRenderService cvRenderService;
 
     @Transactional(readOnly = true)
     public CvFormResponse mine(Integer cvId) {
@@ -91,18 +102,118 @@ public class CvServiceImpl implements CvService {
     /** Tạo CV từ đầu (C04): CV trống không có file, nội dung lưu qua confirm. */
     @Transactional
     public CvDocumentDto createBlank(String title) {
+        return createBlank(title, null);
+    }
+
+    @Transactional
+    public CvDocumentDto createBlank(String title, Integer templateId) {
         CandidateProfile candidate = requireCandidate();
         long count = cvDocumentRepository.countByCandidateId(candidate.getId());
         if (count >= MAX_CVS) {
             throw new ApiException(HttpStatus.BAD_REQUEST, "Mỗi ứng viên chỉ có tối đa " + MAX_CVS + " CV");
         }
+        Integer resolvedTemplateId;
+        if (templateId != null) {
+            CvTemplate template = cvTemplateRepository.findById(templateId)
+                    .orElseThrow(() -> new ApiException(HttpStatus.NOT_FOUND, "Không tìm thấy mẫu CV"));
+            if (template.getStatus() != CvTemplateStatus.ACTIVE) {
+                throw new ApiException(HttpStatus.BAD_REQUEST, "Mẫu CV không khả dụng");
+            }
+            resolvedTemplateId = template.getId();
+        } else {
+            resolvedTemplateId = cvTemplateRepository.findFirstByDefaultTemplateTrue()
+                    .map(CvTemplate::getId)
+                    .orElse(null);
+        }
         CvDocument doc = cvDocumentRepository.save(CvDocument.builder()
                 .candidateId(candidate.getId())
                 .title(title == null || title.isBlank() ? null : cleanTitle(title))
                 .main(count == 0)
+                .templateId(resolvedTemplateId)
                 .build());
         touch(doc);
         return toDto(doc, activeCvIds(candidate.getId()));
+    }
+
+    @Transactional
+    public CvDocumentDto setTemplate(Integer cvId, Integer templateId) {
+        CandidateProfile candidate = requireCandidate();
+        CvDocument doc = requireOwned(candidate, cvId);
+        if (templateId == null) {
+            throw new ApiException(HttpStatus.BAD_REQUEST, "Vui lòng chọn mẫu CV");
+        }
+        CvTemplate template = cvTemplateRepository.findById(templateId)
+                .orElseThrow(() -> new ApiException(HttpStatus.NOT_FOUND, "Không tìm thấy mẫu CV"));
+        if (template.getStatus() != CvTemplateStatus.ACTIVE && !Objects.equals(doc.getTemplateId(), templateId)) {
+            throw new ApiException(HttpStatus.BAD_REQUEST, "Mẫu CV đã bị ẩn");
+        }
+        doc.setTemplateId(templateId);
+        touch(doc);
+        return toDto(doc, activeCvIds(candidate.getId()));
+    }
+
+    @Transactional(readOnly = true)
+    public CvPreviewResult preview(CvPreviewRequest request) {
+        CandidateProfile candidate = requireCandidate();
+        Integer templateId = request != null ? request.getTemplateId() : null;
+        CvTemplate template;
+        if (templateId != null) {
+            template = cvTemplateRepository.findById(templateId)
+                    .orElseThrow(() -> new ApiException(HttpStatus.NOT_FOUND, "Không tìm thấy mẫu CV"));
+            if (template.getStatus() != CvTemplateStatus.ACTIVE) {
+                boolean usedByCandidate = cvDocumentRepository
+                        .findByCandidateIdOrderByMainDescUpdatedAtDesc(candidate.getId())
+                        .stream()
+                        .anyMatch(d -> Objects.equals(d.getTemplateId(), template.getId()));
+                if (!usedByCandidate) {
+                    throw new ApiException(HttpStatus.BAD_REQUEST, "Mẫu CV không khả dụng");
+                }
+            }
+        } else {
+            template = cvTemplateRepository.findFirstByDefaultTemplateTrue()
+                    .orElseThrow(() -> new ApiException(HttpStatus.NOT_FOUND, "Chưa có mẫu CV mặc định"));
+        }
+
+        CandidateProfileDto profile = request != null && request.getProfile() != null
+                ? request.getProfile()
+                : new CandidateProfileDto();
+        String title = request != null ? request.getTitle() : null;
+
+        if (template.getType() == CvTemplateType.DOCX) {
+            if (template.getDocxKey() == null || template.getDocxKey().isBlank()) {
+                throw new ApiException(HttpStatus.BAD_REQUEST, "Mẫu DOCX chưa có tệp nguồn");
+            }
+            byte[] docxBytes = storageService.getPrivate(template.getDocxKey());
+            byte[] pdfBytes = cvRenderService.renderDocxPdf(docxBytes, profile, title);
+            String key = ObjectKeys.cvPreviewTempPdf(candidate.getId());
+            storageService.putPrivate(key, pdfBytes, "application/pdf");
+            return CvPreviewResult.builder()
+                    .pdfLink(storageService.presignGet(key, "cv-preview.pdf", true))
+                    .build();
+        }
+
+        String html = cvRenderService.renderHtml(template.getConfig(), profile, title);
+        return CvPreviewResult.builder().html(html).build();
+    }
+
+    @Transactional
+    public FileLinkDto generatePdf(Integer cvId) {
+        CandidateProfile candidate = requireCandidate();
+        CvDocument doc = requireOwned(candidate, cvId);
+        CvTemplate template = resolveTemplateForDocument(doc);
+        CandidateProfileDto profile = toForm(doc).getProfile();
+        byte[] pdfBytes = renderTemplatePdf(template, profile, doc.getTitle());
+
+        String oldKey = doc.getGeneratedPdfKey();
+        String newKey = ObjectKeys.cvGeneratedPdf(candidate.getId(), doc.getId());
+        storageService.putPrivate(newKey, pdfBytes, "application/pdf");
+        doc.setGeneratedPdfKey(newKey);
+        doc.setGeneratedAt(LocalDateTime.now());
+        cvDocumentRepository.save(doc);
+        if (oldKey != null && !oldKey.isBlank() && !oldKey.equals(newKey)) {
+            storageService.deletePrivateQuietly(oldKey);
+        }
+        return storageService.presignGet(newKey, generatedDownloadName(doc), true);
     }
 
     @Transactional
@@ -194,7 +305,37 @@ public class CvServiceImpl implements CvService {
         put(doc, PARSING_STATUS, "COMPLETED");
         touch(doc);
         if (doc.isMain()) publishChanged(candidate);
-        return toForm(doc);
+
+        String pdfError = null;
+        if (value(doc.getId(), FILE_URL).isBlank()) {
+            Optional<CvTemplate> templateOpt = resolveOptionalTemplateForDocument(doc);
+            if (templateOpt.isPresent()) {
+                try {
+                    CandidateProfileDto profileForPdf = storedProfile(doc.getId());
+                    if (profileForPdf == null && request.getProfile() != null) {
+                        profileForPdf = request.getProfile();
+                    }
+                    byte[] pdfBytes = renderTemplatePdf(templateOpt.get(), profileForPdf, doc.getTitle());
+                    String oldKey = doc.getGeneratedPdfKey();
+                    String newKey = ObjectKeys.cvGeneratedPdf(candidate.getId(), doc.getId());
+                    storageService.putPrivate(newKey, pdfBytes, "application/pdf");
+                    doc.setGeneratedPdfKey(newKey);
+                    doc.setGeneratedAt(LocalDateTime.now());
+                    cvDocumentRepository.save(doc);
+                    if (oldKey != null && !oldKey.isBlank() && !oldKey.equals(newKey)) {
+                        storageService.deletePrivateQuietly(oldKey);
+                    }
+                } catch (RuntimeException ex) {
+                    log.warn("Không thể sinh PDF cho cvId={}: {}", doc.getId(), ex.getMessage());
+                    pdfError = ex.getMessage() != null && !ex.getMessage().isBlank()
+                            ? ex.getMessage()
+                            : "Không thể sinh file PDF";
+                }
+            }
+        }
+        CvFormResponse form = toForm(doc);
+        form.setPdfError(pdfError);
+        return form;
     }
 
     @Transactional(readOnly = true)
@@ -242,6 +383,7 @@ public class CvServiceImpl implements CvService {
                     "Không thể xoá CV đang đính kèm trong đơn ứng tuyển chưa kết thúc.");
         }
         String fileUrl = value(doc.getId(), FILE_URL);
+        String generatedPdfKey = doc.getGeneratedPdfKey();
         cvDataRepository.deleteAll(cvDataRepository.findByCvId(doc.getId()));
         cvDocumentRepository.delete(doc);
         cvDocumentRepository.flush();
@@ -256,6 +398,9 @@ public class CvServiceImpl implements CvService {
             publishChanged(candidate);
         }
         storageService.deletePrivateQuietly(fileUrl);
+        if (generatedPdfKey != null && !generatedPdfKey.isBlank()) {
+            storageService.deletePrivateQuietly(generatedPdfKey);
+        }
     }
 
     @Transactional(readOnly = true)
@@ -263,14 +408,18 @@ public class CvServiceImpl implements CvService {
         CandidateProfile candidate = requireCandidate();
         CvDocument doc = requireOwned(candidate, cvId);
         String key = value(doc.getId(), FILE_URL);
-        if (key.isBlank()) {
-            throw new ApiException(HttpStatus.NOT_FOUND, "CV chưa có tệp đính kèm.");
+        if (!key.isBlank()) {
+            if (!ObjectKeys.isObjectKey(key)) {
+                throw new ApiException(HttpStatus.NOT_FOUND, "Tệp CV chưa được chuyển lên kho lưu trữ, vui lòng tải lại CV.");
+            }
+            String fileName = value(doc.getId(), FILE_NAME);
+            return storageService.presignGet(key, fileName.isBlank() ? "cv.pdf" : fileName, false);
         }
-        if (!ObjectKeys.isObjectKey(key)) {
-            throw new ApiException(HttpStatus.NOT_FOUND, "Tệp CV chưa được chuyển lên kho lưu trữ, vui lòng tải lại CV.");
+        String generatedKey = doc.getGeneratedPdfKey();
+        if (generatedKey != null && !generatedKey.isBlank() && ObjectKeys.isObjectKey(generatedKey)) {
+            return storageService.presignGet(generatedKey, generatedDownloadName(doc), false);
         }
-        String fileName = value(doc.getId(), FILE_NAME);
-        return storageService.presignGet(key, fileName.isBlank() ? "cv.pdf" : fileName, false);
+        throw new ApiException(HttpStatus.NOT_FOUND, "CV chưa có tệp đính kèm.");
     }
 
     /**
@@ -322,6 +471,7 @@ public class CvServiceImpl implements CvService {
         String status = value(doc.getId(), PARSING_STATUS);
         String fileName = value(doc.getId(), FILE_NAME);
         boolean analyzed = "COMPLETED".equals(status) && !fileName.isBlank();
+        boolean hasGeneratedPdf = doc.getGeneratedPdfKey() != null && !doc.getGeneratedPdfKey().isBlank();
         return CvFormResponse.builder()
                 .cvId(doc.getId())
                 .title(titleOf(doc, fileName))
@@ -331,6 +481,8 @@ public class CvServiceImpl implements CvService {
                 .analyzed(analyzed)
                 .fields(fields)
                 .profile(storedProfile(doc.getId()))
+                .templateId(doc.getTemplateId())
+                .hasGeneratedPdf(hasGeneratedPdf)
                 .build();
     }
 
@@ -344,6 +496,7 @@ public class CvServiceImpl implements CvService {
     private CvDocumentDto toDto(CvDocument doc, Set<Integer> activeCvIds) {
         String fileName = value(doc.getId(), FILE_NAME);
         String status = value(doc.getId(), PARSING_STATUS);
+        boolean hasGeneratedPdf = doc.getGeneratedPdfKey() != null && !doc.getGeneratedPdfKey().isBlank();
         return CvDocumentDto.builder()
                 .id(doc.getId())
                 .title(titleOf(doc, fileName))
@@ -354,7 +507,49 @@ public class CvServiceImpl implements CvService {
                 .skills(lines(doc.getId(), SKILLS))
                 .updatedAt(doc.getUpdatedAt())
                 .inActiveApplication(activeCvIds.contains(doc.getId()))
+                .templateId(doc.getTemplateId())
+                .hasGeneratedPdf(hasGeneratedPdf)
                 .build();
+    }
+
+    private CvTemplate resolveTemplateForDocument(CvDocument doc) {
+        if (doc.getTemplateId() != null) {
+            return cvTemplateRepository.findById(doc.getTemplateId())
+                    .orElseThrow(() -> new ApiException(HttpStatus.NOT_FOUND, "Không tìm thấy mẫu CV"));
+        }
+        return cvTemplateRepository.findFirstByDefaultTemplateTrue()
+                .orElseThrow(() -> new ApiException(HttpStatus.NOT_FOUND, "Chưa có mẫu CV mặc định"));
+    }
+
+    private Optional<CvTemplate> resolveOptionalTemplateForDocument(CvDocument doc) {
+        if (doc.getTemplateId() != null) {
+            return cvTemplateRepository.findById(doc.getTemplateId());
+        }
+        return cvTemplateRepository.findFirstByDefaultTemplateTrue();
+    }
+
+    private byte[] renderTemplatePdf(CvTemplate template, CandidateProfileDto profile, String title) {
+        CandidateProfileDto safeProfile = profile != null ? profile : new CandidateProfileDto();
+        if (template.getType() == CvTemplateType.DOCX) {
+            if (template.getDocxKey() == null || template.getDocxKey().isBlank()) {
+                throw new ApiException(HttpStatus.BAD_REQUEST, "Mẫu DOCX chưa có tệp nguồn");
+            }
+            byte[] docxBytes = storageService.getPrivate(template.getDocxKey());
+            return cvRenderService.renderDocxPdf(docxBytes, safeProfile, title);
+        }
+        return cvRenderService.renderPdf(template, safeProfile, title);
+    }
+
+    private String generatedDownloadName(CvDocument doc) {
+        String t = doc.getTitle();
+        if (t == null || t.isBlank()) {
+            return "cv.pdf";
+        }
+        String clean = t.trim().replaceAll("[\\\\/:*?\"<>|]+", "_");
+        if (clean.isEmpty()) {
+            return "cv.pdf";
+        }
+        return clean.toLowerCase(Locale.ROOT).endsWith(".pdf") ? clean : clean + ".pdf";
     }
 
     /** Tên hiển thị: tên ứng viên đặt, không có thì tên file bỏ đuôi. */

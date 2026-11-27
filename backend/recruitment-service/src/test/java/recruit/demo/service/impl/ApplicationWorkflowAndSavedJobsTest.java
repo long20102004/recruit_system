@@ -9,6 +9,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.context.SecurityContextHolder;
 import recruit.demo.client.IdentityClient;
+import recruit.demo.dto.FileLinkDto;
 import recruit.demo.entity.*;
 import recruit.demo.enums.ApplicationStatus;
 import recruit.demo.enums.NotificationType;
@@ -20,6 +21,7 @@ import recruit.demo.messaging.NotificationEvent;
 import recruit.demo.messaging.OutboxWriter;
 import recruit.demo.repository.*;
 import recruit.demo.security.UserPrincipal;
+import recruit.demo.storage.StorageService;
 import tools.jackson.databind.ObjectMapper;
 
 import java.math.BigDecimal;
@@ -44,6 +46,7 @@ class ApplicationWorkflowAndSavedJobsTest {
     private SavedJobRepository savedJobRepo;
     private CvDocumentRepository cvDocRepo;
     private OutboxWriter outbox;
+    private StorageService storageService;
 
     private ApplicationServiceImpl appService;
     private SavedJobServiceImpl savedJobService;
@@ -63,10 +66,11 @@ class ApplicationWorkflowAndSavedJobsTest {
         savedJobRepo = mock(SavedJobRepository.class);
         cvDocRepo = mock(CvDocumentRepository.class);
         outbox = mock(OutboxWriter.class);
+        storageService = mock(StorageService.class);
         ObjectProvider<OutboxWriter> outboxProvider = mock(ObjectProvider.class);
         when(outboxProvider.getIfAvailable()).thenReturn(outbox);
 
-        appService = new ApplicationServiceImpl(identityClient, mock(recruit.demo.storage.StorageService.class), appRepo, jobRepo, candRepo, histRepo,
+        appService = new ApplicationServiceImpl(identityClient, storageService, appRepo, jobRepo, candRepo, histRepo,
                 noteRepo, cvDataRepo, matchRepo, jobSkillRepo, new ObjectMapper(), cvDocRepo, outboxProvider);
         savedJobService = new SavedJobServiceImpl(savedJobRepo, jobRepo, candRepo, jobSkillRepo, matchRepo);
 
@@ -243,5 +247,27 @@ class ApplicationWorkflowAndSavedJobsTest {
 
         assertThrows(ApiException.class, () -> appService.updateStatus(99, "REJECTED", ""));
         verifyNoInteractions(outbox);
+    }
+
+    @Test
+    void loadCvFileFallsBackToGeneratedPdfWhenUploadedFileIsBlank() {
+        loginAs(10, Role.RECRUITER);
+        Company co = Company.builder().id(1).name("Lumen").build();
+        Job job = Job.builder().id(5).company(co).createdById(10).title("Java").build();
+        CandidateProfile cand = CandidateProfile.builder().id(7).userId(70).build();
+        JobApplication app = JobApplication.builder().id(99).job(job).candidate(cand).cvId(32)
+                .status(ApplicationStatus.SUBMITTED).build();
+        when(appRepo.findById(99)).thenReturn(Optional.of(app));
+
+        CvDocument doc = CvDocument.builder().id(32).candidateId(7).title("CV Form Java")
+                .generatedPdfKey("cvs/7/32/generated-abc.pdf").build();
+        when(cvDocRepo.findByIdAndCandidateId(32, 7)).thenReturn(Optional.of(doc));
+        var link = FileLinkDto.builder().url("https://signed-pdf").build();
+        when(storageService.presignGet("cvs/7/32/generated-abc.pdf", "CV Form Java.pdf", false)).thenReturn(link);
+
+        assertSame(link, appService.loadCvFile(99));
+        var detail = appService.getDetail(99);
+        assertTrue(detail.hasCvFile());
+        assertEquals("CV Form Java.pdf", detail.cvFileName());
     }
 }

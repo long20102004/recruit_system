@@ -69,6 +69,20 @@ public class R2StorageService implements StorageService {
         put(props.getPublicBucket(), key, content, contentType);
     }
 
+    @Override
+    public byte[] getPrivate(String key) {
+        try {
+            return client.getObjectAsBytes(GetObjectRequest.builder()
+                            .bucket(props.getPrivateBucket())
+                            .key(key)
+                            .build())
+                    .asByteArray();
+        } catch (SdkException ex) {
+            log.error("R2 getObject thất bại (bucket={}, key={}): {}", props.getPrivateBucket(), key, ex.getClass().getSimpleName());
+            throw new ApiException(HttpStatus.BAD_GATEWAY, "Không đọc được tệp từ kho lưu trữ, vui lòng thử lại.");
+        }
+    }
+
     private void put(String bucket, String key, byte[] content, String contentType) {
         try {
             client.putObject(PutObjectRequest.builder()

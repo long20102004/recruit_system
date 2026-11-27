@@ -11,6 +11,9 @@ public interface StorageService {
     /** Ghi vào bucket public (ảnh). */
     void putPublic(String key, byte[] content, String contentType);
 
+    /** Đọc nội dung object trong bucket private. */
+    byte[] getPrivate(String key);
+
     /**
      * URL ký tạm để tải object private.
      *

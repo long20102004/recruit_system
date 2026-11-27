@@ -8,6 +8,7 @@ public final class ObjectKeys {
 
     public static final String CV_PREFIX = "cvs/";
     public static final String COMPANY_PREFIX = "companies/";
+    public static final String CV_TEMPLATE_PREFIX = "cv-templates/";
 
     private ObjectKeys() {
     }
@@ -23,6 +24,31 @@ public final class ObjectKeys {
         return CV_PREFIX + candidateId + "/" + cvId + "/" + UUID.randomUUID() + ext;
     }
 
+    /** cvs/{candidateId}/{cvId}/generated-{uuid}.pdf */
+    public static String cvGeneratedPdf(Integer candidateId, Integer cvId) {
+        return CV_PREFIX + candidateId + "/" + cvId + "/generated-" + UUID.randomUUID() + ".pdf";
+    }
+
+    /** cvs/{candidateId}/preview/{uuid}.pdf */
+    public static String cvPreviewTempPdf(Integer candidateId) {
+        return CV_PREFIX + candidateId + "/preview/" + UUID.randomUUID() + ".pdf";
+    }
+
+    /** cv-templates/{templateId}/{uuid}.docx */
+    public static String cvTemplateDocx(Integer templateId) {
+        return CV_TEMPLATE_PREFIX + templateId + "/" + UUID.randomUUID() + ".docx";
+    }
+
+    /** cv-templates/{templateId}/preview-{uuid}.pdf */
+    public static String cvTemplatePreviewPdf(Integer templateId) {
+        return CV_TEMPLATE_PREFIX + templateId + "/preview-" + UUID.randomUUID() + ".pdf";
+    }
+
+    /** cv-templates/{templateId}/thumb-{uuid}.png */
+    public static String cvTemplateThumbnail(Integer templateId) {
+        return CV_TEMPLATE_PREFIX + templateId + "/thumb-" + UUID.randomUUID() + ".png";
+    }
+
     /** companies/{companyId}/{kind}/{uuid}.{ext}; kind = license | logo | cover. */
     public static String companyFile(Integer companyId, String kind, String originalName) {
         return COMPANY_PREFIX + companyId + "/" + kind + "/" + UUID.randomUUID() + extension(originalName);
@@ -30,7 +56,9 @@ public final class ObjectKeys {
 
     /** Giá trị DB là object key do hệ thống mới sinh (không phải đường dẫn local cũ). */
     public static boolean isObjectKey(String value) {
-        return value != null && (value.startsWith(CV_PREFIX) || value.startsWith(COMPANY_PREFIX));
+        return value != null && (value.startsWith(CV_PREFIX)
+                || value.startsWith(COMPANY_PREFIX)
+                || value.startsWith(CV_TEMPLATE_PREFIX));
     }
 
     /** Giá trị DB cũ: đường dẫn file trên đĩa cần migrate. */

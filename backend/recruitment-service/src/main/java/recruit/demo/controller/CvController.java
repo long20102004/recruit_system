@@ -14,9 +14,13 @@ import recruit.demo.dto.CvDocumentDtos.CvDocumentDto;
 import recruit.demo.dto.CvDocumentDtos.CvUploadResponse;
 import recruit.demo.dto.CvDocumentDtos.RenameCvRequest;
 import recruit.demo.dto.CvFormResponse;
+import recruit.demo.dto.CvTemplateSelectionDtos.CvPreviewRequest;
+import recruit.demo.dto.CvTemplateSelectionDtos.CvPreviewResult;
+import recruit.demo.dto.CvTemplateSelectionDtos.SetTemplateRequest;
 import recruit.demo.dto.FileLinkDto;
 import recruit.demo.service.CvService;
 
+import java.nio.charset.StandardCharsets;
 import java.util.List;
 
 /** CV của ứng viên. Không truyền cvId thì làm trên CV chính (tương thích API một CV cũ). */
@@ -67,7 +71,35 @@ public class CvController {
     /** Tạo CV từ đầu (C04): CV trống, chưa có file; đủ 5 CV trả 400. */
     @PostMapping("/documents/blank")
     public BaseResponse<CvDocumentDto> createBlank(@RequestBody(required = false) CreateCvRequest request) {
-        return BaseResponse.success(cvService.createBlank(request == null ? null : request.getTitle()));
+        return BaseResponse.success(cvService.createBlank(
+                request == null ? null : request.getTitle(),
+                request == null ? null : request.getTemplateId()));
+    }
+
+    /** Gắn / đổi mẫu CV cho CV form (C04). */
+    @PutMapping("/documents/{id}/template")
+    public BaseResponse<CvDocumentDto> setTemplate(@PathVariable Integer id,
+                                                   @RequestBody(required = false) SetTemplateRequest request) {
+        return BaseResponse.success(cvService.setTemplate(id, request == null ? null : request.getTemplateId()));
+    }
+
+    /** Xem trước CV chưa lưu: mẫu CONFIG trả text/html (CSP); mẫu DOCX trả FileLinkDto PDF. */
+    @PostMapping("/preview")
+    public ResponseEntity<?> preview(@RequestBody(required = false) CvPreviewRequest request) {
+        CvPreviewResult result = cvService.preview(request);
+        if (result.getHtml() != null) {
+            return ResponseEntity.ok()
+                    .contentType(new MediaType(MediaType.TEXT_HTML, StandardCharsets.UTF_8))
+                    .header("Content-Security-Policy", "default-src 'none'; style-src 'unsafe-inline'; font-src data:")
+                    .body(result.getHtml());
+        }
+        return ResponseEntity.ok(BaseResponse.success(result.getPdfLink()));
+    }
+
+    /** Sinh PDF từ dữ liệu đã lưu theo mẫu đang chọn và lưu R2. */
+    @PostMapping("/documents/{id}/pdf")
+    public BaseResponse<FileLinkDto> generatePdf(@PathVariable Integer id) {
+        return BaseResponse.success(cvService.generatePdf(id));
     }
 
     @PatchMapping("/documents/{id}")
