@@ -2,6 +2,7 @@ package recruit.demo.service.cv;
 import org.junit.jupiter.api.Test;
 import org.apache.pdfbox.pdmodel.*;
 import org.apache.pdfbox.pdmodel.font.*;
+import org.apache.poi.xwpf.usermodel.XWPFDocument;
 import recruit.demo.client.AiJsonClient;
 import tools.jackson.databind.*;
 import java.io.ByteArrayOutputStream;
@@ -39,5 +40,49 @@ class CvExtractionModuleTest {
         byte[] pdf = bytes;
         var error = assertThrows(recruit.demo.exception.ApiException.class, () -> module.extract(pdf));
         assertEquals(422, error.getStatus().value());
+    }
+
+    @Test void readableDocxReachesExtractionApiWithParagraphsAndTables() throws Exception {
+        ObjectMapper mapper = new ObjectMapper();
+        AiJsonClient fake = new AiJsonClient(mapper) {
+            @Override public JsonNode post(String url, Object body) {
+                assertEquals("http://extract/api/v1/extract-cv?include=kg", url);
+                String text = ((Map<?,?>) body).get("cv_text").toString();
+                assertTrue(text.contains("Java Spring Boot"));
+                assertTrue(text.contains("MySQL"));
+                return mapper.readTree("{\"data\":{\"skills\":[\"Java\",\"MySQL\"]}}");
+            }
+        };
+        byte[] bytes;
+        try (XWPFDocument doc = new XWPFDocument(); ByteArrayOutputStream out = new ByteArrayOutputStream()) {
+            doc.createParagraph().createRun().setText(
+                    "Test Candidate with solid experience in Java Spring Boot and REST API development.");
+            var table = doc.createTable(1, 1);
+            table.getRow(0).getCell(0).setText("MySQL");
+            doc.write(out);
+            bytes = out.toByteArray();
+        }
+        var result = new CvExtractionModule(fake, "http://extract").extract(bytes, CvFileType.DOCX);
+        assertEquals("Java", result.path("skills").get(0).asString());
+    }
+
+    @Test void emptyDocxReturns422WithoutCallingModel() throws Exception {
+        byte[] bytes;
+        try (XWPFDocument doc = new XWPFDocument(); ByteArrayOutputStream out = new ByteArrayOutputStream()) {
+            doc.createParagraph();
+            doc.write(out);
+            bytes = out.toByteArray();
+        }
+        var module = new CvExtractionModule(null, "http://unused");
+        var error = assertThrows(recruit.demo.exception.ApiException.class,
+                () -> module.extract(bytes, CvFileType.DOCX));
+        assertEquals(422, error.getStatus().value());
+    }
+
+    @Test void invalidDocxBytesReturns400() {
+        var module = new CvExtractionModule(null, "http://unused");
+        var error = assertThrows(recruit.demo.exception.ApiException.class,
+                () -> module.extract(new byte[]{1, 2, 3}, CvFileType.DOCX));
+        assertEquals(400, error.getStatus().value());
     }
 }

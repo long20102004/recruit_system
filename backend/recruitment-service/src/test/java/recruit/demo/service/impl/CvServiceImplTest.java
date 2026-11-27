@@ -33,6 +33,7 @@ import tools.jackson.databind.ObjectMapper;
 
 import java.util.List;
 import java.util.Optional;
+import recruit.demo.service.cv.CvFileType;
 
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.ArgumentMatchers.*;
@@ -186,7 +187,7 @@ class CvServiceImplTest {
             if (d.getId() == null) d.setId(42);
             return d;
         });
-        when(extraction.extract(any())).thenReturn(new ObjectMapper().createObjectNode());
+        when(extraction.extract(any(), any())).thenReturn(new ObjectMapper().createObjectNode());
         byte[] pdf = {1, 2, 3};
         var file = new MockMultipartFile("file", "cv.pdf", "application/pdf", pdf);
 
@@ -202,7 +203,7 @@ class CvServiceImplTest {
     @Test
     void uploadFailureOnStorageDoesNotWriteFileUrl() {
         when(docs.countByCandidateId(7)).thenReturn(0L);
-        when(extraction.extract(any())).thenReturn(new ObjectMapper().createObjectNode());
+        when(extraction.extract(any(), any())).thenReturn(new ObjectMapper().createObjectNode());
         doThrow(new ApiException(HttpStatus.BAD_GATEWAY, "down")).when(storage).putPrivate(any(), any(), any());
         var file = new MockMultipartFile("file", "cv.pdf", "application/pdf", new byte[]{1});
 
@@ -210,6 +211,38 @@ class CvServiceImplTest {
                 assertThrows(ApiException.class, () -> service.uploadNew(file, null)).getStatus());
         verify(cvData, never()).save(argThat(d -> CvService.FILE_URL.equals(d.getField())));
     }
+    @Test
+    void uploadNewStoresDocxUnderDocxKeyWithWordContentType() {
+        when(docs.countByCandidateId(7)).thenReturn(0L);
+        when(docs.save(any(CvDocument.class))).thenAnswer(i -> {
+            CvDocument d = i.getArgument(0);
+            if (d.getId() == null) d.setId(42);
+            return d;
+        });
+        when(extraction.extract(any(), any())).thenReturn(new ObjectMapper().createObjectNode());
+        byte[] docx = {4, 5, 6};
+        String docxMime = "application/vnd.openxmlformats-officedocument.wordprocessingml.document";
+        var file = new MockMultipartFile("file", "cv.docx", docxMime, docx);
+
+        var res = service.uploadNew(file, null);
+
+        verify(extraction).extract(eq(docx), eq(CvFileType.DOCX));
+        var key = org.mockito.ArgumentCaptor.forClass(String.class);
+        verify(storage).putPrivate(key.capture(), eq(docx), eq(docxMime));
+        assertTrue(key.getValue().matches("cvs/7/42/[0-9a-f-]{36}\\.docx"), key.getValue());
+        assertEquals(42, res.getCvId());
+    }
+
+    @Test
+    void uploadRejectsUnsupportedExtension() {
+        when(docs.countByCandidateId(7)).thenReturn(0L);
+        var file = new MockMultipartFile("file", "cv.txt", "text/plain", new byte[]{1, 2, 3});
+
+        assertEquals(HttpStatus.BAD_REQUEST,
+                assertThrows(ApiException.class, () -> service.uploadNew(file, null)).getStatus());
+        verifyNoInteractions(extraction);
+    }
+
 
     @Test
     void fileReturnsPresignedDownloadLinkWithOriginalName() {

@@ -32,7 +32,7 @@ public class CvController {
         return cvService.mine(cvId);
     }
 
-    /** API cũ: trích xuất CV PDF vào CV chính; data là profile AI đọc được (cùng DTO với /analyze-pdf). */
+    /** API cũ: trích xuất CV PDF/DOCX vào CV chính; data là profile AI đọc được (cùng DTO với /analyze-pdf). */
     @PostMapping(consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
     public BaseResponse<CandidateProfileDto> upload(@RequestPart("file") MultipartFile file) {
         return BaseResponse.success(cvService.upload(file));
@@ -56,7 +56,7 @@ public class CvController {
         return BaseResponse.success(cvService.uploadNew(file, title));
     }
 
-    /** Tải lại file PDF cho một CV đã có. */
+    /** Tải lại file PDF/DOCX cho một CV đã có. */
     @PostMapping(value = "/documents/{id}/file", consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
     public BaseResponse<CvUploadResponse> reupload(@PathVariable Integer id,
                                                    @RequestPart("file") MultipartFile file) {
@@ -79,7 +79,7 @@ public class CvController {
         return ResponseEntity.noContent().build();
     }
 
-    /** Link ký tạm để tải PDF gốc từ R2 (specs/008-r2-storage). */
+    /** Link ký tạm để tải file PDF/DOCX gốc từ R2 (specs/008-r2-storage). */
     @GetMapping("/documents/{id}/file")
     public BaseResponse<FileLinkDto> file(@PathVariable Integer id) {
         return BaseResponse.success(cvService.file(id));

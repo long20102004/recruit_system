@@ -294,7 +294,7 @@ function cvQuery(cvId?: number | null): string {
   return cvId != null ? `?cvId=${cvId}` : "";
 }
 
-function pdfForm(file: File): FormData {
+function cvForm(file: File): FormData {
   const fd = new FormData();
   fd.append("file", file);
   return fd;
@@ -307,7 +307,7 @@ export const cvsApi = {
   mine: (cvId?: number | null) => api<CvFormDto>(`/cvs${cvQuery(cvId)}`),
   /** API cũ: ghi vào CV chính (chưa có CV thì tạo CV đầu tiên). */
   upload: (file: File) =>
-    api<BaseResponse<CandidateProfileDto>>("/cvs", { method: "POST", body: pdfForm(file) }),
+    api<BaseResponse<CandidateProfileDto>>("/cvs", { method: "POST", body: cvForm(file) }),
   /** profile: hồ sơ đã sửa theo CandidateProfile; fields: ghi đè thêm từng field (vd "Kỹ năng suy ra"). */
   confirm: (body: { profile?: CandidateProfileDto; fields?: CvFieldDto[] }, cvId?: number | null) =>
     api<CvFormDto>(`/cvs${cvQuery(cvId)}`, {
@@ -317,9 +317,9 @@ export const cvsApi = {
   documents: () => apiData<CvDocumentDto[]>("/cvs/documents"),
   /** Thêm CV mới; lỗi 400 khi đã đủ {@link MAX_CANDIDATE_CVS} CV. */
   uploadNew: (file: File) =>
-    api<BaseResponse<CvUploadDto>>("/cvs/documents", { method: "POST", body: pdfForm(file) }),
+    api<BaseResponse<CvUploadDto>>("/cvs/documents", { method: "POST", body: cvForm(file) }),
   reupload: (cvId: number, file: File) =>
-    api<BaseResponse<CvUploadDto>>(`/cvs/documents/${cvId}/file`, { method: "POST", body: pdfForm(file) }),
+    api<BaseResponse<CvUploadDto>>(`/cvs/documents/${cvId}/file`, { method: "POST", body: cvForm(file) }),
   rename: (cvId: number, title: string) =>
     apiData<CvDocumentDto>(`/cvs/documents/${cvId}`, {
       method: "PATCH",
@@ -327,7 +327,7 @@ export const cvsApi = {
     }),
   setMain: (cvId: number) => apiData<CvDocumentDto[]>(`/cvs/documents/${cvId}/main`, { method: "POST" }),
   remove: (cvId: number) => api<void>(`/cvs/documents/${cvId}`, { method: "DELETE" }),
-  /** Tải file PDF gốc qua link ký tạm trên R2 (tên file do backend đặt trong link). */
+  /** Tải file CV gốc qua link ký tạm trên R2 (tên file do backend đặt trong link). */
   download: (cvId: number) => openFileLink(`/cvs/documents/${cvId}/file`),
 };
 

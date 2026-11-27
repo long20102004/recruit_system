@@ -154,7 +154,7 @@ export function CandidateHomePage() {
             <p className="small">
               {cvReady
                 ? "CV đang được dùng để xếp hạng việc làm. Cập nhật CV khi có kinh nghiệm hoặc dự án mới."
-                : "Tải CV PDF, AI sẽ điền sẵn kỹ năng, kinh nghiệm, học vấn."}
+                : "Tải CV (PDF/DOCX), AI sẽ điền sẵn kỹ năng, kinh nghiệm, học vấn."}
             </p>
             <Button variant="ghost" size="sm" to="/candidate/cv" style={{ alignSelf: "flex-start" }}>
               {cvReady ? "Cập nhật CV" : "Tải CV"}

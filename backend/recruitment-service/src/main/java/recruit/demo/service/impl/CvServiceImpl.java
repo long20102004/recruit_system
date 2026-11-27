@@ -95,14 +95,13 @@ public class CvServiceImpl implements CvService {
             throw new ApiException(HttpStatus.BAD_REQUEST, "File is required");
         }
         String original = file.getOriginalFilename() != null ? file.getOriginalFilename() : "";
-        if (!original.toLowerCase(Locale.ROOT).endsWith(".pdf")) {
-            throw new ApiException(HttpStatus.BAD_REQUEST, "Chỉ nhận file PDF");
-        }
+        var type = recruit.demo.service.cv.CvFileType.fromFileName(original)
+                .orElseThrow(() -> new ApiException(HttpStatus.BAD_REQUEST, "Chỉ nhận file PDF hoặc DOCX"));
 
         try {
             // Run inference before committing any file/profile changes. Failure never creates a fake completed CV.
             byte[] bytes = file.getBytes();
-            var extracted = extractionModule.extract(bytes);
+            var extracted = extractionModule.extract(bytes, type);
 
             String previousKey = null;
             if (doc == null) {
@@ -114,8 +113,8 @@ public class CvServiceImpl implements CvService {
                 touch(doc);
             }
             // Lỗi upload ném ApiException -> transaction rollback, không có CV "có file" giả.
-            String key = ObjectKeys.cv(candidate.getId(), doc.getId());
-            storageService.putPrivate(key, bytes, "application/pdf");
+            String key = ObjectKeys.cv(candidate.getId(), doc.getId(), type.getExtension());
+            storageService.putPrivate(key, bytes, type.getContentType());
             put(doc, FILE_NAME, original);
             put(doc, FILE_URL, key);
             if (previousKey != null && !previousKey.equals(key)) storageService.deletePrivateQuietly(previousKey);
@@ -233,7 +232,7 @@ public class CvServiceImpl implements CvService {
         CvDocument doc = requireOwned(candidate, cvId);
         String key = value(doc.getId(), FILE_URL);
         if (key.isBlank()) {
-            throw new ApiException(HttpStatus.NOT_FOUND, "CV chưa có tệp PDF.");
+            throw new ApiException(HttpStatus.NOT_FOUND, "CV chưa có tệp đính kèm.");
         }
         if (!ObjectKeys.isObjectKey(key)) {
             throw new ApiException(HttpStatus.NOT_FOUND, "Tệp CV chưa được chuyển lên kho lưu trữ, vui lòng tải lại CV.");

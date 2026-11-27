@@ -4,6 +4,7 @@
 <artifactId>recruitment-service</artifactId>
 	<dependencies>
 <dependency><groupId>org.apache.pdfbox</groupId><artifactId>pdfbox</artifactId><version>3.0.5</version></dependency>
+<dependency><groupId>org.apache.poi</groupId><artifactId>poi-ooxml</artifactId><version>5.4.1</version></dependency>
 <dependency><groupId>recruit</groupId><artifactId>common</artifactId><version>${project.version}</version></dependency>
 		<!-- Cloudflare R2 (API tương thích S3), specs/008-r2-storage. Chỉ dùng client đồng bộ nên bỏ netty. -->
 		<dependency>

@@ -14,7 +14,13 @@ public final class ObjectKeys {
 
     /** cvs/{candidateId}/{cvId}/{uuid}.pdf */
     public static String cv(Integer candidateId, Integer cvId) {
-        return CV_PREFIX + candidateId + "/" + cvId + "/" + UUID.randomUUID() + ".pdf";
+        return cv(candidateId, cvId, ".pdf");
+    }
+
+    /** cvs/{candidateId}/{cvId}/{uuid}{extension} (vd .pdf, .docx) */
+    public static String cv(Integer candidateId, Integer cvId, String extension) {
+        String ext = (extension == null || extension.isBlank()) ? ".pdf" : extension;
+        return CV_PREFIX + candidateId + "/" + cvId + "/" + UUID.randomUUID() + ext;
     }
 
     /** companies/{companyId}/{kind}/{uuid}.{ext}; kind = license | logo | cover. */

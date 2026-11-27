@@ -5,6 +5,7 @@ import { cvsApi, type CandidateProfileDto, type CvFormDto } from "../../api/clie
 import { useToast } from "../../context/ToastContext";
 import { CvProfileEditor } from "./CvProfileEditor";
 import { cleanProfile, normalizeProfile } from "./cvProfile";
+import { DocxPreview } from "./DocxPreview";
 
 /** Field "Kỹ năng suy ra" (đồ thị kỹ năng) không thuộc CandidateProfile nên vẫn lưu qua fields. */
 const INFERRED_FIELD = "Kỹ năng suy ra";
@@ -67,6 +68,7 @@ export function CandidateCvPage() {
   const [saving, setSaving] = useState(false);
   const [uploadError, setUploadError] = useState<string | null>(null);
   const [previewUrl, setPreviewUrl] = useState<string | null>(null);
+  const [docxFile, setDocxFile] = useState<File | null>(null);
   const previewRef = useRef<string | null>(null);
 
   function applyForm(form: CvFormDto, uploaded?: CandidateProfileDto | null) {
@@ -123,13 +125,28 @@ export function CandidateCvPage() {
 
   function setPreview(file: File | null) {
     if (previewRef.current) URL.revokeObjectURL(previewRef.current);
-    previewRef.current = file ? URL.createObjectURL(file) : null;
-    setPreviewUrl(previewRef.current);
+    const lower = file?.name.toLowerCase() ?? "";
+    if (file && lower.endsWith(".pdf")) {
+      previewRef.current = URL.createObjectURL(file);
+      setPreviewUrl(previewRef.current);
+      setDocxFile(null);
+    } else if (file && lower.endsWith(".docx")) {
+      previewRef.current = null;
+      setPreviewUrl(null);
+      setDocxFile(file);
+    } else {
+      previewRef.current = null;
+      setPreviewUrl(null);
+      setDocxFile(null);
+    }
   }
 
   async function onUpload(file: File) {
-    if (!file.name.toLowerCase().endsWith(".pdf")) {
-      toast("Chỉ nhận file PDF");
+    const lower = file.name.toLowerCase();
+    const isPdf = lower.endsWith(".pdf");
+    const isDocx = lower.endsWith(".docx");
+    if (!isPdf && !isDocx) {
+      toast("Chỉ nhận file PDF hoặc DOCX");
       return;
     }
     if (file.size > 10 * 1024 * 1024) {
@@ -193,7 +210,7 @@ export function CandidateCvPage() {
     isSaved && !uploading,
   ];
   const activeStep = stepDone.findIndex((d) => !d);
-  const steps = ["Tải file PDF", "AI trích xuất", "Kiểm tra & lưu"];
+  const steps = ["Tải file CV", "AI trích xuất", "Kiểm tra & lưu"];
 
   return (
     <>
@@ -228,15 +245,16 @@ export function CandidateCvPage() {
               <section className="cvu-top">
                 <UploadZone
                   className="cvu-drop"
+                  accept=".pdf,.docx,application/pdf,application/vnd.openxmlformats-officedocument.wordprocessingml.document"
                   onFile={onUpload}
                   disabled={uploading}
                   title={
                     <>
                       <UploadIcon />
-                      <span>{fileName ? "Kéo thả file PDF khác vào đây" : "Kéo thả file PDF vào đây"}</span>
+                      <span>{fileName ? "Kéo thả file PDF/DOCX khác vào đây" : "Kéo thả file PDF hoặc DOCX vào đây"}</span>
                     </>
                   }
-                  hint="PDF, tối đa 10 MB"
+                  hint="PDF hoặc DOCX, tối đa 10 MB"
                 >
                   <span className="cvu-btn cvu-btn-g cvu-btn-sm" aria-hidden="true">
                     Chọn file
@@ -270,7 +288,7 @@ export function CandidateCvPage() {
                       <div className="cvu-note cvu-note-warn">
                         {uploadError ??
                           "File bị mã hoá hoặc là ảnh scan nên AI không đọc được chữ."}{" "}
-                        Thử lại sau ít phút hoặc chọn file PDF khác.
+                        Thử lại sau ít phút hoặc chọn file PDF/DOCX khác.
                       </div>
                     </>
                   ) : hasProfile ? (
@@ -299,7 +317,7 @@ export function CandidateCvPage() {
                     <>
                       <h4>Chưa có CV</h4>
                       <p className="cvu-small cvu-muted">
-                        Tải CV dạng PDF, AI sẽ điền sẵn thông tin cá nhân, kỹ năng, kinh nghiệm và học vấn để bạn kiểm tra.
+                        Tải CV dạng PDF hoặc DOCX, AI sẽ điền sẵn thông tin cá nhân, kỹ năng, kinh nghiệm và học vấn để bạn kiểm tra.
                       </p>
                     </>
                   )}
@@ -315,6 +333,8 @@ export function CandidateCvPage() {
                     </div>
                     {previewUrl ? (
                       <iframe className="cvu-pdf" src={previewUrl} title={`Xem trước ${fileName ?? "CV"}`} />
+                    ) : docxFile ? (
+                      <DocxPreview file={docxFile} title={`Xem trước ${fileName ?? "CV"}`} />
                     ) : (
                       <div className="cvu-paper">
                         <div className="cvu-line" style={{ height: 16, width: "50%", background: "#cfc6ba" }} />

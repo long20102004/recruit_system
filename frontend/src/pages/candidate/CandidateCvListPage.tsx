@@ -114,11 +114,11 @@ export function CandidateCvListPage() {
           <div className="row">
             {remaining > 0 ? (
               <Link to="/candidate/cv?new=1" className="btn btn-p">
-                Tải CV PDF lên
+                Tải CV lên
               </Link>
             ) : (
               <button type="button" className="btn btn-p" disabled title="Đã đủ số CV tối đa">
-                Tải CV PDF lên
+                Tải CV lên
               </button>
             )}
             <Link to="/candidate/cv" className="btn btn-g">

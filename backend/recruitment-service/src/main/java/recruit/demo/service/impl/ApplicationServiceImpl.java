@@ -205,7 +205,7 @@ public class ApplicationServiceImpl implements ApplicationService {
         Integer candidateId = app.getCandidate().getId();
         String key = cvValue(candidateId, app.getCvId(), CvService.FILE_URL);
         if (key.isBlank()) {
-            throw new ApiException(HttpStatus.NOT_FOUND, "Ứng viên chưa tải lên tệp CV PDF.");
+            throw new ApiException(HttpStatus.NOT_FOUND, "Ứng viên chưa tải lên tệp CV.");
         }
         if (!ObjectKeys.isObjectKey(key)) {
             throw new ApiException(HttpStatus.NOT_FOUND, "Tệp CV chưa được chuyển lên kho lưu trữ.");
