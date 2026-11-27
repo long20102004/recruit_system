@@ -121,9 +121,15 @@ export function CandidateCvListPage() {
                 Tải CV lên
               </button>
             )}
-            <Link to="/candidate/cv" className="btn btn-g">
-              Tạo CV từ đầu
-            </Link>
+            {remaining > 0 ? (
+              <Link to="/candidate/cv/edit?new=1" className="btn btn-g">
+                Tạo CV từ đầu
+              </Link>
+            ) : (
+              <button type="button" className="btn btn-g" disabled title="Đã đủ số CV tối đa">
+                Tạo CV từ đầu
+              </button>
+            )}
           </div>
         </div>
 
@@ -175,7 +181,7 @@ export function CandidateCvListPage() {
                 </div>
 
                 <p className="small muted">
-                  {c.fileName ?? "Chưa có file"} · Cập nhật {shortDate(c.updatedAt)}
+                  {c.fileName ? `Tải lên ${c.fileName}` : "Tạo từ form"} · Cập nhật {shortDate(c.updatedAt)}
                 </p>
 
                 <div className="row" style={{ gap: 6 }}>
@@ -195,7 +201,7 @@ export function CandidateCvListPage() {
                     marginTop: "auto",
                   }}
                 >
-                  <Link to={`/candidate/cv?cvId=${c.id}`} className="btn btn-g btn-sm">
+                  <Link to={`/candidate/cv/edit?cvId=${c.id}`} className="btn btn-g btn-sm">
                     Sửa
                   </Link>
                   <button

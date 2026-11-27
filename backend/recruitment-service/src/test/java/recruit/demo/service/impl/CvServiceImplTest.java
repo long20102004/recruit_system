@@ -310,4 +310,46 @@ class CvServiceImplTest {
         assertEquals("/candidate/cv?cvId=42", event.getLink());
         assertEquals(42, event.getData().get("cvId"));
     }
+
+    // ---- C04 Tạo CV từ đầu ----
+
+    @Test
+    void createBlankFirstCvBecomesMainWithoutFile() {
+        when(docs.countByCandidateId(7)).thenReturn(0L);
+        when(docs.save(any(CvDocument.class))).thenAnswer(i -> {
+            CvDocument d = i.getArgument(0);
+            if (d.getId() == null) d.setId(50);
+            return d;
+        });
+
+        var dto = service.createBlank("  CV Fullstack  ");
+
+        assertEquals(50, dto.getId());
+        assertTrue(dto.isMain());
+        assertEquals("CV Fullstack", dto.getTitle());
+        assertNull(dto.getFileName());
+        verifyNoInteractions(extraction, storage);
+    }
+
+    @Test
+    void createBlankRespectsFiveCvLimit() {
+        when(docs.countByCandidateId(7)).thenReturn((long) CvService.MAX_CVS);
+
+        assertEquals(HttpStatus.BAD_REQUEST,
+                assertThrows(ApiException.class, () -> service.createBlank(null)).getStatus());
+        verify(docs, never()).save(any());
+    }
+
+    @Test
+    void confirmSavesFormCvThatHasNoFile() throws Exception {
+        doc(3, false);  // không có FILE_NAME: CV tạo từ form
+        var request = new ConfirmCvRequest(null, new ObjectMapper().readValue(
+                "{\"skills\":[\"Java\",\"React\"]}", CandidateProfileDto.class));
+
+        var form = service.confirm(3, request);
+
+        assertEquals(3, form.getCvId());
+        verify(cvData).save(argThat(row -> row.getCvId() == 3
+                && CvService.PARSING_STATUS.equals(row.getField()) && "COMPLETED".equals(row.getValue())));
+    }
 }

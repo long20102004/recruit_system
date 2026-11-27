@@ -1222,3 +1222,49 @@ textarea.cvu-input { height: auto; padding: 10px 12px; resize: vertical; line-he
 .cvx-entry { display: flex; flex-direction: column; gap: 8px; padding: 14px 0 6px; }
 .cvx-entry + .cvx-entry { border-top: 1px dashed var(--line); }
 .cvx-remove { align-self: flex-end; color: var(--danger-c); }
+
+/* C04 · Tạo / sửa CV (CandidateCvEditorPage, Figma CvEditor) */
+.cve-wrap { max-width: 1320px; }
+.cve-title-row { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+.cve-title { font: 650 26px var(--font-display); color: var(--ink); border: 1px solid transparent; background: transparent; height: 44px; padding: 0 6px; margin-left: -6px; width: min(420px, 100%); border-radius: 2px; }
+.cve-title:hover { border-color: var(--line); }
+.cve-title:focus { outline: 2px solid var(--brand); outline-offset: -1px; background: var(--paper); }
+.cve-head-actions { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+.cve-soon { margin-left: 4px; height: 20px; padding: 0 7px; font-size: 11px; background: var(--warn-bg); color: var(--warn-c); }
+.cve-soon::before { display: none; }
+.cve-layout { display: grid; grid-template-columns: 230px minmax(0, 1fr) 340px; gap: 24px; align-items: start; }
+.cve-nav { padding: 8px; display: flex; flex-direction: column; gap: 2px; position: sticky; top: 16px; }
+.cve-nav-item { display: flex; justify-content: space-between; align-items: center; gap: 8px; min-height: 44px; padding: 0 10px; font: 600 14px var(--font-body); color: var(--ink-soft); background: transparent; border: 0; border-radius: 2px; cursor: pointer; text-align: left; }
+.cve-nav-item:hover { background: var(--sky); }
+.cve-nav-item.is-active { background: var(--brand-soft); color: var(--brand-deep); }
+.cve-empty { color: var(--warn-c); }
+.cve-nav-foot { border-top: 1px solid var(--line); margin-top: 8px; padding: 12px 10px 6px; display: flex; flex-direction: column; gap: 6px; }
+.cvx-check { display: inline-flex; align-items: center; gap: 8px; min-height: 32px; font-size: 14px; font-weight: 500; color: var(--ink-soft); }
+.cvx-check input { width: 18px; height: 18px; accent-color: var(--brand); }
+.cvx-entry-actions { display: flex; justify-content: flex-end; gap: 16px; }
+.cve-form { min-width: 0; }
+.cve-aside { position: sticky; top: 16px; }
+.cve-templates { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; }
+.cve-tpl { display: flex; flex-direction: column; gap: 6px; padding: 6px; background: var(--paper); border: 1px solid var(--line); border-radius: 2px; font: inherit; color: var(--ink); }
+.cve-tpl > span:first-child { display: block; height: 70px; }
+.cve-tpl.is-on { border: 2px solid var(--brand); }
+.cve-tpl:disabled { cursor: not-allowed; opacity: .75; }
+.cve-preview-card { background: #fbf8f3; }
+.cve-preview { background: var(--paper); border: 1px solid var(--line); padding: 18px; display: flex; flex-direction: column; gap: 6px; font-size: 12px; line-height: 1.45; overflow-wrap: anywhere; }
+.cve-preview p { margin: 0; }
+.cve-preview-name { font: 650 17px var(--font-display); }
+.cve-preview-role { color: var(--brand); font-weight: 600; }
+.cve-preview-sep { height: 1px; background: var(--line); margin: 6px 0; }
+.cve-preview-h { font-weight: 700; letter-spacing: .06em; margin-top: 6px !important; }
+
+@media (max-width: 1100px) {
+  .cve-layout { grid-template-columns: 220px minmax(0, 1fr); }
+  .cve-aside { grid-column: 1 / -1; position: static; }
+}
+@media (max-width: 760px) {
+  .cve-layout { grid-template-columns: minmax(0, 1fr); }
+  .cve-nav { position: static; flex-direction: row; overflow-x: auto; }
+  .cve-nav-item { flex: none; }
+  .cve-nav-foot { display: none; }
+  .cve-title { font-size: 22px; }
+}

@@ -32,6 +32,9 @@ public interface CvService {
 
     List<CvDocumentDto> documents();
 
+    /** Tạo CV trống (không file) cho nút Tạo CV từ đầu ở C04. */
+    CvDocumentDto createBlank(String title);
+
     CvDocumentDto rename(Integer cvId, String title);
 
     List<CvDocumentDto> setMain(Integer cvId);

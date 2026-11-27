@@ -9,6 +9,7 @@ import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 import recruit.demo.dto.ConfirmCvRequest;
+import recruit.demo.dto.CvDocumentDtos.CreateCvRequest;
 import recruit.demo.dto.CvDocumentDtos.CvDocumentDto;
 import recruit.demo.dto.CvDocumentDtos.CvUploadResponse;
 import recruit.demo.dto.CvDocumentDtos.RenameCvRequest;
@@ -61,6 +62,12 @@ public class CvController {
     public BaseResponse<CvUploadResponse> reupload(@PathVariable Integer id,
                                                    @RequestPart("file") MultipartFile file) {
         return BaseResponse.success(cvService.reupload(id, file));
+    }
+
+    /** Tạo CV từ đầu (C04): CV trống, chưa có file; đủ 5 CV trả 400. */
+    @PostMapping("/documents/blank")
+    public BaseResponse<CvDocumentDto> createBlank(@RequestBody(required = false) CreateCvRequest request) {
+        return BaseResponse.success(cvService.createBlank(request == null ? null : request.getTitle()));
     }
 
     @PatchMapping("/documents/{id}")

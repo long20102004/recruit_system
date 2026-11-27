@@ -46,4 +46,12 @@ public final class CvDocumentDtos {
     public static class RenameCvRequest {
         private String title;
     }
+
+    /** Body tạo CV trống; title tuỳ chọn. */
+    @Data
+    @NoArgsConstructor
+    @AllArgsConstructor
+    public static class CreateCvRequest {
+        private String title;
+    }
 }

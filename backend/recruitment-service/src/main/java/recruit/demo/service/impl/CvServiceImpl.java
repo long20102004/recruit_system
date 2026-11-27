@@ -88,6 +88,23 @@ public class CvServiceImpl implements CvService {
         return store(candidate, null, file, title == null || title.isBlank() ? null : cleanTitle(title));
     }
 
+    /** Tạo CV từ đầu (C04): CV trống không có file, nội dung lưu qua confirm. */
+    @Transactional
+    public CvDocumentDto createBlank(String title) {
+        CandidateProfile candidate = requireCandidate();
+        long count = cvDocumentRepository.countByCandidateId(candidate.getId());
+        if (count >= MAX_CVS) {
+            throw new ApiException(HttpStatus.BAD_REQUEST, "Mỗi ứng viên chỉ có tối đa " + MAX_CVS + " CV");
+        }
+        CvDocument doc = cvDocumentRepository.save(CvDocument.builder()
+                .candidateId(candidate.getId())
+                .title(title == null || title.isBlank() ? null : cleanTitle(title))
+                .main(count == 0)
+                .build());
+        touch(doc);
+        return toDto(doc, activeCvIds(candidate.getId()));
+    }
+
     @Transactional
     public CvUploadResponse reupload(Integer cvId, MultipartFile file) {
         CandidateProfile candidate = requireCandidate();
@@ -151,8 +168,9 @@ public class CvServiceImpl implements CvService {
     public CvFormResponse confirm(Integer cvId, ConfirmCvRequest request) {
         CandidateProfile candidate = requireCandidate();
         CvDocument doc = cvId == null ? mainCv(candidate.getId()).orElse(null) : requireOwned(candidate, cvId);
-        if (doc == null || value(doc.getId(), FILE_NAME).isBlank()) {
-            throw new ApiException(HttpStatus.BAD_REQUEST, "Hãy tải CV trước");
+        // CV tạo từ form (C04) không có file: vẫn lưu được nội dung.
+        if (doc == null) {
+            throw new ApiException(HttpStatus.BAD_REQUEST, "Hãy tải lên hoặc tạo CV trước");
         }
         List<String> allowed = settingService.cvFields();
         if (request == null || (request.getFields() == null && request.getProfile() == null)) {
@@ -342,7 +360,7 @@ public class CvServiceImpl implements CvService {
     /** Tên hiển thị: tên ứng viên đặt, không có thì tên file bỏ đuôi. */
     private String titleOf(CvDocument doc, String fileName) {
         if (doc.getTitle() != null && !doc.getTitle().isBlank()) return doc.getTitle();
-        if (fileName.isBlank()) return "CV #" + doc.getId();
+        if (fileName.isBlank()) return "CV tạo từ form #" + doc.getId();
         int dot = fileName.lastIndexOf('.');
         return dot > 0 ? fileName.substring(0, dot) : fileName;
     }

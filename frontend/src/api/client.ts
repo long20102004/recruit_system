@@ -351,6 +351,9 @@ export const cvsApi = {
       body: JSON.stringify(body),
     }),
   documents: () => apiData<CvDocumentDto[]>("/cvs/documents"),
+  /** "Tạo CV từ đầu" (C04): CV trống không có file; lỗi 400 khi đã đủ {@link MAX_CANDIDATE_CVS} CV. */
+  createBlank: (title?: string) =>
+    apiData<CvDocumentDto>("/cvs/documents/blank", { method: "POST", body: JSON.stringify({ title: title ?? null }) }),
   /** Thêm CV mới; lỗi 400 khi đã đủ {@link MAX_CANDIDATE_CVS} CV. */
   uploadNew: (file: File) =>
     api<BaseResponse<CvUploadDto>>("/cvs/documents", { method: "POST", body: cvForm(file) }),

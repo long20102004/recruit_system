@@ -84,3 +84,37 @@ export function cleanProfile(p: Profile): Profile {
       .filter((l) => l.language),
   };
 }
+
+/** Các mục CV theo màn C04 (thanh điều hướng bên trái). */
+export type CvSection =
+  | "info" | "education" | "experience" | "skills" | "projects" | "certificates" | "languages" | "honours";
+
+export const CV_SECTIONS: { key: CvSection; label: string }[] = [
+  { key: "info", label: "Thông tin cá nhân" },
+  { key: "education", label: "Học vấn" },
+  { key: "experience", label: "Kinh nghiệm" },
+  { key: "skills", label: "Kỹ năng" },
+  { key: "projects", label: "Dự án" },
+  { key: "certificates", label: "Chứng chỉ" },
+  { key: "languages", label: "Ngoại ngữ" },
+  { key: "honours", label: "Giải thưởng & hoạt động" },
+];
+
+/** Mục đã có nội dung chưa (hiện "Đủ"/"Trống" ở C04). */
+export function sectionFilled(p: Profile, key: CvSection): boolean {
+  const has = (xs: unknown[] | null | undefined) => (xs ?? []).length > 0;
+  const lines = (xs: string[] | null | undefined) => (xs ?? []).some((x) => x.trim() !== "");
+  switch (key) {
+    case "info": return !!(p.personal_info?.full_name?.trim() || p.personal_info?.email?.trim());
+    case "education": return has(p.education);
+    case "experience": return has(p.experience);
+    case "skills": return lines(p.skills);
+    case "projects": return has(p.personal_projects);
+    case "certificates": return lines(p.certificates);
+    case "languages": return has(p.languages);
+    case "honours": return lines(p.honours);
+  }
+}
+
+/** Giá trị end_date khi đang làm ở công ty đó. */
+export const CURRENT_JOB = "Hiện tại";
