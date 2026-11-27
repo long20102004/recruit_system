@@ -1,0 +1,29 @@
+# Chi dung tren may GPU thue (xem docs/GPU_REMOTE_HOSTING.md).
+# Public 3 service AI qua dai cong rieng cua nha cung cap (mac dinh 42000-42003).
+# Dung kem: -f docker-compose.yml -f docker-compose.gpu.yml -f docker-compose.remote.yml
+services:
+  interview-ai:
+    cpus: 8.0
+    mem_limit: 8g
+    environment:
+      HIRELENS_THREADS: "8"
+      OMP_NUM_THREADS: "8"
+    ports:
+      - "0.0.0.0:${GPU_INTERVIEW_PORT:-42000}:8000"
+  cv-extraction-ai:
+    environment:
+      # Benchmark RTX 3090: 4.39s -> 3.48s/CV, output giong het (6/6 CV)
+      LLAMA_FLASH_ATTN: "1"
+      PROMPT_LOOKUP_TOKENS: "4"
+    ports:
+      - "0.0.0.0:${GPU_EXTRACTION_PORT:-42001}:8000"
+  cvmatch-ai:
+    # DB o may local: di qua reverse SSH tunnel (infra/gpu-remote/db-tunnel.sh)
+    # bind tren docker0 cua may GPU; host-gateway = IP docker0.
+    depends_on: !reset {}
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    environment:
+      CVMATCH_DB_URL: postgresql://cvmatch:${CVMATCH_DB_PASSWORD:-cvmatch-local}@host.docker.internal:${GPU_DB_TUNNEL_PORT:-15433}/cvmatch
+    ports:
+      - "0.0.0.0:${GPU_CVMATCH_PORT:-42003}:8000"

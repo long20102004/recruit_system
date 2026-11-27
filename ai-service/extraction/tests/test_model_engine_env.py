@@ -129,6 +129,30 @@ def test_gguf_relative_path_and_success(monkeypatch, tmp_path):
     assert model_loader.state.gguf_path_used == str(gguf)
 
 
+@pytest.mark.parametrize("flash, lookup", [(False, 0), (True, 4)])
+def test_gguf_speed_options(monkeypatch, tmp_path, flash, lookup):
+    gguf = tmp_path / "model.gguf"
+    gguf.touch()
+    monkeypatch.setattr(config, "MODEL_ENGINE", "llama_cpp")
+    monkeypatch.setattr(config, "GGUF_MODEL_PATH", str(gguf))
+    monkeypatch.setattr(config, "LLAMA_FLASH_ATTN", flash)
+    monkeypatch.setattr(config, "PROMPT_LOOKUP_TOKENS", lookup)
+    monkeypatch.setenv("GGUF_MODEL_PATH", str(gguf))
+    monkeypatch.setattr(model_loader, "_preload_cuda_libs", lambda: None)
+    calls = []
+    monkeypatch.setitem(sys.modules, "llama_cpp", SimpleNamespace(Llama=lambda **kw: calls.append(kw) or object()))
+    monkeypatch.setitem(sys.modules, "llama_cpp.llama_speculative", SimpleNamespace(
+        LlamaPromptLookupDecoding=lambda num_pred_tokens: ("lookup", num_pred_tokens)))
+    model_loader.load_model()
+    kw = calls[0]
+    if lookup:
+        assert kw["flash_attn"] is True
+        assert kw["logits_all"] is True
+        assert kw["draft_model"] == ("lookup", 4)
+    else:
+        assert not {"flash_attn", "logits_all", "draft_model"} & kw.keys()
+
+
 @pytest.mark.parametrize("failure", ["missing", "load"])
 def test_gguf_failure_never_falls_back(monkeypatch, tmp_path, failure):
     gguf = tmp_path / "missing.gguf"
