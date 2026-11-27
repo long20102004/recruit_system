@@ -77,7 +77,7 @@ export function SiteHeader({ active, mode, userLocation }: SiteHeaderProps) {
             </div>
           )
         ) : (
-          <div className="row" style={{ gap: 10 }}>
+          <div className="row topnav-user">
             <Link to="/notifications" className="icon-btn" aria-label={unread ? `Thông báo, ${unread} chưa đọc` : "Thông báo"}
               aria-current={active === "notifications" ? "page" : undefined} style={{ position: "relative", width: 40, height: 40 }}>
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true">
@@ -86,11 +86,12 @@ export function SiteHeader({ active, mode, userLocation }: SiteHeaderProps) {
               </svg>
               {unread ? <span className="count" style={{ position: "absolute", top: -6, right: -6 }}>{unread}</span> : null}
             </Link>
-            <Link to="/candidate/profile" className="row" title="Hồ sơ & mật khẩu"
+            <Link to="/candidate/profile" className="row"
+              title={user?.fullName ? `${user.fullName} – Hồ sơ & mật khẩu` : "Hồ sơ & mật khẩu"}
               aria-current={active === "profile" ? "page" : undefined}
-              style={{ gap: 10, color: "inherit", textDecoration: "none" }}>
+              style={{ gap: 10, color: "inherit", textDecoration: "none", flexWrap: "nowrap" }}>
               <span className="avatar" aria-hidden="true">{initials(user?.fullName)}</span>
-              <span style={{ fontSize: 14, fontWeight: 600 }}>{user?.fullName}</span>
+              <span className="topnav-user-name">{user?.fullName}</span>
             </Link>
             <span className="topnav-sep" />
             <button type="button" className="btn btn-sm" onClick={onLogout}>Đăng xuất</button>

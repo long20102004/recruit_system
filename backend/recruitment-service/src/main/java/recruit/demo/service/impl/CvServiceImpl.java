@@ -2,40 +2,55 @@ package recruit.demo.service.impl;
 
 import recruit.demo.service.*;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.core.io.Resource;
+import org.springframework.core.io.UrlResource;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.multipart.MultipartFile;
 import recruit.demo.config.AppProperties;
 import recruit.demo.dto.ConfirmCvRequest;
+import recruit.demo.dto.CvDocumentDtos.CvDocumentDto;
+import recruit.demo.dto.CvDocumentDtos.CvUploadResponse;
 import recruit.demo.dto.CvFieldValue;
 import recruit.demo.dto.CvFormResponse;
 import recruit.demo.entity.CandidateProfile;
 import recruit.demo.entity.CvData;
-import recruit.demo.enums.Role;
+import recruit.demo.entity.CvDocument;
+import recruit.demo.enums.ApplicationStatus;
 import recruit.demo.exception.ApiException;
 import recruit.demo.repository.CandidateProfileRepository;
 import recruit.demo.repository.CvDataRepository;
+import recruit.demo.repository.CvDocumentRepository;
+import recruit.demo.repository.JobApplicationRepository;
 import recruit.demo.security.SecurityUtils;
 import recruit.demo.security.UserPrincipal;
 
 import java.io.IOException;
+import java.net.MalformedURLException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
-import java.util.LinkedHashMap;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Locale;
-import java.util.Map;
+import java.util.Optional;
+import java.util.Set;
 import java.util.UUID;
 
+@Slf4j
 @Service
 @RequiredArgsConstructor
 public class CvServiceImpl implements CvService {
+    /** Đơn ở các trạng thái này chưa kết thúc: CV gắn với đơn không xoá được. */
+    static final List<ApplicationStatus> ACTIVE_APPLICATION =
+            List.of(ApplicationStatus.SUBMITTED, ApplicationStatus.REVIEWING, ApplicationStatus.INTERVIEW);
+    private static final int MAX_TITLE = 120;
+
     private final recruit.demo.client.IdentityClient identityClient;
-
-
     private final CvDataRepository cvDataRepository;
     private final CandidateProfileRepository candidateProfileRepository;
     private final SettingService settingService;
@@ -44,20 +59,43 @@ public class CvServiceImpl implements CvService {
     private final AppProperties appProperties;
     private final org.springframework.context.ApplicationEventPublisher events;
     private final tools.jackson.databind.ObjectMapper objectMapper;
+    private final CvDocumentRepository cvDocumentRepository;
+    private final JobApplicationRepository applicationRepository;
 
     @Transactional(readOnly = true)
-    public CvFormResponse mine() {
+    public CvFormResponse mine(Integer cvId) {
         CandidateProfile candidate = requireCandidate();
-        return toForm(candidate.getId());
+        CvDocument doc = cvId == null ? mainCv(candidate.getId()).orElse(null) : requireOwned(candidate, cvId);
+        return toForm(doc);
     }
 
     /**
-     * Lưu file và kết quả trích xuất như trước, nhưng trả về profile AI đọc được (cùng DTO với /analyze-pdf của
-     * nhánh hocnv/DO-06). Form chỉnh sửa vẫn lấy qua {@link #mine()}.
+     * API cũ một CV: ghi vào CV chính (chưa có thì tạo CV đầu tiên) và trả profile AI đọc được (cùng DTO với
+     * /analyze-pdf). Form chỉnh sửa vẫn lấy qua {@link #mine(Integer)}.
      */
     @Transactional
     public recruit.demo.dto.CandidateProfileDto upload(MultipartFile file) {
         CandidateProfile candidate = requireCandidate();
+        return store(candidate, mainCv(candidate.getId()).orElse(null), file, null).profile();
+    }
+
+    @Transactional
+    public CvUploadResponse uploadNew(MultipartFile file, String title) {
+        CandidateProfile candidate = requireCandidate();
+        if (cvDocumentRepository.countByCandidateId(candidate.getId()) >= MAX_CVS) {
+            throw new ApiException(HttpStatus.BAD_REQUEST, "Mỗi ứng viên chỉ có tối đa " + MAX_CVS + " CV");
+        }
+        return store(candidate, null, file, title == null || title.isBlank() ? null : cleanTitle(title));
+    }
+
+    @Transactional
+    public CvUploadResponse reupload(Integer cvId, MultipartFile file) {
+        CandidateProfile candidate = requireCandidate();
+        return store(candidate, requireOwned(candidate, cvId), file, null);
+    }
+
+    /** Trích xuất rồi ghi file + kết quả vào doc; doc = null thì tạo CV mới (CV đầu tiên thành CV chính). */
+    private CvUploadResponse store(CandidateProfile candidate, CvDocument doc, MultipartFile file, String title) {
         if (file == null || file.isEmpty()) {
             throw new ApiException(HttpStatus.BAD_REQUEST, "File is required");
         }
@@ -75,24 +113,33 @@ public class CvServiceImpl implements CvService {
             Path target = uploadRoot.resolve(storedName);
             Files.copy(file.getInputStream(), target);
 
-            put(candidate.getId(), FILE_NAME, original);
-            put(candidate.getId(), FILE_URL, target.toString());
-            put(candidate.getId(), PARSING_STATUS, "COMPLETED");
-            put(candidate.getId(), PROFILE_JSON, extracted.toString());
-            for (var entry : profileMapper.fields(extracted).entrySet()) {
-                if (settingService.cvFields().contains(entry.getKey())) replaceLines(candidate.getId(), entry.getKey(), entry.getValue());
+            if (doc == null) {
+                boolean first = cvDocumentRepository.countByCandidateId(candidate.getId()) == 0;
+                doc = cvDocumentRepository.save(CvDocument.builder()
+                        .candidateId(candidate.getId()).title(title).main(first).build());
+            } else {
+                touch(doc);
             }
-            events.publishEvent(new recruit.demo.service.cvmatch.CvMatchEvents.CvChanged(candidate.getId()));
-            return objectMapper.treeToValue(extracted, recruit.demo.dto.CandidateProfileDto.class);
+            put(doc, FILE_NAME, original);
+            put(doc, FILE_URL, target.toString());
+            put(doc, PARSING_STATUS, "COMPLETED");
+            put(doc, PROFILE_JSON, extracted.toString());
+            for (var entry : profileMapper.fields(extracted).entrySet()) {
+                if (settingService.cvFields().contains(entry.getKey())) replaceLines(doc, entry.getKey(), entry.getValue());
+            }
+            if (doc.isMain()) publishChanged(candidate);
+            return new CvUploadResponse(doc.getId(),
+                    objectMapper.treeToValue(extracted, recruit.demo.dto.CandidateProfileDto.class));
         } catch (IOException ex) {
             throw new ApiException(HttpStatus.INTERNAL_SERVER_ERROR, "Failed to store file");
         }
     }
 
     @Transactional
-    public CvFormResponse confirm(ConfirmCvRequest request) {
+    public CvFormResponse confirm(Integer cvId, ConfirmCvRequest request) {
         CandidateProfile candidate = requireCandidate();
-        if (value(candidate.getId(), FILE_NAME).isBlank()) {
+        CvDocument doc = cvId == null ? mainCv(candidate.getId()).orElse(null) : requireOwned(candidate, cvId);
+        if (doc == null || value(doc.getId(), FILE_NAME).isBlank()) {
             throw new ApiException(HttpStatus.BAD_REQUEST, "Hãy tải CV trước");
         }
         List<String> allowed = settingService.cvFields();
@@ -100,7 +147,7 @@ public class CvServiceImpl implements CvService {
             throw new ApiException(HttpStatus.BAD_REQUEST, "Thiếu dữ liệu hồ sơ");
         }
         if (request.getProfile() != null) {
-            applyProfile(candidate, request.getProfile(), allowed);
+            applyProfile(candidate, doc, request.getProfile(), allowed);
         }
         for (CvFieldValue item : request.getFields() == null ? List.<CvFieldValue>of() : request.getFields()) {
             if (item == null || item.getField() == null || item.getField().isBlank()) {
@@ -111,21 +158,103 @@ public class CvServiceImpl implements CvService {
                 throw new ApiException(HttpStatus.BAD_REQUEST, "Field không nằm trong cấu hình CV_FIELD: " + field);
             }
             List<String> lines = linesOf(item.getValues());
-            replaceLines(candidate.getId(), field, lines);
-            syncProfile(candidate, field, lines);
+            replaceLines(doc, field, lines);
+            syncProfile(candidate, doc, field, lines);
         }
-        put(candidate.getId(), PARSING_STATUS, "COMPLETED");
-        events.publishEvent(new recruit.demo.service.cvmatch.CvMatchEvents.CvChanged(candidate.getId()));
-        return toForm(candidate.getId());
+        put(doc, PARSING_STATUS, "COMPLETED");
+        touch(doc);
+        if (doc.isMain()) publishChanged(candidate);
+        return toForm(doc);
+    }
+
+    @Transactional(readOnly = true)
+    public List<CvDocumentDto> documents() {
+        return documents(requireCandidate());
+    }
+
+    @Transactional
+    public CvDocumentDto rename(Integer cvId, String title) {
+        CandidateProfile candidate = requireCandidate();
+        CvDocument doc = requireOwned(candidate, cvId);
+        doc.setTitle(cleanTitle(title));
+        cvDocumentRepository.save(doc);
+        return toDto(doc, activeCvIds(candidate.getId()));
+    }
+
+    @Transactional
+    public List<CvDocumentDto> setMain(Integer cvId) {
+        CandidateProfile candidate = requireCandidate();
+        CvDocument target = requireOwned(candidate, cvId);
+        if (!target.isMain()) {
+            List<CvDocument> all = cvDocumentRepository.findByCandidateIdOrderByMainDescUpdatedAtDesc(candidate.getId());
+            // Bỏ cờ cũ trước rồi mới đặt cờ mới để không lúc nào có 2 CV chính.
+            for (CvDocument doc : all) {
+                if (doc.isMain()) {
+                    doc.setMain(false);
+                    cvDocumentRepository.save(doc);
+                }
+            }
+            cvDocumentRepository.flush();
+            target.setMain(true);
+            cvDocumentRepository.save(target);
+            cvDocumentRepository.flush();
+            publishChanged(candidate);
+        }
+        return documents(candidate);
+    }
+
+    @Transactional
+    public void delete(Integer cvId) {
+        CandidateProfile candidate = requireCandidate();
+        CvDocument doc = requireOwned(candidate, cvId);
+        if (activeCvIds(candidate.getId()).contains(doc.getId())) {
+            throw new ApiException(HttpStatus.CONFLICT,
+                    "Không thể xoá CV đang đính kèm trong đơn ứng tuyển chưa kết thúc.");
+        }
+        String fileUrl = value(doc.getId(), FILE_URL);
+        cvDataRepository.deleteAll(cvDataRepository.findByCvId(doc.getId()));
+        cvDocumentRepository.delete(doc);
+        cvDocumentRepository.flush();
+        if (doc.isMain()) {
+            // CV cập nhật gần nhất còn lại thành CV chính.
+            cvDocumentRepository.findByCandidateIdOrderByMainDescUpdatedAtDesc(candidate.getId()).stream()
+                    .findFirst()
+                    .ifPresent(next -> {
+                        next.setMain(true);
+                        cvDocumentRepository.save(next);
+                    });
+            publishChanged(candidate);
+        }
+        deleteFileQuietly(fileUrl);
+    }
+
+    @Transactional(readOnly = true)
+    public Resource file(Integer cvId) {
+        CandidateProfile candidate = requireCandidate();
+        CvDocument doc = requireOwned(candidate, cvId);
+        String fileUrl = value(doc.getId(), FILE_URL);
+        if (fileUrl.isBlank()) {
+            throw new ApiException(HttpStatus.NOT_FOUND, "CV chưa có tệp PDF.");
+        }
+        try {
+            Resource resource = new UrlResource(Paths.get(fileUrl).toAbsolutePath().normalize().toUri());
+            if (!resource.exists() || !resource.isReadable()) {
+                throw new ApiException(HttpStatus.NOT_FOUND, "Không tìm thấy tệp CV trên máy chủ.");
+            }
+            return resource;
+        } catch (MalformedURLException ex) {
+            throw new ApiException(HttpStatus.NOT_FOUND, "Đường dẫn tệp CV không hợp lệ.");
+        }
     }
 
     /**
      * Gộp hồ sơ người dùng sửa vào JSON đã lưu (giữ các khoá ngoài CandidateProfile như implied_skills của KG),
      * rồi ghi lại các field dùng cho matching và đồng bộ họ tên / SĐT / tóm tắt như khi sửa từng field.
      */
-    private void applyProfile(CandidateProfile candidate, recruit.demo.dto.CandidateProfileDto profile, List<String> allowed) {
+    private void applyProfile(CandidateProfile candidate, CvDocument doc,
+                              recruit.demo.dto.CandidateProfileDto profile, List<String> allowed) {
         tools.jackson.databind.node.ObjectNode merged;
-        String stored = value(candidate.getId(), PROFILE_JSON);
+        String stored = value(doc.getId(), PROFILE_JSON);
         try {
             var base = stored.isBlank() ? null : objectMapper.readTree(stored);
             merged = base instanceof tools.jackson.databind.node.ObjectNode obj ? obj : objectMapper.createObjectNode();
@@ -134,15 +263,17 @@ public class CvServiceImpl implements CvService {
         }
         tools.jackson.databind.JsonNode edited = objectMapper.valueToTree(profile);
         for (var entry : edited.properties()) merged.set(entry.getKey(), entry.getValue());
-        put(candidate.getId(), PROFILE_JSON, merged.toString());
+        put(doc, PROFILE_JSON, merged.toString());
         for (var entry : profileMapper.fields(merged).entrySet()) {
             if (!allowed.contains(entry.getKey())) continue;
-            replaceLines(candidate.getId(), entry.getKey(), entry.getValue());
-            syncProfile(candidate, entry.getKey(), entry.getValue());
+            replaceLines(doc, entry.getKey(), entry.getValue());
+            syncProfile(candidate, doc, entry.getKey(), entry.getValue());
         }
     }
 
-    private void syncProfile(CandidateProfile candidate, String field, List<String> lines) {
+    /** Chỉ CV chính mới đồng bộ họ tên / SĐT / tóm tắt sang tài khoản và hồ sơ ứng viên. */
+    private void syncProfile(CandidateProfile candidate, CvDocument doc, String field, List<String> lines) {
+        if (!doc.isMain()) return;
         String first = lines.isEmpty() ? "" : lines.get(0);
         if ("Họ tên".equals(field) && !first.isBlank()) {
             identityClient.update(candidate.getUserId(), first, null);
@@ -154,25 +285,94 @@ public class CvServiceImpl implements CvService {
         }
     }
 
-    private CvFormResponse toForm(Integer candidateId) {
+    private CvFormResponse toForm(CvDocument doc) {
         List<CvFieldValue> fields = new ArrayList<>();
         for (String field : settingService.cvFields()) {
-            fields.add(new CvFieldValue(field, lines(candidateId, field)));
+            fields.add(new CvFieldValue(field, doc == null ? List.of() : lines(doc.getId(), field)));
         }
-        String status = value(candidateId, PARSING_STATUS);
-        String fileName = value(candidateId, FILE_NAME);
+        if (doc == null) {
+            return CvFormResponse.builder().fields(fields).build();
+        }
+        String status = value(doc.getId(), PARSING_STATUS);
+        String fileName = value(doc.getId(), FILE_NAME);
         boolean analyzed = "COMPLETED".equals(status) && !fileName.isBlank();
         return CvFormResponse.builder()
+                .cvId(doc.getId())
+                .title(titleOf(doc, fileName))
+                .main(doc.isMain())
                 .fileName(fileName.isBlank() ? null : fileName)
                 .parsingStatus(status.isBlank() ? null : status)
                 .analyzed(analyzed)
                 .fields(fields)
-                .profile(storedProfile(candidateId))
+                .profile(storedProfile(doc.getId()))
                 .build();
     }
 
-    private recruit.demo.dto.CandidateProfileDto storedProfile(Integer candidateId) {
-        String stored = value(candidateId, PROFILE_JSON);
+    private List<CvDocumentDto> documents(CandidateProfile candidate) {
+        Set<Integer> active = activeCvIds(candidate.getId());
+        return cvDocumentRepository.findByCandidateIdOrderByMainDescUpdatedAtDesc(candidate.getId()).stream()
+                .map(doc -> toDto(doc, active))
+                .toList();
+    }
+
+    private CvDocumentDto toDto(CvDocument doc, Set<Integer> activeCvIds) {
+        String fileName = value(doc.getId(), FILE_NAME);
+        String status = value(doc.getId(), PARSING_STATUS);
+        return new CvDocumentDto(
+                doc.getId(),
+                titleOf(doc, fileName),
+                fileName.isBlank() ? null : fileName,
+                doc.isMain(),
+                status.isBlank() ? null : status,
+                "COMPLETED".equals(status) && !fileName.isBlank(),
+                lines(doc.getId(), SKILLS),
+                doc.getUpdatedAt(),
+                activeCvIds.contains(doc.getId()));
+    }
+
+    /** Tên hiển thị: tên ứng viên đặt, không có thì tên file bỏ đuôi. */
+    private String titleOf(CvDocument doc, String fileName) {
+        if (doc.getTitle() != null && !doc.getTitle().isBlank()) return doc.getTitle();
+        if (fileName.isBlank()) return "CV #" + doc.getId();
+        int dot = fileName.lastIndexOf('.');
+        return dot > 0 ? fileName.substring(0, dot) : fileName;
+    }
+
+    private String cleanTitle(String title) {
+        String trimmed = title == null ? "" : title.trim();
+        if (trimmed.isEmpty() || trimmed.length() > MAX_TITLE) {
+            throw new ApiException(HttpStatus.BAD_REQUEST, "Tên CV phải từ 1 đến " + MAX_TITLE + " ký tự");
+        }
+        return trimmed;
+    }
+
+    private Set<Integer> activeCvIds(Integer candidateId) {
+        return new HashSet<>(applicationRepository.findCvIdsByCandidateIdAndStatusIn(candidateId, ACTIVE_APPLICATION));
+    }
+
+    private void publishChanged(CandidateProfile candidate) {
+        events.publishEvent(new recruit.demo.service.cvmatch.CvMatchEvents.CvChanged(candidate.getId()));
+    }
+
+    /** Nội dung CV nằm ở cv_data nên phải tự cập nhật thời điểm sửa của CV. */
+    private void touch(CvDocument doc) {
+        doc.setUpdatedAt(LocalDateTime.now());
+        cvDocumentRepository.save(doc);
+    }
+
+    private void deleteFileQuietly(String fileUrl) {
+        if (fileUrl == null || fileUrl.isBlank()) return;
+        try {
+            Path root = Paths.get(appProperties.getUpload().getPath()).toAbsolutePath().normalize();
+            Path target = Paths.get(fileUrl).toAbsolutePath().normalize();
+            if (target.startsWith(root)) Files.deleteIfExists(target);
+        } catch (IOException | RuntimeException ex) {
+            log.warn("Không xoá được tệp CV cũ: {}", ex.getClass().getSimpleName());
+        }
+    }
+
+    private recruit.demo.dto.CandidateProfileDto storedProfile(Integer cvId) {
+        String stored = value(cvId, PROFILE_JSON);
         if (stored.isBlank()) return null;
         try {
             return objectMapper.readValue(stored, recruit.demo.dto.CandidateProfileDto.class);
@@ -200,24 +400,20 @@ public class CvServiceImpl implements CvService {
         return lines;
     }
 
-    private void replaceLines(Integer candidateId, String field, List<String> lines) {
-        List<CvData> rows = cvDataRepository.findByCandidateIdAndFieldOrderByIdAsc(candidateId, field);
+    private void replaceLines(CvDocument doc, String field, List<String> lines) {
+        List<CvData> rows = cvDataRepository.findByCvIdAndFieldOrderByIdAsc(doc.getId(), field);
         if (!rows.isEmpty()) {
             cvDataRepository.deleteAll(rows);
             cvDataRepository.flush();
         }
         for (String line : lines) {
-            cvDataRepository.save(CvData.builder()
-                    .candidateId(candidateId)
-                    .field(field)
-                    .value(line)
-                    .build());
+            cvDataRepository.save(row(doc, field, line));
         }
     }
 
-    private List<String> lines(Integer candidateId, String field) {
+    private List<String> lines(Integer cvId, String field) {
         List<String> lines = new ArrayList<>();
-        for (CvData row : cvDataRepository.findByCandidateIdAndFieldOrderByIdAsc(candidateId, field)) {
+        for (CvData row : cvDataRepository.findByCvIdAndFieldOrderByIdAsc(cvId, field)) {
             if (row.getValue() == null) {
                 continue;
             }
@@ -231,14 +427,10 @@ public class CvServiceImpl implements CvService {
         return lines;
     }
 
-    private void put(Integer candidateId, String field, String stored) {
-        List<CvData> rows = cvDataRepository.findByCandidateIdAndFieldOrderByIdAsc(candidateId, field);
+    private void put(CvDocument doc, String field, String stored) {
+        List<CvData> rows = cvDataRepository.findByCvIdAndFieldOrderByIdAsc(doc.getId(), field);
         if (rows.isEmpty()) {
-            cvDataRepository.save(CvData.builder()
-                    .candidateId(candidateId)
-                    .field(field)
-                    .value(stored)
-                    .build());
+            cvDataRepository.save(row(doc, field, stored));
             return;
         }
         CvData first = rows.get(0);
@@ -249,12 +441,32 @@ public class CvServiceImpl implements CvService {
         }
     }
 
-    private String value(Integer candidateId, String field) {
-        return cvDataRepository.findByCandidateIdAndFieldOrderByIdAsc(candidateId, field).stream()
+    private CvData row(CvDocument doc, String field, String value) {
+        return CvData.builder()
+                .candidateId(doc.getCandidateId())
+                .cvId(doc.getId())
+                .field(field)
+                .value(value)
+                .build();
+    }
+
+    private String value(Integer cvId, String field) {
+        return cvDataRepository.findByCvIdAndFieldOrderByIdAsc(cvId, field).stream()
                 .map(CvData::getValue)
                 .filter(item -> item != null && !item.isBlank())
                 .findFirst()
                 .orElse("");
+    }
+
+    private Optional<CvDocument> mainCv(Integer candidateId) {
+        return cvDocumentRepository.findFirstByCandidateIdAndMainTrue(candidateId);
+    }
+
+    /** CV không thuộc ứng viên trả 404 như không tồn tại (không lộ CV của người khác). */
+    private CvDocument requireOwned(CandidateProfile candidate, Integer cvId) {
+        if (cvId == null) throw new ApiException(HttpStatus.NOT_FOUND, "Không tìm thấy CV");
+        return cvDocumentRepository.findByIdAndCandidateId(cvId, candidate.getId())
+                .orElseThrow(() -> new ApiException(HttpStatus.NOT_FOUND, "Không tìm thấy CV"));
     }
 
     private CandidateProfile requireCandidate() {

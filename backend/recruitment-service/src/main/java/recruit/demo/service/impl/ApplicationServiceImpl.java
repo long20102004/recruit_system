@@ -44,6 +44,7 @@ public class ApplicationServiceImpl implements ApplicationService {
     private final MatchingResultRepository matchingResultRepository;
     private final JobSkillRepository jobSkillRepository;
     private final ObjectMapper objectMapper;
+    private final CvDocumentRepository cvDocumentRepository;
 
     @Override
     @Transactional
@@ -61,6 +62,7 @@ public class ApplicationServiceImpl implements ApplicationService {
         JobApplication application = JobApplication.builder()
                 .job(job)
                 .candidate(candidate)
+                .cvId(resolveApplyCv(candidate, request != null ? request.cvDocumentId() : null))
                 .status(ApplicationStatus.SUBMITTED)
                 .coverLetter(request != null ? request.coverLetter() : null)
                 .build();
@@ -201,7 +203,7 @@ public class ApplicationServiceImpl implements ApplicationService {
     public Resource loadCvFile(Integer id) {
         JobApplication app = requireApplication(id);
         ensureCanAccess(app);
-        String fileUrl = cvValue(app.getCandidate().getId(), CvService.FILE_URL);
+        String fileUrl = cvValue(app.getCandidate().getId(), app.getCvId(), CvService.FILE_URL);
         if (fileUrl.isBlank()) {
             throw new ApiException(HttpStatus.NOT_FOUND, "Ứng viên chưa tải lên tệp CV PDF.");
         }
@@ -282,14 +284,14 @@ public class ApplicationServiceImpl implements ApplicationService {
         UserSnapshot snap = resolveUserSnapshot(candidate.getUserId());
         String candidateName = snap != null && snap.fullName() != null ? snap.fullName() : "Ứng viên #" + candidate.getId();
 
-        String cvFileName = cvValue(candidate.getId(), CvService.FILE_NAME);
-        String cvFileUrl = cvValue(candidate.getId(), CvService.FILE_URL);
+        String cvFileName = cvValue(candidate.getId(), app.getCvId(), CvService.FILE_NAME);
+        String cvFileUrl = cvValue(candidate.getId(), app.getCvId(), CvService.FILE_URL);
 
         MatchingResult match = matchingResultRepository
                 .findFirstByJobIdAndCandidateIdOrderByCreatedAtDesc(app.getJob().getId(), candidate.getId())
                 .orElse(null);
 
-        ApplicationCvDto cvDto = buildCvDto(candidate, snap, app.getJob(), match);
+        ApplicationCvDto cvDto = buildCvDto(candidate, app.getCvId(), snap, app.getJob(), match);
         ApplicationMatchDto matchDto = buildMatchDto(match);
         List<ApplicationHistoryDto> historyList = buildHistory(app);
 
@@ -314,8 +316,9 @@ public class ApplicationServiceImpl implements ApplicationService {
         );
     }
 
-    private ApplicationCvDto buildCvDto(CandidateProfile candidate, UserSnapshot snap, Job job, MatchingResult match) {
-        String profileJson = cvValue(candidate.getId(), CvService.PROFILE_JSON);
+    private ApplicationCvDto buildCvDto(CandidateProfile candidate, Integer cvId, UserSnapshot snap, Job job,
+                                       MatchingResult match) {
+        String profileJson = cvValue(candidate.getId(), cvId, CvService.PROFILE_JSON);
         CandidateProfileDto parsed = null;
         if (!profileJson.isBlank()) {
             try {
@@ -369,16 +372,16 @@ public class ApplicationServiceImpl implements ApplicationService {
         }
 
         if (exps.isEmpty()) {
-            for (String line : cvLines(candidate.getId(), "Kinh nghiệm")) {
+            for (String line : cvLines(candidate.getId(), cvId, "Kinh nghiệm")) {
                 exps.add(new ApplicationExperienceItem(line, "", "", ""));
             }
         }
         if (education.isBlank()) {
-            List<String> eds = cvLines(candidate.getId(), "Học vấn");
+            List<String> eds = cvLines(candidate.getId(), cvId, "Học vấn");
             if (!eds.isEmpty()) education = String.join(" · ", eds);
         }
         if (allSkills.isEmpty()) {
-            for (String line : cvLines(candidate.getId(), "Kỹ năng")) {
+            for (String line : cvLines(candidate.getId(), cvId, "Kỹ năng")) {
                 for (String token : line.split("[,;\\n]+")) {
                     if (!token.isBlank()) allSkills.add(token.trim());
                 }
@@ -495,16 +498,39 @@ public class ApplicationServiceImpl implements ApplicationService {
         return snap != null && snap.fullName() != null ? snap.fullName() : "Ứng viên #" + userId;
     }
 
-    private String cvValue(Integer candidateId, String field) {
-        return cvDataRepository.findByCandidateIdAndFieldOrderByIdAsc(candidateId, field).stream()
+    /**
+     * CV mà ứng viên chọn khi ứng tuyển. Bỏ trống thì dùng CV chính (chưa có CV thì null, như trước).
+     * CV phải thuộc ứng viên và đã trích xuất xong.
+     */
+    private Integer resolveApplyCv(CandidateProfile candidate, Integer cvDocumentId) {
+        if (cvDocumentId == null) {
+            return cvDocumentRepository.findFirstByCandidateIdAndMainTrue(candidate.getId())
+                    .map(CvDocument::getId).orElse(null);
+        }
+        if (cvDocumentRepository.findByIdAndCandidateId(cvDocumentId, candidate.getId()).isEmpty()
+                || !"COMPLETED".equals(cvValue(candidate.getId(), cvDocumentId, CvService.PARSING_STATUS))) {
+            throw new ApiException(HttpStatus.BAD_REQUEST, "CV đã chọn không hợp lệ");
+        }
+        return cvDocumentId;
+    }
+
+    /** cvId = CV gắn với đơn; null (đơn cũ) thì đọc CV chính của ứng viên. */
+    private List<CvData> cvRows(Integer candidateId, Integer cvId, String field) {
+        return cvId != null
+                ? cvDataRepository.findByCvIdAndFieldOrderByIdAsc(cvId, field)
+                : cvDataRepository.findByCandidateIdAndFieldOrderByIdAsc(candidateId, field);
+    }
+
+    private String cvValue(Integer candidateId, Integer cvId, String field) {
+        return cvRows(candidateId, cvId, field).stream()
                 .map(CvData::getValue)
                 .filter(v -> v != null && !v.isBlank())
                 .findFirst()
                 .orElse("");
     }
 
-    private List<String> cvLines(Integer candidateId, String field) {
-        return cvDataRepository.findByCandidateIdAndFieldOrderByIdAsc(candidateId, field).stream()
+    private List<String> cvLines(Integer candidateId, Integer cvId, String field) {
+        return cvRows(candidateId, cvId, field).stream()
                 .map(CvData::getValue)
                 .filter(v -> v != null && !v.isBlank())
                 .map(String::trim)

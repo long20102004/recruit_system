@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useRef, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useSearchParams } from "react-router-dom";
 import { SiteHeader, UploadZone } from "../../components/common";
 import { cvsApi, type CandidateProfileDto, type CvFormDto } from "../../api/client";
 import { useToast } from "../../context/ToastContext";
@@ -21,6 +21,17 @@ function snapshot(profile: CandidateProfileDto, inferred: string[] | null) {
   return JSON.stringify([cleanProfile(profile), inferred ? cleanLines(inferred) : null]);
 }
 
+const EMPTY_FORM: CvFormDto = {
+  cvId: null,
+  title: null,
+  main: false,
+  fileName: null,
+  parsingStatus: null,
+  analyzed: false,
+  fields: [],
+  profile: null,
+};
+
 function UploadIcon() {
   return (
     <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor"
@@ -33,6 +44,15 @@ function UploadIcon() {
 
 export function CandidateCvPage() {
   const { toast } = useToast();
+  // ?cvId=X: sửa CV X; ?new=1: thêm CV mới; không có: CV chính (như trước khi có nhiều CV).
+  const [params, setParams] = useSearchParams();
+  const paramId = Number(params.get("cvId")) || null;
+  const isNew = params.get("new") === "1" && paramId == null;
+  const [cvId, setCvId] = useState<number | null>(paramId);
+  const [title, setTitle] = useState<string | null>(null);
+  const [isMain, setIsMain] = useState(false);
+  /** Trang tự đổi query sau khi tạo CV mới: không tải lại form. */
+  const selfNav = useRef(false);
   const [loaded, setLoaded] = useState(false);
   const [fileName, setFileName] = useState<string | null>(null);
   const [fileSize, setFileSize] = useState<number | null>(null);
@@ -60,17 +80,45 @@ export function CandidateCvPage() {
     setFileName(form.fileName);
     setParsingStatus(form.parsingStatus);
     setAnalyzed(form.analyzed);
+    setCvId(form.cvId);
+    setTitle(form.title);
+    setIsMain(form.main);
   }
 
   useEffect(() => {
+    if (selfNav.current) {
+      selfNav.current = false;
+      return;
+    }
+    setLoaded(false);
+    setUploadError(null);
+    setFileSize(null);
+    setPreview(null);
+    if (isNew) {
+      applyForm(EMPTY_FORM);
+      setLoaded(true);
+      return;
+    }
+    let alive = true;
     cvsApi
-      .mine()
-      .then(applyForm)
-      .catch(() => undefined)
-      .finally(() => setLoaded(true));
+      .mine(paramId)
+      .then((form) => {
+        if (alive) applyForm(form);
+      })
+      .catch((e) => {
+        if (alive) toast(e instanceof Error ? e.message : "Không tải được CV");
+      })
+      .finally(() => {
+        if (alive) setLoaded(true);
+      });
     return () => {
-      if (previewRef.current) URL.revokeObjectURL(previewRef.current);
+      alive = false;
     };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [paramId, isNew]);
+
+  useEffect(() => () => {
+    if (previewRef.current) URL.revokeObjectURL(previewRef.current);
   }, []);
 
   function setPreview(file: File | null) {
@@ -94,9 +142,21 @@ export function CandidateCvPage() {
     setFileSize(file.size);
     setPreview(file);
     try {
-      const res = await cvsApi.upload(file);
       // Điền form từ profile AI trả về; GET /api/cvs lấy thêm trạng thái file và "Kỹ năng suy ra".
-      applyForm(await cvsApi.mine(), res.data ?? null);
+      if (isNew && cvId == null) {
+        const res = await cvsApi.uploadNew(file);
+        const id = res.data?.cvId;
+        if (id == null) throw new Error("Upload thất bại");
+        applyForm(await cvsApi.mine(id), res.data?.profile ?? null);
+        selfNav.current = true;
+        setParams({ cvId: String(id) }, { replace: true });
+      } else if (cvId != null) {
+        const res = await cvsApi.reupload(cvId, file);
+        applyForm(await cvsApi.mine(cvId), res.data?.profile ?? null);
+      } else {
+        const res = await cvsApi.upload(file);
+        applyForm(await cvsApi.mine(), res.data ?? null);
+      }
       setAnalyzed(false);
       toast("AI đã điền các mục hồ sơ. Hãy kiểm tra trước khi lưu.");
     } catch (e) {
@@ -117,7 +177,7 @@ export function CandidateCvPage() {
       const form = await cvsApi.confirm({
         profile: cleanProfile(profile),
         fields: inferred ? [{ field: INFERRED_FIELD, values: cleanLines(inferred) }] : undefined,
-      });
+      }, cvId);
       applyForm(form);
       toast("Đã lưu hồ sơ CV");
     } catch (e) {
@@ -141,6 +201,12 @@ export function CandidateCvPage() {
       <main className="cvu">
         <div className="cvu-wrap">
           <h1>Tải CV lên và kiểm tra thông tin AI trích xuất</h1>
+          <p className="cvu-muted">
+            {isNew && cvId == null ? "CV mới" : title ?? "CV chính"}
+            {isMain ? " · CV chính" : ""}
+            {" · "}
+            <Link to="/candidate/cvs">Tất cả CV của tôi</Link>
+          </p>
 
           <ol className="cvu-steps" aria-label="Các bước">
             {steps.map((label, i) => {
@@ -217,11 +283,13 @@ export function CandidateCvPage() {
                       </div>
                       <div className="cvu-meter"><span style={{ width: "100%" }} /></div>
                       <p className="cvu-small cvu-muted">
-                        {isSaved
-                          ? "Hồ sơ này đang được dùng để xếp hạng việc làm phù hợp."
-                          : "Kiểm tra từng mục bên dưới rồi bấm “Lưu CV”."}
+                        {!isSaved
+                          ? "Kiểm tra từng mục bên dưới rồi bấm “Lưu CV”."
+                          : isMain
+                            ? "Hồ sơ này đang được dùng để xếp hạng việc làm phù hợp."
+                            : "CV này được gửi khi bạn chọn nó lúc ứng tuyển. Đặt làm CV chính để dùng cho gợi ý việc làm."}
                       </p>
-                      {isSaved ? (
+                      {isSaved && isMain ? (
                         <Link to="/candidate/matching" className="cvu-btn cvu-btn-link">
                           Xem việc phù hợp →
                         </Link>

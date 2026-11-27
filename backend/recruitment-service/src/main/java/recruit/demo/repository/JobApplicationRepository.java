@@ -80,5 +80,10 @@ public interface JobApplicationRepository extends JpaRepository<JobApplication, 
 
     long countByJobId(Integer jobId);
 
+    /** cv_id của các đơn có trạng thái trong danh sách (dùng chặn xoá CV đang ứng tuyển). */
+    @Query("SELECT DISTINCT a.cvId FROM JobApplication a WHERE a.candidate.id = :candidateId AND a.cvId IS NOT NULL AND a.status IN :statuses")
+    List<Integer> findCvIdsByCandidateIdAndStatusIn(@Param("candidateId") Integer candidateId,
+                                                     @Param("statuses") java.util.Collection<ApplicationStatus> statuses);
+
     List<JobApplication> findByJobId(Integer jobId);
 }

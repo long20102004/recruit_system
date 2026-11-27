@@ -1,12 +1,11 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { MockNote, SiteHeader } from "../../components/common";
-import {
-  MAX_CANDIDATE_CVS,
-  cvsMock,
-  type CandidateCvItem,
-} from "../../api/mock/candidateMock";
+import { SiteHeader } from "../../components/common";
+import { MAX_CANDIDATE_CVS, cvsApi, type CvDocumentDto } from "../../api/client";
 import { useToast } from "../../context/ToastContext";
+import { shortDate } from "../../utils/format";
+
+type CandidateCvItem = CvDocumentDto;
 
 /** Màn C02 · Danh sách CV của tôi (design canvas CvList.dc.html). */
 
@@ -17,8 +16,8 @@ export function CandidateCvListPage() {
   const [confirmDelete, setConfirmDelete] = useState<CandidateCvItem | null>(null);
 
   useEffect(() => {
-    cvsMock
-      .list()
+    cvsApi
+      .documents()
       .then(setCvs)
       .catch((e) => {
         setCvs([]);
@@ -38,7 +37,7 @@ export function CandidateCvListPage() {
   async function onSetMain(cv: CandidateCvItem) {
     setBusyId(cv.id);
     try {
-      const updated = await cvsMock.setMain(cv.id);
+      const updated = await cvsApi.setMain(cv.id);
       setCvs(updated);
       toast(`Đã đặt “${cv.title}” làm CV chính.`);
     } catch (e) {
@@ -53,8 +52,8 @@ export function CandidateCvListPage() {
     const target = confirmDelete;
     setBusyId(target.id);
     try {
-      await cvsMock.remove(target.id);
-      const updated = await cvsMock.list();
+      await cvsApi.remove(target.id);
+      const updated = await cvsApi.documents();
       setCvs(updated);
       setConfirmDelete(null);
       toast(`Đã xóa CV “${target.title}”.`);
@@ -66,8 +65,27 @@ export function CandidateCvListPage() {
     }
   }
 
-  function onDownload(cv: CandidateCvItem) {
-    toast(`Đang tải xuống ${cv.fileName} (mô phỏng).`);
+  async function onDownload(cv: CandidateCvItem) {
+    try {
+      await cvsApi.download(cv.id, cv.fileName || `${cv.title}.pdf`);
+    } catch (e) {
+      toast(e instanceof Error ? e.message : "Không tải được tệp CV");
+    }
+  }
+
+  async function onRename(cv: CandidateCvItem) {
+    const title = window.prompt("Tên CV", cv.title)?.trim();
+    if (!title || title === cv.title) return;
+    setBusyId(cv.id);
+    try {
+      const updated = await cvsApi.rename(cv.id, title);
+      setCvs((list) => (list ?? []).map((item) => (item.id === updated.id ? updated : item)));
+      toast("Đã đổi tên CV.");
+    } catch (e) {
+      toast(e instanceof Error ? e.message : "Không đổi được tên CV");
+    } finally {
+      setBusyId(null);
+    }
   }
 
   const count = cvs?.length ?? 0;
@@ -86,8 +104,6 @@ export function CandidateCvListPage() {
           gap: 24,
         }}
       >
-        <MockNote />
-
         <div className="page-head" style={{ marginBottom: 0 }}>
           <div>
             <h1 style={{ fontSize: 34 }}>CV của tôi</h1>
@@ -96,9 +112,15 @@ export function CandidateCvListPage() {
             </p>
           </div>
           <div className="row">
-            <Link to="/candidate/cv" className="btn btn-p">
-              Tải CV PDF lên
-            </Link>
+            {remaining > 0 ? (
+              <Link to="/candidate/cv?new=1" className="btn btn-p">
+                Tải CV PDF lên
+              </Link>
+            ) : (
+              <button type="button" className="btn btn-p" disabled title="Đã đủ số CV tối đa">
+                Tải CV PDF lên
+              </button>
+            )}
             <Link to="/candidate/cv" className="btn btn-g">
               Tạo CV từ đầu
             </Link>
@@ -123,7 +145,7 @@ export function CandidateCvListPage() {
                   display: "flex",
                   flexDirection: "column",
                   gap: 12,
-                  border: c.isMain ? "2px solid var(--brand)" : undefined,
+                  border: c.main ? "2px solid var(--brand)" : undefined,
                 }}
               >
                 <div
@@ -149,15 +171,15 @@ export function CandidateCvListPage() {
 
                 <div className="between">
                   <h3 style={{ fontSize: 18 }}>{c.title}</h3>
-                  {c.isMain ? <span className="badge b-brand">CV chính</span> : null}
+                  {c.main ? <span className="badge b-brand">CV chính</span> : null}
                 </div>
 
                 <p className="small muted">
-                  {c.source} · Cập nhật {c.updatedAt}
+                  {c.fileName ?? "Chưa có file"} · Cập nhật {shortDate(c.updatedAt)}
                 </p>
 
                 <div className="row" style={{ gap: 6 }}>
-                  {c.skills.map((s) => (
+                  {c.skills.slice(0, 8).map((s) => (
                     <span key={s} className="tag">
                       {s}
                     </span>
@@ -173,17 +195,26 @@ export function CandidateCvListPage() {
                     marginTop: "auto",
                   }}
                 >
-                  <Link to="/candidate/cv" className="btn btn-g btn-sm">
+                  <Link to={`/candidate/cv?cvId=${c.id}`} className="btn btn-g btn-sm">
                     Sửa
                   </Link>
                   <button
                     type="button"
                     className="btn btn-g btn-sm"
+                    disabled={busyId === c.id}
+                    onClick={() => onRename(c)}
+                  >
+                    Đổi tên
+                  </button>
+                  <button
+                    type="button"
+                    className="btn btn-g btn-sm"
+                    disabled={!c.fileName}
                     onClick={() => onDownload(c)}
                   >
                     Tải file
                   </button>
-                  {!c.isMain ? (
+                  {!c.main ? (
                     <button
                       type="button"
                       className="btn btn-g btn-sm"
@@ -197,7 +228,8 @@ export function CandidateCvListPage() {
                     type="button"
                     className="btn btn-d btn-sm"
                     style={{ marginLeft: "auto" }}
-                    disabled={busyId === c.id}
+                    disabled={busyId === c.id || c.inActiveApplication}
+                    title={c.inActiveApplication ? "CV đang đính kèm trong đơn ứng tuyển chưa kết thúc" : undefined}
                     onClick={() => setConfirmDelete(c)}
                   >
                     Xóa
@@ -208,7 +240,7 @@ export function CandidateCvListPage() {
 
             {remaining > 0 ? (
               <Link
-                to="/candidate/cv"
+                to="/candidate/cv?new=1"
                 className="card"
                 style={{
                   borderStyle: "dashed",
@@ -257,7 +289,8 @@ export function CandidateCvListPage() {
               Xác nhận xóa CV
             </h2>
             <p className="small" style={{ color: "var(--ink-soft)" }}>
-              Bạn có chắc muốn xóa <strong>{confirmDelete.title}</strong> ({confirmDelete.fileName})?
+              Bạn có chắc muốn xóa <strong>{confirmDelete.title}</strong>
+              {confirmDelete.fileName ? ` (${confirmDelete.fileName})` : ""}?
               Thao tác này không thể hoàn tác.
             </p>
             {confirmDelete.inActiveApplication ? (

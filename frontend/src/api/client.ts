@@ -265,19 +265,59 @@ export const savedJobsApi = {
   unsave: (jobIdOrSavedId: number) => api<void>(`/saved-jobs/${jobIdOrSavedId}`, { method: "DELETE" }),
 };
 
+function cvQuery(cvId?: number | null): string {
+  return cvId != null ? `?cvId=${cvId}` : "";
+}
+
+function pdfForm(file: File): FormData {
+  const fd = new FormData();
+  fd.append("file", file);
+  return fd;
+}
+
+/** Ứng viên có tối đa 5 CV; không truyền cvId thì làm trên CV chính. */
+export const MAX_CANDIDATE_CVS = 5;
+
 export const cvsApi = {
-  mine: () => api<CvFormDto>("/cvs"),
-  upload: (file: File) => {
-    const fd = new FormData();
-    fd.append("file", file);
-    return api<BaseResponse<CandidateProfileDto>>("/cvs", { method: "POST", body: fd });
-  },
+  mine: (cvId?: number | null) => api<CvFormDto>(`/cvs${cvQuery(cvId)}`),
+  /** API cũ: ghi vào CV chính (chưa có CV thì tạo CV đầu tiên). */
+  upload: (file: File) =>
+    api<BaseResponse<CandidateProfileDto>>("/cvs", { method: "POST", body: pdfForm(file) }),
   /** profile: hồ sơ đã sửa theo CandidateProfile; fields: ghi đè thêm từng field (vd "Kỹ năng suy ra"). */
-  confirm: (body: { profile?: CandidateProfileDto; fields?: CvFieldDto[] }) =>
-    api<CvFormDto>("/cvs", {
+  confirm: (body: { profile?: CandidateProfileDto; fields?: CvFieldDto[] }, cvId?: number | null) =>
+    api<CvFormDto>(`/cvs${cvQuery(cvId)}`, {
       method: "PUT",
       body: JSON.stringify(body),
     }),
+  documents: () => api<CvDocumentDto[]>("/cvs/documents"),
+  /** Thêm CV mới; lỗi 400 khi đã đủ {@link MAX_CANDIDATE_CVS} CV. */
+  uploadNew: (file: File) =>
+    api<BaseResponse<CvUploadDto>>("/cvs/documents", { method: "POST", body: pdfForm(file) }),
+  reupload: (cvId: number, file: File) =>
+    api<BaseResponse<CvUploadDto>>(`/cvs/documents/${cvId}/file`, { method: "POST", body: pdfForm(file) }),
+  rename: (cvId: number, title: string) =>
+    api<CvDocumentDto>(`/cvs/documents/${cvId}`, {
+      method: "PATCH",
+      body: JSON.stringify({ title }),
+    }),
+  setMain: (cvId: number) => api<CvDocumentDto[]>(`/cvs/documents/${cvId}/main`, { method: "POST" }),
+  remove: (cvId: number) => api<void>(`/cvs/documents/${cvId}`, { method: "DELETE" }),
+  /** Tải file PDF gốc (kèm token) và lưu xuống máy. */
+  download: async (cvId: number, fileName: string) => {
+    const token = getToken();
+    const res = await fetch(`${API_BASE}/cvs/documents/${cvId}/file`, {
+      headers: token ? { Authorization: `Bearer ${token}` } : undefined,
+    });
+    if (!res.ok) throw await parseError(res);
+    const url = URL.createObjectURL(await res.blob());
+    const a = document.createElement("a");
+    a.href = url;
+    a.download = fileName;
+    document.body.appendChild(a);
+    a.click();
+    a.remove();
+    setTimeout(() => URL.revokeObjectURL(url), 60_000);
+  },
 };
 
 export const matchingApi = {
@@ -556,7 +596,30 @@ export interface CandidateProfileDto {
   languages: { language: string | null; note: string | null }[] | null;
 }
 
+export interface CvDocumentDto {
+  id: number;
+  title: string;
+  fileName: string | null;
+  /** CV chính: dùng cho matching và gợi ý việc. */
+  main: boolean;
+  parsingStatus: string | null;
+  analyzed: boolean;
+  skills: string[];
+  updatedAt: string;
+  /** Đang gắn với đơn ứng tuyển chưa kết thúc: không xoá được. */
+  inActiveApplication: boolean;
+}
+
+export interface CvUploadDto {
+  cvId: number;
+  profile: CandidateProfileDto | null;
+}
+
 export interface CvFormDto {
+  /** CV đang xem; null khi chưa có CV nào. */
+  cvId: number | null;
+  title: string | null;
+  main: boolean;
   fileName: string | null;
   parsingStatus: string | null;
   analyzed: boolean;

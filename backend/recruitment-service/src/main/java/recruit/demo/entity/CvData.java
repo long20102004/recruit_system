@@ -19,6 +19,9 @@ public class CvData {
     @Column(name = "candidate_id", nullable = false)
     private Integer candidateId;
 
+    @Column(name = "cv_id", nullable = false)
+    private Integer cvId;
+
     @Column(nullable = false)
     private String field;
 

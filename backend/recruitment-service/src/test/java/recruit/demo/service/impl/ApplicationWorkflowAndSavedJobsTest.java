@@ -36,6 +36,7 @@ class ApplicationWorkflowAndSavedJobsTest {
     private MatchingResultRepository matchRepo;
     private JobSkillRepository jobSkillRepo;
     private SavedJobRepository savedJobRepo;
+    private CvDocumentRepository cvDocRepo;
 
     private ApplicationServiceImpl appService;
     private SavedJobServiceImpl savedJobService;
@@ -52,9 +53,10 @@ class ApplicationWorkflowAndSavedJobsTest {
         matchRepo = mock(MatchingResultRepository.class);
         jobSkillRepo = mock(JobSkillRepository.class);
         savedJobRepo = mock(SavedJobRepository.class);
+        cvDocRepo = mock(CvDocumentRepository.class);
 
         appService = new ApplicationServiceImpl(identityClient, appRepo, jobRepo, candRepo, histRepo,
-                noteRepo, cvDataRepo, matchRepo, jobSkillRepo, new ObjectMapper());
+                noteRepo, cvDataRepo, matchRepo, jobSkillRepo, new ObjectMapper(), cvDocRepo);
         savedJobService = new SavedJobServiceImpl(savedJobRepo, jobRepo, candRepo, jobSkillRepo, matchRepo);
 
         when(appRepo.save(any(JobApplication.class))).thenAnswer(i -> i.getArgument(0));
@@ -71,6 +73,51 @@ class ApplicationWorkflowAndSavedJobsTest {
         var p = new UserPrincipal(id, "u" + id + "@x.test", "", "User " + id, role, UserStatus.ACTIVE);
         SecurityContextHolder.getContext().setAuthentication(
                 new UsernamePasswordAuthenticationToken(p, null, p.getAuthorities()));
+    }
+
+    private Job openJob() {
+        Company co = Company.builder().id(1).name("Lumen").build();
+        return Job.builder().id(5).company(co).createdById(10).title("Java")
+                .status(recruit.demo.enums.JobStatus.PUBLISHED).build();
+    }
+
+    @Test
+    void applyWithoutCvUsesMainCv() {
+        loginAs(70, Role.CANDIDATE);
+        CandidateProfile cand = CandidateProfile.builder().id(7).userId(70).build();
+        when(candRepo.findByUserId(70)).thenReturn(Optional.of(cand));
+        when(jobRepo.findById(5)).thenReturn(Optional.of(openJob()));
+        when(cvDocRepo.findFirstByCandidateIdAndMainTrue(7))
+                .thenReturn(Optional.of(CvDocument.builder().id(31).candidateId(7).main(true).build()));
+
+        assertEquals(31, appService.apply(5, new recruit.demo.dto.ApplicationDtos.ApplyRequest(null, null)).cvDocumentId());
+    }
+
+    @Test
+    void applyRejectsCvOfAnotherCandidate() {
+        loginAs(70, Role.CANDIDATE);
+        CandidateProfile cand = CandidateProfile.builder().id(7).userId(70).build();
+        when(candRepo.findByUserId(70)).thenReturn(Optional.of(cand));
+        when(jobRepo.findById(5)).thenReturn(Optional.of(openJob()));
+        when(cvDocRepo.findByIdAndCandidateId(99, 7)).thenReturn(Optional.empty());
+
+        assertEquals(HttpStatus.BAD_REQUEST, assertThrows(ApiException.class,
+                () -> appService.apply(5, new recruit.demo.dto.ApplicationDtos.ApplyRequest(99, null))).getStatus());
+        verify(appRepo, never()).save(any(JobApplication.class));
+    }
+
+    @Test
+    void applyWithSelectedAnalyzedCvStoresIt() {
+        loginAs(70, Role.CANDIDATE);
+        CandidateProfile cand = CandidateProfile.builder().id(7).userId(70).build();
+        when(candRepo.findByUserId(70)).thenReturn(Optional.of(cand));
+        when(jobRepo.findById(5)).thenReturn(Optional.of(openJob()));
+        when(cvDocRepo.findByIdAndCandidateId(32, 7))
+                .thenReturn(Optional.of(CvDocument.builder().id(32).candidateId(7).build()));
+        when(cvDataRepo.findByCvIdAndFieldOrderByIdAsc(32, "parsing_status"))
+                .thenReturn(List.of(CvData.builder().cvId(32).candidateId(7).field("parsing_status").value("COMPLETED").build()));
+
+        assertEquals(32, appService.apply(5, new recruit.demo.dto.ApplicationDtos.ApplyRequest(32, null)).cvDocumentId());
     }
 
     @Test
