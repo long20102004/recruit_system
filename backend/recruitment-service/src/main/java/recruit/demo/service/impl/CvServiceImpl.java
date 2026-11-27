@@ -470,7 +470,8 @@ public class CvServiceImpl implements CvService {
         }
         String status = value(doc.getId(), PARSING_STATUS);
         String fileName = value(doc.getId(), FILE_NAME);
-        boolean analyzed = "COMPLETED".equals(status) && !fileName.isBlank();
+        // Sẵn sàng dùng (ứng tuyển, matching): đã có nội dung, kể cả CV tạo từ form/mẫu không có file gốc.
+        boolean analyzed = "COMPLETED".equals(status);
         boolean hasGeneratedPdf = doc.getGeneratedPdfKey() != null && !doc.getGeneratedPdfKey().isBlank();
         return CvFormResponse.builder()
                 .cvId(doc.getId())
@@ -503,7 +504,7 @@ public class CvServiceImpl implements CvService {
                 .fileName(fileName.isBlank() ? null : fileName)
                 .main(doc.isMain())
                 .parsingStatus(status.isBlank() ? null : status)
-                .analyzed("COMPLETED".equals(status) && !fileName.isBlank())
+                .analyzed("COMPLETED".equals(status))
                 .skills(lines(doc.getId(), SKILLS))
                 .updatedAt(doc.getUpdatedAt())
                 .inActiveApplication(activeCvIds.contains(doc.getId()))

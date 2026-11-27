@@ -497,4 +497,15 @@ class CvServiceImplTest {
 
         assertSame(link, service.file(6));
     }
+
+    @Test
+    void formCvWithoutFileIsReadyOnceSaved() {
+        doc(4, false);  // CV tạo từ form/mẫu: không có FILE_NAME
+        field(4, CvService.PARSING_STATUS, "COMPLETED");
+
+        var form = service.mine(4);
+
+        assertTrue(form.isAnalyzed(), "CV form đã lưu phải dùng được để ứng tuyển/matching");
+        assertNull(form.getFileName());
+    }
 }

@@ -33,6 +33,7 @@ export function ApplyModal({
   useEffect(() => {
     cvsApi.documents()
       .then((list) => {
+        // analyzed = đã có nội dung (CV upload đã trích xuất, hoặc CV tạo từ form/mẫu đã lưu).
         const ready = list.filter((c) => c.analyzed);
         setCvs(ready);
         setCvId((ready.find((c) => c.main) ?? ready[0])?.id ?? null);
@@ -98,7 +99,7 @@ export function ApplyModal({
                     <div style={{ flex: 1, minWidth: 0 }}>
                       <p style={{ fontWeight: 650 }}>{c.title}</p>
                       <p className="tiny muted">
-                        {c.main ? "CV chính" : "CV phụ"}{c.fileName ? ` · ${c.fileName}` : ""}
+                        {c.main ? "CV chính" : "CV phụ"}{c.fileName ? ` · ${c.fileName}` : " · Tạo từ mẫu"}
                       </p>
                     </div>
                     {c.main && job.matchPct != null ? <span className="match">{job.matchPct}%</span> : null}
