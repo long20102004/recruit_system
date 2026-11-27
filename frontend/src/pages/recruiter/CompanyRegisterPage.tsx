@@ -5,6 +5,7 @@ import {
   getCompanyProfile,
   saveCompanyDraft,
   submitCompanyRegistration,
+  uploadCompanyFile,
   type CompanyProfile,
   type CompanyRegistrationInput,
 } from "../../api/mock/recruiterMock";
@@ -71,21 +72,32 @@ export function CompanyRegisterPage() {
       .catch((e) => toast(e instanceof Error ? e.message : "Không tải được hồ sơ công ty"));
   }, [toast]);
 
-  function handleLogoChange(e: ChangeEvent<HTMLInputElement>) {
+  /** Tải thẳng lên R2 khi chọn (logo: bucket public, giấy phép: bucket private). */
+  async function uploadFile(kind: "logo" | "license", e: ChangeEvent<HTMLInputElement>) {
     const file = e.target.files?.[0];
+    e.target.value = "";
     if (!file || !form) return;
-    setForm({ ...form, logoFileName: file.name });
+    try {
+      const updated = await uploadCompanyFile(kind, file);
+      setCompany(updated);
+      setForm((f) =>
+        f
+          ? {
+              ...f,
+              logoFileName: updated.logoFileName,
+              licenseFileName: updated.licenseFileName,
+              licenseFileMeta: updated.licenseFileMeta || formatFileSize(file.size),
+            }
+          : f
+      );
+      toast(kind === "logo" ? "Đã tải logo lên." : "Đã tải giấy phép lên.");
+    } catch (err) {
+      toast(err instanceof Error ? err.message : "Không tải được tệp.");
+    }
   }
 
-  function handleLicenseChange(e: ChangeEvent<HTMLInputElement>) {
-    const file = e.target.files?.[0];
-    if (!file || !form) return;
-    setForm({
-      ...form,
-      licenseFileName: file.name,
-      licenseFileMeta: formatFileSize(file.size),
-    });
-  }
+  const handleLogoChange = (e: ChangeEvent<HTMLInputElement>) => void uploadFile("logo", e);
+  const handleLicenseChange = (e: ChangeEvent<HTMLInputElement>) => void uploadFile("license", e);
 
   async function handleSaveDraft() {
     if (!form) return;
@@ -289,7 +301,7 @@ export function CompanyRegisterPage() {
                       <input
                         id="cr-logo-file"
                         type="file"
-                        accept="image/*"
+                        accept="image/png,image/jpeg,image/webp"
                         onChange={handleLogoChange}
                         style={{ display: "none" }}
                       />

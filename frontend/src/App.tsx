@@ -15,6 +15,7 @@ import { PublicHomePage } from "./pages/PublicHomePage";
 import { LandingPage } from "./pages/LandingPage";
 import { CandidateHomePage } from "./pages/candidate/CandidateHomePage";
 import { CandidateCvPage } from "./pages/candidate/CandidateCvPage";
+import { CandidateCvEditorPage } from "./pages/candidate/CandidateCvEditorPage";
 import { CandidateMatchingPage } from "./pages/candidate/CandidateMatchingPage";
 import { CandidateJobDetailPage } from "./pages/candidate/CandidateJobDetailPage";
 import { CandidateInterviewPage } from "./pages/candidate/CandidateInterviewPage";
@@ -109,6 +110,15 @@ function AppRoutes() {
         element={
           <RequireAuth perm={"cv:manage-own"}>
             <CandidateCvPage />
+          </RequireAuth>
+        }
+      />
+      {/* C04 · Tạo / sửa CV (C03 /candidate/cv chỉ dùng để tải file + AI trích xuất) */}
+      <Route
+        path="/candidate/cv/edit"
+        element={
+          <RequireAuth perm={"cv:manage-own"}>
+            <CandidateCvEditorPage />
           </RequireAuth>
         }
       />

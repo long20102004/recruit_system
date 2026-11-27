@@ -19,6 +19,8 @@ public interface RecruiterProfileRepository extends JpaRepository<RecruiterProfi
 
     List<RecruiterProfile> findByUserId(Integer userId);
 
+    List<RecruiterProfile> findByCompanyId(Integer companyId);
+
     @Query("""
             SELECT rp FROM RecruiterProfile rp
             JOIN FETCH rp.company

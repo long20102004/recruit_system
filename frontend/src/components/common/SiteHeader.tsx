@@ -1,8 +1,7 @@
-import { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { notificationsMock } from "../../api/mock/candidateMock";
 import type { HeaderMode, NavKey } from "../../types";
 import { Brand } from "./Brand";
+import { NotificationBell } from "./NotificationBell";
 import { useAuth } from "../../context/AuthContext";
 import { accountPath } from "../../utils/account";
 import { initials } from "../../utils/format";
@@ -39,13 +38,7 @@ export function SiteHeader({ active, mode, userLocation }: SiteHeaderProps) {
   const navigate = useNavigate();
   const candidate = mode !== "public";
   const links = candidate ? CANDIDATE_LINKS : PUBLIC_LINKS;
-  const [unread, setUnread] = useState(0);
-
-  useEffect(() => {
-    if (!candidate || !user) return;
-    // Dữ liệu mẫu (C13) cho tới khi có API thông báo.
-    notificationsMock.unreadCount().then(setUnread).catch(() => setUnread(0));
-  }, [candidate, user]);
+  const streamEnabled = candidate && !!user;
 
   function onLogout() {
     logout();
@@ -77,20 +70,14 @@ export function SiteHeader({ active, mode, userLocation }: SiteHeaderProps) {
             </div>
           )
         ) : (
-          <div className="row" style={{ gap: 10 }}>
-            <Link to="/notifications" className="icon-btn" aria-label={unread ? `Thông báo, ${unread} chưa đọc` : "Thông báo"}
-              aria-current={active === "notifications" ? "page" : undefined} style={{ position: "relative", width: 40, height: 40 }}>
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true">
-                <path d="M6 8a6 6 0 1 1 12 0c0 7 3 9 3 9H3s3-2 3-9" />
-                <path d="M10.3 21a1.94 1.94 0 0 0 3.4 0" />
-              </svg>
-              {unread ? <span className="count" style={{ position: "absolute", top: -6, right: -6 }}>{unread}</span> : null}
-            </Link>
-            <Link to="/candidate/profile" className="row" title="Hồ sơ & mật khẩu"
+          <div className="row topnav-user">
+            <NotificationBell enabled={streamEnabled} active={active === "notifications"} />
+            <Link to="/candidate/profile" className="row"
+              title={user?.fullName ? `${user.fullName} – Hồ sơ & mật khẩu` : "Hồ sơ & mật khẩu"}
               aria-current={active === "profile" ? "page" : undefined}
-              style={{ gap: 10, color: "inherit", textDecoration: "none" }}>
+              style={{ gap: 10, color: "inherit", textDecoration: "none", flexWrap: "nowrap" }}>
               <span className="avatar" aria-hidden="true">{initials(user?.fullName)}</span>
-              <span style={{ fontSize: 14, fontWeight: 600 }}>{user?.fullName}</span>
+              <span className="topnav-user-name">{user?.fullName}</span>
             </Link>
             <span className="topnav-sep" />
             <button type="button" className="btn btn-sm" onClick={onLogout}>Đăng xuất</button>

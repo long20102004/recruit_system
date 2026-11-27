@@ -142,12 +142,23 @@ def _load_llama_cpp():
 
         logger.info(f"GGUF found: {gguf_path}")
         logger.info("Loading GGUF (merged finetune, LoRA adapter KHÔNG cần thiết)...")
+        extra = {}
+        if _cfg.LLAMA_FLASH_ATTN:
+            extra["flash_attn"] = True
+        if _cfg.PROMPT_LOOKUP_TOKENS > 0:
+            from llama_cpp.llama_speculative import LlamaPromptLookupDecoding
+
+            extra["logits_all"] = True
+            extra["draft_model"] = LlamaPromptLookupDecoding(num_pred_tokens=_cfg.PROMPT_LOOKUP_TOKENS)
+        if extra:
+            logger.info(f"llama.cpp tối ưu: flash_attn={_cfg.LLAMA_FLASH_ATTN} prompt_lookup={_cfg.PROMPT_LOOKUP_TOKENS}")
         llm = Llama(
             model_path=gguf_path,
             n_ctx=CONTEXT_TOKENS,
             n_threads=6,
             n_gpu_layers=_cfg.N_GPU_LAYERS,  # mặc định 99 = offload toàn bộ lên GPU
-            verbose=True
+            verbose=True,
+            **extra,
         )
         state.llm = llm
         state.engine = "llama_cpp"

@@ -82,6 +82,45 @@ export async function apiData<T>(path: string, options: RequestInit = {}): Promi
   return res?.data as T;
 }
 
+async function apiText(path: string, options: RequestInit = {}): Promise<string> {
+  const headers = new Headers(options.headers);
+  if (!headers.has("Content-Type") && !(options.body instanceof FormData)) {
+    headers.set("Content-Type", "application/json");
+  }
+  const token = getToken();
+  if (token) headers.set("Authorization", `Bearer ${token}`);
+
+  const res = await fetch(`${API_BASE}${path}`, { ...options, headers });
+  if (!res.ok) {
+    throw await parseError(res);
+  }
+  return res.text();
+}
+
+/** Link ký tạm tới file private trên R2 (specs/008-r2-storage). */
+export interface FileLinkDto {
+  url: string;
+  expiresAt: string;
+}
+
+/**
+ * Lấy link ký tạm từ backend rồi mở file. Link do R2 cấp đã kèm Content-Disposition
+ * (attachment để tải, inline để xem) nên không cần đọc nội dung qua fetch.
+ */
+export async function openFileLink(path: string, mode: "download" | "view" = "download"): Promise<void> {
+  const link = await apiData<FileLinkDto>(path);
+  if (mode === "view") {
+    window.open(link.url, "_blank", "noopener,noreferrer");
+    return;
+  }
+  const a = document.createElement("a");
+  a.href = link.url;
+  a.rel = "noopener";
+  document.body.appendChild(a);
+  a.click();
+  a.remove();
+}
+
 /** Tham số phân trang (page từ 0). Backend giới hạn size tối đa {@link MAX_PAGE_SIZE}. */
 export interface PageParams {
   page?: number;
@@ -150,7 +189,26 @@ export type NotificationType =
   | "INTERVIEW_INVITE"
   | "JOB_ALERT"
   | "COMPANY_INVITE"
-  | "CV_PROCESSED";
+  | "CV_PROCESSED"
+  | "COMPANY_STATUS"
+  | "JOB_MODERATION";
+
+export type NotificationCategory = "application" | "interview" | "alert" | "company" | "cv";
+
+export interface NotificationDto {
+  id: number;
+  type: NotificationType;
+  category: NotificationCategory;
+  title: string;
+  body: string | null;
+  link: string | null;
+  read: boolean;
+  createdAt: string;
+}
+
+export interface UnreadCountDto {
+  count: number;
+}
 
 export interface ProfileDto {
   id: number;
@@ -195,6 +253,23 @@ export const accountApi = {
       method: "PUT",
       body: JSON.stringify({ items }),
     }),
+};
+
+/** Thông báo & SSE stream (specs/009-notification-service). */
+export const notificationsApi = {
+  list: (params?: { category?: NotificationCategory; unread?: boolean; page?: number; size?: number }) =>
+    apiData<PageDto<NotificationDto>>(
+      `/notifications${pageQuery(params, {
+        category: params?.category,
+        unread: params?.unread != null ? String(params.unread) : undefined,
+      })}`
+    ),
+  unreadCount: () => apiData<UnreadCountDto>("/notifications/unread-count"),
+  markRead: (id: number) =>
+    apiData<NotificationDto>(`/notifications/${id}/read`, { method: "POST" }),
+  markAllRead: () =>
+    apiData<UnreadCountDto>("/notifications/read-all", { method: "POST" }),
+  streamUrl: () => `${API_BASE}/notifications/stream`,
 };
 
 export const jobsApi = {
@@ -256,7 +331,8 @@ export const applicationsApi = {
       body: JSON.stringify({ rating, internalNote }),
     }),
   history: (id: number) => apiData<ApplicationHistoryDto[]>(`/applications/${id}/history`),
-  cvFileUrl: (id: number) => `${API_BASE}/applications/${id}/cv-file`,
+  /** Tải PDF CV đính kèm đơn qua link ký tạm trên R2. */
+  downloadCvFile: (id: number) => openFileLink(`/applications/${id}/cv-file`),
 };
 
 export const savedJobsApi = {
@@ -265,19 +341,72 @@ export const savedJobsApi = {
   unsave: (jobIdOrSavedId: number) => api<void>(`/saved-jobs/${jobIdOrSavedId}`, { method: "DELETE" }),
 };
 
+function cvQuery(cvId?: number | null): string {
+  return cvId != null ? `?cvId=${cvId}` : "";
+}
+
+function cvForm(file: File): FormData {
+  const fd = new FormData();
+  fd.append("file", file);
+  return fd;
+}
+
+/** Ứng viên có tối đa 5 CV; không truyền cvId thì làm trên CV chính. */
+export const MAX_CANDIDATE_CVS = 5;
+
 export const cvsApi = {
-  mine: () => api<CvFormDto>("/cvs"),
-  upload: (file: File) => {
-    const fd = new FormData();
-    fd.append("file", file);
-    return api<BaseResponse<CandidateProfileDto>>("/cvs", { method: "POST", body: fd });
-  },
+  mine: (cvId?: number | null) => api<CvFormDto>(`/cvs${cvQuery(cvId)}`),
+  /** API cũ: ghi vào CV chính (chưa có CV thì tạo CV đầu tiên). */
+  upload: (file: File) =>
+    api<BaseResponse<CandidateProfileDto>>("/cvs", { method: "POST", body: cvForm(file) }),
   /** profile: hồ sơ đã sửa theo CandidateProfile; fields: ghi đè thêm từng field (vd "Kỹ năng suy ra"). */
-  confirm: (body: { profile?: CandidateProfileDto; fields?: CvFieldDto[] }) =>
-    api<CvFormDto>("/cvs", {
+  confirm: (body: { profile?: CandidateProfileDto; fields?: CvFieldDto[] }, cvId?: number | null) =>
+    api<CvFormDto>(`/cvs${cvQuery(cvId)}`, {
       method: "PUT",
       body: JSON.stringify(body),
     }),
+  documents: () => apiData<CvDocumentDto[]>("/cvs/documents"),
+  /** "Tạo CV từ đầu" (C04): CV trống không có file; lỗi 400 khi đã đủ {@link MAX_CANDIDATE_CVS} CV. */
+  createBlank: (title?: string, templateId?: number | null) =>
+    apiData<CvDocumentDto>("/cvs/documents/blank", {
+      method: "POST",
+      body: JSON.stringify({ title: title ?? null, templateId: templateId ?? null }),
+    }),
+  setTemplate: (cvId: number, templateId: number) =>
+    apiData<CvDocumentDto>(`/cvs/documents/${cvId}/template`, {
+      method: "PUT",
+      body: JSON.stringify({ templateId }),
+    }),
+  generatePdf: (cvId: number) =>
+    apiData<FileLinkDto>(`/cvs/documents/${cvId}/pdf`, { method: "POST" }),
+  previewHtml: (
+    body: { templateId: number; title?: string; profile: CandidateProfileDto },
+    signal?: AbortSignal
+  ) =>
+    apiText("/cvs/preview", {
+      method: "POST",
+      body: JSON.stringify(body),
+      signal,
+    }),
+  previewDocx: (body: { templateId: number; title?: string; profile: CandidateProfileDto }) =>
+    apiData<FileLinkDto>("/cvs/preview", {
+      method: "POST",
+      body: JSON.stringify(body),
+    }),
+  /** Thêm CV mới; lỗi 400 khi đã đủ {@link MAX_CANDIDATE_CVS} CV. */
+  uploadNew: (file: File) =>
+    api<BaseResponse<CvUploadDto>>("/cvs/documents", { method: "POST", body: cvForm(file) }),
+  reupload: (cvId: number, file: File) =>
+    api<BaseResponse<CvUploadDto>>(`/cvs/documents/${cvId}/file`, { method: "POST", body: cvForm(file) }),
+  rename: (cvId: number, title: string) =>
+    apiData<CvDocumentDto>(`/cvs/documents/${cvId}`, {
+      method: "PATCH",
+      body: JSON.stringify({ title }),
+    }),
+  setMain: (cvId: number) => apiData<CvDocumentDto[]>(`/cvs/documents/${cvId}/main`, { method: "POST" }),
+  remove: (cvId: number) => api<void>(`/cvs/documents/${cvId}`, { method: "DELETE" }),
+  /** Tải file CV gốc qua link ký tạm trên R2 (tên file do backend đặt trong link). */
+  download: (cvId: number) => openFileLink(`/cvs/documents/${cvId}/file`),
 };
 
 export const matchingApi = {
@@ -529,6 +658,7 @@ export interface CandidateProfileDto {
   education: {
     school: string | null;
     major: string | null;
+    location?: string | null;
     start_year: number | null;
     end_year: number | null;
     gpa: string | null;
@@ -536,6 +666,7 @@ export interface CandidateProfileDto {
   experience: {
     company: string | null;
     job_title: string | null;
+    location?: string | null;
     start_date: string | null;
     end_date: string | null;
     description: string[] | null;
@@ -556,14 +687,176 @@ export interface CandidateProfileDto {
   languages: { language: string | null; note: string | null }[] | null;
 }
 
+export interface CvDocumentDto {
+  id: number;
+  title: string;
+  fileName: string | null;
+  /** CV chính: dùng cho matching và gợi ý việc. */
+  main: boolean;
+  parsingStatus: string | null;
+  analyzed: boolean;
+  skills: string[];
+  updatedAt: string;
+  /** Đang gắn với đơn ứng tuyển chưa kết thúc: không xoá được. */
+  inActiveApplication: boolean;
+  templateId?: number | null;
+  hasGeneratedPdf?: boolean;
+}
+
+export interface CvUploadDto {
+  cvId: number;
+  profile: CandidateProfileDto | null;
+}
+
 export interface CvFormDto {
+  /** CV đang xem; null khi chưa có CV nào. */
+  cvId: number | null;
+  title: string | null;
+  main: boolean;
   fileName: string | null;
   parsingStatus: string | null;
   analyzed: boolean;
   fields: CvFieldDto[];
   /** Hồ sơ theo cấu trúc CandidateProfile đã lưu; null khi chưa tải CV. */
   profile: CandidateProfileDto | null;
+  templateId?: number | null;
+  hasGeneratedPdf?: boolean;
+  pdfError?: string | null;
 }
+
+// ── Mẫu CV (specs/011-cv-templates) ─────────────────────
+
+export type CvTemplateType = "CONFIG" | "DOCX";
+export type CvTemplateStatus = "ACTIVE" | "HIDDEN";
+
+export interface CvTemplateConfig {
+  layout: string;
+  font: string;
+  accent: string;
+  background: string;
+  header: string;
+  heading: string;
+  dates: string;
+  density: string;
+  margin: string;
+  sections: string[];
+}
+
+export interface CvTemplateOptionItem {
+  value: string;
+  label: string;
+}
+
+export interface CvTemplatePlaceholderItem {
+  tag: string;
+  description: string;
+  scope: string;
+}
+
+export interface CvTemplateOptionsDto {
+  layouts: CvTemplateOptionItem[];
+  fonts: CvTemplateOptionItem[];
+  accents: CvTemplateOptionItem[];
+  backgrounds: CvTemplateOptionItem[];
+  headers: CvTemplateOptionItem[];
+  headings: CvTemplateOptionItem[];
+  dates: CvTemplateOptionItem[];
+  densities: CvTemplateOptionItem[];
+  margins: CvTemplateOptionItem[];
+  sections: CvTemplateOptionItem[];
+  docxPlaceholders: CvTemplatePlaceholderItem[];
+}
+
+export interface AdminCvTemplateDto {
+  id: number;
+  name: string;
+  type: CvTemplateType;
+  status: CvTemplateStatus;
+  isDefault: boolean;
+  config?: CvTemplateConfig | null;
+  usedCount: number;
+  thumbnailUrl?: string | null;
+  hasPreviewPdf?: boolean;
+  updatedAt: string;
+}
+
+export interface CandidateCvTemplateDto {
+  id: number;
+  name: string;
+  type: CvTemplateType;
+  isDefault: boolean;
+  config?: CvTemplateConfig | null;
+  thumbnailUrl?: string | null;
+}
+
+function docxForm(file: File, name?: string): FormData {
+  const fd = new FormData();
+  if (name != null) fd.append("name", name);
+  fd.append("file", file);
+  return fd;
+}
+
+export const cvTemplatesApi = {
+  listActive: () => apiData<CandidateCvTemplateDto[]>("/cv-templates"),
+  adminList: () => apiData<AdminCvTemplateDto[]>("/admin/cv-templates"),
+  adminOptions: () => apiData<CvTemplateOptionsDto>("/admin/cv-templates/options"),
+  downloadDocxSample: async () => {
+    const headers = new Headers();
+    const token = getToken();
+    if (token) headers.set("Authorization", `Bearer ${token}`);
+    const res = await fetch(`${API_BASE}/admin/cv-templates/docx-sample`, { headers });
+    if (!res.ok) {
+      throw await parseError(res);
+    }
+    const blob = await res.blob();
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement("a");
+    a.href = url;
+    a.download = "harvard-cv-template.docx";
+    document.body.appendChild(a);
+    a.click();
+    a.remove();
+    URL.revokeObjectURL(url);
+  },
+  adminCreateConfig: (body: { name: string; config: CvTemplateConfig }) =>
+    apiData<AdminCvTemplateDto>("/admin/cv-templates", {
+      method: "POST",
+      body: JSON.stringify(body),
+    }),
+  adminUpdateConfig: (id: number, body: { name: string; config: CvTemplateConfig }) =>
+    apiData<AdminCvTemplateDto>(`/admin/cv-templates/${id}`, {
+      method: "PUT",
+      body: JSON.stringify(body),
+    }),
+  adminUploadDocx: (name: string, file: File) =>
+    apiData<AdminCvTemplateDto>("/admin/cv-templates/docx", {
+      method: "POST",
+      body: docxForm(file, name),
+    }),
+  adminReplaceDocx: (id: number, file: File) =>
+    apiData<AdminCvTemplateDto>(`/admin/cv-templates/${id}/docx`, {
+      method: "PUT",
+      body: docxForm(file),
+    }),
+  adminSetStatus: (id: number, status: CvTemplateStatus) =>
+    apiData<AdminCvTemplateDto>(`/admin/cv-templates/${id}/status`, {
+      method: "PATCH",
+      body: JSON.stringify({ status }),
+    }),
+  adminSetDefault: (id: number) =>
+    apiData<AdminCvTemplateDto>(`/admin/cv-templates/${id}/default`, {
+      method: "POST",
+    }),
+  adminDelete: (id: number) => api<void>(`/admin/cv-templates/${id}`, { method: "DELETE" }),
+  adminPreviewConfig: (config: CvTemplateConfig, signal?: AbortSignal): Promise<string> =>
+    apiText("/admin/cv-templates/preview", {
+      method: "POST",
+      body: JSON.stringify(config),
+      signal,
+    }),
+  adminPreviewPdf: (id: number): Promise<FileLinkDto> =>
+    apiData<FileLinkDto>(`/admin/cv-templates/${id}/preview-pdf`),
+};
 
 export interface MatchDto {
   id: number;

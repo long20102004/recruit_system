@@ -1,6 +1,7 @@
 package recruit.demo.service.impl;
 
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.ObjectProvider;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
@@ -12,7 +13,10 @@ import recruit.demo.dto.PageResponse;
 import recruit.demo.entity.*;
 import recruit.demo.enums.CompanyStatus;
 import recruit.demo.enums.JobStatus;
+import recruit.demo.enums.NotificationType;
 import recruit.demo.exception.ApiException;
+import recruit.demo.messaging.NotificationConstants;
+import recruit.demo.messaging.OutboxWriter;
 import recruit.demo.repository.*;
 import recruit.demo.security.SecurityUtils;
 import recruit.demo.security.UserPrincipal;
@@ -36,6 +40,7 @@ public class JobServiceImpl implements JobService {
     private final JobApplicationRepository applicationRepository;
     private final IdentityClient identityClient;
     private final org.springframework.context.ApplicationEventPublisher events;
+    private final ObjectProvider<OutboxWriter> outboxWriter;
 
     @Override
     @Transactional(readOnly = true)
@@ -285,6 +290,19 @@ public class JobServiceImpl implements JobService {
         events.publishEvent(new recruit.demo.service.cvmatch.CvMatchEvents.JobChanged(job.getId()));
         identityClient.recordAuditLog("LOCK_JOB", "Khoá tin", "badge b-danger",
                 job.getTitle(), actor.getId(), actor.getEmail());
+
+        if (job.getCreatedById() != null) {
+            String trimmedReason = reason.trim();
+            NotificationOutbox.publish(
+                    outboxWriter,
+                    NotificationConstants.RK_JOB_LOCKED,
+                    NotificationType.JOB_MODERATION,
+                    List.of(job.getCreatedById()),
+                    "Tin tuyển dụng bị khoá",
+                    job.getTitle() + " · " + trimmedReason,
+                    "/recruiter/jobs",
+                    Map.of("jobId", job.getId(), "reason", trimmedReason));
+        }
 
         return new JobDtos.JobLockStateDto(job.getId(), true, job.getLockReason(),
                 orEmpty(job.getLockNote()), job.getLockedAt());

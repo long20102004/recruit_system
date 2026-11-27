@@ -42,7 +42,10 @@ public final class CompanyDtos {
             String rejectReason,
             LicenseFileDto licenseFile,
             boolean following,
-            long followersCount
+            long followersCount,
+            /** URL công khai trên R2; null khi chưa tải ảnh. */
+            String logoUrl,
+            String coverUrl
     ) {
     }
 
@@ -68,6 +71,9 @@ public final class CompanyDtos {
             List<String> techStack,
             String logoFileName,
             String coverFileName,
+            /** URL công khai trên R2; null khi chưa tải ảnh. */
+            String logoUrl,
+            String coverUrl,
             String licenseFileName,
             String licenseFileMeta,
             boolean confirmed,

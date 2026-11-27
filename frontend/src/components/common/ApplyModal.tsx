@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState, type FormEvent } from "react";
 import { Link } from "react-router-dom";
-import { ApiError, applicationsApi, cvsApi, type CvFormDto } from "../../api/client";
+import { ApiError, MAX_CANDIDATE_CVS, applicationsApi, cvsApi, type CvDocumentDto } from "../../api/client";
 
 /** Màn C05 · Modal ứng tuyển (design canvas ApplyModal.dc.html). */
 
@@ -11,7 +11,7 @@ export interface ApplyTarget {
   title: string;
   company: string;
   location?: string;
-  /** Điểm phù hợp 0–100 với CV hiện tại, nếu có. */
+  /** Điểm phù hợp 0–100 với CV chính, nếu có (chỉ CV chính được chấm điểm). */
   matchPct?: number | null;
 }
 
@@ -22,7 +22,8 @@ export function ApplyModal({
   onClose: () => void;
   onApplied: () => void;
 }) {
-  const [cv, setCv] = useState<CvFormDto | null>(null);
+  const [cvs, setCvs] = useState<CvDocumentDto[]>([]);
+  const [cvId, setCvId] = useState<number | null>(null);
   const [cvLoaded, setCvLoaded] = useState(false);
   const [letter, setLetter] = useState("");
   const [busy, setBusy] = useState(false);
@@ -30,7 +31,15 @@ export function ApplyModal({
   const letterRef = useRef<HTMLTextAreaElement>(null);
 
   useEffect(() => {
-    cvsApi.mine().then(setCv).catch(() => setCv(null)).finally(() => setCvLoaded(true));
+    cvsApi.documents()
+      .then((list) => {
+        // analyzed = đã có nội dung (CV upload đã trích xuất, hoặc CV tạo từ form/mẫu đã lưu).
+        const ready = list.filter((c) => c.analyzed);
+        setCvs(ready);
+        setCvId((ready.find((c) => c.main) ?? ready[0])?.id ?? null);
+      })
+      .catch(() => setCvs([]))
+      .finally(() => setCvLoaded(true));
     letterRef.current?.focus();
     const onKey = (e: KeyboardEvent) => { if (e.key === "Escape") onClose(); };
     window.addEventListener("keydown", onKey);
@@ -42,7 +51,10 @@ export function ApplyModal({
     setBusy(true);
     setError(null);
     try {
-      await applicationsApi.apply(Number(job.id), { coverLetter: letter.trim() || undefined });
+      await applicationsApi.apply(Number(job.id), {
+        cvDocumentId: cvId ?? undefined,
+        coverLetter: letter.trim() || undefined,
+      });
       onApplied();
     } catch (err) {
       setError(err instanceof ApiError && err.status === 409
@@ -53,8 +65,7 @@ export function ApplyModal({
     }
   }
 
-  const cvName = cv?.profile?.personal_info?.full_name || cv?.fileName || "CV của bạn";
-  const hasCv = !!cv?.fileName || !!cv?.analyzed;
+  const hasCv = cvs.length > 0;
 
   return (
     <div style={{ position: "fixed", inset: 0, zIndex: 50 }}>
@@ -77,21 +88,32 @@ export function ApplyModal({
             {!cvLoaded ? (
               <p className="small muted">Đang tải CV…</p>
             ) : hasCv ? (
-              <label style={{ display: "flex", gap: 14, alignItems: "center", padding: 14, borderRadius: 2,
-                border: "2px solid var(--brand)", background: "#f5f7fd" }}>
-                <input type="radio" name="cv" checked readOnly style={{ width: 18, height: 18, accentColor: "var(--brand)" }} />
-                <div style={{ flex: 1, minWidth: 0 }}>
-                  <p style={{ fontWeight: 650 }}>{cvName}</p>
-                  <p className="tiny muted">CV chính{cv?.fileName ? ` · ${cv.fileName}` : ""}</p>
-                </div>
-                {job.matchPct != null ? <span className="match">{job.matchPct}%</span> : null}
-              </label>
+              cvs.map((c) => {
+                const selected = c.id === cvId;
+                return (
+                  <label key={c.id} style={{ display: "flex", gap: 14, alignItems: "center", padding: 14, borderRadius: 2,
+                    border: selected ? "2px solid var(--brand)" : "1px solid var(--line)",
+                    background: selected ? "#f5f7fd" : undefined, cursor: "pointer" }}>
+                    <input type="radio" name="cv" checked={selected} onChange={() => setCvId(c.id)}
+                      style={{ width: 18, height: 18, accentColor: "var(--brand)" }} />
+                    <div style={{ flex: 1, minWidth: 0 }}>
+                      <p style={{ fontWeight: 650 }}>{c.title}</p>
+                      <p className="tiny muted">
+                        {c.main ? "CV chính" : "CV phụ"}{c.fileName ? ` · ${c.fileName}` : " · Tạo từ mẫu"}
+                      </p>
+                    </div>
+                    {c.main && job.matchPct != null ? <span className="match">{job.matchPct}%</span> : null}
+                  </label>
+                );
+              })
             ) : (
               <p className="note note-warn small">Bạn chưa có CV. Nhà tuyển dụng sẽ chỉ thấy thông tin tài khoản của bạn.</p>
             )}
-            <Link to="/candidate/cv" className="small" style={{ color: "var(--brand)", fontWeight: 650 }}>
-              {hasCv ? "+ Tải CV mới" : "+ Tải CV lên"}
-            </Link>
+            {cvs.length < MAX_CANDIDATE_CVS ? (
+              <Link to="/candidate/cv?new=1" className="small" style={{ color: "var(--brand)", fontWeight: 650 }}>
+                {hasCv ? "+ Tải CV mới" : "+ Tải CV lên"}
+              </Link>
+            ) : null}
           </fieldset>
 
           <div className="field">

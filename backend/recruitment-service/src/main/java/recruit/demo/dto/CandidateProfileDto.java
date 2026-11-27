@@ -64,6 +64,7 @@ public class CandidateProfileDto {
     public static class Education {
         private String school;
         private String major;
+        private String location;
         private Integer start_year;
         private Integer end_year;
         private String gpa;
@@ -82,6 +83,7 @@ public class CandidateProfileDto {
     public static class Experience {
         private String company;
         private String job_title;
+        private String location;
         private String start_date;
         private String end_date;
 

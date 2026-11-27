@@ -1168,6 +1168,11 @@ pre {
 .cvu-review { display: flex; gap: 24px; flex-wrap: wrap; align-items: flex-start; }
 .cvu-file { flex: 1 1 360px; max-width: 460px; min-height: 640px; background: var(--surface); display: flex; flex-direction: column; gap: 10px; position: sticky; top: calc(var(--header-h) + 16px); }
 .cvu-pdf { flex: 1; width: 100%; min-height: 600px; border: 1px solid var(--line); background: var(--paper); }
+.cvu-docx { flex: 1; width: 100%; min-height: 600px; max-height: 760px; overflow: auto; border: 1px solid var(--line); background: #fff; padding: 12px; }
+.cvu-docx-msg { padding: 12px; margin: 0; }
+.cvu-docx-body section.docx { width: auto !important; min-height: auto !important; padding: 12px !important; margin: 0 !important; box-shadow: none !important; }
+.cvu-docx-body img { max-width: 100%; height: auto; }
+.cvu-docx-body table { max-width: 100%; }
 .cvu-paper { flex: 1; background: var(--paper); border: 1px solid var(--line); padding: 28px; display: flex; flex-direction: column; gap: 10px; min-height: 560px; }
 .cvu-line { height: 7px; background: #ddd5c9; }
 .cvu-rule { height: 1px; background: var(--line-strong); margin: 10px 0; }
@@ -1209,6 +1214,7 @@ textarea.cvu-input { height: auto; padding: 10px 12px; resize: vertical; line-he
   .cvu-grid { grid-template-columns: minmax(0, 1fr); }
   .cvu-file { position: static; max-width: none; min-height: 0; }
   .cvu-pdf { min-height: 420px; }
+  .cvu-docx { min-height: 420px; max-height: 560px; }
   .cvu-paper { min-height: 320px; }
 }
 
@@ -1216,3 +1222,78 @@ textarea.cvu-input { height: auto; padding: 10px 12px; resize: vertical; line-he
 .cvx-entry { display: flex; flex-direction: column; gap: 8px; padding: 14px 0 6px; }
 .cvx-entry + .cvx-entry { border-top: 1px dashed var(--line); }
 .cvx-remove { align-self: flex-end; color: var(--danger-c); }
+
+/* C04 · Tạo / sửa CV (CandidateCvEditorPage, Figma CvEditor) */
+.cve-wrap { max-width: 1320px; }
+.cve-title-row { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+.cve-title { font: 650 26px var(--font-display); color: var(--ink); border: 1px solid transparent; background: transparent; height: 44px; padding: 0 6px; margin-left: -6px; width: min(420px, 100%); border-radius: 2px; }
+.cve-title:hover { border-color: var(--line); }
+.cve-title:focus { outline: 2px solid var(--brand); outline-offset: -1px; background: var(--paper); }
+.cve-head-actions { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+.cve-soon { margin-left: 4px; height: 20px; padding: 0 7px; font-size: 11px; background: var(--warn-bg); color: var(--warn-c); }
+.cve-soon::before { display: none; }
+.cve-layout { display: grid; grid-template-columns: 230px minmax(0, 1fr) 400px; gap: 24px; align-items: start; }
+.cve-nav { padding: 8px; display: flex; flex-direction: column; gap: 2px; position: sticky; top: 16px; }
+.cve-nav-item { display: flex; justify-content: space-between; align-items: center; gap: 8px; min-height: 44px; padding: 0 10px; font: 600 14px var(--font-body); color: var(--ink-soft); background: transparent; border: 0; border-radius: 2px; cursor: pointer; text-align: left; }
+.cve-nav-item:hover { background: var(--sky); }
+.cve-nav-item.is-active { background: var(--brand-soft); color: var(--brand-deep); }
+.cve-empty { color: var(--warn-c); }
+.cve-nav-foot { border-top: 1px solid var(--line); margin-top: 8px; padding: 12px 10px 6px; display: flex; flex-direction: column; gap: 6px; }
+.cvx-check { display: inline-flex; align-items: center; gap: 8px; min-height: 32px; font-size: 14px; font-weight: 500; color: var(--ink-soft); }
+.cvx-check input { width: 18px; height: 18px; accent-color: var(--brand); }
+.cvx-entry-actions { display: flex; justify-content: flex-end; gap: 16px; }
+.cve-form { min-width: 0; }
+.cve-aside { position: sticky; top: 16px; }
+.cve-templates { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; max-height: 240px; overflow-y: auto; padding-right: 2px; }
+.cve-tpl { display: flex; flex-direction: column; gap: 6px; padding: 6px; background: var(--paper); border: 1px solid var(--line); border-radius: 2px; font: inherit; color: var(--ink); cursor: pointer; text-align: left; }
+.cve-tpl:hover:not(:disabled) { border-color: var(--ink-soft); }
+.cve-tpl > span:first-child { display: block; height: 64px; overflow: hidden; }
+.cve-tpl.is-on { border: 2px solid var(--brand); background: var(--brand-soft); }
+.cve-tpl:disabled { cursor: not-allowed; opacity: .75; }
+.cve-preview-card { background: #fbf8f3; }
+.cve-preview-iframe { width: 100%; height: 520px; border: 1px solid var(--line); background: #fff; display: block; }
+.cve-preview { background: var(--paper); border: 1px solid var(--line); padding: 18px; display: flex; flex-direction: column; gap: 6px; font-size: 12px; line-height: 1.45; overflow-wrap: anywhere; }
+.cve-preview p { margin: 0; }
+.cve-preview-name { font: 650 17px var(--font-display); }
+.cve-preview-role { color: var(--brand); font-weight: 600; }
+.cve-preview-sep { height: 1px; background: var(--line); margin: 6px 0; }
+.cve-preview-h { font-weight: 700; letter-spacing: .06em; margin-top: 6px !important; }
+
+/* Modal chọn mẫu & quản lý mẫu CV (specs/011-cv-templates) */
+.cvt-dialog { position: fixed; inset: 0; z-index: 50; display: grid; place-items: center; padding: 16px; }
+/* .modal (hl.css, nạp sau main.css) đặt width 560px: tăng độ ưu tiên để popup mẫu CV đủ rộng. */
+.modal.cvt-modal-wide { width: min(1120px, 100%); max-height: 92vh; overflow-y: auto; }
+.modal.cvt-modal-md { width: min(760px, 100%); max-height: 90vh; overflow-y: auto; }
+.cvt-config-grid { display: grid; grid-template-columns: minmax(360px, 1fr) minmax(360px, 460px); gap: 24px; align-items: start; }
+.cvt-config-grid > .stack { min-width: 0; }
+.cvt-config-grid .form-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.cvt-preview-col { position: sticky; top: 0; }
+.cvt-preview-iframe { width: 100%; height: min(640px, 70vh); border: 1px solid var(--line); background: #fff; display: block; }
+@media (max-width: 900px) {
+  .cvt-config-grid { grid-template-columns: minmax(0, 1fr); }
+  .cvt-preview-col { position: static; }
+  .cvt-preview-iframe { height: 520px; }
+}
+@media (max-width: 560px) {
+  .cvt-config-grid .form-grid { grid-template-columns: minmax(0, 1fr); }
+  .modal.cvt-modal-wide, .modal.cvt-modal-md { padding: 18px; }
+}
+.cvt-swatches { display: flex; flex-wrap: wrap; gap: 6px; }
+.cvt-swatch { display: inline-flex; align-items: center; gap: 6px; padding: 5px 10px; border: 1px solid var(--line-strong); border-radius: 2px; background: var(--paper); font: 500 12.5px var(--font-body); color: var(--ink); cursor: pointer; }
+.cvt-swatch.is-on { border: 2px solid var(--brand); background: var(--brand-soft); }
+.cvt-swatch-dot { width: 14px; height: 14px; border-radius: 2px; border: 1px solid rgba(0, 0, 0, 0.2); flex: none; }
+.cvt-section-row { display: flex; align-items: center; justify-content: space-between; gap: 8px; padding: 6px 10px; border: 1px solid var(--line); background: var(--paper); border-radius: 2px; }
+.cvt-tpl-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 12px; }
+
+@media (max-width: 1100px) {
+  .cve-layout { grid-template-columns: 220px minmax(0, 1fr); }
+  .cve-aside { grid-column: 1 / -1; position: static; }
+  .cvt-config-grid { grid-template-columns: minmax(0, 1fr); }
+}
+@media (max-width: 760px) {
+  .cve-layout { grid-template-columns: minmax(0, 1fr); }
+  .cve-nav { position: static; flex-direction: row; overflow-x: auto; }
+  .cve-nav-item { flex: none; }
+  .cve-nav-foot { display: none; }
+  .cve-title { font-size: 22px; }
+}

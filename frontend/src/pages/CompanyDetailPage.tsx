@@ -120,7 +120,14 @@ export function CompanyDetailPage() {
         </div>
       ) : (
         <>
-          <section style={{ background: "var(--ink)", color: "var(--bg)" }}>
+          <section
+            style={{
+              background: company.coverUrl
+                ? `linear-gradient(rgba(0,0,0,.55), rgba(0,0,0,.55)), center / cover no-repeat url("${company.coverUrl}")`
+                : "var(--ink)",
+              color: "var(--bg)",
+            }}
+          >
             <div
               className="wrap"
               style={{
@@ -132,12 +139,21 @@ export function CompanyDetailPage() {
                 flexWrap: "wrap",
               }}
             >
-              <span
-                className="logo logo-lg"
-                style={{ background: "var(--paper)", width: 112, height: 112, fontSize: 32 }}
-              >
-                {company.logo}
-              </span>
+              {company.logoUrl ? (
+                <img
+                  className="logo logo-lg"
+                  src={company.logoUrl}
+                  alt={`Logo ${company.name}`}
+                  style={{ background: "var(--paper)", width: 112, height: 112, objectFit: "contain" }}
+                />
+              ) : (
+                <span
+                  className="logo logo-lg"
+                  style={{ background: "var(--paper)", width: 112, height: 112, fontSize: 32 }}
+                >
+                  {company.logo}
+                </span>
+              )}
               <div style={{ flex: "1 1 420px", display: "flex", flexDirection: "column", gap: 8 }}>
                 <div className="row" style={{ gap: 8 }}>
                   {company.status === "ACTIVE" ? (

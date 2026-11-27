@@ -3,6 +3,8 @@ package recruit.demo.service.impl;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.mockito.ArgumentCaptor;
+import org.springframework.beans.factory.ObjectProvider;
 import org.springframework.context.ApplicationEventPublisher;
 import org.springframework.http.HttpStatus;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
@@ -14,9 +16,13 @@ import recruit.demo.entity.Job;
 import recruit.demo.entity.RecruiterProfile;
 import recruit.demo.enums.CompanyStatus;
 import recruit.demo.enums.JobStatus;
+import recruit.demo.enums.NotificationType;
 import recruit.demo.enums.Role;
 import recruit.demo.enums.UserStatus;
 import recruit.demo.exception.ApiException;
+import recruit.demo.messaging.NotificationConstants;
+import recruit.demo.messaging.NotificationEvent;
+import recruit.demo.messaging.OutboxWriter;
 import recruit.demo.repository.*;
 import recruit.demo.security.UserPrincipal;
 import recruit.demo.service.cvmatch.CvMatchEvents;
@@ -39,10 +45,12 @@ class JobLifecycleAndModerationTest {
     private JobApplicationRepository appRepo;
     private IdentityClient identityClient;
     private ApplicationEventPublisher events;
+    private OutboxWriter outbox;
     private JobServiceImpl service;
     private JobExpirationScheduler scheduler;
 
     @BeforeEach
+    @SuppressWarnings("unchecked")
     void setUp() {
         jobRepo = mock(JobRepository.class);
         jobSkillRepo = mock(JobSkillRepository.class);
@@ -51,7 +59,10 @@ class JobLifecycleAndModerationTest {
         appRepo = mock(JobApplicationRepository.class);
         identityClient = mock(IdentityClient.class);
         events = mock(ApplicationEventPublisher.class);
-        service = new JobServiceImpl(jobRepo, jobSkillRepo, skillRepo, recruiterRepo, appRepo, identityClient, events);
+        outbox = mock(OutboxWriter.class);
+        ObjectProvider<OutboxWriter> outboxProvider = mock(ObjectProvider.class);
+        when(outboxProvider.getIfAvailable()).thenReturn(outbox);
+        service = new JobServiceImpl(jobRepo, jobSkillRepo, skillRepo, recruiterRepo, appRepo, identityClient, events, outboxProvider);
         scheduler = new JobExpirationScheduler(jobRepo, events);
         when(jobRepo.save(any(Job.class))).thenAnswer(i -> {
             Job j = i.getArgument(0);
@@ -135,5 +146,29 @@ class JobLifecycleAndModerationTest {
         assertEquals(JobStatus.PUBLISHED, job.getStatus());
         assertNull(job.getLockReason());
         verify(identityClient).recordAuditLog(eq("UNLOCK_JOB"), eq("Mở khoá tin"), any(), eq("Backend"), eq(1), any());
+    }
+
+    @Test
+    void lockJobEmitsOutboxEventAndSkipsWhenValidationFails() {
+        loginAs(1, Role.ADMIN);
+        assertThrows(ApiException.class, () -> service.lockJob(88, "   ", null));
+        verifyNoInteractions(outbox);
+
+        Company active = Company.builder().id(1).name("Co").status(CompanyStatus.ACTIVE).build();
+        Job job = Job.builder().id(88).company(active).createdById(10).title("Backend")
+                .status(JobStatus.PUBLISHED).build();
+        when(jobRepo.findById(88)).thenReturn(Optional.of(job));
+
+        service.lockJob(88, "  Spam  ", "Fake");
+        ArgumentCaptor<NotificationEvent> captor = ArgumentCaptor.forClass(NotificationEvent.class);
+        verify(outbox).add(eq(NotificationConstants.RK_JOB_LOCKED), captor.capture());
+        NotificationEvent event = captor.getValue();
+        assertEquals(NotificationType.JOB_MODERATION, event.getType());
+        assertEquals(List.of(10), event.getRecipientUserIds());
+        assertEquals("Tin tuyển dụng bị khoá", event.getTitle());
+        assertEquals("Backend · Spam", event.getBody());
+        assertEquals("/recruiter/jobs", event.getLink());
+        assertEquals(88, event.getData().get("jobId"));
+        assertEquals("Spam", event.getData().get("reason"));
     }
 }

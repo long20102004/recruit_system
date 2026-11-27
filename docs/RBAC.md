@@ -84,6 +84,7 @@ Lưu ý:
 | `user:read` | GET `/api/admin/users` | | | ✓ |
 | `user:lock` | khoá / mở khoá tài khoản | | | ✓ |
 | `role:manage` | xem và sửa ma trận (`/api/admin/roles`) | | | ✓ |
+| `cv-template:manage` | quản lý mẫu CV hệ thống (`/api/admin/cv-templates`) | | | ✓ |
 
 Đây là ma trận lúc khởi tạo; ma trận đang dùng thật xem ở trang **Quản trị → Phân quyền** (`/admin/roles`).
 

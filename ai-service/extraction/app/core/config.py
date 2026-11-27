@@ -49,6 +49,13 @@ CONTEXT_TOKENS: int = int(
 # llama.cpp: số layer offload lên GPU (99 = toàn bộ; 0 = chỉ CPU). Không có bản CUDA thì bị bỏ qua.
 N_GPU_LAYERS: int = int(os.getenv("N_GPU_LAYERS", "99"))
 
+# llama.cpp: flash attention (nhanh hơn ~5% trên GPU, output không đổi).
+LLAMA_FLASH_ATTN: bool = os.getenv("LLAMA_FLASH_ATTN", "0").lower() in ("1", "true", "yes")
+# llama.cpp: prompt-lookup decoding, đoán trước N token bằng n-gram trong chính CV (0 = tắt).
+# Greedy nên output giống hệt; nhanh hơn ~15% trên GPU nhưng cần logits_all
+# (thêm ~CONTEXT_TOKENS x vocab x 4 byte RAM, ~5GB với 8192 ctx). Khuyên 4.
+PROMPT_LOOKUP_TOKENS: int = int(os.getenv("PROMPT_LOOKUP_TOKENS", "0"))
+
 QUEUE_WAIT_SECONDS: float = float(os.getenv("QUEUE_WAIT_SECONDS", "30"))
 
 LOG_CV_CONTENT: bool = (

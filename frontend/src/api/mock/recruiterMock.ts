@@ -27,6 +27,9 @@ export interface CompanyProfile {
   techStack: string[];
   logoFileName: string;
   coverFileName: string;
+  /** URL công khai trên R2; null khi chưa tải ảnh (specs/008-r2-storage). */
+  logoUrl: string | null;
+  coverUrl: string | null;
   licenseFileName: string;
   licenseFileMeta: string;
   confirmed: boolean;
@@ -82,6 +85,16 @@ export async function saveCompanyDraft(
     method: "PUT",
     body: JSON.stringify(input),
   });
+}
+
+/** Tải logo / ảnh bìa (bucket public) hoặc giấy phép (bucket private) lên R2. */
+export async function uploadCompanyFile(
+  kind: "logo" | "cover" | "license",
+  file: File
+): Promise<CompanyProfile> {
+  const body = new FormData();
+  body.append("file", file);
+  return apiData<CompanyProfile>(`/recruiter/company/files?kind=${kind}`, { method: "POST", body });
 }
 
 export async function submitCompanyRegistration(

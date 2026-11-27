@@ -1,6 +1,6 @@
 package recruit.demo.service;
 
-import org.springframework.core.io.Resource;
+import recruit.demo.dto.FileLinkDto;
 import org.springframework.data.domain.Pageable;
 import recruit.demo.dto.ApplicationDtos.*;
 import recruit.demo.dto.PageResponse;
@@ -19,5 +19,6 @@ public interface ApplicationService {
     ApplicationDetailResponse withdraw(Integer id);
     ApplicationDetailResponse saveNote(Integer id, int rating, String internalNote);
     List<ApplicationHistoryDto> history(Integer id);
-    Resource loadCvFile(Integer id);
+    /** Link ký tạm tới PDF CV đính kèm đơn (specs/008-r2-storage). */
+    FileLinkDto loadCvFile(Integer id);
 }

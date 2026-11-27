@@ -19,6 +19,7 @@ spring:
     clients:
       connect-timeout: 3s
       # Lời gọi AI (trích xuất CV, chấm phỏng vấn) có thể tới 180 giây.
+      # SSE /api/notifications/stream gửi heartbeat mỗi 25s (< read-timeout 240s) và truyền thẳng stream không buffer.
       read-timeout: 240s
   cloud:
     gateway:
@@ -36,7 +37,11 @@ spring:
               uri: ${INTERVIEW_URL:http://localhost:8083}
               predicates:
                 - Path=/api/interviews/**
+            - id: notification
+              uri: ${NOTIFICATION_URL:http://localhost:8084}
+              predicates:
+                - Path=/api/notifications/**
             - id: recruitment
               uri: ${RECRUITMENT_URL:http://localhost:8082}
               predicates:
-                - Path=/api/jobs/**,/api/cvs/**,/api/applications/**,/api/matching/**,/api/dashboard/**,/api/companies/**,/api/recruiter/company/**,/api/admin/companies/**,/api/admin/jobs/**,/api/saved-jobs/**
+                - Path=/api/jobs/**,/api/cvs/**,/api/applications/**,/api/matching/**,/api/dashboard/**,/api/companies/**,/api/recruiter/company/**,/api/admin/companies/**,/api/admin/jobs/**,/api/saved-jobs/**,/api/admin/cv-templates/**,/api/cv-templates/**

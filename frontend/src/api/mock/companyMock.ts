@@ -36,6 +36,9 @@ export interface CompanyDto {
   licenseFile: CompanyLicenseFile;
   following?: boolean;
   followersCount?: number;
+  /** URL công khai trên R2; null khi chưa tải ảnh (specs/008-r2-storage). */
+  logoUrl?: string | null;
+  coverUrl?: string | null;
 }
 
 export interface CompanyListFilter {

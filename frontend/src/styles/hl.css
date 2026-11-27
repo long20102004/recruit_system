@@ -131,11 +131,50 @@ button.tag{cursor:pointer;font-family:var(--font-body)}
 
 /* top nav */
 .topnav{background:var(--bg);border-bottom:1px solid var(--line)}
-.topnav-inner{display:flex;align-items:center;gap:28px;min-height:72px;flex-wrap:wrap}
-.topnav-links{display:flex;gap:2px;flex:1 1 auto;flex-wrap:wrap}
+.topnav-inner{display:flex;align-items:center;gap:20px;min-height:72px;flex-wrap:wrap}
+.topnav-links{display:flex;gap:2px;flex:1 1 auto;flex-wrap:wrap;min-width:0}
 .topnav-links a{display:inline-flex;align-items:center;min-height:44px;padding:0 12px;font-size:14.5px;font-weight:600;color:var(--muted);border-bottom:2px solid transparent}
 .topnav-links a.on{color:var(--ink);border-bottom-color:var(--brand)}
 .topnav-sep{width:1px;height:24px;background:var(--line)}
+.topnav-user{flex-wrap:nowrap;flex-shrink:0;gap:10px}
+.topnav-user-name{font-size:14px;font-weight:600;max-width:140px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+/* Desktop: header 1 dòng. Menu co lại và cuộn ngang nếu thiếu chỗ, không đẩy chuông/tên/đăng xuất xuống dòng. */
+@media (min-width:761px){
+  .topnav-inner{flex-wrap:nowrap;gap:16px}
+  .topnav-inner>.brand-hl{flex:none}
+  .topnav-links{flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none}
+  .topnav-links::-webkit-scrollbar{display:none}
+  .topnav-links a{padding:0 10px;white-space:nowrap;flex:none}
+  .topnav-user .btn{white-space:nowrap}
+}
+/* Màn hẹp: ẩn tên (vẫn có avatar + title khi rê chuột) để giữ đủ chỗ cho menu. */
+@media (min-width:761px) and (max-width:1180px){
+  .topnav-user-name{display:none}
+}
+
+/* notification popover */
+.notif-bell-wrap{position:relative;display:inline-flex}
+.notif-bell-btn{position:relative;width:40px;height:40px}
+.notif-bell-btn.is-active{border-color:var(--ink)}
+.notif-bell-count{position:absolute;top:-6px;right:-6px}
+.notif-popover{position:absolute;top:calc(100% + 8px);right:0;z-index:60;width:360px;max-width:calc(100vw - 32px);background:var(--paper);border:1px solid var(--line);border-radius:4px;box-shadow:0 12px 32px rgba(42,36,31,.12);overflow:hidden}
+.notif-pop-head{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:14px 16px;border-bottom:1px solid var(--line)}
+.notif-pop-title{font-family:var(--font-display);font-size:17px;font-weight:650;color:var(--ink)}
+.notif-pop-action{border:0;background:transparent;padding:0;font:600 13px var(--font-body);color:var(--brand);cursor:pointer}
+.notif-pop-action:disabled{opacity:.45;cursor:not-allowed}
+.notif-pop-list{list-style:none;margin:0;padding:0;max-height:360px;overflow-y:auto}
+.notif-pop-list li+li{border-top:1px solid var(--line)}
+.notif-pop-item{width:100%;display:flex;align-items:flex-start;gap:10px;padding:13px 16px;border:0;background:var(--paper);text-align:left;cursor:pointer;font-family:var(--font-body)}
+.notif-pop-item.is-unread{background:var(--brand-soft)}
+.notif-pop-item:hover{filter:brightness(.98)}
+.notif-pop-dot{width:8px;height:8px;border-radius:50%;margin-top:6px;flex:none;background:transparent}
+.notif-pop-item.is-unread .notif-pop-dot{background:var(--brand)}
+.notif-pop-item-body{display:flex;flex-direction:column;gap:4px;min-width:0;flex:1}
+.notif-pop-item-title{font-size:14px;font-weight:600;line-height:1.4;color:var(--ink);display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.notif-pop-time{font-size:12.5px;color:var(--muted)}
+.notif-pop-empty{padding:24px 16px;text-align:center;font-size:13.5px;color:var(--muted)}
+.notif-pop-footer{display:block;padding:12px 16px;border-top:1px solid var(--line);text-align:center;font-size:13.5px;font-weight:650;color:var(--brand);background:var(--paper)}
+.notif-pop-footer:hover{background:var(--surface)}
 
 /* side nav + shell */
 .app{min-height:100vh}

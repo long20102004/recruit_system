@@ -69,4 +69,21 @@ class CandidateProfileDtoTest {
         assertTrue(json.contains("\"message\":\"Success\""), json);
         assertTrue(json.contains("\"data\":{"), json);
     }
+
+    @Test
+    void legacyJsonWithoutLocationLeavesLocationNullAndNewJsonReadsLocation() {
+        CandidateProfileDto legacy = mapper.readValue(AI_DATA, CandidateProfileDto.class);
+        assertNull(legacy.getEducation().get(0).getLocation());
+        assertNull(legacy.getExperience().get(0).getLocation());
+
+        String withLocation = """
+                {
+                  "education":[{"school":"PTIT","major":"IT","location":"Hà Nội","start_year":2020,"end_year":2024}],
+                  "experience":[{"company":"Lumen","job_title":"Backend","location":"TP.HCM","start_date":"01/2024","end_date":"nay"}]
+                }
+                """;
+        CandidateProfileDto modern = mapper.readValue(withLocation, CandidateProfileDto.class);
+        assertEquals("Hà Nội", modern.getEducation().get(0).getLocation());
+        assertEquals("TP.HCM", modern.getExperience().get(0).getLocation());
+    }
 }

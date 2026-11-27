@@ -1,10 +1,11 @@
 import { useEffect, useMemo, useRef, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate, useSearchParams } from "react-router-dom";
 import { SiteHeader, UploadZone } from "../../components/common";
 import { cvsApi, type CandidateProfileDto, type CvFormDto } from "../../api/client";
 import { useToast } from "../../context/ToastContext";
 import { CvProfileEditor } from "./CvProfileEditor";
 import { cleanProfile, normalizeProfile } from "./cvProfile";
+import { DocxPreview } from "./DocxPreview";
 
 /** Field "Kỹ năng suy ra" (đồ thị kỹ năng) không thuộc CandidateProfile nên vẫn lưu qua fields. */
 const INFERRED_FIELD = "Kỹ năng suy ra";
@@ -21,6 +22,17 @@ function snapshot(profile: CandidateProfileDto, inferred: string[] | null) {
   return JSON.stringify([cleanProfile(profile), inferred ? cleanLines(inferred) : null]);
 }
 
+const EMPTY_FORM: CvFormDto = {
+  cvId: null,
+  title: null,
+  main: false,
+  fileName: null,
+  parsingStatus: null,
+  analyzed: false,
+  fields: [],
+  profile: null,
+};
+
 function UploadIcon() {
   return (
     <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor"
@@ -33,6 +45,16 @@ function UploadIcon() {
 
 export function CandidateCvPage() {
   const { toast } = useToast();
+  const navigate = useNavigate();
+  // ?cvId=X: sửa CV X; ?new=1: thêm CV mới; không có: CV chính (như trước khi có nhiều CV).
+  const [params, setParams] = useSearchParams();
+  const paramId = Number(params.get("cvId")) || null;
+  const isNew = params.get("new") === "1" && paramId == null;
+  const [cvId, setCvId] = useState<number | null>(paramId);
+  const [title, setTitle] = useState<string | null>(null);
+  const [isMain, setIsMain] = useState(false);
+  /** Trang tự đổi query sau khi tạo CV mới: không tải lại form. */
+  const selfNav = useRef(false);
   const [loaded, setLoaded] = useState(false);
   const [fileName, setFileName] = useState<string | null>(null);
   const [fileSize, setFileSize] = useState<number | null>(null);
@@ -47,6 +69,7 @@ export function CandidateCvPage() {
   const [saving, setSaving] = useState(false);
   const [uploadError, setUploadError] = useState<string | null>(null);
   const [previewUrl, setPreviewUrl] = useState<string | null>(null);
+  const [docxFile, setDocxFile] = useState<File | null>(null);
   const previewRef = useRef<string | null>(null);
 
   function applyForm(form: CvFormDto, uploaded?: CandidateProfileDto | null) {
@@ -60,28 +83,71 @@ export function CandidateCvPage() {
     setFileName(form.fileName);
     setParsingStatus(form.parsingStatus);
     setAnalyzed(form.analyzed);
+    setCvId(form.cvId);
+    setTitle(form.title);
+    setIsMain(form.main);
   }
 
   useEffect(() => {
+    if (selfNav.current) {
+      selfNav.current = false;
+      return;
+    }
+    setLoaded(false);
+    setUploadError(null);
+    setFileSize(null);
+    setPreview(null);
+    if (isNew) {
+      applyForm(EMPTY_FORM);
+      setLoaded(true);
+      return;
+    }
+    let alive = true;
     cvsApi
-      .mine()
-      .then(applyForm)
-      .catch(() => undefined)
-      .finally(() => setLoaded(true));
+      .mine(paramId)
+      .then((form) => {
+        if (alive) applyForm(form);
+      })
+      .catch((e) => {
+        if (alive) toast(e instanceof Error ? e.message : "Không tải được CV");
+      })
+      .finally(() => {
+        if (alive) setLoaded(true);
+      });
     return () => {
-      if (previewRef.current) URL.revokeObjectURL(previewRef.current);
+      alive = false;
     };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [paramId, isNew]);
+
+  useEffect(() => () => {
+    if (previewRef.current) URL.revokeObjectURL(previewRef.current);
   }, []);
 
   function setPreview(file: File | null) {
     if (previewRef.current) URL.revokeObjectURL(previewRef.current);
-    previewRef.current = file ? URL.createObjectURL(file) : null;
-    setPreviewUrl(previewRef.current);
+    const lower = file?.name.toLowerCase() ?? "";
+    if (file && lower.endsWith(".pdf")) {
+      previewRef.current = URL.createObjectURL(file);
+      setPreviewUrl(previewRef.current);
+      setDocxFile(null);
+    } else if (file && lower.endsWith(".docx")) {
+      previewRef.current = null;
+      setPreviewUrl(null);
+      setDocxFile(file);
+    } else {
+      previewRef.current = null;
+      setPreviewUrl(null);
+      setDocxFile(null);
+    }
   }
 
   async function onUpload(file: File) {
-    if (!file.name.toLowerCase().endsWith(".pdf")) {
-      toast("Chỉ nhận file PDF");
+    const lower = file.name.toLowerCase();
+    const isPdf = lower.endsWith(".pdf");
+    const isDocx = lower.endsWith(".docx");
+    if (!isPdf && !isDocx) {
+      toast("Chỉ nhận file PDF hoặc DOCX");
       return;
     }
     if (file.size > 10 * 1024 * 1024) {
@@ -94,9 +160,21 @@ export function CandidateCvPage() {
     setFileSize(file.size);
     setPreview(file);
     try {
-      const res = await cvsApi.upload(file);
       // Điền form từ profile AI trả về; GET /api/cvs lấy thêm trạng thái file và "Kỹ năng suy ra".
-      applyForm(await cvsApi.mine(), res.data ?? null);
+      if (isNew && cvId == null) {
+        const res = await cvsApi.uploadNew(file);
+        const id = res.data?.cvId;
+        if (id == null) throw new Error("Upload thất bại");
+        applyForm(await cvsApi.mine(id), res.data?.profile ?? null);
+        selfNav.current = true;
+        setParams({ cvId: String(id) }, { replace: true });
+      } else if (cvId != null) {
+        const res = await cvsApi.reupload(cvId, file);
+        applyForm(await cvsApi.mine(cvId), res.data?.profile ?? null);
+      } else {
+        const res = await cvsApi.upload(file);
+        applyForm(await cvsApi.mine(), res.data ?? null);
+      }
       setAnalyzed(false);
       toast("AI đã điền các mục hồ sơ. Hãy kiểm tra trước khi lưu.");
     } catch (e) {
@@ -117,9 +195,10 @@ export function CandidateCvPage() {
       const form = await cvsApi.confirm({
         profile: cleanProfile(profile),
         fields: inferred ? [{ field: INFERRED_FIELD, values: cleanLines(inferred) }] : undefined,
-      });
+      }, cvId);
       applyForm(form);
       toast("Đã lưu hồ sơ CV");
+      navigate("/candidate/cvs");
     } catch (e) {
       toast(e instanceof Error ? e.message : "Lưu thất bại");
     } finally {
@@ -133,7 +212,7 @@ export function CandidateCvPage() {
     isSaved && !uploading,
   ];
   const activeStep = stepDone.findIndex((d) => !d);
-  const steps = ["Tải file PDF", "AI trích xuất", "Kiểm tra & lưu"];
+  const steps = ["Tải file CV", "AI trích xuất", "Kiểm tra & lưu"];
 
   return (
     <>
@@ -141,6 +220,12 @@ export function CandidateCvPage() {
       <main className="cvu">
         <div className="cvu-wrap">
           <h1>Tải CV lên và kiểm tra thông tin AI trích xuất</h1>
+          <p className="cvu-muted">
+            {isNew && cvId == null ? "CV mới" : title ?? "CV chính"}
+            {isMain ? " · CV chính" : ""}
+            {" · "}
+            <Link to="/candidate/cvs">Tất cả CV của tôi</Link>
+          </p>
 
           <ol className="cvu-steps" aria-label="Các bước">
             {steps.map((label, i) => {
@@ -162,15 +247,16 @@ export function CandidateCvPage() {
               <section className="cvu-top">
                 <UploadZone
                   className="cvu-drop"
+                  accept=".pdf,.docx,application/pdf,application/vnd.openxmlformats-officedocument.wordprocessingml.document"
                   onFile={onUpload}
                   disabled={uploading}
                   title={
                     <>
                       <UploadIcon />
-                      <span>{fileName ? "Kéo thả file PDF khác vào đây" : "Kéo thả file PDF vào đây"}</span>
+                      <span>{fileName ? "Kéo thả file PDF/DOCX khác vào đây" : "Kéo thả file PDF hoặc DOCX vào đây"}</span>
                     </>
                   }
-                  hint="PDF, tối đa 10 MB"
+                  hint="PDF hoặc DOCX, tối đa 10 MB"
                 >
                   <span className="cvu-btn cvu-btn-g cvu-btn-sm" aria-hidden="true">
                     Chọn file
@@ -204,7 +290,7 @@ export function CandidateCvPage() {
                       <div className="cvu-note cvu-note-warn">
                         {uploadError ??
                           "File bị mã hoá hoặc là ảnh scan nên AI không đọc được chữ."}{" "}
-                        Thử lại sau ít phút hoặc chọn file PDF khác.
+                        Thử lại sau ít phút hoặc chọn file PDF/DOCX khác.
                       </div>
                     </>
                   ) : hasProfile ? (
@@ -217,11 +303,13 @@ export function CandidateCvPage() {
                       </div>
                       <div className="cvu-meter"><span style={{ width: "100%" }} /></div>
                       <p className="cvu-small cvu-muted">
-                        {isSaved
-                          ? "Hồ sơ này đang được dùng để xếp hạng việc làm phù hợp."
-                          : "Kiểm tra từng mục bên dưới rồi bấm “Lưu CV”."}
+                        {!isSaved
+                          ? "Kiểm tra từng mục bên dưới rồi bấm “Lưu CV”."
+                          : isMain
+                            ? "Hồ sơ này đang được dùng để xếp hạng việc làm phù hợp."
+                            : "CV này được gửi khi bạn chọn nó lúc ứng tuyển. Đặt làm CV chính để dùng cho gợi ý việc làm."}
                       </p>
-                      {isSaved ? (
+                      {isSaved && isMain ? (
                         <Link to="/candidate/matching" className="cvu-btn cvu-btn-link">
                           Xem việc phù hợp →
                         </Link>
@@ -231,7 +319,7 @@ export function CandidateCvPage() {
                     <>
                       <h4>Chưa có CV</h4>
                       <p className="cvu-small cvu-muted">
-                        Tải CV dạng PDF, AI sẽ điền sẵn thông tin cá nhân, kỹ năng, kinh nghiệm và học vấn để bạn kiểm tra.
+                        Tải CV dạng PDF hoặc DOCX, AI sẽ điền sẵn thông tin cá nhân, kỹ năng, kinh nghiệm và học vấn để bạn kiểm tra.
                       </p>
                     </>
                   )}
@@ -247,6 +335,8 @@ export function CandidateCvPage() {
                     </div>
                     {previewUrl ? (
                       <iframe className="cvu-pdf" src={previewUrl} title={`Xem trước ${fileName ?? "CV"}`} />
+                    ) : docxFile ? (
+                      <DocxPreview file={docxFile} title={`Xem trước ${fileName ?? "CV"}`} />
                     ) : (
                       <div className="cvu-paper">
                         <div className="cvu-line" style={{ height: 16, width: "50%", background: "#cfc6ba" }} />

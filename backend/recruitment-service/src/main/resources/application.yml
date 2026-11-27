@@ -33,7 +33,19 @@ spring:
     multipart:
       max-file-size: 10MB
       max-request-size: 12MB
+  rabbitmq:
+    host: ${RABBITMQ_HOST:localhost}
+    port: ${RABBITMQ_PORT:5672}
+    username: ${RABBITMQ_USER:guest}
+    password: ${RABBITMQ_PASSWORD:guest}
+    publisher-confirm-type: correlated
+    publisher-returns: true
+    template:
+      # Message không route được bị trả về (OutboxRelay coi là lỗi, gửi lại sau)
+      mandatory: true
 app:
+  outbox:
+    enabled: true
   identity:
     remote: true
   jwt:
@@ -47,9 +59,13 @@ app:
     recruitment-url: ${RECRUITMENT_URL:http://localhost:8082}
     interview-url: ${INTERVIEW_URL:http://localhost:8083}
   upload:
+    # Chỉ còn dùng làm nguồn đọc khi migrate file cũ lên R2 (storage.migrate-local)
     path: ${UPLOAD_PATH:./uploads}
   cv-extraction:
     base-url: ${CV_EXTRACTION_URL:http://localhost:8001}
+  gotenberg:
+    base-url: ${GOTENBERG_URL:http://localhost:3100}
+    timeout-ms: ${GOTENBERG_TIMEOUT_MS:20000}
   # Module match CV <-> JD (services/cvmatch-ai, plan I05/I06)
   cvmatch:
     base-url: ${CVMATCH_URL:http://localhost:8003}
@@ -65,3 +81,15 @@ app:
     connect-timeout-ms: 3000
     read-timeout-ms: 60000
     fallback-to-rule: false
+# Cloudflare R2 (specs/008-r2-storage). Secret chỉ qua biến môi trường.
+storage:
+  migrate-local: ${STORAGE_MIGRATE_LOCAL:false}
+  r2:
+    account-id: ${R2_ACCOUNT_ID:}
+    access-key-id: ${R2_ACCESS_KEY_ID:}
+    secret-access-key: ${R2_SECRET_ACCESS_KEY:}
+    private-bucket: ${R2_PRIVATE_BUCKET:}
+    public-bucket: ${R2_PUBLIC_BUCKET:}
+    public-base-url: ${R2_PUBLIC_BASE_URL:}
+    endpoint: ${R2_ENDPOINT:}
+    presign-ttl: ${R2_PRESIGN_TTL:5m}

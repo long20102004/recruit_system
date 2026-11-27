@@ -1,6 +1,6 @@
 import { useState, type KeyboardEvent, type ReactNode } from "react";
 import type { CandidateProfileDto } from "../../api/client";
-import { emptyProfile } from "./cvProfile";
+import { CURRENT_JOB, emptyProfile, type CvSection } from "./cvProfile";
 
 /**
  * Form sửa hồ sơ theo cấu trúc CandidateProfile (response của POST /api/cvs, giống /analyze-pdf).
@@ -13,22 +13,24 @@ type Experience = NonNullable<Profile["experience"]>[number];
 type Project = NonNullable<Profile["personal_projects"]>[number];
 type Language = NonNullable<Profile["languages"]>[number];
 
+const isCurrent = (v: string | null | undefined) => (v ?? "").trim().toLowerCase() === CURRENT_JOB.toLowerCase();
+
 function toInt(v: string): number | null {
   const n = parseInt(v, 10);
   return Number.isFinite(n) ? n : null;
 }
 
 function Text({
-  id, label, value, onChange, type = "text", span2 = false, placeholder,
+  id, label, value, onChange, type = "text", span2 = false, placeholder, disabled = false,
 }: {
   id: string; label: string; value: string | number | null | undefined;
-  onChange: (v: string) => void; type?: string; span2?: boolean; placeholder?: string;
+  onChange: (v: string) => void; type?: string; span2?: boolean; placeholder?: string; disabled?: boolean;
 }) {
   return (
     <div className={span2 ? "cvu-field cvu-span2" : "cvu-field"}>
       <label htmlFor={id}>{label}</label>
       <input id={id} className="cvu-input" type={type} value={value ?? ""} placeholder={placeholder}
-        onChange={(e) => onChange(e.target.value)} />
+        disabled={disabled} onChange={(e) => onChange(e.target.value)} />
     </div>
   );
 }
@@ -110,10 +112,23 @@ function Repeat<T>({
           <div className="cvu-grid">
             {render(item, (patch) => onChange(items.map((x, j) => (j === i ? { ...x, ...patch } : x))), i)}
           </div>
-          <button type="button" className="cvu-btn cvu-btn-link cvx-remove"
-            onClick={() => onChange(items.filter((_, j) => j !== i))}>
-            Xoá mục này
-          </button>
+          <div className="cvx-entry-actions">
+            {i > 0 ? (
+              <button type="button" className="cvu-btn cvu-btn-link"
+                aria-label={`Đưa mục ${i + 1} lên trên`}
+                onClick={() => {
+                  const next = [...items];
+                  [next[i - 1], next[i]] = [next[i], next[i - 1]];
+                  onChange(next);
+                }}>
+                ↑ Lên trên
+              </button>
+            ) : null}
+            <button type="button" className="cvu-btn cvu-btn-link cvx-remove"
+              onClick={() => onChange(items.filter((_, j) => j !== i))}>
+              Xoá mục này
+            </button>
+          </div>
         </div>
       ))}
     </section>
@@ -121,10 +136,12 @@ function Repeat<T>({
 }
 
 export function CvProfileEditor({
-  profile, onChange, inferred, onInferredChange,
+  profile, onChange, inferred, onInferredChange, section,
 }: {
   profile: Profile;
   onChange: (next: Profile) => void;
+  /** Chỉ hiện một mục (C04); không truyền = hiện tất cả (C03). */
+  section?: CvSection;
   /** "Kỹ năng suy ra" từ đồ thị kỹ năng (không thuộc CandidateProfile); null = không cấu hình field này. */
   inferred: string[] | null;
   onInferredChange: (next: string[]) => void;
@@ -132,10 +149,11 @@ export function CvProfileEditor({
   const info = profile.personal_info ?? emptyProfile().personal_info!;
   const set = (patch: Partial<Profile>) => onChange({ ...profile, ...patch });
   const setInfo = (patch: Partial<typeof info>) => set({ personal_info: { ...info, ...patch } });
+  const show = (key: CvSection) => section == null || section === key;
 
   return (
     <>
-      <section className="cvu-card cvu-stack">
+      {show("info") ? <section className="cvu-card cvu-stack">
         <h3>Thông tin cá nhân</h3>
         <div className="cvu-grid">
           <Text id="cv-name" label="Họ và tên" value={info.full_name} onChange={(v) => setInfo({ full_name: v })} />
@@ -148,9 +166,9 @@ export function CvProfileEditor({
               onChange={(e) => set({ objective: e.target.value })} />
           </div>
         </div>
-      </section>
+      </section> : null}
 
-      <section className="cvu-card cvu-stack">
+      {show("skills") ? <section className="cvu-card cvu-stack">
         <h3>Kỹ năng</h3>
         <Tags items={profile.skills ?? []} onChange={(skills) => set({ skills })} addLabel="Thêm kỹ năng" />
         {inferred ? (
@@ -160,44 +178,53 @@ export function CvProfileEditor({
             <Tags items={inferred} onChange={onInferredChange} addLabel="Thêm kỹ năng suy ra" inferred />
           </div>
         ) : null}
-      </section>
+      </section> : null}
 
-      <Repeat<Education>
+      {show("education") ? <Repeat<Education>
         title="Học vấn" items={profile.education ?? []} onChange={(education) => set({ education })}
         empty="AI không tìm thấy học vấn trong CV. Bấm “+ Thêm” nếu cần bổ sung."
-        blank={() => ({ school: null, major: null, start_year: null, end_year: null, gpa: null })}
+        blank={() => ({ school: null, major: null, location: null, start_year: null, end_year: null, gpa: null })}
         render={(e, up, i) => (
           <>
             <Text id={`edu-school-${i}`} label="Trường" value={e.school} onChange={(v) => up({ school: v })} span2 />
             <Text id={`edu-major-${i}`} label="Chuyên ngành" value={e.major} onChange={(v) => up({ major: v })} />
             <Text id={`edu-gpa-${i}`} label="GPA" value={e.gpa} onChange={(v) => up({ gpa: v })} />
+            <Text id={`edu-loc-${i}`} label="Địa điểm" placeholder="TP.HCM / Hà Nội" value={e.location}
+              onChange={(v) => up({ location: v })} span2 />
             <Text id={`edu-start-${i}`} label="Từ" type="number" value={e.start_year}
               onChange={(v) => up({ start_year: toInt(v) })} />
             <Text id={`edu-end-${i}`} label="Đến" type="number" value={e.end_year}
               onChange={(v) => up({ end_year: toInt(v) })} />
           </>
         )}
-      />
+      /> : null}
 
-      <Repeat<Experience>
+      {show("experience") ? <Repeat<Experience>
         title="Kinh nghiệm làm việc" items={profile.experience ?? []} onChange={(experience) => set({ experience })}
         empty="AI không tìm thấy kinh nghiệm làm việc trong CV."
-        blank={() => ({ company: null, job_title: null, start_date: null, end_date: null, description: [] })}
+        blank={() => ({ company: null, job_title: null, location: null, start_date: null, end_date: null, description: [] })}
         render={(e, up, i) => (
           <>
             <Text id={`exp-title-${i}`} label="Chức danh" value={e.job_title} onChange={(v) => up({ job_title: v })} />
             <Text id={`exp-company-${i}`} label="Công ty" value={e.company} onChange={(v) => up({ company: v })} />
+            <Text id={`exp-loc-${i}`} label="Địa điểm" placeholder="TP.HCM / Hà Nội" value={e.location}
+              onChange={(v) => up({ location: v })} span2 />
             <Text id={`exp-start-${i}`} label="Từ tháng" placeholder="MM/YYYY" value={e.start_date}
               onChange={(v) => up({ start_date: v })} />
-            <Text id={`exp-end-${i}`} label="Đến tháng" placeholder="MM/YYYY hoặc để trống" value={e.end_date}
-              onChange={(v) => up({ end_date: v })} />
+            <Text id={`exp-end-${i}`} label="Đến tháng" placeholder="MM/YYYY" value={isCurrent(e.end_date) ? "" : e.end_date}
+              disabled={isCurrent(e.end_date)} onChange={(v) => up({ end_date: v })} />
+            <label className="cvx-check cvu-span2">
+              <input type="checkbox" checked={isCurrent(e.end_date)}
+                onChange={(ev) => up({ end_date: ev.target.checked ? CURRENT_JOB : null })} />
+              Tôi đang làm ở đây
+            </label>
             <Lines id={`exp-desc-${i}`} label="Mô tả công việc, thành tựu" value={e.description}
               onChange={(v) => up({ description: v })} />
           </>
         )}
-      />
+      /> : null}
 
-      <Repeat<Project>
+      {show("projects") ? <Repeat<Project>
         title="Dự án cá nhân" items={profile.personal_projects ?? []}
         onChange={(personal_projects) => set({ personal_projects })}
         empty="AI không tìm thấy dự án trong CV."
@@ -219,19 +246,32 @@ export function CvProfileEditor({
             <Lines id={`prj-desc-${i}`} label="Mô tả" value={x.description} onChange={(v) => up({ description: v })} />
           </>
         )}
-      />
+      /> : null}
 
-      <section className="cvu-card cvu-stack">
-        <h3>Chứng chỉ, giải thưởng</h3>
-        <div className="cvu-grid">
-          <Lines id="cv-certs" label="Chứng chỉ" value={profile.certificates}
-            onChange={(certificates) => set({ certificates })} span2={false} />
-          <Lines id="cv-honours" label="Giải thưởng" value={profile.honours}
-            onChange={(honours) => set({ honours })} span2={false} />
-        </div>
-      </section>
+      {section == null ? (
+        <section className="cvu-card cvu-stack">
+          <h3>Chứng chỉ, giải thưởng</h3>
+          <div className="cvu-grid">
+            <Lines id="cv-certs" label="Chứng chỉ" value={profile.certificates}
+              onChange={(certificates) => set({ certificates })} span2={false} />
+            <Lines id="cv-honours" label="Giải thưởng" value={profile.honours}
+              onChange={(honours) => set({ honours })} span2={false} />
+          </div>
+        </section>
+      ) : section === "certificates" || section === "honours" ? (
+        <section className="cvu-card cvu-stack">
+          <h3>{section === "certificates" ? "Chứng chỉ" : "Giải thưởng & hoạt động"}</h3>
+          {section === "certificates" ? (
+            <Lines id="cv-certs" label="Chứng chỉ (tên, đơn vị cấp, năm)" value={profile.certificates} rows={5}
+              onChange={(certificates) => set({ certificates })} />
+          ) : (
+            <Lines id="cv-honours" label="Giải thưởng, hoạt động" value={profile.honours} rows={5}
+              onChange={(honours) => set({ honours })} />
+          )}
+        </section>
+      ) : null}
 
-      <Repeat<Language>
+      {show("languages") ? <Repeat<Language>
         title="Ngoại ngữ" items={profile.languages ?? []} onChange={(languages) => set({ languages })}
         empty="AI không tìm thấy ngoại ngữ trong CV."
         blank={() => ({ language: null, note: null })}
@@ -242,7 +282,7 @@ export function CvProfileEditor({
               onChange={(v) => up({ note: v })} />
           </>
         )}
-      />
+      /> : null}
     </>
   );
 }
