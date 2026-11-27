@@ -138,6 +138,19 @@ button.tag{cursor:pointer;font-family:var(--font-body)}
 .topnav-sep{width:1px;height:24px;background:var(--line)}
 .topnav-user{flex-wrap:nowrap;flex-shrink:0;gap:10px}
 .topnav-user-name{font-size:14px;font-weight:600;max-width:140px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+/* Desktop: header 1 dòng. Menu co lại và cuộn ngang nếu thiếu chỗ, không đẩy chuông/tên/đăng xuất xuống dòng. */
+@media (min-width:761px){
+  .topnav-inner{flex-wrap:nowrap;gap:16px}
+  .topnav-inner>.brand-hl{flex:none}
+  .topnav-links{flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none}
+  .topnav-links::-webkit-scrollbar{display:none}
+  .topnav-links a{padding:0 10px;white-space:nowrap;flex:none}
+  .topnav-user .btn{white-space:nowrap}
+}
+/* Màn hẹp: ẩn tên (vẫn có avatar + title khi rê chuột) để giữ đủ chỗ cho menu. */
+@media (min-width:761px) and (max-width:1180px){
+  .topnav-user-name{display:none}
+}
 
 /* side nav + shell */
 .app{min-height:100vh}
