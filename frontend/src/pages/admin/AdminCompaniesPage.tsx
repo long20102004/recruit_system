@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useMemo, useState } from "react";
 import { Link, useSearchParams } from "react-router-dom";
-import { getToken } from "../../api/client";
+import { openFileLink } from "../../api/client";
 import {
   approveCompany,
   listCompanies,
@@ -160,20 +160,9 @@ export function AdminCompaniesPage() {
 
   async function openLicense(company: CompanyDto) {
     try {
-      const token = getToken();
-      const res = await fetch(`/api/admin/companies/${company.id}/license`, {
-        headers: token ? { Authorization: `Bearer ${token}` } : undefined,
-      });
-      if (!res.ok) {
-        toast("Chưa có file giấy phép được tải lên cho công ty này.");
-        return;
-      }
-      const blob = await res.blob();
-      const url = URL.createObjectURL(blob);
-      window.open(url, "_blank", "noopener,noreferrer");
-      setTimeout(() => URL.revokeObjectURL(url), 60_000);
-    } catch {
-      toast("Không tải được file giấy phép.");
+      await openFileLink(`/admin/companies/${company.id}/license`, "view");
+    } catch (e) {
+      toast(e instanceof Error ? e.message : "Không tải được file giấy phép.");
     }
   }
 

@@ -7,7 +7,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.context.SecurityContextHolder;
 import recruit.demo.client.IdentityClient;
-import recruit.demo.config.AppProperties;
+import recruit.demo.storage.StorageService;
 import recruit.demo.dto.CompanyDtos.CompanyProfileUpdateRequest;
 import recruit.demo.entity.Company;
 import recruit.demo.entity.RecruiterProfile;
@@ -35,6 +35,7 @@ class CompanyServiceImplTest {
     private RecruiterProfileRepository recruiterRepo;
     private JobRepository jobRepo;
     private IdentityClient identityClient;
+    private StorageService storage;
     private CompanyServiceImpl service;
 
     @BeforeEach
@@ -44,7 +45,8 @@ class CompanyServiceImplTest {
         recruiterRepo = mock(RecruiterProfileRepository.class);
         jobRepo = mock(JobRepository.class);
         identityClient = mock(IdentityClient.class);
-        service = new CompanyServiceImpl(companyRepo, followerRepo, recruiterRepo, jobRepo, identityClient, new AppProperties());
+        storage = mock(StorageService.class);
+        service = new CompanyServiceImpl(companyRepo, followerRepo, recruiterRepo, jobRepo, identityClient, storage);
         when(companyRepo.save(any(Company.class))).thenAnswer(i -> i.getArgument(0));
     }
 
@@ -117,5 +119,69 @@ class CompanyServiceImplTest {
         ));
         assertEquals(CompanyStatus.PENDING, res.status());
         assertEquals("0999888777", res.taxCode());
+    }
+
+    // ---- specs/008-r2-storage ----
+
+    private Company recruiterCompany() {
+        loginAs(20, Role.RECRUITER);
+        Company c = Company.builder().id(5).name("Lumen").status(CompanyStatus.ACTIVE)
+                .logoKey("companies/5/logo/old.png").licenseFileUrl("companies/5/license/old.pdf").build();
+        when(recruiterRepo.findFirstByUserIdOrderByCreatedAtAsc(20))
+                .thenReturn(Optional.of(RecruiterProfile.builder().id(1).userId(20).company(c).build()));
+        return c;
+    }
+
+    @Test
+    void logoUploadGoesToPublicBucketAndReplacesOldObject() {
+        Company c = recruiterCompany();
+        when(storage.publicUrl(any())).thenAnswer(i -> i.getArgument(0) == null ? null : "https://pub.test/" + i.getArgument(0));
+        var file = new org.springframework.mock.web.MockMultipartFile("file", "logo.PNG", "image/png", new byte[]{1});
+
+        var dto = service.uploadFile("logo", file);
+
+        assertTrue(c.getLogoKey().matches("companies/5/logo/[0-9a-f-]{36}\\.png"), c.getLogoKey());
+        verify(storage).putPublic(c.getLogoKey(), new byte[]{1}, "image/png");
+        verify(storage).deletePublicQuietly("companies/5/logo/old.png");
+        assertEquals("https://pub.test/" + c.getLogoKey(), dto.logoUrl());
+        assertNull(dto.coverUrl());
+    }
+
+    @Test
+    void logoUploadRejectsNonImage() {
+        recruiterCompany();
+        var file = new org.springframework.mock.web.MockMultipartFile("file", "logo.pdf", "application/pdf", new byte[]{1});
+
+        assertEquals(HttpStatus.BAD_REQUEST,
+                assertThrows(ApiException.class, () -> service.uploadFile("logo", file)).getStatus());
+        verifyNoInteractions(storage);
+    }
+
+    @Test
+    void licenseUploadGoesToPrivateBucket() {
+        Company c = recruiterCompany();
+        var file = new org.springframework.mock.web.MockMultipartFile("file", "gpkd.pdf", "application/pdf", new byte[]{9});
+
+        service.uploadFile("license", file);
+
+        assertTrue(c.getLicenseFileUrl().startsWith("companies/5/license/"));
+        verify(storage).putPrivate(c.getLicenseFileUrl(), new byte[]{9}, "application/pdf");
+        verify(storage).deletePrivateQuietly("companies/5/license/old.pdf");
+        verify(storage, never()).putPublic(any(), any(), any());
+    }
+
+    @Test
+    void licenseLinkIsInlinePresignedUrlAndRejectsLegacyPath() {
+        loginAs(1, Role.ADMIN);
+        Company c = Company.builder().id(10).name("Lumen").licenseFileName("GPKD.pdf")
+                .licenseFileUrl("companies/10/license/a.pdf").build();
+        when(companyRepo.findById(10)).thenReturn(Optional.of(c));
+        var link = recruit.demo.dto.FileLinkDto.builder().url("https://signed").build();
+        when(storage.presignGet("companies/10/license/a.pdf", "GPKD.pdf", true)).thenReturn(link);
+
+        assertSame(link, service.licenseLink(10));
+
+        c.setLicenseFileUrl("/app/uploads/companies/10/x.pdf");
+        assertEquals(HttpStatus.NOT_FOUND, assertThrows(ApiException.class, () -> service.licenseLink(10)).getStatus());
     }
 }

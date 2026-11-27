@@ -67,7 +67,7 @@ export function CandidateCvListPage() {
 
   async function onDownload(cv: CandidateCvItem) {
     try {
-      await cvsApi.download(cv.id, cv.fileName || `${cv.title}.pdf`);
+      await cvsApi.download(cv.id);
     } catch (e) {
       toast(e instanceof Error ? e.message : "Không tải được tệp CV");
     }

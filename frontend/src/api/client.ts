@@ -82,6 +82,30 @@ export async function apiData<T>(path: string, options: RequestInit = {}): Promi
   return res?.data as T;
 }
 
+/** Link ký tạm tới file private trên R2 (specs/008-r2-storage). */
+export interface FileLinkDto {
+  url: string;
+  expiresAt: string;
+}
+
+/**
+ * Lấy link ký tạm từ backend rồi mở file. Link do R2 cấp đã kèm Content-Disposition
+ * (attachment để tải, inline để xem) nên không cần đọc nội dung qua fetch.
+ */
+export async function openFileLink(path: string, mode: "download" | "view" = "download"): Promise<void> {
+  const link = await apiData<FileLinkDto>(path);
+  if (mode === "view") {
+    window.open(link.url, "_blank", "noopener,noreferrer");
+    return;
+  }
+  const a = document.createElement("a");
+  a.href = link.url;
+  a.rel = "noopener";
+  document.body.appendChild(a);
+  a.click();
+  a.remove();
+}
+
 /** Tham số phân trang (page từ 0). Backend giới hạn size tối đa {@link MAX_PAGE_SIZE}. */
 export interface PageParams {
   page?: number;
@@ -256,7 +280,8 @@ export const applicationsApi = {
       body: JSON.stringify({ rating, internalNote }),
     }),
   history: (id: number) => apiData<ApplicationHistoryDto[]>(`/applications/${id}/history`),
-  cvFileUrl: (id: number) => `${API_BASE}/applications/${id}/cv-file`,
+  /** Tải PDF CV đính kèm đơn qua link ký tạm trên R2. */
+  downloadCvFile: (id: number) => openFileLink(`/applications/${id}/cv-file`),
 };
 
 export const savedJobsApi = {
@@ -302,22 +327,8 @@ export const cvsApi = {
     }),
   setMain: (cvId: number) => apiData<CvDocumentDto[]>(`/cvs/documents/${cvId}/main`, { method: "POST" }),
   remove: (cvId: number) => api<void>(`/cvs/documents/${cvId}`, { method: "DELETE" }),
-  /** Tải file PDF gốc (kèm token) và lưu xuống máy. */
-  download: async (cvId: number, fileName: string) => {
-    const token = getToken();
-    const res = await fetch(`${API_BASE}/cvs/documents/${cvId}/file`, {
-      headers: token ? { Authorization: `Bearer ${token}` } : undefined,
-    });
-    if (!res.ok) throw await parseError(res);
-    const url = URL.createObjectURL(await res.blob());
-    const a = document.createElement("a");
-    a.href = url;
-    a.download = fileName;
-    document.body.appendChild(a);
-    a.click();
-    a.remove();
-    setTimeout(() => URL.revokeObjectURL(url), 60_000);
-  },
+  /** Tải file PDF gốc qua link ký tạm trên R2 (tên file do backend đặt trong link). */
+  download: (cvId: number) => openFileLink(`/cvs/documents/${cvId}/file`),
 };
 
 export const matchingApi = {

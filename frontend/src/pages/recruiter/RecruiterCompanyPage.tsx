@@ -4,6 +4,7 @@ import { RecruiterLayout } from "../../components/common";
 import {
   getCompanyProfile,
   updateCompanyProfile,
+  uploadCompanyFile,
   type CompanyProfile,
   type CompanyProfileUpdateInput,
   type CompanyVerificationStatus,
@@ -107,19 +108,23 @@ export function RecruiterCompanyPage() {
     }
   }
 
-  function handleCoverChange(e: ChangeEvent<HTMLInputElement>) {
+  /** Ảnh tải thẳng lên R2 khi chọn; form chỉ cập nhật tên file để lần lưu sau không ghi đè. */
+  async function uploadImage(kind: "logo" | "cover", e: ChangeEvent<HTMLInputElement>) {
     const file = e.target.files?.[0];
+    e.target.value = "";
     if (!file || !form) return;
-    setForm({ ...form, coverFileName: file.name });
-    toast(`Đã chọn ảnh bìa: ${file.name}`);
+    try {
+      const updated = await uploadCompanyFile(kind, file);
+      setCompany(updated);
+      setForm((f) => (f ? { ...f, logoFileName: updated.logoFileName, coverFileName: updated.coverFileName } : f));
+      toast(kind === "logo" ? "Đã cập nhật logo." : "Đã cập nhật ảnh bìa.");
+    } catch (err) {
+      toast(err instanceof Error ? err.message : "Không tải được ảnh.");
+    }
   }
 
-  function handleLogoChange(e: ChangeEvent<HTMLInputElement>) {
-    const file = e.target.files?.[0];
-    if (!file || !form) return;
-    setForm({ ...form, logoFileName: file.name });
-    toast(`Đã chọn logo: ${file.name}`);
-  }
+  const handleCoverChange = (e: ChangeEvent<HTMLInputElement>) => void uploadImage("cover", e);
+  const handleLogoChange = (e: ChangeEvent<HTMLInputElement>) => void uploadImage("logo", e);
 
   async function handleSave() {
     if (!form) return;
@@ -173,7 +178,9 @@ export function RecruiterCompanyPage() {
             <div
               style={{
                 height: 140,
-                background: "var(--sky)",
+                background: company.coverUrl
+                  ? `center / cover no-repeat url("${company.coverUrl}")`
+                  : "var(--sky)",
                 borderBottom: "1px solid var(--line)",
                 display: "flex",
                 justifyContent: "space-between",
@@ -188,7 +195,7 @@ export function RecruiterCompanyPage() {
               <input
                 id="cp-cover"
                 type="file"
-                accept="image/*"
+                accept="image/png,image/jpeg,image/webp"
                 onChange={handleCoverChange}
                 style={{ display: "none" }}
               />
@@ -203,9 +210,18 @@ export function RecruiterCompanyPage() {
                 flexWrap: "wrap",
               }}
             >
-              <span className="logo logo-lg" style={{ background: "var(--paper)" }}>
-                {initials(form.displayName) || "LF"}
-              </span>
+              {company.logoUrl ? (
+                <img
+                  className="logo logo-lg"
+                  src={company.logoUrl}
+                  alt={`Logo ${form.displayName}`}
+                  style={{ background: "var(--paper)", objectFit: "contain" }}
+                />
+              ) : (
+                <span className="logo logo-lg" style={{ background: "var(--paper)" }}>
+                  {initials(form.displayName) || "LF"}
+                </span>
+              )}
               <div style={{ flex: 1, minWidth: 200, paddingBottom: 6 }}>
                 <p className="disp" style={{ fontSize: 24 }}>
                   {form.displayName}
@@ -222,7 +238,7 @@ export function RecruiterCompanyPage() {
               <input
                 id="cp-logo"
                 type="file"
-                accept="image/*"
+                accept="image/png,image/jpeg,image/webp"
                 onChange={handleLogoChange}
                 style={{ display: "none" }}
               />

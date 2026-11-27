@@ -1,14 +1,14 @@
 package recruit.demo.service.impl;
 
+import recruit.demo.dto.FileLinkDto;
+import recruit.demo.storage.ObjectKeys;
+import recruit.demo.storage.StorageService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.core.io.Resource;
-import org.springframework.core.io.UrlResource;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.multipart.MultipartFile;
 import recruit.demo.client.IdentityClient;
-import recruit.demo.config.AppProperties;
 import recruit.demo.dto.CompanyDtos.*;
 import recruit.demo.entity.Company;
 import recruit.demo.entity.CompanyFollower;
@@ -25,10 +25,6 @@ import recruit.demo.security.UserPrincipal;
 import recruit.demo.service.CompanyService;
 
 import java.io.IOException;
-import java.net.MalformedURLException;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
 import java.time.LocalDateTime;
 import java.util.*;
 
@@ -41,7 +37,10 @@ public class CompanyServiceImpl implements CompanyService {
     private final RecruiterProfileRepository recruiterProfileRepository;
     private final JobRepository jobRepository;
     private final IdentityClient identityClient;
-    private final AppProperties appProperties;
+    private final StorageService storageService;
+
+    private static final java.util.Set<String> IMAGE_TYPES = java.util.Set.of("image/png", "image/jpeg", "image/webp");
+    private static final long MAX_IMAGE_BYTES = 5L * 1024 * 1024;
 
     @Override
     @Transactional(readOnly = true)
@@ -212,29 +211,46 @@ public class CompanyServiceImpl implements CompanyService {
         Company c = requireRecruiterCompany();
         String original = file.getOriginalFilename() != null ? file.getOriginalFilename() : "file";
         String normalizedKind = kind == null ? "license" : kind.trim().toLowerCase(Locale.ROOT);
-
-        try {
-            Path dir = Paths.get(appProperties.getUpload().getPath(), "companies", String.valueOf(c.getId()))
-                    .toAbsolutePath().normalize();
-            Files.createDirectories(dir);
-            String stored = UUID.randomUUID() + "_" + original.replaceAll("[^a-zA-Z0-9._-]", "_");
-            Path target = dir.resolve(stored);
-            Files.copy(file.getInputStream(), target);
-
-            switch (normalizedKind) {
-                case "logo" -> c.setLogoFileName(original);
-                case "cover" -> c.setCoverFileName(original);
-                default -> {
-                    c.setLicenseFileName(original);
-                    c.setLicenseFileMeta(formatFileSize(file.getSize()));
-                    c.setLicenseFileUrl(target.toString());
-                }
-            }
-            companyRepository.save(c);
-            return toRecruiterProfileDto(c);
-        } catch (IOException ex) {
-            throw new ApiException(HttpStatus.INTERNAL_SERVER_ERROR, "Không thể lưu tệp công ty.");
+        boolean image = "logo".equals(normalizedKind) || "cover".equals(normalizedKind);
+        String contentType = file.getContentType() != null ? file.getContentType() : "application/octet-stream";
+        if (image && (!IMAGE_TYPES.contains(contentType) || file.getSize() > MAX_IMAGE_BYTES)) {
+            throw new ApiException(HttpStatus.BAD_REQUEST, "Ảnh phải là PNG, JPEG hoặc WebP và không quá 5MB.");
         }
+
+        byte[] bytes;
+        try {
+            bytes = file.getBytes();
+        } catch (IOException ex) {
+            throw new ApiException(HttpStatus.BAD_REQUEST, "Không đọc được tệp tải lên.");
+        }
+        String key = ObjectKeys.companyFile(c.getId(), image ? normalizedKind : "license", original);
+        String oldKey;
+        switch (normalizedKind) {
+            case "logo" -> {
+                storageService.putPublic(key, bytes, contentType);
+                oldKey = c.getLogoKey();
+                c.setLogoFileName(original);
+                c.setLogoKey(key);
+            }
+            case "cover" -> {
+                storageService.putPublic(key, bytes, contentType);
+                oldKey = c.getCoverKey();
+                c.setCoverFileName(original);
+                c.setCoverKey(key);
+            }
+            default -> {
+                storageService.putPrivate(key, bytes, contentType);
+                oldKey = c.getLicenseFileUrl();
+                c.setLicenseFileName(original);
+                c.setLicenseFileMeta(formatFileSize(file.getSize()));
+                c.setLicenseFileUrl(key);
+            }
+        }
+        companyRepository.save(c);
+        // Chỉ xoá object cũ sau khi DB đã trỏ sang object mới.
+        if (image) storageService.deletePublicQuietly(oldKey);
+        else storageService.deletePrivateQuietly(oldKey);
+        return toRecruiterProfileDto(c);
     }
 
     @Override
@@ -316,21 +332,16 @@ public class CompanyServiceImpl implements CompanyService {
 
     @Override
     @Transactional(readOnly = true)
-    public Resource loadLicenseFile(Integer id) {
+    public FileLinkDto licenseLink(Integer id) {
         Company c = requireCompany(id);
-        if (isBlank(c.getLicenseFileUrl())) {
+        String key = c.getLicenseFileUrl();
+        if (isBlank(key)) {
             throw new ApiException(HttpStatus.NOT_FOUND, "Công ty chưa tải lên file giấy phép.");
         }
-        try {
-            Path p = Paths.get(c.getLicenseFileUrl()).toAbsolutePath().normalize();
-            Resource resource = new UrlResource(p.toUri());
-            if (!resource.exists() || !resource.isReadable()) {
-                throw new ApiException(HttpStatus.NOT_FOUND, "Không tìm thấy tệp giấy phép trên máy chủ.");
-            }
-            return resource;
-        } catch (MalformedURLException ex) {
-            throw new ApiException(HttpStatus.NOT_FOUND, "Đường dẫn tệp giấy phép không hợp lệ.");
+        if (!ObjectKeys.isObjectKey(key)) {
+            throw new ApiException(HttpStatus.NOT_FOUND, "Tệp giấy phép chưa được chuyển lên kho lưu trữ.");
         }
+        return storageService.presignGet(key, firstNonBlank(c.getLicenseFileName(), "giay-phep.pdf"), true);
     }
 
     private void applyRegistrationFields(Company c, CompanyRegistrationRequest req) {
@@ -403,7 +414,9 @@ public class CompanyServiceImpl implements CompanyService {
                         firstNonBlank(c.getLicenseFileMeta(), "Đã tải lên")
                 ),
                 following,
-                followersCount
+                followersCount,
+                storageService.publicUrl(c.getLogoKey()),
+                storageService.publicUrl(c.getCoverKey())
         );
     }
 
@@ -432,6 +445,8 @@ public class CompanyServiceImpl implements CompanyService {
                 splitLines(c.getTechStack()),
                 orEmpty(c.getLogoFileName()),
                 orEmpty(c.getCoverFileName()),
+                storageService.publicUrl(c.getLogoKey()),
+                storageService.publicUrl(c.getCoverKey()),
                 orEmpty(c.getLicenseFileName()),
                 orEmpty(c.getLicenseFileMeta()),
                 c.isConfirmed(),

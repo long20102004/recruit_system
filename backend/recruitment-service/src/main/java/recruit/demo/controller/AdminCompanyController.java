@@ -1,11 +1,8 @@
 package recruit.demo.controller;
 
+import recruit.demo.dto.FileLinkDto;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
-import org.springframework.core.io.Resource;
-import org.springframework.http.HttpHeaders;
-import org.springframework.http.MediaType;
-import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 import recruit.demo.dto.BaseResponse;
@@ -58,11 +55,7 @@ public class AdminCompanyController {
     }
 
     @GetMapping("/{id}/license")
-    public ResponseEntity<Resource> downloadLicense(@PathVariable Integer id) {
-        Resource resource = companyService.loadLicenseFile(id);
-        return ResponseEntity.ok()
-                .contentType(MediaType.APPLICATION_PDF)
-                .header(HttpHeaders.CONTENT_DISPOSITION, "inline; filename=\"" + resource.getFilename() + "\"")
-                .body(resource);
+    public BaseResponse<FileLinkDto> downloadLicense(@PathVariable Integer id) {
+        return BaseResponse.success(companyService.licenseLink(id));
     }
 }

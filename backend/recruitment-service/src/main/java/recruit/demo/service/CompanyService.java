@@ -1,6 +1,6 @@
 package recruit.demo.service;
 
-import org.springframework.core.io.Resource;
+import recruit.demo.dto.FileLinkDto;
 import org.springframework.web.multipart.MultipartFile;
 import recruit.demo.dto.CompanyDtos.*;
 
@@ -24,5 +24,6 @@ public interface CompanyService {
     CompanyDto reject(Integer id, String reason);
     CompanyDto lock(Integer id, String reason);
     CompanyDto unlock(Integer id);
-    Resource loadLicenseFile(Integer id);
+    /** Link ký tạm (inline) tới giấy phép trên R2 cho admin (specs/008-r2-storage). */
+    FileLinkDto licenseLink(Integer id);
 }

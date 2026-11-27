@@ -28,4 +28,7 @@ public interface CvDataRepository extends JpaRepository<CvData, Integer> {
     List<CvData> findByCvIdInAndField(List<Integer> cvIds, String field);
 
     List<CvData> findByCvId(Integer cvId);
+
+    /** Mọi dòng của một field, kể cả CV không phải CV chính (dùng khi migrate file lên R2). */
+    List<CvData> findAllByField(String field);
 }

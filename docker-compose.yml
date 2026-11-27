@@ -160,6 +160,16 @@ services:
       CV_EXTRACTION_URL: ${CV_EXTRACTION_URL:-http://cv-extraction-ai:8000}
       CVMATCH_URL: ${CVMATCH_URL:-http://cvmatch-ai:8000}
       CVMATCH_SYNC_ENABLED: ${CVMATCH_SYNC_ENABLED:-true}
+      # Cloudflare R2 (specs/008-r2-storage, docs/R2_STORAGE.md). Bat buoc: thieu thi recruitment-service khong khoi dong.
+      R2_ACCOUNT_ID: ${R2_ACCOUNT_ID:-}
+      R2_ACCESS_KEY_ID: ${R2_ACCESS_KEY_ID:-}
+      R2_SECRET_ACCESS_KEY: ${R2_SECRET_ACCESS_KEY:-}
+      R2_PRIVATE_BUCKET: ${R2_PRIVATE_BUCKET:-}
+      R2_PUBLIC_BUCKET: ${R2_PUBLIC_BUCKET:-}
+      R2_PUBLIC_BASE_URL: ${R2_PUBLIC_BASE_URL:-}
+      R2_PRESIGN_TTL: ${R2_PRESIGN_TTL:-5m}
+      # true: chuyen file cu trong volume recruitment_uploads len R2 khi khoi dong (chay lai an toan)
+      STORAGE_MIGRATE_LOCAL: ${STORAGE_MIGRATE_LOCAL:-false}
       CORS_ORIGINS: ${CORS_ORIGINS:-http://localhost:5173}
       REDIS_HOST: redis
       REDIS_PORT: 6379

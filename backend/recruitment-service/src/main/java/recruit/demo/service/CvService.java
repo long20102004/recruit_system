@@ -1,6 +1,6 @@
 package recruit.demo.service;
 
-import org.springframework.core.io.Resource;
+import recruit.demo.dto.FileLinkDto;
 import org.springframework.web.multipart.MultipartFile;
 import recruit.demo.dto.CandidateProfileDto;
 import recruit.demo.dto.ConfirmCvRequest;
@@ -38,5 +38,5 @@ public interface CvService {
 
     void delete(Integer cvId);
 
-    Resource file(Integer cvId);
+    FileLinkDto file(Integer cvId);
 }

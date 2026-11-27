@@ -9,7 +9,8 @@ import org.springframework.mock.web.MockMultipartFile;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.context.SecurityContextHolder;
 import recruit.demo.client.IdentityClient;
-import recruit.demo.config.AppProperties;
+import recruit.demo.dto.FileLinkDto;
+import recruit.demo.storage.StorageService;
 import recruit.demo.dto.CandidateProfileDto;
 import recruit.demo.dto.ConfirmCvRequest;
 import recruit.demo.entity.CandidateProfile;
@@ -46,6 +47,7 @@ class CvServiceImplTest {
     private JobApplicationRepository apps;
     private CvExtractionModule extraction;
     private ApplicationEventPublisher events;
+    private StorageService storage;
     private CvServiceImpl service;
 
     private final CandidateProfile candidate = CandidateProfile.builder().id(7).userId(70).build();
@@ -60,8 +62,9 @@ class CvServiceImplTest {
         docs = mock(CvDocumentRepository.class);
         apps = mock(JobApplicationRepository.class);
         events = mock(ApplicationEventPublisher.class);
+        storage = mock(StorageService.class);
         service = new CvServiceImpl(identity, cvData, candidates, settings, extraction, new CvProfileMapper(),
-                new AppProperties(), events, new ObjectMapper(), docs, apps);
+                storage, events, new ObjectMapper(), docs, apps);
 
         when(candidates.findByUserId(70)).thenReturn(Optional.of(candidate));
         when(settings.cvFields()).thenReturn(List.of("Họ tên", "Kỹ năng"));
@@ -171,5 +174,71 @@ class CvServiceImplTest {
         assertEquals(HttpStatus.NOT_FOUND, assertThrows(ApiException.class, () -> service.mine(99)).getStatus());
         assertEquals(HttpStatus.NOT_FOUND, assertThrows(ApiException.class, () -> service.setMain(99)).getStatus());
         assertEquals(HttpStatus.NOT_FOUND, assertThrows(ApiException.class, () -> service.delete(99)).getStatus());
+    }
+
+    // ---- specs/008-r2-storage ----
+
+    @Test
+    void uploadNewStoresPdfInPrivateBucketUnderCvKey() {
+        when(docs.countByCandidateId(7)).thenReturn(0L);
+        when(docs.save(any(CvDocument.class))).thenAnswer(i -> {
+            CvDocument d = i.getArgument(0);
+            if (d.getId() == null) d.setId(42);
+            return d;
+        });
+        when(extraction.extract(any())).thenReturn(new ObjectMapper().createObjectNode());
+        byte[] pdf = {1, 2, 3};
+        var file = new MockMultipartFile("file", "cv.pdf", "application/pdf", pdf);
+
+        var res = service.uploadNew(file, null);
+
+        var key = org.mockito.ArgumentCaptor.forClass(String.class);
+        verify(storage).putPrivate(key.capture(), eq(pdf), eq("application/pdf"));
+        assertTrue(key.getValue().matches("cvs/7/42/[0-9a-f-]{36}\\.pdf"), key.getValue());
+        assertEquals(42, res.getCvId());
+        verify(cvData).save(argThat(d -> CvService.FILE_URL.equals(d.getField()) && key.getValue().equals(d.getValue())));
+    }
+
+    @Test
+    void uploadFailureOnStorageDoesNotWriteFileUrl() {
+        when(docs.countByCandidateId(7)).thenReturn(0L);
+        when(extraction.extract(any())).thenReturn(new ObjectMapper().createObjectNode());
+        doThrow(new ApiException(HttpStatus.BAD_GATEWAY, "down")).when(storage).putPrivate(any(), any(), any());
+        var file = new MockMultipartFile("file", "cv.pdf", "application/pdf", new byte[]{1});
+
+        assertEquals(HttpStatus.BAD_GATEWAY,
+                assertThrows(ApiException.class, () -> service.uploadNew(file, null)).getStatus());
+        verify(cvData, never()).save(argThat(d -> CvService.FILE_URL.equals(d.getField())));
+    }
+
+    @Test
+    void fileReturnsPresignedDownloadLinkWithOriginalName() {
+        doc(2, false);
+        field(2, CvService.FILE_URL, "cvs/7/2/abc.pdf");
+        field(2, CvService.FILE_NAME, "CV Nguyễn A.pdf");
+        var link = FileLinkDto.builder().url("https://signed").build();
+        when(storage.presignGet("cvs/7/2/abc.pdf", "CV Nguyễn A.pdf", false)).thenReturn(link);
+
+        assertSame(link, service.file(2));
+    }
+
+    @Test
+    void fileWithLegacyLocalPathIsNotServed() {
+        doc(2, false);
+        field(2, CvService.FILE_URL, "/app/uploads/old.pdf");
+
+        assertEquals(HttpStatus.NOT_FOUND, assertThrows(ApiException.class, () -> service.file(2)).getStatus());
+        verifyNoInteractions(storage);
+    }
+
+    @Test
+    void deleteRemovesObjectFromStorage() {
+        doc(2, false);
+        field(2, CvService.FILE_URL, "cvs/7/2/abc.pdf");
+        when(cvData.findByCvId(2)).thenReturn(List.of());
+
+        service.delete(2);
+
+        verify(storage).deletePrivateQuietly("cvs/7/2/abc.pdf");
     }
 }

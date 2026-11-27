@@ -1,7 +1,7 @@
 import { useEffect, useMemo, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import { EmptyNote, RecruiterLayout } from "../../components/common";
-import { MAX_PAGE_SIZE, applicationsApi, getToken, type ApplicationDto } from "../../api/client";
+import { MAX_PAGE_SIZE, applicationsApi, type ApplicationDto } from "../../api/client";
 import {
   getApplicationDetailMock,
   saveMockApplicationNote,
@@ -163,25 +163,9 @@ export function RecruiterApplicationDetailPage() {
       return;
     }
     try {
-      const token = getToken();
-      const res = await fetch(applicationsApi.cvFileUrl(app.id), {
-        headers: token ? { Authorization: `Bearer ${token}` } : undefined,
-      });
-      if (!res.ok) {
-        toast("Không có tệp CV để tải xuống.");
-        return;
-      }
-      const blob = await res.blob();
-      const url = URL.createObjectURL(blob);
-      const a = document.createElement("a");
-      a.href = url;
-      a.download = detail?.cvFileName || `cv-ung-vien-${app.id}.pdf`;
-      document.body.appendChild(a);
-      a.click();
-      a.remove();
-      setTimeout(() => URL.revokeObjectURL(url), 60_000);
-    } catch {
-      toast("Không tải được tệp CV.");
+      await applicationsApi.downloadCvFile(app.id);
+    } catch (e) {
+      toast(e instanceof Error ? e.message : "Không tải được tệp CV.");
     }
   }
 

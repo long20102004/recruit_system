@@ -99,8 +99,17 @@ public class Company {
     @Column(name = "license_file_meta", length = 120)
     private String licenseFileMeta;
 
+    /** Object key trên R2 (bucket private); bản ghi cũ có thể còn là đường dẫn local chờ migrate. */
     @Column(name = "license_file_url", length = 500)
     private String licenseFileUrl;
+
+    /** Object key logo trên bucket public R2 (specs/008-r2-storage). */
+    @Column(name = "logo_key", length = 512)
+    private String logoKey;
+
+    /** Object key ảnh bìa trên bucket public R2. */
+    @Column(name = "cover_key", length = 512)
+    private String coverKey;
 
     @Column(nullable = false)
     @Builder.Default

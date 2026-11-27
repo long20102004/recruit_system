@@ -1,8 +1,9 @@
 package recruit.demo.service.impl;
 
+import recruit.demo.dto.FileLinkDto;
+import recruit.demo.storage.ObjectKeys;
+import recruit.demo.storage.StorageService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.core.io.Resource;
-import org.springframework.core.io.UrlResource;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
@@ -25,9 +26,6 @@ import recruit.demo.service.CvService;
 import tools.jackson.databind.ObjectMapper;
 
 import java.math.BigDecimal;
-import java.net.MalformedURLException;
-import java.nio.file.Path;
-import java.nio.file.Paths;
 import java.util.*;
 
 @Service
@@ -35,6 +33,7 @@ import java.util.*;
 public class ApplicationServiceImpl implements ApplicationService {
 
     private final IdentityClient identityClient;
+    private final StorageService storageService;
     private final JobApplicationRepository applicationRepository;
     private final JobRepository jobRepository;
     private final CandidateProfileRepository candidateProfileRepository;
@@ -200,23 +199,19 @@ public class ApplicationServiceImpl implements ApplicationService {
 
     @Override
     @Transactional(readOnly = true)
-    public Resource loadCvFile(Integer id) {
+    public FileLinkDto loadCvFile(Integer id) {
         JobApplication app = requireApplication(id);
         ensureCanAccess(app);
-        String fileUrl = cvValue(app.getCandidate().getId(), app.getCvId(), CvService.FILE_URL);
-        if (fileUrl.isBlank()) {
+        Integer candidateId = app.getCandidate().getId();
+        String key = cvValue(candidateId, app.getCvId(), CvService.FILE_URL);
+        if (key.isBlank()) {
             throw new ApiException(HttpStatus.NOT_FOUND, "Ứng viên chưa tải lên tệp CV PDF.");
         }
-        try {
-            Path target = Paths.get(fileUrl).toAbsolutePath().normalize();
-            Resource resource = new UrlResource(target.toUri());
-            if (!resource.exists() || !resource.isReadable()) {
-                throw new ApiException(HttpStatus.NOT_FOUND, "Không tìm thấy tệp CV trên máy chủ.");
-            }
-            return resource;
-        } catch (MalformedURLException ex) {
-            throw new ApiException(HttpStatus.NOT_FOUND, "Đường dẫn tệp CV không hợp lệ.");
+        if (!ObjectKeys.isObjectKey(key)) {
+            throw new ApiException(HttpStatus.NOT_FOUND, "Tệp CV chưa được chuyển lên kho lưu trữ.");
         }
+        String fileName = cvValue(candidateId, app.getCvId(), CvService.FILE_NAME);
+        return storageService.presignGet(key, fileName.isBlank() ? "cv-ung-vien-" + app.getId() + ".pdf" : fileName, false);
     }
 
     private void transitionStatus(JobApplication app, ApplicationStatus next, String note, UserPrincipal actor) {

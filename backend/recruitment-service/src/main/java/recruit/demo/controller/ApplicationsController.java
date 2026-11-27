@@ -1,11 +1,8 @@
 package recruit.demo.controller;
 
+import recruit.demo.dto.FileLinkDto;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
-import org.springframework.core.io.Resource;
-import org.springframework.http.HttpHeaders;
-import org.springframework.http.MediaType;
-import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 import recruit.demo.dto.ApplicationDtos.*;
@@ -91,11 +88,7 @@ public class ApplicationsController {
 
     @GetMapping("/{id}/cv-file")
     @PreAuthorize("hasAuthority('application:read-received') or hasAuthority('application:read-own')")
-    public ResponseEntity<Resource> downloadCvFile(@PathVariable Integer id) {
-        Resource file = applicationService.loadCvFile(id);
-        return ResponseEntity.ok()
-                .contentType(MediaType.APPLICATION_PDF)
-                .header(HttpHeaders.CONTENT_DISPOSITION, "attachment; filename=\"" + file.getFilename() + "\"")
-                .body(file);
+    public BaseResponse<FileLinkDto> downloadCvFile(@PathVariable Integer id) {
+        return BaseResponse.success(applicationService.loadCvFile(id));
     }
 }

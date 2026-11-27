@@ -55,7 +55,7 @@ class ApplicationWorkflowAndSavedJobsTest {
         savedJobRepo = mock(SavedJobRepository.class);
         cvDocRepo = mock(CvDocumentRepository.class);
 
-        appService = new ApplicationServiceImpl(identityClient, appRepo, jobRepo, candRepo, histRepo,
+        appService = new ApplicationServiceImpl(identityClient, mock(recruit.demo.storage.StorageService.class), appRepo, jobRepo, candRepo, histRepo,
                 noteRepo, cvDataRepo, matchRepo, jobSkillRepo, new ObjectMapper(), cvDocRepo);
         savedJobService = new SavedJobServiceImpl(savedJobRepo, jobRepo, candRepo, jobSkillRepo, matchRepo);
 

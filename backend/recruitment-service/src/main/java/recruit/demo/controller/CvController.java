@@ -1,7 +1,5 @@
 package recruit.demo.controller;
 
-import org.springframework.core.io.Resource;
-import org.springframework.http.HttpHeaders;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
 import recruit.demo.dto.BaseResponse;
@@ -15,6 +13,7 @@ import recruit.demo.dto.CvDocumentDtos.CvDocumentDto;
 import recruit.demo.dto.CvDocumentDtos.CvUploadResponse;
 import recruit.demo.dto.CvDocumentDtos.RenameCvRequest;
 import recruit.demo.dto.CvFormResponse;
+import recruit.demo.dto.FileLinkDto;
 import recruit.demo.service.CvService;
 
 import java.util.List;
@@ -80,12 +79,9 @@ public class CvController {
         return ResponseEntity.noContent().build();
     }
 
+    /** Link ký tạm để tải PDF gốc từ R2 (specs/008-r2-storage). */
     @GetMapping("/documents/{id}/file")
-    public ResponseEntity<Resource> file(@PathVariable Integer id) {
-        Resource file = cvService.file(id);
-        return ResponseEntity.ok()
-                .contentType(MediaType.APPLICATION_PDF)
-                .header(HttpHeaders.CONTENT_DISPOSITION, "attachment; filename=\"" + file.getFilename() + "\"")
-                .body(file);
+    public BaseResponse<FileLinkDto> file(@PathVariable Integer id) {
+        return BaseResponse.success(cvService.file(id));
     }
 }

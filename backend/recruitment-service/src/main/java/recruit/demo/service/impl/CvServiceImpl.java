@@ -3,18 +3,16 @@ package recruit.demo.service.impl;
 import recruit.demo.service.*;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.core.io.Resource;
-import org.springframework.core.io.UrlResource;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.multipart.MultipartFile;
-import recruit.demo.config.AppProperties;
 import recruit.demo.dto.ConfirmCvRequest;
 import recruit.demo.dto.CvDocumentDtos.CvDocumentDto;
 import recruit.demo.dto.CvDocumentDtos.CvUploadResponse;
 import recruit.demo.dto.CvFieldValue;
 import recruit.demo.dto.CvFormResponse;
+import recruit.demo.dto.FileLinkDto;
 import recruit.demo.entity.CandidateProfile;
 import recruit.demo.entity.CvData;
 import recruit.demo.entity.CvDocument;
@@ -26,12 +24,10 @@ import recruit.demo.repository.CvDocumentRepository;
 import recruit.demo.repository.JobApplicationRepository;
 import recruit.demo.security.SecurityUtils;
 import recruit.demo.security.UserPrincipal;
+import recruit.demo.storage.ObjectKeys;
+import recruit.demo.storage.StorageService;
 
 import java.io.IOException;
-import java.net.MalformedURLException;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.HashSet;
@@ -39,7 +35,6 @@ import java.util.List;
 import java.util.Locale;
 import java.util.Optional;
 import java.util.Set;
-import java.util.UUID;
 
 @Slf4j
 @Service
@@ -56,7 +51,7 @@ public class CvServiceImpl implements CvService {
     private final SettingService settingService;
     private final recruit.demo.service.cv.CvExtractionModule extractionModule;
     private final recruit.demo.service.cv.CvProfileMapper profileMapper;
-    private final AppProperties appProperties;
+    private final StorageService storageService;
     private final org.springframework.context.ApplicationEventPublisher events;
     private final tools.jackson.databind.ObjectMapper objectMapper;
     private final CvDocumentRepository cvDocumentRepository;
@@ -106,22 +101,24 @@ public class CvServiceImpl implements CvService {
 
         try {
             // Run inference before committing any file/profile changes. Failure never creates a fake completed CV.
-            var extracted = extractionModule.extract(file.getBytes());
-            Path uploadRoot = Paths.get(appProperties.getUpload().getPath()).toAbsolutePath().normalize();
-            Files.createDirectories(uploadRoot);
-            String storedName = UUID.randomUUID() + "_" + original.replaceAll("[^a-zA-Z0-9._-]", "_");
-            Path target = uploadRoot.resolve(storedName);
-            Files.copy(file.getInputStream(), target);
+            byte[] bytes = file.getBytes();
+            var extracted = extractionModule.extract(bytes);
 
+            String previousKey = null;
             if (doc == null) {
                 boolean first = cvDocumentRepository.countByCandidateId(candidate.getId()) == 0;
                 doc = cvDocumentRepository.save(CvDocument.builder()
                         .candidateId(candidate.getId()).title(title).main(first).build());
             } else {
+                previousKey = value(doc.getId(), FILE_URL);
                 touch(doc);
             }
+            // Lỗi upload ném ApiException -> transaction rollback, không có CV "có file" giả.
+            String key = ObjectKeys.cv(candidate.getId(), doc.getId());
+            storageService.putPrivate(key, bytes, "application/pdf");
             put(doc, FILE_NAME, original);
-            put(doc, FILE_URL, target.toString());
+            put(doc, FILE_URL, key);
+            if (previousKey != null && !previousKey.equals(key)) storageService.deletePrivateQuietly(previousKey);
             put(doc, PARSING_STATUS, "COMPLETED");
             put(doc, PROFILE_JSON, extracted.toString());
             for (var entry : profileMapper.fields(extracted).entrySet()) {
@@ -227,26 +224,22 @@ public class CvServiceImpl implements CvService {
                     });
             publishChanged(candidate);
         }
-        deleteFileQuietly(fileUrl);
+        storageService.deletePrivateQuietly(fileUrl);
     }
 
     @Transactional(readOnly = true)
-    public Resource file(Integer cvId) {
+    public FileLinkDto file(Integer cvId) {
         CandidateProfile candidate = requireCandidate();
         CvDocument doc = requireOwned(candidate, cvId);
-        String fileUrl = value(doc.getId(), FILE_URL);
-        if (fileUrl.isBlank()) {
+        String key = value(doc.getId(), FILE_URL);
+        if (key.isBlank()) {
             throw new ApiException(HttpStatus.NOT_FOUND, "CV chưa có tệp PDF.");
         }
-        try {
-            Resource resource = new UrlResource(Paths.get(fileUrl).toAbsolutePath().normalize().toUri());
-            if (!resource.exists() || !resource.isReadable()) {
-                throw new ApiException(HttpStatus.NOT_FOUND, "Không tìm thấy tệp CV trên máy chủ.");
-            }
-            return resource;
-        } catch (MalformedURLException ex) {
-            throw new ApiException(HttpStatus.NOT_FOUND, "Đường dẫn tệp CV không hợp lệ.");
+        if (!ObjectKeys.isObjectKey(key)) {
+            throw new ApiException(HttpStatus.NOT_FOUND, "Tệp CV chưa được chuyển lên kho lưu trữ, vui lòng tải lại CV.");
         }
+        String fileName = value(doc.getId(), FILE_NAME);
+        return storageService.presignGet(key, fileName.isBlank() ? "cv.pdf" : fileName, false);
     }
 
     /**
@@ -363,16 +356,6 @@ public class CvServiceImpl implements CvService {
         cvDocumentRepository.save(doc);
     }
 
-    private void deleteFileQuietly(String fileUrl) {
-        if (fileUrl == null || fileUrl.isBlank()) return;
-        try {
-            Path root = Paths.get(appProperties.getUpload().getPath()).toAbsolutePath().normalize();
-            Path target = Paths.get(fileUrl).toAbsolutePath().normalize();
-            if (target.startsWith(root)) Files.deleteIfExists(target);
-        } catch (IOException | RuntimeException ex) {
-            log.warn("Không xoá được tệp CV cũ: {}", ex.getClass().getSimpleName());
-        }
-    }
 
     private recruit.demo.dto.CandidateProfileDto storedProfile(Integer cvId) {
         String stored = value(cvId, PROFILE_JSON);
