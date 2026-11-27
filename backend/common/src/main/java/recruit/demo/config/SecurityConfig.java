@@ -49,6 +49,7 @@ public class SecurityConfig {
                         .requestMatchers(HttpMethod.GET, "/api/companies").permitAll()
                         .requestMatchers(HttpMethod.GET, "/api/companies/{id:\\d+}").permitAll()
                         .requestMatchers("/error", "/health", "/internal/**").permitAll()
+                        .dispatcherTypeMatchers(jakarta.servlet.DispatcherType.ASYNC).permitAll()
                         .anyRequest().authenticated()
                 )
                 .addFilterBefore(jwtAuthenticationFilter, UsernamePasswordAuthenticationFilter.class)

@@ -3,6 +3,8 @@ package recruit.demo.service.impl;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.mockito.ArgumentCaptor;
+import org.springframework.beans.factory.ObjectProvider;
 import org.springframework.context.ApplicationEventPublisher;
 import org.springframework.http.HttpStatus;
 import org.springframework.mock.web.MockMultipartFile;
@@ -16,9 +18,13 @@ import recruit.demo.dto.ConfirmCvRequest;
 import recruit.demo.entity.CandidateProfile;
 import recruit.demo.entity.CvData;
 import recruit.demo.entity.CvDocument;
+import recruit.demo.enums.NotificationType;
 import recruit.demo.enums.Role;
 import recruit.demo.enums.UserStatus;
 import recruit.demo.exception.ApiException;
+import recruit.demo.messaging.NotificationConstants;
+import recruit.demo.messaging.NotificationEvent;
+import recruit.demo.messaging.OutboxWriter;
 import recruit.demo.repository.CandidateProfileRepository;
 import recruit.demo.repository.CvDataRepository;
 import recruit.demo.repository.CvDocumentRepository;
@@ -27,13 +33,13 @@ import recruit.demo.security.UserPrincipal;
 import recruit.demo.service.CvService;
 import recruit.demo.service.SettingService;
 import recruit.demo.service.cv.CvExtractionModule;
+import recruit.demo.service.cv.CvFileType;
 import recruit.demo.service.cv.CvProfileMapper;
 import recruit.demo.service.cvmatch.CvMatchEvents;
 import tools.jackson.databind.ObjectMapper;
 
 import java.util.List;
 import java.util.Optional;
-import recruit.demo.service.cv.CvFileType;
 
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.ArgumentMatchers.*;
@@ -49,11 +55,13 @@ class CvServiceImplTest {
     private CvExtractionModule extraction;
     private ApplicationEventPublisher events;
     private StorageService storage;
+    private OutboxWriter outbox;
     private CvServiceImpl service;
 
     private final CandidateProfile candidate = CandidateProfile.builder().id(7).userId(70).build();
 
     @BeforeEach
+    @SuppressWarnings("unchecked")
     void setUp() {
         identity = mock(IdentityClient.class);
         cvData = mock(CvDataRepository.class);
@@ -64,8 +72,11 @@ class CvServiceImplTest {
         apps = mock(JobApplicationRepository.class);
         events = mock(ApplicationEventPublisher.class);
         storage = mock(StorageService.class);
+        outbox = mock(OutboxWriter.class);
+        ObjectProvider<OutboxWriter> outboxProvider = mock(ObjectProvider.class);
+        when(outboxProvider.getIfAvailable()).thenReturn(outbox);
         service = new CvServiceImpl(identity, cvData, candidates, settings, extraction, new CvProfileMapper(),
-                storage, events, new ObjectMapper(), docs, apps);
+                storage, events, new ObjectMapper(), docs, apps, outboxProvider);
 
         when(candidates.findByUserId(70)).thenReturn(Optional.of(candidate));
         when(settings.cvFields()).thenReturn(List.of("Họ tên", "Kỹ năng"));
@@ -201,17 +212,6 @@ class CvServiceImplTest {
     }
 
     @Test
-    void uploadFailureOnStorageDoesNotWriteFileUrl() {
-        when(docs.countByCandidateId(7)).thenReturn(0L);
-        when(extraction.extract(any(), any())).thenReturn(new ObjectMapper().createObjectNode());
-        doThrow(new ApiException(HttpStatus.BAD_GATEWAY, "down")).when(storage).putPrivate(any(), any(), any());
-        var file = new MockMultipartFile("file", "cv.pdf", "application/pdf", new byte[]{1});
-
-        assertEquals(HttpStatus.BAD_GATEWAY,
-                assertThrows(ApiException.class, () -> service.uploadNew(file, null)).getStatus());
-        verify(cvData, never()).save(argThat(d -> CvService.FILE_URL.equals(d.getField())));
-    }
-    @Test
     void uploadNewStoresDocxUnderDocxKeyWithWordContentType() {
         when(docs.countByCandidateId(7)).thenReturn(0L);
         when(docs.save(any(CvDocument.class))).thenAnswer(i -> {
@@ -243,6 +243,18 @@ class CvServiceImplTest {
         verifyNoInteractions(extraction);
     }
 
+    @Test
+    void uploadFailureOnStorageDoesNotWriteFileUrl() {
+        when(docs.countByCandidateId(7)).thenReturn(0L);
+        when(extraction.extract(any(), any())).thenReturn(new ObjectMapper().createObjectNode());
+        doThrow(new ApiException(HttpStatus.BAD_GATEWAY, "down")).when(storage).putPrivate(any(), any(), any());
+        var file = new MockMultipartFile("file", "cv.pdf", "application/pdf", new byte[]{1});
+
+        assertEquals(HttpStatus.BAD_GATEWAY,
+                assertThrows(ApiException.class, () -> service.uploadNew(file, null)).getStatus());
+        verify(cvData, never()).save(argThat(d -> CvService.FILE_URL.equals(d.getField())));
+        verifyNoInteractions(outbox);
+    }
 
     @Test
     void fileReturnsPresignedDownloadLinkWithOriginalName() {
@@ -273,5 +285,29 @@ class CvServiceImplTest {
         service.delete(2);
 
         verify(storage).deletePrivateQuietly("cvs/7/2/abc.pdf");
+    }
+
+    @Test
+    void uploadNewEmitsCvProcessedOutboxEvent() {
+        when(docs.countByCandidateId(7)).thenReturn(0L);
+        when(docs.save(any(CvDocument.class))).thenAnswer(i -> {
+            CvDocument d = i.getArgument(0);
+            if (d.getId() == null) d.setId(42);
+            return d;
+        });
+        when(extraction.extract(any(), any())).thenReturn(new ObjectMapper().createObjectNode());
+        var file = new MockMultipartFile("file", "cv-nguyenvana.pdf", "application/pdf", new byte[]{1, 2, 3});
+
+        service.uploadNew(file, null);
+
+        ArgumentCaptor<NotificationEvent> captor = ArgumentCaptor.forClass(NotificationEvent.class);
+        verify(outbox).add(eq(NotificationConstants.RK_CV_PROCESSED), captor.capture());
+        NotificationEvent event = captor.getValue();
+        assertEquals(NotificationType.CV_PROCESSED, event.getType());
+        assertEquals(List.of(70), event.getRecipientUserIds());
+        assertEquals("AI đã xử lý xong CV", event.getTitle());
+        assertEquals("cv-nguyenvana.pdf", event.getBody());
+        assertEquals("/candidate/cv?cvId=42", event.getLink());
+        assertEquals(42, event.getData().get("cvId"));
     }
 }

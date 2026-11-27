@@ -92,6 +92,40 @@ services:
       - "127.0.0.1:8025:8025"
       - "127.0.0.1:1025:1025"
 
+  rabbitmq:
+    image: rabbitmq:4-management
+    environment:
+      RABBITMQ_DEFAULT_USER: ${RABBITMQ_USER:-guest}
+      RABBITMQ_DEFAULT_PASS: ${RABBITMQ_PASSWORD:-guest}
+    ports:
+      - "127.0.0.1:5672:5672"
+      - "127.0.0.1:15672:15672"
+    volumes:
+      - rabbitmq_data:/var/lib/rabbitmq
+    healthcheck:
+      test: ["CMD", "rabbitmq-diagnostics", "-q", "ping"]
+      interval: 5s
+      timeout: 5s
+      retries: 20
+
+  notification-db:
+    image: mysql:8.4
+    environment:
+      MYSQL_DATABASE: hirelens_notification
+      MYSQL_USER: hirelens
+      MYSQL_PASSWORD: ${DB_PASSWORD:-hirelens-local}
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD:-root-local}
+    ports:
+      - "127.0.0.1:3310:3306"
+    volumes:
+      - notification_data:/var/lib/mysql
+    command: [--character-set-server=utf8mb4, --collation-server=utf8mb4_unicode_ci]
+    healthcheck:
+      test: ["CMD-SHELL", 'mysqladmin ping -h 127.0.0.1 -uroot -p"$$MYSQL_ROOT_PASSWORD" --silent']
+      interval: 5s
+      timeout: 5s
+      retries: 30
+
   identity-service:
     build:
       context: ./backend
@@ -173,6 +207,10 @@ services:
       CORS_ORIGINS: ${CORS_ORIGINS:-http://localhost:5173}
       REDIS_HOST: redis
       REDIS_PORT: 6379
+      RABBITMQ_HOST: ${RABBITMQ_HOST:-rabbitmq}
+      RABBITMQ_PORT: ${RABBITMQ_PORT:-5672}
+      RABBITMQ_USER: ${RABBITMQ_USER:-guest}
+      RABBITMQ_PASSWORD: ${RABBITMQ_PASSWORD:-guest}
     ports:
       - "127.0.0.1:8082:8082"
     depends_on:
@@ -233,7 +271,58 @@ services:
       retries: 30
       start_period: 30s
 
-  # API Gateway (Spring Cloud Gateway, backend/api-gateway): định tuyến /api tới 3 service theo URL cấu hình.
+  notification-service:
+    build:
+      context: ./backend
+      args:
+        SERVICE: notification-service
+    environment:
+      SERVER_PORT: 8084
+      DB_URL: jdbc:mysql://notification-db:3306/hirelens_notification?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=Asia/Ho_Chi_Minh&characterEncoding=UTF-8
+      DB_USERNAME: hirelens
+      DB_PASSWORD: ${DB_PASSWORD:-hirelens-local}
+      JWT_SECRET: ${JWT_SECRET:-HireLensDemoJwtSecretKeyMustBeAtLeast256BitsLongForHS256!!}
+      SERVICE_TOKEN: ${SERVICE_TOKEN:-hirelens-local-service-token-change-before-deploy}
+      IDENTITY_URL: http://identity-service:8081
+      RECRUITMENT_URL: http://recruitment-service:8082
+      INTERVIEW_URL: http://interview-service:8083
+      NOTIFICATION_URL: http://notification-service:8084
+      CORS_ORIGINS: ${CORS_ORIGINS:-http://localhost:5173}
+      REDIS_HOST: redis
+      REDIS_PORT: 6379
+      RABBITMQ_HOST: ${RABBITMQ_HOST:-rabbitmq}
+      RABBITMQ_PORT: ${RABBITMQ_PORT:-5672}
+      RABBITMQ_USER: ${RABBITMQ_USER:-guest}
+      RABBITMQ_PASSWORD: ${RABBITMQ_PASSWORD:-guest}
+      MAIL_HOST: ${MAIL_HOST:-mailpit}
+      MAIL_PORT: ${MAIL_PORT:-1025}
+      MAIL_USERNAME: ${MAIL_USERNAME:-}
+      MAIL_PASSWORD: ${MAIL_PASSWORD:-}
+      MAIL_SMTP_AUTH: ${MAIL_SMTP_AUTH:-false}
+      MAIL_STARTTLS: ${MAIL_STARTTLS:-false}
+      MAIL_FROM: ${MAIL_FROM:-HireLens <no-reply@hirelens.local>}
+      APP_FRONTEND_URL: ${APP_FRONTEND_URL:-http://localhost:5173}
+    ports:
+      - "127.0.0.1:8084:8084"
+    depends_on:
+      redis:
+        condition: service_healthy
+      notification-db:
+        condition: service_healthy
+      identity-service:
+        condition: service_healthy
+      rabbitmq:
+        condition: service_healthy
+    healthcheck:
+      test:
+        - CMD-SHELL
+        - 'bash -c "exec 3<>/dev/tcp/127.0.0.1/8084; printf ''GET /health HTTP/1.0\r\n\r\n'' >&3; head -1 <&3 | grep -q 200"'
+      interval: 10s
+      timeout: 5s
+      retries: 30
+      start_period: 30s
+
+  # API Gateway (Spring Cloud Gateway, backend/api-gateway): định tuyến /api tới các service theo URL cấu hình.
   api-gateway:
     build:
       context: ./backend
@@ -244,6 +333,7 @@ services:
       IDENTITY_URL: http://identity-service:8081
       RECRUITMENT_URL: http://recruitment-service:8082
       INTERVIEW_URL: http://interview-service:8083
+      NOTIFICATION_URL: http://notification-service:8084
     ports:
       - "8080:8080"
     depends_on:
@@ -252,6 +342,8 @@ services:
       recruitment-service:
         condition: service_healthy
       interview-service:
+        condition: service_healthy
+      notification-service:
         condition: service_healthy
     healthcheck:
       test:
@@ -360,6 +452,8 @@ services:
 
 volumes:
   hirelens_mysql_data:
+  rabbitmq_data:
+  notification_data:
   identity_data:
     driver: local
     driver_opts:

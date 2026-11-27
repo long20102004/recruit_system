@@ -3,6 +3,8 @@ package recruit.demo.service.impl;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.mockito.ArgumentCaptor;
+import org.springframework.beans.factory.ObjectProvider;
 import org.springframework.http.HttpStatus;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -12,9 +14,13 @@ import recruit.demo.dto.CompanyDtos.CompanyProfileUpdateRequest;
 import recruit.demo.entity.Company;
 import recruit.demo.entity.RecruiterProfile;
 import recruit.demo.enums.CompanyStatus;
+import recruit.demo.enums.NotificationType;
 import recruit.demo.enums.Role;
 import recruit.demo.enums.UserStatus;
 import recruit.demo.exception.ApiException;
+import recruit.demo.messaging.NotificationConstants;
+import recruit.demo.messaging.NotificationEvent;
+import recruit.demo.messaging.OutboxWriter;
 import recruit.demo.repository.CompanyFollowerRepository;
 import recruit.demo.repository.CompanyRepository;
 import recruit.demo.repository.JobRepository;
@@ -36,9 +42,11 @@ class CompanyServiceImplTest {
     private JobRepository jobRepo;
     private IdentityClient identityClient;
     private StorageService storage;
+    private OutboxWriter outbox;
     private CompanyServiceImpl service;
 
     @BeforeEach
+    @SuppressWarnings("unchecked")
     void setUp() {
         companyRepo = mock(CompanyRepository.class);
         followerRepo = mock(CompanyFollowerRepository.class);
@@ -46,7 +54,10 @@ class CompanyServiceImplTest {
         jobRepo = mock(JobRepository.class);
         identityClient = mock(IdentityClient.class);
         storage = mock(StorageService.class);
-        service = new CompanyServiceImpl(companyRepo, followerRepo, recruiterRepo, jobRepo, identityClient, storage);
+        outbox = mock(OutboxWriter.class);
+        ObjectProvider<OutboxWriter> outboxProvider = mock(ObjectProvider.class);
+        when(outboxProvider.getIfAvailable()).thenReturn(outbox);
+        service = new CompanyServiceImpl(companyRepo, followerRepo, recruiterRepo, jobRepo, identityClient, storage, outboxProvider);
         when(companyRepo.save(any(Company.class))).thenAnswer(i -> i.getArgument(0));
     }
 
@@ -183,5 +194,57 @@ class CompanyServiceImplTest {
 
         c.setLicenseFileUrl("/app/uploads/companies/10/x.pdf");
         assertEquals(HttpStatus.NOT_FOUND, assertThrows(ApiException.class, () -> service.licenseLink(10)).getStatus());
+    }
+
+    // ---- specs/009-notification-service ----
+
+    @Test
+    void approveAndRejectEmitOutboxEventsToDistinctCompanyRecruiters() {
+        loginAs(1, Role.ADMIN);
+        Company pending = Company.builder().id(10).name("Lumen").status(CompanyStatus.PENDING).build();
+        when(companyRepo.findById(10)).thenReturn(Optional.of(pending));
+        when(recruiterRepo.findByCompanyId(10)).thenReturn(List.of(
+                RecruiterProfile.builder().id(1).userId(20).company(pending).build(),
+                RecruiterProfile.builder().id(2).userId(21).company(pending).build(),
+                RecruiterProfile.builder().id(3).userId(20).company(pending).build()
+        ));
+
+        service.approve(10);
+        ArgumentCaptor<NotificationEvent> captor = ArgumentCaptor.forClass(NotificationEvent.class);
+        verify(outbox).add(eq(NotificationConstants.RK_COMPANY_REVIEWED), captor.capture());
+        NotificationEvent approved = captor.getValue();
+        assertEquals(NotificationType.COMPANY_STATUS, approved.getType());
+        assertEquals(List.of(20, 21), approved.getRecipientUserIds());
+        assertEquals("Công ty đã được duyệt", approved.getTitle());
+        assertEquals("Lumen", approved.getBody());
+        assertEquals("/recruiter/company", approved.getLink());
+        assertEquals(10, approved.getData().get("companyId"));
+        assertEquals("ACTIVE", approved.getData().get("status"));
+
+        reset(outbox);
+        pending.setStatus(CompanyStatus.PENDING);
+        service.reject(10, "  Sai MST  ");
+        verify(outbox).add(eq(NotificationConstants.RK_COMPANY_REVIEWED), captor.capture());
+        NotificationEvent rejected = captor.getValue();
+        assertEquals(NotificationType.COMPANY_STATUS, rejected.getType());
+        assertEquals(List.of(20, 21), rejected.getRecipientUserIds());
+        assertEquals("Hồ sơ công ty bị từ chối", rejected.getTitle());
+        assertEquals("Lumen · Sai MST", rejected.getBody());
+        assertEquals("/recruiter/company", rejected.getLink());
+        assertEquals("REJECTED", rejected.getData().get("status"));
+    }
+
+    @Test
+    void approveWithNoRecruitersOrErrorDoesNotEmitOutboxEvent() {
+        loginAs(1, Role.ADMIN);
+        Company pending = Company.builder().id(10).name("Lumen").status(CompanyStatus.PENDING).build();
+        when(companyRepo.findById(10)).thenReturn(Optional.of(pending));
+        when(recruiterRepo.findByCompanyId(10)).thenReturn(List.of());
+
+        service.approve(10);
+        verifyNoInteractions(outbox);
+
+        assertThrows(ApiException.class, () -> service.approve(10));
+        verifyNoInteractions(outbox);
     }
 }

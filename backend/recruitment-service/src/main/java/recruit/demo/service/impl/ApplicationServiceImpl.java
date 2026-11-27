@@ -4,6 +4,7 @@ import recruit.demo.dto.FileLinkDto;
 import recruit.demo.storage.ObjectKeys;
 import recruit.demo.storage.StorageService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.ObjectProvider;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
@@ -17,7 +18,10 @@ import recruit.demo.dto.ServiceDtos.UserSnapshot;
 import recruit.demo.entity.*;
 import recruit.demo.enums.ApplicationStatus;
 import recruit.demo.enums.JobStatus;
+import recruit.demo.enums.NotificationType;
 import recruit.demo.exception.ApiException;
+import recruit.demo.messaging.NotificationConstants;
+import recruit.demo.messaging.OutboxWriter;
 import recruit.demo.repository.*;
 import recruit.demo.security.SecurityUtils;
 import recruit.demo.security.UserPrincipal;
@@ -44,6 +48,7 @@ public class ApplicationServiceImpl implements ApplicationService {
     private final JobSkillRepository jobSkillRepository;
     private final ObjectMapper objectMapper;
     private final CvDocumentRepository cvDocumentRepository;
+    private final ObjectProvider<OutboxWriter> outboxWriter;
 
     @Override
     @Transactional
@@ -244,6 +249,20 @@ public class ApplicationServiceImpl implements ApplicationService {
                 .actorUserId(actor.getId())
                 .actorName(actorName)
                 .build());
+
+        if (next == ApplicationStatus.INTERVIEW || next == ApplicationStatus.REVIEWING
+                || next == ApplicationStatus.HIRED || next == ApplicationStatus.REJECTED) {
+            boolean interview = next == ApplicationStatus.INTERVIEW;
+            NotificationOutbox.publish(
+                    outboxWriter,
+                    NotificationConstants.RK_APPLICATION_STATUS_CHANGED,
+                    interview ? NotificationType.INTERVIEW_INVITE : NotificationType.APPLICATION_STATUS,
+                    List.of(app.getCandidate().getUserId()),
+                    interview ? "Lời mời phỏng vấn" : "Đơn ứng tuyển " + statusLabel(next),
+                    app.getJob().getTitle() + " · " + app.getJob().getCompany().getName(),
+                    "/candidate/applications",
+                    Map.of("applicationId", app.getId(), "status", next.name()));
+        }
     }
 
     private ApplicationResponse toResponse(JobApplication app) {

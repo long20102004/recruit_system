@@ -1,5 +1,7 @@
-import type { ReactNode } from "react";
+import { useEffect, useState, type ReactNode } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import { notificationsApi } from "../../api/client";
+import { useNotificationStream } from "../../hooks/useNotificationStream";
 import { Brand } from "./Brand";
 import { NavIcon } from "./NavIcon";
 import { useAuth } from "../../context/AuthContext";
@@ -8,7 +10,7 @@ import type { PermissionRequirement } from "../../utils/permissions";
 
 /** Khung trang nhà tuyển dụng (design canvas: SideNav + app-main). */
 export type RecruiterNavKey =
-  | "home" | "jobs" | "candidates" | "matching" | "interviews" | "users" | "roles"
+  | "home" | "jobs" | "candidates" | "matching" | "interviews" | "users" | "roles" | "notifications"
   // Màn dùng dữ liệu mẫu (src/api/mock), chờ nối API.
   | "interviewResults" | "cvSearch" | "company" | "team"
   | "adminHome" | "companies" | "adminJobs" | "templates" | "questions";
@@ -55,6 +57,31 @@ export function RecruiterLayout({ active, children }: { active: RecruiterNavKey;
   const { user, logout, can } = useAuth();
   const navigate = useNavigate();
   const admin = user?.role === "ADMIN";
+  const [unread, setUnread] = useState(0);
+  const streamEnabled = !!user;
+
+  useEffect(() => {
+    if (!streamEnabled) return;
+    let activeFetch = true;
+    notificationsApi
+      .unreadCount()
+      .then((r) => {
+        if (activeFetch) setUnread(r.count);
+      })
+      .catch(() => {
+        if (activeFetch) setUnread(0);
+      });
+    return () => {
+      activeFetch = false;
+    };
+  }, [streamEnabled]);
+
+  useNotificationStream({
+    enabled: streamEnabled,
+    onUnread: setUnread,
+  });
+
+  const displayUnread = streamEnabled ? unread : 0;
 
   return (
     <div className="app">
@@ -75,6 +102,41 @@ export function RecruiterLayout({ active, children }: { active: RecruiterNavKey;
               )
             )}
             <p className="sidenav-group"><span className="sn-label">Khác</span></p>
+            <Link
+              to="/notifications"
+              className={active === "notifications" ? "item on" : "item"}
+              title={displayUnread > 0 ? `Thông báo (${displayUnread} chưa đọc)` : "Thông báo"}
+              aria-label={displayUnread > 0 ? `Thông báo, ${displayUnread} chưa đọc` : "Thông báo"}
+              aria-current={active === "notifications" ? "page" : undefined}
+            >
+              <span style={{ position: "relative", display: "inline-flex", flex: "none" }}>
+                <NavIcon name="notifications" />
+                {displayUnread > 0 ? (
+                  <span
+                    aria-hidden="true"
+                    style={{
+                      position: "absolute",
+                      top: -5,
+                      right: -7,
+                      minWidth: 16,
+                      height: 16,
+                      padding: "0 4px",
+                      borderRadius: 8,
+                      background: "var(--brand)",
+                      color: "#fbf8f3",
+                      fontSize: 10.5,
+                      fontWeight: 700,
+                      display: "grid",
+                      placeItems: "center",
+                      lineHeight: 1,
+                    }}
+                  >
+                    {displayUnread > 99 ? "99+" : displayUnread}
+                  </span>
+                ) : null}
+              </span>
+              <span className="sn-label">Thông báo</span>
+            </Link>
             <Link to="/jobs" className="item" title="Việc làm công khai">
               <NavIcon name="publicJobs" />
               <span className="sn-label">Việc làm công khai</span>

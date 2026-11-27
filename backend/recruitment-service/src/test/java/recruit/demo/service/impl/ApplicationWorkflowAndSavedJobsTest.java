@@ -3,15 +3,21 @@ package recruit.demo.service.impl;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.mockito.ArgumentCaptor;
+import org.springframework.beans.factory.ObjectProvider;
 import org.springframework.http.HttpStatus;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.context.SecurityContextHolder;
 import recruit.demo.client.IdentityClient;
 import recruit.demo.entity.*;
 import recruit.demo.enums.ApplicationStatus;
+import recruit.demo.enums.NotificationType;
 import recruit.demo.enums.Role;
 import recruit.demo.enums.UserStatus;
 import recruit.demo.exception.ApiException;
+import recruit.demo.messaging.NotificationConstants;
+import recruit.demo.messaging.NotificationEvent;
+import recruit.demo.messaging.OutboxWriter;
 import recruit.demo.repository.*;
 import recruit.demo.security.UserPrincipal;
 import tools.jackson.databind.ObjectMapper;
@@ -37,11 +43,13 @@ class ApplicationWorkflowAndSavedJobsTest {
     private JobSkillRepository jobSkillRepo;
     private SavedJobRepository savedJobRepo;
     private CvDocumentRepository cvDocRepo;
+    private OutboxWriter outbox;
 
     private ApplicationServiceImpl appService;
     private SavedJobServiceImpl savedJobService;
 
     @BeforeEach
+    @SuppressWarnings("unchecked")
     void setUp() {
         identityClient = mock(IdentityClient.class);
         appRepo = mock(JobApplicationRepository.class);
@@ -54,9 +62,12 @@ class ApplicationWorkflowAndSavedJobsTest {
         jobSkillRepo = mock(JobSkillRepository.class);
         savedJobRepo = mock(SavedJobRepository.class);
         cvDocRepo = mock(CvDocumentRepository.class);
+        outbox = mock(OutboxWriter.class);
+        ObjectProvider<OutboxWriter> outboxProvider = mock(ObjectProvider.class);
+        when(outboxProvider.getIfAvailable()).thenReturn(outbox);
 
         appService = new ApplicationServiceImpl(identityClient, mock(recruit.demo.storage.StorageService.class), appRepo, jobRepo, candRepo, histRepo,
-                noteRepo, cvDataRepo, matchRepo, jobSkillRepo, new ObjectMapper(), cvDocRepo);
+                noteRepo, cvDataRepo, matchRepo, jobSkillRepo, new ObjectMapper(), cvDocRepo, outboxProvider);
         savedJobService = new SavedJobServiceImpl(savedJobRepo, jobRepo, candRepo, jobSkillRepo, matchRepo);
 
         when(appRepo.save(any(JobApplication.class))).thenAnswer(i -> i.getArgument(0));
@@ -189,5 +200,48 @@ class ApplicationWorkflowAndSavedJobsTest {
         assertEquals(5, dto.jobId());
         savedJobService.unsave(5);
         verify(savedJobRepo).delete(saved);
+    }
+
+    @Test
+    void transitionStatusEmitsInterviewInviteAndApplicationStatusEvents() {
+        loginAs(10, Role.RECRUITER);
+        Company co = Company.builder().id(1).name("Lumen").build();
+        Job job = Job.builder().id(5).company(co).createdById(10).title("Java").build();
+        CandidateProfile cand = CandidateProfile.builder().id(7).userId(70).build();
+        JobApplication app = JobApplication.builder().id(99).job(job).candidate(cand).status(ApplicationStatus.SUBMITTED).build();
+        when(appRepo.findById(99)).thenReturn(Optional.of(app));
+
+        appService.updateStatus(99, "INTERVIEW", "Meet team");
+        ArgumentCaptor<NotificationEvent> captor = ArgumentCaptor.forClass(NotificationEvent.class);
+        verify(outbox).add(eq(NotificationConstants.RK_APPLICATION_STATUS_CHANGED), captor.capture());
+        NotificationEvent interviewEvent = captor.getValue();
+        assertEquals(NotificationType.INTERVIEW_INVITE, interviewEvent.getType());
+        assertEquals(List.of(70), interviewEvent.getRecipientUserIds());
+        assertEquals("Lời mời phỏng vấn", interviewEvent.getTitle());
+        assertEquals("Java · Lumen", interviewEvent.getBody());
+        assertEquals("/candidate/applications", interviewEvent.getLink());
+        assertEquals(99, interviewEvent.getData().get("applicationId"));
+        assertEquals("INTERVIEW", interviewEvent.getData().get("status"));
+
+        reset(outbox);
+        appService.updateStatus(99, "HIRED", "Welcome");
+        verify(outbox).add(eq(NotificationConstants.RK_APPLICATION_STATUS_CHANGED), captor.capture());
+        NotificationEvent hiredEvent = captor.getValue();
+        assertEquals(NotificationType.APPLICATION_STATUS, hiredEvent.getType());
+        assertEquals("Đơn ứng tuyển Trúng tuyển", hiredEvent.getTitle());
+        assertEquals("HIRED", hiredEvent.getData().get("status"));
+    }
+
+    @Test
+    void invalidTransitionDoesNotEmitOutboxEvent() {
+        loginAs(10, Role.RECRUITER);
+        Company co = Company.builder().id(1).name("Lumen").build();
+        Job job = Job.builder().id(5).company(co).createdById(10).title("Java").build();
+        CandidateProfile cand = CandidateProfile.builder().id(7).userId(70).build();
+        JobApplication app = JobApplication.builder().id(99).job(job).candidate(cand).status(ApplicationStatus.HIRED).build();
+        when(appRepo.findById(99)).thenReturn(Optional.of(app));
+
+        assertThrows(ApiException.class, () -> appService.updateStatus(99, "REJECTED", ""));
+        verifyNoInteractions(outbox);
     }
 }

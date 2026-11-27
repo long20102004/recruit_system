@@ -3,6 +3,7 @@ package recruit.demo.service.impl;
 import recruit.demo.service.*;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.ObjectProvider;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -17,7 +18,10 @@ import recruit.demo.entity.CandidateProfile;
 import recruit.demo.entity.CvData;
 import recruit.demo.entity.CvDocument;
 import recruit.demo.enums.ApplicationStatus;
+import recruit.demo.enums.NotificationType;
 import recruit.demo.exception.ApiException;
+import recruit.demo.messaging.NotificationConstants;
+import recruit.demo.messaging.OutboxWriter;
 import recruit.demo.repository.CandidateProfileRepository;
 import recruit.demo.repository.CvDataRepository;
 import recruit.demo.repository.CvDocumentRepository;
@@ -56,6 +60,7 @@ public class CvServiceImpl implements CvService {
     private final tools.jackson.databind.ObjectMapper objectMapper;
     private final CvDocumentRepository cvDocumentRepository;
     private final JobApplicationRepository applicationRepository;
+    private final ObjectProvider<OutboxWriter> outboxWriter;
 
     @Transactional(readOnly = true)
     public CvFormResponse mine(Integer cvId) {
@@ -124,6 +129,15 @@ public class CvServiceImpl implements CvService {
                 if (settingService.cvFields().contains(entry.getKey())) replaceLines(doc, entry.getKey(), entry.getValue());
             }
             if (doc.isMain()) publishChanged(candidate);
+            NotificationOutbox.publish(
+                    outboxWriter,
+                    NotificationConstants.RK_CV_PROCESSED,
+                    NotificationType.CV_PROCESSED,
+                    List.of(candidate.getUserId()),
+                    "AI đã xử lý xong CV",
+                    original,
+                    "/candidate/cv?cvId=" + doc.getId(),
+                    java.util.Map.of("cvId", doc.getId()));
             return CvUploadResponse.builder()
                     .cvId(doc.getId())
                     .profile(objectMapper.treeToValue(extracted, recruit.demo.dto.CandidateProfileDto.class))

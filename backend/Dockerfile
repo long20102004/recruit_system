@@ -5,11 +5,13 @@ COPY common/pom.xml common/pom.xml
 COPY identity-service/pom.xml identity-service/pom.xml
 COPY recruitment-service/pom.xml recruitment-service/pom.xml
 COPY interview-service/pom.xml interview-service/pom.xml
+COPY notification-service/pom.xml notification-service/pom.xml
 COPY api-gateway/pom.xml api-gateway/pom.xml
 COPY common/src common/src
 COPY identity-service/src identity-service/src
 COPY recruitment-service/src recruitment-service/src
 COPY interview-service/src interview-service/src
+COPY notification-service/src notification-service/src
 COPY api-gateway/src api-gateway/src
 ARG SERVICE
 RUN mvn -B -pl ${SERVICE} -am package -DskipTests

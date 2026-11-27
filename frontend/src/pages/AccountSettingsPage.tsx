@@ -29,6 +29,8 @@ const NOTIF_LABEL: Record<NotificationType, string> = {
   JOB_ALERT: "Job alert",
   COMPANY_INVITE: "Lời mời tham gia công ty",
   CV_PROCESSED: "AI xử lý CV xong",
+  COMPANY_STATUS: "Trạng thái duyệt công ty",
+  JOB_MODERATION: "Tin tuyển dụng bị kiểm duyệt / khoá",
 };
 
 const SECTIONS = [

@@ -174,7 +174,26 @@ export type NotificationType =
   | "INTERVIEW_INVITE"
   | "JOB_ALERT"
   | "COMPANY_INVITE"
-  | "CV_PROCESSED";
+  | "CV_PROCESSED"
+  | "COMPANY_STATUS"
+  | "JOB_MODERATION";
+
+export type NotificationCategory = "application" | "interview" | "alert" | "company" | "cv";
+
+export interface NotificationDto {
+  id: number;
+  type: NotificationType;
+  category: NotificationCategory;
+  title: string;
+  body: string | null;
+  link: string | null;
+  read: boolean;
+  createdAt: string;
+}
+
+export interface UnreadCountDto {
+  count: number;
+}
 
 export interface ProfileDto {
   id: number;
@@ -219,6 +238,23 @@ export const accountApi = {
       method: "PUT",
       body: JSON.stringify({ items }),
     }),
+};
+
+/** Thông báo & SSE stream (specs/009-notification-service). */
+export const notificationsApi = {
+  list: (params?: { category?: NotificationCategory; unread?: boolean; page?: number; size?: number }) =>
+    apiData<PageDto<NotificationDto>>(
+      `/notifications${pageQuery(params, {
+        category: params?.category,
+        unread: params?.unread != null ? String(params.unread) : undefined,
+      })}`
+    ),
+  unreadCount: () => apiData<UnreadCountDto>("/notifications/unread-count"),
+  markRead: (id: number) =>
+    apiData<NotificationDto>(`/notifications/${id}/read`, { method: "POST" }),
+  markAllRead: () =>
+    apiData<UnreadCountDto>("/notifications/read-all", { method: "POST" }),
+  streamUrl: () => `${API_BASE}/notifications/stream`,
 };
 
 export const jobsApi = {

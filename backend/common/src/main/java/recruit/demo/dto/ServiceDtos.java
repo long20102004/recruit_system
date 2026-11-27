@@ -40,4 +40,15 @@ public final class ServiceDtos {
             String target,
             Integer actorUserId,
             String actorEmail) {}
+    /** Người nhận + cài đặt C14 cho một loại thông báo (identity -> notification-service). */
+    @lombok.Data
+    @lombok.NoArgsConstructor
+    @lombok.AllArgsConstructor
+    public static class NotificationContext {
+        private Integer userId;
+        private String email;
+        private String fullName;
+        private boolean inApp;
+        private boolean emailEnabled;
+    }
 }

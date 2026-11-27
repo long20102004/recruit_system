@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { notificationsMock } from "../../api/mock/candidateMock";
+import { notificationsApi } from "../../api/client";
+import { useNotificationStream } from "../../hooks/useNotificationStream";
 import type { HeaderMode, NavKey } from "../../types";
 import { Brand } from "./Brand";
 import { useAuth } from "../../context/AuthContext";
@@ -40,12 +41,30 @@ export function SiteHeader({ active, mode, userLocation }: SiteHeaderProps) {
   const candidate = mode !== "public";
   const links = candidate ? CANDIDATE_LINKS : PUBLIC_LINKS;
   const [unread, setUnread] = useState(0);
+  const streamEnabled = candidate && !!user;
 
   useEffect(() => {
-    if (!candidate || !user) return;
-    // Dữ liệu mẫu (C13) cho tới khi có API thông báo.
-    notificationsMock.unreadCount().then(setUnread).catch(() => setUnread(0));
-  }, [candidate, user]);
+    if (!streamEnabled) return;
+    let active = true;
+    notificationsApi
+      .unreadCount()
+      .then((r) => {
+        if (active) setUnread(r.count);
+      })
+      .catch(() => {
+        if (active) setUnread(0);
+      });
+    return () => {
+      active = false;
+    };
+  }, [streamEnabled]);
+
+  useNotificationStream({
+    enabled: streamEnabled,
+    onUnread: setUnread,
+  });
+
+  const displayUnread = streamEnabled ? unread : 0;
 
   function onLogout() {
     logout();
@@ -78,13 +97,13 @@ export function SiteHeader({ active, mode, userLocation }: SiteHeaderProps) {
           )
         ) : (
           <div className="row topnav-user">
-            <Link to="/notifications" className="icon-btn" aria-label={unread ? `Thông báo, ${unread} chưa đọc` : "Thông báo"}
+            <Link to="/notifications" className="icon-btn" aria-label={displayUnread ? `Thông báo, ${displayUnread} chưa đọc` : "Thông báo"}
               aria-current={active === "notifications" ? "page" : undefined} style={{ position: "relative", width: 40, height: 40 }}>
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true">
                 <path d="M6 8a6 6 0 1 1 12 0c0 7 3 9 3 9H3s3-2 3-9" />
                 <path d="M10.3 21a1.94 1.94 0 0 0 3.4 0" />
               </svg>
-              {unread ? <span className="count" style={{ position: "absolute", top: -6, right: -6 }}>{unread}</span> : null}
+              {displayUnread > 0 ? <span className="count" style={{ position: "absolute", top: -6, right: -6 }}>{displayUnread}</span> : null}
             </Link>
             <Link to="/candidate/profile" className="row"
               title={user?.fullName ? `${user.fullName} – Hồ sơ & mật khẩu` : "Hồ sơ & mật khẩu"}

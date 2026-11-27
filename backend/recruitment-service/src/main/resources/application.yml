@@ -33,7 +33,19 @@ spring:
     multipart:
       max-file-size: 10MB
       max-request-size: 12MB
+  rabbitmq:
+    host: ${RABBITMQ_HOST:localhost}
+    port: ${RABBITMQ_PORT:5672}
+    username: ${RABBITMQ_USER:guest}
+    password: ${RABBITMQ_PASSWORD:guest}
+    publisher-confirm-type: correlated
+    publisher-returns: true
+    template:
+      # Message không route được bị trả về (OutboxRelay coi là lỗi, gửi lại sau)
+      mandatory: true
 app:
+  outbox:
+    enabled: true
   identity:
     remote: true
   jwt:

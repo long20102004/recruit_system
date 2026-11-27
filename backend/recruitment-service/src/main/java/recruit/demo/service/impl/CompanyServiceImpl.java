@@ -4,6 +4,7 @@ import recruit.demo.dto.FileLinkDto;
 import recruit.demo.storage.ObjectKeys;
 import recruit.demo.storage.StorageService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.ObjectProvider;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -15,7 +16,10 @@ import recruit.demo.entity.CompanyFollower;
 import recruit.demo.entity.RecruiterProfile;
 import recruit.demo.enums.CompanyStatus;
 import recruit.demo.enums.JobStatus;
+import recruit.demo.enums.NotificationType;
 import recruit.demo.exception.ApiException;
+import recruit.demo.messaging.NotificationConstants;
+import recruit.demo.messaging.OutboxWriter;
 import recruit.demo.repository.CompanyFollowerRepository;
 import recruit.demo.repository.CompanyRepository;
 import recruit.demo.repository.JobRepository;
@@ -38,6 +42,7 @@ public class CompanyServiceImpl implements CompanyService {
     private final JobRepository jobRepository;
     private final IdentityClient identityClient;
     private final StorageService storageService;
+    private final ObjectProvider<OutboxWriter> outboxWriter;
 
     private static final java.util.Set<String> IMAGE_TYPES = java.util.Set.of("image/png", "image/jpeg", "image/webp");
     private static final long MAX_IMAGE_BYTES = 5L * 1024 * 1024;
@@ -281,6 +286,7 @@ public class CompanyServiceImpl implements CompanyService {
         c.setRejectReason(null);
         companyRepository.save(c);
         recordAdminAudit("APPROVE_COMPANY", "Duyệt công ty", "badge b-ok", c.getName());
+        notifyCompanyReviewed(c, "Công ty đã được duyệt", c.getName(), "ACTIVE");
         return toDto(c, null);
     }
 
@@ -299,7 +305,25 @@ public class CompanyServiceImpl implements CompanyService {
         c.setRejectReason(trimmed);
         companyRepository.save(c);
         recordAdminAudit("REJECT_COMPANY", "Từ chối công ty", "badge b-warn", c.getName());
+        notifyCompanyReviewed(c, "Hồ sơ công ty bị từ chối", c.getName() + " · " + trimmed, "REJECTED");
         return toDto(c, null);
+    }
+
+    private void notifyCompanyReviewed(Company c, String title, String body, String status) {
+        List<Integer> recipientIds = recruiterProfileRepository.findByCompanyId(c.getId()).stream()
+                .map(RecruiterProfile::getUserId)
+                .filter(Objects::nonNull)
+                .distinct()
+                .toList();
+        NotificationOutbox.publish(
+                outboxWriter,
+                NotificationConstants.RK_COMPANY_REVIEWED,
+                NotificationType.COMPANY_STATUS,
+                recipientIds,
+                title,
+                body,
+                "/recruiter/company",
+                Map.of("companyId", c.getId(), "status", status));
     }
 
     @Override
