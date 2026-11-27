@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useRef, useState } from "react";
-import { Link, useSearchParams } from "react-router-dom";
+import { Link, useNavigate, useSearchParams } from "react-router-dom";
 import { SiteHeader, UploadZone } from "../../components/common";
 import { cvsApi, type CandidateProfileDto, type CvFormDto } from "../../api/client";
 import { useToast } from "../../context/ToastContext";
@@ -45,6 +45,7 @@ function UploadIcon() {
 
 export function CandidateCvPage() {
   const { toast } = useToast();
+  const navigate = useNavigate();
   // ?cvId=X: sửa CV X; ?new=1: thêm CV mới; không có: CV chính (như trước khi có nhiều CV).
   const [params, setParams] = useSearchParams();
   const paramId = Number(params.get("cvId")) || null;
@@ -197,6 +198,7 @@ export function CandidateCvPage() {
       }, cvId);
       applyForm(form);
       toast("Đã lưu hồ sơ CV");
+      navigate("/candidate/cvs");
     } catch (e) {
       toast(e instanceof Error ? e.message : "Lưu thất bại");
     } finally {

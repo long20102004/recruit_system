@@ -183,12 +183,11 @@ export function RecruiterCompanyPage() {
                   : "var(--sky)",
                 borderBottom: "1px solid var(--line)",
                 display: "flex",
-                justifyContent: "space-between",
+                justifyContent: "flex-end",
                 alignItems: "flex-end",
                 padding: 12,
               }}
             >
-              <span className="tiny muted">Ảnh bìa: {form.coverFileName}</span>
               <label htmlFor="cp-cover" className="btn btn-g btn-sm" style={{ cursor: "pointer" }}>
                 Đổi ảnh bìa
               </label>
@@ -226,11 +225,16 @@ export function RecruiterCompanyPage() {
                 <p className="disp" style={{ fontSize: 24 }}>
                   {form.displayName}
                 </p>
-                <p className="small muted">
-                  Tạo bởi {company.createdBy}
-                  {company.approvedAt ? ` · Duyệt ngày ${company.approvedAt}` : ""}
-                  {form.logoFileName ? ` · Logo: ${form.logoFileName}` : ""}
-                </p>
+                {company.createdBy || company.approvedAt ? (
+                  <p className="small muted">
+                    {[
+                      company.createdBy ? `Tạo bởi ${company.createdBy}` : null,
+                      company.approvedAt ? `Duyệt ngày ${company.approvedAt}` : null,
+                    ]
+                      .filter(Boolean)
+                      .join(" · ")}
+                  </p>
+                ) : null}
               </div>
               <label htmlFor="cp-logo" className="btn btn-g btn-sm" style={{ cursor: "pointer" }}>
                 Đổi logo
