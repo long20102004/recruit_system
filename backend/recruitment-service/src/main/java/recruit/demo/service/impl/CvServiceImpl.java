@@ -76,7 +76,7 @@ public class CvServiceImpl implements CvService {
     @Transactional
     public recruit.demo.dto.CandidateProfileDto upload(MultipartFile file) {
         CandidateProfile candidate = requireCandidate();
-        return store(candidate, mainCv(candidate.getId()).orElse(null), file, null).profile();
+        return store(candidate, mainCv(candidate.getId()).orElse(null), file, null).getProfile();
     }
 
     @Transactional
@@ -128,8 +128,10 @@ public class CvServiceImpl implements CvService {
                 if (settingService.cvFields().contains(entry.getKey())) replaceLines(doc, entry.getKey(), entry.getValue());
             }
             if (doc.isMain()) publishChanged(candidate);
-            return new CvUploadResponse(doc.getId(),
-                    objectMapper.treeToValue(extracted, recruit.demo.dto.CandidateProfileDto.class));
+            return CvUploadResponse.builder()
+                    .cvId(doc.getId())
+                    .profile(objectMapper.treeToValue(extracted, recruit.demo.dto.CandidateProfileDto.class))
+                    .build();
         } catch (IOException ex) {
             throw new ApiException(HttpStatus.INTERNAL_SERVER_ERROR, "Failed to store file");
         }
@@ -318,16 +320,17 @@ public class CvServiceImpl implements CvService {
     private CvDocumentDto toDto(CvDocument doc, Set<Integer> activeCvIds) {
         String fileName = value(doc.getId(), FILE_NAME);
         String status = value(doc.getId(), PARSING_STATUS);
-        return new CvDocumentDto(
-                doc.getId(),
-                titleOf(doc, fileName),
-                fileName.isBlank() ? null : fileName,
-                doc.isMain(),
-                status.isBlank() ? null : status,
-                "COMPLETED".equals(status) && !fileName.isBlank(),
-                lines(doc.getId(), SKILLS),
-                doc.getUpdatedAt(),
-                activeCvIds.contains(doc.getId()));
+        return CvDocumentDto.builder()
+                .id(doc.getId())
+                .title(titleOf(doc, fileName))
+                .fileName(fileName.isBlank() ? null : fileName)
+                .main(doc.isMain())
+                .parsingStatus(status.isBlank() ? null : status)
+                .analyzed("COMPLETED".equals(status) && !fileName.isBlank())
+                .skills(lines(doc.getId(), SKILLS))
+                .updatedAt(doc.getUpdatedAt())
+                .inActiveApplication(activeCvIds.contains(doc.getId()))
+                .build();
     }
 
     /** Tên hiển thị: tên ứng viên đặt, không có thì tên file bỏ đuôi. */

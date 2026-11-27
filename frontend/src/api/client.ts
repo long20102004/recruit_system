@@ -289,18 +289,18 @@ export const cvsApi = {
       method: "PUT",
       body: JSON.stringify(body),
     }),
-  documents: () => api<CvDocumentDto[]>("/cvs/documents"),
+  documents: () => apiData<CvDocumentDto[]>("/cvs/documents"),
   /** Thêm CV mới; lỗi 400 khi đã đủ {@link MAX_CANDIDATE_CVS} CV. */
   uploadNew: (file: File) =>
     api<BaseResponse<CvUploadDto>>("/cvs/documents", { method: "POST", body: pdfForm(file) }),
   reupload: (cvId: number, file: File) =>
     api<BaseResponse<CvUploadDto>>(`/cvs/documents/${cvId}/file`, { method: "POST", body: pdfForm(file) }),
   rename: (cvId: number, title: string) =>
-    api<CvDocumentDto>(`/cvs/documents/${cvId}`, {
+    apiData<CvDocumentDto>(`/cvs/documents/${cvId}`, {
       method: "PATCH",
       body: JSON.stringify({ title }),
     }),
-  setMain: (cvId: number) => api<CvDocumentDto[]>(`/cvs/documents/${cvId}/main`, { method: "POST" }),
+  setMain: (cvId: number) => apiData<CvDocumentDto[]>(`/cvs/documents/${cvId}/main`, { method: "POST" }),
   remove: (cvId: number) => api<void>(`/cvs/documents/${cvId}`, { method: "DELETE" }),
   /** Tải file PDF gốc (kèm token) và lưu xuống máy. */
   download: async (cvId: number, fileName: string) => {

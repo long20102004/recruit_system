@@ -1,5 +1,10 @@
 package recruit.demo.dto;
 
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
 import java.time.LocalDateTime;
 import java.util.List;
 
@@ -9,23 +14,36 @@ public final class CvDocumentDtos {
     private CvDocumentDtos() {
     }
 
-    public record CvDocumentDto(
-            Integer id,
-            String title,
-            String fileName,
-            boolean main,
-            String parsingStatus,
-            boolean analyzed,
-            List<String> skills,
-            LocalDateTime updatedAt,
-            boolean inActiveApplication
-    ) {
+    @Data
+    @Builder
+    @NoArgsConstructor
+    @AllArgsConstructor
+    public static class CvDocumentDto {
+        private Integer id;
+        private String title;
+        private String fileName;
+        private boolean main;
+        private String parsingStatus;
+        private boolean analyzed;
+        private List<String> skills;
+        private LocalDateTime updatedAt;
+        private boolean inActiveApplication;
     }
 
     /** Kết quả tải CV: id của CV vừa ghi và profile AI trích xuất được. */
-    public record CvUploadResponse(Integer cvId, CandidateProfileDto profile) {
+    @Data
+    @Builder
+    @NoArgsConstructor
+    @AllArgsConstructor
+    public static class CvUploadResponse {
+        private Integer cvId;
+        private CandidateProfileDto profile;
     }
 
-    public record RenameCvRequest(String title) {
+    @Data
+    @NoArgsConstructor
+    @AllArgsConstructor
+    public static class RenameCvRequest {
+        private String title;
     }
 }

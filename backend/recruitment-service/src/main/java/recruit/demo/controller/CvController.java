@@ -46,8 +46,8 @@ public class CvController {
     }
 
     @GetMapping("/documents")
-    public List<CvDocumentDto> documents() {
-        return cvService.documents();
+    public BaseResponse<List<CvDocumentDto>> documents() {
+        return BaseResponse.success(cvService.documents());
     }
 
     /** Thêm một CV mới (tối đa 5). */
@@ -65,13 +65,13 @@ public class CvController {
     }
 
     @PatchMapping("/documents/{id}")
-    public CvDocumentDto rename(@PathVariable Integer id, @RequestBody RenameCvRequest request) {
-        return cvService.rename(id, request == null ? null : request.title());
+    public BaseResponse<CvDocumentDto> rename(@PathVariable Integer id, @RequestBody RenameCvRequest request) {
+        return BaseResponse.success(cvService.rename(id, request == null ? null : request.getTitle()));
     }
 
     @PostMapping("/documents/{id}/main")
-    public List<CvDocumentDto> setMain(@PathVariable Integer id) {
-        return cvService.setMain(id);
+    public BaseResponse<List<CvDocumentDto>> setMain(@PathVariable Integer id) {
+        return BaseResponse.success(cvService.setMain(id));
     }
 
     @DeleteMapping("/documents/{id}")
