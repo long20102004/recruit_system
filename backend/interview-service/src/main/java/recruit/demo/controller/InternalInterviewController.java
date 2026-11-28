@@ -18,6 +18,15 @@ public class InternalInterviewController {
     private final InterviewQuestionRepository questions;
     private final InterviewSessionRepository sessions;
     private final EvaluationResultRepository evaluations;
+    private final recruit.demo.service.InterviewService interviews;
+
+    @GetMapping("/internal/interviews/latest-result")
+    public recruit.demo.dto.ServiceDtos.InterviewResult latestResult(
+            @RequestParam Integer applicationId,
+            @RequestParam Integer jobId,
+            @RequestParam Integer candidateUserId) {
+        return interviews.latestResult(applicationId, jobId, candidateUserId);
+    }
 
     @GetMapping("/internal/interviews/question-count")
     public QuestionCount count() {

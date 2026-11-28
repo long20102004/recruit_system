@@ -239,6 +239,7 @@ services:
         SERVICE: interview-service
     environment:
       SERVER_PORT: 8083
+      DEEPGRAM_API_KEY: ${DEEPGRAM_API_KEY:-}
       DB_URL: jdbc:mysql://interview-db:3306/hirelens_interview?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=Asia/Ho_Chi_Minh&characterEncoding=UTF-8
       DB_USERNAME: hirelens
       DB_PASSWORD: ${DB_PASSWORD:-hirelens-local}

@@ -65,6 +65,19 @@ public class Job {
     @Builder.Default
     private JobStatus status = JobStatus.DRAFT;
 
+    @Column(name = "locked_at")
+    private LocalDateTime lockedAt;
+
+    @Column(name = "lock_reason")
+    private String lockReason;
+
+    @Column(name = "lock_note", length = 1000)
+    private String lockNote;
+
+    public boolean isOpenForApplications() {
+        return lockedAt == null && status == JobStatus.PUBLISHED && (deadline == null || deadline.isAfter(LocalDateTime.now()));
+    }
+
     @Column(name = "posted_at")
     private LocalDateTime postedAt;
 
@@ -85,15 +98,6 @@ public class Job {
     @Column(name = "default_interview_questions")
     @Builder.Default
     private Integer defaultInterviewQuestions = 5;
-
-    @Column(name = "lock_reason")
-    private String lockReason;
-
-    @Column(name = "lock_note", columnDefinition = "TEXT")
-    private String lockNote;
-
-    @Column(name = "locked_at")
-    private LocalDateTime lockedAt;
 
     @Column(name = "locked_by")
     private Integer lockedBy;

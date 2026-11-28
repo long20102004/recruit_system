@@ -10,6 +10,7 @@ import {
 } from "../../components/common";
 import { useAuth } from "../../context/AuthContext";
 import {
+  accountApi,
   MAX_PAGE_SIZE,
   cvsApi,
   jobsApi,
@@ -22,6 +23,8 @@ import { mapJob, mapMatch } from "../../utils/mappers";
 
 export function CandidateMatchingPage() {
   const { toast } = useToast();
+  const [alertCutoff] = useState(() => Date.now() - 7 * 86_400_000);
+  const [alertsEnabled, setAlertsEnabled] = useState(false);
   const [matches, setMatches] = useState<MatchDto[]>([]);
   const [jobs, setJobs] = useState<JobDto[]>([]);
   const [ready, setReady] = useState(false);
@@ -31,7 +34,7 @@ export function CandidateMatchingPage() {
   const { can } = useAuth();
   const [scoreError, setScoreError] = useState<string | null>(null);
 
-  const load = useCallback(async () => {
+  const load = useCallback(async (refresh = false) => {
     const form = await cvsApi.mine();
     const analyzed = form.analyzed;
     setReady(analyzed);
@@ -50,6 +53,10 @@ export function CandidateMatchingPage() {
       stored = [];
     }
     setMatches(stored);
+    if (!refresh) {
+      setScoreError(null);
+      return stored.length ? "stored" as const : "listed" as const;
+    }
     try {
       setMatches(await matchingApi.refreshMine());
       setScoreError(null);
@@ -68,10 +75,18 @@ export function CandidateMatchingPage() {
       .finally(() => setLoading(false));
   }, [load, toast]);
 
+  useEffect(() => {
+    let active = true;
+    accountApi.notifications().then(({ items }) => {
+      if (active) setAlertsEnabled(items.find((item) => item.type === "JOB_ALERT")?.inApp ?? true);
+    }).catch(() => { if (active) setAlertsEnabled(false); });
+    return () => { active = false; };
+  }, []);
+
   async function rematch() {
     setBusy(true);
     try {
-      const result = await load();
+      const result = await load(true);
       if (result === "scored") toast("Đã cập nhật việc phù hợp theo CV");
       else if (result === "stored") toast("Giữ điểm đã lưu. Service chấm điểm đang không chạy.");
       else toast("Đã hiện tin tuyển dụng. Service chấm điểm đang không chạy.");
@@ -85,6 +100,14 @@ export function CandidateMatchingPage() {
   const ranked = [...matches].sort(
     (a, b) => Number(b.overallScore) - Number(a.overallScore)
   );
+
+  const jobsById = new Map(jobs.map((job) => [job.id, job]));
+  const alerts = alertsEnabled ? ranked.flatMap((match) => {
+    const job = jobsById.get(match.jobId);
+    const published = job?.postedAt ? Date.parse(job.postedAt) : 0;
+    return job && Number(match.overallScore) >= 0.8 && published >= alertCutoff
+      ? [{ job, score: Number(match.overallScore) }] : [];
+  }).slice(0, 5) : [];
 
   const [band, setBand] = useState<"all" | "high" | "mid">("all");
   const high = ranked.filter((r) => Number(r.overallScore) >= 0.8).length;
@@ -122,6 +145,15 @@ export function CandidateMatchingPage() {
             <div><p className="disp" style={{ fontSize: 28, color: "var(--brand)" }}>{high}</p><p className="tiny" style={{ color: "var(--brand-deep)" }}>tin trên 80%</p></div>
           </div>
         </section>
+
+        {alerts.length > 0 && (
+          <section className="card stack">
+            <h2 style={{ fontSize: 18 }}>Việc mới phù hợp trong 7 ngày qua</h2>
+            {alerts.map(({ job, score }) => (
+              <Link key={job.id} to={`/candidate/jobs/${job.id}`}>{job.title} · {Math.round(score * 100)}%</Link>
+            ))}
+          </section>
+        )}
 
         {ready && ranked.length > 0 ? (
           <div className="row" style={{ gap: 8 }}>

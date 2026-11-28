@@ -44,6 +44,24 @@ public class JobApplication {
     @Column(name = "applied_at", nullable = false, updatable = false)
     private LocalDateTime appliedAt;
 
+    @Column(name = "interview_score")
+    private java.math.BigDecimal interviewScore;
+
+    @Column(name = "interview_completed_at")
+    private LocalDateTime interviewCompletedAt;
+
+    @Column(name = "interview_session_id")
+    private Integer interviewSessionId;
+
+    @Column(name = "submitted_cv", columnDefinition = "LONGTEXT")
+    private String submittedCv;
+
+    @Column(name = "review_rating")
+    private Integer reviewRating;
+
+    @Column(name = "review_note", columnDefinition = "TEXT")
+    private String reviewNote;
+
     @UpdateTimestamp
     @Column(name = "updated_at", nullable = false)
     private LocalDateTime updatedAt;

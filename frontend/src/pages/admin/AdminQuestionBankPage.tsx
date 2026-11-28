@@ -1,15 +1,15 @@
 import { useEffect, useMemo, useState, type FormEvent } from "react";
-import { EmptyNote, MockNote, RecruiterLayout } from "../../components/common";
+import { EmptyNote, RecruiterLayout } from "../../components/common";
 import { useToast } from "../../context/ToastContext";
 import {
   QUESTION_LEVELS,
   QUESTION_TYPES,
-  questionBankMock,
+  questionBankApi,
   type BankQuestion,
   type BankQuestionInput,
   type QuestionType,
   type RubricCriterion,
-} from "../../api/mock/questionBankMock";
+} from "../../api/questionBank";
 
 /** Màn AD05 · Ngân hàng câu hỏi cho admin (design canvas QuestionBank.dc.html). */
 
@@ -47,7 +47,7 @@ export function AdminQuestionBankPage() {
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
-    questionBankMock.list()
+    questionBankApi.list()
       .then((list) => {
         setItems(list);
         if (list[0]) { setEditingId(list[0].id); setDraft(toDraft(list[0])); }
@@ -93,12 +93,14 @@ export function AdminQuestionBankPage() {
     setError(null);
     try {
       if (editingId == null) {
-        const created = await questionBankMock.create(draft);
+        const created = await questionBankApi.create(draft);
         setItems((xs) => [created, ...(xs ?? [])]);
         setEditingId(created.id);
         toast("Đã thêm câu hỏi, chờ chuyên gia duyệt");
       } else {
-        replace(await questionBankMock.update(editingId, draft));
+        const updated = await questionBankApi.update(editingId, draft);
+        setItems((rows) => (rows ?? []).map((row) => row.id === editingId ? updated : row));
+        select(updated);
         toast("Đã lưu câu hỏi. Câu hỏi đã sửa cần duyệt lại.");
       }
     } catch (err) {
@@ -108,9 +110,20 @@ export function AdminQuestionBankPage() {
     }
   }
 
+  async function archiveQuestion(question: BankQuestion) {
+    if (!window.confirm("Xóa câu hỏi khỏi ngân hàng? Các phiên đã tạo vẫn giữ câu hỏi này.")) return;
+    try {
+      await questionBankApi.archive(question.id);
+      setItems((rows) => (rows ?? []).filter((row) => row.id !== question.id));
+      if (editingId === question.id) startNew();
+    } catch (err) {
+      toast(err instanceof Error ? err.message : "Không xóa được câu hỏi");
+    }
+  }
+
   async function toggleEnabled(x: BankQuestion) {
     try {
-      replace(await questionBankMock.setEnabled(x.id, !x.enabled));
+      replace(await questionBankApi.setEnabled(x.id, !x.enabled));
       toast(x.enabled ? "Đã tắt câu hỏi" : "Đã bật câu hỏi");
     } catch (err) {
       toast(err instanceof Error ? err.message : "Không cập nhật được");
@@ -119,7 +132,7 @@ export function AdminQuestionBankPage() {
 
   async function toggleApproved(x: BankQuestion) {
     try {
-      replace(await questionBankMock.setApproved(x.id, !x.approved));
+      replace(await questionBankApi.setApproved(x.id, !x.approved));
       toast(x.approved ? "Đã chuyển về Cần duyệt" : "Đã đánh dấu đã duyệt");
     } catch (err) {
       toast(err instanceof Error ? err.message : "Không cập nhật được");
@@ -137,7 +150,6 @@ export function AdminQuestionBankPage() {
         </div>
         <button type="button" className="btn btn-p" onClick={startNew}>+ Thêm câu hỏi</button>
       </div>
-      <MockNote>Danh sách câu hỏi lấy từ API; thêm, sửa, duyệt, bật/tắt và rubric chi tiết chưa có API nên chỉ lưu tạm.</MockNote>
 
       <div className="row">
         <input className="input" type="search" placeholder="Tìm nội dung câu hỏi" aria-label="Tìm câu hỏi"
@@ -274,9 +286,12 @@ export function AdminQuestionBankPage() {
               ) : <span />}
               <div className="row" style={{ gap: 8 }}>
                 {editing ? (
+                  <>
                   <button type="button" className="btn btn-g" onClick={() => toggleApproved(editing)}>
                     {editing.approved ? "Bỏ duyệt" : "Đánh dấu đã duyệt"}
                   </button>
+                  <button type="button" className="btn btn-g" onClick={() => void archiveQuestion(editing)}>Xóa</button>
+                  </>
                 ) : null}
                 <button type="submit" className="btn btn-p" disabled={busy}>{busy ? "Đang lưu…" : "Lưu"}</button>
               </div>

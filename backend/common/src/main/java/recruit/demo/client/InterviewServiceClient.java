@@ -11,6 +11,12 @@ import recruit.demo.dto.ServiceDtos.RecruiterInterviewStats;
 @FeignClient(name = "interview-service", contextId = "interviewServiceClient", url = "${app.services.interview-url}")
 public interface InterviewServiceClient {
 
+    @GetMapping("/internal/interviews/latest-result")
+    recruit.demo.dto.ServiceDtos.InterviewResult latestResult(
+            @org.springframework.web.bind.annotation.RequestParam("applicationId") Integer applicationId,
+            @org.springframework.web.bind.annotation.RequestParam("jobId") Integer jobId,
+            @org.springframework.web.bind.annotation.RequestParam("candidateUserId") Integer candidateUserId);
+
     @GetMapping("/internal/interviews/question-count")
     QuestionCount questionCount();
 

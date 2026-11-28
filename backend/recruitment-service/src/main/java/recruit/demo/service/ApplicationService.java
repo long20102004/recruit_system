@@ -12,6 +12,15 @@ public interface ApplicationService {
     PageResponse<ApplicationResponse> myApplications(Pageable pageable);
     PageResponse<ApplicationResponse> recruiterApplications(Pageable pageable);
     PageResponse<ApplicationResponse> recruiterApplications(String status, Integer jobId, Integer minMatchScore, Pageable pageable);
+    PageResponse<ApplicationResponse> recruiterApplications(String status, Integer jobId, Integer minMatchScore, Pageable pageable,
+                                                            boolean rank, boolean resultsOnly);
+
+    ApplicationResponse recruiterApplication(Integer id);
+    recruit.demo.dto.ServiceDtos.InterviewResult latestInterview(Integer id);
+    ApplicationMatch applicationMatch(Integer id);
+    ApplicationResponse updateRecruiterStatus(Integer id, recruit.demo.enums.ApplicationStatus status);
+    ReviewDetails review(Integer id);
+    void updateReview(Integer id, ReviewRequest request);
 
     ApplicationDetailResponse getDetail(Integer id);
     ApplicationDetailResponse updateStatus(Integer id, String statusRaw, String note);

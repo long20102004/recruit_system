@@ -6,12 +6,18 @@ import recruit.demo.dto.PageResponse;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
+import java.util.List;
 import java.util.Map;
 
 public interface JobService {
     PageResponse<JobDtos.JobResponse> list(String keyword, String city, String status, Pageable pageable);
     PageResponse<JobDtos.JobResponse> list(String keyword, String city, String status, BigDecimal minSalary, Pageable pageable);
+    PageResponse<JobDtos.JobResponse> companyJobs(int companyId, Pageable pageable);
+    List<JobDtos.JobResponse> similar(Integer id);
     JobDtos.JobResponse getById(Integer id);
+    JobDtos.JobResponse getOwn(Integer id);
+    PageResponse<JobDtos.ModeratedJob> moderationJobs(Pageable pageable);
+    JobDtos.ModeratedJob moderate(Integer id, JobDtos.LockRequest lock);
     JobDtos.JobResponse create(JobDtos.CreateJobRequest request);
     JobDtos.JobResponse update(Integer id, JobDtos.UpdateJobRequest request);
     void delete(Integer id);

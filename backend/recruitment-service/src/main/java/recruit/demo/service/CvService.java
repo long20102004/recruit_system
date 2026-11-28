@@ -23,6 +23,9 @@ public interface CvService {
 
     CvFormResponse mine(Integer cvId);
 
+    /** API cũ: xoá CV chính rồi trả form của CV chính mới (hoặc form trống). */
+    CvFormResponse remove();
+
     /** API cũ: ghi vào CV chính, chưa có CV thì tạo CV đầu tiên. */
     CandidateProfileDto upload(MultipartFile file);
 

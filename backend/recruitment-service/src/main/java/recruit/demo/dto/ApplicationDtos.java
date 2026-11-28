@@ -28,8 +28,20 @@ public final class ApplicationDtos {
             ApplicationStatus status,
             String coverLetter,
             LocalDateTime appliedAt,
-            Integer matchScore
+            Integer matchScore,
+            java.math.BigDecimal interviewScore,
+            java.math.BigDecimal rankingScore,
+            boolean interviewInvited
     ) {
+        public ApplicationResponse(
+                Integer id, Integer jobId, String jobTitle, String companyName,
+                Integer candidateId, String candidateName, Integer cvDocumentId,
+                ApplicationStatus status, String coverLetter, LocalDateTime appliedAt,
+                Integer matchScore) {
+            this(id, jobId, jobTitle, companyName, candidateId, candidateName,
+                    cvDocumentId, status, coverLetter, appliedAt, matchScore, null, null, false);
+        }
+
         public ApplicationResponse(
                 Integer id, Integer jobId, String jobTitle, String companyName,
                 Integer candidateId, String candidateName, Integer cvDocumentId,
@@ -110,6 +122,29 @@ public final class ApplicationDtos {
             ApplicationCvDto cv,
             ApplicationMatchDto match,
             List<ApplicationHistoryDto> history
+    ) {
+    }
+
+    public record UpdateStatusRequest(@jakarta.validation.constraints.NotNull ApplicationStatus status) {
+    }
+
+    public record StatusEntry(ApplicationStatus status, LocalDateTime changedAt) {
+    }
+
+    public record ReviewDetails(recruit.demo.dto.CvFormResponse cv, Integer rating, String note, List<StatusEntry> history) {
+    }
+
+    public record ReviewRequest(
+            @Min(1) @Max(5) Integer rating,
+            @jakarta.validation.constraints.Size(max = 4000) String note
+    ) {
+    }
+
+    public record ApplicationMatch(
+            java.math.BigDecimal score,
+            List<String> matchedSkills,
+            List<String> missingSkills,
+            String explanation
     ) {
     }
 }

@@ -1,5 +1,7 @@
 package recruit.demo.exception;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.http.converter.HttpMessageNotReadableException;
@@ -16,6 +18,7 @@ import java.util.stream.Collectors;
 
 @RestControllerAdvice
 public class GlobalExceptionHandler {
+    private static final Logger log = LoggerFactory.getLogger(GlobalExceptionHandler.class);
 
     @ExceptionHandler(ApiException.class)
     public ResponseEntity<ErrorResponse> handleApi(ApiException ex) {
@@ -45,12 +48,12 @@ public class GlobalExceptionHandler {
 
     @ExceptionHandler(BadCredentialsException.class)
     public ResponseEntity<ErrorResponse> handleBadCredentials(BadCredentialsException ex) {
-        return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(new ErrorResponse("Invalid email or password"));
+        return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(new ErrorResponse("Email hoặc mật khẩu không đúng."));
     }
 
     @ExceptionHandler(AccessDeniedException.class)
     public ResponseEntity<ErrorResponse> handleAccessDenied(AccessDeniedException ex) {
-        return ResponseEntity.status(HttpStatus.FORBIDDEN).body(new ErrorResponse("Access denied"));
+        return ResponseEntity.status(HttpStatus.FORBIDDEN).body(new ErrorResponse("Bạn không có quyền thực hiện thao tác này."));
     }
 
     @ExceptionHandler(MethodArgumentNotValidException.class)
@@ -59,7 +62,7 @@ public class GlobalExceptionHandler {
                 .map(FieldError::getDefaultMessage)
                 .collect(Collectors.joining("; "));
         if (message.isBlank()) {
-            message = "Validation failed";
+            message = "Dữ liệu gửi lên không hợp lệ.";
         }
         return ResponseEntity.badRequest().body(new ErrorResponse(message));
     }
@@ -72,7 +75,8 @@ public class GlobalExceptionHandler {
 
     @ExceptionHandler(Exception.class)
     public ResponseEntity<ErrorResponse> handleGeneric(Exception ex) {
+        log.error("Unhandled API error", ex);
         return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
-                .body(new ErrorResponse(ex.getMessage() != null ? ex.getMessage() : "Unexpected error"));
+                .body(new ErrorResponse("Hệ thống gặp lỗi. Vui lòng thử lại sau."));
     }
 }

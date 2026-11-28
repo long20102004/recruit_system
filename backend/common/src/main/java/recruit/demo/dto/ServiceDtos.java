@@ -19,6 +19,12 @@ public final class ServiceDtos {
     public record InterviewContext(Integer candidateId, Integer userId, Integer jobId, String jobTitle, Integer applicationId,
         java.util.List<String> requiredSkills, java.util.List<String> candidateSkills,
         String seniority, Integer recruiterUserId) {}
+    public record InterviewResult(Integer sessionId, java.time.LocalDateTime completedAt,
+                                  int questionCount, java.math.BigDecimal averageScore,
+                                  java.util.Map<String, java.math.BigDecimal> topicScores) {}
+    public record CompletedInterview(Integer applicationId, Integer jobId, Integer candidateUserId,
+                                     Integer sessionId, java.time.LocalDateTime completedAt,
+                                     java.math.BigDecimal averageScore) {}
     public record QuestionCount(long count) {}
     public record RecruitmentAdminStats(
             long activeCompanies,

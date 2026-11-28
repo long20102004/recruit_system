@@ -10,6 +10,19 @@ import java.time.LocalDateTime;
 import java.util.List;
 
 public interface InterviewSessionRepository extends JpaRepository<InterviewSession, Integer> {
+    java.util.Optional<InterviewSession>
+    findFirstByApplicationIdAndJobIdAndCandidateUserIdAndStatusOrderByCompletedAtDescIdDesc(
+            Integer applicationId, Integer jobId, Integer candidateUserId, recruit.demo.enums.SessionStatus status);
+
+    List<InterviewSession> findTop50ByCompletionScoreIsNotNullAndResultExportedAtIsNullOrderByIdAsc();
+
+    @org.springframework.data.jpa.repository.Modifying
+    @org.springframework.transaction.annotation.Transactional
+    @org.springframework.data.jpa.repository.Query(
+            "update InterviewSession s set s.resultExportedAt = :exportedAt where s.id = :id")
+    void markResultExported(@org.springframework.data.repository.query.Param("id") Integer id,
+            @org.springframework.data.repository.query.Param("exportedAt") java.time.LocalDateTime exportedAt);
+
     List<InterviewSession> findByCandidateIdOrderByCreatedAtDesc(Integer candidateId);
     Page<InterviewSession> findByCandidateUserIdOrderByCreatedAtDesc(Integer userId, Pageable pageable);
     @org.springframework.data.jpa.repository.Lock(jakarta.persistence.LockModeType.PESSIMISTIC_WRITE)

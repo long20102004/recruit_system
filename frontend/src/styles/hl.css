@@ -254,3 +254,45 @@ button.tag{cursor:pointer;font-family:var(--font-body)}
 .hl .page-head h1{margin-bottom:0}
 .hl .page-head p{max-width:none;margin-top:6px}
 .hl .card>h2,.hl .card>h3:first-child{font-size:19px;margin-bottom:12px}
+
+.topnav-candidate {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  gap: 18px;
+}
+.topnav-candidate .topnav-links { flex-wrap: nowrap; overflow-x: auto; }
+.topnav-candidate .topnav-links a { padding-inline: 8px; white-space: nowrap; }
+.topnav-candidate > .tag { grid-column: 2; grid-row: 2; justify-self: start; }
+.topnav-account { grid-column: 3; grid-row: 1; display: flex; align-items: center; justify-self: end; gap: 8px; }
+.topnav-profile { display: flex; align-items: center; gap: 8px; }
+.topnav-profile .avatar { flex: none; }
+.topnav-user-name { max-width: 145px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-size: 14px; font-weight: 600; }
+.topnav-account .btn { white-space: nowrap; }
+
+.candidate-overview { padding-block: 28px 64px; }
+.candidate-summary { display: flex; align-items: center; justify-content: space-between; gap: 16px; }
+.candidate-summary h1 { font-size: clamp(28px, 4vw, 36px); margin-bottom: 4px; }
+.candidate-summary .btn { flex: none; }
+.candidate-shortcuts { display: flex; flex-wrap: wrap; gap: 8px 22px; padding-block: 14px; border-bottom: 1px solid var(--line); }
+.candidate-shortcuts a { font-size: 14px; color: var(--ink-soft); }
+.candidate-shortcuts strong { margin-inline-start: 4px; color: var(--brand); }
+.candidate-job-list { display: grid; gap: 12px; margin-top: 20px; }
+.candidate-jobs-heading { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 6px 16px; }
+.candidate-job-tabs { border-bottom: 0; }
+.candidate-job-list .jobcard-title a:hover,
+.candidate-shortcuts a:hover { color: var(--brand); text-decoration: underline; }
+
+@media (max-width: 1080px) {
+  .topnav-candidate { grid-template-columns: minmax(0, 1fr) auto; gap: 0 12px; padding-top: 8px; }
+  .topnav-account { grid-column: 2; }
+  .topnav-candidate .topnav-links { grid-column: 1 / -1; }
+  .topnav-candidate > .tag { grid-column: 1; grid-row: 3; }
+}
+@media (max-width: 560px) {
+  .topnav-user-name { display: none; }
+  .topnav-account { gap: 5px; }
+  .topnav-candidate .brand-hl { font-size: 20px; }
+  .candidate-overview { padding-top: 20px; }
+}
+.candidate-job-list .jobcard { cursor: default; }
+.candidate-job-search .seg:focus-within { outline: 2px solid var(--brand); outline-offset: -2px; }

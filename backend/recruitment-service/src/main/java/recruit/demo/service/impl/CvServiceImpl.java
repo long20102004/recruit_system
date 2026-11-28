@@ -80,6 +80,17 @@ public class CvServiceImpl implements CvService {
         return toForm(doc);
     }
 
+    @Override
+    @Transactional
+    public CvFormResponse remove() {
+        CandidateProfile candidate = requireCandidate();
+        CvDocument main = mainCv(candidate.getId()).orElse(null);
+        if (main != null) {
+            delete(main.getId());
+        }
+        return mine(null);
+    }
+
     /**
      * API cũ một CV: ghi vào CV chính (chưa có thì tạo CV đầu tiên) và trả profile AI đọc được (cùng DTO với
      * /analyze-pdf). Form chỉnh sửa vẫn lấy qua {@link #mine(Integer)}.

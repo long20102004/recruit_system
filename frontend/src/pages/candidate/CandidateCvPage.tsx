@@ -189,6 +189,22 @@ export function CandidateCvPage() {
   const failed = parsingStatus === "FAILED" || uploadError != null;
   const isSaved = analyzed && !dirty;
 
+  async function removeCv() {
+    if (!window.confirm("Xóa CV đã tải và dữ liệu phân tích? Bạn cần tải lại PDF để dùng tính năng ghép việc.")) return;
+    setSaving(true);
+    try {
+      applyForm(await cvsApi.remove());
+      setPreview(null);
+      setFileSize(null);
+      setUploadError(null);
+      toast("Đã xóa CV.");
+    } catch (error) {
+      toast(error instanceof Error ? error.message : "Không xóa được CV");
+    } finally {
+      setSaving(false);
+    }
+  }
+
   async function onSave() {
     setSaving(true);
     try {
@@ -268,6 +284,10 @@ export function CandidateCvPage() {
                     </p>
                   ) : null}
                 </UploadZone>
+                {fileName && hasProfile && (
+                  <button type="button" className="btn btn-d btn-sm" disabled={saving || uploading}
+                    onClick={() => void removeCv()}>Xóa CV đã tải</button>
+                )}
 
                 <div className="cvu-card cvu-status" aria-live="polite">
                   {uploading ? (

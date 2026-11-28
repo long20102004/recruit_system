@@ -61,6 +61,63 @@ public class JobServiceImpl implements JobService {
 
     @Override
     @Transactional(readOnly = true)
+    public PageResponse<JobDtos.JobResponse> companyJobs(int companyId, Pageable pageable) {
+        return PageResponse.toPageResponse(
+                jobRepository.companyJobs(companyId, JobStatus.PUBLISHED, pageable), this::toResponse);
+    }
+
+    @Override
+    @Transactional(readOnly = true)
+    public List<JobDtos.JobResponse> similar(Integer id) {
+        if (jobRepository.findById(id).isEmpty()) {
+            throw new ApiException(HttpStatus.NOT_FOUND, "Không tìm thấy tin tuyển dụng.");
+        }
+        return jobRepository.findSimilarJobIds(id, JobStatus.PUBLISHED, org.springframework.data.domain.PageRequest.of(0, 4))
+                .stream()
+                .flatMap(jobId -> jobRepository.findById(jobId).stream())
+                .filter(Job::isOpenForApplications)
+                .map(this::toResponse)
+                .toList();
+    }
+
+    @Override
+    @Transactional(readOnly = true)
+    public JobDtos.JobResponse getOwn(Integer id) {
+        Job job = jobRepository.findById(id)
+                .orElseThrow(() -> new ApiException(HttpStatus.NOT_FOUND, "Không tìm thấy tin tuyển dụng."));
+        ensureOwnsJob(job);
+        return toResponse(job);
+    }
+
+    @Override
+    @Transactional(readOnly = true)
+    public PageResponse<JobDtos.ModeratedJob> moderationJobs(Pageable pageable) {
+        return PageResponse.toPageResponse(jobRepository.findAll(pageable), this::moderatedJob);
+    }
+
+    @Override
+    @Transactional
+    public JobDtos.ModeratedJob moderate(Integer id, JobDtos.LockRequest lock) {
+        Job job = jobRepository.findForUpdate(id)
+                .orElseThrow(() -> new ApiException(HttpStatus.NOT_FOUND, "Không tìm thấy tin tuyển dụng."));
+        job.setLockedAt(lock == null ? null : LocalDateTime.now());
+        job.setLockReason(lock == null ? null : lock.reason().trim());
+        job.setLockNote(lock == null ? null : blankToNull(lock.note()));
+        if (lock == null) {
+            job.setLockedBy(null);
+        } else {
+            job.setLockedBy(SecurityUtils.currentUser().getId());
+        }
+        events.publishEvent(new recruit.demo.service.cvmatch.CvMatchEvents.JobChanged(id));
+        return moderatedJob(job);
+    }
+
+    private JobDtos.ModeratedJob moderatedJob(Job job) {
+        return new JobDtos.ModeratedJob(toResponse(job), job.getLockedAt(), job.getLockReason(), job.getLockNote());
+    }
+
+    @Override
+    @Transactional(readOnly = true)
     public JobDtos.JobResponse getById(Integer id) {
         Job job = jobRepository.findById(id)
                 .orElseThrow(() -> new ApiException(HttpStatus.NOT_FOUND, "Job not found"));

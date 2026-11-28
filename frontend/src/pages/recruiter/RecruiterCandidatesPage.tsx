@@ -38,7 +38,7 @@ const STATUS_TABS: ReadonlyArray<{ key: StatusTab; label: string }> = [
   { key: "WITHDRAWN", label: "Đã rút" },
 ];
 
-type SortOption = "newest" | "oldest" | "name";
+type SortOption = "newest" | "oldest" | "name" | "ranking";
 
 export function RecruiterCandidatesPage() {
   const { toast } = useToast();
@@ -55,13 +55,13 @@ export function RecruiterCandidatesPage() {
 
   const load = useCallback(() => {
     applicationsApi
-      .recruiter({ page })
+      .recruiter({ page, rank: sortBy === "ranking" })
       .then((res) => {
         setData(res);
         setSelectedIds(new Set());
       })
       .catch((e) => toast(e.message));
-  }, [toast, page]);
+  }, [toast, page, sortBy]);
 
   useEffect(() => {
     load();
@@ -145,6 +145,7 @@ export function RecruiterCandidatesPage() {
       return true;
     });
 
+    if (sortBy === "ranking") return list;
     return [...list].sort((a, b) => {
       if (sortBy === "name") {
         return a.candidateName.localeCompare(b.candidateName, "vi");
@@ -202,12 +203,13 @@ export function RecruiterCandidatesPage() {
         <TextSelect
           aria-label="Sắp xếp"
           value={sortBy}
-          onChange={(e) => setSortBy(e.target.value as SortOption)}
+          onChange={(e) => { setSortBy(e.target.value as SortOption); setPage(0); }}
           style={{ width: "auto" }}
         >
           <option value="newest">Mới nộp nhất</option>
           <option value="oldest">Nộp sớm nhất</option>
           <option value="name">Tên ứng viên A–Z</option>
+          <option value="ranking">Điểm tổng hợp</option>
         </TextSelect>
         <Button
           variant="ghost"
@@ -267,6 +269,7 @@ export function RecruiterCandidatesPage() {
                 <th>Công ty</th>
                 <th>Trạng thái</th>
                 <th>Ngày nộp</th>
+                {sortBy === "ranking" && <th>Điểm tổng hợp</th>}
                 <th style={{ textAlign: "right" }}>Thao tác</th>
               </tr>
             </thead>
@@ -305,6 +308,9 @@ export function RecruiterCandidatesPage() {
                       <span className={b.cls}>{b.label}</span>
                     </td>
                     <td className="small muted">{shortDate(a.appliedAt)}</td>
+                    {sortBy === "ranking" && (
+                      <td>{a.rankingScore == null ? "—" : `${Math.round(a.rankingScore * 100)}%`}</td>
+                    )}
                     <td style={{ textAlign: "right" }}>
                       <Link
                         to={`/recruiter/candidates/${a.id}`}

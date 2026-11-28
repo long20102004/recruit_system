@@ -188,6 +188,14 @@ function AppRoutes() {
         }
       />
       <Route
+        path="/recruiter/jobs/:jobId/edit"
+        element={
+          <RequireAuth perm={"job:update"}>
+            <RecruiterJobEditorPage />
+          </RequireAuth>
+        }
+      />
+      <Route
         path="/recruiter/jobs"
         element={
           <RequireAuth perm={"job:read-own"}>
@@ -242,7 +250,7 @@ function AppRoutes() {
       <Route
         path="/notifications"
         element={
-          <RequireAuth>
+          <RequireAuth perm="application:read-own">
             <NotificationsPage />
           </RequireAuth>
         }

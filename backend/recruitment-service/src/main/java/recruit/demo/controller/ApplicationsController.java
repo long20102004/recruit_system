@@ -42,10 +42,51 @@ public class ApplicationsController {
             @RequestParam(required = false) String status,
             @RequestParam(required = false) Integer jobId,
             @RequestParam(required = false) Integer minMatchScore,
+            @RequestParam(defaultValue = "false") boolean rank,
+            @RequestParam(defaultValue = "false") boolean resultsOnly,
             @RequestParam(defaultValue = "0") int page,
             @RequestParam(defaultValue = "20") int size
     ) {
-        return BaseResponse.success(applicationService.recruiterApplications(status, jobId, minMatchScore, Paging.of(page, size)));
+        return BaseResponse.success(applicationService.recruiterApplications(
+                status, jobId, minMatchScore, Paging.of(page, size), rank, resultsOnly));
+    }
+
+    @GetMapping("/recruiter/{id}")
+    @PreAuthorize("hasAuthority('application:read-received')")
+    public ApplicationResponse recruiterApplication(@PathVariable Integer id) {
+        return applicationService.recruiterApplication(id);
+    }
+
+    @GetMapping("/recruiter/{id}/review")
+    @PreAuthorize("hasAuthority('application:read-received')")
+    public ReviewDetails review(@PathVariable Integer id) {
+        return applicationService.review(id);
+    }
+
+    @PutMapping("/recruiter/{id}/review")
+    @ResponseStatus(org.springframework.http.HttpStatus.NO_CONTENT)
+    @PreAuthorize("hasAuthority('application:read-received') and hasAuthority('job:update')")
+    public void updateReview(@PathVariable Integer id, @Valid @RequestBody ReviewRequest request) {
+        applicationService.updateReview(id, request);
+    }
+
+    @GetMapping("/recruiter/{id}/interview")
+    @PreAuthorize("hasAuthority('application:read-received') and hasAuthority('interview:read-result')")
+    public BaseResponse<recruit.demo.dto.ServiceDtos.InterviewResult> latestInterview(@PathVariable Integer id) {
+        return BaseResponse.success(applicationService.latestInterview(id));
+    }
+
+    @GetMapping("/recruiter/{id}/matching")
+    @PreAuthorize("hasAuthority('application:read-received')")
+    public BaseResponse<ApplicationMatch> applicationMatch(@PathVariable Integer id) {
+        return BaseResponse.success(applicationService.applicationMatch(id));
+    }
+
+    @PatchMapping("/recruiter/{id}/status")
+    @PreAuthorize("hasAuthority('application:read-received') and hasAuthority('job:update')")
+    public ApplicationResponse updateRecruiterStatus(@PathVariable Integer id,
+                                                      @Valid @RequestBody UpdateStatusRequest request) {
+        return applicationService.updateRecruiterStatus(id, request.status());
     }
 
     @GetMapping("/{id}")

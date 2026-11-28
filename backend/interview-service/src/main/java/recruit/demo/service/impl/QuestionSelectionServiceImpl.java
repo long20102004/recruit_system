@@ -19,7 +19,11 @@ public class QuestionSelectionServiceImpl implements QuestionSelectionService {
     }
     private int level(String value) {
         return switch(Objects.toString(value, "Junior").toLowerCase(Locale.ROOT)) {
-            case "intern", "fresher", "easy" -> 0; case "middle", "senior", "lead", "hard" -> 2; default -> 1; };
+            case "intern", "fresher", "easy" -> 0;
+            case "middle", "hard" -> 2;
+            case "senior", "lead" -> 3;
+            default -> 1;
+        };
     }
     private Set<String> skills(List<String> values) {
         Set<String> result = new HashSet<>(); if (values != null) values.forEach(v -> result.add(normalize(v))); return result;
@@ -30,7 +34,8 @@ public class QuestionSelectionServiceImpl implements QuestionSelectionService {
         required.addAll(skills(graph.mentioned(context.jobTitle())));
         int target = level(context.seniority());
         var eligible = pool.stream().filter(InterviewQuestion::isActive)
-            .filter(q -> "synthetic-ai-v2".equals(q.getSource())).filter(q -> level(q.getSeniority()) <= target + 1)
+            .filter(q -> Set.of("synthetic-ai-v2", "admin", "senior-bank").contains(Objects.toString(q.getSource(), "")))
+            .filter(q -> level(q.getSeniority()) <= target + 1)
             .sorted(Comparator.<InterviewQuestion>comparingInt(q -> {
                 String skill = normalize(q.getSkill());
                 int match = required.contains(skill) ? 40 : candidate.contains(skill) ? 20 : graphScore(required, candidate, skill);

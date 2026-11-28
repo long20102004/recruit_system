@@ -11,6 +11,7 @@ import {
   type TeamInvite,
   type TeamMember,
 } from "../../api/mock/recruiterMock";
+import { companyMembershipApi } from "../../api/client";
 import { useToast } from "../../context/ToastContext";
 import { initials } from "../../utils/format";
 
@@ -18,6 +19,8 @@ const EDITABLE_ROLES: readonly EditableCompanyRole[] = ["Manager", "Recruiter", 
 
 export function RecruiterTeamPage() {
   const { toast } = useToast();
+  const [companies, setCompanies] = useState<{ id: number; name: string }[]>([]);
+  const [leaving, setLeaving] = useState(false);
   const [members, setMembers] = useState<TeamMember[] | null>(null);
   const [invites, setInvites] = useState<TeamInvite[]>([]);
   const [inviteEmail, setInviteEmail] = useState("minh.tran@gmail.com");
@@ -26,6 +29,8 @@ export function RecruiterTeamPage() {
   const [busy, setBusy] = useState(false);
 
   useEffect(() => {
+    companyMembershipApi.mine().then(setCompanies)
+      .catch((e) => toast(e instanceof Error ? e.message : "Không tải được công ty của bạn"));
     getTeamData()
       .then((data) => {
         setMembers(data.members);
@@ -36,6 +41,20 @@ export function RecruiterTeamPage() {
         toast(e instanceof Error ? e.message : "Không tải được danh sách thành viên");
       });
   }, [toast]);
+
+  async function leaveCompany(company: { id: number; name: string }) {
+    if (!window.confirm(`Rời ${company.name}? Bạn sẽ mất quyền xem đơn và kết quả phỏng vấn của công ty này.`)) return;
+    setLeaving(true);
+    try {
+      await companyMembershipApi.leave(company.id);
+      setCompanies((items) => items.filter((item) => item.id !== company.id));
+      toast(`Đã rời ${company.name}.`);
+    } catch (error) {
+      toast(error instanceof Error ? error.message : "Không rời được công ty");
+    } finally {
+      setLeaving(false);
+    }
+  }
 
   async function handleRoleChange(memberId: number, role: EditableCompanyRole) {
     try {
@@ -97,7 +116,19 @@ export function RecruiterTeamPage() {
 
   return (
     <RecruiterLayout active="team">
-      <MockNote />
+      {companies.length > 0 && (
+        <section className="card stack" style={{ gap: 10 }}>
+          <h2 style={{ fontSize: 18 }}>Công ty của bạn</h2>
+          {companies.map((company) => (
+            <div key={company.id} className="between">
+              <strong>{company.name}</strong>
+              <button type="button" className="btn btn-d btn-sm" disabled={leaving}
+                onClick={() => void leaveCompany(company)}>Rời công ty</button>
+            </div>
+          ))}
+        </section>
+      )}
+      <MockNote>Thành viên và lời mời minh họa</MockNote>
 
       <div className="page-head" style={{ marginBottom: 0 }}>
         <div>

@@ -131,6 +131,25 @@ class CvMatchMatchingTest {
     }
 
     @Test
+    void applicationMatchKeepsStoredSkillsWhenExplanationHasExpired() {
+        var result = new MatchingResult();
+        result.setRunId("old-run");
+        result.setCvmatchCvId("cv-5");
+        result.setDirection(CvMatchMatching.TO_CV);
+        result.setOverallScore(new BigDecimal("0.83"));
+        result.setMatchedSkills(List.of("Java"));
+        result.setMissingSkills(List.of("Docker"));
+        api.reply(404, "{}");
+
+        var summary = matching.applicationMatch(result);
+
+        assertEquals(new BigDecimal("0.83"), summary.score());
+        assertEquals(List.of("Java"), summary.matchedSkills());
+        assertEquals(List.of("Docker"), summary.missingSkills());
+        assertNull(summary.explanation());
+    }
+
+    @Test
     void recruiterRefreshUsesApplicantsOnly() {
         when(applications.findByJobId(7)).thenReturn(List.of(JobApplication.builder().candidate(other).job(java).build()));
         api.reply(200, """

@@ -87,7 +87,10 @@ public class CvMatchSync {
                         MatchCvLink.builder().candidateId(candidateId).status(SyncStatus.PENDING).build());
                 return save(link, SyncStatus.FAILED, "doc CV: " + ex, true);
             }
-            if (src == null) return null;
+            if (src == null) {
+                deleteCandidate(candidateId);
+                return cvLinks.findById(candidateId).map(MatchCvLink::getStatus).orElse(null);
+            }
             MatchCvLink link = cvLinks.findById(candidateId)
                     .orElseGet(() -> MatchCvLink.builder().candidateId(candidateId).status(SyncStatus.PENDING).build());
             if (src.problem() != null) {
@@ -222,7 +225,9 @@ public class CvMatchSync {
                 job.getCompany().getDescription(), job.getWorkLocation(), job.getEmploymentType(),
                 job.getExperienceRequired(), job.getDescription(), job.getRequirements(), job.getResponsibilities(),
                 skills);
-        return new JdSource(payload, CvMatchPayloads.jdStatus(job.getStatus()));
+        String status = job.getStatus() == recruit.demo.enums.JobStatus.PUBLISHED && !job.isOpenForApplications()
+            ? "closed" : CvMatchPayloads.jdStatus(job.getStatus());
+        return new JdSource(payload, status);
     }
 
     // ------------------------------------------------------------------------------------------- thu lai, backfill
@@ -232,6 +237,10 @@ public class CvMatchSync {
         if (!enabled) return 0;
         int n = 0;
         LocalDateTime now = LocalDateTime.now();
+        for (MatchJdLink expired : jdLinks.expiredCatalog(SyncStatus.SYNCED,
+                org.springframework.data.domain.PageRequest.of(0, 10))) {
+            syncJob(expired.getJobId());
+        }
         for (MatchJdLink l : jdLinks.findByStatusIn(List.of(SyncStatus.PENDING, SyncStatus.FAILED))) {
             if (due(l.getAttempts(), l.getUpdatedAt(), now)) {
                 syncJob(l.getJobId());
