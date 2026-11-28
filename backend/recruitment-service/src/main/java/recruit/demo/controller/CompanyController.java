@@ -1,11 +1,16 @@
 package recruit.demo.controller;
 
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Pageable;
 import org.springframework.web.bind.annotation.*;
 import recruit.demo.dto.BaseResponse;
 import recruit.demo.dto.CompanyDtos.CompanyDto;
 import recruit.demo.dto.CompanyDtos.FollowResponse;
+import recruit.demo.dto.JobDtos;
+import recruit.demo.dto.PageResponse;
+import recruit.demo.dto.Paging;
 import recruit.demo.service.CompanyService;
+import recruit.demo.service.JobService;
 
 import java.util.List;
 
@@ -15,6 +20,7 @@ import java.util.List;
 public class CompanyController {
 
     private final CompanyService companyService;
+    private final JobService jobService;
 
     @GetMapping
     public BaseResponse<List<CompanyDto>> list(
@@ -29,6 +35,16 @@ public class CompanyController {
     @GetMapping("/{id}")
     public BaseResponse<CompanyDto> get(@PathVariable Integer id) {
         return BaseResponse.success(companyService.getPublic(id));
+    }
+
+    @GetMapping("/{id}/jobs")
+    public BaseResponse<PageResponse<JobDtos.JobResponse>> jobs(
+            @PathVariable Integer id,
+            @RequestParam(defaultValue = "0") int page,
+            @RequestParam(defaultValue = "20") int size
+    ) {
+        Pageable pageable = Paging.of(page, size);
+        return BaseResponse.success(jobService.companyJobs(id, pageable));
     }
 
     @PostMapping("/{id}/follow")

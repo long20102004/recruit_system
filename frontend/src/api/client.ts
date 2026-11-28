@@ -509,6 +509,15 @@ export const interviewsApi = {
       body: JSON.stringify(body ?? {}),
     }),
   getSession: (id: number) => api<SessionDto>(`/interviews/sessions/${id}`),
+  queueEvaluation: (sessionId: number, questionId: number, answerText: string) =>
+    api<QueuedEvaluationDto>(`/interviews/sessions/${sessionId}/responses/queued`, {
+      method: "POST",
+      body: JSON.stringify({ questionId, answerText }),
+    }),
+  evaluationStatus: (sessionId: number, questionId: number) =>
+    api<QueuedEvaluationDto>(`/interviews/sessions/${sessionId}/responses/${questionId}/status`),
+  speechToken: (signal?: AbortSignal) =>
+    api<{ accessToken: string }>("/interviews/speech/token", { method: "POST", signal }),
   submit: (sessionId: number, questionId: number, answerText: string) =>
     api<EvaluationDto>(`/interviews/sessions/${sessionId}/responses`, {
       method: "POST",
@@ -1012,6 +1021,11 @@ export interface SessionSummaryDto {
   sessionId: number; status: string; totalQuestions: number;
   answeredQuestions: number; averageScore: number | null; evaluations: EvaluationDto[];
 }
+export interface QueuedEvaluationDto {
+  status: string;
+  evaluation: EvaluationDto | null;
+}
+
 export interface EvaluationDto {
   responseId: number;
   questionId: number;
