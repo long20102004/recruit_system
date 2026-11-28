@@ -102,26 +102,110 @@ public class InterviewServiceImpl implements InterviewService {
         return toSessionResponse(session);
     }
 
+    @Override
     @Transactional
-    public InterviewDtos.EvaluationResponse submitAndEvaluate(Integer sessionId, InterviewDtos.SubmitResponseRequest request) {
-        InterviewSession session = sessionRepository.findForUpdate(sessionId)
+    public InterviewDtos.QueuedEvaluation queueEvaluation(Integer sessionId, InterviewDtos.SubmitResponseRequest request) {
+        var session = lockSession(sessionId);
+        requireSessionCandidate(session);
+        var question = requireQuestion(sessionId, request.questionId());
+        var response = responseRepository.findBySessionQuestionId(question.getId())
+            .orElseGet(() -> InterviewResponse.builder().sessionQuestion(question).build());
+        var previous = queueStatus(response, request.questionId());
+        if ("GRADED".equals(previous.status()) || "PENDING".equals(previous.status())) return previous;
+        requireOpenInvitation(session);
+        response.setAnswerText(request.answerText());
+        response.setStatus("PENDING");
+        responseRepository.save(response);
+        return new InterviewDtos.QueuedEvaluation("PENDING", null);
+    }
+
+    @Override
+    @Transactional(readOnly = true)
+    public InterviewDtos.QueuedEvaluation evaluationStatus(Integer sessionId, Integer questionId) {
+        var session = sessionRepository.findById(sessionId)
             .orElseThrow(() -> new ApiException(HttpStatus.NOT_FOUND, "Session not found"));
-        ensureCanAccess(session);
+        requireSessionCandidate(session);
+        var question = requireQuestion(sessionId, questionId);
+        return responseRepository.findBySessionQuestionId(question.getId())
+            .map(response -> queueStatus(response, questionId))
+            .orElse(new InterviewDtos.QueuedEvaluation("UNANSWERED", null));
+    }
+
+    @Override
+    @Transactional
+    public void evaluatePending(Integer sessionId, Integer responseId) {
+        var session = lockSession(sessionId);
+        var response = responseRepository.findById(responseId).orElse(null);
+        if (response == null || !"PENDING".equals(response.getStatus())
+                || !sessionId.equals(response.getSessionQuestion().getSession().getId())) return;
+        requireOpenInvitation(session);
+        gradeResponse(session, response, response.getSessionQuestion());
+    }
+
+    private InterviewDtos.QueuedEvaluation queueStatus(InterviewResponse response, Integer questionId) {
+        if (response.getId() != null) {
+            var graded = evaluationResultRepository.findByResponseId(response.getId());
+            if (graded.isPresent()) {
+                return new InterviewDtos.QueuedEvaluation("GRADED", toEvaluationResponse(graded.get(), questionId));
+            }
+        }
+        return new InterviewDtos.QueuedEvaluation(response.getStatus(), null);
+    }
+
+    private static void requireSessionCandidate(InterviewSession session) {
+        if (!session.getCandidateUserId().equals(SecurityUtils.currentUser().getId())) {
+            throw new ApiException(HttpStatus.FORBIDDEN, "Not your interview session");
+        }
+    }
+
+    private InterviewSession lockSession(Integer id) {
+        return sessionRepository.findForUpdate(id)
+            .orElseThrow(() -> new ApiException(HttpStatus.NOT_FOUND, "Session not found"));
+    }
+
+    private InterviewSessionQuestion requireQuestion(Integer sessionId, Integer questionId) {
+        return sessionQuestionRepository.findBySessionIdAndQuestionId(sessionId, questionId)
+            .orElseThrow(() -> new ApiException(HttpStatus.BAD_REQUEST, "Question not in session"));
+    }
+
+    private void requireOpenInvitation(InterviewSession session) {
         if (session.getStatus() == SessionStatus.COMPLETED)
             throw new ApiException(HttpStatus.CONFLICT, "Session completed; start another practice session");
-        InterviewSessionQuestion sessionQuestion = sessionQuestionRepository
-            .findBySessionIdAndQuestionId(sessionId, request.questionId())
-            .orElseThrow(() -> new ApiException(HttpStatus.BAD_REQUEST, "Question not in session"));
-        InterviewQuestion question = sessionQuestion.getQuestion();
+        if (session.getApplicationId() != null
+                && !recruitmentClient.interviewEligible(session.getCandidateUserId(), session.getApplicationId())) {
+            throw new ApiException(HttpStatus.CONFLICT, "Interview invitation is no longer active");
+        }
+    }
+
+    @Transactional
+    public InterviewDtos.EvaluationResponse submitAndEvaluate(Integer sessionId, InterviewDtos.SubmitResponseRequest request) {
+        var session = lockSession(sessionId);
+        requireSessionCandidate(session);
+        requireOpenInvitation(session);
+        var item = requireQuestion(sessionId, request.questionId());
+        var response = responseRepository.findBySessionQuestionId(item.getId())
+            .orElseGet(() -> InterviewResponse.builder().sessionQuestion(item).build());
+        if ("PENDING".equals(response.getStatus())) {
+            throw new ApiException(HttpStatus.CONFLICT, "This answer is already queued");
+        }
+        response.setAnswerText(request.answerText());
+        response.setStatus("SUBMITTED");
+        responseRepository.save(response);
+        return gradeResponse(session, response, item);
+    }
+
+    private InterviewDtos.EvaluationResponse gradeResponse(InterviewSession session, InterviewResponse response,
+                                                           InterviewSessionQuestion item) {
         if (session.getStartedAt() == null) session.setStartedAt(LocalDateTime.now());
         session.setStatus(SessionStatus.IN_PROGRESS);
-        InterviewResponse response = responseRepository.findBySessionQuestionId(sessionQuestion.getId())
-            .orElse(InterviewResponse.builder().sessionQuestion(sessionQuestion).build());
-        response.setAnswerText(request.answerText()); response.setStatus("SUBMITTED");
-        responseRepository.save(response);
-        EvaluationResult evaluation = evaluate(response, question, sessionQuestion);
-        if (evaluations(session).size() == sessionQuestionRepository.findBySessionIdOrdered(sessionId).size()) {
-            session.setStatus(SessionStatus.COMPLETED); session.setCompletedAt(LocalDateTime.now());
+        var question = item.getQuestion();
+        var evaluation = evaluate(response, question, item);
+        response.setStatus("GRADED");
+        var graded = evaluations(session);
+        if (graded.size() == sessionQuestionRepository.findBySessionIdOrdered(session.getId()).size()) {
+            session.setStatus(SessionStatus.COMPLETED);
+            session.setCompletedAt(LocalDateTime.now());
+            if (session.getApplicationId() != null) session.setCompletionScore(averageScore(graded));
         }
         sessionRepository.save(session);
         return toEvaluationResponse(evaluation, question.getId());
@@ -139,11 +223,49 @@ public class InterviewServiceImpl implements InterviewService {
         var session = sessionRepository.findById(id)
             .orElseThrow(() -> new ApiException(HttpStatus.NOT_FOUND, "Session not found"));
         ensureCanAccess(session);
+        return summarize(session);
+    }
+
+    @Override
+    @Transactional(readOnly = true)
+    public recruit.demo.dto.ServiceDtos.InterviewResult latestResult(Integer applicationId, Integer jobId,
+                                                                     Integer candidateUserId) {
+        return sessionRepository.findFirstByApplicationIdAndJobIdAndCandidateUserIdAndStatusOrderByCompletedAtDescIdDesc(
+                applicationId, jobId, candidateUserId, SessionStatus.COMPLETED)
+            .map(session -> {
+                var summary = summarize(session);
+                return new recruit.demo.dto.ServiceDtos.InterviewResult(
+                        session.getId(), session.getCompletedAt(), summary.totalQuestions(), summary.averageScore(),
+                        topicScores(session.getId(), summary.evaluations()));
+            })
+            .orElse(null);
+    }
+
+    private Map<String, BigDecimal> topicScores(Integer sessionId, List<InterviewDtos.EvaluationResponse> values) {
+        var topics = new HashMap<Integer, String>();
+        for (var item : sessionQuestionRepository.findBySessionIdOrdered(sessionId)) {
+            var question = item.getQuestion();
+            topics.put(question.getId(), Objects.toString(question.getSkill(), Objects.toString(question.getTopic(), "Khác")));
+        }
+        var grouped = new TreeMap<String, List<InterviewDtos.EvaluationResponse>>();
+        for (var value : values) {
+            grouped.computeIfAbsent(topics.getOrDefault(value.questionId(), "Khác"), key -> new ArrayList<>()).add(value);
+        }
+        var scores = new LinkedHashMap<String, BigDecimal>();
+        grouped.forEach((name, evaluations) -> scores.put(name, averageScore(evaluations)));
+        return scores;
+    }
+
+    private InterviewDtos.SessionSummary summarize(InterviewSession session) {
+        Integer id = session.getId();
         var results = evaluations(session);
-        BigDecimal average = results.isEmpty() ? null : results.stream().map(InterviewDtos.EvaluationResponse::predictedScore)
-            .reduce(BigDecimal.ZERO, BigDecimal::add).divide(BigDecimal.valueOf(results.size()),2,RoundingMode.HALF_UP);
-        return new InterviewDtos.SessionSummary(id,session.getStatus(),
-            sessionQuestionRepository.findBySessionIdOrdered(id).size(),results.size(),average,results);
+        return new InterviewDtos.SessionSummary(id, session.getStatus(),
+            sessionQuestionRepository.findBySessionIdOrdered(id).size(), results.size(), averageScore(results), results);
+    }
+
+    private static BigDecimal averageScore(List<InterviewDtos.EvaluationResponse> results) {
+        return results.isEmpty() ? null : results.stream().map(InterviewDtos.EvaluationResponse::predictedScore)
+            .reduce(BigDecimal.ZERO, BigDecimal::add).divide(BigDecimal.valueOf(results.size()), 2, RoundingMode.HALF_UP);
     }
 
     private List<InterviewDtos.EvaluationResponse> evaluations(InterviewSession session) {
@@ -287,7 +409,8 @@ public class InterviewServiceImpl implements InterviewService {
     private void ensureCanAccess(InterviewSession session) {
         UserPrincipal principal = SecurityUtils.currentUser();
         if (principal.hasPermission("interview:read-all") ||
-            (principal.hasPermission("interview:read-result") && principal.getId().equals(session.getRecruiterUserId()))) {
+            (principal.hasPermission("interview:read-result") && session.getApplicationId() != null
+                && session.getJobId() != null && recruitmentClient.canReadInterview(principal.getId(), session.getJobId()))) {
             return;
         }
         if (!session.getCandidateUserId().equals(principal.getId())) {

@@ -68,6 +68,63 @@ class InterviewLifecycleTest {
             verifyNoInteractions(ai);
         } finally { SecurityContextHolder.clearContext(); }
     }
+    @Test void recruiterLosesAccessWhenCompanyMembershipIsRemoved() {
+        var recruiter = new UserPrincipal(20, "recruiter@example.com", "", "Recruiter",
+                Role.RECRUITER, UserStatus.ACTIVE, null, Set.of("interview:read-result"));
+        SecurityContextHolder.getContext().setAuthentication(
+                new UsernamePasswordAuthenticationToken(recruiter, null, recruiter.getAuthorities()));
+        try {
+            var session = InterviewSession.builder().id(1).candidateUserId(10)
+                    .recruiterUserId(20).applicationId(5).jobId(7).status(SessionStatus.COMPLETED).build();
+            when(sessions.findById(1)).thenReturn(Optional.of(session));
+            when(http.canReadInterview(20, 7)).thenReturn(true, false);
+            assertEquals(1, service().summary(1).sessionId());
+            assertEquals(403, assertThrows(ApiException.class, () -> service().summary(1)).getStatus().value());
+        } finally {
+            SecurityContextHolder.clearContext();
+        }
+    }
+
+    @Test void latestResultUsesOnlyCompletedSessionsLinkedToTheApplication() {
+        var session = InterviewSession.builder().id(1).applicationId(5).jobId(7).candidateUserId(10)
+                .status(SessionStatus.COMPLETED).build();
+        when(sessions.findFirstByApplicationIdAndJobIdAndCandidateUserIdAndStatusOrderByCompletedAtDescIdDesc(
+                5, 7, 10, SessionStatus.COMPLETED)).thenReturn(Optional.of(session));
+
+        assertEquals(1, service().latestResult(5, 7, 10).sessionId());
+        assertNull(service().latestResult(6, 7, 10));
+        verifyNoInteractions(ai);
+    }
+
+    @Test void candidateQueuesAnswerWithoutCallingScoringAndDuplicateSubmissionKeepsOriginal() {
+        authenticate();
+        try {
+            var session = InterviewSession.builder().id(1).candidateUserId(10).build();
+            var question = InterviewQuestion.builder().id(2).build();
+            var item = InterviewSessionQuestion.builder().id(3).session(session).question(question).build();
+            when(sessions.findForUpdate(1)).thenReturn(Optional.of(session));
+            when(items.findBySessionIdAndQuestionId(1, 2)).thenReturn(Optional.of(item));
+            var queued = new AtomicReference<InterviewResponse>();
+            when(responses.findBySessionQuestionId(3)).thenAnswer(call -> Optional.ofNullable(queued.get()));
+            when(responses.save(any())).thenAnswer(call -> {
+                InterviewResponse answer = call.getArgument(0);
+                answer.setId(4);
+                queued.set(answer);
+                return answer;
+            });
+
+            assertEquals("PENDING", service().queueEvaluation(1,
+                new InterviewDtos.SubmitResponseRequest(2, "First answer")).status());
+            assertEquals("PENDING", service().queueEvaluation(1,
+                new InterviewDtos.SubmitResponseRequest(2, "Duplicate request")).status());
+            assertEquals("First answer", queued.get().getAnswerText());
+            verify(responses).save(any());
+            verifyNoInteractions(ai);
+        } finally {
+            SecurityContextHolder.clearContext();
+        }
+    }
+
     @Test void duplicateExplicitQuestionsAreRejected() {
         authenticate();try {
             var context=new ServiceDtos.InterviewContext(1,10,null,null,null,List.of(),List.of(),"Junior",null);

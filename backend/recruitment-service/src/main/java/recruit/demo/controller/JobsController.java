@@ -34,6 +34,25 @@ public class JobsController {
         return BaseResponse.success(jobService.list(keyword, cityOrLocation, status, minSalary, Paging.of(page, size)));
     }
 
+    @GetMapping("/moderation")
+    @PreAuthorize("hasRole('ADMIN')")
+    public BaseResponse<PageResponse<JobDtos.ModeratedJob>> moderation(
+            @RequestParam(defaultValue = "0") int page, @RequestParam(defaultValue = "20") int size) {
+        return BaseResponse.success(jobService.moderationJobs(Paging.of(page, size)));
+    }
+
+    @PutMapping("/moderation/{id}/lock")
+    @PreAuthorize("hasRole('ADMIN')")
+    public JobDtos.ModeratedJob lock(@PathVariable Integer id, @Valid @RequestBody JobDtos.LockRequest request) {
+        return jobService.moderate(id, request);
+    }
+
+    @DeleteMapping("/moderation/{id}/lock")
+    @PreAuthorize("hasRole('ADMIN')")
+    public JobDtos.ModeratedJob unlock(@PathVariable Integer id) {
+        return jobService.moderate(id, null);
+    }
+
     @GetMapping("/mine")
     @PreAuthorize("hasAuthority('job:read-own')")
     public BaseResponse<PageResponse<JobDtos.JobResponse>> myJobs(
@@ -43,9 +62,20 @@ public class JobsController {
         return BaseResponse.success(jobService.myJobs(Paging.of(page, size)));
     }
 
+    @GetMapping("/{id}/similar")
+    public java.util.List<JobDtos.JobResponse> similar(@PathVariable Integer id) {
+        return jobService.similar(id);
+    }
+
     @GetMapping("/{id}")
     public JobDtos.JobResponse get(@PathVariable Integer id) {
         return jobService.getById(id);
+    }
+
+    @GetMapping("/mine/{id}")
+    @PreAuthorize("hasAuthority('job:update')")
+    public JobDtos.JobResponse getOwn(@PathVariable Integer id) {
+        return jobService.getOwn(id);
     }
 
     @PostMapping

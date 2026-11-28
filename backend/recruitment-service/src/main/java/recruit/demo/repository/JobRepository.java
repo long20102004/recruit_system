@@ -98,4 +98,27 @@ public interface JobRepository extends JpaRepository<Job, Integer> {
                           @Param("companyId") Integer companyId,
                           @Param("keyword") String keyword,
                           Pageable pageable);
+
+    @Query("""
+            SELECT js.job.id FROM JobSkill js
+            WHERE js.job.id <> :jobId AND js.job.status = :status AND js.job.lockedAt IS NULL
+                AND (js.job.deadline IS NULL OR js.job.deadline > CURRENT_TIMESTAMP)
+                AND js.skill.id IN (SELECT source.skill.id FROM JobSkill source WHERE source.job.id = :jobId)
+            GROUP BY js.job.id
+            ORDER BY COUNT(js.id) DESC, js.job.id DESC
+            """)
+    List<Integer> findSimilarJobIds(@Param("jobId") Integer jobId,
+                                    @Param("status") JobStatus status,
+                                    Pageable pageable);
+
+    @Query("""
+            SELECT j FROM Job j WHERE j.company.id = :companyId AND j.status = :status AND j.lockedAt IS NULL
+              AND (j.deadline IS NULL OR j.deadline > CURRENT_TIMESTAMP)
+            ORDER BY j.postedAt DESC, j.id DESC
+            """)
+    Page<Job> companyJobs(@Param("companyId") int companyId, @Param("status") JobStatus status, Pageable pageable);
+
+    @org.springframework.data.jpa.repository.Lock(jakarta.persistence.LockModeType.PESSIMISTIC_WRITE)
+    @Query("SELECT j FROM Job j WHERE j.id = :id")
+    java.util.Optional<Job> findForUpdate(@Param("id") Integer id);
 }

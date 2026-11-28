@@ -13,7 +13,7 @@ import java.util.Optional;
 public interface CompanyRepository extends JpaRepository<Company, Integer> {
     @Modifying
     @Query(value = "INSERT IGNORE INTO companies (name) VALUES (:name)", nativeQuery = true)
-    void insertIfAbsent(@Param("name") String name);
+    int insertIfAbsent(@Param("name") String name);
 
     Optional<Company> findByNameIgnoreCase(String name);
 

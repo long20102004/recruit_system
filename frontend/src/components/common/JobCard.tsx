@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import type { Job, MatchResult } from "../../types";
 import { classNames, pct } from "../../utils/format";
 import { Button } from "./Button";
@@ -8,6 +9,7 @@ interface JobCardProps {
   match?: MatchResult;
   showMatch?: boolean;
   active?: boolean;
+  detailTo?: string;
   delayMs?: number;
   onClick?: () => void;
   onApply?: (jobId: string) => void;
@@ -18,6 +20,7 @@ export function JobCard({
   match,
   showMatch,
   active,
+  detailTo,
   delayMs = 0,
   onClick,
   onApply,
@@ -40,7 +43,7 @@ export function JobCard({
           ) : null}
           <span className="tiny muted">{job.postedAgo}</span>
         </div>
-        <h3 className="jobcard-title">{job.title}</h3>
+        <h3 className="jobcard-title">{detailTo ? <Link to={detailTo}>{job.title}</Link> : job.title}</h3>
         <div className="row small muted" style={{ gap: "6px 14px" }}>
           <span style={{ fontWeight: 600, color: "var(--ink-soft)" }}>{job.company}</span>
           <span className="row" style={{ gap: 4 }}>

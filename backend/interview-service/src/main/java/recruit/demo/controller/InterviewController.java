@@ -51,6 +51,20 @@ public class InterviewController {
         return interviewService.getSession(id);
     }
 
+    @PostMapping("/sessions/{id}/responses/queued")
+    @ResponseStatus(org.springframework.http.HttpStatus.ACCEPTED)
+    @PreAuthorize("hasAuthority('interview:practice')")
+    public InterviewDtos.QueuedEvaluation queueEvaluation(@PathVariable Integer id,
+            @Valid @RequestBody InterviewDtos.SubmitResponseRequest request) {
+        return interviewService.queueEvaluation(id, request);
+    }
+
+    @GetMapping("/sessions/{id}/responses/{questionId}/status")
+    @PreAuthorize("hasAuthority('interview:practice')")
+    public InterviewDtos.QueuedEvaluation evaluationStatus(@PathVariable Integer id, @PathVariable Integer questionId) {
+        return interviewService.evaluationStatus(id, questionId);
+    }
+
     @PostMapping("/sessions/{id}/responses")
     @PreAuthorize("hasAuthority('interview:practice')")
     public InterviewDtos.EvaluationResponse submitResponse(@PathVariable Integer id,

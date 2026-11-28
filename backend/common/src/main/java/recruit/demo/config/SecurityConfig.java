@@ -44,7 +44,7 @@ public class SecurityConfig {
                         .requestMatchers(HttpMethod.POST, "/api/auth/login", "/api/auth/register",
                                 "/api/auth/verify-email", "/api/auth/resend-verification",
                                 "/api/auth/forgot-password", "/api/auth/reset-password", "/api/auth/google").permitAll()
-                        .requestMatchers(HttpMethod.GET, "/api/jobs").permitAll()
+                        .requestMatchers(HttpMethod.GET, "/api/jobs", "/api/companies", "/api/companies/*", "/api/companies/*/jobs").permitAll()
                         .requestMatchers(HttpMethod.GET, "/api/jobs/{id:\\d+}").permitAll()
                         .requestMatchers(HttpMethod.GET, "/api/companies").permitAll()
                         .requestMatchers(HttpMethod.GET, "/api/companies/{id:\\d+}").permitAll()

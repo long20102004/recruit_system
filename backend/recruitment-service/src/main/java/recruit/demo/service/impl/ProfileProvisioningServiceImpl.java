@@ -19,11 +19,12 @@ public class ProfileProvisioningServiceImpl implements ProfileProvisioningServic
             candidates.insertIfAbsent(user.getId());
         } else if (user.getRole() == Role.RECRUITER &&
                 recruiters.findFirstByUserIdOrderByCreatedAtAsc(user.getId()).isEmpty()) {
-            // A stable company key prevents duplicate company creation on concurrent first requests.
+            // Provision membership once, together with the new personal company.
             String companyName = user.getFullName() + " #" + user.getId();
-            companies.insertIfAbsent(companyName);
-            Company company = companies.findByNameIgnoreCase(companyName).orElseThrow();
-            recruiters.insertIfAbsent(user.getId(), company.getId());
+            if (companies.insertIfAbsent(companyName) > 0) {
+                Company company = companies.findByNameIgnoreCase(companyName).orElseThrow();
+                recruiters.insertIfAbsent(user.getId(), company.getId());
+            }
         }
     }
 }

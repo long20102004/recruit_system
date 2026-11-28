@@ -1,6 +1,10 @@
 server:
   port: ${SERVER_PORT:8083}
 spring:
+  task:
+    scheduling:
+      pool:
+        size: 2
   application:
     name: interview-service
   # Đọc biến từ file .env ở gốc repo khi chạy trên máy (IDE / java -jar). Biến môi trường thật vẫn được ưu tiên.

@@ -21,6 +21,12 @@ public interface RecruiterProfileRepository extends JpaRepository<RecruiterProfi
 
     List<RecruiterProfile> findByCompanyId(Integer companyId);
 
+    @org.springframework.data.jpa.repository.Modifying
+    @Query("DELETE FROM RecruiterProfile rp WHERE rp.userId = :userId AND rp.company.id = :companyId")
+    int deleteByUserIdAndCompanyId(@Param("userId") Integer userId, @Param("companyId") Integer companyId);
+
+    boolean existsByUserIdAndCompanyId(Integer userId, Integer companyId);
+
     @Query("""
             SELECT rp FROM RecruiterProfile rp
             JOIN FETCH rp.company

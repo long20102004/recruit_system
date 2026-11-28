@@ -75,10 +75,12 @@ public class CvMatchMatching {
     // ------------------------------------------------------------------------------------------- ung vien
 
     public List<MatchingDtos.MatchResponse> resultsForCandidate(CandidateProfile c) {
+        if (cvLinks.findById(c.getId()).filter(link -> link.getStatus() == SyncStatus.SYNCED).isEmpty()) return List.of();
         return sortByRank(results.findByCandidateAndEngine(c.getId(), ENGINE, TO_JD)).stream()
-                .filter(m -> m.getJob().getStatus() == JobStatus.PUBLISHED).map(this::toResponse).toList();
+                .filter(m -> m.getJob().isOpenForApplications()).map(this::toResponse).toList();
     }
 
+    @org.springframework.transaction.annotation.Transactional
     public List<MatchingDtos.MatchResponse> refreshForCandidate(CandidateProfile c) {
         String cvId = requireCv(c);
         JsonNode out = call(api.matchCv(cvId, Map.of("N", candidateN)), "match CV");
@@ -106,7 +108,13 @@ public class CvMatchMatching {
     // ------------------------------------------------------------------------------------------- recruiter
 
     public List<MatchingDtos.MatchResponse> resultsForJob(Job job) {
-        return sortByRank(results.findByJobAndEngine(job.getId(), ENGINE, TO_CV)).stream().map(this::toResponse).toList();
+        if (!job.isOpenForApplications()) return List.of();
+        var rows = results.findByJobAndEngine(job.getId(), ENGINE, TO_CV);
+        var liveCandidateIds = cvLinks.findByCandidateIdIn(rows.stream().map(row -> row.getCandidate().getId()).toList())
+            .stream().filter(link -> link.getStatus() == SyncStatus.SYNCED).map(MatchCvLink::getCandidateId)
+            .collect(java.util.stream.Collectors.toSet());
+        return sortByRank(rows).stream().filter(row -> liveCandidateIds.contains(row.getCandidate().getId()))
+            .map(this::toResponse).toList();
     }
 
     /** @param pool true: xet ca kho CV (chi admin); false: chi ung vien da nop don. */
@@ -144,6 +152,22 @@ public class CvMatchMatching {
     }
 
     // ------------------------------------------------------------------------------------------- giai thich
+
+    public recruit.demo.dto.ApplicationDtos.ApplicationMatch applicationMatch(MatchingResult result) {
+        String explanationText = null;
+        if (result.getExplanationJson() != null || (result.getRunId() != null && result.getCvmatchCvId() != null)) {
+            try {
+                explanationText = explanation(result).text();
+            } catch (ApiException | CvMatchApi.CvMatchUnavailableException ex) {
+                log.debug("Explanation unavailable for matching result {}", result.getId(), ex);
+            }
+        }
+        return new recruit.demo.dto.ApplicationDtos.ApplicationMatch(
+                result.getOverallScore(),
+                result.getMatchedSkills() == null ? List.of() : result.getMatchedSkills(),
+                result.getMissingSkills() == null ? List.of() : result.getMissingSkills(),
+                explanationText);
+    }
 
     public MatchingDtos.ExplanationResponse explanation(MatchingResult m) {
         boolean candidateView = TO_JD.equals(m.getDirection());
@@ -192,6 +216,9 @@ public class CvMatchMatching {
     }
 
     String requireJd(Job job) {
+        if (!job.isOpenForApplications()) {
+            throw new ApiException(HttpStatus.CONFLICT, "Tin tuyển dụng đã đóng hoặc hết hạn");
+        }
         MatchJdLink link = jdLinks.findById(job.getId()).orElse(null);
         if (link == null || link.getStatus() != SyncStatus.SYNCED
                 || !CvMatchPayloads.jdStatus(job.getStatus()).equals(link.getJdStatus())) {
@@ -235,12 +262,13 @@ public class CvMatchMatching {
             if (TO_JD.equals(direction)) {
                 Integer jobId = CvMatchPayloads.jobIdOf(it.path("jd_id").asString(null));
                 j = jobId == null ? null : jobs.findById(jobId).orElse(null);
-                if (j == null || j.getStatus() != JobStatus.PUBLISHED) continue;       // lech dong bo: bo qua
+                if (j == null || !j.isOpenForApplications()) continue;       // lech dong bo: bo qua
             } else {
                 itemCv = it.path("cv_id").asString(null);
                 Integer cid = candidateOfCv.get(itemCv);
                 c = cid == null ? null : candidates.findById(cid).orElse(null);
-                if (c == null) continue;
+                if (c == null || cvLinks.findById(cid).filter(link -> link.getStatus() == SyncStatus.SYNCED
+                        && Objects.equals(link.getCvId(), it.path("cv_id").asString(null))).isEmpty()) continue;
             }
             MatchingResult m = results.findFirstByJobIdAndCandidateIdAndEngineAndDirection(j.getId(), c.getId(), ENGINE,
                     direction).orElseGet(MatchingResult::new);

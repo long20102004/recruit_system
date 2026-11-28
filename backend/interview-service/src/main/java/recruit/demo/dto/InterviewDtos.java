@@ -50,6 +50,8 @@ public final class InterviewDtos {
     public record SessionSummary(Integer sessionId, SessionStatus status, int totalQuestions,
         int answeredQuestions, BigDecimal averageScore, List<EvaluationResponse> evaluations) {}
 
+    public record QueuedEvaluation(String status, EvaluationResponse evaluation) {}
+
     public record SubmitResponseRequest(
             @NotNull Integer questionId,
             @NotBlank @jakarta.validation.constraints.Size(max=4000) String answerText

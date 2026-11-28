@@ -11,8 +11,10 @@ import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import recruit.demo.client.IdentityClient;
+import recruit.demo.client.InterviewServiceClient;
 import recruit.demo.dto.ApplicationDtos.*;
 import recruit.demo.dto.CandidateProfileDto;
+import recruit.demo.dto.CvFormResponse;
 import recruit.demo.dto.PageResponse;
 import recruit.demo.dto.ServiceDtos.UserSnapshot;
 import recruit.demo.entity.*;
@@ -27,6 +29,7 @@ import recruit.demo.security.SecurityUtils;
 import recruit.demo.security.UserPrincipal;
 import recruit.demo.service.ApplicationService;
 import recruit.demo.service.CvService;
+import recruit.demo.service.cvmatch.CvMatchMatching;
 import tools.jackson.databind.ObjectMapper;
 
 import java.math.BigDecimal;
@@ -49,6 +52,12 @@ public class ApplicationServiceImpl implements ApplicationService {
     private final ObjectMapper objectMapper;
     private final CvDocumentRepository cvDocumentRepository;
     private final ObjectProvider<OutboxWriter> outboxWriter;
+    private final RecruiterProfileRepository recruiterProfileRepository;
+    private final InterviewServiceClient interviews;
+    private final CvMatchMatching matching;
+
+    @org.springframework.beans.factory.annotation.Value("${app.recruitment.ranking.interview-weight:0.4}")
+    private BigDecimal interviewWeight;
 
     @Override
     @Transactional
@@ -102,7 +111,28 @@ public class ApplicationServiceImpl implements ApplicationService {
     @Override
     @Transactional(readOnly = true)
     public PageResponse<ApplicationResponse> recruiterApplications(String statusRaw, Integer jobId, Integer minMatchScore, Pageable pageable) {
+        return recruiterApplications(statusRaw, jobId, minMatchScore, pageable, false, false);
+    }
+
+    @Override
+    @Transactional(readOnly = true)
+    public PageResponse<ApplicationResponse> recruiterApplications(String statusRaw, Integer jobId, Integer minMatchScore,
+                                                                   Pageable pageable, boolean rank, boolean resultsOnly) {
         UserPrincipal principal = SecurityUtils.currentUser();
+        if ((rank || resultsOnly) && !principal.hasPermission("interview:read-result")) {
+            throw new ApiException(HttpStatus.FORBIDDEN, "Interview result permission required");
+        }
+        if (rank && !resultsOnly) {
+            BigDecimal weight = interviewWeight.max(BigDecimal.ZERO).min(BigDecimal.ONE);
+            return PageResponse.toPageResponse(
+                    applicationRepository.rankForRecruiter(principal.getId(), weight, pageable),
+                    row -> toResponse(row.getApplication(), row.getRankingScore()));
+        }
+        if (resultsOnly) {
+            return PageResponse.toPageResponse(
+                    applicationRepository.findForRecruiterUser(principal.getId(), true, pageable),
+                    this::toResponse);
+        }
         ApplicationStatus status = parseStatusOrNull(statusRaw);
         Page<JobApplication> page = applicationRepository.findForRecruiterFiltered(principal.getId(), status, jobId, pageable);
         PageResponse<ApplicationResponse> res = PageResponse.toPageResponse(page, this::toResponse);
@@ -270,12 +300,86 @@ public class ApplicationServiceImpl implements ApplicationService {
         }
     }
 
+    @Override
+    @Transactional(readOnly = true)
+    public ApplicationResponse recruiterApplication(Integer id) {
+        return toResponse(requireRecruiterApplication(id));
+    }
+
+    @Override
+    @Transactional(readOnly = true)
+    public recruit.demo.dto.ServiceDtos.InterviewResult latestInterview(Integer id) {
+        JobApplication application = requireRecruiterApplication(id);
+        return interviews.latestResult(id, application.getJob().getId(), application.getCandidate().getUserId());
+    }
+
+    @Override
+    @Transactional(readOnly = true)
+    public ApplicationMatch applicationMatch(Integer id) {
+        JobApplication application = requireRecruiterApplication(id);
+        return matchingResultRepository.findFirstByJobIdAndCandidateIdAndEngineAndDirection(
+                        application.getJob().getId(), application.getCandidate().getId(),
+                        CvMatchMatching.ENGINE, CvMatchMatching.TO_CV)
+                .map(matching::applicationMatch)
+                .orElse(null);
+    }
+
+    @Override
+    @Transactional
+    public ApplicationResponse updateRecruiterStatus(Integer id, ApplicationStatus target) {
+        updateStatus(id, target.name(), null);
+        return toResponse(requireApplication(id));
+    }
+
+    @Override
+    @Transactional(readOnly = true)
+    public ReviewDetails review(Integer id) {
+        JobApplication application = requireRecruiterApplication(id);
+        List<StatusEntry> history = new ArrayList<>(historyRepository
+                .findByApplicationIdOrderByCreatedAtDescIdDesc(id).stream()
+                .map(row -> new StatusEntry(parseStatus(row.getToStatus()), row.getCreatedAt()))
+                .toList());
+        history.add(new StatusEntry(ApplicationStatus.SUBMITTED, application.getAppliedAt()));
+        CvFormResponse cv = null;
+        if (application.getSubmittedCv() != null && !application.getSubmittedCv().isBlank()) {
+            try {
+                cv = objectMapper.readValue(application.getSubmittedCv(), CvFormResponse.class);
+            } catch (RuntimeException ignored) {
+                cv = null;
+            }
+        }
+        return new ReviewDetails(cv, application.getReviewRating(), application.getReviewNote(), history);
+    }
+
+    @Override
+    @Transactional
+    public void updateReview(Integer id, ReviewRequest request) {
+        JobApplication application = applicationRepository.findForUpdate(id)
+                .orElseThrow(() -> new ApiException(HttpStatus.NOT_FOUND, "Application not found"));
+        ensureRecruiterOwns(application);
+        application.setReviewRating(request.rating());
+        application.setReviewNote(request.note());
+    }
+
+    private JobApplication requireRecruiterApplication(Integer id) {
+        Integer userId = SecurityUtils.currentUser().getId();
+        return applicationRepository.findById(id)
+                .filter(application -> userId.equals(application.getJob().getCreatedById())
+                        && recruiterProfileRepository.existsByUserIdAndCompanyId(
+                        userId, application.getJob().getCompany().getId()))
+                .orElseThrow(() -> new ApiException(HttpStatus.NOT_FOUND, "Application not found"));
+    }
+
     private ApplicationResponse toResponse(JobApplication app) {
+        return toResponse(app, null);
+    }
+
+    private ApplicationResponse toResponse(JobApplication app, BigDecimal rankingScore) {
         Integer score = matchingResultRepository
                 .findFirstByJobIdAndCandidateIdOrderByCreatedAtDesc(app.getJob().getId(), app.getCandidate().getId())
                 .map(m -> toPercent(m.getOverallScore()))
                 .orElse(null);
-
+        boolean canSeeInterview = SecurityUtils.currentUser().hasPermission("interview:read-result");
         return new ApplicationResponse(
                 app.getId(),
                 app.getJob().getId(),
@@ -287,7 +391,10 @@ public class ApplicationServiceImpl implements ApplicationService {
                 app.getStatus(),
                 app.getCoverLetter(),
                 app.getAppliedAt(),
-                score
+                score,
+                canSeeInterview ? app.getInterviewScore() : null,
+                rankingScore,
+                app.getStatus() == ApplicationStatus.INTERVIEW && app.getJob().isOpenForApplications()
         );
     }
 

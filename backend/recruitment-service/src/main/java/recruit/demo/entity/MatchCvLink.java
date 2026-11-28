@@ -45,6 +45,12 @@ public class MatchCvLink {
     @Column(name = "synced_at")
     private LocalDateTime syncedAt;
 
+    @Column(name = "suggestion_cv_hash", length = 64)
+    private String suggestionCvHash;
+
+    @Column(name = "suggestion_catalog_hash", length = 64)
+    private String suggestionCatalogHash;
+
     @UpdateTimestamp
     @Column(name = "updated_at", nullable = false)
     private LocalDateTime updatedAt;

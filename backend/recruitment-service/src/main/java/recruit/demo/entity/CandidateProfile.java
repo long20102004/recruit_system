@@ -40,6 +40,9 @@ public class CandidateProfile {
     @Column(name = "education_level")
     private String educationLevel;
 
+    @Column(name = "is_open_for_job", nullable = false)
+    private boolean openForJob;
+
     @CreationTimestamp
     @Column(name = "created_at", nullable = false, updatable = false)
     private LocalDateTime createdAt;

@@ -44,4 +44,4 @@ spring:
             - id: recruitment
               uri: ${RECRUITMENT_URL:http://localhost:8082}
               predicates:
-                - Path=/api/jobs/**,/api/cvs/**,/api/applications/**,/api/matching/**,/api/dashboard/**,/api/companies/**,/api/recruiter/company/**,/api/admin/companies/**,/api/admin/jobs/**,/api/saved-jobs/**,/api/admin/cv-templates/**,/api/cv-templates/**
+                - Path=/api/companies,/api/companies/**,/api/jobs/**,/api/cvs/**,/api/applications/**,/api/matching/**,/api/dashboard/**,/api/recruiter/company/**,/api/recruiter/companies/**,/api/admin/companies/**,/api/admin/jobs/**,/api/saved-jobs/**,/api/admin/cv-templates/**,/api/cv-templates/**

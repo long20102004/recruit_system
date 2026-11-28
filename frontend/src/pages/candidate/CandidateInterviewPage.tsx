@@ -5,6 +5,7 @@ import { EmptyNote, Pager, SiteHeader } from "../../components/common";
 import { interviewsApi, type EvaluationDto, type PageDto, type SessionDto, type SessionSummaryDto } from "../../api/client";
 import { useToast } from "../../context/ToastContext";
 import { shortDate } from "../../utils/format";
+import { ANSWER_LIMIT, useInterviewDictation } from "./useInterviewDictation";
 
 const STATUS: Record<string, string> = { CREATED: "Mới tạo", IN_PROGRESS: "Đang làm", COMPLETED: "Đã hoàn thành" };
 const STATUS_CLS: Record<string, string> = { CREATED: "badge", IN_PROGRESS: "badge b-brand", COMPLETED: "badge b-ok" };
@@ -13,12 +14,21 @@ export function CandidateInterviewPage() {
   const { toast } = useToast();
   const [params] = useSearchParams();
   const jobId = Number(params.get("jobId"));
+  const applicationId = Number(params.get("applicationId"));
+  const linkedApplication = Number.isSafeInteger(applicationId) && applicationId > 0;
   const [session,setSession] = useState<SessionDto|null>(null);
   const [historyData,setHistoryData] = useState<PageDto<SessionDto>|null>(null);
   const history = historyData?.content ?? [];
   const [summary,setSummary] = useState<SessionSummaryDto|null>(null);
   const [idx,setIdx] = useState(0);
   const [answer,setAnswer] = useState("");
+  const dictation = useInterviewDictation((text) => {
+    setAnswer((previous) => [previous.trimEnd(), text].filter(Boolean).join(" ").slice(0, ANSWER_LIMIT));
+  });
+  const dictating = dictation.phase !== "idle";
+  const displayedAnswer = dictation.interimText
+    ? [answer.trimEnd(), dictation.interimText].filter(Boolean).join(" ").slice(0, ANSWER_LIMIT)
+    : answer;
   const [lastAnswer,setLastAnswer] = useState<string|null>(null);
   const [evaluation,setEvaluation] = useState<EvaluationDto|null>(null);
   const [busy,setBusy] = useState(false);
@@ -36,17 +46,30 @@ export function CandidateInterviewPage() {
   async function start() {
     setBusy(true);
     try {
-      const s = await interviewsApi.createSession({ ...(Number.isFinite(jobId)&&jobId>0 ? {jobId}:{}),questionCount:count });
+      const s = await interviewsApi.createSession({
+        ...(Number.isSafeInteger(jobId) && jobId > 0 ? { jobId } : {}),
+        ...(linkedApplication ? { applicationId } : {}),
+        questionCount: count,
+      });
       setSession(s);setIdx(s.currentIndex);setSummary(null);setAnswer("");setLastAnswer(null);setEvaluation(null);
       setHistoryData(await interviewsApi.mine());
     } catch(e) { toast(e instanceof Error ? e.message : "Không tạo được phiên"); }
     finally { setBusy(false); }
   }
   async function submit() {
+    if (dictating || busy) return;
     if(!session||!q||!answer.trim()) { toast("Hãy nhập câu trả lời");return; }
     setBusy(true);setLastAnswer(answer.trim());
     try {
-      const ev = await interviewsApi.submit(session.id,q.questionId,answer.trim());setEvaluation(ev);
+      let result = await interviewsApi.queueEvaluation(session.id, q.questionId, answer.trim());
+      const timeout = Date.now() + 240_000;
+      while (result.status === "PENDING" && Date.now() < timeout) {
+        await new Promise<void>((resolve) => window.setTimeout(resolve, 2_000));
+        result = await interviewsApi.evaluationStatus(session.id, q.questionId);
+      }
+      if (result.status === "PENDING") throw new Error("Bài đang chờ chấm. Bạn có thể tải lại kết quả bằng nút gửi.");
+      if (!result.evaluation) throw new Error("Chấm điểm thất bại. Hãy gửi lại câu trả lời.");
+      setEvaluation(result.evaluation);
       const [s,report] = await Promise.all([interviewsApi.getSession(session.id),interviewsApi.summary(session.id)]);
       setSession(s);setSummary(report);setHistoryData(await interviewsApi.mine());toast("Đã lưu kết quả đánh giá");
     } catch(e) { toast(e instanceof Error ? e.message : "Đánh giá thất bại"); }
@@ -54,9 +77,11 @@ export function CandidateInterviewPage() {
   }
   function next() {
     if(!session||!evaluation) return;
+    dictation.cancel();
     setIdx(session.currentIndex);setAnswer("");setLastAnswer(null);setEvaluation(null);
   }
   function exit() {
+    dictation.cancel();
     setSession(null); setSummary(null); setEvaluation(null); setAnswer(""); setLastAnswer(null);
   }
   const total = session?.questions.length ?? 0;
@@ -76,7 +101,8 @@ export function CandidateInterviewPage() {
           <section style={{ display: "flex", gap: 24, flexWrap: "wrap", alignItems: "flex-start" }}>
             <form className="card" style={{ flex: "1 1 360px", maxWidth: 460, display: "flex", flexDirection: "column", gap: 14 }}
               onSubmit={(e) => { e.preventDefault(); void start(); }}>
-              <h2 style={{ fontSize: 22 }}>Tự luyện</h2>
+              <h2 style={{ fontSize: 22 }}>{linkedApplication ? "Phỏng vấn theo đơn ứng tuyển" : "Tự luyện"}</h2>
+              {linkedApplication && <p className="small muted">Nhà tuyển dụng phụ trách tin có thể xem kết quả phiên này.</p>}
               <div className="field">
                 <label>Luyện cho tin</label>
                 <p className="small">
@@ -92,7 +118,7 @@ export function CandidateInterviewPage() {
                   {[3, 6, 9, 12].map((n) => <option key={n} value={n}>{n}</option>)}
                 </select>
               </div>
-              <button type="submit" className="btn btn-p" disabled={busy}>{busy ? "Đang tạo…" : "Bắt đầu phiên luyện"}</button>
+              <button type="submit" className="btn btn-p" disabled={busy}>{busy ? "Đang tạo…" : linkedApplication ? "Bắt đầu phỏng vấn" : "Bắt đầu phiên luyện"}</button>
             </form>
             <div style={{ flex: "999 1 520px", minWidth: 0, display: "flex", flexDirection: "column", gap: 12 }}>
               <h2 style={{ fontSize: 22 }}>Lịch sử phiên<span className="count">{historyData?.totalElements ?? 0}</span></h2>
@@ -175,19 +201,27 @@ export function CandidateInterviewPage() {
               ) : (
                 <div className="field">
                   <label htmlFor="iv-answer">Câu trả lời của bạn</label>
-                  <textarea id="iv-answer" className="input" style={{ minHeight: 220 }} maxLength={4000}
-                    value={answer} onChange={(e) => setAnswer(e.target.value)} />
+                  <textarea id="iv-answer" className="input" style={{ minHeight: 220 }} maxLength={ANSWER_LIMIT}
+                    readOnly={dictating || busy} value={displayedAnswer} onChange={(e) => setAnswer(e.target.value)} />
                   <div className="between">
-                    <span className="help">Gợi ý: nêu khái niệm, cách làm, ví dụ và cách kiểm chứng.</span>
-                    <span className="help">{answer.length} ký tự</span>
+                    <button type="button" className="btn btn-g btn-sm" onClick={dictation.toggle}
+                      disabled={!dictation.supported || busy || dictation.phase === "stopping" || dictation.phase === "connecting" || (!dictating && answer.length >= ANSWER_LIMIT)}>
+                      {dictation.phase === "connecting" ? "Đang kết nối…" : dictation.phase === "stopping" ? "Đang hoàn tất…" : dictating ? "Dừng nói" : "Trả lời bằng giọng nói"}
+                    </button>
+                    <span className="help">{displayedAnswer.length}/{ANSWER_LIMIT} ký tự</span>
                   </div>
+                  <p className="help" role="status">
+                    {!dictation.supported ? "Trình duyệt này chưa hỗ trợ nhận dạng giọng nói. Bạn vẫn có thể gõ câu trả lời."
+                      : dictation.phase === "listening" ? "Đang nghe tiếng Việt và tiếng Anh…"
+                      : dictation.message || "Khi bật micro, âm thanh được gửi tới Deepgram để chép lời."}
+                  </p>
                 </div>
               )}
               <div className="row" style={{ justifyContent: "flex-end" }}>
                 {evaluation ? (
                   <button type="button" className="btn btn-p" onClick={next} disabled={busy}>Câu tiếp theo</button>
                 ) : (
-                  <button type="button" className="btn btn-p" onClick={submit} disabled={busy}>
+                  <button type="button" className="btn btn-p" onClick={submit} disabled={busy || dictating}>
                     {busy ? "Đang chấm…" : "Nộp câu trả lời"}
                   </button>
                 )}
@@ -239,11 +273,7 @@ export function CandidateInterviewPage() {
                 </div>
               </div>
               {evaluation.comment ? <p className="small" style={{ color: "var(--ink-soft)" }}>{evaluation.comment}</p> : null}
-              <p className="help">
-                {evaluation.scoringMode === "bertscore"
-                  ? `BERTScore + rubric · F1 ${Number(evaluation.bertscoreF1 ?? 0).toFixed(3)} · điểm luyện tập tự động`
-                  : "Đối chiếu từ vựng + rubric · điểm luyện tập tự động"}
-              </p>
+
             </section>
           ) : null}
 
@@ -254,7 +284,17 @@ export function CandidateInterviewPage() {
               const t = qById.get(ev.questionId)?.topic || "Khác";
               topics.set(t, [...(topics.get(t) ?? []), Number(ev.predictedScore)]);
             }
-            const review = [...new Set(summary.evaluations.flatMap((ev) => ev.missingPoints))].slice(0, 5);
+            const frequency = new Map<string, number>();
+            for (const result of summary.evaluations) {
+              for (const point of new Set(result.missingPoints)) frequency.set(point, (frequency.get(point) ?? 0) + 1);
+            }
+            const review = [...frequency.entries()].sort((a, b) => b[1] - a[1]).slice(0, 5);
+            const weakest = [...topics.entries()].map(([topic, values]) => ({
+              topic,
+              average: values.reduce((sum, value) => sum + value, 0) / values.length,
+            })).sort((a, b) => a.average - b.average)[0];
+            const retry = [...summary.evaluations].filter((item) => item.missingPoints.length > 0)
+              .sort((a, b) => Number(a.predictedScore) - Number(b.predictedScore)).slice(0, 3);
             return (
               <div style={{ display: "flex", flexDirection: "column", gap: 22 }}>
                 <section className="card" style={{ padding: 32, display: "flex", gap: 32, flexWrap: "wrap", alignItems: "center" }}>
@@ -294,11 +334,20 @@ export function CandidateInterviewPage() {
                   </div>
                   <div className="card stack" style={{ gap: 10 }}>
                     <h3 style={{ fontSize: 18 }}>Nên ôn thêm</h3>
+                    {weakest && <p className="small">Điểm thấp nhất · <strong>{weakest.topic}</strong> ({score(weakest.average)}/10)</p>}
                     {review.length ? (
                       <ul style={{ margin: 0, paddingLeft: 18, display: "grid", gap: 6, fontSize: 14, color: "var(--ink-soft)" }}>
-                        {review.map((r) => <li key={r}>{r}</li>)}
+                        {review.map(([point, count]) => <li key={point}>{point} · {count} câu còn thiếu</li>)}
                       </ul>
                     ) : <p className="small muted">Không ghi nhận ý còn thiếu.</p>}
+                    {retry.length > 0 && (
+                      <div>
+                        <strong>Câu nên luyện lại</strong>
+                        <ol style={{ paddingLeft: 18 }}>
+                          {retry.map((item) => <li key={item.questionId}>{qById.get(item.questionId)?.questionText ?? `Câu #${item.questionId}`}</li>)}
+                        </ol>
+                      </div>
+                    )}
                   </div>
                 </section>
 

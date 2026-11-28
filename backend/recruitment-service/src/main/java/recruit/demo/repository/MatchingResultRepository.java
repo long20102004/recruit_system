@@ -10,6 +10,8 @@ import java.util.Optional;
 
 public interface MatchingResultRepository extends JpaRepository<MatchingResult, Integer> {
 
+    void deleteByCandidateId(Integer candidateId);
+
     @Query("""
             SELECT m FROM MatchingResult m
             JOIN FETCH m.job j

@@ -9,6 +9,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.context.SecurityContextHolder;
 import recruit.demo.client.IdentityClient;
+import recruit.demo.client.InterviewServiceClient;
+import recruit.demo.service.cvmatch.CvMatchMatching;
 import recruit.demo.dto.FileLinkDto;
 import recruit.demo.entity.*;
 import recruit.demo.enums.ApplicationStatus;
@@ -69,9 +71,13 @@ class ApplicationWorkflowAndSavedJobsTest {
         storageService = mock(StorageService.class);
         ObjectProvider<OutboxWriter> outboxProvider = mock(ObjectProvider.class);
         when(outboxProvider.getIfAvailable()).thenReturn(outbox);
+        RecruiterProfileRepository recruiterRepo = mock(RecruiterProfileRepository.class);
+        InterviewServiceClient interviews = mock(InterviewServiceClient.class);
+        CvMatchMatching matching = mock(CvMatchMatching.class);
 
         appService = new ApplicationServiceImpl(identityClient, storageService, appRepo, jobRepo, candRepo, histRepo,
-                noteRepo, cvDataRepo, matchRepo, jobSkillRepo, new ObjectMapper(), cvDocRepo, outboxProvider);
+                noteRepo, cvDataRepo, matchRepo, jobSkillRepo, new ObjectMapper(), cvDocRepo, outboxProvider,
+                recruiterRepo, interviews, matching);
         savedJobService = new SavedJobServiceImpl(savedJobRepo, jobRepo, candRepo, jobSkillRepo, matchRepo);
 
         when(appRepo.save(any(JobApplication.class))).thenAnswer(i -> i.getArgument(0));

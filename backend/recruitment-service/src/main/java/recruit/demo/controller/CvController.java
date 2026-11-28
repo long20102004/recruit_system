@@ -37,6 +37,12 @@ public class CvController {
         return cvService.mine(cvId);
     }
 
+    @DeleteMapping
+    @PreAuthorize("hasAuthority('cv:manage-own')")
+    public CvFormResponse remove() {
+        return cvService.remove();
+    }
+
     /** API cũ: trích xuất CV PDF/DOCX vào CV chính; data là profile AI đọc được (cùng DTO với /analyze-pdf). */
     @PostMapping(consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
     public BaseResponse<CandidateProfileDto> upload(@RequestPart("file") MultipartFile file) {

@@ -272,7 +272,40 @@ export const notificationsApi = {
   streamUrl: () => `${API_BASE}/notifications/stream`,
 };
 
+export const companyMembershipApi = {
+  mine: () => api<{ id: number; name: string }[]>("/recruiter/companies"),
+  leave: (id: number) => api<void>(`/recruiter/companies/${id}/membership`, { method: "DELETE" }),
+};
+
+export interface CompanySummaryDto {
+  id: number;
+  name: string;
+  description: string | null;
+  website: string | null;
+  address: string | null;
+  openJobsCount: number;
+}
+
+export const companiesApi = {
+  list: () => api<CompanySummaryDto[]>("/companies"),
+  detail: (id: number) => api<CompanySummaryDto>(`/companies/${id}`),
+  jobs: (id: number, page: number) => apiData<PageDto<JobDto>>(`/companies/${id}/jobs${pageQuery({ page })}`),
+};
+
+export interface ModeratedJobDto {
+  job: JobDto;
+  lockedAt: string | null;
+  reason: string | null;
+  note: string | null;
+}
+
 export const jobsApi = {
+  moderation: (params?: PageParams) => apiData<PageDto<ModeratedJobDto>>(`/jobs/moderation${pageQuery(params)}`),
+  lock: (id: number, reason: string, note: string) =>
+    api<ModeratedJobDto>(`/jobs/moderation/${id}/lock`, { method: "PUT", body: JSON.stringify({ reason, note }) }),
+  unlock: (id: number) => api<ModeratedJobDto>(`/jobs/moderation/${id}/lock`, { method: "DELETE" }),
+  similar: (id: number) => api<JobDto[]>(`/jobs/${id}/similar`),
+  own: (id: number) => api<JobDto>(`/jobs/mine/${id}`),
   list: (params?: { keyword?: string; city?: string; minSalary?: number } & PageParams) =>
     apiData<PageDto<JobDto>>(`/jobs${pageQuery(params, {
       keyword: params?.keyword?.trim() || undefined,
@@ -306,12 +339,29 @@ export const applicationsApi = {
       body: JSON.stringify(body ?? {}),
     }),
   mine: (params?: PageParams) => apiData<PageDto<ApplicationDto>>(`/applications/mine${pageQuery(params)}`),
-  recruiter: (params?: PageParams & { status?: string; jobId?: number; minMatchScore?: number }) =>
+  recruiter: (params?: PageParams & { status?: string; jobId?: number; minMatchScore?: number; rank?: boolean; resultsOnly?: boolean }) =>
     apiData<PageDto<ApplicationDto>>(`/applications/recruiter${pageQuery(params, {
       status: params?.status && params.status !== "ALL" ? params.status : undefined,
       jobId: params?.jobId != null ? String(params.jobId) : undefined,
       minMatchScore: params?.minMatchScore != null ? String(params.minMatchScore) : undefined,
+      rank: params?.rank ? "true" : undefined,
+      resultsOnly: params?.resultsOnly ? "true" : undefined,
     })}`),
+  recruiterReview: (id: number) => api<{
+    cv: CvFormDto | null;
+    rating: number | null;
+    note: string | null;
+    history: { status: string; changedAt: string }[];
+  }>(`/applications/recruiter/${id}/review`),
+  updateReview: (id: number, rating: number | null, note: string) =>
+    api<void>(`/applications/recruiter/${id}/review`, {
+      method: "PUT",
+      body: JSON.stringify({ rating, note }),
+    }),
+  recruiterDetail: (id: number) => api<ApplicationDto>(`/applications/recruiter/${id}`),
+  recruiterMatch: (id: number) => apiData<ApplicationMatchDto | null>(`/applications/recruiter/${id}/matching`),
+  recruiterInterview: (id: number) =>
+    apiData<ApplicationInterviewDto | null>(`/applications/recruiter/${id}/interview`),
   detail: (id: number) => apiData<ApplicationDetailDto>(`/applications/${id}`),
   updateStatus: (id: number, status: string, note?: string) =>
     apiData<ApplicationDetailDto>(`/applications/${id}/status`, {
@@ -354,7 +404,20 @@ function cvForm(file: File): FormData {
 /** Ứng viên có tối đa 5 CV; không truyền cvId thì làm trên CV chính. */
 export const MAX_CANDIDATE_CVS = 5;
 
+export interface DiscoverableCvDto {
+  id: number;
+  yearsOfExperience: number | null;
+  skills: string[];
+}
+
 export const cvsApi = {
+  visibility: () => api<{ open: boolean }>("/cvs/visibility"),
+  setVisibility: (open: boolean) => api<{ open: boolean }>("/cvs/visibility", {
+    method: "PUT",
+    body: JSON.stringify({ open }),
+  }),
+  search: (q: string, page: number) =>
+    api<PageDto<DiscoverableCvDto>>(`/cvs/search?${new URLSearchParams({ q, page: String(page) })}`),
   mine: (cvId?: number | null) => api<CvFormDto>(`/cvs${cvQuery(cvId)}`),
   /** API cũ: ghi vào CV chính (chưa có CV thì tạo CV đầu tiên). */
   upload: (file: File) =>
@@ -551,6 +614,21 @@ export interface CreateJobBody {
   defaultInterviewQuestions?: number | null;
 }
 
+export interface ApplicationMatchDto {
+  score: number;
+  matchedSkills: string[];
+  missingSkills: string[];
+  explanation: string | null;
+}
+
+export interface ApplicationInterviewDto {
+  sessionId: number;
+  completedAt: string;
+  questionCount: number;
+  averageScore: number | null;
+  topicScores?: Record<string, number>;
+}
+
 export interface ApplicationDto {
   id: number;
   jobId: number;
@@ -563,6 +641,9 @@ export interface ApplicationDto {
   coverLetter: string | null;
   appliedAt: string;
   matchScore?: number | null;
+  interviewScore?: number | null;
+  rankingScore?: number | null;
+  interviewInvited?: boolean;
 }
 
 export interface ApplicationCvDetailDto {

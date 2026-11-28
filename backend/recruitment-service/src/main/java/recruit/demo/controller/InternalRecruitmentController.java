@@ -21,6 +21,47 @@ public class InternalRecruitmentController {
     private final JobSkillRepository jobSkills;
     private final CvDataRepository cvData;
     private final JobApplicationRepository applications;
+    private final RecruiterProfileRepository recruiters;
+
+    @PostMapping("/internal/interview-results")
+    @Transactional
+    public void saveInterviewResult(@RequestBody recruit.demo.dto.ServiceDtos.CompletedInterview result) {
+        var application = applications.findForUpdate(result.applicationId()).orElse(null);
+        if (application == null || !application.getJob().getId().equals(result.jobId())
+                || !application.getCandidate().getUserId().equals(result.candidateUserId())) return;
+
+        var previous = application.getInterviewCompletedAt();
+        if (previous != null && (previous.isAfter(result.completedAt())
+                || (previous.equals(result.completedAt()) && application.getInterviewSessionId() != null
+                && application.getInterviewSessionId() >= result.sessionId()))) return;
+
+        application.setInterviewScore(result.averageScore());
+        application.setInterviewCompletedAt(result.completedAt());
+        application.setInterviewSessionId(result.sessionId());
+    }
+
+    @GetMapping("/internal/interview-access")
+    @Transactional(readOnly = true)
+    public boolean canReadInterview(@RequestParam Integer userId, @RequestParam Integer jobId) {
+        return jobs.findById(jobId)
+            .filter(job -> userId.equals(job.getCreatedById()))
+            .map(job -> recruiters.existsByUserIdAndCompanyId(userId, job.getCompany().getId()))
+            .orElse(false);
+    }
+
+    @GetMapping("/internal/interview-eligibility")
+    @Transactional(readOnly = true)
+    public boolean interviewEligible(@RequestParam Integer userId, @RequestParam Integer applicationId) {
+        return applications.findById(applicationId)
+            .filter(application -> userId.equals(application.getCandidate().getUserId()))
+            .map(this::interviewEligible)
+            .orElse(false);
+    }
+
+    private boolean interviewEligible(recruit.demo.entity.JobApplication application) {
+        return application.getStatus() == recruit.demo.enums.ApplicationStatus.INTERVIEW
+            && application.getJob().isOpenForApplications();
+    }
 
     @GetMapping("/internal/stats/admin")
     @Transactional(readOnly = true)
@@ -54,6 +95,8 @@ public class InternalRecruitmentController {
                 throw new ApiException(HttpStatus.FORBIDDEN, "Not your application");
             if (jobId != null && !jobId.equals(application.getJob().getId()))
                 throw new ApiException(HttpStatus.BAD_REQUEST, "Application and job do not match");
+            if (!interviewEligible(application))
+                throw new ApiException(HttpStatus.CONFLICT, "Interview invitation is no longer active");
             jobId = application.getJob().getId();
         }
         var job = jobId == null ? null : jobs.findById(jobId)
@@ -67,7 +110,8 @@ public class InternalRecruitmentController {
             .map(String::trim).filter(value -> !value.isBlank()).distinct().toList();
         String lower = title == null ? "" : title.toLowerCase(java.util.Locale.ROOT);
         String level = lower.contains("intern") || lower.contains("fresher") ? "Intern" :
-            lower.contains("senior") || lower.contains("middle") || lower.contains("lead") ? "Middle" : "Junior";
+            lower.contains("senior") || lower.contains("lead") ? "Senior" :
+            lower.contains("middle") || lower.contains("mid-level") ? "Middle" : "Junior";
         return new InterviewContext(candidate.getId(), userId, jobId, title, applicationId,
             required, candidateSkills, level, job == null ? null : job.getCreatedById());
     }

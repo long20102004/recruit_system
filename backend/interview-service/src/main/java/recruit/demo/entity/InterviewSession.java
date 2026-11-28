@@ -46,6 +46,12 @@ public class InterviewSession {
     @Column(name = "completed_at")
     private LocalDateTime completedAt;
 
+    @Column(name = "completion_score", precision = 5, scale = 2)
+    private java.math.BigDecimal completionScore;
+
+    @Column(name = "result_exported_at")
+    private LocalDateTime resultExportedAt;
+
     @CreationTimestamp
     @Column(name = "created_at", nullable = false, updatable = false)
     private LocalDateTime createdAt;

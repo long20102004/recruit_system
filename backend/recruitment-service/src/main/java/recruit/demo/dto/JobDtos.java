@@ -139,4 +139,13 @@ public final class JobDtos {
             LocalDateTime lockedAt
     ) {
     }
+
+    public record ModeratedJob(JobResponse job, LocalDateTime lockedAt, String reason, String note) {
+    }
+
+    public record LockRequest(
+            @NotBlank @jakarta.validation.constraints.Size(max = 255) String reason,
+            @jakarta.validation.constraints.Size(max = 1000) String note
+    ) {
+    }
 }
